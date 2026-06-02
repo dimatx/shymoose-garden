@@ -1,23 +1,29 @@
 ---
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import Icon from "../components/Icon.astro";
 
 interface Props {
   title: string;
   description?: string;
+  /** Absolute or root-relative URL of a social-share image. */
   image?: string;
+  /** Alt text describing the share image. */
+  imageAlt?: string;
 }
 
 const {
   title,
   description = "A living catalog of the plants in the ShyMoose garden. Scan, learn, grow.",
   image,
+  imageAlt,
 } = Astro.props;
 
 const siteName = "ShyMoose Garden";
 const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const imageUrl = image ? new URL(image, Astro.site).href : undefined;
 ---
 
 <!doctype html>
@@ -34,13 +40,23 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#27592c" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0d2010" media="(prefers-color-scheme: dark)" />
 
+    <!-- Buttery client-side morphs between pages (e.g. card → detail photo). -->
+    <ClientRouter />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+    {imageUrl && <meta property="og:image" content={imageUrl} />}
+    {imageUrl && imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content={imageUrl ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    {imageUrl && <meta name="twitter:image" content={imageUrl} />}
 
     <!-- Set theme before paint to avoid a flash of the wrong theme. -->
     <script is:inline>
@@ -56,7 +72,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     </script>
   </head>
   <body
-    class="min-h-full bg-leaf-50 font-sans text-leaf-950 antialiased transition-colors dark:bg-leaf-950 dark:text-leaf-50"
+    class="app-bg min-h-full bg-leaf-50 font-sans text-leaf-950 antialiased transition-colors dark:bg-leaf-950 dark:text-leaf-50"
   >
     <header
       class="sticky top-0 z-40 border-b border-leaf-200/70 bg-leaf-50/80 backdrop-blur-md dark:border-leaf-800/70 dark:bg-leaf-950/80"

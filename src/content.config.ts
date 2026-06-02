@@ -2,6 +2,16 @@ import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
 /**
+ * A list of months (1–12) that is normalized at load time: duplicates are
+ * removed and the values are sorted ascending. This keeps hand-edited or
+ * AI-generated frontmatter from producing a jumbled timeline.
+ */
+const monthList = z
+  .array(z.number().int().min(1).max(12))
+  .default([])
+  .transform((months) => [...new Set(months)].sort((a, b) => a - b));
+
+/**
  * Each plant lives in a single Markdown file under `src/content/plants/`.
  * The frontmatter (the block between the `---` lines) holds the structured
  * data below. The Markdown body *after* the frontmatter is the longer
@@ -50,12 +60,12 @@ const plants = defineCollection({
       // Months this plant is in flower, as numbers 1–12 (1 = January).
       // Drives the Bloom Timeline. Omit for plants with no floral display
       // (e.g. conifers) or where bloom isn't the point (e.g. vegetables).
-      bloomMonths: z.array(z.number().int().min(1).max(12)).default([]),
+      bloomMonths: monthList,
 
       // Months to do the plant's main pruning / cut-back, as numbers 1–12.
       // Drives the Pruning Calendar. Omit for plants with no calendar pruning
       // window (e.g. annual vegetables that are simply pulled at season's end).
-      pruneMonths: z.array(z.number().int().min(1).max(12)).default([]),
+      pruneMonths: monthList,
 
       // Optional helpers
       tags: z.array(z.string()).default([]),

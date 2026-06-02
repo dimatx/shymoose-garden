@@ -28,11 +28,77 @@
   --color-leaf-800: #224726;
   --color-leaf-900: #1d3b21;
   --color-leaf-950: #0d2010;
+
+  /* Warm accents. Bloom (a soft botanical pink/coral) keys the flowering side
+     of the site; soil (a muted clay brown) keys the pruning side. Used
+     sparingly, they keep the two timelines from reading as a single green
+     monochrome. */
+  --color-bloom-100: #fbe6ec;
+  --color-bloom-300: #f0a9bf;
+  --color-bloom-500: #d76a8c;
+  --color-bloom-600: #c05074;
+
+  --color-soil-100: #f1e6db;
+  --color-soil-300: #d4b395;
+  --color-soil-500: #a9794f;
+  --color-soil-600: #8c5f3a;
 }
 
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+}
+
+/* Let Fraunces breathe: the variable font carries an optical-size axis that
+   was drawn to make large headings high-contrast and elegant while keeping
+   small text sturdy. `auto` maps it to the rendered font-size for free. */
+.font-serif {
+  font-optical-sizing: auto;
+}
+
+/* A barely-there gradient gives the page a soft, paper-like depth instead of a
+   flat fill — light pools toward the top, the way light falls in a garden. */
+.app-bg {
+  background-image: radial-gradient(
+    120% 60% at 50% -10%,
+    var(--color-leaf-100) 0%,
+    transparent 60%
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+:root.dark .app-bg {
+  background-image: radial-gradient(
+    120% 60% at 50% -10%,
+    var(--color-leaf-900) 0%,
+    transparent 60%
+  );
+}
+
+/* Brand-tinted text selection. */
+::selection {
+  background-color: var(--color-leaf-200);
+  color: var(--color-leaf-950);
+}
+:root.dark ::selection {
+  background-color: var(--color-leaf-700);
+  color: var(--color-leaf-50);
+}
+
+/* Gentle, staggered entrance for grids of cards. Opt-in via the `.reveal`
+   class; the script adds `.is-visible` as each item scrolls into view. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Avoid theme flash: handled by inline script in <head>. */

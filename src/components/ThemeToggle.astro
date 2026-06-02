@@ -7,21 +7,68 @@ import Icon from "./Icon.astro";
 <button
   type="button"
   id="theme-toggle"
-  class="inline-grid h-9 w-9 place-items-center rounded-full border border-leaf-200 bg-leaf-100/60 text-leaf-700 transition hover:bg-leaf-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:border-leaf-800 dark:bg-leaf-900/60 dark:text-leaf-200 dark:hover:bg-leaf-800"
+  class="theme-toggle relative inline-grid h-9 w-9 place-items-center overflow-hidden rounded-full border border-leaf-200 bg-leaf-100/60 text-leaf-700 transition hover:bg-leaf-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:border-leaf-800 dark:bg-leaf-900/60 dark:text-leaf-200 dark:hover:bg-leaf-800"
   aria-label="Toggle dark mode"
   title="Toggle dark mode"
 >
-  <!-- Sun (shown in dark mode) -->
-  <Icon name="sun" class="hidden h-5 w-5 dark:block" />
-  <!-- Moon (shown in light mode) -->
-  <Icon name="moon" class="block h-5 w-5 dark:hidden" />
+  <!-- Both icons are stacked and crossfade/rotate between each other. -->
+  <Icon name="sun" class="theme-icon theme-icon--sun col-start-1 row-start-1 h-5 w-5" />
+  <Icon name="moon" class="theme-icon theme-icon--moon col-start-1 row-start-1 h-5 w-5" />
 </button>
 
+<style>
+  .theme-icon {
+    transition:
+      opacity 0.3s ease,
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  /* Light mode: show the moon (tap to go dark); hide the sun. */
+  .theme-icon--sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.5);
+  }
+  .theme-icon--moon {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+  /* Dark mode: flip them. */
+  :global(.dark) .theme-icon--sun {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+  :global(.dark) .theme-icon--moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.5);
+  }
+</style>
+
 <script>
-  const toggle = document.getElementById("theme-toggle");
-  toggle?.addEventListener("click", () => {
-    const root = document.documentElement;
-    const isDark = root.classList.toggle("dark");
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+  // Re-bind on every navigation so the toggle keeps working with the
+  // client-side router (View Transitions).
+  function initThemeToggle() {
+    const toggle = document.getElementById("theme-toggle");
+    if (!toggle || toggle.dataset.bound) return;
+    toggle.dataset.bound = "true";
+    toggle.addEventListener("click", () => {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
+
+  initThemeToggle();
+  document.addEventListener("astro:page-load", initThemeToggle);
+
+  // The <html> class can be reset during a view transition; reapply the saved
+  // theme right after the DOM swaps to avoid a flash of the wrong mode.
+  document.addEventListener("astro:after-swap", () => {
+    const stored = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    document.documentElement.classList.toggle(
+      "dark",
+      stored === "dark" || (!stored && prefersDark)
+    );
   });
 </script>

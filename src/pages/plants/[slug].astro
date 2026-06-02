@@ -1,6 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Icon from "../../components/Icon.astro";
 import type { IconName } from "../../components/Icon.astro";
@@ -28,6 +28,16 @@ const {
   tags,
   learnMoreUrl,
 } = plant.data;
+
+// Use the plant's own photo as the social-share image so links shared from a
+// phone (e.g. texting someone a plant) show a real preview. A 1200×630 JPEG is
+// the most widely supported Open Graph format/size.
+const ogImage = await getImage({
+  src: photo,
+  width: 1200,
+  height: 630,
+  format: "jpeg",
+});
 
 // Two skimmable groups. "Habitat & form" answers the casual question
 // "what is this plant and where's it from?"; "Care" is for people who
@@ -70,7 +80,7 @@ const sections = (
   .filter((section) => section.items.length > 0);
 ---
 
-<Layout title={name} description={shortDescription}>
+<Layout title={name} description={shortDescription} image={ogImage.src} imageAlt={photoAlt}>
   <a
     href="/"
     class="mb-5 inline-flex items-center gap-1.5 text-sm font-medium text-leaf-600 transition hover:text-leaf-800 dark:text-leaf-400 dark:hover:text-leaf-200"
@@ -93,6 +103,7 @@ const sections = (
         quality={75}
         loading="eager"
         fetchpriority="high"
+        transition:name={`plant-photo-${plant.id}`}
         class="aspect-3/2 w-full object-cover"
       />
       {
@@ -105,7 +116,7 @@ const sections = (
     </figure>
 
     <header class="mt-6">
-      <h1 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+      <h1 class="text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
         {name}
       </h1>
       <p class="mt-1 text-lg italic text-leaf-600 dark:text-leaf-400">

@@ -2,8 +2,8 @@
 name: "Emerald Arborvitae"
 latinName: "Thuja occidentalis 'Emerald'"
 photo: "../../assets/plants/arborvitae.jpg"
-photoAlt: "Dense, conical evergreen arborvitae with flat sprays of bright green needled foliage."
-photoCredit: "David J. Stang, CC BY-SA 4.0, via Wikimedia Commons"
+photoAlt: "A tall, dense, conical emerald arborvitae growing in a park."
+photoCredit: "Harvey Stillnot, CC BY-SA 4.0, via Wikimedia Commons"
 shortDescription: "A narrow, conical evergreen prized as a low-maintenance hedge, screen, or specimen with dense, year-round green foliage."
 care:
   water: "Prefers high soil and atmospheric moisture; tolerates wet ground but not dry sites."

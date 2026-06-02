@@ -2,8 +2,8 @@
 name: "Orpine"
 latinName: "Hylotelephium telephium"
 photo: "../../assets/plants/orpine.jpg"
-photoAlt: "Upright succulent stems with fleshy leaves topped by dense clusters of small pink star-shaped flowers."
-photoCredit: "Didier Descouens, CC BY-SA 4.0, via Wikimedia Commons"
+photoAlt: "A full clump of upright orpine stems with fleshy green leaves in a garden bed."
+photoCredit: "Bff, CC BY-SA 4.0, via Wikimedia Commons"
 shortDescription: "An upright succulent perennial whose fleshy stems are crowned in late summer with dense clusters of pink to ruby flowers."
 care:
   water: "Low — medium to dry soils. Its taproots store water, and it rots in wet conditions."

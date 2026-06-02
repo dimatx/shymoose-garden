@@ -2,8 +2,8 @@
 name: "Japanese Snowball"
 latinName: "Viburnum plicatum"
 photo: "../../assets/plants/japanese-snowball.jpg"
-photoAlt: "Japanese Snowball shrub covered in round, white pom-pom flower clusters in spring."
-photoCredit: "Famartin, CC BY-SA 4.0, via Wikimedia Commons"
+photoAlt: "A whole Japanese Snowball shrub covered in round, white pom-pom flower clusters in spring."
+photoCredit: "Sailko, CC BY 3.0, via Wikimedia Commons"
 shortDescription: "A large deciduous shrub famous for the showy, white pom-pom flowers that line its branches each spring."
 care:
   water: "Likes consistently moist soil; water regularly while establishing. Quite drought tolerant once mature."

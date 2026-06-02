@@ -2,8 +2,8 @@
 name: "Spiked Speedwell"
 latinName: "Veronica spicata"
 photo: "../../assets/plants/speedwell.jpg"
-photoAlt: "Dense upright spikes of small blue-purple speedwell flowers with a visiting bumblebee."
-photoCredit: "Ivar Leidus, CC BY-SA 4.0, via Wikimedia Commons"
+photoAlt: "A clump of dense, upright spikes of small blue-purple speedwell flowers."
+photoCredit: "Krzysztof Ziarnek, Kenraiz, CC BY-SA 4.0, via Wikimedia Commons"
 shortDescription: "An upright, clump-forming perennial topped with dense spikes of star-shaped blue flowers that bees and butterflies love."
 care:
   water: "Prefers moist, well-drained soil; prone to root rot in wet ground, especially over winter."

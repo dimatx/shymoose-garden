@@ -2,8 +2,8 @@
 name: "Shintokiwa Cucumber"
 latinName: "Cucumis sativus 'Shintokiwa'"
 photo: "../../assets/plants/cucumber-shintokiwa.jpg"
-photoAlt: "Long, slender, thin-skinned green cucumbers growing on the vine."
-photoCredit: "Schlaghecken Josef, CC BY 4.0, via Wikimedia Commons"
+photoAlt: "A sprawling cucumber plant in a garden bed with a long, slender green cucumber on the vine."
+photoCredit: "Forest and Kim Starr, CC BY 3.0, via Wikimedia Commons"
 shortDescription: "A vigorous Japanese cucumber with long, slender, thin-skinned fruit that stays sweet, crisp, and bitter-free even when large."
 care:
   soil: "Trellising is recommended to produce long, straight fruit."

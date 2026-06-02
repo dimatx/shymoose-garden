@@ -2,8 +2,8 @@
 name: "Sunrise Bumble Bee Tomato"
 latinName: "Solanum lycopersicum 'Bumble Bee Sunrise'"
 photo: "../../assets/plants/tomato-bumble-bee-sunrise.jpg"
-photoAlt: "Cluster of small yellow-and-red bicolor cherry tomatoes."
-photoCredit: "Ivar Leidus, CC BY-SA 4.0, via Wikimedia Commons"
+photoAlt: "A truss of small yellow-orange cherry tomatoes ripening on the vine."
+photoCredit: "Rob Bertholf, CC BY 3.0, via Wikimedia Commons"
 shortDescription: "A high-vigor cherry tomato with sweet, yellow-and-red bicolor fruit — one of the sweetest in the Artisan collection."
 care:
   size: "Indeterminate."

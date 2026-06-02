@@ -2,8 +2,8 @@
 name: "Golden Mop False Cypress"
 latinName: "Chamaecyparis pisifera 'Golden Mop'"
 photo: "../../assets/plants/false-cypress.jpg"
-photoAlt: "Mounded dwarf conifer with bright golden, thread-like weeping foliage."
-photoCredit: "Chris Light, CC BY-SA 4.0, via Wikimedia Commons"
+photoAlt: "A whole mounded dwarf false cypress shrub with bright golden, thread-like weeping foliage."
+photoCredit: "Chris.urs-o, CC BY-SA 3.0, via Wikimedia Commons"
 shortDescription: "A slow-growing dwarf conifer with bright golden, thread-like foliage that mounds into a soft, mop-like shape."
 care:
   water: "Prefers moist to average soil; tolerates some drought once established."

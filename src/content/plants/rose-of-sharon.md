@@ -2,8 +2,8 @@
 name: "Rose of Sharon"
 latinName: "Hibiscus syriacus 'Notwoodthree'"
 photo: "../../assets/plants/rose-of-sharon.jpg"
-photoAlt: "Large single blue-lavender rose of Sharon flowers with a lacy center on a leafy shrub."
-photoCredit: "Abrahami, CC BY-SA 2.5, via Wikimedia Commons"
+photoAlt: "A leafy rose of Sharon shrub in a garden covered with blue-lavender flowers."
+photoCredit: "Martin1009, CC BY-SA 3.0, via Wikimedia Commons"
 shortDescription: "A deciduous shrub with large, tropical-looking blue blooms — sold as Blue Chiffon® — that flower from spring into summer."
 care:
   water: "Best in moist, well-drained soil; tolerates everything but extreme wet or dry. Drought tolerant once established."

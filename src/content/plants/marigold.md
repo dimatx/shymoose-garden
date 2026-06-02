@@ -1,5 +1,5 @@
 ---
-name: "Marigold"
+name: "Calendula"
 latinName: "Calendula officinalis 'Geisha Girl'"
 photo: "../../assets/plants/marigold.jpg"
 photoAlt: "Bright orange double-flowered calendula bloom with densely packed petals."

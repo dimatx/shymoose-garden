@@ -2,8 +2,8 @@
 name: "Suyo Long Cucumber"
 latinName: "Cucumis sativus 'Suyo Long'"
 photo: "../../assets/plants/cucumber-suyo-long.jpg"
-photoAlt: "Long, ribbed, dark green Chinese cucumbers growing on a vine."
-photoCredit: "Pascal Kings, CC BY 4.0, via Wikimedia Commons"
+photoAlt: "A green cucumber growing on a vine trained up a wooden trellis."
+photoCredit: "NPS, Public domain, via Wikimedia Commons"
 shortDescription: "An heirloom Chinese cucumber with long, ribbed, sweet, bitter-free fruit that thrives in hot weather — about 61 days."
 care:
   soil: "Trellis the vines to keep the long fruit straight."

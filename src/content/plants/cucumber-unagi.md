@@ -2,8 +2,8 @@
 name: "Unagi Cucumber"
 latinName: "Cucumis sativus 'Unagi'"
 photo: "../../assets/plants/cucumber-unagi.jpg"
-photoAlt: "Long, glossy, slender green seedless cucumbers."
-photoCredit: "Friedrich Haag, CC BY-SA 4.0, via Wikimedia Commons"
+photoAlt: "Two long, glossy, dark green Unagi cucumbers hanging from the vine in a greenhouse."
+photoCredit: "Johnny's Selected Seeds"
 shortDescription: "A glossy, spineless, seedless slicing cucumber that produces crisp, straight fruit in abundance — ready in about 55 days."
 care:
   sunlight: "Full sun."

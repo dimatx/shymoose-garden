@@ -7,15 +7,37 @@
 @import "@fontsource-variable/inter";
 @import "@fontsource-variable/fraunces";
 
+/* Metric-matched fallback faces. Each fallback is a *local* system font with
+   ascent/descent/size overrides (generated with @capsizecss/core) so it
+   occupies the exact same space as the real webfont. That way, when Fraunces
+   or Inter finishes loading and swaps in, there's no reflow or font-size jump
+   — the headings and body stay put. */
+@font-face {
+  font-family: "Fraunces Fallback";
+  src: local("Georgia");
+  ascent-override: 92.9623%;
+  descent-override: 24.2386%;
+  line-gap-override: 0%;
+  size-adjust: 105.2039%;
+}
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT");
+  ascent-override: 90.4365%;
+  descent-override: 22.518%;
+  line-gap-override: 0%;
+  size-adjust: 107.1194%;
+}
+
 /* Enable class-based dark mode (toggled on <html class="dark">). */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* Garden theme tokens */
 @theme {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-serif: "Fraunces Variable", ui-serif, Georgia, Cambria,
-    "Times New Roman", Times, serif;
+  --font-sans: "Inter Variable", "Inter Fallback", ui-sans-serif, system-ui,
+    -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Fraunces Variable", "Fraunces Fallback", ui-serif, Georgia,
+    Cambria, "Times New Roman", Times, serif;
 
   --color-leaf-50: #f1f8f1;
   --color-leaf-100: #dcefdc;

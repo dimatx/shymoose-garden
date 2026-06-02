@@ -1,6 +1,6 @@
 ---
 name: "Zagreb Tickseed"
-latinName: "Coreopsis verticillata 'Zagreb'"
+latinName: "Anacis verticillata 'Zagreb'"
 photo: "../../assets/plants/zagreb.jpg"
 photoAlt: "A wide bed of threadleaf tickseed covered in masses of small golden-yellow daisy-like flowers above airy green foliage."
 shortDescription: "A compact threadleaf tickseed that forms airy mounds of fine foliage topped with cheerful gold, daisy-like flowers all summer."

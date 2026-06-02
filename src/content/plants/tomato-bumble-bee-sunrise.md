@@ -9,7 +9,7 @@ shortDescription: "A high-vigor cherry tomato with sweet, yellow-and-red bicolor
 care:
   size: "Indeterminate."
   bloom: "Yellow-and-red bicolor fruits, 20–25 g each; about 70 days to harvest."
-  pruning: "Maintenance: thin the suckers and strip the lower leaves to improve airflow on the tall indeterminate vines, keeping them tied to a stout support. Renewal pruning doesn't apply — it's an annual."
+  pruning: "Maintenance: thin the suckers and strip the lower leaves to improve airflow on the tall indeterminate vines, keeping them tied to a stout support."
 tags:
   - "Annual"
   - "Vegetable"

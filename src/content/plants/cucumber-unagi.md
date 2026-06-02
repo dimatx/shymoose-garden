@@ -10,7 +10,7 @@ care:
   sunlight: "Full sun."
   size: "Harvest at 9–11 in. (still crisp up to 14 in.)."
   bloom: "Glossy, spineless, seedless fruit; about 55 days to harvest."
-  pruning: "Maintenance: train up a single string or trellis, removing the side shoots and lower leaves on the bottom of the stem for airflow, then let the upper laterals run. Renewal pruning doesn't apply — it's an annual."
+  pruning: "Maintenance: train up a single string or trellis, removing the side shoots and lower leaves on the bottom of the stem for airflow, then let the upper laterals run."
 tags:
   - "Annual"
   - "Vegetable"

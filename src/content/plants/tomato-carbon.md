@@ -9,7 +9,7 @@ shortDescription: "A richly flavored black heirloom beefsteak with meaty texture
 care:
   size: "Indeterminate, with a well-balanced habit."
   bloom: "Blocky-round 10–14 oz. fruit, dark olive shoulders fading to dark brick red; about 76 days to harvest."
-  pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit. Renewal pruning doesn't apply — it's an annual."
+  pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."
 tags:
   - "Annual"
   - "Vegetable"

@@ -13,7 +13,7 @@ care:
   hardiness: "USDA zones 4–9."
   size: "1–2 ft tall and 1–2 ft wide."
   bloom: "Star-shaped pink flowers in flat 4–6 in. heads from late summer into fall, aging to dark reddish-brown."
-  pruning: "Maintenance: leave the dried heads for winter and cut old stems to the ground in early spring; an optional late-spring 'Chelsea chop' prevents the clump from flopping. Renewal pruning doesn't apply — divide every few years to renew."
+  pruning: "Maintenance: leave the dried heads for winter and cut old stems to the ground in early spring; an optional late-spring 'Chelsea chop' prevents the clump from flopping. Divide every few years to renew."
 bloomMonths: [8, 9, 10]
 pruneMonths: [4, 6]
 tags:

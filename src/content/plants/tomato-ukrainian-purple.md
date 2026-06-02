@@ -11,7 +11,7 @@ care:
   sunlight: "Full sun."
   size: "Space plants 2–3 ft apart in rows 3–4 ft apart."
   bloom: "Purply-black plum-shaped fruit; about 80 days from transplant."
-  pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit. Renewal pruning doesn't apply — it's an annual."
+  pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."
 tags:
   - "Vegetable"
   - "Plum Tomato"

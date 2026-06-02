@@ -13,7 +13,7 @@ care:
   hardiness: "USDA zones 6–8."
   size: "1.5–2 ft tall and 1.5–2 ft wide."
   bloom: "Pale yellow-green, cup-shaped nodding flowers from late winter to early spring."
-  pruning: "Maintenance: in early spring, as new growth resumes, cut off the old, tattered leaves to show off the blooms and reduce leaf spot; remove spent flower stems at the base after the flowers fade in late spring. Renewal pruning doesn't apply — rejuvenate an aging clump by dividing it."
+  pruning: "Maintenance: in early spring, as new growth resumes, cut off the old, tattered leaves to show off the blooms and reduce leaf spot; remove spent flower stems at the base after the flowers fade in late spring. Rejuvenate an aging clump by dividing it."
 bloomMonths: [2, 3, 4]
 pruneMonths: [4, 5]
 tags:

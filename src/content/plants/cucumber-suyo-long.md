@@ -10,7 +10,7 @@ care:
   soil: "Trellis the vines to keep the long fruit straight."
   size: "Fruit grows up to 15 in. long."
   bloom: "Long, ribbed fruit up to 15 in.; about 61 days to harvest."
-  pruning: "Maintenance: train the vine up a trellis and pinch off the lowest side shoots and leaves to improve airflow and keep the long fruit hanging straight. Renewal pruning doesn't apply — it's an annual."
+  pruning: "Maintenance: train the vine up a trellis and pinch off the lowest side shoots and leaves to improve airflow and keep the long fruit hanging straight."
 tags:
   - "Annual"
   - "Vegetable"

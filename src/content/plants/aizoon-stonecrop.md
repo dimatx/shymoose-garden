@@ -14,6 +14,7 @@ care:
   bloom: "Yellow flowers in branched clusters in early summer, followed by star-like seed pods in late summer."
   pruning: "Maintenance: trim off spent flower stems and cut the clump back in late fall or early spring. Renewal pruning doesn't apply — divide the clump to rejuvenate it."
 bloomMonths: [6, 7]
+pruneMonths: [3, 11]
 tags:
   - "Succulent"
   - "Drought tolerant"

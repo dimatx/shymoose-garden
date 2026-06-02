@@ -15,6 +15,7 @@ care:
   bloom: "Large single blue blooms with a lacy center, 2–4 in. across, from spring into summer; modest yellow fall foliage."
   pruning: "Maintenance: prune in late winter while dormant — it flowers on new wood, so cutting back hard yields larger blooms; remove suckers and crossing stems. Renewal: an old, overgrown shrub can be rejuvenated by cutting it nearly to the ground in late winter."
 bloomMonths: [5, 6, 7, 8]
+pruneMonths: [2]
 tags:
   - "Deciduous"
   - "Small tree"

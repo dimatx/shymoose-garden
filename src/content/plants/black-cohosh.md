@@ -15,6 +15,7 @@ care:
   bloom: "Tall racemes of hundreds of tiny, fluffy creamy-white flowers from early to late summer, followed by dry seed pods."
   pruning: "Maintenance: low — leave or remove the spent flower spikes as you like, then cut the foliage back after frost. Renewal pruning doesn't apply — it resents disturbance, so divide only occasionally to renew."
 bloomMonths: [6, 7, 8]
+pruneMonths: [11]
 tags:
   - "Native perennial"
   - "Shade garden"

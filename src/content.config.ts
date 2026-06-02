@@ -47,6 +47,11 @@ const plants = defineCollection({
       // (e.g. conifers) or where bloom isn't the point (e.g. vegetables).
       bloomMonths: z.array(z.number().int().min(1).max(12)).default([]),
 
+      // Months to do the plant's main pruning / cut-back, as numbers 1–12.
+      // Drives the Pruning Calendar. Omit for plants with no calendar pruning
+      // window (e.g. annual vegetables that are simply pulled at season's end).
+      pruneMonths: z.array(z.number().int().min(1).max(12)).default([]),
+
       // Optional helpers
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),

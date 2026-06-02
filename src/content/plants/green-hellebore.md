@@ -15,6 +15,7 @@ care:
   bloom: "Pale yellow-green, cup-shaped nodding flowers from late winter to early spring."
   pruning: "Maintenance: cut off old, tattered foliage in late winter before the flowers open, to show off the blooms and reduce leaf spot; remove spent flower stems at the base after bloom. Renewal pruning doesn't apply — rejuvenate an aging clump by dividing it."
 bloomMonths: [2, 3, 4]
+pruneMonths: [2]
 tags:
   - "Evergreen"
   - "Winter interest"

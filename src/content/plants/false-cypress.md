@@ -14,6 +14,7 @@ care:
   size: "2–5 ft tall and 2–5 ft wide — slow, taking up to 10 years to reach 2 ft."
   bloom: "No true flowers; bright golden, thread-like evergreen foliage year-round, with reddish-brown exfoliating bark."
   pruning: "Maintenance: seldom needed — trim lightly in spring to tidy the mound, staying within foliage-bearing growth. Renewal: not possible — like other false cypress it won't resprout from bare old wood, so avoid cutting into leafless branches."
+pruneMonths: [3, 4, 5]
 tags:
   - "Evergreen"
   - "Small spaces"

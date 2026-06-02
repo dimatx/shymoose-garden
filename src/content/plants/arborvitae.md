@@ -13,6 +13,7 @@ care:
   hardiness: "USDA zones 3–7."
   bloom: "A needled evergreen with yellowish-green foliage that bronzes in winter; small light-brown cones."
   pruning: "Maintenance: shear lightly in spring or early summer to shape a hedge, cutting only into green growth. Renewal: not possible — arborvitae won't resprout from bare old wood, so never cut back into leafless brown branches."
+pruneMonths: [4, 5, 6]
 tags:
   - "Evergreen"
   - "Conical"

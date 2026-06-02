@@ -15,6 +15,7 @@ care:
   bloom: "Tiny star-shaped pink to purplish-red flowers in dense clusters from August to October, fading to burgundy."
   pruning: "Maintenance: leave the seed heads standing for winter interest, then cut old stems to the ground in early spring; an optional late-spring 'Chelsea chop' keeps the plant compact and upright. Renewal pruning doesn't apply — divide every few years to rejuvenate."
 bloomMonths: [8, 9, 10]
+pruneMonths: [3, 5]
 tags:
   - "Succulent"
   - "Easy to grow"

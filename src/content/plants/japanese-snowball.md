@@ -15,6 +15,7 @@ care:
   bloom: "Clusters of white flowers in spring; foliage turns purple to burgundy in fall."
   pruning: "Maintenance: prune right after flowering — it blooms on old wood, so wait until the spring show is over, then thin and shape. Renewal: rejuvenate an overgrown shrub gradually by removing up to a third of the oldest stems to the ground each year over three years."
 bloomMonths: [4, 5]
+pruneMonths: [5, 6]
 tags:
   - "Deciduous shrub"
   - "Spring bloom"

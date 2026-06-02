@@ -282,11 +282,14 @@ const hasFilters = types.length > 0 || traits.length > 0;
             obs.unobserve(entry.target);
           }
         },
-        { rootMargin: "0px 0px -10% 0px" }
+        // Reveal cards ~300px before they scroll into view so they're already
+        // settling in by the time the user reaches them — no waiting.
+        { rootMargin: "0px 0px 300px 0px" }
       );
       itemEls.forEach((el, i) => {
         el.classList.add("reveal");
-        el.style.transitionDelay = `${Math.min(i, 8) * 60}ms`;
+        // Only the first couple of cards stagger; the rest pop in promptly.
+        el.style.transitionDelay = `${Math.min(i, 3) * 45}ms`;
         io.observe(el);
       });
     }

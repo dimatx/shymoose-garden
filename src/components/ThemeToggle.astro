@@ -17,26 +17,29 @@ import Icon from "./Icon.astro";
 </button>
 
 <style>
-  .theme-icon {
+  /* The icons are rendered by the <Icon> component, so they live outside this
+     file's scoped styles — target them with :global() (still anchored under
+     .theme-toggle, which is in this template and carries the scope). */
+  .theme-toggle :global(.theme-icon) {
     transition:
       opacity 0.3s ease,
       transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
   /* Light mode: show the moon (tap to go dark); hide the sun. */
-  .theme-icon--sun {
+  .theme-toggle :global(.theme-icon--sun) {
     opacity: 0;
     transform: rotate(-90deg) scale(0.5);
   }
-  .theme-icon--moon {
+  .theme-toggle :global(.theme-icon--moon) {
     opacity: 1;
     transform: rotate(0) scale(1);
   }
   /* Dark mode: flip them. */
-  :global(.dark) .theme-icon--sun {
+  :global(.dark) .theme-toggle :global(.theme-icon--sun) {
     opacity: 1;
     transform: rotate(0) scale(1);
   }
-  :global(.dark) .theme-icon--moon {
+  :global(.dark) .theme-toggle :global(.theme-icon--moon) {
     opacity: 0;
     transform: rotate(90deg) scale(0.5);
   }

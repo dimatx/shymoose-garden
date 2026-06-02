@@ -44,6 +44,23 @@ const hasFilters = types.length > 0 || traits.length > 0;
     </p>
   </section>
 
+  <div class="mb-4">
+    <label class="relative block">
+      <span class="sr-only">Search plants by name</span>
+      <svg class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-leaf-500 dark:text-leaf-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m21 21-4.3-4.3" />
+      </svg>
+      <input
+        type="search"
+        id="plant-search"
+        placeholder="Search plants by name…"
+        autocomplete="off"
+        class="w-full rounded-full border border-leaf-300 bg-white py-2.5 pl-10 pr-4 text-sm text-leaf-900 placeholder:text-leaf-500 focus:border-leaf-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-500/40 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-400"
+      />
+    </label>
+  </div>
+
   {
     hasFilters && (
       <div class="mb-6 flex flex-wrap items-center gap-3">
@@ -134,6 +151,7 @@ const hasFilters = types.length > 0 || traits.length > 0;
           {plants.map((plant) => (
             <div
               class="plant-item"
+              data-name={plant.data.name}
               data-type={plant.data.type ?? ""}
               data-tags={`|${plant.data.tags.join("|")}|`}
             >
@@ -269,10 +287,14 @@ const hasFilters = types.length > 0 || traits.length > 0;
     );
     const noMatches = document.getElementById("no-matches");
     const noMatchesClear = document.getElementById("no-matches-clear");
+    const searchInput = document.getElementById(
+      "plant-search"
+    ) as HTMLInputElement | null;
     const total = items.length;
 
     const selectedTypes = new Set<string>();
     const selectedTraits = new Set<string>();
+    let searchTerm = "";
 
     // Update the per-dropdown count badge from its own pressed chips.
     function updateBadges() {
@@ -291,17 +313,20 @@ const hasFilters = types.length > 0 || traits.length > 0;
       for (const item of items) {
         const type = item.dataset.type ?? "";
         const tags = item.dataset.tags ?? "";
+        const name = (item.dataset.name ?? "").toLowerCase();
         // Types are OR'd (broaden), traits are AND'd (narrow).
         const typeOk = selectedTypes.size === 0 || selectedTypes.has(type);
         const traitOk = [...selectedTraits].every((t) =>
           tags.includes(`|${t}|`)
         );
-        const show = typeOk && traitOk;
+        const searchOk = searchTerm === "" || name.includes(searchTerm);
+        const show = typeOk && traitOk && searchOk;
         item.hidden = !show;
         if (show) visible++;
       }
 
-      const active = selectedTypes.size + selectedTraits.size;
+      const active =
+        selectedTypes.size + selectedTraits.size + (searchTerm ? 1 : 0);
       if (countEl) {
         countEl.textContent =
           active === 0
@@ -334,8 +359,15 @@ const hasFilters = types.length > 0 || traits.length > 0;
       selectedTypes.clear();
       selectedTraits.clear();
       for (const chip of chips) chip.setAttribute("aria-pressed", "false");
+      searchTerm = "";
+      if (searchInput) searchInput.value = "";
       apply();
     }
+
+    searchInput?.addEventListener("input", () => {
+      searchTerm = searchInput.value.trim().toLowerCase();
+      apply();
+    });
 
     clearEl?.addEventListener("click", clearAll);
     noMatchesClear?.addEventListener("click", clearAll);

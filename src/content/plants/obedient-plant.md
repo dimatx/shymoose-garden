@@ -15,7 +15,7 @@ care:
   bloom: "Pink, purple/lavender, or white flowers on spikes from July to October."
   pruning: "Maintenance: cut stems back by half in late spring for sturdier plants, deadhead to limit self-seeding, and cut to the ground after frost. Renewal pruning doesn't apply — divide every year or two to renew and contain it."
 bloomMonths: [7, 8, 9, 10]
-pruneMonths: [5, 11]
+pruneMonths: [6, 11]
 tags:
   - "Native perennial"
   - "Showy flowers"

@@ -56,66 +56,87 @@ const hasFilters = types.length > 0 || traits.length > 0;
 
   {
     hasFilters && (
-      <section
-        id="filters"
-        class="mb-6 rounded-2xl border border-leaf-200/80 bg-white/60 p-4 dark:border-leaf-800/80 dark:bg-leaf-900/40"
-        aria-label="Filter plants"
-      >
-        {types.length > 0 && (
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="mr-1 text-xs font-semibold uppercase tracking-wide text-leaf-600 dark:text-leaf-400">
-              Type
+      <div class="mb-6 flex items-center gap-3">
+        <details id="filter-menu" class="relative">
+          <summary
+            class="inline-flex cursor-pointer list-none items-center gap-2 rounded-full border border-leaf-300 px-4 py-2 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:border-leaf-700 dark:text-leaf-200 dark:hover:bg-leaf-800 [&::-webkit-details-marker]:hidden"
+            aria-label="Filter plants"
+          >
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 6h16M7 12h10M10 18h4" />
+            </svg>
+            Filters
+            <span
+              id="filter-badge"
+              class="hidden min-w-5 rounded-full bg-leaf-600 px-1.5 text-center text-xs font-semibold leading-5 text-white dark:bg-leaf-500"
+            >
+              0
             </span>
-            {types.map((type) => (
+          </summary>
+
+          <section
+            id="filters"
+            class="absolute left-0 z-20 mt-2 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-leaf-200/80 bg-white p-4 shadow-lg dark:border-leaf-800/80 dark:bg-leaf-900"
+            aria-label="Filter plants"
+          >
+            {types.length > 0 && (
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="mr-1 w-full text-xs font-semibold uppercase tracking-wide text-leaf-600 dark:text-leaf-400">
+                  Type
+                </span>
+                {types.map((type) => (
+                  <button
+                    type="button"
+                    class="filter-chip"
+                    data-filter="type"
+                    data-value={type}
+                    aria-pressed="false"
+                  >
+                    {type}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {traits.length > 0 && (
+              <div class="mt-3 flex flex-wrap items-center gap-2">
+                <span class="mr-1 w-full text-xs font-semibold uppercase tracking-wide text-leaf-600 dark:text-leaf-400">
+                  Traits
+                </span>
+                {traits.map((trait) => (
+                  <button
+                    type="button"
+                    class="filter-chip"
+                    data-filter="trait"
+                    data-value={trait}
+                    aria-pressed="false"
+                  >
+                    {trait}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <div class="mt-4 flex items-center justify-between gap-3 border-t border-leaf-200/70 pt-3 dark:border-leaf-800/70">
               <button
                 type="button"
-                class="filter-chip"
-                data-filter="type"
-                data-value={type}
-                aria-pressed="false"
+                id="filter-clear"
+                class="hidden text-sm font-medium text-leaf-700 underline-offset-2 hover:underline dark:text-leaf-300"
               >
-                {type}
+                Clear filters
               </button>
-            ))}
-          </div>
-        )}
+            </div>
+          </section>
+        </details>
 
-        {traits.length > 0 && (
-          <div class="mt-3 flex flex-wrap items-center gap-2">
-            <span class="mr-1 text-xs font-semibold uppercase tracking-wide text-leaf-600 dark:text-leaf-400">
-              Traits
-            </span>
-            {traits.map((trait) => (
-              <button
-                type="button"
-                class="filter-chip"
-                data-filter="trait"
-                data-value={trait}
-                aria-pressed="false"
-              >
-                {trait}
-              </button>
-            ))}
-          </div>
-        )}
-
-        <div class="mt-3 flex items-center justify-between gap-3">
-          <p
-            id="filter-count"
-            class="text-sm text-leaf-600 dark:text-leaf-400"
-            aria-live="polite"
-          >
-            Showing all {plants.length} plants
-          </p>
-          <button
-            type="button"
-            id="filter-clear"
-            class="hidden text-sm font-medium text-leaf-700 underline-offset-2 hover:underline dark:text-leaf-300"
-          >
-            Clear filters
-          </button>
-        </div>
-      </section>
+        <p
+          id="filter-count"
+          class="text-sm text-leaf-600 dark:text-leaf-400"
+          aria-live="polite"
+        >
+          Showing all {plants.length} plants
+        </p>
+      </div>
     )
   }
 
@@ -171,6 +192,14 @@ const hasFilters = types.length > 0 || traits.length > 0;
     border-color: var(--color-leaf-600, #3f7a45);
     color: #fff;
   }
+
+  /* Hide the default disclosure triangle on the Filters button. */
+  #filter-menu > summary {
+    list-style: none;
+  }
+  #filter-menu > summary::-webkit-details-marker {
+    display: none;
+  }
 </style>
 
 <script>
@@ -186,6 +215,8 @@ const hasFilters = types.length > 0 || traits.length > 0;
     );
     const countEl = document.getElementById("filter-count");
     const clearEl = document.getElementById("filter-clear");
+    const badgeEl = document.getElementById("filter-badge");
+    const menu = document.getElementById("filter-menu") as HTMLDetailsElement | null;
     const noMatches = document.getElementById("no-matches");
     const noMatchesClear = document.getElementById("no-matches-clear");
     const total = items.length;
@@ -216,6 +247,10 @@ const hasFilters = types.length > 0 || traits.length > 0;
             : `Showing ${visible} of ${total} plants`;
       }
       if (clearEl) clearEl.classList.toggle("hidden", active === 0);
+      if (badgeEl) {
+        badgeEl.textContent = String(active);
+        badgeEl.classList.toggle("hidden", active === 0);
+      }
       if (noMatches) noMatches.classList.toggle("hidden", visible !== 0);
     }
 
@@ -245,5 +280,17 @@ const hasFilters = types.length > 0 || traits.length > 0;
 
     clearEl?.addEventListener("click", clearAll);
     noMatchesClear?.addEventListener("click", clearAll);
+
+    // Close the filter dropdown when clicking outside or pressing Escape.
+    if (menu) {
+      document.addEventListener("click", (e) => {
+        if (menu.open && !menu.contains(e.target as Node)) {
+          menu.open = false;
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && menu.open) menu.open = false;
+      });
+    }
   }
 </script>

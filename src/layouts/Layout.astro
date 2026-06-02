@@ -91,20 +91,61 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
           <span>ShyMoose Garden</span>
         </a>
         <div class="flex items-center gap-1.5">
+          <!-- Desktop: inline links with full text. -->
           <a
             href="/bloom/"
-            class="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800"
+            class="hidden items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:inline-flex"
           >
             <Icon name="bloom" class="h-4 w-4" />
-            <span class="hidden sm:inline">Bloom timeline</span>
+            <span>Bloom timeline</span>
           </a>
           <a
             href="/pruning/"
-            class="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800"
+            class="hidden items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:inline-flex"
           >
             <Icon name="scissors" class="h-4 w-4" />
-            <span class="hidden sm:inline">Pruning calendar</span>
+            <span>Pruning calendar</span>
           </a>
+
+          <!-- Mobile: a menu button revealing the same links with full text. -->
+          <div class="relative sm:hidden">
+            <button
+              id="nav-menu-button"
+              type="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="nav-menu"
+              aria-label="Open menu"
+              class="inline-flex h-9 w-9 items-center justify-center rounded-full text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800"
+            >
+              <Icon name="menu" class="h-5 w-5" />
+            </button>
+            <div
+              id="nav-menu"
+              role="menu"
+              aria-labelledby="nav-menu-button"
+              hidden
+              class="absolute right-0 top-full z-50 mt-2 min-w-52 overflow-hidden rounded-2xl border border-leaf-200/80 bg-white p-1.5 shadow-lg dark:border-leaf-800/80 dark:bg-leaf-900"
+            >
+              <a
+                href="/bloom/"
+                role="menuitem"
+                class="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
+              >
+                <Icon name="bloom" class="h-4 w-4 shrink-0" />
+                <span>Bloom timeline</span>
+              </a>
+              <a
+                href="/pruning/"
+                role="menuitem"
+                class="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
+              >
+                <Icon name="scissors" class="h-4 w-4 shrink-0" />
+                <span>Pruning calendar</span>
+              </a>
+            </div>
+          </div>
+
           <ThemeToggle />
         </div>
       </div>
@@ -119,5 +160,63 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
     >
       <p>🌿 Grown with care in the ShyMoose garden.</p>
     </footer>
+
+    <script>
+      // Mobile navigation menu: toggle open/closed, and close on outside
+      // click, Escape, or when navigating. Re-bound after each view
+      // transition (astro:page-load) using a dataset guard so we never
+      // attach duplicate listeners.
+      function initNavMenu() {
+        const button = document.getElementById("nav-menu-button");
+        const menu = document.getElementById("nav-menu");
+        if (!button || !menu) return;
+
+        const open = () => {
+          menu.hidden = false;
+          button.setAttribute("aria-expanded", "true");
+          button.setAttribute("aria-label", "Close menu");
+        };
+        const close = () => {
+          menu.hidden = true;
+          button.setAttribute("aria-expanded", "false");
+          button.setAttribute("aria-label", "Open menu");
+        };
+        const toggle = () => (menu.hidden ? open() : close());
+
+        if (button.dataset.bound !== "true") {
+          button.dataset.bound = "true";
+
+          button.addEventListener("click", (e) => {
+            e.stopPropagation();
+            toggle();
+          });
+
+          // Close when clicking anywhere outside the menu.
+          document.addEventListener("click", (e) => {
+            if (
+              !menu.hidden &&
+              !menu.contains(e.target as Node) &&
+              e.target !== button
+            ) {
+              close();
+            }
+          });
+
+          // Close on Escape and return focus to the button.
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && !menu.hidden) {
+              close();
+              button.focus();
+            }
+          });
+        }
+
+        // Always start closed on (re)bind / navigation.
+        close();
+      }
+
+      initNavMenu();
+      document.addEventListener("astro:page-load", initNavMenu);
+    </script>
   </body>
 </html>

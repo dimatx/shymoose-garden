@@ -4,11 +4,16 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Not found">
   <div class="py-16 text-center">
-    <p class="font-serif text-6xl">🌱</p>
-    <h1 class="mt-4 font-serif text-2xl font-semibold">
+    <p
+      class="mx-auto grid h-20 w-20 place-items-center rounded-full bg-leaf-100 text-5xl shadow-sm dark:bg-leaf-800"
+      aria-hidden="true"
+    >
+      🌱
+    </p>
+    <h1 class="mt-5 text-balance font-serif text-2xl font-semibold">
       This plant hasn't sprouted yet
     </h1>
-    <p class="mt-2 text-leaf-700 dark:text-leaf-300">
+    <p class="mx-auto mt-2 max-w-prose text-pretty text-leaf-700 dark:text-leaf-300">
       We couldn't find that page. Maybe the QR code points somewhere new.
     </p>
     <a

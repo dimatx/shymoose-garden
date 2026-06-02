@@ -35,8 +35,8 @@ const hasFilters = types.length > 0 || traits.length > 0;
       The Garden
     </h1>
     <p class="mt-2 max-w-prose text-pretty text-leaf-700 dark:text-leaf-300">
-      Welcome! Tap any plant to learn its name, story, and how it likes to be
-      cared for. Scan a QR code out in the garden to jump straight to a plant.
+      A living catalog of everything growing here. Pick a plant to dig into its
+      story, quirks, and what keeps it happy.
     </p>
   </section>
 
@@ -260,8 +260,37 @@ const hasFilters = types.length > 0 || traits.length > 0;
 <script>
   // Lightweight, no-framework filtering. With JS disabled every plant simply
   // stays visible, so the catalog still works.
-  const grid = document.getElementById("plant-grid");
-  if (grid) {
+  function initCatalog() {
+    const grid = document.getElementById("plant-grid");
+    if (!grid || grid.dataset.ready) return;
+    grid.dataset.ready = "true";
+
+    // Gentle, staggered entrance as cards scroll into view. Classes are added
+    // by JS so a no-JS visitor still sees every card immediately.
+    const itemEls = Array.from(
+      grid.querySelectorAll<HTMLElement>(".plant-item")
+    );
+    if (
+      "IntersectionObserver" in window &&
+      window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+    ) {
+      const io = new IntersectionObserver(
+        (entries, obs) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue;
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        },
+        { rootMargin: "0px 0px -10% 0px" }
+      );
+      itemEls.forEach((el, i) => {
+        el.classList.add("reveal");
+        el.style.transitionDelay = `${Math.min(i, 8) * 60}ms`;
+        io.observe(el);
+      });
+    }
+
     const chips = Array.from(
       document.querySelectorAll<HTMLButtonElement>(".filter-chip")
     );
@@ -372,4 +401,7 @@ const hasFilters = types.length > 0 || traits.length > 0;
       }
     });
   }
+
+  initCatalog();
+  document.addEventListener("astro:page-load", initCatalog);
 </script>

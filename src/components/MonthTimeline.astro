@@ -17,9 +17,17 @@ interface Props {
   nowVerb: string;
   /** Message shown when nothing is active in the current month. */
   emptyMessage: string;
+  /** Warm tint for the "now" badge, distinguishing the two timelines. */
+  accent?: "leaf" | "bloom" | "soil";
 }
 
-const { rows, nowVerb, emptyMessage } = Astro.props;
+const { rows, nowVerb, emptyMessage, accent = "leaf" } = Astro.props;
+
+const accentBadge = {
+  leaf: "bg-leaf-100 text-leaf-600 dark:bg-leaf-800 dark:text-leaf-300",
+  bloom: "bg-bloom-100 text-bloom-600 dark:bg-bloom-600/25 dark:text-bloom-300",
+  soil: "bg-soil-100 text-soil-600 dark:bg-soil-600/25 dark:text-soil-300",
+}[accent];
 
 const MONTHS = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -53,7 +61,7 @@ const chipClass =
 >
   <h2 class="flex items-center gap-2 font-serif text-lg font-semibold">
     <span
-      class="grid h-7 w-7 place-items-center rounded-full bg-leaf-100 text-leaf-600 dark:bg-leaf-800 dark:text-leaf-300"
+      class={`grid h-7 w-7 place-items-center rounded-full ${accentBadge}`}
       aria-hidden="true"
     >
       <slot name="now-icon" />
@@ -198,74 +206,79 @@ const chipClass =
 </style>
 
 <script>
-  const MONTH_NAMES = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December",
-  ];
+  function initTimeline() {
+    const MONTH_NAMES = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December",
+    ];
 
-  const now = new Date().getMonth() + 1; // 1–12
+    const now = new Date().getMonth() + 1; // 1–12
 
-  // Label: "in June"
-  const label = document.getElementById("now-month");
-  if (label) label.textContent = `in ${MONTH_NAMES[now - 1]}`;
+    // Label: "in June"
+    const label = document.getElementById("now-month");
+    if (label) label.textContent = `in ${MONTH_NAMES[now - 1]}`;
 
-  // Highlight the current-month column (header + every cell).
-  document
-    .querySelectorAll(`[data-month="${now}"]`)
-    .forEach((el) => el.classList.add("is-current"));
+    // Highlight the current-month column (header + every cell).
+    document
+      .querySelectorAll(`[data-month="${now}"]`)
+      .forEach((el) => el.classList.add("is-current"));
 
-  // Position the "today" line at the exact point in the year, accounting for
-  // the day within the current month so it drifts across the column as the
-  // month progresses.
-  const today = new Date();
-  const daysInMonth = new Date(
-    today.getFullYear(),
-    today.getMonth() + 1,
-    0,
-  ).getDate();
-  const monthFraction = (today.getDate() - 0.5) / daysInMonth;
-  const nowPos = (now - 1 + monthFraction) / 12;
-  const nowLine = document.getElementById("now-line");
-  if (nowLine) {
-    nowLine.style.setProperty("--now-pos", String(nowPos));
-    nowLine.classList.remove("hidden");
+    // Position the "today" line at the exact point in the year, accounting for
+    // the day within the current month so it drifts across the column as the
+    // month progresses.
+    const today = new Date();
+    const daysInMonth = new Date(
+      today.getFullYear(),
+      today.getMonth() + 1,
+      0,
+    ).getDate();
+    const monthFraction = (today.getDate() - 0.5) / daysInMonth;
+    const nowPos = (now - 1 + monthFraction) / 12;
+    const nowLine = document.getElementById("now-line");
+    if (nowLine) {
+      nowLine.style.setProperty("--now-pos", String(nowPos));
+      nowLine.classList.remove("hidden");
+    }
+
+    const list = document.getElementById("now-list");
+    const empty = document.getElementById("now-empty");
+    const buildMonth = list ? Number(list.dataset.buildMonth) : now;
+    const chipClass = list?.dataset.chipClass ?? "";
+
+    // Build a chip safely via the DOM (no innerHTML / no string interpolation),
+    // so plant names can never be misread as markup.
+    function makeChip(name: string, url: string): HTMLLIElement {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = url;
+      a.className = chipClass;
+      const dot = document.createElement("span");
+      dot.className = "h-2 w-2 rounded-full bg-leaf-500";
+      dot.setAttribute("aria-hidden", "true");
+      a.append(dot, document.createTextNode(name));
+      li.append(a);
+      return li;
+    }
+
+    // Recompute the "now" list for the visitor's actual current month.
+    if (list && now !== buildMonth) {
+      const active: HTMLLIElement[] = [];
+      document.querySelectorAll<HTMLElement>(".timeline-row").forEach((row) => {
+        const months = (row.dataset.months || "")
+          .split(",")
+          .map(Number)
+          .filter(Boolean);
+        if (months.includes(now)) {
+          active.push(makeChip(row.dataset.name || "", row.dataset.url || "#"));
+        }
+      });
+      list.replaceChildren(...active);
+      if (empty) empty.classList.toggle("hidden", active.length > 0);
+    } else if (list && empty) {
+      empty.classList.toggle("hidden", list.children.length > 0);
+    }
   }
 
-  const list = document.getElementById("now-list");
-  const empty = document.getElementById("now-empty");
-  const buildMonth = list ? Number(list.dataset.buildMonth) : now;
-  const chipClass = list?.dataset.chipClass ?? "";
-
-  // Build a chip safely via the DOM (no innerHTML / no string interpolation),
-  // so plant names can never be misread as markup.
-  function makeChip(name: string, url: string): HTMLLIElement {
-    const li = document.createElement("li");
-    const a = document.createElement("a");
-    a.href = url;
-    a.className = chipClass;
-    const dot = document.createElement("span");
-    dot.className = "h-2 w-2 rounded-full bg-leaf-500";
-    dot.setAttribute("aria-hidden", "true");
-    a.append(dot, document.createTextNode(name));
-    li.append(a);
-    return li;
-  }
-
-  // Recompute the "now" list for the visitor's actual current month.
-  if (list && now !== buildMonth) {
-    const active: HTMLLIElement[] = [];
-    document.querySelectorAll<HTMLElement>(".timeline-row").forEach((row) => {
-      const months = (row.dataset.months || "")
-        .split(",")
-        .map(Number)
-        .filter(Boolean);
-      if (months.includes(now)) {
-        active.push(makeChip(row.dataset.name || "", row.dataset.url || "#"));
-      }
-    });
-    list.replaceChildren(...active);
-    if (empty) empty.classList.toggle("hidden", active.length > 0);
-  } else if (list && empty) {
-    empty.classList.toggle("hidden", list.children.length > 0);
-  }
+  initTimeline();
+  document.addEventListener("astro:page-load", initTimeline);
 </script>

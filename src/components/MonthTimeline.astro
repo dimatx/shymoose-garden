@@ -1,0 +1,220 @@
+---
+/**
+ * A shared 12-month timeline used by both the Bloom Timeline and the Pruning
+ * Calendar. Give it a list of rows (each with the months it's "active") and it
+ * renders:
+ *   1. a "now" panel listing what's active in the current month, and
+ *   2. a horizontal month-by-month chart with the current column highlighted.
+ *
+ * The current month is recomputed in the browser so the page stays correct
+ * between rebuilds (a build in May still shows the right thing in June).
+ */
+export interface TimelineRow {
+  name: string;
+  url: string;
+  months: number[]; // 1–12
+}
+
+interface Props {
+  rows: TimelineRow[];
+  /** Verb shown in the "now" panel heading, e.g. "Blooming" or "Prune". */
+  nowVerb: string;
+  /** Message shown when nothing is active in the current month. */
+  emptyMessage: string;
+}
+
+const { rows, nowVerb, emptyMessage } = Astro.props;
+
+const MONTHS = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
+// Sort here so the two callers can't drift: earliest start first, then
+// earliest end, then alphabetically.
+const sorted = [...rows].sort((a, b) => {
+  const firstA = Math.min(...a.months);
+  const firstB = Math.min(...b.months);
+  if (firstA !== firstB) return firstA - firstB;
+  const lastA = Math.max(...a.months);
+  const lastB = Math.max(...b.months);
+  if (lastA !== lastB) return lastA - lastB;
+  return a.name.localeCompare(b.name);
+});
+
+// Build-time current month, used as the pre-hydration fallback.
+const buildMonth = new Date().getMonth() + 1; // 1–12
+
+// Single source of truth for chip styling — read back by the script so the
+// client-rendered chips match the server-rendered ones exactly.
+const chipClass =
+  "inline-flex items-center gap-1.5 rounded-full bg-leaf-100 px-3 py-1.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-200 dark:bg-leaf-800 dark:text-leaf-100 dark:hover:bg-leaf-700";
+---
+
+<!-- Active now -->
+<section
+  class="mb-8 rounded-2xl border border-leaf-200/80 bg-white p-5 dark:border-leaf-800/80 dark:bg-leaf-900"
+>
+  <h2 class="flex items-center gap-2 font-serif text-lg font-semibold">
+    <span
+      class="grid h-7 w-7 place-items-center rounded-full bg-leaf-100 text-leaf-600 dark:bg-leaf-800 dark:text-leaf-300"
+      aria-hidden="true"
+    >
+      <slot name="now-icon" />
+    </span>
+    {nowVerb} <span id="now-month" class="text-leaf-600 dark:text-leaf-400">now</span>
+  </h2>
+  <ul
+    id="now-list"
+    class="mt-3 flex flex-wrap gap-2"
+    data-build-month={buildMonth}
+    data-chip-class={chipClass}
+  >
+    {
+      sorted
+        .filter((r) => r.months.includes(buildMonth))
+        .map((r) => (
+          <li>
+            <a href={r.url} class={chipClass}>
+              <span class="h-2 w-2 rounded-full bg-leaf-500" aria-hidden="true" />
+              {r.name}
+            </a>
+          </li>
+        ))
+    }
+  </ul>
+  <p id="now-empty" class="mt-3 hidden text-sm text-leaf-600 dark:text-leaf-400">
+    {emptyMessage}
+  </p>
+</section>
+
+<!-- Timeline chart -->
+<section class="overflow-x-auto pb-2">
+  <div class="min-w-[720px]">
+    <!-- Month header -->
+    <div class="grid grid-cols-[11rem_repeat(12,1fr)] gap-px">
+      <div></div>
+      {
+        MONTHS.map((m, i) => (
+          <div
+            data-month={i + 1}
+            class="month-head rounded-t-md px-1 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400"
+          >
+            {m}
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Rows -->
+    <div class="divide-y divide-leaf-200/70 dark:divide-leaf-800/70">
+      {
+        sorted.map((row) => (
+          <div
+            class="timeline-row grid grid-cols-[11rem_repeat(12,1fr)] items-center gap-px py-1.5"
+            data-months={row.months.join(",")}
+            data-name={row.name}
+            data-url={row.url}
+          >
+            <a
+              href={row.url}
+              class="truncate pr-2 text-sm font-medium text-leaf-800 transition hover:text-leaf-950 dark:text-leaf-200 dark:hover:text-leaf-50"
+              title={row.name}
+            >
+              {row.name}
+            </a>
+            {MONTHS.map((_, i) => {
+              const month = i + 1;
+              const active = row.months.includes(month);
+              const isStart = active && !row.months.includes(month - 1);
+              const isEnd = active && !row.months.includes(month + 1);
+              const rounding = [
+                isStart ? "rounded-l-full" : "",
+                isEnd ? "rounded-r-full" : "",
+              ].join(" ");
+              return (
+                <div data-month={month} class="month-cell px-px py-0.5">
+                  <div class={`h-5 ${active ? `bg-leaf-400 dark:bg-leaf-500 ${rounding}` : ""}`} />
+                </div>
+              );
+            })}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* The current-month column is highlighted by the script below. */
+  .month-head.is-current {
+    color: var(--color-leaf-700);
+    background-color: color-mix(in oklab, var(--color-leaf-200) 70%, transparent);
+  }
+  :global(.dark) .month-head.is-current {
+    color: var(--color-leaf-100);
+    background-color: color-mix(in oklab, var(--color-leaf-700) 50%, transparent);
+  }
+  .month-cell.is-current {
+    background-color: color-mix(in oklab, var(--color-leaf-200) 55%, transparent);
+  }
+  :global(.dark) .month-cell.is-current {
+    background-color: color-mix(in oklab, var(--color-leaf-800) 60%, transparent);
+  }
+</style>
+
+<script>
+  const MONTH_NAMES = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+  ];
+
+  const now = new Date().getMonth() + 1; // 1–12
+
+  // Label: "in June"
+  const label = document.getElementById("now-month");
+  if (label) label.textContent = `in ${MONTH_NAMES[now - 1]}`;
+
+  // Highlight the current-month column (header + every cell).
+  document
+    .querySelectorAll(`[data-month="${now}"]`)
+    .forEach((el) => el.classList.add("is-current"));
+
+  const list = document.getElementById("now-list");
+  const empty = document.getElementById("now-empty");
+  const buildMonth = list ? Number(list.dataset.buildMonth) : now;
+  const chipClass = list?.dataset.chipClass ?? "";
+
+  // Build a chip safely via the DOM (no innerHTML / no string interpolation),
+  // so plant names can never be misread as markup.
+  function makeChip(name: string, url: string): HTMLLIElement {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = url;
+    a.className = chipClass;
+    const dot = document.createElement("span");
+    dot.className = "h-2 w-2 rounded-full bg-leaf-500";
+    dot.setAttribute("aria-hidden", "true");
+    a.append(dot, document.createTextNode(name));
+    li.append(a);
+    return li;
+  }
+
+  // Recompute the "now" list for the visitor's actual current month.
+  if (list && now !== buildMonth) {
+    const active: HTMLLIElement[] = [];
+    document.querySelectorAll<HTMLElement>(".timeline-row").forEach((row) => {
+      const months = (row.dataset.months || "")
+        .split(",")
+        .map(Number)
+        .filter(Boolean);
+      if (months.includes(now)) {
+        active.push(makeChip(row.dataset.name || "", row.dataset.url || "#"));
+      }
+    });
+    list.replaceChildren(...active);
+    if (empty) empty.classList.toggle("hidden", active.length > 0);
+  } else if (list && empty) {
+    empty.classList.toggle("hidden", list.children.length > 0);
+  }
+</script>

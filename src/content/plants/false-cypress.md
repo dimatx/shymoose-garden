@@ -22,7 +22,6 @@ tags:
   - "Drought tolerant"
   - "Slow growing"
   - "Year-round interest"
-order: 13
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/chamaecyparis-pisifera-golden-mop/"
 ---
 

@@ -23,7 +23,6 @@ tags:
   - "Hummingbird friendly"
   - "Heat tolerant"
   - "Drought tolerant"
-order: 11
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hibiscus-syriacus/"
 ---
 

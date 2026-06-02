@@ -23,7 +23,6 @@ tags:
   - "Shade garden"
   - "Poisonous"
   - "Deer & rabbit resistant"
-order: 3
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/helleborus-argutifolius/"
 ---
 

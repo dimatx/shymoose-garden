@@ -23,7 +23,6 @@ tags:
   - "Low maintenance"
   - "Rock garden"
   - "Deer & rabbit resistant"
-order: 6
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/veronica-spicata/"
 ---
 

@@ -17,7 +17,6 @@ tags:
   - "Cucumber"
   - "Japanese"
   - "Bitter-free"
-order: 15
 learnMoreUrl: "https://highdesertseed.com/product/shintokiwa-cucumber/"
 ---
 

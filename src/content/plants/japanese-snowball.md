@@ -23,7 +23,6 @@ tags:
   - "Pollinator friendly"
   - "Drought tolerant"
 featured: true
-order: 1
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/viburnum-plicatum/"
 ---
 

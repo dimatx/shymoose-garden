@@ -17,7 +17,6 @@ tags:
   - "Heirloom"
   - "Indeterminate"
   - "Organic"
-order: 19
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/tomatoes/heirloom-tomatoes/carbon-organic-tomato-seed-3763G.html"
 ---
 

@@ -17,7 +17,6 @@ tags:
   - "Cucumber"
   - "Heirloom"
   - "Organic"
-order: 16
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/cucumbers/specialty-cucumbers/suyo-long-organic-cucumber-seed-333G.html"
 ---
 

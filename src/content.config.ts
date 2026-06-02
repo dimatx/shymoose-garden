@@ -70,7 +70,6 @@ const plants = defineCollection({
       // Optional helpers
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
-      order: z.number().optional(), // Manual sort override (lower = earlier)
       learnMoreUrl: z.string().url().optional(),
     }),
 });

@@ -20,7 +20,6 @@ tags:
   - "Butterfly friendly"
   - "Container-suitable"
   - "Pollinator friendly"
-order: 5
 learnMoreUrl: "https://all-americaselections.org/product/penstemon-arabesque-red/"
 ---
 

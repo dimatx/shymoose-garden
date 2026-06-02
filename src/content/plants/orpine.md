@@ -23,7 +23,6 @@ tags:
   - "Drought tolerant"
   - "Nectar plant"
   - "Rock garden"
-order: 9
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hylotelephium-telephium/"
 ---
 

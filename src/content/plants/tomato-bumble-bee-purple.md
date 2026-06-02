@@ -17,7 +17,6 @@ tags:
   - "Cherry Tomato"
   - "Indeterminate"
   - "Organic"
-order: 18
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/tomatoes/specialty-tomatoes/purple-bumble-bee-organic-tomato-seed-3521G.html"
 ---
 

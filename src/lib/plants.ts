@@ -20,13 +20,9 @@ export function plantUrl(plant: Plant): string {
 }
 
 /**
- * Stable display order: plants with a manual `order` come first (lowest
- * number wins), then everything else alphabetically by name.
+ * Stable display order: alphabetical by common name.
  */
 export function comparePlants(a: Plant, b: Plant): number {
-  const orderA = a.data.order ?? Number.POSITIVE_INFINITY;
-  const orderB = b.data.order ?? Number.POSITIVE_INFINITY;
-  if (orderA !== orderB) return orderA - orderB;
   return a.data.name.localeCompare(b.data.name);
 }
 

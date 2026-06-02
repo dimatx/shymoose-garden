@@ -19,7 +19,6 @@ tags:
   - "Heirloom"
   - "Sauce"
   - "Full sun"
-order: 20
 learnMoreUrl: "https://anniesheirloomseeds.com/products/ukrainian-purple-tomato-solanum-lycopersicum"
 ---
 

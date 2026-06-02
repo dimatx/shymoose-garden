@@ -23,7 +23,6 @@ tags:
   - "Fragrant flowers"
   - "Deer resistant"
   - "Specimen"
-order: 23
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/pieris-japonica/"
 ---
 

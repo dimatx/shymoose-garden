@@ -23,7 +23,6 @@ tags:
   - "Pollinator friendly"
   - "Fast growing"
   - "Deer resistant"
-order: 7
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/physostegia-virginiana/"
 ---
 

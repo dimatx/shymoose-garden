@@ -17,7 +17,6 @@ tags:
   - "Cherry Tomato"
   - "Indeterminate"
   - "Organic"
-order: 17
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/tomatoes/specialty-tomatoes/sunrise-bumble-bee-organic-tomato-seed-3112G.html"
 ---
 

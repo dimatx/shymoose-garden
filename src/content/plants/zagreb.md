@@ -23,7 +23,6 @@ tags:
   - "Drought tolerant"
   - "Deer & rabbit resistant"
 featured: true
-order: 2
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/anacis-verticillata/"
 ---
 

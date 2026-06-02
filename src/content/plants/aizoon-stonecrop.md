@@ -22,7 +22,6 @@ tags:
   - "Edible"
   - "Cottage garden"
   - "Pollinator friendly"
-order: 8
 learnMoreUrl: "https://worldofsucculents.com/phedimus-aizoon-aizoon-stonecrop/"
 ---
 

@@ -22,7 +22,6 @@ tags:
   - "Low maintenance"
   - "Rain garden"
   - "Pollinator friendly"
-order: 21
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/polygonatum-biflorum-var-commutatum/"
 ---
 

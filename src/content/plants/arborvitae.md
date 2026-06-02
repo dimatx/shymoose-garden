@@ -21,7 +21,6 @@ tags:
   - "Low maintenance"
   - "Specimen"
   - "Native tree"
-order: 12
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/thuja-occidentalis/"
 ---
 

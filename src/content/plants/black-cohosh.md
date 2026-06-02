@@ -23,7 +23,6 @@ tags:
   - "Pollinator friendly"
   - "Deer resistant"
   - "Low maintenance"
-order: 22
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/actaea-racemosa/"
 ---
 

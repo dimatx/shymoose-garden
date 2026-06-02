@@ -18,7 +18,6 @@ tags:
   - "Cucumber"
   - "Hybrid (F1)"
   - "Seedless"
-order: 14
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/cucumbers/seedless-and-thin-skinned-cucumbers/unagi-f1-cucumber-seed-4552.html"
 ---
 

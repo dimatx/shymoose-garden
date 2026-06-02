@@ -42,7 +42,7 @@ public/_headers        Security + caching headers for Cloudflare Pages.
 The two pieces of shared logic worth knowing:
 
 - **[`src/lib/plants.ts`](src/lib/plants.ts)** is the single place that reads the
-  plant collection. `getSortedPlants()` (home order), `getTimelineRows()` (bloom
+  plant collection. `getSortedPlants()` (alphabetical home order), `getTimelineRows()` (bloom
   and pruning charts), and `plantUrl()` all live here, so the rules stay
   consistent across every page.
 - **[`src/components/Icon.astro`](src/components/Icon.astro)** holds every SVG
@@ -78,7 +78,6 @@ This is the part you'll do most. No coding required.
      size: "..." # optional
      bloom: "..." # optional
    tags: ["Perennial", "Fragrant"] # optional pills
-   order: 2 # optional — lower numbers sort first
    learnMoreUrl: "https://..." # optional "Learn more" button
    ---
    ```

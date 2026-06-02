@@ -23,7 +23,6 @@ tags:
   - "Fall flowers"
   - "Low maintenance"
   - "Salt tolerant"
-order: 10
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hylotelephium-spectabile/"
 ---
 

@@ -22,7 +22,6 @@ tags:
   - "Pollinator plant"
   - "Butterfly friendly"
   - "Deer & rabbit resistant"
-order: 4
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/calendula-officinalis/"
 ---
 

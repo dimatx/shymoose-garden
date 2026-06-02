@@ -2,8 +2,8 @@
 name: "Ukrainian Purple Tomato"
 latinName: "Solanum lycopersicum 'Ukrainian Purple'"
 photo: "../../assets/plants/tomato-ukrainian-purple.jpg"
-photoAlt: "Cluster of purply-black plum-shaped tomatoes on the vine."
-photoCredit: "Fusion power, CC0, via Wikimedia Commons"
+photoAlt: "Fruit developing on a tomato plant, with green tomatoes and flowers on the vine (representative photo)."
+photoCredit: "Karelj, Public domain, via Wikimedia Commons — representative tomato, not the Ukrainian Purple variety"
 shortDescription: "A sweet, savory heirloom plum tomato in purply-black, with meaty, crack-resistant fruit that's excellent for sauce."
 care:
   water: "Keep the soil consistently moist."

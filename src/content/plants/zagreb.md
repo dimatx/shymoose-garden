@@ -2,8 +2,7 @@
 name: "Zagreb Tickseed"
 latinName: "Coreopsis verticillata 'Zagreb'"
 photo: "../../assets/plants/zagreb.jpg"
-photoAlt: "A full mound of threadleaf tickseed with airy green foliage covered in small golden-yellow daisy-like flowers."
-photoCredit: "Johann Jaritz, CC BY-SA 4.0, via Wikimedia Commons"
+photoAlt: "A wide bed of threadleaf tickseed covered in masses of small golden-yellow daisy-like flowers above airy green foliage."
 shortDescription: "A compact threadleaf tickseed that forms airy mounds of fine foliage topped with cheerful gold, daisy-like flowers all summer."
 care:
   water: "Low — drought tolerant once established. Rich or overly moist soil makes the stems floppy."

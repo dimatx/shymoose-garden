@@ -2,8 +2,8 @@
 name: "Carbon Tomato"
 latinName: "Solanum lycopersicum 'Carbon'"
 photo: "../../assets/plants/tomato-carbon.jpg"
-photoAlt: "A large, dark brick-red beefsteak tomato with dusky olive-green shoulders, cut open to show meaty flesh."
-photoCredit: "Johnh, CC BY-SA 3.0, via Wikimedia Commons"
+photoAlt: "Tomatoes ripening on the vine on a leafy plant (representative photo)."
+photoCredit: "Madmad1234, CC BY-SA 4.0, via Wikimedia Commons — representative tomato, not the Carbon variety"
 shortDescription: "A richly flavored black heirloom beefsteak with meaty texture and dark, olive-shouldered fruit that resists cracking."
 care:
   size: "Indeterminate, with a well-balanced habit."

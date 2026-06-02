@@ -27,3 +27,6 @@ Thumbs.db
 
 # Cloudflare
 .wrangler/
+
+# Imported plant drafts (scaffolded by `npm run import:plants`, not published)
+drafts/

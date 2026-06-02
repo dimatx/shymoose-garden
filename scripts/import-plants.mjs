@@ -1,0 +1,341 @@
+#!/usr/bin/env node
+// @ts-check
+/**
+ * Dev-only helper: pull NEW plants from the ShyMoose Google Sheet and scaffold
+ * draft Markdown files for them. This is a one-way, manual import — the live
+ * site has no knowledge of Google Sheets and never fetches anything at runtime.
+ *
+ * Workflow:
+ *   1. npm run import:plants
+ *   2. Review the draft files written to drafts/plants/.
+ *   3. For each draft you want to keep: drop a photo into src/assets/plants/,
+ *      fill in the TODO fields, then move the .md into src/content/plants/.
+ *   4. Commit as usual.
+ *
+ * Matching: a sheet row is considered "already in the repo" when its Full link
+ * (learnMoreUrl) OR its normalized Latin name matches an existing plant file.
+ * Only unmatched rows are scaffolded, so re-running is safe and idempotent.
+ *
+ * The sheet CSV URL can be overridden with the PLANTS_SHEET_CSV_URL env var.
+ */
+
+import { readFile, readdir, writeFile, mkdir } from "node:fs/promises";
+import { existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join, resolve } from "node:path";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const repoRoot = resolve(__dirname, "..");
+const contentDir = join(repoRoot, "src", "content", "plants");
+const draftsDir = join(repoRoot, "drafts", "plants");
+
+const DEFAULT_CSV_URL =
+  "https://docs.google.com/spreadsheets/d/e/2PACX-1vT1mU2VdnLunob65Z_r61Y-F6r0A0FLnEFJL6QsOTA8swAPPqA915IbVMIReSU7L6xG4z3Q2YZFHmMC/pub?gid=0&single=true&output=csv";
+
+const CSV_URL = process.env.PLANTS_SHEET_CSV_URL || DEFAULT_CSV_URL;
+
+/** Column headers we care about, as they appear in the sheet. */
+const COL = {
+  qrLink: "QR link",
+  commonName: "Common name",
+  latinName: "Latin name",
+  fullLink: "Full link",
+  filename: "Filename",
+};
+
+main().catch((err) => {
+  console.error("\n✗ import-plants failed:", err?.message ?? err);
+  process.exitCode = 1;
+});
+
+async function main() {
+  console.log(`Fetching sheet…\n  ${CSV_URL}\n`);
+  const csv = await fetchCsv(CSV_URL);
+  const rows = parseCsv(csv);
+  if (rows.length === 0) throw new Error("Sheet appears to be empty.");
+
+  const header = rows[0];
+  const idx = indexHeader(header);
+  const records = rows
+    .slice(1)
+    .map((cells) => rowToRecord(cells, idx))
+    // A usable plant needs BOTH a common name and a Latin name. The Latin name
+    // is the stable identifier used for matching; the common name drives the
+    // slug and display, so we skip rows missing either.
+    .filter((r) => r.commonName && r.latinName);
+
+  const existing = await loadExistingPlants();
+
+  /** @type {ReturnType<typeof rowToRecord>[]} */
+  const newPlants = [];
+  for (const rec of records) {
+    if (isKnown(rec, existing)) continue;
+    newPlants.push(rec);
+  }
+
+  console.log(
+    `Sheet rows with both names:   ${records.length}` +
+      `\nAlready in repo:               ${records.length - newPlants.length}` +
+      `\nNew to scaffold:              ${newPlants.length}\n`
+  );
+
+  if (newPlants.length === 0) {
+    console.log("Nothing new — the repo is up to date with the sheet. ✓");
+    return;
+  }
+
+  await mkdir(draftsDir, { recursive: true });
+
+  const usedSlugs = new Set(existing.map((p) => p.slug));
+  const written = [];
+  for (const rec of newPlants) {
+    const slug = uniqueSlug(rec, usedSlugs);
+    usedSlugs.add(slug);
+    const file = join(draftsDir, `${slug}.md`);
+    if (existsSync(file)) {
+      console.log(`  • skip (draft already exists): drafts/plants/${slug}.md`);
+      continue;
+    }
+    await writeFile(file, renderDraft(rec, slug), "utf8");
+    written.push({ slug, rec });
+    console.log(
+      `  + drafts/plants/${slug}.md  ←  ${rec.commonName || rec.latinName}`
+    );
+  }
+
+  if (written.length > 0) {
+    console.log(
+      `\nWrote ${written.length} draft(s) to drafts/plants/.` +
+        `\nFinish each one (add a photo to src/assets/plants/, fill the TODOs),` +
+        `\nthen move it into src/content/plants/ to publish it.`
+    );
+  }
+}
+
+/* --------------------------------- fetch --------------------------------- */
+
+async function fetchCsv(url) {
+  const res = await fetch(url, { redirect: "follow" });
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status} ${res.statusText} fetching the sheet.`);
+  }
+  return await res.text(); // fetch decodes as UTF-8 → ®, ™ come through clean
+}
+
+/* ---------------------------- CSV parsing -------------------------------- */
+
+/**
+ * Minimal RFC-4180 CSV parser: handles quoted fields, escaped quotes (""),
+ * and commas/newlines inside quotes. Returns an array of string[] rows.
+ * @param {string} text
+ * @returns {string[][]}
+ */
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let inQuotes = false;
+  // Normalize newlines so \r\n and \r both behave.
+  const s = text.replace(/\r\n?/g, "\n");
+
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (inQuotes) {
+      if (c === '"') {
+        if (s[i + 1] === '"') {
+          field += '"';
+          i++;
+        } else {
+          inQuotes = false;
+        }
+      } else {
+        field += c;
+      }
+    } else if (c === '"') {
+      inQuotes = true;
+    } else if (c === ",") {
+      row.push(field);
+      field = "";
+    } else if (c === "\n") {
+      row.push(field);
+      rows.push(row);
+      row = [];
+      field = "";
+    } else {
+      field += c;
+    }
+  }
+  // Flush the final field/row if the file didn't end with a newline.
+  if (field.length > 0 || row.length > 0) {
+    row.push(field);
+    rows.push(row);
+  }
+
+  // Drop entirely blank rows (the sheet has trailing empty ones).
+  return rows.filter((r) => r.some((cell) => cell.trim() !== ""));
+}
+
+/** Map known column names to their position in the header row. */
+function indexHeader(header) {
+  const find = (label) =>
+    header.findIndex((h) => h.trim().toLowerCase() === label.toLowerCase());
+  return {
+    qrLink: find(COL.qrLink),
+    commonName: find(COL.commonName),
+    latinName: find(COL.latinName),
+    fullLink: find(COL.fullLink),
+    filename: find(COL.filename),
+  };
+}
+
+function rowToRecord(cells, idx) {
+  const at = (i) => (i >= 0 && i < cells.length ? cells[i].trim() : "");
+  return {
+    qrLink: at(idx.qrLink),
+    commonName: at(idx.commonName),
+    latinName: at(idx.latinName),
+    fullLink: at(idx.fullLink),
+    filename: at(idx.filename),
+  };
+}
+
+/* ----------------------- existing-plant matching ------------------------- */
+
+async function loadExistingPlants() {
+  let files = [];
+  try {
+    files = (await readdir(contentDir)).filter((f) => f.endsWith(".md"));
+  } catch {
+    return [];
+  }
+  const plants = [];
+  for (const file of files) {
+    const text = await readFile(join(contentDir, file), "utf8");
+    const fm = frontmatter(text);
+    plants.push({
+      slug: file.replace(/\.md$/, ""),
+      latinKey: normalizeLatin(fm.latinName ?? ""),
+      urlKey: normalizeUrl(fm.learnMoreUrl ?? ""),
+    });
+  }
+  return plants;
+}
+
+/** Pull a few scalar frontmatter values without a YAML dependency. */
+function frontmatter(text) {
+  const normalized = text.replace(/\r\n?/g, "\n");
+  const m = normalized.match(/^---\n([\s\S]*?)\n---/);
+  const out = {};
+  if (!m) return out;
+  for (const line of m[1].split("\n")) {
+    const fm = line.match(/^([A-Za-z][A-Za-z0-9]*):\s*(.*)$/);
+    if (!fm) continue; // ignore nested/indented lines like care: fields
+    let val = fm[2].trim();
+    if (
+      (val.startsWith('"') && val.endsWith('"')) ||
+      (val.startsWith("'") && val.endsWith("'"))
+    ) {
+      val = val.slice(1, -1);
+    }
+    out[fm[1]] = val;
+  }
+  return out;
+}
+
+function isKnown(rec, existing) {
+  const url = normalizeUrl(rec.fullLink);
+  const latin = normalizeLatin(rec.latinName);
+  return existing.some(
+    (p) =>
+      (url && p.urlKey && p.urlKey === url) ||
+      (latin && p.latinKey && p.latinKey === latin)
+  );
+}
+
+function normalizeUrl(url) {
+  if (!url) return "";
+  return url
+    .trim()
+    .toLowerCase()
+    .replace(/^https?:\/\//, "")
+    .replace(/^www\./, "")
+    .replace(/\/+$/, "");
+}
+
+/** Strip cultivar, trademark marks, and punctuation so names compare cleanly. */
+function normalizeLatin(name) {
+  return name
+    .toLowerCase()
+    .replace(/['’"][^'’"]*['’"]/g, " ") // drop 'Cultivar' in quotes
+    .replace(/[®™©]/g, " ")
+    .replace(/\bvar\.?\b/g, " ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ");
+}
+
+/* ------------------------------ scaffolding ------------------------------ */
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/['’]/g, "") // Solomon's → solomons
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function uniqueSlug(rec, used) {
+  // Prefer the common name; fall back to the Latin name (cultivar stripped).
+  const base =
+    slugify(rec.commonName) ||
+    slugify(rec.latinName.replace(/['’"][^'’"]*['’"]/g, "")) ||
+    "plant";
+  let slug = base;
+  let n = 2;
+  while (used.has(slug)) slug = `${base}-${n++}`;
+  return slug;
+}
+
+/** Render a draft Markdown file matching the content collection schema. */
+function renderDraft(rec, slug) {
+  const learnMore = rec.fullLink
+    ? `learnMoreUrl: ${JSON.stringify(rec.fullLink)}\n`
+    : "";
+  const refLines = [
+    `# Imported from the garden sheet — finish the TODOs, add a photo, then`,
+    `# move this file into src/content/plants/ to publish it.`,
+    rec.qrLink ? `# QR link: ${rec.qrLink}` : null,
+    rec.filename ? `# Model file: ${rec.filename}` : null,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  return `---
+${refLines}
+name: ${JSON.stringify(rec.commonName || "TODO common name")}
+latinName: ${JSON.stringify(rec.latinName)}
+type: "TODO" # e.g. Perennial, Annual, Shrub, Vegetable, Succulent
+nativeRange: "TODO"
+photo: "../../assets/plants/${slug}.jpg" # TODO: add this image to src/assets/plants/
+photoAlt: "TODO"
+photoCredit: "TODO"
+shortDescription: "TODO"
+care:
+  water: "TODO"
+  soil: "TODO"
+  sunlight: "TODO"
+  hardiness: "TODO"
+  size: "TODO"
+  bloom: "TODO"
+  pruning: "TODO"
+bloomMonths: [] # months 1–12 the plant is in flower; omit for non-flowering
+pruneMonths: [] # months 1–12 for main pruning; omit if not applicable
+tags: []
+featured: false
+${learnMore}---
+
+TODO: write the longer "keep reading" description for ${
+    rec.commonName || rec.latinName
+  } here.
+`;
+}

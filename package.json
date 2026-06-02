@@ -9,7 +9,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "import:plants": "node scripts/import-plants.mjs"
   },
   "engines": {
     "node": ">=22.0.0 <23"

@@ -1,0 +1,20 @@
+{
+  "name": "shymoose-garden",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A plant catalog for the ShyMoose garden — scan a QR code by a plant to learn about it.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "astro": "^5.14.1",
+    "sharp": "^0.34.2",
+    "tailwindcss": "^4.1.13"
+  }
+}

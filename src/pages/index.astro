@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import PlantCard from "../components/PlantCard.astro";
+
+const plants = (await getCollection("plants")).sort((a, b) => {
+  const orderA = a.data.order ?? Number.POSITIVE_INFINITY;
+  const orderB = b.data.order ?? Number.POSITIVE_INFINITY;
+  if (orderA !== orderB) return orderA - orderB;
+  return a.data.name.localeCompare(b.data.name);
+});
+---
+
+<Layout title="ShyMoose Garden">
+  <section class="mb-8">
+    <h1 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+      The Garden
+    </h1>
+    <p class="mt-2 max-w-prose text-leaf-700 dark:text-leaf-300">
+      Welcome! Tap any plant to learn its name, story, and how it likes to be
+      cared for. Scan a QR code out in the garden to jump straight to a plant.
+    </p>
+  </section>
+
+  {
+    plants.length === 0 ? (
+      <p class="rounded-2xl border border-dashed border-leaf-300 p-8 text-center text-leaf-600 dark:border-leaf-700 dark:text-leaf-400">
+        No plants yet — add your first one in <code>src/content/plants/</code>.
+      </p>
+    ) : (
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {plants.map((plant) => (
+          <PlantCard plant={plant} />
+        ))}
+      </div>
+    )
+  }
+</Layout>

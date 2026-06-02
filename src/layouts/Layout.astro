@@ -1,0 +1,102 @@
+---
+import "../styles/global.css";
+import ThemeToggle from "../components/ThemeToggle.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = "A living catalog of the plants in the ShyMoose garden. Scan, learn, grow.",
+  image,
+} = Astro.props;
+
+const siteName = "ShyMoose Garden";
+const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#27592c" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d2010" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {image && <meta property="og:image" content={new URL(image, Astro.site)} />}
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Set theme before paint to avoid a flash of the wrong theme. -->
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body
+    class="min-h-full bg-leaf-50 font-sans text-leaf-950 antialiased transition-colors dark:bg-leaf-950 dark:text-leaf-50"
+  >
+    <header
+      class="sticky top-0 z-40 border-b border-leaf-200/70 bg-leaf-50/80 backdrop-blur-md dark:border-leaf-800/70 dark:bg-leaf-950/80"
+    >
+      <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+        <a
+          href="/"
+          class="group flex items-center gap-2 font-serif text-lg font-semibold tracking-tight"
+        >
+          <span
+            class="grid h-9 w-9 place-items-center rounded-full bg-leaf-600 text-leaf-50 shadow-sm transition-transform group-hover:scale-105 dark:bg-leaf-500"
+            aria-hidden="true"
+          >
+            <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21c0-5 0-8 0-11" />
+              <path d="M12 13c-3.5 0-6-2.2-6-6 3.6 0 6 2.2 6 6Z" />
+              <path d="M12 10c.2-3.2 2.5-5.5 6-5.5-.2 3.2-2.5 5.5-6 5.5Z" />
+            </svg>
+          </span>
+          <span>ShyMoose Garden</span>
+        </a>
+        <ThemeToggle />
+      </div>
+    </header>
+
+    <main class="mx-auto w-full max-w-3xl px-4 pb-20 pt-6 sm:px-6">
+      <slot />
+    </main>
+
+    <footer
+      class="mx-auto max-w-3xl px-4 pb-10 text-center text-sm text-leaf-600 dark:text-leaf-400 sm:px-6"
+    >
+      <p>🌿 Grown with care in the ShyMoose garden.</p>
+    </footer>
+  </body>
+</html>

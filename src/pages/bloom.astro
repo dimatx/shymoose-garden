@@ -1,16 +1,11 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import MonthTimeline from "../components/MonthTimeline.astro";
+import Icon from "../components/Icon.astro";
+import { getTimelineRows } from "../lib/plants";
 
 // Only plants with a real floral display appear on the timeline.
-const rows = (await getCollection("plants"))
-  .filter((p) => p.data.bloomMonths.length > 0)
-  .map((p) => ({
-    name: p.data.name,
-    url: `/plants/${p.id}/`,
-    months: p.data.bloomMonths,
-  }));
+const rows = await getTimelineRows("bloomMonths");
 ---
 
 <Layout
@@ -22,9 +17,7 @@ const rows = (await getCollection("plants"))
       href="/"
       class="mb-5 inline-flex items-center gap-1.5 text-sm font-medium text-leaf-600 transition hover:text-leaf-800 dark:text-leaf-400 dark:hover:text-leaf-200"
     >
-      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M15 18l-6-6 6-6" />
-      </svg>
+      <Icon name="chevron-left" class="h-4 w-4" strokeWidth={2} />
       All plants
     </a>
     <h1 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
@@ -41,10 +34,7 @@ const rows = (await getCollection("plants"))
     nowVerb="Blooming"
     emptyMessage="Nothing is flowering this month — check back as the season turns."
   >
-    <svg slot="now-icon" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3 2" />
-    </svg>
+    <Icon slot="now-icon" name="clock" class="h-4 w-4" />
   </MonthTimeline>
 
   <p class="mt-6 text-xs text-leaf-500 dark:text-leaf-400">

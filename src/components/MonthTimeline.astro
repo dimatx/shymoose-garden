@@ -9,11 +9,7 @@
  * The current month is recomputed in the browser so the page stays correct
  * between rebuilds (a build in May still shows the right thing in June).
  */
-export interface TimelineRow {
-  name: string;
-  url: string;
-  months: number[]; // 1–12
-}
+import type { TimelineRow } from "../lib/plants";
 
 interface Props {
   rows: TimelineRow[];
@@ -90,7 +86,15 @@ const chipClass =
 
 <!-- Timeline chart -->
 <section class="overflow-x-auto pb-2">
-  <div class="min-w-[720px]">
+  <div class="relative min-w-[720px]">
+    <!-- "Today" indicator line, positioned by the script below. -->
+    <div
+      id="now-line"
+      class="now-line pointer-events-none absolute bottom-0 top-0 z-10 hidden w-px"
+      aria-hidden="true"
+    >
+      <span class="now-line-dot"></span>
+    </div>
     <!-- Month header -->
     <div class="grid grid-cols-[11rem_repeat(12,1fr)] gap-px">
       <div></div>
@@ -161,6 +165,30 @@ const chipClass =
   :global(.dark) .month-cell.is-current {
     background-color: color-mix(in oklab, var(--color-leaf-800) 60%, transparent);
   }
+
+  /* A slim vertical line marking the exact spot in the year we're at today.
+     Positioned via --now-pos (0–1 across the 12 month columns), set by the
+     script. The 11rem offset accounts for the row-label column. */
+  .now-line {
+    left: calc(11rem + (100% - 11rem) * var(--now-pos, 0));
+    background-color: color-mix(in oklab, var(--color-leaf-500) 80%, transparent);
+  }
+  :global(.dark) .now-line {
+    background-color: color-mix(in oklab, var(--color-leaf-300) 70%, transparent);
+  }
+  .now-line-dot {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 0.4rem;
+    width: 0.4rem;
+    transform: translate(-50%, -50%);
+    border-radius: 9999px;
+    background-color: var(--color-leaf-500);
+  }
+  :global(.dark) .now-line-dot {
+    background-color: var(--color-leaf-300);
+  }
 </style>
 
 <script>
@@ -179,6 +207,23 @@ const chipClass =
   document
     .querySelectorAll(`[data-month="${now}"]`)
     .forEach((el) => el.classList.add("is-current"));
+
+  // Position the "today" line at the exact point in the year, accounting for
+  // the day within the current month so it drifts across the column as the
+  // month progresses.
+  const today = new Date();
+  const daysInMonth = new Date(
+    today.getFullYear(),
+    today.getMonth() + 1,
+    0,
+  ).getDate();
+  const monthFraction = (today.getDate() - 0.5) / daysInMonth;
+  const nowPos = (now - 1 + monthFraction) / 12;
+  const nowLine = document.getElementById("now-line");
+  if (nowLine) {
+    nowLine.style.setProperty("--now-pos", String(nowPos));
+    nowLine.classList.remove("hidden");
+  }
 
   const list = document.getElementById("now-list");
   const empty = document.getElementById("now-empty");

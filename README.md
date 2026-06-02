@@ -15,6 +15,40 @@ a QR code next to a plant in the garden and it opens that plant's page on
 - **Light / dark mode** — follows the device setting, with a manual toggle.
 - **[Cloudflare Pages](https://pages.cloudflare.com)** — hosting + custom domain.
 
+## Project structure
+
+```
+src/
+  content/plants/      One Markdown file per plant (the data you edit most).
+  content.config.ts    The plant schema — what fields a plant file can have.
+  assets/plants/       Plant photos, optimized at build time.
+  lib/plants.ts        Shared data helpers: sorting, page URLs, timeline rows.
+  components/
+    Icon.astro         Central registry of every inline SVG icon.
+    PlantCard.astro    A plant tile on the home grid.
+    MonthTimeline.astro 12-month chart shared by Bloom and Pruning.
+    ThemeToggle.astro  Light/dark switch.
+  layouts/Layout.astro Page shell: <head>, header nav, footer, theme script.
+  pages/
+    index.astro        Home grid + search/filter bar.
+    plants/[slug].astro A single plant page (one per Markdown file).
+    bloom.astro         Bloom timeline.
+    pruning.astro       Pruning calendar.
+    404.astro
+  styles/global.css    Theme tokens (the leaf color palette) and base styles.
+public/_headers        Security + caching headers for Cloudflare Pages.
+```
+
+The two pieces of shared logic worth knowing:
+
+- **[`src/lib/plants.ts`](src/lib/plants.ts)** is the single place that reads the
+  plant collection. `getSortedPlants()` (home order), `getTimelineRows()` (bloom
+  and pruning charts), and `plantUrl()` all live here, so the rules stay
+  consistent across every page.
+- **[`src/components/Icon.astro`](src/components/Icon.astro)** holds every SVG
+  icon in one labeled map. Use one anywhere with `<Icon name="leaf" />`; add a
+  new icon by adding a single entry to that file.
+
 ## Add or edit a plant
 
 This is the part you'll do most. No coding required.
@@ -74,7 +108,9 @@ The home page has a filter bar so visitors can narrow the catalog down:
 To make a characteristic filterable, add the matching tag to a plant's `tags`
 list. The curated trait list lives in
 [`src/pages/index.astro`](src/pages/index.astro) (the `traitCandidates` array)
-if you want to add or reorder the trait buttons.
+if you want to add or reorder the trait buttons. The filtering itself runs in a
+small no-framework script at the bottom of that same file, so the catalog still
+works with JavaScript disabled (every plant just stays visible).
 
 ## Run it locally
 

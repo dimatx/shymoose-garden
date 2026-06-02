@@ -1,14 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import PlantCard from "../components/PlantCard.astro";
+import Icon from "../components/Icon.astro";
+import { getSortedPlants } from "../lib/plants";
 
-const plants = (await getCollection("plants")).sort((a, b) => {
-  const orderA = a.data.order ?? Number.POSITIVE_INFINITY;
-  const orderB = b.data.order ?? Number.POSITIVE_INFINITY;
-  if (orderA !== orderB) return orderA - orderB;
-  return a.data.name.localeCompare(b.data.name);
-});
+const plants = await getSortedPlants();
 
 // Plant-type filters are built straight from the data, so adding a new `type`
 // to a plant automatically gives it a filter button — no code changes needed.
@@ -47,10 +43,11 @@ const hasFilters = types.length > 0 || traits.length > 0;
   <div class="mb-4">
     <label class="relative block">
       <span class="sr-only">Search plants by name</span>
-      <svg class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-leaf-500 dark:text-leaf-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="7" />
-        <path d="m21 21-4.3-4.3" />
-      </svg>
+      <Icon
+        name="search"
+        strokeWidth={2}
+        class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-leaf-500 dark:text-leaf-400"
+      />
       <input
         type="search"
         id="plant-search"
@@ -67,14 +64,10 @@ const hasFilters = types.length > 0 || traits.length > 0;
         {types.length > 0 && (
           <details class="filter-dd relative">
             <summary class="filter-trigger">
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 3.5 7.5C9.5 18 10 20 12 22c2-2 2.5-4 3.5-5.5C17 14 19 12 19 9a7 7 0 0 0-7-7Z" />
-              </svg>
+              <Icon name="filter-type" class="h-4 w-4" />
               Type
               <span class="filter-badge hidden">0</span>
-              <svg class="filter-caret h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
+              <Icon name="chevron-down" strokeWidth={2} class="filter-caret h-3.5 w-3.5" />
             </summary>
             <div class="filter-panel" aria-label="Filter by type">
               {types.map((type) => (
@@ -95,15 +88,10 @@ const hasFilters = types.length > 0 || traits.length > 0;
         {traits.length > 0 && (
           <details class="filter-dd relative">
             <summary class="filter-trigger">
-              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M20.59 13.41 13.42 20.6a2 2 0 0 1-2.83 0L3 13V3h10l7.59 7.59a2 2 0 0 1 0 2.82Z" />
-                <circle cx="7.5" cy="7.5" r="1.5" />
-              </svg>
+              <Icon name="tag" class="h-4 w-4" />
               Traits
               <span class="filter-badge hidden">0</span>
-              <svg class="filter-caret h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
+              <Icon name="chevron-down" strokeWidth={2} class="filter-caret h-3.5 w-3.5" />
             </summary>
             <div class="filter-panel" aria-label="Filter by trait">
               {traits.map((trait) => (

@@ -1,6 +1,7 @@
 ---
 name: "Orpine"
 latinName: "Hylotelephium telephium"
+type: "Succulent"
 photo: "../../assets/plants/orpine.jpg"
 photoAlt: "A full clump of upright orpine stems with fleshy green leaves in a garden bed."
 photoCredit: "Bff, CC BY-SA 4.0, via Wikimedia Commons"

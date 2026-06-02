@@ -1,6 +1,7 @@
 ---
 name: "Black Cohosh"
 latinName: "Actaea racemosa"
+type: "Perennial"
 photo: "../../assets/plants/black-cohosh.jpg"
 photoAlt: "Tall, slender spires of fluffy creamy-white black cohosh flowers rising against a blue sky."
 photoCredit: "H. Zell, CC BY-SA 3.0, via Wikimedia Commons"

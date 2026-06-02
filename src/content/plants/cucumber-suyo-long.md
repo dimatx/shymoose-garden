@@ -1,6 +1,7 @@
 ---
 name: "Suyo Long Cucumber"
 latinName: "Cucumis sativus 'Suyo Long'"
+type: "Vegetable"
 photo: "../../assets/plants/cucumber-suyo-long.jpg"
 photoAlt: "A green cucumber growing on a vine trained up a wooden trellis."
 photoCredit: "NPS, Public domain, via Wikimedia Commons"

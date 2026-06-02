@@ -1,6 +1,7 @@
 ---
 name: "Giant Solomon's Seal"
 latinName: "Polygonatum biflorum var. commutatum"
+type: "Perennial"
 photo: "../../assets/plants/giant-solomons-seal.jpg"
 photoAlt: "Arching green stems of giant Solomon's seal lined with broad leaves and dangling white bell-shaped flowers."
 photoCredit: "Kurt Stüber, CC BY-SA 3.0, via Wikimedia Commons"

@@ -1,6 +1,7 @@
 ---
 name: "Shintokiwa Cucumber"
 latinName: "Cucumis sativus 'Shintokiwa'"
+type: "Vegetable"
 photo: "../../assets/plants/cucumber-shintokiwa.jpg"
 photoAlt: "A sprawling cucumber plant in a garden bed with a long, slender green cucumber on the vine."
 photoCredit: "Forest and Kim Starr, CC BY 3.0, via Wikimedia Commons"

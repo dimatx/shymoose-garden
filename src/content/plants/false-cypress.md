@@ -1,6 +1,7 @@
 ---
 name: "Golden Mop False Cypress"
 latinName: "Chamaecyparis pisifera 'Golden Mop'"
+type: "Shrub"
 photo: "../../assets/plants/false-cypress.jpg"
 photoAlt: "A whole mounded dwarf false cypress shrub with bright golden, thread-like weeping foliage."
 photoCredit: "Chris.urs-o, CC BY-SA 3.0, via Wikimedia Commons"

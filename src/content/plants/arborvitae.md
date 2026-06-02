@@ -1,6 +1,7 @@
 ---
 name: "Emerald Arborvitae"
 latinName: "Thuja occidentalis 'Emerald'"
+type: "Shrub"
 photo: "../../assets/plants/arborvitae.jpg"
 photoAlt: "A tall, dense, conical emerald arborvitae growing in a park."
 photoCredit: "Harvey Stillnot, CC BY-SA 4.0, via Wikimedia Commons"

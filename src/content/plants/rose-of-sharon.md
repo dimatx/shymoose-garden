@@ -1,6 +1,7 @@
 ---
 name: "Rose of Sharon"
 latinName: "Hibiscus syriacus 'Notwoodthree'"
+type: "Shrub"
 photo: "../../assets/plants/rose-of-sharon.jpg"
 photoAlt: "A leafy rose of Sharon shrub in a garden covered with blue-lavender flowers."
 photoCredit: "Martin1009, CC BY-SA 3.0, via Wikimedia Commons"

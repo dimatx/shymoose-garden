@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
+/* Self-hosted fonts (served from our own origin on Cloudflare with immutable
+   caching), so there's no render-blocking request to fonts.googleapis.com and
+   no cross-origin font-download chain. Only the Latin subset the browser needs
+   is fetched, thanks to the unicode-range rules these packages ship with. */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/fraunces";
+
 /* Enable class-based dark mode (toggled on <html class="dark">). */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* Garden theme tokens */
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
-  --font-serif: "Fraunces", ui-serif, Georgia, Cambria, "Times New Roman",
-    Times, serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Fraunces Variable", ui-serif, Georgia, Cambria,
+    "Times New Roman", Times, serif;
 
   --color-leaf-50: #f1f8f1;
   --color-leaf-100: #dcefdc;

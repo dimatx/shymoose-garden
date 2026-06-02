@@ -86,7 +86,7 @@ const chipClass =
 
 <!-- Timeline chart -->
 <section class="overflow-x-auto pb-2">
-  <div class="relative min-w-[720px]">
+  <div class="relative min-w-180">
     <!-- "Today" indicator line, positioned by the script below. -->
     <div
       id="now-line"
@@ -171,23 +171,29 @@ const chipClass =
      script. The 11rem offset accounts for the row-label column. */
   .now-line {
     left: calc(11rem + (100% - 11rem) * var(--now-pos, 0));
-    background-color: color-mix(in oklab, var(--color-leaf-500) 80%, transparent);
+    background-color: var(--color-leaf-600);
+    /* A soft halo in the page background colour lifts the line off the column
+       dividers, so it stays readable even when it lands on a grid line. */
+    box-shadow: 0 0 0 1.5px var(--color-leaf-50);
   }
   :global(.dark) .now-line {
-    background-color: color-mix(in oklab, var(--color-leaf-300) 70%, transparent);
+    background-color: var(--color-leaf-300);
+    box-shadow: 0 0 0 1.5px var(--color-leaf-950);
   }
   .now-line-dot {
     position: absolute;
     left: 50%;
     top: 0;
-    height: 0.4rem;
-    width: 0.4rem;
+    height: 0.5rem;
+    width: 0.5rem;
     transform: translate(-50%, -50%);
     border-radius: 9999px;
-    background-color: var(--color-leaf-500);
+    background-color: var(--color-leaf-600);
+    box-shadow: 0 0 0 2px var(--color-leaf-50);
   }
   :global(.dark) .now-line-dot {
     background-color: var(--color-leaf-300);
+    box-shadow: 0 0 0 2px var(--color-leaf-950);
   }
 </style>
 

@@ -4,9 +4,15 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   plant: CollectionEntry<"plants">;
+  /**
+   * Set on the first (above-the-fold) card so its image is the LCP element:
+   * loaded eagerly with high priority instead of lazily. Leave false/unset
+   * for every other card so they stay lazy.
+   */
+  priority?: boolean;
 }
 
-const { plant } = Astro.props;
+const { plant, priority = false } = Astro.props;
 const { name, latinName, photo, photoAlt, shortDescription } = plant.data;
 ---
 
@@ -14,7 +20,7 @@ const { name, latinName, photo, photoAlt, shortDescription } = plant.data;
   href={`/plants/${plant.id}/`}
   class="group flex flex-col overflow-hidden rounded-2xl border border-leaf-200/80 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:border-leaf-800/80 dark:bg-leaf-900"
 >
-  <div class="aspect-[4/3] overflow-hidden bg-leaf-100 dark:bg-leaf-800">
+  <div class="aspect-4/3 overflow-hidden bg-leaf-100 dark:bg-leaf-800">
     <Image
       src={photo}
       alt={photoAlt || name}
@@ -22,7 +28,9 @@ const { name, latinName, photo, photoAlt, shortDescription } = plant.data;
       height={480}
       widths={[320, 480, 640]}
       sizes="(min-width: 640px) 320px, 100vw"
-      loading="lazy"
+      quality={72}
+      loading={priority ? "eager" : "lazy"}
+      fetchpriority={priority ? "high" : "auto"}
       class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
     />
   </div>

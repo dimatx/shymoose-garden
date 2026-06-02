@@ -136,14 +136,14 @@ const hasFilters = types.length > 0 || traits.length > 0;
     ) : (
       <>
         <div id="plant-grid" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {plants.map((plant) => (
+          {plants.map((plant, i) => (
             <div
               class="plant-item"
               data-name={plant.data.name}
               data-type={plant.data.type ?? ""}
               data-tags={`|${plant.data.tags.join("|")}|`}
             >
-              <PlantCard plant={plant} />
+              <PlantCard plant={plant} priority={i === 0} />
             </div>
           ))}
         </div>

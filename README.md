@@ -17,7 +17,7 @@ a QR code next to a plant in the garden and it opens that plant's page on
 
 ## Project structure
 
-```
+```text
 src/
   content/plants/      One Markdown file per plant (the data you edit most).
   content.config.ts    The plant schema — what fields a plant file can have.
@@ -130,7 +130,7 @@ npm run preview    # preview the production build locally
 
 Each plant's QR code should point at its page URL:
 
-```
+```text
 https://garden.shymoose.com/plants/<file-name>/
 ```
 

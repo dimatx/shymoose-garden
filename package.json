@@ -12,6 +12,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/fraunces": "^5.2.9",
+    "@fontsource-variable/inter": "^5.2.8",
     "@tailwindcss/vite": "^4.1.13",
     "astro": "^5.14.1",
     "sharp": "^0.34.2",

@@ -12,6 +12,7 @@ care:
   size: "20–50 cm (8–20 in.) tall on unbranched stems."
   bloom: "Yellow flowers in branched clusters in early summer, followed by star-like seed pods in late summer."
   pruning: "Maintenance: trim off spent flower stems and cut the clump back in late fall or early spring. Renewal pruning doesn't apply — divide the clump to rejuvenate it."
+bloomMonths: [6, 7]
 tags:
   - "Succulent"
   - "Drought tolerant"

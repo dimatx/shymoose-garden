@@ -12,6 +12,7 @@ care:
   size: "'Zagreb' is compact, reaching 12–18 in. tall."
   bloom: "Gold/yellow daisy-like flowers from spring into summer."
   pruning: "Maintenance: shear the whole plant back lightly after the main flush to trigger fresh bloom, and cut to the ground in late fall or early spring. Renewal pruning doesn't apply — divide every two to three years to keep it dense."
+bloomMonths: [6, 7, 8, 9]
 tags:
   - "Perennial"
   - "Native"

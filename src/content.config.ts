@@ -37,6 +37,11 @@ const plants = defineCollection({
         pruning: z.string().optional(),
       }),
 
+      // Months this plant is in flower, as numbers 1–12 (1 = January).
+      // Drives the Bloom Timeline. Omit for plants with no floral display
+      // (e.g. conifers) or where bloom isn't the point (e.g. vegetables).
+      bloomMonths: z.array(z.number().int().min(1).max(12)).default([]),
+
       // Optional helpers
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),

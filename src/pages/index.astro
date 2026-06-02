@@ -20,6 +20,16 @@ const plants = (await getCollection("plants")).sort((a, b) => {
       Welcome! Tap any plant to learn its name, story, and how it likes to be
       cared for. Scan a QR code out in the garden to jump straight to a plant.
     </p>
+    <a
+      href="/bloom/"
+      class="mt-4 inline-flex items-center gap-2 rounded-full bg-leaf-600 px-4 py-2 text-sm font-semibold text-leaf-50 shadow-sm transition hover:bg-leaf-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:bg-leaf-500 dark:hover:bg-leaf-400"
+    >
+      <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="17" rx="2" />
+        <path d="M3 9h18M8 2v4M16 2v4" />
+      </svg>
+      See the bloom timeline
+    </a>
   </section>
 
   {

@@ -2,6 +2,7 @@
 name: "Obedient Plant"
 latinName: "Physostegia virginiana"
 type: "Perennial"
+nativeRange: "Eastern and central North America"
 photo: "../../assets/plants/obedient-plant.jpg"
 photoAlt: "Upright spikes of tubular pink obedient plant flowers opening from the bottom up."
 photoCredit: "Dominicus Johannes Bergsma, CC BY-SA 4.0, via Wikimedia Commons"

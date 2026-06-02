@@ -2,6 +2,7 @@
 name: "Arabesque Red Penstemon"
 latinName: "Penstemon hartwegii Arabesque® Red"
 type: "Perennial"
+nativeRange: "Mexico (the species)"
 photo: "../../assets/plants/penstemon.jpg"
 photoAlt: "Tall spike of large red and white bicolor bell-shaped penstemon flowers."
 photoCredit: "Hectonichus, CC BY-SA 3.0, via Wikimedia Commons"

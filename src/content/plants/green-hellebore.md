@@ -2,6 +2,7 @@
 name: "Green Hellebore"
 latinName: "Helleborus argutifolius"
 type: "Perennial"
+nativeRange: "Corsica and Sardinia"
 photo: "../../assets/plants/green-hellebore.jpg"
 photoAlt: "Corsican hellebore with leathery, toothed evergreen leaves and clusters of pale yellow-green cup-shaped flowers."
 photoCredit: "Acabashi, CC BY-SA 4.0, via Wikimedia Commons"

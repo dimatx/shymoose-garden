@@ -16,6 +16,7 @@ const { Content } = await render(plant);
 const {
   name,
   latinName,
+  nativeRange,
   photo,
   photoAlt,
   photoCredit,
@@ -26,6 +27,7 @@ const {
 } = plant.data;
 
 const careItems = [
+  { label: "Native range", value: nativeRange, icon: "globe" },
   { label: "Water", value: care.water, icon: "water" },
   { label: "Soil", value: care.soil, icon: "soil" },
   { label: "Sunlight", value: care.sunlight, icon: "sun" },
@@ -125,6 +127,12 @@ const careItems = [
                 aria-hidden="true"
               >
                 <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  {item.icon === "globe" && (
+                    <>
+                      <circle cx="12" cy="12" r="9" />
+                      <path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" />
+                    </>
+                  )}
                   {item.icon === "water" && (
                     <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z" />
                   )}

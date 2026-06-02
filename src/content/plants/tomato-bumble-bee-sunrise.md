@@ -2,6 +2,7 @@
 name: "Sunrise Bumble Bee Tomato"
 latinName: "Solanum lycopersicum 'Bumble Bee Sunrise'"
 type: "Vegetable"
+nativeRange: "Western South America (the species); this variety was bred in the United States"
 photo: "../../assets/plants/tomato-bumble-bee-sunrise.jpg"
 photoAlt: "A truss of small yellow-orange cherry tomatoes ripening on the vine."
 photoCredit: "Rob Bertholf, CC BY 3.0, via Wikimedia Commons"

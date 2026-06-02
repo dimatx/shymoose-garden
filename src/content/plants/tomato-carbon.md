@@ -2,6 +2,7 @@
 name: "Carbon Tomato"
 latinName: "Solanum lycopersicum 'Carbon'"
 type: "Vegetable"
+nativeRange: "Western South America (the species); this heirloom was developed in the United States"
 photo: "../../assets/plants/tomato-carbon.jpg"
 photoAlt: "Tomatoes ripening on the vine on a leafy plant (representative photo)."
 photoCredit: "Madmad1234, CC BY-SA 4.0, via Wikimedia Commons — representative tomato, not the Carbon variety"

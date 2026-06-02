@@ -2,6 +2,7 @@
 name: "Spiked Speedwell"
 latinName: "Veronica spicata"
 type: "Perennial"
+nativeRange: "Europe and northern Asia"
 photo: "../../assets/plants/speedwell.jpg"
 photoAlt: "A clump of dense, upright spikes of small blue-purple speedwell flowers."
 photoCredit: "Krzysztof Ziarnek, Kenraiz, CC BY-SA 4.0, via Wikimedia Commons"

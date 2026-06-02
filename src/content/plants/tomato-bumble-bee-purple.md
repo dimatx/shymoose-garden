@@ -2,6 +2,7 @@
 name: "Purple Bumble Bee Tomato"
 latinName: "Solanum lycopersicum 'Bumble Bee Purple'"
 type: "Vegetable"
+nativeRange: "Western South America (the species); this variety was bred in the United States"
 photo: "../../assets/plants/tomato-bumble-bee-purple.jpg"
 photoAlt: "Cluster of dusky purple cherry tomatoes with metallic green striping on the vine."
 photoCredit: "chipmunk_1, CC BY-SA 2.0, via Wikimedia Commons"

@@ -2,6 +2,7 @@
 name: "Unagi Cucumber"
 latinName: "Cucumis sativus 'Unagi'"
 type: "Vegetable"
+nativeRange: "South Asia (the species); this variety was bred in Japan"
 photo: "../../assets/plants/cucumber-unagi.jpg"
 photoAlt: "Two long, glossy, dark green Unagi cucumbers hanging from the vine in a greenhouse."
 photoCredit: "Johnny's Selected Seeds"

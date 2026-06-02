@@ -22,6 +22,11 @@ const plants = defineCollection({
       // e.g. "Perennial", "Annual", "Shrub", "Vegetable", "Succulent".
       // Optional, but recommended so the plant shows up under a type filter.
       type: z.string().optional(),
+
+      // Where the plant (or its species) is originally native to, as a short
+      // human phrase, e.g. "Eastern North America" or "Japan, China, and Taiwan".
+      // Optional — shown alongside the care details when present.
+      nativeRange: z.string().optional(),
       photo: image(), // Path to a photo in src/assets/plants/
       photoAlt: z.string().default(""),
       photoCredit: z.string().optional(),

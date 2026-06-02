@@ -2,6 +2,7 @@
 name: "Ukrainian Purple Tomato"
 latinName: "Solanum lycopersicum 'Ukrainian Purple'"
 type: "Vegetable"
+nativeRange: "Western South America (the species); this heirloom comes from Ukraine"
 photo: "../../assets/plants/tomato-ukrainian-purple.jpg"
 photoAlt: "Fruit developing on a tomato plant, with green tomatoes and flowers on the vine (representative photo)."
 photoCredit: "Karelj, Public domain, via Wikimedia Commons — representative tomato, not the Ukrainian Purple variety"

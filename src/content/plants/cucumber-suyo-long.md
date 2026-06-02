@@ -2,6 +2,7 @@
 name: "Suyo Long Cucumber"
 latinName: "Cucumis sativus 'Suyo Long'"
 type: "Vegetable"
+nativeRange: "South Asia (the species); this heirloom was developed in China"
 photo: "../../assets/plants/cucumber-suyo-long.jpg"
 photoAlt: "A green cucumber growing on a vine trained up a wooden trellis."
 photoCredit: "NPS, Public domain, via Wikimedia Commons"

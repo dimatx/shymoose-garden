@@ -2,6 +2,7 @@
 name: "Japanese Snowball"
 latinName: "Viburnum plicatum"
 type: "Shrub"
+nativeRange: "Japan, China, and Taiwan"
 photo: "../../assets/plants/japanese-snowball.jpg"
 photoAlt: "A whole Japanese Snowball shrub covered in round, white pom-pom flower clusters in spring."
 photoCredit: "Sailko, CC BY 3.0, via Wikimedia Commons"

@@ -2,6 +2,7 @@
 name: "Showy Stonecrop"
 latinName: "Hylotelephium spectabile"
 type: "Succulent"
+nativeRange: "China and Korea"
 photo: "../../assets/plants/showy-stonecrop.jpg"
 photoAlt: "Mound of fleshy blue-green succulent leaves, the plant that produces flat pink flower heads in fall."
 photoCredit: "Kroton, CC BY 3.0, via Wikimedia Commons"

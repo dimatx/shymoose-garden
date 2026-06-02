@@ -1,6 +1,7 @@
 ---
 name: "Aizoon Stonecrop"
 latinName: "Phedimus aizoon"
+type: "Succulent"
 photo: "../../assets/plants/aizoon-stonecrop.jpg"
 photoAlt: "Upright clumps of fleshy, toothed green leaves topped with branched clusters of small yellow star-shaped flowers."
 photoCredit: "GT1976, CC BY-SA 4.0, via Wikimedia Commons"

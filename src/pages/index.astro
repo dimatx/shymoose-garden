@@ -9,10 +9,32 @@ const plants = (await getCollection("plants")).sort((a, b) => {
   if (orderA !== orderB) return orderA - orderB;
   return a.data.name.localeCompare(b.data.name);
 });
+
+// Plant-type filters are built straight from the data, so adding a new `type`
+// to a plant automatically gives it a filter button — no code changes needed.
+const types = [
+  ...new Set(plants.map((p) => p.data.type).filter((t): t is string => !!t)),
+].sort((a, b) => a.localeCompare(b));
+
+// Characteristic filters come from the free-form `tags`. We offer a curated
+// shortlist and only show the ones that actually appear on a plant.
+const traitCandidates = [
+  "Evergreen",
+  "Drought tolerant",
+  "Pollinator friendly",
+  "Low maintenance",
+  "Edible",
+  "Deer & rabbit resistant",
+  "Shade garden",
+];
+const allTags = new Set(plants.flatMap((p) => p.data.tags));
+const traits = traitCandidates.filter((t) => allTags.has(t));
+
+const hasFilters = types.length > 0 || traits.length > 0;
 ---
 
 <Layout title="ShyMoose Garden">
-  <section class="mb-8">
+  <section class="mb-6">
     <h1 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
       The Garden
     </h1>
@@ -23,16 +45,195 @@ const plants = (await getCollection("plants")).sort((a, b) => {
   </section>
 
   {
+    hasFilters && (
+      <section
+        id="filters"
+        class="mb-6 rounded-2xl border border-leaf-200/80 bg-white/60 p-4 dark:border-leaf-800/80 dark:bg-leaf-900/40"
+        aria-label="Filter plants"
+      >
+        {types.length > 0 && (
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="mr-1 text-xs font-semibold uppercase tracking-wide text-leaf-600 dark:text-leaf-400">
+              Type
+            </span>
+            {types.map((type) => (
+              <button
+                type="button"
+                class="filter-chip"
+                data-filter="type"
+                data-value={type}
+                aria-pressed="false"
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {traits.length > 0 && (
+          <div class="mt-3 flex flex-wrap items-center gap-2">
+            <span class="mr-1 text-xs font-semibold uppercase tracking-wide text-leaf-600 dark:text-leaf-400">
+              Traits
+            </span>
+            {traits.map((trait) => (
+              <button
+                type="button"
+                class="filter-chip"
+                data-filter="trait"
+                data-value={trait}
+                aria-pressed="false"
+              >
+                {trait}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div class="mt-3 flex items-center justify-between gap-3">
+          <p
+            id="filter-count"
+            class="text-sm text-leaf-600 dark:text-leaf-400"
+            aria-live="polite"
+          >
+            Showing all {plants.length} plants
+          </p>
+          <button
+            type="button"
+            id="filter-clear"
+            class="hidden text-sm font-medium text-leaf-700 underline-offset-2 hover:underline dark:text-leaf-300"
+          >
+            Clear filters
+          </button>
+        </div>
+      </section>
+    )
+  }
+
+  {
     plants.length === 0 ? (
       <p class="rounded-2xl border border-dashed border-leaf-300 p-8 text-center text-leaf-600 dark:border-leaf-700 dark:text-leaf-400">
         No plants yet — add your first one in <code>src/content/plants/</code>.
       </p>
     ) : (
-      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {plants.map((plant) => (
-          <PlantCard plant={plant} />
-        ))}
-      </div>
+      <>
+        <div id="plant-grid" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {plants.map((plant) => (
+            <div
+              class="plant-item"
+              data-type={plant.data.type ?? ""}
+              data-tags={`|${plant.data.tags.join("|")}|`}
+            >
+              <PlantCard plant={plant} />
+            </div>
+          ))}
+        </div>
+        <p
+          id="no-matches"
+          class="hidden rounded-2xl border border-dashed border-leaf-300 p-8 text-center text-leaf-600 dark:border-leaf-700 dark:text-leaf-400"
+        >
+          No plants match those filters.{" "}
+          <button type="button" id="no-matches-clear" class="font-medium underline underline-offset-2">
+            Clear filters
+          </button>
+        </p>
+      </>
     )
   }
 </Layout>
+
+<style>
+  /* Filter chip styling kept here so the buttons look consistent whether or
+     not JavaScript has toggled their active state. */
+  .filter-chip {
+    border-radius: 9999px;
+    border: 1px solid var(--color-leaf-300, #b7d3ba);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .filter-chip[aria-pressed="true"] {
+    background-color: var(--color-leaf-600, #3f7a45);
+    border-color: var(--color-leaf-600, #3f7a45);
+    color: #fff;
+  }
+</style>
+
+<script>
+  // Lightweight, no-framework filtering. With JS disabled every plant simply
+  // stays visible, so the catalog still works.
+  const grid = document.getElementById("plant-grid");
+  if (grid) {
+    const chips = Array.from(
+      document.querySelectorAll<HTMLButtonElement>(".filter-chip")
+    );
+    const items = Array.from(
+      document.querySelectorAll<HTMLElement>(".plant-item")
+    );
+    const countEl = document.getElementById("filter-count");
+    const clearEl = document.getElementById("filter-clear");
+    const noMatches = document.getElementById("no-matches");
+    const noMatchesClear = document.getElementById("no-matches-clear");
+    const total = items.length;
+
+    const selectedTypes = new Set<string>();
+    const selectedTraits = new Set<string>();
+
+    function apply() {
+      let visible = 0;
+      for (const item of items) {
+        const type = item.dataset.type ?? "";
+        const tags = item.dataset.tags ?? "";
+        // Types are OR'd (broaden), traits are AND'd (narrow).
+        const typeOk = selectedTypes.size === 0 || selectedTypes.has(type);
+        const traitOk = [...selectedTraits].every((t) =>
+          tags.includes(`|${t}|`)
+        );
+        const show = typeOk && traitOk;
+        item.hidden = !show;
+        if (show) visible++;
+      }
+
+      const active = selectedTypes.size + selectedTraits.size;
+      if (countEl) {
+        countEl.textContent =
+          active === 0
+            ? `Showing all ${total} plants`
+            : `Showing ${visible} of ${total} plants`;
+      }
+      if (clearEl) clearEl.classList.toggle("hidden", active === 0);
+      if (noMatches) noMatches.classList.toggle("hidden", visible !== 0);
+    }
+
+    for (const chip of chips) {
+      chip.addEventListener("click", () => {
+        const value = chip.dataset.value ?? "";
+        const set =
+          chip.dataset.filter === "type" ? selectedTypes : selectedTraits;
+        const pressed = chip.getAttribute("aria-pressed") === "true";
+        if (pressed) {
+          set.delete(value);
+          chip.setAttribute("aria-pressed", "false");
+        } else {
+          set.add(value);
+          chip.setAttribute("aria-pressed", "true");
+        }
+        apply();
+      });
+    }
+
+    function clearAll() {
+      selectedTypes.clear();
+      selectedTraits.clear();
+      for (const chip of chips) chip.setAttribute("aria-pressed", "false");
+      apply();
+    }
+
+    clearEl?.addEventListener("click", clearAll);
+    noMatchesClear?.addEventListener("click", clearAll);
+  }
+</script>

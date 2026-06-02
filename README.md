@@ -31,6 +31,7 @@ This is the part you'll do most. No coding required.
    ---
    name: "Lavender" # Common name
    latinName: "Lavandula angustifolia" # Botanical name
+   type: "Perennial" # Plant type — powers the home-page filter
    photo: "../../assets/plants/lavender.jpg" # Path to your photo
    photoAlt: "Rows of purple lavender in bloom."
    photoCredit: "Your name (optional)"
@@ -56,6 +57,24 @@ That's the whole workflow — commit the change and Cloudflare rebuilds the site
 
 > Fields like `hardiness`, `size`, `bloom`, `tags`, and `learnMoreUrl` are
 > optional. Any care item you leave out simply won't show.
+
+## Filtering the garden
+
+The home page has a filter bar so visitors can narrow the catalog down:
+
+- **Type** — one button per distinct `type` value used across your plants
+  (e.g. `Perennial`, `Annual`, `Shrub`, `Vegetable`, `Succulent`). The buttons
+  are generated from the data, so giving a plant a new `type` automatically
+  adds a matching filter. Selecting several types widens the results (OR).
+- **Traits** — a curated shortlist drawn from each plant's `tags`
+  (e.g. `Evergreen`, `Drought tolerant`, `Pollinator friendly`). Selecting
+  several traits narrows the results (AND). A trait button only appears if at
+  least one plant carries that tag.
+
+To make a characteristic filterable, add the matching tag to a plant's `tags`
+list. The curated trait list lives in
+[`src/pages/index.astro`](src/pages/index.astro) (the `traitCandidates` array)
+if you want to add or reorder the trait buttons.
 
 ## Run it locally
 

@@ -1,6 +1,7 @@
 ---
 name: "Calendula"
 latinName: "Calendula officinalis 'Geisha Girl'"
+type: "Annual"
 photo: "../../assets/plants/marigold.jpg"
 photoAlt: "Bright orange double-flowered calendula bloom with densely packed petals."
 photoCredit: "Thomas888b, CC BY-SA 3.0, via Wikimedia Commons"

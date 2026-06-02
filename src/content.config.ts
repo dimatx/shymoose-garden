@@ -17,6 +17,11 @@ const plants = defineCollection({
       // Display
       name: z.string(), // Common name, e.g. "Japanese Snowball"
       latinName: z.string(), // Botanical name, e.g. "Viburnum plicatum"
+
+      // The kind of plant, used to filter the garden on the home page.
+      // e.g. "Perennial", "Annual", "Shrub", "Vegetable", "Succulent".
+      // Optional, but recommended so the plant shows up under a type filter.
+      type: z.string().optional(),
       photo: image(), // Path to a photo in src/assets/plants/
       photoAlt: z.string().default(""),
       photoCredit: z.string().optional(),

@@ -5,14 +5,20 @@ import type { CollectionEntry } from "astro:content";
 interface Props {
   plant: CollectionEntry<"plants">;
   /**
-   * Set on the first (above-the-fold) card so its image is the LCP element:
-   * loaded eagerly with high priority instead of lazily. Leave false/unset
-   * for every other card so they stay lazy.
+   * Set on the first (LCP) card so its image gets high fetch priority and
+   * loads eagerly. Only one card should be `priority`.
    */
   priority?: boolean;
+  /**
+   * Set on the remaining above-the-fold cards: they load eagerly (no lazy
+   * deferral) but at normal priority, so they fill the initial viewport
+   * without competing with the LCP image. Off-screen cards leave this unset
+   * and stay lazy.
+   */
+  eager?: boolean;
 }
 
-const { plant, priority = false } = Astro.props;
+const { plant, priority = false, eager = false } = Astro.props;
 const { name, latinName, photo, photoAlt, shortDescription } = plant.data;
 ---
 
@@ -29,7 +35,7 @@ const { name, latinName, photo, photoAlt, shortDescription } = plant.data;
       widths={[320, 480, 640]}
       sizes="(min-width: 640px) 320px, 100vw"
       quality={72}
-      loading={priority ? "eager" : "lazy"}
+      loading={priority || eager ? "eager" : "lazy"}
       fetchpriority={priority ? "high" : "auto"}
       transition:name={`plant-photo-${plant.id}`}
       class="h-full w-full rounded-t-2xl object-cover transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"

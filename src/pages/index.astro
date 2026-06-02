@@ -143,7 +143,7 @@ const hasFilters = types.length > 0 || traits.length > 0;
               data-type={plant.data.type ?? ""}
               data-tags={`|${plant.data.tags.join("|")}|`}
             >
-              <PlantCard plant={plant} priority={i === 0} />
+              <PlantCard plant={plant} priority={i === 0} eager={i < 4} />
             </div>
           ))}
         </div>

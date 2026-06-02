@@ -25,10 +25,12 @@ const plants = defineCollection({
       shortDescription: z.string(),
 
       // Care details — keep these short and human.
+      // All fields are optional: only include what you can verify, and the
+      // plant page will simply skip any care detail you leave out.
       care: z.object({
-        water: z.string(),
-        soil: z.string(),
-        sunlight: z.string(),
+        water: z.string().optional(),
+        soil: z.string().optional(),
+        sunlight: z.string().optional(),
         hardiness: z.string().optional(),
         size: z.string().optional(),
         bloom: z.string().optional(),

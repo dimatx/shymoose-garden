@@ -9,6 +9,7 @@ care:
   sunlight: "Full sun."
   hardiness: "USDA zones 6–9."
   bloom: "Red and white bicolor, large bell-shaped flowers all summer long."
+  pruning: "Maintenance: deadhead spent spikes through summer to keep the flowers coming, then cut stems back in late winter or early spring. Renewal pruning doesn't apply — it's a short-lived perennial best refreshed by replanting or division."
 tags:
   - "Bicolor blooms"
   - "Hummingbird friendly"

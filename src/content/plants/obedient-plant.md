@@ -12,6 +12,7 @@ care:
   hardiness: "USDA zones 2–9."
   size: "3–4 ft tall and 2–3 ft wide."
   bloom: "Pink, purple/lavender, or white flowers on spikes from July to October."
+  pruning: "Maintenance: cut stems back by half in late spring for sturdier plants, deadhead to limit self-seeding, and cut to the ground after frost. Renewal pruning doesn't apply — divide every year or two to renew and contain it."
 tags:
   - "Native perennial"
   - "Showy flowers"

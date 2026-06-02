@@ -9,6 +9,7 @@ care:
   soil: "Trellising is recommended to produce long, straight fruit."
   size: "Best picked at 8 in. or smaller, though it stays sweet when larger."
   bloom: "Long, slender, thin-skinned fruit."
+  pruning: "Maintenance: train the vine up a trellis and pinch off the lowest side shoots and leaves for airflow, keeping the long fruit straight and clean. Renewal pruning doesn't apply — it's an annual."
 tags:
   - "Vegetable"
   - "Cucumber"

@@ -12,6 +12,7 @@ care:
   hardiness: "USDA zones 6–8."
   size: "1.5–2 ft tall and 1.5–2 ft wide."
   bloom: "Pale yellow-green, cup-shaped nodding flowers from late winter to early spring."
+  pruning: "Maintenance: cut off old, tattered foliage in late winter before the flowers open, to show off the blooms and reduce leaf spot; remove spent flower stems at the base after bloom. Renewal pruning doesn't apply — rejuvenate an aging clump by dividing it."
 tags:
   - "Evergreen"
   - "Winter interest"

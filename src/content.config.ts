@@ -34,6 +34,7 @@ const plants = defineCollection({
         hardiness: z.string().optional(),
         size: z.string().optional(),
         bloom: z.string().optional(),
+        pruning: z.string().optional(),
       }),
 
       // Optional helpers

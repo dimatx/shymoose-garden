@@ -12,6 +12,7 @@ care:
   hardiness: "USDA zones 3–8."
   size: "2–3 ft tall and 2–2.5 ft wide."
   bloom: "Blue, star-shaped flowers in dense spikes from late spring to mid-summer."
+  pruning: "Maintenance: shear spent spikes after the first flush to spark a second bloom, and cut the clump to the ground in late fall or early spring. Renewal pruning doesn't apply — divide every few years to keep it vigorous."
 tags:
   - "Perennial"
   - "Pollinator friendly"

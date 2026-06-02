@@ -8,6 +8,7 @@ shortDescription: "A striking cherry tomato in dusky purple with metallic green 
 care:
   size: "Indeterminate."
   bloom: "Dusky purple fruit with metallic green striping, 20–25 g each; about 70 days to harvest."
+  pruning: "Maintenance: thin the suckers and strip the lower leaves to improve airflow on the tall indeterminate vines, keeping them tied to a stout support. Renewal pruning doesn't apply — it's an annual."
 tags:
   - "Annual"
   - "Vegetable"

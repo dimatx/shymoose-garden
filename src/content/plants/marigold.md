@@ -12,6 +12,7 @@ care:
   hardiness: "USDA zones 2–11."
   size: "1–2 ft tall and 1–2 ft wide."
   bloom: "Gold, yellow, orange, and red flowerheads (3–4 in. across) from spring into summer."
+  pruning: "Maintenance: deadhead spent blooms to keep it flowering, and shear the whole plant back hard in summer heat to rejuvenate a leggy plant. Renewal pruning doesn't apply — it's an annual, so let it reseed or resow."
 tags:
   - "Annual"
   - "Edible"

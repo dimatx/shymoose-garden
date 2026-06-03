@@ -38,11 +38,56 @@ if (!DRY_RUN) {
 }
 
 // Per-plant plaque_w overrides (mm). Default in template is 195.
-// Add an entry here whenever a name needs more or less horizontal space.
+// Calibrated from confirmed values: Eastern Redbud (14 chars)=175,
+// Japanese Snowball (17 chars)=200, Giant Solomon's Seal (20 chars)=215.
+// Formula: max(145, round5(chars * 7 + 78)). Latin name width checked
+// as secondary constraint (smaller text, ~3.4mm/char).
 const PLAQUE_W = {
-  'giant-solomons-seal': 215,
-  'japanese-snowball':   200,
-  'eastern-redbud':      175,
+  // 6 chars — "Orpine"
+  'orpine':                     145,
+  // 9 chars — "Calendula" (latin "Calendula officinalis 'Geisha Girl'" drives min)
+  'marigold':                   160,
+  // 12 chars — "Black Cohosh"
+  'black-cohosh':               160,
+  // 13 chars — Leopard Plant, Carbon Tomato, Woodland Sage
+  'leopard-plant':              170,
+  'tomato-carbon':              170,
+  'woodland-sage':              170,
+  // 14 chars — Eastern Redbud, Unagi Cucumber, Japanese Holly, Obedient Plant, Rose of Sharon
+  'eastern-redbud':             175, // confirmed
+  'cucumber-unagi':             175,
+  'japanese-holly':             175,
+  'obedient-plant':             175,
+  'rose-of-sharon':             175,
+  // 15 chars — Green Hellebore, Japanese Pieris, Showy Stonecrop, Zagreb Tickseed
+  'green-hellebore':            185,
+  'japanese-pieris':            185,
+  'showy-stonecrop':            185,
+  'zagreb':                     185,
+  // 16 chars — Aizoon Stonecrop, Japanese Spiraea, Spiked Speedwell
+  'aizoon-stonecrop':           190,
+  'japanese-spiraea':           190,
+  'speedwell':                  190,
+  // 17 chars — Globe Blue Spruce stays at default 195; Japanese Snowball confirmed 200
+  'japanese-snowball':          200, // confirmed
+  // 18 chars — Emerald Arborvitae, Suyo Long Cucumber
+  'arborvitae':                 205,
+  'cucumber-suyo-long':         205,
+  // 19 chars — Shintokiwa Cucumber, Weeping Blue Spruce
+  'cucumber-shintokiwa':        210,
+  'weeping-blue-spruce':        210,
+  // 20 chars — Giant Solomon's Seal
+  'giant-solomons-seal':        215, // confirmed
+  // 21 chars — Dahurian Rhododendron
+  'dahurian-rhododendron':      225,
+  // 23 chars — Arabesque Red Penstemon, Ukrainian Purple Tomato
+  'penstemon':                  240,
+  'tomato-ukrainian-purple':    240,
+  // 24 chars — Golden Mop False Cypress, Purple Bumble Bee Tomato
+  'false-cypress':              245,
+  'tomato-bumble-bee-purple':   245,
+  // 25 chars — Sunrise Bumble Bee Tomato
+  'tomato-bumble-bee-sunrise':  255,
 };
 
 // Glob all plant markdown files

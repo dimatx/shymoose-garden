@@ -3,7 +3,7 @@ orient_for_printing = true;
 remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "http://s.shymoose.com/gwRhb";
-common_name = "Shintokiwa Cucumber";
+common_name = "Cucumber";
 scientific_name = "Cucumis sativus 'Shintokiwa'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
@@ -12,7 +12,7 @@ qr_error_correction = "L"; // [L, M, Q, H]
 // height
 plaque_h = 35;
 // width
-plaque_w = 210;
+plaque_w = 175;
 // thickness
 plaque_t = 4;
 // depth of text/QR cutouts from face (filled by 2nd filament color)

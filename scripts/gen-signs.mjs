@@ -37,57 +37,58 @@ if (!DRY_RUN) {
   mkdirSync(signsDir, { recursive: true });
 }
 
-// Per-plant plaque_w overrides (mm). Default in template is 195.
-// Calibrated from confirmed values: Eastern Redbud (14 chars)=175,
-// Japanese Snowball (17 chars)=200, Giant Solomon's Seal (20 chars)=215.
-// Formula: max(145, round5(chars * 7 + 78)). Latin name width checked
-// as secondary constraint (smaller text, ~3.4mm/char).
+// Per-plant common name override for the sign.
+// When set, this replaces the name field on the sign only (latin name is unchanged).
+const SIGN_NAME = {
+  'cucumber-shintokiwa':       'Cucumber',
+  'cucumber-suyo-long':        'Cucumber',
+  'cucumber-unagi':            'Cucumber',
+  'tomato-bumble-bee-purple':  'Tomato',
+  'tomato-bumble-bee-sunrise': 'Tomato',
+  'tomato-carbon':             'Tomato',
+  'tomato-ukrainian-purple':   'Tomato',
+};
+
+// Per-plant plaque_w overrides (mm). Minimum is 175.
+// Primary text (~9mm/char Barlow Condensed Bold) and secondary latin text
+// (~4.5mm/char Barlow Condensed Italic) both checked. text_width = plaque_w - 39.
 const PLAQUE_W = {
-  // 6 chars — "Orpine"
-  'orpine':                     145,
-  // 9 chars — "Calendula" (latin "Calendula officinalis 'Geisha Girl'" drives min)
-  'marigold':                   160,
-  // 12 chars — "Black Cohosh"
-  'black-cohosh':               160,
-  // 13 chars — Leopard Plant, Carbon Tomato, Woodland Sage
-  'leopard-plant':              170,
-  'tomato-carbon':              170,
-  'woodland-sage':              170,
-  // 14 chars — Eastern Redbud, Unagi Cucumber, Japanese Holly, Obedient Plant, Rose of Sharon
+  // Short common names — latin name is the constraint or both are short
+  'orpine':                     175, // "Orpine" / "Hylotelephium telephium"
+  'black-cohosh':               175, // "Black Cohosh" / "Actaea racemosa"
+  'leopard-plant':              175, // "Leopard Plant" / "Ligularia dentata"
+  'woodland-sage':              175, // "Woodland Sage" / "Salvia nemorosa"
   'eastern-redbud':             175, // confirmed
-  'cucumber-unagi':             175,
-  'japanese-holly':             175,
-  'obedient-plant':             175,
-  'rose-of-sharon':             175,
-  // 15 chars — Green Hellebore, Japanese Pieris, Showy Stonecrop, Zagreb Tickseed
+  'japanese-holly':             175, // "Japanese Holly" / "Ilex crenata"
+  'obedient-plant':             175, // "Obedient Plant" / "Physostegia virginiana"
+  // Cucumbers: common name is now just "Cucumber"; latin names are short
+  'cucumber-unagi':             175, // latin: "Cucumis sativus 'Unagi'"
+  'cucumber-suyo-long':         175, // latin: "Cucumis sativus 'Suyo Long'"
+  'cucumber-shintokiwa':        175, // latin: "Cucumis sativus 'Shintokiwa'"
+  // Rose of Sharon: latin "Hibiscus syriacus 'Notwoodthree'" (32 chars) needs room
+  'rose-of-sharon':             185,
   'green-hellebore':            185,
   'japanese-pieris':            185,
   'showy-stonecrop':            185,
   'zagreb':                     185,
-  // 16 chars — Aizoon Stonecrop, Japanese Spiraea, Spiked Speedwell
   'aizoon-stonecrop':           190,
   'japanese-spiraea':           190,
   'speedwell':                  190,
-  // 17 chars — Globe Blue Spruce stays at default 195; Japanese Snowball confirmed 200
+  // Marigold: common name is "Calendula" (short) but latin
+  // "Calendula officinalis 'Geisha Girl'" (35 chars) drives width
+  'marigold':                   200,
   'japanese-snowball':          200, // confirmed
-  // 18 chars — Emerald Arborvitae, Suyo Long Cucumber
   'arborvitae':                 205,
-  'cucumber-suyo-long':         205,
-  // 19 chars — Shintokiwa Cucumber, Weeping Blue Spruce
-  'cucumber-shintokiwa':        210,
   'weeping-blue-spruce':        210,
-  // 20 chars — Giant Solomon's Seal
   'giant-solomons-seal':        215, // confirmed
-  // 21 chars — Dahurian Rhododendron
   'dahurian-rhododendron':      225,
-  // 23 chars — Arabesque Red Penstemon, Ukrainian Purple Tomato
-  'penstemon':                  240,
-  'tomato-ukrainian-purple':    240,
-  // 24 chars — Golden Mop False Cypress, Purple Bumble Bee Tomato
-  'false-cypress':              245,
-  'tomato-bumble-bee-purple':   245,
-  // 25 chars — Sunrise Bumble Bee Tomato
-  'tomato-bumble-bee-sunrise':  255,
+  'penstemon':                  240, // latin "Penstemon hartwegii Arabesque® Red"
+  'false-cypress':              245, // latin "Chamaecyparis pisifera 'Golden Mop'"
+  // Tomatoes: common name is now just "Tomato"; latin name drives width
+  'tomato-carbon':              180, // latin: "Solanum lycopersicum 'Carbon'"
+  'tomato-ukrainian-purple':    225, // latin: "Solanum lycopersicum 'Ukrainian Purple'"
+  'tomato-bumble-bee-purple':   235, // latin: "Solanum lycopersicum 'Bumble Bee Purple'"
+  'tomato-bumble-bee-sunrise':  240, // latin: "Solanum lycopersicum 'Bumble Bee Sunrise'"
 };
 
 // Glob all plant markdown files
@@ -117,22 +118,24 @@ for (const relPath of plantFiles) {
   const latinName = latinMatch[1].trim();
   const shortUrl = shortUrlMatch ? shortUrlMatch[1].trim() : `https://garden.shymoose.com/plants/${slug}`;
 
+  const signName = SIGN_NAME[slug] ?? name;
   // Replace the per-plant variable lines in the template
   const plaqueW = PLAQUE_W[slug] ?? 195;
   const scad = template
     .replace(/^qr_url = ".*";$/m, `qr_url = "${escapeScad(shortUrl)}";`)
-    .replace(/^common_name = ".*";$/m, `common_name = "${escapeScad(name)}";`)
+    .replace(/^common_name = ".*";$/m, `common_name = "${escapeScad(signName)}";`)
     .replace(/^scientific_name = ".*";$/m, `scientific_name = "${escapeScad(latinName)}";`)
     .replace(/^plaque_w = \d+;$/m, `plaque_w = ${plaqueW};`);
 
   const outPath = join(signsDir, `${slug}.scad`);
 
   const widthNote = plaqueW !== 195 ? `  [plaque_w=${plaqueW}]` : '';
+  const nameNote = signName !== name ? `  [sign name: "${signName}"]` : '';
   if (DRY_RUN) {
-    console.log(`[DRY RUN] Would write: signs/${slug}.scad  (${name} / ${latinName})${widthNote}`);
+    console.log(`[DRY RUN] Would write: signs/${slug}.scad  (${name} / ${latinName})${nameNote}${widthNote}`);
   } else {
     writeFileSync(outPath, scad, 'utf8');
-    console.log(`[OK] signs/${slug}.scad  (${name} / ${latinName})${widthNote}`);
+    console.log(`[OK] signs/${slug}.scad  (${name} / ${latinName})${nameNote}${widthNote}`);
   }
   generated++;
 }

@@ -3,7 +3,7 @@ orient_for_printing = true;
 remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "http://s.shymoose.com/8QUm7";
-common_name = "Sunrise Bumble Bee Tomato";
+common_name = "Tomato";
 scientific_name = "Solanum lycopersicum 'Bumble Bee Sunrise'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
@@ -12,7 +12,7 @@ qr_error_correction = "L"; // [L, M, Q, H]
 // height
 plaque_h = 35;
 // width
-plaque_w = 255;
+plaque_w = 240;
 // thickness
 plaque_t = 4;
 // depth of text/QR cutouts from face (filled by 2nd filament color)

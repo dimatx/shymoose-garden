@@ -3,7 +3,7 @@ orient_for_printing = true;
 remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "http://s.shymoose.com/aJGtQ";
-common_name = "Unagi Cucumber";
+common_name = "Cucumber";
 scientific_name = "Cucumis sativus 'Unagi'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]

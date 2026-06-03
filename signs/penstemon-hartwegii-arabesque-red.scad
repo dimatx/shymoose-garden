@@ -4,7 +4,7 @@ remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "http://s.shymoose.com/LvrF3";
 common_name = "Arabesque Red Penstemon";
-scientific_name = "Penstemon hartwegii Arabesque® Red";
+scientific_name = "Arabesque® Red";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
 

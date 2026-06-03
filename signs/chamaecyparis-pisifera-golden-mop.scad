@@ -4,7 +4,7 @@ remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "http://s.shymoose.com/c6fxB";
 common_name = "Golden Mop False Cypress";
-scientific_name = "Chamaecyparis pisifera 'Golden Mop'";
+scientific_name = "'Golden Mop'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
 

@@ -54,6 +54,8 @@ const SIGN_LATIN = {
   'solanum-lycopersicum-bumble-bee-sunrise': "S. lycopersicum 'Bumble Bee Sunrise'",
   'solanum-lycopersicum-carbon':             "S. lycopersicum 'Carbon'",
   'solanum-lycopersicum-ukrainian-purple':   "S. lycopersicum 'Ukrainian Purple'",
+  'chamaecyparis-pisifera-golden-mop':       "'Golden Mop'",
+  'penstemon-hartwegii-arabesque-red':       "Arabesque\u00ae Red",
 };
 
 // Per-plant common name override for the sign.

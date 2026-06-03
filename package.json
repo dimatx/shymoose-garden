@@ -13,7 +13,8 @@
     "import:plants": "node scripts/import-plants.mjs",
     "gen:shortlinks": "node --env-file=.env scripts/gen-shortlinks.mjs",
     "migrate:shortlinks": "node --env-file=.env scripts/migrate-shortlinks.mjs",
-    "publish": "npm run build && npm run gen:shortlinks"
+    "gen:signs": "node scripts/gen-signs.mjs",
+    "publish": "npm run build && npm run gen:shortlinks && npm run gen:signs"
   },
   "engines": {
     "node": ">=22.0.0 <23"

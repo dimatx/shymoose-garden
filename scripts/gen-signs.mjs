@@ -37,6 +37,14 @@ if (!DRY_RUN) {
   mkdirSync(signsDir, { recursive: true });
 }
 
+// Per-plant plaque_w overrides (mm). Default in template is 195.
+// Add an entry here whenever a name needs more or less horizontal space.
+const PLAQUE_W = {
+  'giant-solomons-seal': 215,
+  'japanese-snowball':   200,
+  'eastern-redbud':      175,
+};
+
 // Glob all plant markdown files
 const plantFiles = globSync('src/content/plants/*.md', { cwd: ROOT });
 plantFiles.sort();
@@ -64,19 +72,22 @@ for (const relPath of plantFiles) {
   const latinName = latinMatch[1].trim();
   const shortUrl = shortUrlMatch ? shortUrlMatch[1].trim() : `https://garden.shymoose.com/plants/${slug}`;
 
-  // Replace the three variable lines in the template
+  // Replace the per-plant variable lines in the template
+  const plaqueW = PLAQUE_W[slug] ?? 195;
   const scad = template
     .replace(/^qr_url = ".*";$/m, `qr_url = "${escapeScad(shortUrl)}";`)
     .replace(/^common_name = ".*";$/m, `common_name = "${escapeScad(name)}";`)
-    .replace(/^scientific_name = ".*";$/m, `scientific_name = "${escapeScad(latinName)}";`);
+    .replace(/^scientific_name = ".*";$/m, `scientific_name = "${escapeScad(latinName)}";`)
+    .replace(/^plaque_w = \d+;$/m, `plaque_w = ${plaqueW};`);
 
   const outPath = join(signsDir, `${slug}.scad`);
 
+  const widthNote = plaqueW !== 195 ? `  [plaque_w=${plaqueW}]` : '';
   if (DRY_RUN) {
-    console.log(`[DRY RUN] Would write: signs/${slug}.scad  (${name} / ${latinName})`);
+    console.log(`[DRY RUN] Would write: signs/${slug}.scad  (${name} / ${latinName})${widthNote}`);
   } else {
     writeFileSync(outPath, scad, 'utf8');
-    console.log(`[OK] signs/${slug}.scad  (${name} / ${latinName})`);
+    console.log(`[OK] signs/${slug}.scad  (${name} / ${latinName})${widthNote}`);
   }
   generated++;
 }

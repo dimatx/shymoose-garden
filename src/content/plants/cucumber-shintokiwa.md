@@ -19,6 +19,7 @@ tags:
   - "Bitter-free"
 funFact: "Cucumber bitterness comes from compounds called cucurbitacins. 'Shintokiwa' was bred to produce virtually none of them, making the skin sweet enough to eat without peeling — one reason it became one of Japan's most popular fresh-market cucumbers."
 learnMoreUrl: "https://highdesertseed.com/product/shintokiwa-cucumber/"
+shortUrl: "http://s.shymoose.com/gwRhb"
 ---
 
 'Shintokiwa' is a vigorous Japanese cucumber that produces long, slender,

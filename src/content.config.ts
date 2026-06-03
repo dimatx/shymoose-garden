@@ -75,6 +75,7 @@ const plants = defineCollection({
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
       learnMoreUrl: z.string().url().optional(),
+      shortUrl: z.string().url().optional(),
     }),
 });
 

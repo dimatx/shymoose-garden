@@ -21,6 +21,7 @@ tags:
   - "Full sun"
 funFact: "This is a pre-Soviet heirloom that Ukrainian families saved and passed down through generations, carrying it across borders and through upheaval. Growing varieties like this is one of the ways communities preserve agricultural heritage — and the large, meaty fruits are prized for their complex, slightly smoky flavor."
 learnMoreUrl: "https://anniesheirloomseeds.com/products/ukrainian-purple-tomato-solanum-lycopersicum"
+shortUrl: "http://s.shymoose.com/FdHQ5"
 ---
 
 'Ukrainian Purple' is a heirloom plum tomato with sweet, savory, purply-black

@@ -24,6 +24,7 @@ tags:
   - "Year-round interest"
 funFact: "Despite the name, it's not a true cypress. True cypresses (genus Cupressus) are native to the Mediterranean; 'False Cypress' (Chamaecyparis) is a separate genus native to Japan and eastern North America. The mix-up dates to early Western botanical exploration of Japan in the 1800s."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/chamaecyparis-pisifera-golden-mop/"
+shortUrl: "http://s.shymoose.com/c6fxB"
 ---
 
 'Golden Mop' is a dwarf, golden-needled false cypress whose long, thread-like

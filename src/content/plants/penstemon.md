@@ -22,6 +22,7 @@ tags:
   - "Pollinator friendly"
 funFact: "Penstemon is the largest genus of flowering plants native exclusively to North America, with over 270 species. The long, tubular red flowers are perfectly shaped for hummingbirds — the birds' bills fit exactly, ensuring pollination with every visit."
 learnMoreUrl: "https://all-americaselections.org/product/penstemon-arabesque-red/"
+shortUrl: "http://s.shymoose.com/LvrF3"
 ---
 
 Arabesque® Red is a striking F1 hybrid penstemon and a 2014 All-America

@@ -21,6 +21,7 @@ tags:
   - "Low maintenance"
   - "Specimen"
   - "Native tree"
+funFact: "'Arborvitae' is Latin for 'tree of life.' The name was earned in the 1530s when French explorer Jacques Cartier reportedly saved his scurvy-stricken crew by brewing tea from the foliage — a remedy that works because the needles are rich in vitamin C."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/thuja-occidentalis/"
 ---
 

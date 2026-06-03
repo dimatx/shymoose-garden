@@ -23,6 +23,7 @@ tags:
   - "Shade garden"
   - "Poisonous"
   - "Deer & rabbit resistant"
+funFact: "H. argutifolius is native only to the Mediterranean islands of Corsica and Sardinia — a remarkably narrow natural range for such a widely grown garden plant. Unlike most hellebores, its apple-green flowers can stay attractive on the plant for up to three months."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/helleborus-argutifolius/"
 ---
 

@@ -23,6 +23,7 @@ tags:
   - "Dwarf conifer"
   - "Low maintenance"
 featured: false
+funFact: "The silvery-blue color of blue spruce needles comes from a natural waxy coating the tree produces as UV protection. More sunlight means more wax, which means more intense blue. Move a blue spruce to deep shade and it will gradually lose its blue tones."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c825"
 ---
 

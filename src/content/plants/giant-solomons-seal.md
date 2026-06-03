@@ -22,6 +22,7 @@ tags:
   - "Low maintenance"
   - "Rain garden"
   - "Pollinator friendly"
+funFact: "The name 'Solomon's Seal' comes from the flat, circular scars left on the rhizome each year when the stem dies back. They look strikingly like embossed wax seals — the kind used on royal documents — and some say the pattern resembles King Solomon's legendary six-pointed star."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/polygonatum-biflorum-var-commutatum/"
 ---
 

@@ -23,6 +23,7 @@ tags:
   - "Cold hardy"
   - "Acid-loving"
   - "Woodland edge"
+funFact: "It pushes out purple flowers in late winter or early spring before any leaves appear — one of the earliest-blooming rhododendrons. It is also a parent of the popular cold-hardy PJM hybrid rhododendrons, which inherited its exceptional tolerance for frigid winters."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279949"
 ---
 

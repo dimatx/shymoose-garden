@@ -17,6 +17,7 @@ tags:
   - "Cherry Tomato"
   - "Indeterminate"
   - "Organic"
+funFact: "All cherry tomatoes trace their ancestry to a wild South American species, Solanum pimpinellifolium, which naturally produces tiny, pea-sized fruit. Modern cherry tomatoes like the Bumble Bee series are essentially a domesticated form of that wild plant — the original 'cherry' size."
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/tomatoes/specialty-tomatoes/sunrise-bumble-bee-organic-tomato-seed-3112G.html"
 ---
 

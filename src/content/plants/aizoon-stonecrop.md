@@ -22,6 +22,7 @@ tags:
   - "Edible"
   - "Cottage garden"
   - "Pollinator friendly"
+funFact: "The name 'aizoon' comes from the Greek 'aei' (ever) + 'zōon' (alive), meaning 'always living' — a tribute to the plant's remarkable ability to survive drought, poor soil, and neglect."
 learnMoreUrl: "https://worldofsucculents.com/phedimus-aizoon-aizoon-stonecrop/"
 ---
 

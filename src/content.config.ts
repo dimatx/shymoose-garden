@@ -67,6 +67,10 @@ const plants = defineCollection({
       // window (e.g. annual vegetables that are simply pulled at season's end).
       pruneMonths: monthList,
 
+      // A short, surprising, or delightful fact about the plant.
+      // Shown in a highlighted callout on the plant's detail page.
+      funFact: z.string().optional(),
+
       // Optional helpers
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),

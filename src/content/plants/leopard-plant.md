@@ -23,6 +23,7 @@ tags:
   - "Summer bloom"
   - "Bog & waterside"
   - "Deer resistant"
+funFact: "When afternoon sun is intense, the large leaves droop dramatically — a sight that alarms new gardeners. It's actually a normal water-conservation response: the leaves rehydrate overnight and are fully recovered by morning. No intervention needed."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=277343&isprofile=1&basic=Ligularia"
 ---
 

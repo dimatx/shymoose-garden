@@ -18,6 +18,7 @@ tags:
   - "Cucumber"
   - "Hybrid (F1)"
   - "Seedless"
+funFact: "'Unagi' (鰻) is the Japanese word for freshwater eel. This cucumber earned its name from extraordinary length — fruits routinely grow to 18 inches or more, and without a trellis to hang them straight, they curl just like an eel."
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/cucumbers/seedless-and-thin-skinned-cucumbers/unagi-f1-cucumber-seed-4552.html"
 ---
 

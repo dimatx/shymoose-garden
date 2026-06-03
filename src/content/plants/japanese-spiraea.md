@@ -24,6 +24,7 @@ tags:
   - "Low maintenance"
   - "Compact shrub"
 featured: false
+funFact: "Despite being widely planted for its long bloom season, Japanese spiraea is listed as invasive in many U.S. states. It spreads readily from gardens into natural areas and can crowd out native wildflowers along stream banks and forest edges."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/spiraea-japonica-goldmound/"
 ---
 

@@ -23,6 +23,7 @@ tags:
   - "Specimen tree"
   - "Architectural"
 featured: false
+funFact: "No two weeping blue spruces ever look the same. Without staking to guide the central leader, each tree sprawls along the ground or folds over itself in a completely individual form. Every mature 'Pendula' is essentially a one-of-a-kind living sculpture."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/picea-pungens-pendula/"
 ---
 

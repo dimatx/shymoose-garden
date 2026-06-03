@@ -26,6 +26,7 @@ const {
   shortDescription,
   care,
   tags,
+  funFact,
   learnMoreUrl,
 } = plant.data;
 
@@ -190,6 +191,25 @@ const sections = (
         ))
       }
     </section>
+
+    {
+      funFact && (
+        <section class="mt-8">
+          <div class="flex gap-3 rounded-2xl border border-leaf-200/80 bg-leaf-50 p-4 dark:border-leaf-800/80 dark:bg-leaf-900">
+            <span
+              class="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full bg-leaf-100 text-leaf-600 dark:bg-leaf-800 dark:text-leaf-300"
+              aria-hidden="true"
+            >
+              <Icon name="lightbulb" class="h-5 w-5" />
+            </span>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400">Fun Fact</p>
+              <p class="mt-0.5 text-sm leading-relaxed text-leaf-800 dark:text-leaf-200">{funFact}</p>
+            </div>
+          </div>
+        </section>
+      )
+    }
 
     {
       learnMoreUrl && (

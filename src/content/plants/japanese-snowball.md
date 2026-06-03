@@ -23,6 +23,7 @@ tags:
   - "Pollinator friendly"
   - "Drought tolerant"
 featured: true
+funFact: "The large, globe-shaped flowerheads are entirely sterile — they produce no seeds and no pollen. They exist purely as visual lures to draw pollinators toward the small fertile flowers hidden in the center, acting like a living advertisement."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/viburnum-plicatum/"
 ---
 

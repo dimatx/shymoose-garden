@@ -23,6 +23,7 @@ tags:
   - "Fall flowers"
   - "Low maintenance"
   - "Salt tolerant"
+funFact: "The flat-topped flowerheads are a favourite late-season fuel stop for monarch butterflies migrating south in autumn. Because it blooms in late summer and fall when few other plants are still flowering, it can host dozens of butterfly species in a single afternoon."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hylotelephium-spectabile/"
 ---
 

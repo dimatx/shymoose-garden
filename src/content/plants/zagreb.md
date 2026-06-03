@@ -23,6 +23,7 @@ tags:
   - "Drought tolerant"
   - "Deer & rabbit resistant"
 featured: true
+funFact: "'Zagreb' is named after the capital of Croatia, where the cultivar was selected. Its thread-like foliage resists drought far better than broad-leaved plants, and with regular deadheading it can bloom continuously for three to four months — one of the longest bloom windows of any perennial."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/anacis-verticillata/"
 ---
 

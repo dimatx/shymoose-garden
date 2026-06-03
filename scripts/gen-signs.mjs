@@ -27,6 +27,16 @@ function escapeScad(str) {
     .replace(/"/g, '\\"');
 }
 
+// Convert a latin name to a kebab-case filename slug.
+// e.g. "Calendula officinalis 'Geisha Girl'" → "calendula-officinalis-geisha-girl"
+function latinToSlug(latin) {
+  return latin
+    .toLowerCase()
+    .replace(/[''®.]/g, '')       // drop apostrophes, ®, periods
+    .replace(/[^a-z0-9]+/g, '-')  // non-alphanumeric runs → hyphen
+    .replace(/^-+|-+$/g, '');     // trim leading/trailing hyphens
+}
+
 // Read the template
 const templatePath = join(__dirname, 'plant-sign-template.scad');
 const template = readFileSync(templatePath, 'utf8');
@@ -103,6 +113,7 @@ plantFiles.sort();
 
 let generated = 0;
 let skipped = 0;
+const writtenFiles = new Set();
 
 for (const relPath of plantFiles) {
   const slug = basename(relPath, '.md');
@@ -134,18 +145,33 @@ for (const relPath of plantFiles) {
     .replace(/^scientific_name = ".*";$/m, `scientific_name = "${escapeScad(signLatin)}";`)
     .replace(/^plaque_w = \d+;$/m, `plaque_w = ${plaqueW};`);
 
-  const outPath = join(signsDir, `${slug}.scad`);
+  const outFilename = `${latinToSlug(latinName)}.scad`;
+  const outPath = join(signsDir, outFilename);
 
   const widthNote = plaqueW !== 195 ? `  [plaque_w=${plaqueW}]` : '';
   const nameNote = signName !== name ? `  [name: "${signName}"]` : '';
   const latinNote = signLatin !== latinName ? `  [latin: "${signLatin}"]` : '';
   if (DRY_RUN) {
-    console.log(`[DRY RUN] Would write: signs/${slug}.scad  (${name} / ${latinName})${nameNote}${latinNote}${widthNote}`);
+    console.log(`[DRY RUN] Would write: signs/${outFilename}  (${name} / ${latinName})${nameNote}${latinNote}${widthNote}`);
   } else {
     writeFileSync(outPath, scad, 'utf8');
-    console.log(`[OK] signs/${slug}.scad  (${name} / ${latinName})${nameNote}${latinNote}${widthNote}`);
+    writtenFiles.add(outFilename);
+    console.log(`[OK] signs/${outFilename}  (${name} / ${latinName})${nameNote}${latinNote}${widthNote}`);
   }
   generated++;
 }
 
 console.log(`\nDone: ${generated} signs ${DRY_RUN ? 'would be ' : ''}generated, ${skipped} skipped.`);
+
+// Remove any stale .scad files left over from the old slug-based naming
+if (!DRY_RUN) {
+  import('fs').then(({ readdirSync, rmSync }) => {
+    const existing = readdirSync(signsDir).filter(f => f.endsWith('.scad'));
+    for (const f of existing) {
+      if (!writtenFiles.has(f)) {
+        rmSync(join(signsDir, f));
+        console.log(`[REMOVED stale] signs/${f}`);
+      }
+    }
+  });
+}

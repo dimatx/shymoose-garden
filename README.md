@@ -14,6 +14,8 @@ a QR code next to a plant in the garden and it opens that plant's page on
 - **[Tailwind CSS v4](https://tailwindcss.com)** — clean, responsive, mobile-first UI.
 - **Light / dark mode** — follows the device setting, with a manual toggle.
 - **[Cloudflare Pages](https://pages.cloudflare.com)** — hosting + custom domain.
+- **[Shlink](https://shlink.io)** — self-hosted short links at `s.shymoose.com`
+  embedded in each physical sign's QR code.
 
 ## Project structure
 
@@ -36,7 +38,15 @@ src/
     pruning.astro       Pruning calendar.
     404.astro
   styles/global.css    Theme tokens (the leaf color palette) and base styles.
-public/_headers        Security + caching headers for Cloudflare Pages.
+public/
+  _headers             Security + caching headers for Cloudflare Pages.
+  robots.txt
+scripts/
+  import-plants.mjs    Pull new plants from the Google Sheet into draft files.
+  gen-shortlinks.mjs   Create Shlink short URLs and write them back to frontmatter.
+  gen-signs.mjs        Generate per-plant OpenSCAD sign files from the template.
+  plant-sign-template.scad  OpenSCAD template used by gen-signs.
+signs/                 Generated OpenSCAD files — one per plant, ready to 3D-print.
 ```
 
 The two pieces of shared logic worth knowing:
@@ -54,31 +64,37 @@ The two pieces of shared logic worth knowing:
 This is the part you'll do most. No coding required.
 
 1. **Add a photo.** Drop a `.jpg`/`.png` into
-   [`src/assets/plants/`](src/assets/plants/) (e.g. `lavender.jpg`).
-2. **Copy an existing plant file.** Duplicate
-   [`src/content/plants/japanese-snowball.md`](src/content/plants/japanese-snowball.md)
-   and rename it. **The file name becomes the page URL**, so
-   `lavender.md` → `garden.shymoose.com/plants/lavender/`.
+   [`src/assets/plants/`](src/assets/plants/) (e.g. `lavandula-angustifolia.jpg`).
+2. **Copy an existing plant file.** Duplicate any file in
+   [`src/content/plants/`](src/content/plants/) and rename it.
+   **Files are named after the Latin name** (lowercase, hyphens, no punctuation),
+   so `lavandula-angustifolia.md` → `garden.shymoose.com/plants/lavandula-angustifolia/`.
 3. **Edit the fields** at the top (the part between the `---` lines):
 
    ```yaml
    ---
-   name: "Lavender" # Common name
-   latinName: "Lavandula angustifolia" # Botanical name
-   type: "Perennial" # Plant type — powers the home-page filter
-   photo: "../../assets/plants/lavender.jpg" # Path to your photo
+   name: "Lavender"                              # Common name
+   latinName: "Lavandula angustifolia"           # Botanical name
+   type: "Perennial"                             # Powers the home-page type filter
+   nativeRange: "Mediterranean region"           # Optional — shown in care details
+   photo: "../../assets/plants/lavandula-angustifolia.jpg"
    photoAlt: "Rows of purple lavender in bloom."
-   photoCredit: "Your name (optional)"
-   shortDescription: "The short blurb shown first." # ~1–2 sentences
+   photoCredit: "Your name"                      # Optional
+   shortDescription: "The short blurb shown first."  # ~1–2 sentences
+   funFact: "A surprising or delightful fact."   # Optional highlighted callout
    care:
      water: "..."
      soil: "..."
      sunlight: "..."
-     hardiness: "..." # optional
-     size: "..." # optional
-     bloom: "..." # optional
-   tags: ["Perennial", "Fragrant"] # optional pills
-   learnMoreUrl: "https://..." # optional "Learn more" button
+     hardiness: "..."   # Optional
+     size: "..."        # Optional
+     bloom: "..."       # Optional
+     pruning: "..."     # Optional
+   bloomMonths: [6, 7, 8]   # Months in flower (1=Jan). Drives the Bloom Timeline.
+   pruneMonths: [3]          # Months to prune (1=Jan). Drives the Pruning Calendar.
+   tags: ["Perennial", "Fragrant", "Pollinator friendly"]  # Optional filter pills
+   learnMoreUrl: "https://..."   # Optional "Learn more" button
+   shortUrl: "https://s.shymoose.com/..."  # Set automatically by gen:shortlinks
    ---
    ```
 
@@ -88,8 +104,9 @@ This is the part you'll do most. No coding required.
 
 That's the whole workflow — commit the change and Cloudflare rebuilds the site.
 
-> Fields like `hardiness`, `size`, `bloom`, `tags`, and `learnMoreUrl` are
-> optional. Any care item you leave out simply won't show.
+> Most fields are optional. Any care item you leave out simply won't show.
+> `bloomMonths` and `pruneMonths` accept an array of integers 1–12; duplicates
+> and out-of-order values are normalized automatically at build time.
 
 ## Filtering the garden
 
@@ -123,26 +140,78 @@ Other commands:
 ```bash
 npm run build      # production build into dist/
 npm run preview    # preview the production build locally
+npm run publish    # build + gen:shortlinks + gen:signs (full release workflow)
 ```
+
+## Scripts
+
+### Import plants from the Google Sheet
+
+```bash
+npm run import:plants
+```
+
+Reads the ShyMoose plants spreadsheet (publicly published as CSV), compares
+rows against existing plant files, and writes scaffold Markdown files for any
+new rows into `drafts/plants/`. Review each draft, add a photo, fill in the
+`TODO` fields, and move it to `src/content/plants/` when ready. Re-running is
+safe — already-cataloged plants are skipped.
+
+### Generate short links
+
+```bash
+SHLINK_API_KEY=<key> npm run gen:shortlinks
+```
+
+For every plant that doesn't already have a `shortUrl` in its frontmatter,
+creates a short link at `s.shymoose.com` (via the Shlink API) and writes it
+back into the `.md` file. Idempotent — plants with an existing `shortUrl` are
+skipped, and if Shlink already has a link for the same long URL it returns the
+existing one rather than creating a duplicate.
+
+Optional env vars: `SHLINK_BASE_URL`, `SITE_URL`, `DRY_RUN=1`.
+
+### Generate physical signs
+
+```bash
+npm run gen:signs
+```
+
+Reads every plant in `src/content/plants/` and writes a corresponding
+`.scad` file to `signs/` by substituting the plant's `shortUrl`, common name,
+and Latin name into [`scripts/plant-sign-template.scad`](scripts/plant-sign-template.scad).
+
+The resulting `.scad` files are ready to open in
+[OpenSCAD](https://openscad.org/) and render/export for 3D printing. Each sign
+is a two-color plaque (white body, black inlay text and QR code) with a stake
+leg. Set `DRY_RUN=1` to preview what would be generated without writing files.
+
+## Physical signs
+
+Each plant in the garden has a 3D-printed sign. The sign body encodes:
+
+- The plant's **common name** and **Latin name** in engraved text.
+- A **QR code** that points to the plant's Shlink short URL
+  (`s.shymoose.com/…`), which in turn redirects to the full plant page.
+  Using a short URL keeps the QR code small and easy to scan.
+
+The OpenSCAD files in [`signs/`](signs/) are generated — do not edit them by
+hand. To regenerate after adding or changing plants, run `npm run gen:signs`
+(or `npm run publish`, which does it as part of the full release workflow).
 
 ## QR codes
 
-Each plant's QR code should point at its page URL:
+Each plant's page URL follows the pattern:
 
 ```text
-https://garden.shymoose.com/plants/<file-name>/
+https://garden.shymoose.com/plants/<latin-name-slug>/
 ```
 
-For the first plant that's
-`https://garden.shymoose.com/plants/japanese-snowball/`.
+For example: `https://garden.shymoose.com/plants/viburnum-plicatum/`.
 
-Generate a printable QR code with no extra setup:
-
-```bash
-npx qrcode "https://garden.shymoose.com/plants/japanese-snowball/" -o japanese-snowball-qr.png
-```
-
-(You can also use any QR generator — the only thing that matters is the URL.)
+In practice the QR codes on physical signs use the shorter `s.shymoose.com`
+redirect so the code is smaller and the destination URL can be updated without
+reprinting. Run `npm run gen:shortlinks` to create short links for new plants.
 
 ## Deploy to Cloudflare Pages
 
@@ -156,4 +225,5 @@ npx qrcode "https://garden.shymoose.com/plants/japanese-snowball/" -o japanese-s
 4. Deploy. Then under **Custom domains**, add `garden.shymoose.com`
    (Cloudflare will add the `CNAME` for you if the zone is on Cloudflare).
 
-Every push to the default branch triggers a new build and deploy.
+Every push to the default branch triggers a new build and deploy. The build
+also generates a sitemap at `/sitemap-index.xml` automatically.

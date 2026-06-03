@@ -81,7 +81,7 @@ const PLAQUE_W = {
   'japanese-holly':             175,
   'obedient-plant':             175,
   'rose-of-sharon':             175, // 14-char common name; latin is small text
-  'marigold':                   175, // sign says "Calendula"; latin is small text
+  'calendula':                  175, // sign says "Calendula"; latin is small text
   // Cucumbers: common name is "Cucumber"; latin "Cucumis sativus '...'"
   'cucumber-unagi':             175,
   'cucumber-suyo-long':         175,

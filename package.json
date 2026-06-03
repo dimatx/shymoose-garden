@@ -12,7 +12,8 @@
     "astro": "astro",
     "import:plants": "node scripts/import-plants.mjs",
     "gen:shortlinks": "node --env-file=.env scripts/gen-shortlinks.mjs",
-    "migrate:shortlinks": "node --env-file=.env scripts/migrate-shortlinks.mjs"
+    "migrate:shortlinks": "node --env-file=.env scripts/migrate-shortlinks.mjs",
+    "publish": "npm run build && npm run gen:shortlinks"
   },
   "engines": {
     "node": ">=22.0.0 <23"

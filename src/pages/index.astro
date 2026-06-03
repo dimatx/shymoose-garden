@@ -42,7 +42,7 @@ const hasFilters = types.length > 0 || traits.length > 0;
 
   <div class="mb-4">
     <label class="relative block">
-      <span class="sr-only">Search plants by name</span>
+      <span class="sr-only">Search plants by common or Latin name</span>
       <Icon
         name="search"
         strokeWidth={2}
@@ -51,7 +51,7 @@ const hasFilters = types.length > 0 || traits.length > 0;
       <input
         type="search"
         id="plant-search"
-        placeholder="Search plants by name…"
+        placeholder="Search plants by name or Latin name…"
         autocomplete="off"
         class="w-full rounded-full border border-leaf-300 bg-white py-2.5 pl-10 pr-4 text-sm text-leaf-900 placeholder:text-leaf-500 focus:border-leaf-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-500/40 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-400"
       />
@@ -140,6 +140,7 @@ const hasFilters = types.length > 0 || traits.length > 0;
             <div
               class="plant-item"
               data-name={plant.data.name}
+              data-latin={plant.data.latinName}
               data-type={plant.data.type ?? ""}
               data-tags={`|${plant.data.tags.join("|")}|`}
             >
@@ -334,12 +335,16 @@ const hasFilters = types.length > 0 || traits.length > 0;
         const type = item.dataset.type ?? "";
         const tags = item.dataset.tags ?? "";
         const name = (item.dataset.name ?? "").toLowerCase();
+        const latin = (item.dataset.latin ?? "").toLowerCase();
         // Types are OR'd (broaden), traits are AND'd (narrow).
         const typeOk = selectedTypes.size === 0 || selectedTypes.has(type);
         const traitOk = [...selectedTraits].every((t) =>
           tags.includes(`|${t}|`)
         );
-        const searchOk = searchTerm === "" || name.includes(searchTerm);
+        const searchOk =
+          searchTerm === "" ||
+          name.includes(searchTerm) ||
+          latin.includes(searchTerm);
         const show = typeOk && traitOk && searchOk;
         item.hidden = !show;
         if (show) visible++;

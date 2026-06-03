@@ -28,6 +28,7 @@ const {
   tags,
   funFact,
   learnMoreUrl,
+  shortUrl,
 } = plant.data;
 
 // Use the plant's own photo as the social-share image so links shared from a
@@ -117,9 +118,23 @@ const sections = (
     </figure>
 
     <header class="mt-6">
-      <h1 class="text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-        {name}
-      </h1>
+      <div class="flex items-start justify-between gap-3">
+        <h1 class="text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+          {name}
+        </h1>
+        {
+          shortUrl && (
+            <button
+              id="copy-shorturl"
+              data-url={shortUrl}
+              aria-label="Copy short link"
+              class="mt-1 grid h-9 w-9 shrink-0 place-items-center rounded-full text-leaf-400 transition hover:bg-leaf-100 hover:text-leaf-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:text-leaf-500 dark:hover:bg-leaf-800 dark:hover:text-leaf-300"
+            >
+              <Icon name="link" class="h-5 w-5" id="copy-icon" strokeWidth={2} />
+            </button>
+          )
+        }
+      </div>
       <p class="mt-1 text-lg italic text-leaf-600 dark:text-leaf-400">
         {latinName}
       </p>
@@ -228,6 +243,29 @@ const sections = (
     }
   </article>
 </Layout>
+
+<script>
+  function initCopyButton() {
+    const btn = document.getElementById("copy-shorturl") as HTMLButtonElement | null;
+    if (!btn) return;
+    btn.addEventListener("click", async () => {
+      const url = btn.dataset.url;
+      if (!url) return;
+      await navigator.clipboard.writeText(url);
+      // Swap to check icon + brief label
+      btn.innerHTML = `<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5" /></svg>`;
+      btn.classList.add("text-leaf-600", "dark:text-leaf-300");
+      setTimeout(() => {
+        btn.innerHTML = `<svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg>`;
+        btn.classList.remove("text-leaf-600", "dark:text-leaf-300");
+      }, 2000);
+    });
+  }
+
+  // Run on first load and after every view-transition navigation.
+  initCopyButton();
+  document.addEventListener("astro:page-load", initCopyButton);
+</script>
 
 <style>
   .prose-garden :global(h2) {

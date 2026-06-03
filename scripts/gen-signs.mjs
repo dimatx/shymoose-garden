@@ -105,6 +105,7 @@ const PLAQUE_W = {
   'picea-pungens-pendula':                   210, // Weeping Blue Spruce
   'polygonatum-biflorum-var-commutatum':     215, // Giant Solomon's Seal
   'rhododendron-dauricum':                   225, // Dahurian Rhododendron
+  'picea-pungens-glauca-globosa':             195, // "Globe Blue Spruce" (17 chars)
   'penstemon-hartwegii-arabesque-red':       175, // "Penstemon" (9 chars)
   'chamaecyparis-pisifera-golden-mop':       175, // "False Cypress" (13 chars)
 };
@@ -140,7 +141,7 @@ for (const relPath of plantFiles) {
   const signName = SIGN_NAME[slug] ?? name;
   const signLatin = SIGN_LATIN[slug] ?? latinName;
   // Replace the per-plant variable lines in the template
-  const plaqueW = PLAQUE_W[slug] ?? 195;
+  const plaqueW = PLAQUE_W[slug] ?? 175;
   const scad = template
     .replace(/^qr_url = ".*";$/m, `qr_url = "${escapeScad(shortUrl)}";`)
     .replace(/^common_name = ".*";$/m, `common_name = "${escapeScad(signName)}";`)
@@ -150,7 +151,7 @@ for (const relPath of plantFiles) {
   const outFilename = `${latinToSlug(latinName)}.scad`;
   const outPath = join(signsDir, outFilename);
 
-  const widthNote = plaqueW !== 195 ? `  [plaque_w=${plaqueW}]` : '';
+  const widthNote = plaqueW !== 175 ? `  [plaque_w=${plaqueW}]` : '';
   const nameNote = signName !== name ? `  [name: "${signName}"]` : '';
   const latinNote = signLatin !== latinName ? `  [latin: "${signLatin}"]` : '';
   if (DRY_RUN) {

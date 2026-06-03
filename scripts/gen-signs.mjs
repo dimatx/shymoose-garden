@@ -105,8 +105,8 @@ const PLAQUE_W = {
   'picea-pungens-pendula':                   210, // Weeping Blue Spruce
   'polygonatum-biflorum-var-commutatum':     215, // Giant Solomon's Seal
   'rhododendron-dauricum':                   225, // Dahurian Rhododendron
-  'penstemon-hartwegii-arabesque-red':       235, // "Arabesque Red Penstemon" (23 chars)
-  'chamaecyparis-pisifera-golden-mop':       240, // "Golden Mop False Cypress" (24 chars)
+  'penstemon-hartwegii-arabesque-red':       175, // "Penstemon" (9 chars)
+  'chamaecyparis-pisifera-golden-mop':       175, // "False Cypress" (13 chars)
 };
 
 // Glob all plant markdown files

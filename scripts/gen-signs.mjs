@@ -50,22 +50,22 @@ if (!DRY_RUN) {
 // Per-plant latin name override for the sign.
 // When set, this replaces the latinName field on the sign only (frontmatter is unchanged).
 const SIGN_LATIN = {
-  'tomato-bumble-bee-purple':  "S. lycopersicum 'Bumble Bee Purple'",
-  'tomato-bumble-bee-sunrise': "S. lycopersicum 'Bumble Bee Sunrise'",
-  'tomato-carbon':             "S. lycopersicum 'Carbon'",
-  'tomato-ukrainian-purple':   "S. lycopersicum 'Ukrainian Purple'",
+  'solanum-lycopersicum-bumble-bee-purple':  "S. lycopersicum 'Bumble Bee Purple'",
+  'solanum-lycopersicum-bumble-bee-sunrise': "S. lycopersicum 'Bumble Bee Sunrise'",
+  'solanum-lycopersicum-carbon':             "S. lycopersicum 'Carbon'",
+  'solanum-lycopersicum-ukrainian-purple':   "S. lycopersicum 'Ukrainian Purple'",
 };
 
 // Per-plant common name override for the sign.
 // When set, this replaces the name field on the sign only (latin name is unchanged).
 const SIGN_NAME = {
-  'cucumber-shintokiwa':       'Cucumber',
-  'cucumber-suyo-long':        'Cucumber',
-  'cucumber-unagi':            'Cucumber',
-  'tomato-bumble-bee-purple':  'Tomato',
-  'tomato-bumble-bee-sunrise': 'Tomato',
-  'tomato-carbon':             'Tomato',
-  'tomato-ukrainian-purple':   'Tomato',
+  'cucumis-sativus-shintokiwa':              'Cucumber',
+  'cucumis-sativus-suyo-long':               'Cucumber',
+  'cucumis-sativus-unagi':                   'Cucumber',
+  'solanum-lycopersicum-bumble-bee-purple':  'Tomato',
+  'solanum-lycopersicum-bumble-bee-sunrise': 'Tomato',
+  'solanum-lycopersicum-carbon':             'Tomato',
+  'solanum-lycopersicum-ukrainian-purple':   'Tomato',
 };
 
 // Per-plant plaque_w overrides (mm). Minimum is 175.
@@ -73,38 +73,38 @@ const SIGN_NAME = {
 // (~4.5mm/char Barlow Condensed Italic) both checked. text_width = plaque_w - 39.
 const PLAQUE_W = {
   // Width driven by common name length (latin is small text, not a constraint)
-  'orpine':                     175,
-  'black-cohosh':               175,
-  'leopard-plant':              175,
-  'woodland-sage':              175,
-  'eastern-redbud':             175, // confirmed
-  'japanese-holly':             175,
-  'obedient-plant':             175,
-  'rose-of-sharon':             175, // 14-char common name; latin is small text
-  'calendula':                  175, // sign says "Calendula"; latin is small text
+  'hylotelephium-telephium':                 175, // Orpine
+  'actaea-racemosa':                         175, // Black Cohosh
+  'ligularia-dentata':                       175, // Leopard Plant
+  'salvia-nemorosa':                         175, // Woodland Sage
+  'cercis-canadensis':                       175, // Eastern Redbud
+  'ilex-crenata':                            175, // Japanese Holly
+  'physostegia-virginiana':                  175, // Obedient Plant
+  'hibiscus-syriacus-notwoodthree':          175, // Rose of Sharon
+  'calendula-officinalis-geisha-girl':       175, // sign says "Calendula"
   // Cucumbers: common name is "Cucumber"; latin "Cucumis sativus '...'"
-  'cucumber-unagi':             175,
-  'cucumber-suyo-long':         175,
-  'cucumber-shintokiwa':        175,
+  'cucumis-sativus-unagi':                   175,
+  'cucumis-sativus-suyo-long':               175,
+  'cucumis-sativus-shintokiwa':              175,
   // Tomatoes: common name is "Tomato"; latin is now "S. lycopersicum '...'"
-  'tomato-carbon':              175,
-  'tomato-ukrainian-purple':    175,
-  'tomato-bumble-bee-purple':   175,
-  'tomato-bumble-bee-sunrise':  175,
-  'green-hellebore':            185,
-  'japanese-pieris':            185,
-  'showy-stonecrop':            185,
-  'zagreb':                     185,
-  'aizoon-stonecrop':           190,
-  'japanese-spiraea':           190,
-  'speedwell':                  190,
-  'japanese-snowball':          200, // confirmed
-  'arborvitae':                 205,
-  'weeping-blue-spruce':        210,
-  'giant-solomons-seal':        215, // confirmed
-  'dahurian-rhododendron':      225,
-  'penstemon':                  235, // "Arabesque Red Penstemon" (23 chars)
-  'false-cypress':              240, // "Golden Mop False Cypress" (24 chars)
+  'solanum-lycopersicum-carbon':             175,
+  'solanum-lycopersicum-ukrainian-purple':   175,
+  'solanum-lycopersicum-bumble-bee-purple':  175,
+  'solanum-lycopersicum-bumble-bee-sunrise': 175,
+  'helleborus-argutifolius':                 185, // Green Hellebore
+  'pieris-japonica':                         185, // Japanese Pieris
+  'hylotelephium-spectabile':                185, // Showy Stonecrop
+  'anacis-verticillata-zagreb':              185, // Zagreb
+  'phedimus-aizoon':                         190, // Aizoon Stonecrop
+  'spiraea-japonica':                        190, // Japanese Spiraea
+  'veronica-spicata':                        190, // Speedwell
+  'viburnum-plicatum':                       200, // Japanese Snowball
+  'thuja-occidentalis-emerald':              205, // Arborvitae
+  'picea-pungens-pendula':                   210, // Weeping Blue Spruce
+  'polygonatum-biflorum-var-commutatum':     215, // Giant Solomon's Seal
+  'rhododendron-dauricum':                   225, // Dahurian Rhododendron
+  'penstemon-hartwegii-arabesque-red':       235, // "Arabesque Red Penstemon" (23 chars)
+  'chamaecyparis-pisifera-golden-mop':       240, // "Golden Mop False Cypress" (24 chars)
 };
 
 // Glob all plant markdown files

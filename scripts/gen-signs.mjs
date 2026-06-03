@@ -54,8 +54,6 @@ const SIGN_LATIN = {
   'solanum-lycopersicum-bumble-bee-sunrise': "S. lycopersicum 'Bumble Bee Sunrise'",
   'solanum-lycopersicum-carbon':             "S. lycopersicum 'Carbon'",
   'solanum-lycopersicum-ukrainian-purple':   "S. lycopersicum 'Ukrainian Purple'",
-  'chamaecyparis-pisifera-golden-mop':       "'Golden Mop'",
-  'penstemon-hartwegii-arabesque-red':       "Arabesque\u00ae Red",
 };
 
 // Per-plant common name override for the sign.
@@ -68,6 +66,8 @@ const SIGN_NAME = {
   'solanum-lycopersicum-bumble-bee-sunrise': 'Tomato',
   'solanum-lycopersicum-carbon':             'Tomato',
   'solanum-lycopersicum-ukrainian-purple':   'Tomato',
+  'chamaecyparis-pisifera-golden-mop':       'False Cypress',
+  'penstemon-hartwegii-arabesque-red':       'Penstemon',
 };
 
 // Per-plant plaque_w overrides (mm). Minimum is 175.

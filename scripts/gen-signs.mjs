@@ -37,6 +37,15 @@ if (!DRY_RUN) {
   mkdirSync(signsDir, { recursive: true });
 }
 
+// Per-plant latin name override for the sign.
+// When set, this replaces the latinName field on the sign only (frontmatter is unchanged).
+const SIGN_LATIN = {
+  'tomato-bumble-bee-purple':  "S. lycopersicum 'Bumble Bee Purple'",
+  'tomato-bumble-bee-sunrise': "S. lycopersicum 'Bumble Bee Sunrise'",
+  'tomato-carbon':             "S. lycopersicum 'Carbon'",
+  'tomato-ukrainian-purple':   "S. lycopersicum 'Ukrainian Purple'",
+};
+
 // Per-plant common name override for the sign.
 // When set, this replaces the name field on the sign only (latin name is unchanged).
 const SIGN_NAME = {
@@ -53,20 +62,25 @@ const SIGN_NAME = {
 // Primary text (~9mm/char Barlow Condensed Bold) and secondary latin text
 // (~4.5mm/char Barlow Condensed Italic) both checked. text_width = plaque_w - 39.
 const PLAQUE_W = {
-  // Short common names — latin name is the constraint or both are short
-  'orpine':                     175, // "Orpine" / "Hylotelephium telephium"
-  'black-cohosh':               175, // "Black Cohosh" / "Actaea racemosa"
-  'leopard-plant':              175, // "Leopard Plant" / "Ligularia dentata"
-  'woodland-sage':              175, // "Woodland Sage" / "Salvia nemorosa"
+  // Width driven by common name length (latin is small text, not a constraint)
+  'orpine':                     175,
+  'black-cohosh':               175,
+  'leopard-plant':              175,
+  'woodland-sage':              175,
   'eastern-redbud':             175, // confirmed
-  'japanese-holly':             175, // "Japanese Holly" / "Ilex crenata"
-  'obedient-plant':             175, // "Obedient Plant" / "Physostegia virginiana"
-  // Cucumbers: common name is now just "Cucumber"; latin names are short
-  'cucumber-unagi':             175, // latin: "Cucumis sativus 'Unagi'"
-  'cucumber-suyo-long':         175, // latin: "Cucumis sativus 'Suyo Long'"
-  'cucumber-shintokiwa':        175, // latin: "Cucumis sativus 'Shintokiwa'"
-  // Rose of Sharon: latin "Hibiscus syriacus 'Notwoodthree'" (32 chars) needs room
-  'rose-of-sharon':             185,
+  'japanese-holly':             175,
+  'obedient-plant':             175,
+  'rose-of-sharon':             175, // 14-char common name; latin is small text
+  'marigold':                   175, // sign says "Calendula"; latin is small text
+  // Cucumbers: common name is "Cucumber"; latin "Cucumis sativus '...'"
+  'cucumber-unagi':             175,
+  'cucumber-suyo-long':         175,
+  'cucumber-shintokiwa':        175,
+  // Tomatoes: common name is "Tomato"; latin is now "S. lycopersicum '...'"
+  'tomato-carbon':              175,
+  'tomato-ukrainian-purple':    175,
+  'tomato-bumble-bee-purple':   175,
+  'tomato-bumble-bee-sunrise':  175,
   'green-hellebore':            185,
   'japanese-pieris':            185,
   'showy-stonecrop':            185,
@@ -74,21 +88,13 @@ const PLAQUE_W = {
   'aizoon-stonecrop':           190,
   'japanese-spiraea':           190,
   'speedwell':                  190,
-  // Marigold: common name is "Calendula" (short) but latin
-  // "Calendula officinalis 'Geisha Girl'" (35 chars) drives width
-  'marigold':                   200,
   'japanese-snowball':          200, // confirmed
   'arborvitae':                 205,
   'weeping-blue-spruce':        210,
   'giant-solomons-seal':        215, // confirmed
   'dahurian-rhododendron':      225,
-  'penstemon':                  240, // latin "Penstemon hartwegii Arabesque® Red"
-  'false-cypress':              245, // latin "Chamaecyparis pisifera 'Golden Mop'"
-  // Tomatoes: common name is now just "Tomato"; latin name drives width
-  'tomato-carbon':              180, // latin: "Solanum lycopersicum 'Carbon'"
-  'tomato-ukrainian-purple':    225, // latin: "Solanum lycopersicum 'Ukrainian Purple'"
-  'tomato-bumble-bee-purple':   235, // latin: "Solanum lycopersicum 'Bumble Bee Purple'"
-  'tomato-bumble-bee-sunrise':  240, // latin: "Solanum lycopersicum 'Bumble Bee Sunrise'"
+  'penstemon':                  235, // "Arabesque Red Penstemon" (23 chars)
+  'false-cypress':              240, // "Golden Mop False Cypress" (24 chars)
 };
 
 // Glob all plant markdown files
@@ -119,23 +125,25 @@ for (const relPath of plantFiles) {
   const shortUrl = shortUrlMatch ? shortUrlMatch[1].trim() : `https://garden.shymoose.com/plants/${slug}`;
 
   const signName = SIGN_NAME[slug] ?? name;
+  const signLatin = SIGN_LATIN[slug] ?? latinName;
   // Replace the per-plant variable lines in the template
   const plaqueW = PLAQUE_W[slug] ?? 195;
   const scad = template
     .replace(/^qr_url = ".*";$/m, `qr_url = "${escapeScad(shortUrl)}";`)
     .replace(/^common_name = ".*";$/m, `common_name = "${escapeScad(signName)}";`)
-    .replace(/^scientific_name = ".*";$/m, `scientific_name = "${escapeScad(latinName)}";`)
+    .replace(/^scientific_name = ".*";$/m, `scientific_name = "${escapeScad(signLatin)}";`)
     .replace(/^plaque_w = \d+;$/m, `plaque_w = ${plaqueW};`);
 
   const outPath = join(signsDir, `${slug}.scad`);
 
   const widthNote = plaqueW !== 195 ? `  [plaque_w=${plaqueW}]` : '';
-  const nameNote = signName !== name ? `  [sign name: "${signName}"]` : '';
+  const nameNote = signName !== name ? `  [name: "${signName}"]` : '';
+  const latinNote = signLatin !== latinName ? `  [latin: "${signLatin}"]` : '';
   if (DRY_RUN) {
-    console.log(`[DRY RUN] Would write: signs/${slug}.scad  (${name} / ${latinName})${nameNote}${widthNote}`);
+    console.log(`[DRY RUN] Would write: signs/${slug}.scad  (${name} / ${latinName})${nameNote}${latinNote}${widthNote}`);
   } else {
     writeFileSync(outPath, scad, 'utf8');
-    console.log(`[OK] signs/${slug}.scad  (${name} / ${latinName})${nameNote}${widthNote}`);
+    console.log(`[OK] signs/${slug}.scad  (${name} / ${latinName})${nameNote}${latinNote}${widthNote}`);
   }
   generated++;
 }

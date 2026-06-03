@@ -4,7 +4,7 @@ remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "http://s.shymoose.com/FdHQ5";
 common_name = "Tomato";
-scientific_name = "Solanum lycopersicum 'Ukrainian Purple'";
+scientific_name = "S. lycopersicum 'Ukrainian Purple'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
 
@@ -12,7 +12,7 @@ qr_error_correction = "L"; // [L, M, Q, H]
 // height
 plaque_h = 35;
 // width
-plaque_w = 225;
+plaque_w = 175;
 // thickness
 plaque_t = 4;
 // depth of text/QR cutouts from face (filled by 2nd filament color)

@@ -16,7 +16,8 @@
  * (learnMoreUrl) OR its normalized Latin name matches an existing plant file.
  * Only unmatched rows are scaffolded, so re-running is safe and idempotent.
  *
- * The sheet CSV URL can be overridden with the PLANTS_SHEET_CSV_URL env var.
+ * The sheet CSV URL must be provided via the PLANTS_SHEET_CSV_URL env var
+ * (e.g. in your local .env). It is intentionally not hardcoded in source.
  */
 
 import { readFile, readdir, writeFile, mkdir } from "node:fs/promises";
@@ -29,10 +30,15 @@ const repoRoot = resolve(__dirname, "..");
 const contentDir = join(repoRoot, "src", "content", "plants");
 const draftsDir = join(repoRoot, "drafts", "plants");
 
-const DEFAULT_CSV_URL =
-  "https://docs.google.com/spreadsheets/d/e/2PACX-1vT1mU2VdnLunob65Z_r61Y-F6r0A0FLnEFJL6QsOTA8swAPPqA915IbVMIReSU7L6xG4z3Q2YZFHmMC/pub?gid=0&single=true&output=csv";
-
-const CSV_URL = process.env.PLANTS_SHEET_CSV_URL || DEFAULT_CSV_URL;
+const CSV_URL = process.env.PLANTS_SHEET_CSV_URL;
+if (!CSV_URL) {
+  console.error(
+    "\n✗ PLANTS_SHEET_CSV_URL env var is required.\n" +
+      "  Set it in your local .env (the published Google Sheet CSV URL),\n" +
+      "  e.g. PLANTS_SHEET_CSV_URL=https://docs.google.com/.../pub?...output=csv\n"
+  );
+  process.exit(1);
+}
 
 /** Column headers we care about, as they appear in the sheet. */
 const COL = {

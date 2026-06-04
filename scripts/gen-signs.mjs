@@ -73,6 +73,13 @@ const SIGN_NAME = {
 // Per-plant plaque_w overrides (mm). Minimum is 175.
 // Primary text (~9mm/char Barlow Condensed Bold) and secondary latin text
 // (~4.5mm/char Barlow Condensed Italic) both checked. text_width = plaque_w - 39.
+// When a slug is NOT listed here, calcPlaqueW() computes the width automatically.
+function calcPlaqueW(signName, signLatin) {
+  const primaryW = signName.length * 9;
+  const latinW   = signLatin.length * 4.5;
+  return Math.max(175, Math.ceil(Math.max(primaryW, latinW) + 39));
+}
+
 const PLAQUE_W = {
   // Width driven by common name length (latin is small text, not a constraint)
   'hylotelephium-telephium':                 175, // Orpine
@@ -141,7 +148,7 @@ for (const relPath of plantFiles) {
   const signName = SIGN_NAME[slug] ?? name;
   const signLatin = SIGN_LATIN[slug] ?? latinName;
   // Replace the per-plant variable lines in the template
-  const plaqueW = PLAQUE_W[slug] ?? 175;
+  const plaqueW = PLAQUE_W[slug] ?? calcPlaqueW(signName, signLatin);
   const scad = template
     .replace(/^qr_url = ".*";$/m, `qr_url = "${escapeScad(shortUrl)}";`)
     .replace(/^common_name = ".*";$/m, `common_name = "${escapeScad(signName)}";`)
@@ -151,7 +158,7 @@ for (const relPath of plantFiles) {
   const outFilename = `${latinToSlug(latinName)}.scad`;
   const outPath = join(signsDir, outFilename);
 
-  const widthNote = plaqueW !== 175 ? `  [plaque_w=${plaqueW}]` : '';
+  const widthNote = `  [plaque_w=${plaqueW}]`;
   const nameNote = signName !== name ? `  [name: "${signName}"]` : '';
   const latinNote = signLatin !== latinName ? `  [latin: "${signLatin}"]` : '';
   if (DRY_RUN) {

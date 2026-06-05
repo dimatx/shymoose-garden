@@ -95,14 +95,6 @@ const chipClass =
 <!-- Timeline chart -->
 <section class="overflow-x-auto pb-2">
   <div class="relative min-w-180">
-    <!-- "Today" indicator line, positioned by the script below. -->
-    <div
-      id="now-line"
-      class="now-line pointer-events-none absolute bottom-0 top-0 z-10 hidden w-px"
-      aria-hidden="true"
-    >
-      <span class="now-line-dot"></span>
-    </div>
     <!-- Month header -->
     <div class="grid grid-cols-[11rem_repeat(12,1fr)] gap-px">
       <div></div>
@@ -119,7 +111,15 @@ const chipClass =
     </div>
 
     <!-- Rows -->
-    <div class="divide-y divide-leaf-200/70 dark:divide-leaf-800/70">
+    <div class="relative divide-y divide-leaf-200/70 dark:divide-leaf-800/70">
+      <!-- "Today" indicator line, positioned by the script below. -->
+      <div
+        id="now-line"
+        class="now-line pointer-events-none absolute bottom-0 top-0 z-10 hidden w-px"
+        aria-hidden="true"
+      >
+        <span class="now-line-dot"></span>
+      </div>
       {
         sorted.map((row) => (
           <div
@@ -194,7 +194,7 @@ const chipClass =
     top: 0;
     height: 0.5rem;
     width: 0.5rem;
-    transform: translate(-50%, 0);
+    transform: translate(-50%, -50%);
     border-radius: 9999px;
     background-color: var(--color-leaf-600);
     box-shadow: 0 0 0 2px var(--color-leaf-50);

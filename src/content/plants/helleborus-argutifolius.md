@@ -12,7 +12,7 @@ care:
   soil: "Well-drained or sandy soil; tolerates clay if it drains. Neutral to alkaline pH."
   sunlight: "Dappled to partial or even deep shade; intolerant of bright winter sun."
   hardiness: "USDA zones 6–8."
-  size: "1.5–2 ft tall and 1.5–2 ft wide."
+  size: "2–3 ft tall and 2–3 ft wide."
   bloom: "Pale yellow-green, cup-shaped nodding flowers from late winter to early spring."
   pruning: "Maintenance: in early spring, as new growth resumes, cut off the old, tattered leaves to show off the blooms and reduce leaf spot; remove spent flower stems at the base after the flowers fade in late spring. Rejuvenate an aging clump by dividing it."
 bloomMonths: [2, 3, 4]

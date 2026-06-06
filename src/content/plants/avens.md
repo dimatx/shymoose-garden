@@ -12,7 +12,7 @@ care:
   soil: "Loamy or sandy, well-drained; pH 6.0–8.0. Avoid heavy clay — root rot can occur in poorly drained sites."
   sunlight: "Full sun to partial shade. Afternoon shade helps in hot, humid summers."
   hardiness: "USDA zones 5–7."
-  size: "9–18 inches tall and wide, mounding rosette habit."
+  size: "Foliage mound to 12–15 in. tall; reaches 24–30 in. in bloom; spreads 12–18 in. wide."
   bloom: "Semi-double to double scarlet-orange flowers on branching wiry stems from late spring through summer. Feathery seed heads are ornamental after bloom."
   pruning: "Low maintenance. Deadhead spent flowers to prolong bloom. Divide clumps every 1–2 years in early spring to keep plants vigorous."
 bloomMonths: [5, 6, 7, 8]

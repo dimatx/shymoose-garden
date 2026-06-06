@@ -12,7 +12,7 @@ care:
   soil: "Acidic, humus-rich, well-drained soil. Mulch to keep the shallow roots cool and moist."
   sunlight: "Full sun to part shade. More sun gives heavier bloom, but afternoon shade helps in hot, dry climates."
   hardiness: "Very cold-hardy — USDA zones 4–7."
-  size: "2–6 ft tall and wide, with an open, twiggy habit."
+  size: "4–6 ft tall and wide, with an open, twiggy habit."
   bloom: "Clusters of rosy purple-pink, funnel-shaped flowers smother the bare branches in late winter to early spring, ahead of the leaves."
   pruning: "Maintenance: low. Prune lightly right after flowering to shape; avoid heavy cuts into old wood."
 bloomMonths: [3, 4]

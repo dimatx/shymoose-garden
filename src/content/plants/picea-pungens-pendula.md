@@ -12,7 +12,7 @@ care:
   soil: "Well-drained soil of most types; tolerates a range of pH but resents standing water."
   sunlight: "Full sun for the best blue color and healthiest growth."
   hardiness: "Very cold-hardy — USDA zones 2–8."
-  size: "Highly variable depending on staking — commonly 6–15 ft tall and 4–6 ft wide as a narrow weeping column."
+  size: "Highly variable depending on staking — staked forms typically reach 6–10 ft tall; unstaked forms trail to 1–2 ft tall by 6–10 ft wide."
   bloom: "None — grown for its evergreen silvery-blue needles and weeping form rather than flowers."
   pruning: "Maintenance: low. Stake a leader to set the height, then prune only to guide form and remove damaged growth in spring."
 pruneMonths: [4]

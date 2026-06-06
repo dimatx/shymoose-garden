@@ -10,6 +10,7 @@ shortDescription: "An award-winning penstemon covered all summer in large, bell-
 care:
   sunlight: "Full sun."
   hardiness: "USDA zones 6–9."
+  size: "24–30 in. tall and 18–24 in. wide."
   bloom: "Red and white bicolor, large bell-shaped flowers all summer long."
   pruning: "Maintenance: deadhead spent spikes through summer to keep the flowers coming, then cut the old stems back in early spring once hard frost has passed. It's a tender, short-lived perennial only marginally hardy in our zone 6B winters, so it's best refreshed by replanting or division."
 bloomMonths: [6, 7, 8, 9]

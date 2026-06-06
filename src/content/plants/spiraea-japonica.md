@@ -12,7 +12,8 @@ care:
   soil: "Adaptable to most soils as long as they drain reasonably; tolerates clay and a wide pH range."
   sunlight: "Full sun for the heaviest flowering; tolerates light shade with fewer blooms."
   hardiness: "Very adaptable — USDA zones 4–8."
-  size: "2–4 ft tall and wide, forming a tidy, rounded mound."
+  size: "2–3 ft tall and 3–4 ft wide, forming a tidy, rounded mound."
+
   bloom: "Flat to slightly domed clusters of tiny rosy-pink (sometimes white) flowers from early to late summer; shearing spent blooms encourages a second flush."
   pruning: "Maintenance: low. Cut back hard in late winter or early spring to keep it dense; deadhead in summer to prolong bloom."
 bloomMonths: [6, 7, 8]

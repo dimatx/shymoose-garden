@@ -12,7 +12,7 @@ qr_error_correction = "L"; // [L, M, Q, H]
 // height
 plaque_h = 35;
 // width
-plaque_w = 225;
+plaque_w = 235;
 // thickness
 plaque_t = 4;
 // depth of text/QR cutouts from face (filled by 2nd filament color)
@@ -36,6 +36,12 @@ scientific_name_font="Barlow Condensed:style=Italic"; // font
 qr_padding = 2.0;
 text_padding = 4.0;
 leg_padding = 30;
+
+/* [Stabilizer] */
+// add a rib across the back tying the two leg sockets together to reduce flexing
+add_stabilizer = true;
+// height the rib stands off the back (defaults to match the socket height)
+stabilizer_h = 10;
 
 /* [Other] */
 total_text_h = plaque_h - text_padding * 3;
@@ -812,6 +818,24 @@ module create_sign() {
     rotate([180,0,0])
     color(plaque_color)
     create_leg_socket(10);
+
+    // Backside stabilizer rib tying the two leg sockets together.
+    // Stands perpendicular to the sign face and bridges the gap between the
+    // OUTER faces of the two sockets, ending flush against each wall without
+    // breaching it, to resist flexing across the narrow dimension. The rib is
+    // as wide (y) as the socket's perimeter wall so it reads as a continuation
+    // of that wall.
+    if (add_stabilizer) {
+        socket_wall = 1.5;                          // socket wall thickness (see create_leg_socket)
+        socket_exp = 0.05 + socket_wall;            // clearance + wall
+        socket_half_w = (10 * 4) / 2 + socket_exp;  // outer half-width of the fin in x
+        bar_start = leg_padding + socket_half_w;          // exactly at left socket outer face
+        bar_end = (plaque_w - leg_padding) - socket_half_w;  // exactly at right socket outer face
+        translate([bar_start, half_height, 0])
+        rotate([180,0,0])
+        color(plaque_color)
+        create_stabilizer_bar(bar_end - bar_start, stabilizer_h, socket_wall);
+    }
 }
 
 module create_black_parts(plaque_t) {
@@ -944,6 +968,16 @@ module create_leg_socket(leg_radius, height=10, wall=1.5, clearance=0.05) {
         rotate([0, 0, a])
         translate([leg_radius + clearance + 0.3, 0, 9])
         sphere(r=1.0, $fn=24);
+}
+
+// Stiffening rib for the back of the plaque.
+// Built in the socket's local frame (origin at the left socket center,
+// before the rotate([180,0,0])): runs +x toward the right socket, is
+// centered on y, and extrudes up in +z so it stands the same height as
+// the sockets once rotated onto the back face.
+module create_stabilizer_bar(length, height, thickness) {
+    translate([0, -thickness/2, 0])
+    cube([length, thickness, height]);
 }
 
 module rounded_rectangle(width, height, radius) {

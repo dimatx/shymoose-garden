@@ -12,7 +12,7 @@ care:
   soil: "Rich soil high in organic matter; acidic to neutral pH with good drainage."
   sunlight: "Dappled to partial or deep shade; ideally 2–3 hours of morning sun. Too little light and it may not flower."
   hardiness: "USDA zones 3–8."
-  size: "4–7 ft tall and 2–4 ft wide."
+  size: "4–6 ft tall (foliage mound; flower spikes to 7 ft) and 2–4 ft wide."
   bloom: "Tall racemes of hundreds of tiny, fluffy creamy-white flowers from early to late summer, followed by dry seed pods."
   pruning: "Maintenance: low — leave or remove the spent flower spikes as you like, then cut the foliage back after frost. It resents disturbance, so divide only occasionally to renew."
 bloomMonths: [6, 7, 8]

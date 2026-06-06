@@ -12,7 +12,7 @@ care:
   soil: "Moist, well-drained, slightly acidic soil; dislikes heavy, soggy, or strongly alkaline ground."
   sunlight: "Full sun to part shade; denser growth in more sun."
   hardiness: "USDA zones 5–8."
-  size: "Typically 3–8 ft tall and wide depending on cultivar; takes hard shearing to any size."
+  size: "Species reaches 5–10 ft tall and wide; many compact cultivars stay 3–5 ft. Takes hard shearing to any size."
   bloom: "Inconspicuous small white flowers in late spring; female plants follow with small shiny black berries."
   pruning: "Maintenance: low to moderate. Shears beautifully into hedges and topiary; trim in early summer after flowering."
 bloomMonths: [5, 6]

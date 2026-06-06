@@ -11,7 +11,7 @@ care:
   water: "Medium to wet; keeps best in consistently moist soil."
   soil: "Average soil with good drainage that stays moist."
   sunlight: "Partial to full shade, though it does best with some sun. Tolerates deep shade."
-  size: "3–5 ft tall, occasionally to 7 ft; spreads by rhizomes."
+  size: "3–6 ft tall (occasionally to 7 ft) and 2–4 ft wide; spreads gradually by rhizomes."
   bloom: "Clusters of 2–10 greenish-white, bell-shaped flowers hang beneath the stems in May–June, followed by showy blue-black berries in fall."
   pruning: "Maintenance: minimal — let the foliage die back and cut the spent stems to the ground in fall. Lift and divide the rhizomes in fall to rejuvenate or contain the clump."
 bloomMonths: [5, 6]

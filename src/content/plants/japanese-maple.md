@@ -12,7 +12,7 @@ care:
   soil: "Rich, loamy, and well-drained with high organic matter; slightly acidic pH preferred. Mulch to retain moisture and keep roots cool."
   sunlight: "Dappled shade to part sun. Protect from hot afternoon sun and drying winds, which can cause leaf scorch."
   hardiness: "USDA zones 5–8."
-  size: "4–6 feet tall and 6–8 feet wide; slow-growing, graceful weeping mound."
+  size: "8–10 ft tall and 10–12 ft wide; slow-growing, graceful weeping mound."
   bloom: "Small, inconspicuous red-purple flowers in spring followed by ornamental winged samaras. Grown primarily for its striking foliage."
   pruning: "Minimal pruning needed. Remove dead or crossing branches in late winter while dormant. Avoid heavy pruning."
 bloomMonths: [4, 5]

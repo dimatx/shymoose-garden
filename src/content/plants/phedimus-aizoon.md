@@ -11,6 +11,7 @@ care:
   water: "Drought tolerant; prefers dry to moderately moist, well-drained soil."
   soil: "Rocky, shallow, well-drained soil of low to moderate fertility — from limestone to sandstone."
   sunlight: "Full sun; tolerates light shade."
+  hardiness: "USDA zones 4–9."
   size: "30–45 cm (12–18 in.) tall and 45–60 cm (18–24 in.) wide; clump-forming with upright, unbranched stems."
   bloom: "Yellow flowers in branched clusters in early summer, followed by star-like seed pods in late summer."
   pruning: "Maintenance: trim off spent flower stems and cut the clump back in late fall or early spring. Divide the clump to rejuvenate it."

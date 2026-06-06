@@ -8,6 +8,8 @@ photoAlt: "Tall spike of large red and white bicolor bell-shaped penstemon flowe
 photoCredit: "Hectonichus, CC BY-SA 3.0, via Wikimedia Commons"
 shortDescription: "An award-winning penstemon covered all summer in large, bell-shaped red-and-white blooms that hummingbirds adore."
 care:
+  water: "Moderate; water when the top 2 in. of soil begin to dry. Not drought tolerant — needs regular moisture through the growing season."
+  soil: "Well-drained soil of average fertility; adapts to a range of types as long as drainage is good."
   sunlight: "Full sun."
   hardiness: "USDA zones 6–9."
   size: "24–30 in. tall and 18–24 in. wide."

@@ -10,7 +10,7 @@ shortDescription: "An evergreen hellebore with leathery, toothed foliage and pal
 care:
   water: "Drought tolerant once established; prefers well-drained soil."
   soil: "Well-drained or sandy soil; tolerates clay if it drains. Neutral to alkaline pH."
-  sunlight: "Dappled to partial or even deep shade; intolerant of bright winter sun."
+  sunlight: "Part shade to full sun — more sun-tolerant than most hellebores. In hot inland gardens, give afternoon shade; in cool climates or coastal gardens, full sun is fine."
   hardiness: "USDA zones 6–8."
   size: "2–3 ft tall and 2–3 ft wide."
   bloom: "Pale yellow-green, cup-shaped nodding flowers from late winter to early spring."

@@ -8,7 +8,7 @@ photoAlt: "Bright orange double-flowered calendula bloom with densely packed pet
 photoCredit: "Thomas888b, CC BY-SA 3.0, via Wikimedia Commons"
 shortDescription: "A cheerful, easy-to-grow annual with edible gold, orange, and red flowerheads that bloom from spring into summer."
 care:
-  water: "Doesn't tolerate drought or hot summers well. Cut it back to rejuvenate in fall."
+  water: "Moderate; keep soil evenly moist. Does not tolerate drought or sustained summer heat well."
   soil: "Average, moderately fertile, well-drained soil. Tolerates clay, loam, or sand at any pH."
   sunlight: "Full sun. It tolerates partial shade but becomes leggy."
   hardiness: "USDA zones 2–11."

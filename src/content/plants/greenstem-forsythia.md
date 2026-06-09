@@ -23,6 +23,7 @@ tags:
   - "Deer resistant"
   - "Drought tolerant"
   - "Cut flower"
+funFact: "Forsythia is named after William Forsyth (1737–1804), a Scottish botanist and founding member of the Royal Horticultural Society — who had no personal connection to Asia. The genus was named in his honour posthumously, after plant hunters first collected specimens in China and Japan in the 1840s, nearly four decades after his death. The ability to 'force' cut stems indoors — bringing bare branches in from the garden in late winter and watching them burst into golden flower within days in a warm vase — is one of the oldest and most reliable tricks in the gardener's toolkit."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/forsythia-viridissima/"
 shortUrl: "http://s.shymoose.com/tOoE7"
 ---

@@ -23,6 +23,7 @@ tags:
   - "Pollinator friendly"
   - "Deer resistant"
   - "Rock garden"
+funFact: "The cultivar name 'Mrs. Bradshaw' was given around 1900 and honours a real woman — a contemporary of the English nurseryman who introduced it. Over 125 years later it remains one of the most widely sold named geums in the world, remarkable staying power in a hobby driven by novelty. The genus name Geum comes from the Greek geuo, 'to give an agreeable flavour,' because a close relative, Herb Bennet (Geum urbanum), has clove-scented roots that were widely used to flavor ale and were so revered in medieval Europe that the plant was called herba benedicta — the blessed herb."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/geum/"
 shortUrl: "http://s.shymoose.com/A69E5"
 ---

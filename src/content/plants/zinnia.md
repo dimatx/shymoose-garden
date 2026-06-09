@@ -22,7 +22,7 @@ tags:
   - "Butterfly garden"
   - "Pollinator friendly"
   - "Deer resistant"
-funFact: "Zinnias were first formally described for science by Johann Gottfried Zinn (1727–1759), a German botanist, and the genus was named in his honour — making him one of the few scientists commemorated in a plant they personally studied. Spanish explorers who first encountered the wild zinnias of Mexico reportedly called them 'mal de ojos' (eyesores) because the untamed plants were straggly and dull. It took European breeders nearly two centuries of patient selection to produce the large, fully double, vividly coloured blooms that now make zinnias universally beloved."
+funFact: "Zinnias were first formally described for science by Johann Gottfried Zinn (1727–1759), and the genus was named in his honour — making him one of the few scientists commemorated in a plant they personally studied. Spanish explorers who first encountered wild Mexican zinnias reportedly called them 'mal de ojos' (eyesores) because the untamed plants were scraggly and dull — it took European breeders nearly two centuries to produce the big, vibrant blooms we know today."
 learnMoreUrl: "https://www.johnnyseeds.com/flowers/zinnias/benarys-giant-series/benarys-giant-purple-zinnia-seed-1369.html"
 shortUrl: "http://s.shymoose.com/SiqEG"
 ---

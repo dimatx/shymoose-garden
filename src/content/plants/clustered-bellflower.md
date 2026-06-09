@@ -25,6 +25,7 @@ tags:
   - "Deer resistant"
   - "Rock garden"
   - "Cut flower"
+funFact: "One of this plant's old English folk names is 'Dane's Blood' — rooted in the legend that it sprang from the ground where Danish Viking invaders were slain in battle. The story was used to explain why the plant grew in conspicuous clusters along ancient earthworks and hillforts in England. The Latin species name *glomerata* simply means 'clustered' or 'gathered into a ball' — the same root that gives us 'agglomerate' and 'conglomerate.'"
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/campanula-glomerata/"
 shortUrl: "http://s.shymoose.com/6OHi3"
 ---

@@ -24,6 +24,7 @@ tags:
   - "Shade tolerant"
   - "Wildlife"
   - "Low maintenance"
+funFact: "The vivid pink-purple color called 'fuchsia' was named after this plant — a synthetic aniline dye produced in 1859 was christened 'fuchsine' because its hue matched the flowers so closely. In parts of western Ireland and New Zealand, *Fuchsia magellanica* has naturalized so thoroughly that it grows wild as tall roadside hedging, looking entirely native — a South American shrub that has convincingly impersonated part of the local landscape for over a century."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/fuchsia-magellanica/"
 shortUrl: "http://s.shymoose.com/IWiE1"
 ---

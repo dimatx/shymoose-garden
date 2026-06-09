@@ -25,6 +25,7 @@ tags:
   - "Pollinator friendly"
   - "Cottage garden"
   - "Low maintenance"
+funFact: "Despite the name, catmint is not catnip. Catnip (*Nepeta cataria*) contains high concentrations of nepetalactone — the compound that triggers the rolling, drooling euphoria in about 50–70% of cats. Catmint (*N.* × *faassenii*) has far lower levels, so most cats ignore it entirely. The cultivar name 'Junior Walker' is also a deliberate nod to the taller, wildly popular 'Walker's Low' — same parentage, compact habit, conceived as the smaller sibling."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/nepeta/"
 shortUrl: "http://s.shymoose.com/2upC5"
 ---

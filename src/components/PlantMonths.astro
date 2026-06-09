@@ -1,0 +1,122 @@
+---
+/**
+ * A compact, single-plant version of the MonthTimeline. Shown on a plant's
+ * detail page so a quick QR scan in the garden answers "when does this bloom?"
+ * and "when do I prune it?" at a glance. Each row only appears if the plant has
+ * months for it, and the whole section is skipped when there's nothing to show.
+ *
+ * The current-month column is highlighted in the browser (not at build time) so
+ * the page stays right between rebuilds.
+ */
+import Icon from "./Icon.astro";
+import type { IconName } from "./Icon.astro";
+
+interface Props {
+  bloomMonths: number[];
+  pruneMonths: number[];
+}
+
+const { bloomMonths, pruneMonths } = Astro.props;
+
+const MONTHS = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+
+type Row = { label: string; icon: IconName; months: number[]; bar: string };
+
+const rows: Row[] = (
+  [
+    {
+      label: "Bloom",
+      icon: "bloom",
+      months: bloomMonths,
+      bar: "bg-bloom-300 dark:bg-bloom-500",
+    },
+    {
+      label: "Prune",
+      icon: "scissors",
+      months: pruneMonths,
+      bar: "bg-soil-300 dark:bg-soil-500",
+    },
+  ] satisfies Row[]
+).filter((row) => row.months.length > 0);
+---
+
+{
+  rows.length > 0 && (
+    <section class="plant-months mt-8">
+      <h2 class="font-serif text-xl font-semibold">Through the year</h2>
+      <div class="mt-3 overflow-x-auto rounded-2xl border border-leaf-200/80 bg-white p-4 dark:border-leaf-800/80 dark:bg-leaf-900">
+        <div class="min-w-90">
+          {/* Month header */}
+          <div class="grid grid-cols-[4.5rem_repeat(12,1fr)] gap-px">
+            <div />
+            {MONTHS.map((m, i) => (
+              <div
+                data-month={i + 1}
+                class="month-head rounded-t-md py-1 text-center text-xs font-semibold uppercase text-leaf-500 dark:text-leaf-400"
+              >
+                {m}
+              </div>
+            ))}
+          </div>
+
+          {/* One bar row per active field */}
+          {rows.map((row) => (
+            <div class="grid grid-cols-[4.5rem_repeat(12,1fr)] items-center gap-px py-1">
+              <span class="flex items-center gap-1.5 pr-2 text-sm font-medium text-leaf-800 dark:text-leaf-200">
+                <Icon name={row.icon} class="h-4 w-4 shrink-0" />
+                {row.label}
+              </span>
+              {MONTHS.map((_, i) => {
+                const month = i + 1;
+                const active = row.months.includes(month);
+                const isStart = active && !row.months.includes(month - 1);
+                const isEnd = active && !row.months.includes(month + 1);
+                const rounding = [
+                  isStart ? "rounded-l-full" : "",
+                  isEnd ? "rounded-r-full" : "",
+                ].join(" ");
+                return (
+                  <div data-month={month} class="month-cell px-px py-0.5">
+                    <div class={`h-4 ${active ? `${row.bar} ${rounding}` : ""}`} />
+                  </div>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  /* The current-month column is highlighted by the script below. */
+  .month-head.is-current {
+    color: var(--color-leaf-700);
+    background-color: color-mix(in oklab, var(--color-leaf-200) 70%, transparent);
+  }
+  :global(.dark) .month-head.is-current {
+    color: var(--color-leaf-100);
+    background-color: color-mix(in oklab, var(--color-leaf-700) 50%, transparent);
+  }
+  .month-cell.is-current {
+    background-color: color-mix(in oklab, var(--color-leaf-200) 55%, transparent);
+  }
+  :global(.dark) .month-cell.is-current {
+    background-color: color-mix(in oklab, var(--color-leaf-800) 60%, transparent);
+  }
+</style>
+
+<script>
+  function initPlantMonths() {
+    const now = new Date().getMonth() + 1; // 1–12
+    document
+      .querySelectorAll<HTMLElement>(".plant-months [data-month]")
+      .forEach((el) => {
+        el.classList.toggle("is-current", Number(el.dataset.month) === now);
+      });
+  }
+
+  initPlantMonths();
+  document.addEventListener("astro:page-load", initPlantMonths);
+</script>

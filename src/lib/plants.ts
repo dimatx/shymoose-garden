@@ -20,6 +20,30 @@ export function plantUrl(plant: Plant): string {
 }
 
 /**
+ * Coarse sun-exposure buckets, in brightest-to-shadiest order. Derived from the
+ * free-form `care.sunlight` prose so the home page can offer a "Sun" filter
+ * without anyone having to maintain a separate field.
+ */
+export const SUN_LEVELS = ["Full sun", "Part shade", "Full shade"] as const;
+export type SunLevel = (typeof SUN_LEVELS)[number];
+
+/**
+ * Map a plant's `care.sunlight` description to the buckets it can grow in. A
+ * plant often spans more than one (e.g. "Full sun to part shade"), so the
+ * filter behaves as "show me plants that work in this light".
+ */
+export function sunLevels(plant: Plant): SunLevel[] {
+  const text = (plant.data.care.sunlight ?? "").toLowerCase();
+  const levels: SunLevel[] = [];
+  if (/full sun/.test(text)) levels.push("Full sun");
+  if (/part(ial)? shade|part sun|dappled|filtered light/.test(text)) {
+    levels.push("Part shade");
+  }
+  if (/full shade|deep shade/.test(text)) levels.push("Full shade");
+  return levels;
+}
+
+/**
  * Stable display order: alphabetical by common name.
  */
 export function comparePlants(a: Plant, b: Plant): number {

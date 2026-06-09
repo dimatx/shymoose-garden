@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import PlantCard from "../components/PlantCard.astro";
 import Icon from "../components/Icon.astro";
-import { getSortedPlants } from "../lib/plants";
+import { getSortedPlants, sunLevels, SUN_LEVELS } from "../lib/plants";
 
 const plants = await getSortedPlants();
 
@@ -11,6 +11,13 @@ const plants = await getSortedPlants();
 const types = [
   ...new Set(plants.map((p) => p.data.type).filter((t): t is string => !!t)),
 ].sort((a, b) => a.localeCompare(b));
+
+// Sun-exposure filters are derived from each plant's `care.sunlight` prose. We
+// keep the canonical brightest-to-shadiest order and only show buckets that an
+// actual plant falls into.
+const suns = SUN_LEVELS.filter((level) =>
+  plants.some((p) => sunLevels(p).includes(level))
+);
 
 // Characteristic filters come from the free-form `tags`. We offer a curated
 // shortlist and only show the ones that actually appear on a plant.
@@ -26,7 +33,7 @@ const traitCandidates = [
 const allTags = new Set(plants.flatMap((p) => p.data.tags));
 const traits = traitCandidates.filter((t) => allTags.has(t));
 
-const hasFilters = types.length > 0 || traits.length > 0;
+const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 ---
 
 <Layout title="ShyMoose Garden">
@@ -85,6 +92,30 @@ const hasFilters = types.length > 0 || traits.length > 0;
           </details>
         )}
 
+        {suns.length > 0 && (
+          <details class="filter-dd relative">
+            <summary class="filter-trigger">
+              <Icon name="sun" class="h-4 w-4" />
+              Sun
+              <span class="filter-badge hidden">0</span>
+              <Icon name="chevron-down" strokeWidth={2} class="filter-caret h-3.5 w-3.5" />
+            </summary>
+            <div class="filter-panel" aria-label="Filter by sun exposure">
+              {suns.map((sun) => (
+                <button
+                  type="button"
+                  class="filter-chip"
+                  data-filter="sun"
+                  data-value={sun}
+                  aria-pressed="false"
+                >
+                  {sun}
+                </button>
+              ))}
+            </div>
+          </details>
+        )}
+
         {traits.length > 0 && (
           <details class="filter-dd relative">
             <summary class="filter-trigger">
@@ -128,6 +159,19 @@ const hasFilters = types.length > 0 || traits.length > 0;
     )
   }
 
+  <div id="active-tag-bar" class="mb-4 hidden flex-wrap items-center gap-2">
+    <span class="text-sm text-leaf-600 dark:text-leaf-400">Filtered by tag:</span>
+    <button
+      type="button"
+      id="active-tag-clear"
+      class="inline-flex items-center gap-1.5 rounded-full bg-leaf-600 px-3 py-1 text-sm font-medium text-white transition hover:bg-leaf-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:bg-leaf-500 dark:hover:bg-leaf-400"
+    >
+      <span id="active-tag-label"></span>
+      <span aria-hidden="true" class="text-base leading-none">×</span>
+      <span class="sr-only">Remove tag filter</span>
+    </button>
+  </div>
+
   {
     plants.length === 0 ? (
       <p class="rounded-2xl border border-dashed border-leaf-300 p-8 text-center text-leaf-600 dark:border-leaf-700 dark:text-leaf-400">
@@ -142,6 +186,7 @@ const hasFilters = types.length > 0 || traits.length > 0;
               data-name={plant.data.name}
               data-latin={plant.data.latinName}
               data-type={plant.data.type ?? ""}
+              data-sun={`|${sunLevels(plant).join("|")}|`}
               data-tags={`|${plant.data.tags.join("|")}|`}
             >
               <PlantCard plant={plant} priority={i === 0} eager={i < 4} />
@@ -311,11 +356,25 @@ const hasFilters = types.length > 0 || traits.length > 0;
     const searchInput = document.getElementById(
       "plant-search"
     ) as HTMLInputElement | null;
+    const tagBar = document.getElementById("active-tag-bar");
+    const tagLabel = document.getElementById("active-tag-label");
+    const tagClear = document.getElementById("active-tag-clear");
     const total = items.length;
 
     const selectedTypes = new Set<string>();
     const selectedTraits = new Set<string>();
+    const selectedSuns = new Set<string>();
+    const filterSets: Record<string, Set<string>> = {
+      type: selectedTypes,
+      trait: selectedTraits,
+      sun: selectedSuns,
+    };
     let searchTerm = "";
+    // A tag handed in via `?tag=` (from a clickable tag on a plant page). It
+    // filters by the same data-tags mechanism as the trait chips, but can be
+    // any tag — not only the curated shortlist.
+    let activeTag =
+      new URLSearchParams(window.location.search).get("tag")?.trim() ?? "";
 
     // Update the per-dropdown count badge from its own pressed chips.
     function updateBadges() {
@@ -333,25 +392,34 @@ const hasFilters = types.length > 0 || traits.length > 0;
       let visible = 0;
       for (const item of items) {
         const type = item.dataset.type ?? "";
+        const sun = item.dataset.sun ?? "";
         const tags = item.dataset.tags ?? "";
         const name = (item.dataset.name ?? "").toLowerCase();
         const latin = (item.dataset.latin ?? "").toLowerCase();
-        // Types are OR'd (broaden), traits are AND'd (narrow).
+        // Types and sun levels are OR'd (broaden), traits are AND'd (narrow).
         const typeOk = selectedTypes.size === 0 || selectedTypes.has(type);
+        const sunOk =
+          selectedSuns.size === 0 ||
+          [...selectedSuns].some((s) => sun.includes(`|${s}|`));
         const traitOk = [...selectedTraits].every((t) =>
           tags.includes(`|${t}|`)
         );
+        const tagOk = activeTag === "" || tags.includes(`|${activeTag}|`);
         const searchOk =
           searchTerm === "" ||
           name.includes(searchTerm) ||
           latin.includes(searchTerm);
-        const show = typeOk && traitOk && searchOk;
+        const show = typeOk && sunOk && traitOk && tagOk && searchOk;
         item.hidden = !show;
         if (show) visible++;
       }
 
       const active =
-        selectedTypes.size + selectedTraits.size + (searchTerm ? 1 : 0);
+        selectedTypes.size +
+        selectedTraits.size +
+        selectedSuns.size +
+        (searchTerm ? 1 : 0) +
+        (activeTag ? 1 : 0);
       if (countEl) {
         countEl.textContent =
           active === 0
@@ -366,8 +434,8 @@ const hasFilters = types.length > 0 || traits.length > 0;
     for (const chip of chips) {
       chip.addEventListener("click", () => {
         const value = chip.dataset.value ?? "";
-        const set =
-          chip.dataset.filter === "type" ? selectedTypes : selectedTraits;
+        const set = filterSets[chip.dataset.filter ?? ""];
+        if (!set) return;
         const pressed = chip.getAttribute("aria-pressed") === "true";
         if (pressed) {
           set.delete(value);
@@ -380,12 +448,35 @@ const hasFilters = types.length > 0 || traits.length > 0;
       });
     }
 
+    // Reflect the `?tag=` filter in the UI: show a removable pill and drop the
+    // query param when it's cleared, so a refresh doesn't reapply it.
+    function syncTagBar() {
+      if (!tagBar) return;
+      tagBar.classList.toggle("hidden", activeTag === "");
+      tagBar.classList.toggle("flex", activeTag !== "");
+      if (tagLabel) tagLabel.textContent = activeTag;
+    }
+
+    function clearTag() {
+      if (activeTag === "") return;
+      activeTag = "";
+      const url = new URL(window.location.href);
+      url.searchParams.delete("tag");
+      window.history.replaceState({}, "", url);
+      syncTagBar();
+      apply();
+    }
+
+    tagClear?.addEventListener("click", clearTag);
+
     function clearAll() {
       selectedTypes.clear();
       selectedTraits.clear();
+      selectedSuns.clear();
       for (const chip of chips) chip.setAttribute("aria-pressed", "false");
       searchTerm = "";
       if (searchInput) searchInput.value = "";
+      clearTag();
       apply();
     }
 
@@ -396,6 +487,10 @@ const hasFilters = types.length > 0 || traits.length > 0;
 
     clearEl?.addEventListener("click", clearAll);
     noMatchesClear?.addEventListener("click", clearAll);
+
+    // Paint the initial state, including any `?tag=` handed in from a plant page.
+    syncTagBar();
+    apply();
 
     // Close any open dropdown when clicking outside one, or pressing Escape.
     document.addEventListener("click", (e) => {

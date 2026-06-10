@@ -8,14 +8,14 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://garden.shymoose.com",
 
-  // Prefetch the HTML for in-view links so tapping a plant navigates near
-  // instantly (the document is already cached before the tap). `viewport`
-  // only prefetches links as they scroll into view, so the cost tracks what
-  // the visitor is actually looking at — well suited to this mobile, QR-driven
-  // catalog. Works hand-in-hand with the <ClientRouter /> view transitions.
+  // Prefetch the HTML for links on hover/focus so tapping a plant navigates
+  // near instantly. `viewport` caused all in-view cards to prefetch at once,
+  // saturating the browser's 6-connection limit and stalling actual navigations
+  // for up to 20 s. `hover` fires just-in-time on desktop; on mobile (QR
+  // visitors) no prefetch fires, which is fine — Cloudflare responds in ~50 ms.
   prefetch: {
     prefetchAll: true,
-    defaultStrategy: "viewport",
+    defaultStrategy: "hover",
   },
 
   // Inline each page's CSS into its HTML. The stylesheets are small, and this

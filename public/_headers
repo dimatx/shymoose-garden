@@ -8,3 +8,11 @@
 # Hashed, immutable build assets — cache hard
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
+
+# HTML pages — serve stale instantly, revalidate in background (stale-while-revalidate)
+# Navigation clicks never wait for the network; content refreshes within 60 s
+/*.html
+  Cache-Control: public, max-age=0, stale-while-revalidate=60
+
+/
+  Cache-Control: public, max-age=0, stale-while-revalidate=60

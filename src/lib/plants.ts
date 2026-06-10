@@ -2,13 +2,13 @@ import { getCollection, type CollectionEntry } from "astro:content";
 
 /**
  * Shared helpers for reading the plant collection. Every page that lists
- * plants (the home grid, the bloom timeline, the pruning calendar) goes
+ * plants (the home grid, the bloom calendar, the pruning calendar) goes
  * through here, so sorting and URL rules live in exactly one place.
  */
 export type Plant = CollectionEntry<"plants">;
 
-/** A single row in a MonthTimeline (bloom or pruning chart). */
-export interface TimelineRow {
+/** A single row in a MonthCalendar (bloom or pruning chart). */
+export interface CalendarRow {
   name: string;
   url: string;
   months: number[]; // 1–12 (1 = January)
@@ -56,13 +56,13 @@ export async function getSortedPlants(): Promise<Plant[]> {
 }
 
 /**
- * Build timeline rows from a per-plant month field. Plants with no months
+ * Build calendar rows from a per-plant month field. Plants with no months
  * for that field are dropped (e.g. conifers have no bloom, annuals have no
  * pruning window), so they never appear on the chart.
  */
-export async function getTimelineRows(
+export async function getCalendarRows(
   field: "bloomMonths" | "pruneMonths"
-): Promise<TimelineRow[]> {
+): Promise<CalendarRow[]> {
   const plants = await getCollection("plants");
   return plants
     .filter((plant) => plant.data[field].length > 0)

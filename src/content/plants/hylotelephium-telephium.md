@@ -18,7 +18,6 @@ care:
 bloomMonths: [8, 9, 10]
 pruneMonths: [4, 6]
 tags:
-  - "Succulent"
   - "Easy to grow"
   - "Drought tolerant"
   - "Pollinator friendly"

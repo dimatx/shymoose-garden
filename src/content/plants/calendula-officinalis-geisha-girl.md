@@ -17,11 +17,10 @@ care:
   pruning: "Maintenance: deadhead spent blooms to keep it flowering, and shear the whole plant back hard in summer heat to rejuvenate a leggy plant."
 bloomMonths: [5, 6, 7, 8]
 tags:
-  - "Annual"
   - "Edible"
   - "Pollinator friendly"
   - "Butterfly friendly"
-  - "Deer & rabbit resistant"
+  - "Deer resistant"
 funFact: "Calendula petals have been used for centuries as a cheap substitute for saffron to color butter, cheese, and rice yellow — earning the plant the nickname 'poor man's saffron.' The petals are fully edible and still appear as garnishes in modern cooking."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/calendula-officinalis/"
 shortUrl: "http://s.shymoose.com/jWYcz"

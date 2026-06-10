@@ -14,7 +14,6 @@ care:
   pruning: "Maintenance: train up a single string or trellis, removing the side shoots and lower leaves on the bottom of the stem for airflow, then let the upper laterals run."
 tags:
   - "Annual"
-  - "Vegetable"
   - "Edible"
   - "Cucumber"
   - "Hybrid (F1)"

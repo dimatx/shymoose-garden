@@ -18,8 +18,7 @@ care:
 bloomMonths: [2, 3, 4]
 pruneMonths: [4, 5]
 tags:
-  - "Shrub"
-  - "Spring flowers"
+  - "Spring bloom"
   - "Deer resistant"
   - "Drought tolerant"
   - "Cut flower"

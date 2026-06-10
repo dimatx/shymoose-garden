@@ -1,6 +1,6 @@
 ---
 /**
- * A shared 12-month timeline used by both the Bloom Timeline and the Pruning
+ * A shared 12-month calendar used by both the Bloom Calendar and the Pruning
  * Calendar. Give it a list of rows (each with the months it's "active") and it
  * renders:
  *   1. a "now" panel listing what's active in the current month, and
@@ -9,15 +9,15 @@
  * The current month is recomputed in the browser so the page stays correct
  * between rebuilds (a build in May still shows the right thing in June).
  */
-import type { TimelineRow } from "../lib/plants";
+import type { CalendarRow } from "../lib/plants";
 
 interface Props {
-  rows: TimelineRow[];
+  rows: CalendarRow[];
   /** Verb shown in the "now" panel heading, e.g. "Blooming" or "Prune". */
   nowVerb: string;
   /** Message shown when nothing is active in the current month. */
   emptyMessage: string;
-  /** Warm tint for the "now" badge, distinguishing the two timelines. */
+  /** Warm tint for the "now" badge, distinguishing the two calendars. */
   accent?: "leaf" | "bloom" | "soil";
 }
 
@@ -27,6 +27,14 @@ const accentBadge = {
   leaf: "bg-leaf-100 text-leaf-600 dark:bg-leaf-800 dark:text-leaf-300",
   bloom: "bg-bloom-100 text-bloom-600 dark:bg-bloom-600/25 dark:text-bloom-300",
   soil: "bg-soil-100 text-soil-600 dark:bg-soil-600/25 dark:text-soil-300",
+}[accent];
+
+// Bar colour matches the per-plant view's pills (see PlantMonths.astro) so the
+// big calendar and the single-plant one read as the same thing.
+const accentBar = {
+  leaf: "bg-leaf-400 dark:bg-leaf-500",
+  bloom: "bg-bloom-300 dark:bg-bloom-500",
+  soil: "bg-soil-300 dark:bg-soil-500",
 }[accent];
 
 const MONTHS = [
@@ -92,7 +100,7 @@ const chipClass =
   </p>
 </section>
 
-<!-- Timeline chart -->
+<!-- Calendar chart -->
 <section class="overflow-x-auto pb-2">
   <div class="relative min-w-180">
     <!-- Month header -->
@@ -123,7 +131,7 @@ const chipClass =
       {
         sorted.map((row) => (
           <div
-            class="timeline-row grid grid-cols-[11rem_repeat(12,1fr)] items-center gap-px py-1.5"
+            class="calendar-row grid grid-cols-[11rem_repeat(12,1fr)] items-center gap-px py-1.5"
             data-months={row.months.join(",")}
             data-name={row.name}
             data-url={row.url}
@@ -146,7 +154,7 @@ const chipClass =
               ].join(" ");
               return (
                 <div data-month={month} class="month-cell px-px py-0.5">
-                  <div class={`h-5 ${active ? `bg-leaf-400 dark:bg-leaf-500 ${rounding}` : ""}`} />
+                  <div class={`h-5 ${active ? `${accentBar} ${rounding}` : ""}`} />
                 </div>
               );
             })}
@@ -206,7 +214,7 @@ const chipClass =
 </style>
 
 <script>
-  function initTimeline() {
+  function initCalendar() {
     const MONTH_NAMES = [
       "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December",
@@ -263,7 +271,7 @@ const chipClass =
     // Recompute the "now" list for the visitor's actual current month.
     if (list && now !== buildMonth) {
       const active: HTMLLIElement[] = [];
-      document.querySelectorAll<HTMLElement>(".timeline-row").forEach((row) => {
+      document.querySelectorAll<HTMLElement>(".calendar-row").forEach((row) => {
         const months = (row.dataset.months || "")
           .split(",")
           .map(Number)
@@ -279,6 +287,6 @@ const chipClass =
     }
   }
 
-  initTimeline();
-  document.addEventListener("astro:page-load", initTimeline);
+  initCalendar();
+  document.addEventListener("astro:page-load", initCalendar);
 </script>

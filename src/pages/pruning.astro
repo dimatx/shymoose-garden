@@ -1,12 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MonthTimeline from "../components/MonthTimeline.astro";
+import MonthCalendar from "../components/MonthCalendar.astro";
 import Icon from "../components/Icon.astro";
-import { getTimelineRows } from "../lib/plants";
+import { getCalendarRows } from "../lib/plants";
 
 // Only plants with a defined pruning window appear on the calendar.
 // Annual vegetables (pulled at season's end) carry no pruneMonths.
-const rows = await getTimelineRows("pruneMonths");
+const rows = await getCalendarRows("pruneMonths");
 ---
 
 <Layout
@@ -30,14 +30,14 @@ const rows = await getTimelineRows("pruneMonths");
     </p>
   </section>
 
-  <MonthTimeline
+  <MonthCalendar
     rows={rows}
     nowVerb="Prune"
     accent="soil"
     emptyMessage="Nothing needs pruning this month — enjoy the garden as it is."
   >
     <Icon slot="now-icon" name="scissors" class="h-4 w-4" />
-  </MonthTimeline>
+  </MonthCalendar>
 
   <p class="mt-6 text-xs text-leaf-500 dark:text-leaf-400">
     Pruning times follow each plant's care notes and shift a little year to year

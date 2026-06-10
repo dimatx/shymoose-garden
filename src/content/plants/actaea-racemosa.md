@@ -18,7 +18,7 @@ care:
 bloomMonths: [6, 7, 8]
 pruneMonths: [10, 11]
 tags:
-  - "Native perennial"
+  - "Native"
   - "Shade garden"
   - "Pollinator friendly"
   - "Deer resistant"

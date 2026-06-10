@@ -1,15 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MonthTimeline from "../components/MonthTimeline.astro";
+import MonthCalendar from "../components/MonthCalendar.astro";
 import Icon from "../components/Icon.astro";
-import { getTimelineRows } from "../lib/plants";
+import { getCalendarRows } from "../lib/plants";
 
-// Only plants with a real floral display appear on the timeline.
-const rows = await getTimelineRows("bloomMonths");
+// Only plants with a real floral display appear on the calendar.
+const rows = await getCalendarRows("bloomMonths");
 ---
 
 <Layout
-  title="Bloom Timeline"
+  title="Bloom Calendar"
   description="See when each plant in the ShyMoose garden flowers across the year, and what's blooming right now."
 >
   <section class="mb-6">
@@ -21,7 +21,7 @@ const rows = await getTimelineRows("bloomMonths");
       All plants
     </a>
     <h1 class="text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
-      Bloom Timeline
+      Bloom Calendar
     </h1>
     <p class="mt-2 max-w-prose text-pretty text-leaf-700 dark:text-leaf-300">
       When each plant flowers across the season. The highlighted column is the
@@ -29,17 +29,17 @@ const rows = await getTimelineRows("bloomMonths");
     </p>
   </section>
 
-  <MonthTimeline
+  <MonthCalendar
     rows={rows}
     nowVerb="Blooming"
     accent="bloom"
     emptyMessage="Nothing is flowering this month — check back as the season turns."
   >
     <Icon slot="now-icon" name="clock" class="h-4 w-4" />
-  </MonthTimeline>
+  </MonthCalendar>
 
   <p class="mt-6 text-xs text-leaf-500 dark:text-leaf-400">
     Bloom times are typical for our region and shift a little year to year with
-    the weather. Conifers and vegetables are left off the timeline.
+    the weather. Conifers and vegetables are left off the calendar.
   </p>
 </Layout>

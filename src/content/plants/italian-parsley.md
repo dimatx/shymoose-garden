@@ -18,7 +18,6 @@ care:
 pruneMonths: [4, 5, 6, 7, 8, 9]
 tags:
   - "Herb"
-  - "Biennial"
   - "Edible"
   - "Pollinator friendly"
 featured: false

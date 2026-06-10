@@ -58,7 +58,7 @@ const plants = defineCollection({
       }),
 
       // Months this plant is in flower, as numbers 1–12 (1 = January).
-      // Drives the Bloom Timeline. Omit for plants with no floral display
+      // Drives the Bloom Calendar. Omit for plants with no floral display
       // (e.g. conifers) or where bloom isn't the point (e.g. vegetables).
       bloomMonths: monthList,
 

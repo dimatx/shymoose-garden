@@ -13,7 +13,7 @@ care:
   bloom: "Long, slender, thin-skinned fruit."
   pruning: "Maintenance: train the vine up a trellis and pinch off the lowest side shoots and leaves for airflow, keeping the long fruit straight and clean."
 tags:
-  - "Vegetable"
+  - "Annual"
   - "Edible"
   - "Cucumber"
   - "Japanese"

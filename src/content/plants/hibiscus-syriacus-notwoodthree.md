@@ -21,6 +21,7 @@ tags:
   - "Deciduous"
   - "Small tree"
   - "Hummingbird friendly"
+  - "Pollinator friendly"
   - "Heat tolerant"
   - "Drought tolerant"
 funFact: "Hibiscus syriacus is the national flower of South Korea, where it is called Mugunghwa (무궁화), meaning 'eternal flower.' It appears on the Korean national emblem, the presidential seal, and in the national anthem — one of the most symbolically loaded plants in any country's culture."

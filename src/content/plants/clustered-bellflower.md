@@ -18,7 +18,6 @@ care:
 bloomMonths: [5, 6, 7]
 pruneMonths: [9, 10]
 tags:
-  - "Perennial"
   - "Cottage garden"
   - "Pollinator friendly"
   - "Hummingbird friendly"

@@ -21,7 +21,7 @@ tags:
   - "Evergreen"
   - "Pollinator friendly"
   - "Hedging"
-  - "Shade tolerant"
+  - "Shade garden"
   - "Low maintenance"
 featured: false
 funFact: "Japanese holly looks so much like Boxwood (Buxus) that it's widely used as a drop-in substitute — especially as Boxwood blight has become a growing concern. An easy way to tell them apart: Japanese Holly produces small, jet-black berries; Boxwood has none."

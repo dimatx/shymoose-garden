@@ -18,7 +18,6 @@ care:
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3, 4]
 tags:
-  - "Perennial"
   - "Cottage garden"
   - "Pollinator friendly"
   - "Deer resistant"

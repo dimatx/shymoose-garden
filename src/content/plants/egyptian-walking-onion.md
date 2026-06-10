@@ -18,7 +18,6 @@ care:
 pruneMonths: [5, 6]
 tags:
   - "Vegetable"
-  - "Perennial"
   - "Edible"
   - "Onion"
 featured: false

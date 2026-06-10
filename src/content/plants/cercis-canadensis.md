@@ -21,7 +21,7 @@ tags:
   - "Spring bloom"
   - "Pollinator friendly"
   - "Cold hardy"
-  - "Native plant"
+  - "Native"
   - "Woodland edge"
 featured: false
 funFact: "Eastern redbud is a cauliflory tree — its magenta flowers bloom directly on the trunk and older branches, not just at the branch tips. The flowers are edible (mildly sweet-tart) and were harvested fresh by some Indigenous peoples; today they make a vivid salad garnish."

@@ -18,10 +18,9 @@ care:
 bloomMonths: [6, 7, 8, 9, 10]
 pruneMonths: [3]
 tags:
-  - "Shrub"
   - "Hummingbird friendly"
   - "Pollinator friendly"
-  - "Shade tolerant"
+  - "Shade garden"
   - "Wildlife"
   - "Low maintenance"
 funFact: "The vivid pink-purple color called 'fuchsia' was named after this plant — a synthetic aniline dye produced in 1859 was christened 'fuchsine' because its hue matched the flowers so closely. In parts of western Ireland and New Zealand, *Fuchsia magellanica* has naturalized so thoroughly that it grows wild as tall roadside hedging, looking entirely native — a South American shrub that has convincingly impersonated part of the local landscape for over a century."

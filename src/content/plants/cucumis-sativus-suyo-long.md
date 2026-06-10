@@ -13,7 +13,6 @@ care:
   pruning: "Maintenance: train the vine up a trellis and pinch off the lowest side shoots and leaves to improve airflow and keep the long fruit hanging straight."
 tags:
   - "Annual"
-  - "Vegetable"
   - "Edible"
   - "Cucumber"
   - "Heirloom"

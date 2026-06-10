@@ -19,7 +19,6 @@ bloomMonths: [7, 8]
 pruneMonths: [5, 6, 7, 8]
 tags:
   - "Herb"
-  - "Annual"
   - "Edible"
   - "Pollinator friendly"
 featured: false

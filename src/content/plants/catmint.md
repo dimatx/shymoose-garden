@@ -18,7 +18,6 @@ care:
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3, 7]
 tags:
-  - "Perennial"
   - "Drought tolerant"
   - "Deer resistant"
   - "Fragrant"

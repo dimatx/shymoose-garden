@@ -18,8 +18,8 @@ care:
 bloomMonths: [8, 9, 10]
 pruneMonths: [4, 6]
 tags:
-  - "Succulent"
   - "Drought tolerant"
+  - "Pollinator friendly"
   - "Fall flowers"
   - "Low maintenance"
   - "Salt tolerant"

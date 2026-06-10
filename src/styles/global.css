@@ -129,9 +129,15 @@ html {
 /* Avoid theme flash: handled by inline script in <head>. */
 :root {
   color-scheme: light;
+  /* Paint the root element itself, not just <body>. Otherwise the area behind
+     the page — the browser canvas shown during view-transition cross-fades and
+     on mobile overscroll — defaults to white, causing a brief white flash on
+     back-navigation (most visible in dark mode). */
+  background-color: var(--color-leaf-50);
 }
 :root.dark {
   color-scheme: dark;
+  background-color: var(--color-leaf-950);
 }
 
 body {

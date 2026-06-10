@@ -408,7 +408,8 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         const searchOk =
           searchTerm === "" ||
           name.includes(searchTerm) ||
-          latin.includes(searchTerm);
+          latin.includes(searchTerm) ||
+          tags.toLowerCase().includes(searchTerm);
         const show = typeOk && sunOk && traitOk && tagOk && searchOk;
         item.hidden = !show;
         if (show) visible++;

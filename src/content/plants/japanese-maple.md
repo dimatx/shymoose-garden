@@ -1,7 +1,7 @@
 ---
 name: "Japanese Maple"
 latinName: "Acer palmatum 'Crimson Queen'"
-type: "Shrub"
+type: "Tree"
 nativeRange: "Japan, China, and Korea"
 photo: "../../assets/plants/japanese-maple.jpg"
 photoAlt: "A weeping Japanese Maple 'Crimson Queen' with deeply cut, feathery crimson-red leaves cascading in a graceful mound at the United States National Arboretum."

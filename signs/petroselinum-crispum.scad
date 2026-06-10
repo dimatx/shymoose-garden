@@ -2,9 +2,9 @@
 orient_for_printing = true;
 remove_qr = false;
 // a shortened link to a wikipedia article about the plant
-qr_url = "http://s.shymoose.com/IWiE1";
-common_name = "Hardy Fuchsia";
-scientific_name = "Fuchsia magellanica";
+qr_url = "http://s.shymoose.com/4yrdL";
+common_name = "Italian Parsley";
+scientific_name = "Petroselinum crispum";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
 

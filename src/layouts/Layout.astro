@@ -146,11 +146,13 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
             </div>
           </div>
 
+          <!-- Scanning a QR with the camera only makes sense on a phone, so
+               this button is hidden on larger (sm+) screens. -->
           <button
             id="qr-scan-button"
             type="button"
             aria-label="Scan plant QR code"
-            class="inline-flex h-9 w-9 items-center justify-center rounded-full text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:hidden"
           >
             <Icon name="qr-scan" class="h-5 w-5" />
           </button>
@@ -315,6 +317,14 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
           document.body.style.overflow = "hidden";
           if (statusEl) statusEl.textContent = "Point at a plant QR code";
 
+          // getUserMedia only exists in secure contexts (https or localhost).
+          if (!navigator.mediaDevices?.getUserMedia) {
+            if (statusEl)
+              statusEl.textContent =
+                "Camera needs a secure (https) connection.";
+            return;
+          }
+
           try {
             stream = await navigator.mediaDevices.getUserMedia({
               video: { facingMode: { ideal: "environment" } },
@@ -322,8 +332,17 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
             video.srcObject = stream;
             await video.play();
             animFrame = requestAnimationFrame(tick);
-          } catch {
-            if (statusEl) statusEl.textContent = "Camera access was denied.";
+          } catch (err) {
+            const name = (err as Error)?.name;
+            if (statusEl)
+              statusEl.textContent =
+                name === "NotAllowedError" || name === "SecurityError"
+                  ? "Camera blocked. Allow camera access in your browser settings, then try again."
+                  : name === "NotFoundError" || name === "OverconstrainedError"
+                    ? "No camera found on this device."
+                    : name === "NotReadableError"
+                      ? "Camera is in use by another app."
+                      : "Couldn't start the camera.";
           }
         }
 

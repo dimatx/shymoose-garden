@@ -28,9 +28,5 @@
     "jsqr": "^1.4.0",
     "sharp": "^0.34.2",
     "tailwindcss": "^4.1.13"
-  },
-  "optionalDependencies": {
-    "@emnapi/core": "1.11.0",
-    "@emnapi/runtime": "1.11.0"
   }
 }

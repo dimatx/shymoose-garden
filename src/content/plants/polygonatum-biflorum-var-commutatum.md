@@ -18,7 +18,7 @@ care:
 bloomMonths: [5, 6]
 pruneMonths: [10, 11]
 tags:
-  - "Native perennial"
+  - "Native"
   - "Shade garden"
   - "Low maintenance"
   - "Rain garden"

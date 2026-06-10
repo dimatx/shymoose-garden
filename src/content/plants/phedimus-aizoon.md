@@ -18,7 +18,6 @@ care:
 bloomMonths: [6, 7]
 pruneMonths: [4, 11]
 tags:
-  - "Succulent"
   - "Drought tolerant"
   - "Edible"
   - "Cottage garden"

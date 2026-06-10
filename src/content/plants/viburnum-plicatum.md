@@ -18,7 +18,7 @@ care:
 bloomMonths: [4, 5]
 pruneMonths: [6, 7]
 tags:
-  - "Deciduous shrub"
+  - "Deciduous"
   - "Spring bloom"
   - "Pollinator friendly"
   - "Drought tolerant"

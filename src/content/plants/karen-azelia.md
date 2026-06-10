@@ -18,7 +18,7 @@ care:
 bloomMonths: [4, 5]
 pruneMonths: [5]
 tags:
-  - "Broadleaf evergreen"
+  - "Evergreen"
   - "Spring bloom"
   - "Acid-loving"
   - "Pollinator friendly"

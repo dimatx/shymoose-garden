@@ -15,7 +15,6 @@ care:
   pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."
 tags:
   - "Annual"
-  - "Vegetable"
   - "Edible"
   - "Plum Tomato"
   - "Heirloom"

@@ -18,7 +18,7 @@ care:
 bloomMonths: [7, 8, 9, 10]
 pruneMonths: [6, 11]
 tags:
-  - "Native perennial"
+  - "Native"
   - "Showy flowers"
   - "Pollinator friendly"
   - "Fast growing"

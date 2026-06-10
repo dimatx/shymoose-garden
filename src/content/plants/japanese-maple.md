@@ -18,10 +18,9 @@ care:
 bloomMonths: [4, 5]
 pruneMonths: [2, 3]
 tags:
-  - "Shrub"
   - "Fall color"
   - "Deer resistant"
-  - "Specimen plant"
+  - "Specimen"
   - "Asian garden"
 featured: false
 funFact: "Japanese maple has been cultivated in Japan for over 300 years — the first catalogue of named cultivars appeared in 1710 with 35 varieties, and today there are more than 1,000. The autumn tradition of momijigari (紅葉狩り, 'red leaf hunting') — travelling to admire maple colour — appears in Heian-period poetry over 1,000 years ago and remains a beloved seasonal ritual today."

@@ -18,10 +18,10 @@ care:
 bloomMonths: [7, 8]
 pruneMonths: [5, 6, 7, 8]
 tags:
-  - herb
-  - annual
-  - edible
-  - pollinator
+  - "Herb"
+  - "Annual"
+  - "Edible"
+  - "Pollinator friendly"
 featured: false
 funFact: "The genus name *Anethum* is derived from the Greek meaning 'to calm or soothe,' reflecting its ancient use as a digestive remedy. Dill seeds have been found in the tomb of Amenhotep II (circa 1400 BCE), and it was listed in the Ebers Papyrus as a medicinal herb — making it one of humanity's oldest recorded cultivated plants. In medieval Europe it was believed to ward off witches and was used in love potions."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/anethum-graveolens/"

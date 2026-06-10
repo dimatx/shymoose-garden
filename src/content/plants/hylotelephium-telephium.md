@@ -21,7 +21,7 @@ tags:
   - "Succulent"
   - "Easy to grow"
   - "Drought tolerant"
-  - "Nectar plant"
+  - "Pollinator friendly"
   - "Rock garden"
 funFact: "In European folk tradition, pairs of picked orpine stems were hung indoors as love oracles on Midsummer's Eve: if the stems arched toward each other, the relationship would flourish; if they withered apart, trouble lay ahead. The plant was called 'midsummer-men' for this custom."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hylotelephium-telephium/"

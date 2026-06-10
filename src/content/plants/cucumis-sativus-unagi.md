@@ -15,6 +15,7 @@ care:
 tags:
   - "Annual"
   - "Vegetable"
+  - "Edible"
   - "Cucumber"
   - "Hybrid (F1)"
   - "Seedless"

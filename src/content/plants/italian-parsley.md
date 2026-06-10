@@ -17,10 +17,10 @@ care:
   pruning: "Harvest outer stems at the base to encourage new growth from the center. Remove flower stalks promptly as they appear to prolong the leaf harvest — leaf quality declines once flowering begins."
 pruneMonths: [4, 5, 6, 7, 8, 9]
 tags:
-  - herb
-  - biennial
-  - edible
-  - pollinator
+  - "Herb"
+  - "Biennial"
+  - "Edible"
+  - "Pollinator friendly"
 featured: false
 funFact: "The genus name *Petroselinum* comes from the Greek 'petros' (rock) and 'selinon' (celery), as the plant was found growing wild on rocky Greek hillsides. Ancient Greeks used parsley not as food but as a ceremonial plant — adorning tombs and victory wreaths — and the phrase 'needing only parsley' meant someone was at death's door. It was the Romans who introduced it as a culinary herb across their empire."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/petroselinum-crispum/"

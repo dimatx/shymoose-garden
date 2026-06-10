@@ -14,11 +14,12 @@ care:
   bloom: "Purply-black plum-shaped fruit; about 80 days from transplant."
   pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."
 tags:
+  - "Annual"
   - "Vegetable"
+  - "Edible"
   - "Plum Tomato"
   - "Heirloom"
   - "Sauce"
-  - "Full sun"
 funFact: "This is a pre-Soviet heirloom that Ukrainian families saved and passed down through generations, carrying it across borders and through upheaval. Growing varieties like this is one of the ways communities preserve agricultural heritage — and the large, meaty fruits are prized for their complex, slightly smoky flavor."
 learnMoreUrl: "https://anniesheirloomseeds.com/products/ukrainian-purple-tomato-solanum-lycopersicum"
 shortUrl: "http://s.shymoose.com/FdHQ5"

@@ -14,6 +14,7 @@ care:
 tags:
   - "Annual"
   - "Vegetable"
+  - "Edible"
   - "Heirloom"
   - "Indeterminate"
   - "Organic"

@@ -17,10 +17,10 @@ care:
   pruning: "Harvest young shoots as green onions in early spring. Harvest or replant bulbils in early summer before they self-propagate. Divide basal clumps in spring to control spread and rejuvenate plants."
 pruneMonths: [5, 6]
 tags:
-  - vegetable
-  - perennial
-  - edible
-  - onion
+  - "Vegetable"
+  - "Perennial"
+  - "Edible"
+  - "Onion"
 featured: false
 funFact: "Despite its name, the Egyptian Walking Onion is not native to Egypt — it likely originates from India or Pakistan and was introduced to Europe by the Romans. It gets its common name from its unusual propagation strategy: the bulbil-laden stalks grow top-heavy, tip over, and root themselves a short distance away, 'walking' the colony slowly across the garden season after season. It is a natural hybrid of the common onion (*Allium cepa*) and the Welsh onion (*Allium fistulosum*)."
 learnMoreUrl: "http://hort.extension.wisc.edu/articles/egyptian-walking-onions/"

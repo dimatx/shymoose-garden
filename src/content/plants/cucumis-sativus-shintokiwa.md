@@ -14,6 +14,7 @@ care:
   pruning: "Maintenance: train the vine up a trellis and pinch off the lowest side shoots and leaves for airflow, keeping the long fruit straight and clean."
 tags:
   - "Vegetable"
+  - "Edible"
   - "Cucumber"
   - "Japanese"
   - "Bitter-free"

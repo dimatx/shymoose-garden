@@ -19,7 +19,7 @@ bloomMonths: [5, 6, 7, 8]
 tags:
   - "Annual"
   - "Edible"
-  - "Pollinator plant"
+  - "Pollinator friendly"
   - "Butterfly friendly"
   - "Deer & rabbit resistant"
 funFact: "Calendula petals have been used for centuries as a cheap substitute for saffron to color butter, cheese, and rice yellow — earning the plant the nickname 'poor man's saffron.' The petals are fully edible and still appear as garnishes in modern cooking."

@@ -8,15 +8,12 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://garden.shymoose.com",
 
-  // Prefetch the HTML for links on hover/focus so tapping a plant navigates
-  // near instantly. `viewport` caused all in-view cards to prefetch at once,
-  // saturating the browser's 6-connection limit and stalling actual navigations
-  // for up to 20 s. `hover` fires just-in-time on desktop; on mobile (QR
-  // visitors) no prefetch fires, which is fine — Cloudflare responds in ~50 ms.
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: "hover",
-  },
+  // Do NOT prefetch all links. With 44+ plant cards on the index, even
+  // hover-triggered prefetching saturates the browser's 6-connection limit and
+  // stalls actual navigations for up to 20 s. Cloudflare serves pages in ~50 ms
+  // so there is no meaningful latency to recover. Individual links can still
+  // opt in via data-astro-prefetch if needed.
+  prefetch: true,
 
   // Inline each page's CSS into its HTML. The stylesheets are small, and this
   // removes a render-blocking <link> round-trip — a clear win for a QR-driven

@@ -8,11 +8,12 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://garden.shymoose.com",
 
-  // Do NOT prefetch all links. With 44+ plant cards on the index, even
-  // hover-triggered prefetching saturates the browser's 6-connection limit and
-  // stalls actual navigations for up to 20 s. Cloudflare serves pages in ~50 ms
-  // so there is no meaningful latency to recover. Individual links can still
-  // opt in via data-astro-prefetch if needed.
+  // Do NOT prefetch *all* links site-wide. Instead, plant cards opt in with
+  // data-astro-prefetch="viewport" so each page's HTML is fetched as the card
+  // scrolls into view — making clicks (including touch, which never fires the
+  // default hover strategy) instant instead of paying a 600 ms+ HTML round-trip
+  // on slow networks. HTTP/3 multiplexing means these low-priority prefetches
+  // share one connection and never stall the real navigation.
   prefetch: true,
 
   // Inline each page's CSS into its HTML. The stylesheets are small, and this

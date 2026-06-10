@@ -67,7 +67,10 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* No `scroll-behavior: smooth` here: it makes the browser *animate* the
+     scroll-position restore on back/forward navigation, producing a visible
+     fast scroll from top to bottom. There are no in-page anchor links that
+     would benefit from smooth scrolling, so instant restore is the right call. */
   -webkit-text-size-adjust: 100%;
 }
 

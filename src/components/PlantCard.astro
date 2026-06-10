@@ -38,7 +38,7 @@ const { name, latinName, photo, photoAlt, shortDescription } = plant.data;
       quality={72}
       loading={priority || eager ? "eager" : "lazy"}
       fetchpriority={priority ? "high" : "auto"}
-      transition:name={`plant-photo-${plant.id}`}
+      data-plant-photo={plant.id}
       class="h-full w-full rounded-t-2xl object-cover transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
     />
     <!-- Soft scrim keeps the rounded image edge from clashing with busy photos. -->

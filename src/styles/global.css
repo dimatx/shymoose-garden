@@ -126,6 +126,17 @@ html {
   }
 }
 
+/* Only the shared plant photo should morph between the list and a detail page.
+   Astro also adds a default full-page cross-fade to the document root; even
+   when the background colors match, that blend of two different layouts reads
+   as a quick flash/redraw on back-navigation. Disable it so everything except
+   the morphing photo swaps instantly. The named photo lives in its own
+   ::view-transition-group and still animates independently of this. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
 /* Avoid theme flash: handled by inline script in <head>. */
 :root {
   color-scheme: light;

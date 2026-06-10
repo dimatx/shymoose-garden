@@ -229,6 +229,60 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
       initNavMenu();
       document.addEventListener("astro:page-load", initNavMenu);
     </script>
+
+    <script>
+      // Scoped shared-element morph between the plant list and a detail page.
+      //
+      // Cards do NOT carry a permanent `view-transition-name`: if all 44 did,
+      // navigating back to the list would wrap every card photo in its own
+      // view-transition group and fade them in together — a full-grid flash.
+      // Instead we give exactly ONE image the name `plant-photo-<id>` for the
+      // duration of a single navigation: the source card on the way into a
+      // detail page, and the matching card on the way back. The detail hero
+      // keeps its static name, so the two endpoints share a name and morph,
+      // while every other card swaps instantly with no animation.
+      if (!(window as any).__plantMorphInit) {
+        (window as any).__plantMorphInit = true;
+
+        const DETAIL = /^\/plants\/([^/]+)\/?$/;
+        const clearNames = (doc: Document | DocumentFragment) =>
+          doc
+            .querySelectorAll<HTMLElement>("[data-plant-photo]")
+            .forEach((el) => (el.style.viewTransitionName = ""));
+        const tag = (el: HTMLElement | null, id: string) => {
+          if (el) el.style.viewTransitionName = `plant-photo-${id}`;
+        };
+
+        // Forward (list → detail): the source card lives in the OLD document,
+        // whose snapshot is taken before the swap, so tag it as early as
+        // possible — during preparation, while the list is still on screen.
+        document.addEventListener("astro:before-preparation", (e: any) => {
+          clearNames(document);
+          const detail = e.to?.pathname?.match(DETAIL);
+          if (e.from?.pathname === "/" && detail) {
+            tag(
+              document.querySelector<HTMLElement>(
+                `[data-plant-photo="${detail[1]}"]`,
+              ),
+              detail[1],
+            );
+          }
+        });
+
+        // Back (detail → list): the target card lives in the INCOMING
+        // document, whose snapshot is taken after the swap, so tag it there.
+        document.addEventListener("astro:before-swap", (e: any) => {
+          clearNames(e.newDocument);
+          const detail = e.from?.pathname?.match(DETAIL);
+          if (detail && e.to?.pathname === "/") {
+            tag(
+              e.newDocument.querySelector(`[data-plant-photo="${detail[1]}"]`),
+              detail[1],
+            );
+          }
+        });
+      }
+    </script>
     <!-- QR Scanner Overlay -->
     <div
       id="qr-overlay"

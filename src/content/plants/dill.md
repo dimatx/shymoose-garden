@@ -16,7 +16,7 @@ care:
   bloom: "Fragrant golden-yellow umbels up to 10 in across appear in midsummer. Flowers attract bees, hoverflies, butterflies, and parasitic wasps."
   pruning: "Pinch off flower buds as they appear to extend leaf harvest and delay bolting. Snip the top 2–3 in of the main stem to encourage side branching. Never remove more than one-third of the plant at once."
 bloomMonths: [7, 8]
-pruneMonths: [5, 6, 7, 8]
+pruneMonths: []
 tags:
   - "Herb"
   - "Edible"

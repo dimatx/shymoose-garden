@@ -17,7 +17,7 @@
     "publish": "npm run build && npm run gen:shortlinks && npm run gen:signs"
   },
   "engines": {
-    "node": ">=22.0.0 <23"
+    "node": ">=22.0.0"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

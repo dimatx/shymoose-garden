@@ -290,7 +290,12 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
     </div>
 
     <script>
-      import jsQR from "jsqr";
+      // jsQR is ~125 KB — far too heavy to ship on every page when the
+      // scanner is a rarely-used, mobile-only feature. Load it lazily the
+      // first time someone opens the scanner so the catalog and plant detail
+      // pages stay light and navigate instantly.
+      import type jsQRType from "jsqr";
+      let jsQR: typeof jsQRType | null = null;
 
       function initQRScanner() {
         const button = document.getElementById("qr-scan-button");
@@ -323,6 +328,19 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
               statusEl.textContent =
                 "Camera needs a secure (https) connection.";
             return;
+          }
+
+          // Fetch the decoder on demand — this downloads/parses in parallel
+          // with the user granting camera permission, so it adds no perceived
+          // delay while keeping it out of the every-page bundle.
+          if (!jsQR) {
+            try {
+              jsQR = (await import("jsqr")).default;
+            } catch {
+              if (statusEl)
+                statusEl.textContent = "Couldn't load the QR scanner.";
+              return;
+            }
           }
 
           try {
@@ -370,7 +388,7 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
             scanLine.style.top = `${scanLinePos}%`;
           }
 
-          if (video.readyState === video.HAVE_ENOUGH_DATA) {
+          if (video.readyState === video.HAVE_ENOUGH_DATA && jsQR) {
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);

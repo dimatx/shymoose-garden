@@ -146,6 +146,15 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
             </div>
           </div>
 
+          <button
+            id="qr-scan-button"
+            type="button"
+            aria-label="Scan plant QR code"
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800"
+          >
+            <Icon name="qr-scan" class="h-5 w-5" />
+          </button>
+
           <ThemeToggle />
         </div>
       </div>
@@ -217,6 +226,169 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
 
       initNavMenu();
       document.addEventListener("astro:page-load", initNavMenu);
+    </script>
+    <!-- QR Scanner Overlay -->
+    <div
+      id="qr-overlay"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-label="Scan plant QR code"
+      class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black"
+    >
+      <video
+        id="qr-video"
+        class="absolute inset-0 h-full w-full object-cover"
+        playsinline
+        muted
+      ></video>
+      <canvas id="qr-canvas" class="hidden"></canvas>
+
+      <!-- Viewfinder: box-shadow dims everything outside the scan area -->
+      <div class="pointer-events-none relative z-10 flex flex-col items-center">
+        <div
+          class="relative h-56 w-56 rounded-lg"
+          style="box-shadow: 0 0 0 9999px rgba(0,0,0,0.55);"
+        >
+          <!-- Corner brackets -->
+          <svg
+            class="absolute inset-0 h-full w-full text-white"
+            viewBox="0 0 100 100"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="5"
+            stroke-linecap="round"
+          >
+            <path d="M10 30 L10 10 L30 10" />
+            <path d="M70 10 L90 10 L90 30" />
+            <path d="M90 70 L90 90 L70 90" />
+            <path d="M30 90 L10 90 L10 70" />
+          </svg>
+          <!-- Animated scan line -->
+          <div
+            id="qr-scan-line"
+            class="absolute left-1 right-1 h-px rounded-full bg-green-400"
+            style="top: 50%; box-shadow: 0 0 6px 2px rgba(74,222,128,0.7);"
+          ></div>
+        </div>
+        <p id="qr-status" class="mt-5 text-sm text-white/70">
+          Point at a plant QR code
+        </p>
+      </div>
+
+      <!-- Close button -->
+      <button
+        id="qr-close"
+        type="button"
+        aria-label="Close QR scanner"
+        class="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition hover:bg-black/70"
+      >
+        <Icon name="x" class="h-5 w-5" />
+      </button>
+    </div>
+
+    <script>
+      import jsQR from "jsqr";
+
+      function initQRScanner() {
+        const button = document.getElementById("qr-scan-button");
+        const overlay = document.getElementById("qr-overlay");
+        const video = document.getElementById("qr-video") as HTMLVideoElement | null;
+        const canvas = document.getElementById("qr-canvas") as HTMLCanvasElement | null;
+        const closeBtn = document.getElementById("qr-close");
+        const statusEl = document.getElementById("qr-status");
+        const scanLine = document.getElementById("qr-scan-line");
+
+        if (!button || !overlay || !video || !canvas || !closeBtn) return;
+        if (button.dataset.bound === "true") return;
+        button.dataset.bound = "true";
+
+        let stream: MediaStream | null = null;
+        let animFrame: number | null = null;
+        let scanLinePos = 50;
+        let scanLineDir = 1;
+
+        const ctx = canvas.getContext("2d")!;
+
+        async function openScanner() {
+          overlay.hidden = false;
+          document.body.style.overflow = "hidden";
+          if (statusEl) statusEl.textContent = "Point at a plant QR code";
+
+          try {
+            stream = await navigator.mediaDevices.getUserMedia({
+              video: { facingMode: { ideal: "environment" } },
+            });
+            video.srcObject = stream;
+            await video.play();
+            animFrame = requestAnimationFrame(tick);
+          } catch {
+            if (statusEl) statusEl.textContent = "Camera access was denied.";
+          }
+        }
+
+        function closeScanner() {
+          overlay.hidden = true;
+          document.body.style.overflow = "";
+          if (animFrame !== null) {
+            cancelAnimationFrame(animFrame);
+            animFrame = null;
+          }
+          if (stream) {
+            stream.getTracks().forEach((t) => t.stop());
+            stream = null;
+          }
+          video.srcObject = null;
+        }
+
+        function tick() {
+          if (overlay.hidden) return;
+
+          if (scanLine) {
+            scanLinePos += scanLineDir * 0.6;
+            if (scanLinePos > 82) scanLineDir = -1;
+            if (scanLinePos < 18) scanLineDir = 1;
+            scanLine.style.top = `${scanLinePos}%`;
+          }
+
+          if (video.readyState === video.HAVE_ENOUGH_DATA) {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const code = jsQR(imageData.data, imageData.width, imageData.height, {
+              inversionAttempts: "dontInvert",
+            });
+
+            if (code) {
+              closeScanner();
+              try {
+                const url = new URL(code.data);
+                if (url.protocol === "https:" || url.protocol === "http:") {
+                  window.location.href = url.href;
+                }
+              } catch {
+                // Not a URL — ignore
+              }
+              return;
+            }
+          }
+
+          animFrame = requestAnimationFrame(tick);
+        }
+
+        button.addEventListener("click", openScanner);
+        closeBtn.addEventListener("click", closeScanner);
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && !overlay.hidden) closeScanner();
+        });
+        // Stop the camera stream on view-transition navigations.
+        document.addEventListener("astro:before-preparation", closeScanner);
+      }
+
+      initQRScanner();
+      document.addEventListener("astro:page-load", initQRScanner);
     </script>
   </body>
 </html>

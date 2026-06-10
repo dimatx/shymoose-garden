@@ -24,6 +24,7 @@ const { name, latinName, photo, photoAlt, shortDescription } = plant.data;
 
 <a
   href={`/plants/${plant.id}/`}
+  data-astro-prefetch
   class="group flex flex-col overflow-hidden rounded-2xl border border-leaf-200/80 bg-white shadow-sm transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:border-transparent dark:bg-leaf-900 dark:shadow-none dark:ring-1 dark:ring-white/10 dark:hover:ring-white/20"
 >
   <div class="relative aspect-4/3 overflow-hidden bg-leaf-100 dark:bg-leaf-800">

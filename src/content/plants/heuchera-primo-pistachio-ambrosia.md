@@ -9,7 +9,7 @@ photoCredit: "Courtesy of Proven Winners — provenwinners.com"
 shortDescription: "A vigorous coral bells with big, well-rounded chartreuse leaves that brighten shade, topped through summer with pink flowers loved by pollinators."
 care:
   water: "Average; keep the soil evenly moist and well-drained. Avoid soggy ground, particularly in winter."
-  soil: "Humus-rich, fertile, well-drained soil; slightly acidic to neutral pH. Salt tolerant."
+  soil: "Humus-rich, fertile, well-drained soil amended with organic matter (leaf compost or pine-bark fines); slightly acidic to neutral pH. Dislikes heavy clay. Salt tolerant."
   sunlight: "Part shade to full shade. Leaf color is brightest in filtered shade or with gentle morning sun; hot afternoon sun can scorch the chartreuse foliage."
   hardiness: "USDA zones 4–9."
   size: "10–12 in. tall in leaf and up to 2.5–3 ft wide; flower scapes reach 28–32 in."
@@ -23,6 +23,7 @@ tags:
   - "Pollinator friendly"
   - "Evergreen"
   - "Salt tolerant"
+  - "Deer resistant"
 featured: false
 funFact: "An improvement on the older 'Pretty Pistachio', this Primo® selection is one of the largest coral bells you can grow — a single plant can spread nearly three feet, making it a true foliage anchor for the shade garden rather than just an edging plant."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/primo-pistachio-ambrosia-coral-bells-heuchera-hybrid"

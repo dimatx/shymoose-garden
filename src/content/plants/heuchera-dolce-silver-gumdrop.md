@@ -9,7 +9,7 @@ photoCredit: "Courtesy of Proven Winners — provenwinners.com"
 shortDescription: "A compact coral bells with shimmering, iridescent silver leaves that take on a rosy blush late in the season, topped with vibrant pink flowers — a bright spark for the shade garden."
 care:
   water: "Average; keep soil evenly moist with good drainage. Dislikes standing water, especially over winter."
-  soil: "Humus-rich, fertile, well-drained soil; slightly acidic to neutral pH. Salt tolerant."
+  soil: "Humus-rich, fertile, well-drained soil amended with organic matter (leaf compost or pine-bark fines); slightly acidic to neutral pH. Dislikes heavy clay. Salt tolerant."
   sunlight: "Part shade to full shade. A classic shade-garden perennial that lights up low-light corners."
   hardiness: "USDA zones 4–9."
   size: "6–8 in. tall in leaf, 14–16 in. wide; flower scapes reach 20–24 in."
@@ -23,6 +23,7 @@ tags:
   - "Pollinator friendly"
   - "Evergreen"
   - "Salt tolerant"
+  - "Deer resistant"
 featured: false
 funFact: "The leaves' silver sheen is a clever bit of plant optics — a thin reflective layer over darker pigment scatters light, which helps the plant make the most of dim, shady spots while giving the foliage its metallic shimmer and late-season rosy blush."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/dolce-silver-gumdrop-coral-bells-heuchera-hybrid"

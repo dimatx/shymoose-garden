@@ -9,7 +9,7 @@ photoCredit: "Courtesy of Proven Winners — provenwinners.com"
 shortDescription: "An award-winning coral bells with a dense mound of glossy, ruffled jet-black leaves and airy sprays of white flowers — happy in sun or shade and a 2018 Perennial of the Year."
 care:
   water: "Average; water when the top inch or two of soil dries. Needs good drainage and dislikes sitting wet, especially over winter."
-  soil: "Humus-rich, well-drained soil of average fertility; slightly acidic to neutral pH. Salt tolerant."
+  soil: "Humus-rich, well-drained soil of average fertility amended with organic matter (leaf compost or pine-bark fines); slightly acidic to neutral pH. Dislikes heavy clay. Salt tolerant."
   sunlight: "Adaptable — thrives in part shade but grows in full sun to full shade. The darkest leaf color holds best with some sun."
   hardiness: "USDA zones 4–9."
   size: "8–10 in. tall in leaf, 18–20 in. wide; flower scapes reach 18–20 in."
@@ -23,6 +23,7 @@ tags:
   - "Pollinator friendly"
   - "Evergreen"
   - "Salt tolerant"
+  - "Deer resistant"
 featured: false
 funFact: "Named the 2018 Perennial of the Year by the National Garden Bureau. Its leaves are among the closest to true black in any hardy perennial — a color that comes from dense anthocyanin pigments, the same compounds that make blueberries and red cabbage their deep hues."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/primo-black-pearl-coral-bells-heuchera-hybrid"

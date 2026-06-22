@@ -11,10 +11,9 @@
  *   DRY_RUN=1 node scripts/gen-signs.mjs
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, globSync } from 'fs';
 import { join, dirname, basename } from 'path';
 import { fileURLToPath } from 'url';
-import { globSync } from 'fs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -175,13 +174,11 @@ console.log(`\nDone: ${generated} signs ${DRY_RUN ? 'would be ' : ''}generated, 
 
 // Remove any stale .scad files left over from the old slug-based naming
 if (!DRY_RUN) {
-  import('fs').then(({ readdirSync, rmSync }) => {
-    const existing = readdirSync(signsDir).filter(f => f.endsWith('.scad'));
-    for (const f of existing) {
-      if (!writtenFiles.has(f)) {
-        rmSync(join(signsDir, f));
-        console.log(`[REMOVED stale] signs/${f}`);
-      }
+  const existing = readdirSync(signsDir).filter(f => f.endsWith('.scad'));
+  for (const f of existing) {
+    if (!writtenFiles.has(f)) {
+      rmSync(join(signsDir, f));
+      console.log(`[REMOVED stale] signs/${f}`);
     }
-  });
+  }
 }

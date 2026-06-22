@@ -16,11 +16,15 @@
  * (learnMoreUrl) OR its normalized Latin name matches an existing plant file.
  * Only unmatched rows are scaffolded, so re-running is safe and idempotent.
  *
+ * Re-running also prunes itself: any leftover draft whose plant has since been
+ * published (i.e. now matches a file in src/content/plants/) is deleted, so
+ * finished drafts don't pile up in drafts/plants/ after you publish them.
+ *
  * The sheet CSV URL must be provided via the PLANTS_SHEET_CSV_URL env var
  * (e.g. in your local .env). It is intentionally not hardcoded in source.
  */
 
-import { readFile, readdir, writeFile, mkdir } from "node:fs/promises";
+import { readFile, readdir, writeFile, mkdir, unlink } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
@@ -71,6 +75,9 @@ async function main() {
     .filter((r) => r.commonName && r.latinName);
 
   const existing = await loadExistingPlants();
+
+  // Self-cleaning: drop any leftover drafts whose plant is now published.
+  await pruneStaleDrafts(existing);
 
   /** @type {ReturnType<typeof rowToRecord>[]} */
   const newPlants = [];
@@ -225,6 +232,41 @@ async function loadExistingPlants() {
     });
   }
   return plants;
+}
+
+/**
+ * Remove drafts that have already been published. A draft is considered
+ * published once a file in src/content/plants/ matches its learnMoreUrl or
+ * normalized Latin name — the same matching used for sheet rows. This keeps
+ * drafts/plants/ from accumulating finished scaffolds after you move the real
+ * file into the content collection (or recreate it there under a new slug).
+ * @param {Awaited<ReturnType<typeof loadExistingPlants>>} existing
+ */
+async function pruneStaleDrafts(existing) {
+  let files = [];
+  try {
+    files = (await readdir(draftsDir)).filter((f) => f.endsWith(".md"));
+  } catch {
+    return; // no drafts dir yet — nothing to prune
+  }
+
+  let removed = 0;
+  for (const file of files) {
+    const fm = frontmatter(await readFile(join(draftsDir, file), "utf8"));
+    // Reuse the sheet-row matcher: isKnown reads `fullLink` + `latinName`.
+    const rec = {
+      fullLink: fm.learnMoreUrl ?? "",
+      latinName: fm.latinName ?? "",
+    };
+    if (!isKnown(rec, existing)) continue;
+    await unlink(join(draftsDir, file));
+    removed++;
+    console.log(`  - drafts/plants/${file}  (already published — removed)`);
+  }
+
+  if (removed > 0) {
+    console.log(`Pruned ${removed} published draft(s) from drafts/plants/.\n`);
+  }
 }
 
 /** Pull a few scalar frontmatter values without a YAML dependency. */

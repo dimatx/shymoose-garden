@@ -3,8 +3,8 @@ orient_for_printing = true;
 remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "http://s.shymoose.com/DxfK2";
-common_name = "Black Pearl Coral Bells";
-scientific_name = "Heuchera Primo® 'Black Pearl'";
+common_name = "Coral Bells";
+scientific_name = "Heuchera 'Primo® Black Pearl'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
 
@@ -12,7 +12,7 @@ qr_error_correction = "L"; // [L, M, Q, H]
 // height
 plaque_h = 35;
 // width
-plaque_w = 246;
+plaque_w = 175;
 // thickness
 plaque_t = 4;
 // depth of text/QR cutouts from face (filled by 2nd filament color)

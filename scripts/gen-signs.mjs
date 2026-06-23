@@ -53,6 +53,10 @@ const SIGN_LATIN = {
   'solanum-lycopersicum-bumble-bee-sunrise': "S. lycopersicum 'Bumble Bee Sunrise'",
   'solanum-lycopersicum-carbon':             "S. lycopersicum 'Carbon'",
   'solanum-lycopersicum-ukrainian-purple':   "S. lycopersicum 'Ukrainian Purple'",
+  // Heuchera: shortened to fit the physical sign (full latinName overflows).
+  'heuchera-dolce-silver-gumdrop':           "Heuchera 'Dolce\u00ae Silver Gumdrop'",
+  'heuchera-primo-black-pearl':              "Heuchera 'Primo\u00ae Black Pearl'",
+  'heuchera-primo-pistachio-ambrosia':       "Heuchera 'Primo\u00ae Pistachio Ambrosia'",
 };
 
 // Per-plant common name override for the sign.
@@ -67,6 +71,10 @@ const SIGN_NAME = {
   'solanum-lycopersicum-ukrainian-purple':   'Tomato',
   'chamaecyparis-pisifera-golden-mop':       'False Cypress',
   'penstemon-hartwegii-arabesque-red':       'Penstemon',
+  // Heuchera: drop the cultivar from the common name so it fits the sign.
+  'heuchera-dolce-silver-gumdrop':           'Coral Bells',
+  'heuchera-primo-black-pearl':              'Coral Bells',
+  'heuchera-primo-pistachio-ambrosia':       'Coral Bells',
 };
 
 // Per-plant plaque_w overrides (mm). Minimum is 175.
@@ -114,6 +122,10 @@ const PLAQUE_W = {
   'picea-pungens-glauca-globosa':             195, // "Globe Blue Spruce" (17 chars)
   'penstemon-hartwegii-arabesque-red':       175, // "Penstemon" (9 chars)
   'chamaecyparis-pisifera-golden-mop':       175, // "False Cypress" (13 chars)
+  // Heuchera: shortened name + latin, held at the 175 minimum to fit the sign.
+  'heuchera-dolce-silver-gumdrop':           175,
+  'heuchera-primo-black-pearl':              175,
+  'heuchera-primo-pistachio-ambrosia':       175,
 };
 
 // Glob all plant markdown files

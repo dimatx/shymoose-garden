@@ -74,7 +74,14 @@ reference and reconcile:
 - `npm run gen:signs` generates `signs/<slug>.scad` (OpenSCAD QR sign). It MUST
   run **after** `gen:shortlinks`, because the QR embeds the `shortUrl`. Skip the
   order and the QR falls back to the long URL — it works but defeats the point
-  of the short links on the physical signs. Do not hand-edit `signs/*.scad`.
+  of the short links on the physical signs.
+- Do not hand-edit `signs/*.scad` — `gen:signs` overwrites them. If a name is
+  too long for the physical sign, encode the shorter text in the override tables
+  at the top of `scripts/gen-signs.mjs` (`SIGN_NAME`, `SIGN_LATIN`, `PLAQUE_W`,
+  keyed by the plant's slug). That way regeneration *reproduces* the intended
+  sign instead of reverting it. Before committing regenerated signs, confirm the
+  only diffs are ones you meant to make — never assume an unexpected sign change
+  is "stale"; it may be a deliberate hand/override tweak.
 
 ### 7. Build, then commit EVERYTHING
 - `npm run build` to verify the collection and images validate.

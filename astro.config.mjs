@@ -24,7 +24,11 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [tailwindcss()],
+    // Cast around a harmless typings clash: @tailwindcss/vite is typed against
+    // the root `vite`, while Astro bundles its own copy under
+    // astro/node_modules/vite. The two `Plugin` types are structurally
+    // incompatible, so TS rejects the array even though it works at runtime.
+    plugins: [/** @type {any} */ (tailwindcss())],
   },
 
   integrations: [sitemap()],

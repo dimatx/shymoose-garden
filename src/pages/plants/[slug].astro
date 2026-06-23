@@ -83,6 +83,21 @@ const sections = (
     items: section.items.filter((item) => Boolean(item.value)),
   }))
   .filter((section) => section.items.length > 0);
+
+// funFact is a plain frontmatter string, so (unlike the Markdown body rendered
+// by <Content />) it isn't run through the Markdown pipeline. Authors use a tiny
+// subset of inline Markdown in it — italics for Latin names via *…*, and the odd
+// **bold**. Escape HTML first (the text is authored in-repo, but escaping keeps
+// the set:html sink safe), then convert that emphasis to <em>/<strong>.
+function renderInlineMarkdown(text: string): string {
+  const escaped = text
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  return escaped
+    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*(.+?)\*/g, "<em>$1</em>");
+}
 ---
 
 <Layout title={name} description={shortDescription} image={ogImage.src} imageAlt={photoAlt}>
@@ -192,7 +207,7 @@ const sections = (
             </span>
             <div>
               <p class="text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400">Fun Fact</p>
-              <p class="mt-0.5 text-sm leading-relaxed text-leaf-800 dark:text-leaf-200">{funFact}</p>
+              <p class="mt-0.5 text-sm leading-relaxed text-leaf-800 dark:text-leaf-200" set:html={renderInlineMarkdown(funFact)} />
             </div>
           </div>
         </section>

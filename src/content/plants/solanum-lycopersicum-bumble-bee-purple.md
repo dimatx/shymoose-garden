@@ -8,6 +8,10 @@ photoAlt: "Cluster of dusky purple cherry tomatoes with metallic green striping 
 photoCredit: "chipmunk_1, CC BY-SA 2.0, via Wikimedia Commons"
 shortDescription: "A striking cherry tomato in dusky purple with metallic green stripes — sweet, meaty, and high-yielding."
 care:
+  water: "Deep, consistent moisture at the roots. Uneven watering invites cracking and blossom-end rot; water the soil, not the foliage."
+  soil: "Rich, fertile, well-drained soil high in organic matter; slightly acidic pH (about 6.2–6.8)."
+  sunlight: "Full sun — at least 6–8 hours of direct sun a day."
+  hardiness: "Warm-season annual; frost-tender — transplant out only once nights stay reliably warm."
   size: "Indeterminate."
   bloom: "Dusky purple fruit with metallic green striping, 20–25 g each; about 70 days to harvest."
   pruning: "Maintenance: thin the suckers and strip the lower leaves to improve airflow on the tall indeterminate vines, keeping them tied to a stout support."

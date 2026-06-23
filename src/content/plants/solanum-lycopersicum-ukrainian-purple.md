@@ -8,8 +8,10 @@ photoAlt: "Fruit developing on a tomato plant, with green tomatoes and flowers o
 photoCredit: "Karelj, Public domain, via Wikimedia Commons — representative tomato, not the Ukrainian Purple variety"
 shortDescription: "A sweet, savory heirloom plum tomato in purply-black, with meaty, crack-resistant fruit that's excellent for sauce."
 care:
-  water: "Keep the soil consistently moist."
-  sunlight: "Full sun."
+  water: "Keep the soil consistently moist. Uneven watering invites cracking and blossom-end rot; water the soil, not the foliage."
+  soil: "Rich, fertile, well-drained soil high in organic matter; slightly acidic pH (about 6.2–6.8)."
+  sunlight: "Full sun — at least 6–8 hours of direct sun a day."
+  hardiness: "Warm-season annual; frost-tender — transplant out only once nights stay reliably warm."
   size: "Space plants 2–3 ft apart in rows 3–4 ft apart."
   bloom: "Purply-black plum-shaped fruit; about 80 days from transplant."
   pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."

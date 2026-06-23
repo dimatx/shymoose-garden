@@ -8,7 +8,10 @@ photoAlt: "A sprawling cucumber plant in a garden bed with a long, slender green
 photoCredit: "Forest and Kim Starr, CC BY 3.0, via Wikimedia Commons"
 shortDescription: "A vigorous Japanese cucumber with long, slender, thin-skinned fruit that stays sweet, crisp, and bitter-free even when large."
 care:
-  soil: "Trellising is recommended to produce long, straight fruit."
+  water: "Even, consistent moisture — about 1 in. of water per week. Irregular watering makes the fruit bitter and misshapen."
+  soil: "Rich, fertile, well-drained soil high in organic matter; slightly acidic to neutral pH (about 6.0–6.8)."
+  sunlight: "Full sun."
+  hardiness: "Warm-season annual; frost-tender — plant out only after all danger of frost has passed."
   size: "Best picked at 8 in. or smaller, though it stays sweet when larger."
   bloom: "Long, slender, thin-skinned fruit."
   pruning: "Maintenance: train the vine up a trellis and pinch off the lowest side shoots and leaves for airflow, keeping the long fruit straight and clean."

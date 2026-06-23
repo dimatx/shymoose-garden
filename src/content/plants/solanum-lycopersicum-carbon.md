@@ -8,6 +8,10 @@ photoAlt: "Tomatoes ripening on the vine on a leafy plant (representative photo)
 photoCredit: "Madmad1234, CC BY-SA 4.0, via Wikimedia Commons — representative tomato, not the Carbon variety"
 shortDescription: "A richly flavored black heirloom beefsteak with meaty texture and dark, olive-shouldered fruit that resists cracking."
 care:
+  water: "Deep, consistent moisture at the roots. Uneven watering invites cracking and blossom-end rot; water the soil, not the foliage."
+  soil: "Rich, fertile, well-drained soil high in organic matter; slightly acidic pH (about 6.2–6.8)."
+  sunlight: "Full sun — at least 6–8 hours of direct sun a day."
+  hardiness: "Warm-season annual; frost-tender — transplant out only once nights stay reliably warm."
   size: "Indeterminate, with a well-balanced habit."
   bloom: "Blocky-round 10–14 oz. fruit, dark olive shoulders fading to dark brick red; about 76 days to harvest."
   pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."

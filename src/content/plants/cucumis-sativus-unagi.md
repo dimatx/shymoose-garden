@@ -8,7 +8,10 @@ photoAlt: "Two long, glossy, dark green Unagi cucumbers hanging from the vine in
 photoCredit: "Johnny's Selected Seeds"
 shortDescription: "A glossy, spineless, seedless slicing cucumber that produces crisp, straight fruit in abundance — ready in about 55 days."
 care:
+  water: "Even, consistent moisture — about 1 in. of water per week. Irregular watering makes the fruit bitter and misshapen."
+  soil: "Rich, fertile, well-drained soil high in organic matter; slightly acidic to neutral pH (about 6.0–6.8)."
   sunlight: "Full sun."
+  hardiness: "Warm-season annual; frost-tender — plant out only after all danger of frost has passed."
   size: "Harvest at 9–11 in. (still crisp up to 14 in.)."
   bloom: "Glossy, spineless, seedless fruit; about 55 days to harvest."
   pruning: "Maintenance: train up a single string or trellis, removing the side shoots and lower leaves on the bottom of the stem for airflow, then let the upper laterals run."

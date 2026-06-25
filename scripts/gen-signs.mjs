@@ -71,6 +71,9 @@ const SIGN_NAME = {
   'solanum-lycopersicum-ukrainian-purple':   'Tomato',
   'chamaecyparis-pisifera-golden-mop':       'False Cypress',
   'penstemon-hartwegii-arabesque-red':       'Penstemon',
+  'penstemon-digitalis-huskers-red':         'Penstemon',
+  'achillea-millefolium-tutti-frutti':       'Yarrow',
+  'achillea-millefolium-new-vintage-red':    'Yarrow',
   // Heuchera: drop the cultivar from the common name so it fits the sign.
   'heuchera-dolce-silver-gumdrop':           'Coral Bells',
   'heuchera-primo-black-pearl':              'Coral Bells',

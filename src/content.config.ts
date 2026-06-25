@@ -76,6 +76,12 @@ const plants = defineCollection({
       featured: z.boolean().default(false),
       learnMoreUrl: z.string().url().optional(),
       shortUrl: z.string().url().optional(),
+
+      // The date this plant was added to the catalog (ISO yyyy-mm-dd).
+      // Internal metadata only — not surfaced in the UI today, but stored so it
+      // can be exposed later (e.g. a "recently added" view). Backfilled from
+      // each file's first git commit; set it when adding new plants.
+      dateAdded: z.coerce.date().optional(),
     }),
 });
 

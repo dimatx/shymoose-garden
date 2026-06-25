@@ -24,6 +24,7 @@ featured: false
 funFact: "Despite its name, the Egyptian Walking Onion is not native to Egypt — it likely originates from India or Pakistan and was introduced to Europe by the Romans. It gets its common name from its unusual propagation strategy: the bulbil-laden stalks grow top-heavy, tip over, and root themselves a short distance away, 'walking' the colony slowly across the garden season after season. It is a natural hybrid of the common onion (*Allium cepa*) and the Welsh onion (*Allium fistulosum*)."
 learnMoreUrl: "http://hort.extension.wisc.edu/articles/egyptian-walking-onions/"
 shortUrl: "http://s.shymoose.com/BejwE"
+dateAdded: 2026-06-09
 ---
 
 One of the most intriguing edible perennials for the kitchen garden, the Egyptian Walking Onion is a low-maintenance, self-propagating allium that returns reliably each year in zones 3–10. In early spring, hollow green leaves emerge from the brownish bases left over from the previous year; by late spring, spikes rise up to two feet, bearing clusters of small bulbils — miniature onion bulbs — at their tips instead of conventional flowers. If left unharvested, the spikes eventually topple under the weight of the bulbils and root where they land, beginning the "walk" that gives the plant its name.

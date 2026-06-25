@@ -25,6 +25,7 @@ tags:
 funFact: "Bigleaf hydrangea is one of the few garden plants that acts as a living soil-pH indicator: its flowers turn blue in acidic soil and pink in alkaline soil. The trick is aluminum — in acidic soil the plant can take up aluminum ions, which bind with a pigment to produce blue, while alkaline soil locks the aluminum away and leaves the blooms pink. White cultivars, lacking the pigment, stay white regardless of soil."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hydrangea-macrophylla/"
 shortUrl: "http://s.shymoose.com/WL32w"
+dateAdded: 2026-06-11
 ---
 
 *Hydrangea macrophylla*, the bigleaf hydrangea, is the quintessential garden hydrangea — a multi-stemmed deciduous shrub native to the coastal woodlands of Japan and beloved worldwide for its romantic, oversized summer flower heads. Also called mophead, French, or (in its flat-flowered forms) lacecap hydrangea, it carries glossy, coarsely toothed leaves and rounded clusters of bloom that can reach the size of a softball or larger.

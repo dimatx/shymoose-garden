@@ -25,6 +25,7 @@ tags:
 funFact: "'Arborvitae' is Latin for 'tree of life.' The name was earned in the 1530s when French explorer Jacques Cartier reportedly saved his scurvy-stricken crew by brewing tea from the foliage — a remedy that works because the needles are rich in vitamin C."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/thuja-occidentalis/"
 shortUrl: "http://s.shymoose.com/jyA7T"
+dateAdded: 2026-06-01
 ---
 
 The American arborvitae is a dense, conical evergreen in the cypress family, and

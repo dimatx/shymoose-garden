@@ -28,6 +28,7 @@ featured: false
 funFact: "Despite its name, 'Karens' is not named after a person — it is a Girard hybrid, part of a series of exceptionally cold-hardy evergreen azaleas developed by nurseryman Peter Girard Sr. in Geneva, Ohio. Girard bred his azaleas specifically to survive the brutal winters of the American Midwest, making 'Karens' one of the hardiest evergreen azaleas available for zone 4–5 gardens."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=253371"
 shortUrl: "http://s.shymoose.com/xJTgh"
+dateAdded: 2026-06-06
 ---
 
 *Rhododendron* 'Karens' — commonly sold as the Karen azalea — is a compact, dense, broadleaf evergreen shrub and one of the most cold-hardy evergreen azaleas you can grow. Developed as part of Peter Girard's breeding program in Ohio, it was selected specifically for its ability to survive zone 4–5 winters while still delivering a spectacular spring flower display.

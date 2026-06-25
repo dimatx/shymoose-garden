@@ -26,6 +26,7 @@ tags:
 funFact: "It pushes out purple flowers in late winter or early spring before any leaves appear — one of the earliest-blooming rhododendrons. It is also a parent of the popular cold-hardy PJM hybrid rhododendrons, which inherited its exceptional tolerance for frigid winters."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279949"
 shortUrl: "http://s.shymoose.com/cldIJ"
+dateAdded: 2026-06-02
 ---
 
 *Rhododendron dauricum* — the Dahurian rhododendron — is a small, semi-evergreen

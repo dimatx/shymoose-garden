@@ -24,6 +24,7 @@ featured: false
 funFact: "The genus name *Petroselinum* comes from the Greek 'petros' (rock) and 'selinon' (celery), as the plant was found growing wild on rocky Greek hillsides. Ancient Greeks used parsley not as food but as a ceremonial plant — adorning tombs and victory wreaths — and the phrase 'needing only parsley' meant someone was at death's door. It was the Romans who introduced it as a culinary herb across their empire."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/petroselinum-crispum/"
 shortUrl: "http://s.shymoose.com/4yrdL"
+dateAdded: 2026-06-09
 ---
 
 Parsley (*Petroselinum crispum*) is a biennial herb native to the Mediterranean, grown worldwide both as a culinary staple and an ornamental edging plant. It forms a neat rosette of bright green, deeply divided leaves in its first year, and sends up tall flower stalks in the second. Plants prefer cool weather and perform best in spring and fall; in hot climates afternoon shade helps delay bolting.

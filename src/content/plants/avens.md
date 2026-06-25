@@ -25,6 +25,7 @@ tags:
 funFact: "The cultivar name 'Mrs. Bradshaw' was given around 1900 and honours a real woman — a contemporary of the English nurseryman who introduced it. Over 125 years later it remains one of the most widely sold named geums in the world, remarkable staying power in a hobby driven by novelty."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/geum/"
 shortUrl: "http://s.shymoose.com/A69E5"
+dateAdded: 2026-06-04
 ---
 
 *Geum chiloense* 'Mrs. Bradshaw' — commonly called Avens — is a rhizomatous herbaceous perennial in the rose family (Rosaceae), native to Chile. It forms a neat, mounding rosette of large, hairy, pinnately divided dark green leaves that provides attractive ground cover even when not in flower.

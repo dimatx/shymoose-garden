@@ -26,6 +26,7 @@ featured: true
 funFact: "The large, globe-shaped flowerheads are entirely sterile — they produce no seeds and no pollen. They exist purely as visual lures to draw pollinators toward the small fertile flowers hidden in the center, acting like a living advertisement."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/viburnum-plicatum/"
 shortUrl: "http://s.shymoose.com/IJxgv"
+dateAdded: 2026-06-01
 ---
 
 The Japanese snowball is a large, rounded deciduous shrub in the viburnum

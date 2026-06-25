@@ -26,6 +26,7 @@ tags:
 funFact: "The word 'cohosh' comes from the Algonquin language and means 'rough' — a reference to the plant's knobbly, irregularly shaped roots. Indigenous peoples across eastern North America used those roots medicinally for centuries before European settlers encountered the plant."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/actaea-racemosa/"
 shortUrl: "http://s.shymoose.com/10NGx"
+dateAdded: 2026-06-01
 ---
 
 *Actaea racemosa* — black cohosh, also called black snakeroot, bugbane, or fairy

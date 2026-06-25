@@ -28,6 +28,7 @@ featured: false
 funFact: "The genus name Hemerocallis comes from the Greek hemera ('day') and kallos ('beauty') — a nod to the fact that each gorgeous flower opens for just one day. Carl Linnaeus formally named this species in 1753, and it was one of the very first daylilies grown in European gardens. In China its young flower buds are eaten as a traditional vegetable known as 'golden needles' (黄花菜)."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/plantfinder/PlantFinderDetails.aspx?taxonid=281955"
 shortUrl: "http://s.shymoose.com/tJqve"
+dateAdded: 2026-06-10
 ---
 
 *Hemerocallis lilioasphodelus* — commonly called the lemon daylily or yellow daylily — is a clump-forming herbaceous perennial in the family Asphodelaceae. Native across temperate Eurasia, it forms tidy mounds of arching, strap-shaped green leaves and is one of the earliest daylilies to flower each year.

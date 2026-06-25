@@ -28,6 +28,7 @@ tags:
 funFact: "Sold under the patent name 'Balvinred', New Vintage Red was bred for an unusually compact, sturdy habit — about half the height of common yarrow — so its flat crimson flower heads stay upright instead of flopping the way taller yarrows do."
 learnMoreUrl: "https://www.provenwinners.com/plants/achillea/new-vintage-red-yarrow-achillea-millefolium"
 shortUrl: "http://s.shymoose.com/CvXrP"
+dateAdded: 2026-06-24
 ---
 
 *Achillea millefolium* New Vintage™ Red is a compact selection of common yarrow grown for eye-catching crimson-red flower heads on a short, dense, well-mannered plant. Like all yarrows it forms a low mat of soft, aromatic, fern-like foliage, but the flowering stems stay markedly shorter than the species — a deliberate breeding goal that keeps the flat flower clusters from flopping.

@@ -26,6 +26,7 @@ tags:
 funFact: "The vivid pink-purple color called 'fuchsia' was named after this plant — a synthetic aniline dye produced in 1859 was christened 'fuchsine' because its hue matched the flowers so closely. In parts of western Ireland and New Zealand, *Fuchsia magellanica* has naturalized so thoroughly that it grows wild as tall roadside hedging, looking entirely native — a South American shrub that has convincingly impersonated part of the local landscape for over a century."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/fuchsia-magellanica/"
 shortUrl: "http://s.shymoose.com/IWiE1"
+dateAdded: 2026-06-08
 ---
 
 *Fuchsia magellanica* — Hardy Fuchsia, Magellan Fuchsia, or Hummingbird Fuchsia — is a deciduous to semi-evergreen shrub in the evening primrose family (Onagraceae), native to the cool, moist forests of southern South America, from Peru and Chile south to Tierra del Fuego. It is the hardiest species in the large *Fuchsia* genus, capable of surviving USDA zone 5 winters when mulched, making it the go-to choice for gardeners in northern climates who want the distinctive fuchsia flower without growing it as a tender annual.

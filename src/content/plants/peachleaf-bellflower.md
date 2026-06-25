@@ -27,6 +27,7 @@ featured: false
 funFact: "Campanula persicifolia has been grown in European gardens since at least the 1500s, making it one of the oldest perennials in continuous cultivation. The genus name Campanula is simply the Latin word for 'little bell' — coined by 16th-century botanist Valerius Cordus and still perfectly apt today. Unlike several of its more rambunctious relatives, this species stays as a well-behaved clump, politely self-seeding without ever taking over the border."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/campanula-persicifolia/"
 shortUrl: "http://s.shymoose.com/UmV3P"
+dateAdded: 2026-06-03
 ---
 
 *Campanula persicifolia* — peachleaf bellflower — is a clump-forming herbaceous perennial native to meadows and shrubby slopes across Europe and western Asia. The species name *persicifolia* means "having leaves like a peach," a reference to the narrow, leathery, bright-green foliage arranged in basal rosettes. 'Takion Blue' is a compact, mounded selection reaching just 1–2 feet, with lavender-blue, upward- and outward-facing bells appearing in June and July.

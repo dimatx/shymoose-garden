@@ -28,6 +28,7 @@ tags:
 funFact: "The Tutti Frutti yarrows are bred to be chameleons: each flat flower cluster opens in one shade and matures to another, so a single plant can show a whole fruit-salad of colours at the same time."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/achillea-millefolium/"
 shortUrl: "http://s.shymoose.com/ZTcCO"
+dateAdded: 2026-06-24
 ---
 
 *Achillea millefolium* 'Tutti Frutti' belongs to a series of common-yarrow selections (Takii / Blooms of Bressingham breeding) chosen for vivid, fruit-toned blooms and a sturdy, uniform habit. Like all yarrows it forms a low mat of soft, aromatic, fern-like foliage and sends up sturdy stems carrying broad flat-topped flower heads that bees and butterflies cover all summer.

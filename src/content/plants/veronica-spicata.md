@@ -25,6 +25,7 @@ tags:
 funFact: "The genus Veronica was traditionally said to be named after Saint Veronica — the woman who, according to Catholic tradition, wiped Christ's face on the road to Calvary. Others trace the name to the Latin vera (true) + Greek eikon (image). Either way, it's a plant with a legendary name."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/veronica-spicata/"
 shortUrl: "http://s.shymoose.com/FQFOc"
+dateAdded: 2026-06-01
 ---
 
 Spiked speedwell forms neat, upright clumps that send up dense spires of tiny,

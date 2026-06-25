@@ -24,6 +24,7 @@ tags:
 funFact: "'Carbon' gets its deep, almost-black shoulders from layered pigments: red lycopene inside and purple-black anthocyanins in the skin where sunlight hits. Studies suggest tomatoes with high anthocyanin levels may have greater antioxidant activity than ordinary red varieties."
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/tomatoes/heirloom-tomatoes/carbon-organic-tomato-seed-3763G.html"
 shortUrl: "http://s.shymoose.com/L4duY"
+dateAdded: 2026-06-01
 ---
 
 'Carbon' is a celebrated black heirloom beefsteak, producing big, blocky-round

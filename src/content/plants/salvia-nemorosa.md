@@ -27,6 +27,7 @@ featured: false
 funFact: "The genus name Salvia comes from the Latin salvere, meaning 'to be healthy' or 'to save' — a name given by Roman physicians who used salvias medicinally. Salvia nemorosa has a long history of folk use as an anti-inflammatory, applied externally to wounds and skin irritations."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/salvia-nemorosa/"
 shortUrl: "http://s.shymoose.com/G88cZ"
+dateAdded: 2026-06-02
 ---
 
 *Salvia nemorosa* — woodland sage, sometimes called Balkan clary — is a hardy,

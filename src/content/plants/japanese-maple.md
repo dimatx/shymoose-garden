@@ -26,6 +26,7 @@ featured: false
 funFact: "Japanese maple has been cultivated in Japan for over 300 years — the first catalogue of named cultivars appeared in 1710 with 35 varieties, and today there are more than 1,000. The autumn tradition of momijigari (紅葉狩り, 'red leaf hunting') — travelling to admire maple colour — appears in Heian-period poetry over 1,000 years ago and remains a beloved seasonal ritual today."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/acer-palmatum/"
 shortUrl: "http://s.shymoose.com/287m3"
+dateAdded: 2026-06-05
 ---
 
 *Acer palmatum* 'Crimson Queen' is a weeping laceleaf Japanese maple prized above almost all other ornamental trees for its extraordinary grace. Native to Japan, China, and Korea, it has been cultivated in Japanese gardens for centuries and remains one of the most sought-after small trees in the world.

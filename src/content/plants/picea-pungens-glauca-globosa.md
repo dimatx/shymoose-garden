@@ -26,6 +26,7 @@ featured: false
 funFact: "The silvery-blue color of blue spruce needles comes from a natural waxy coating the tree produces as UV protection. More sunlight means more wax, which means more intense blue. Move a blue spruce to deep shade and it will gradually lose its blue tones."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c825"
 shortUrl: "http://s.shymoose.com/ieAqE"
+dateAdded: 2026-06-02
 ---
 
 *Picea pungens* 'Glauca Globosa' — the globe blue spruce — is a dwarf, slow-growing

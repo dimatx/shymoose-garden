@@ -28,6 +28,7 @@ featured: false
 funFact: "The leaves' silver sheen is a clever bit of plant optics — a thin reflective layer over darker pigment scatters light, which helps the plant make the most of dim, shady spots while giving the foliage its metallic shimmer and late-season rosy blush."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/dolce-silver-gumdrop-coral-bells-heuchera-hybrid"
 shortUrl: "http://s.shymoose.com/cc3bb"
+dateAdded: 2026-06-22
 ---
 
 *Heuchera* Dolce® 'Silver Gumdrop' is a compact coral bells made for brightening

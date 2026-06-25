@@ -27,6 +27,7 @@ tags:
 funFact: "Despite the name, catmint is not catnip — catnip (*Nepeta cataria*) produces high concentrations of nepetalactone, the compound behind feline euphoria, while catmint has far lower levels and most cats ignore it entirely. The cultivar name 'Junior Walker' is a deliberate nod to the wildly popular 'Walker's Low' — same parentage, just a more compact habit."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/nepeta/"
 shortUrl: "http://s.shymoose.com/2upC5"
+dateAdded: 2026-06-08
 ---
 
 *Nepeta* × *faassenii* 'Junior Walker' is a compact cultivar of Faasen's catmint, a sterile hybrid perennial in the mint family (Lamiaceae). A garden cross of *Nepeta racemosa* and *N. nepetella* first raised at Faassen Nurseries in the Netherlands, 'Junior Walker' is valued for its tidier, lower-growing habit compared to the taller 'Walker's Low' — making it ideal for the front of a border, edging paths and walkways, and containers. As a sterile hybrid that sets no seed, it channels all its energy into flowering rather than fruiting, which means it blooms for a very long time.

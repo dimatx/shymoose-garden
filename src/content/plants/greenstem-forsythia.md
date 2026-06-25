@@ -25,6 +25,7 @@ tags:
 funFact: "Forsythia was named posthumously after William Forsyth (1737–1804), a Scottish botanist who never visited Asia — the genus honored him decades after his death, when plant hunters first brought specimens back from China and Japan. Cut stems brought indoors in late winter will burst into golden bloom within days in a warm vase, one of the earliest and most reliable signs of the coming spring."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/forsythia-viridissima/"
 shortUrl: "http://s.shymoose.com/tOoE7"
+dateAdded: 2026-06-04
 ---
 
 *Forsythia viridissima* — Greenstem Forsythia, also called Golden Bells — is a deciduous shrub in the olive family (Oleaceae), native to south China and South Korea. The species name *viridissima* means "very green," referring to the distinctively green stems that set it apart from the more commonly planted hybrid forsythias.

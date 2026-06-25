@@ -28,6 +28,7 @@ featured: false
 funFact: "Named the 2018 Perennial of the Year by the National Garden Bureau. Its leaves are among the closest to true black in any hardy perennial — a color that comes from dense anthocyanin pigments, the same compounds that make blueberries and red cabbage their deep hues."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/primo-black-pearl-coral-bells-heuchera-hybrid"
 shortUrl: "http://s.shymoose.com/DxfK2"
+dateAdded: 2026-06-22
 ---
 
 *Heuchera* Primo® 'Black Pearl' is a coral bells grown above all for its

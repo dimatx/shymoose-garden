@@ -25,6 +25,7 @@ featured: false
 funFact: "The genus name *Anethum* is derived from the Greek meaning 'to calm or soothe,' reflecting its ancient use as a digestive remedy. Dill seeds have been found in the tomb of Amenhotep II (circa 1400 BCE), and it was listed in the Ebers Papyrus as a medicinal herb — making it one of humanity's oldest recorded cultivated plants. In medieval Europe it was believed to ward off witches and was used in love potions."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/anethum-graveolens/"
 shortUrl: "http://s.shymoose.com/ZmTEW"
+dateAdded: 2026-06-09
 ---
 
 Aromatic and versatile, dill is a true workhorse in the garden and kitchen. Its feathery, thread-like leaves — known as dill weed — carry a sweet, slightly tangy flavor reminiscent of anise, while the seeds offer a more pungent, slightly bitter punch beloved in pickling brines, breads, and spice blends. Plants grow quickly from seed directly sown in well-drained soil, but resist transplanting due to their deep taproot. Successive sowings every 2–4 weeks ensure a continuous harvest from late spring through summer.

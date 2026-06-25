@@ -29,6 +29,7 @@ tags:
 funFact: "'Husker's Red' was selected at the University of Nebraska — home of the Cornhuskers — and in 1996 it became the first *Penstemon* ever named Perennial Plant of the Year. *Penstemon* is also the largest genus of flowering plants found only in North America."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/penstemon-digitalis-huskers-red/"
 shortUrl: "http://s.shymoose.com/1fIoT"
+dateAdded: 2026-06-24
 ---
 
 *Penstemon digitalis* 'Husker's Red' is a clump-forming herbaceous perennial in the plantain family (Plantaginaceae), a selection of the wild foxglove beardtongue native to eastern and central North America. Its signature feature is colour: the new foliage emerges deep maroon in spring, ages to green veined with maroon, and the wiry flower stems stay a glossy burgundy all season — a striking foil for the flowers.

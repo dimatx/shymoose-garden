@@ -28,6 +28,7 @@ tags:
 funFact: "Ribbon grass is one of the oldest cultivated ornamental grasses, grown in gardens for centuries. Its old country name, *gardener's garters*, comes from the way the long striped blades look just like lengths of ribbon."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/phalaris-arundinacea-picta/"
 shortUrl: "http://s.shymoose.com/X99HS"
+dateAdded: 2026-06-24
 ---
 
 *Phalaris arundinacea* 'Picta' — ribbon grass or gardener's garters — is a rhizomatous perennial grass (Poaceae) grown for its boldly variegated foliage: upright blades striped lengthwise in white and green that brighten a border, a damp margin or a difficult dry corner. It is one of the toughest, most adaptable ornamentals you can plant.

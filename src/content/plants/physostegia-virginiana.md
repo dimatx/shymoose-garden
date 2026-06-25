@@ -26,6 +26,7 @@ tags:
 funFact: "The common name is a small joke: if you push a flower sideways on its spike, it stays in the new position instead of springing back — a quirk of how each flower is hinged to the stem. In the garden, however, the plant is anything but obedient, spreading aggressively by rhizomes."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/physostegia-virginiana/"
 shortUrl: "http://s.shymoose.com/Ld7dB"
+dateAdded: 2026-06-01
 ---
 
 The obedient plant is a North American native in the mint family, named for a

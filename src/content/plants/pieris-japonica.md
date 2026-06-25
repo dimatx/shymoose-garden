@@ -26,6 +26,7 @@ tags:
 funFact: "All parts of the plant — flowers, leaves, roots — are toxic to humans, dogs, cats, and horses. Even honey made by bees visiting Pieris flowers can cause illness. Ancient Greek historians described 'mad honey' poisoning from related ericaceous plants sickening soldiers in the field."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/pieris-japonica/"
 shortUrl: "http://s.shymoose.com/fldOW"
+dateAdded: 2026-06-02
 ---
 
 *Pieris japonica* — Japanese pieris, also called Japanese andromeda or

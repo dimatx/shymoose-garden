@@ -28,6 +28,7 @@ tags:
 funFact: "The common name 'pinks' has nothing to do with the colour. It refers to the petals' frilly, *pinked* edges — as if trimmed with pinking shears. The verb came first; the colour pink was later named after the flower, not the other way around."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/dianthus/"
 shortUrl: "http://s.shymoose.com/i0oUX"
+dateAdded: 2026-06-24
 ---
 
 *Dianthus* is a large genus in the carnation family (Caryophyllaceae) with more than 27,000 registered cultivar names, grown as annuals, biennials and — most usefully in the garden — evergreen perennials. The group includes cottage pinks, cheddar pinks, sweet William and the florist's carnation. Most form neat cushions or mats of narrow, often glaucous blue-green leaves that look good even out of flower.

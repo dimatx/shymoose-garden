@@ -24,6 +24,7 @@ tags:
 funFact: "The striped purple coloring comes from a gene called Ant (short for 'anthocyanin fruit') that lets the skin accumulate purple-black pigments where sunlight falls. Those are the same compounds that make blueberries blue — and anthocyanin-rich tomatoes may have higher antioxidant levels than plain red ones."
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/tomatoes/specialty-tomatoes/purple-bumble-bee-organic-tomato-seed-3521G.html"
 shortUrl: "http://s.shymoose.com/X7WLf"
+dateAdded: 2026-06-01
 ---
 
 'Bumble Bee Purple' brings real drama to the cherry tomato patch, with dusky

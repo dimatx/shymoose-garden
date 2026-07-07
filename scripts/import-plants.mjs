@@ -310,14 +310,27 @@ function normalizeUrl(url) {
     .replace(/\/+$/, "");
 }
 
-/** Strip cultivar, trademark marks, and punctuation so names compare cleanly. */
+/**
+ * Normalize a botanical name so the same plant compares equal regardless of
+ * quote style, trademark marks, or punctuation — while KEEPING the cultivar
+ * epithet so distinct cultivars of one species stay distinct.
+ *
+ * A cultivar is its own plant: it gets its own content file, short link, and
+ * sign. Dropping the cultivar here caused a real bug — a new cultivar of a
+ * species already in the repo (e.g. Acer palmatum 'Inaba-shidare' alongside an
+ * existing 'Crimson Queen') normalized to the bare species and was silently
+ * treated as "already in repo", so it was never scaffolded.
+ *
+ * Quote characters, ®/™/©, "var.", and other punctuation are flattened to
+ * spaces, so `Heuchera Primo® 'Black Pearl'` and `Heuchera Primo 'Black Pearl'`
+ * still match, but the cultivar words themselves are preserved.
+ */
 function normalizeLatin(name) {
   return name
     .toLowerCase()
-    .replace(/['’"][^'’"]*['’"]/g, " ") // drop 'Cultivar' in quotes
     .replace(/[®™©]/g, " ")
     .replace(/\bvar\.?\b/g, " ")
-    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/[^a-z0-9]+/g, " ") // quotes, hyphens, etc. → space; cultivar words kept
     .trim()
     .replace(/\s+/g, " ");
 }

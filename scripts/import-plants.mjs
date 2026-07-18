@@ -310,27 +310,24 @@ function normalizeUrl(url) {
     .replace(/\/+$/, "");
 }
 
-/**
- * Normalize a botanical name so the same plant compares equal regardless of
- * quote style, trademark marks, or punctuation — while KEEPING the cultivar
- * epithet so distinct cultivars of one species stay distinct.
+/** Normalize a Latin name for comparison, KEEPING the cultivar.
  *
- * A cultivar is its own plant: it gets its own content file, short link, and
- * sign. Dropping the cultivar here caused a real bug — a new cultivar of a
- * species already in the repo (e.g. Acer palmatum 'Inaba-shidare' alongside an
- * existing 'Crimson Queen') normalized to the bare species and was silently
- * treated as "already in repo", so it was never scaffolded.
- *
- * Quote characters, ®/™/©, "var.", and other punctuation are flattened to
- * spaces, so `Heuchera Primo® 'Black Pearl'` and `Heuchera Primo 'Black Pearl'`
- * still match, but the cultivar words themselves are preserved.
- */
+ * Different cultivars of the same species (e.g. Acer palmatum 'Crimson Queen'
+ * vs 'Inaba-shidare' vs 'Tamukeyama', or the Heuchera / tomato / cucumber
+ * cultivars) are DISTINCT plants. Stripping the cultivar collapses them all to
+ * one key ("acer palmatum"), so as soon as one is published every other
+ * cultivar in the sheet matches it and is silently skipped as a duplicate —
+ * i.e. new plants go missing. Instead we flatten trademark marks, `var.`, and
+ * all punctuation (including the cultivar quotes) to spaces and keep the
+ * cultivar words, so "Acer palmatum 'Inaba-shidare'" and
+ * "Acer palmatum 'Inaba shidare'" still compare equal, while 'Tamukeyama'
+ * stays distinct. */
 function normalizeLatin(name) {
   return name
     .toLowerCase()
     .replace(/[®™©]/g, " ")
     .replace(/\bvar\.?\b/g, " ")
-    .replace(/[^a-z0-9]+/g, " ") // quotes, hyphens, etc. → space; cultivar words kept
+    .replace(/[^a-z0-9]+/g, " ")
     .trim()
     .replace(/\s+/g, " ");
 }
@@ -346,10 +343,16 @@ function slugify(text) {
 }
 
 function uniqueSlug(rec, used) {
-  // Prefer the common name; fall back to the Latin name (cultivar stripped).
-  const base =
-    slugify(rec.commonName) ||
-    slugify(rec.latinName.replace(/['’"][^'’"]*['’"]/g, "")) ||
+  // Prefer the common name. But when several cultivars share one common name
+  // (e.g. three "Japanese Maple"s), the common-name slug collides — fall back
+  // to the full Latin name WITH its cultivar so each cultivar gets its own
+  // meaningful slug (acer-palmatum-tamukeyama) instead of "japanese-maple-2".
+  const commonBase = slugify(rec.commonName);
+  const latinBase = slugify(rec.latinName);
+  let base =
+    (commonBase && !used.has(commonBase) ? commonBase : "") ||
+    latinBase ||
+    commonBase ||
     "plant";
   let slug = base;
   let n = 2;

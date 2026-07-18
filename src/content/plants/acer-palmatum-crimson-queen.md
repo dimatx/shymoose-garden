@@ -1,9 +1,9 @@
 ---
-name: "Japanese Maple"
+name: "Japanese Maple 'Crimson Queen'"
 latinName: "Acer palmatum 'Crimson Queen'"
 type: "Tree"
 nativeRange: "Japan, China, and Korea"
-photo: "../../assets/plants/japanese-maple.png"
+photo: "../../assets/plants/acer-palmatum-crimson-queen.png"
 photoAlt: "A weeping laceleaf Japanese Maple 'Crimson Queen' forming a low, spreading mound of finely dissected crimson-red foliage in a mulched garden bed."
 photoCredit: "Courtesy of Pépinière — pepiniere.ca"
 shortDescription: "A compact, weeping laceleaf maple with deeply dissected crimson-red foliage that cascades in a graceful mound — one of the most ornamental small trees for a garden."

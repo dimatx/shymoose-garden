@@ -1,9 +1,9 @@
 ---
-name: "Japanese Maple"
+name: "Japanese Maple 'Inaba-shidare'"
 latinName: "Acer palmatum 'Inaba-shidare'"
 type: "Tree"
 nativeRange: "Japan, Korea, and China"
-photo: "../../assets/plants/japanese-maple-inaba-shidare.jpg"
+photo: "../../assets/plants/acer-palmatum-inaba-shidare.jpg"
 photoAlt: "A young grafted Japanese Maple 'Inaba-shidare' with a cascading canopy of finely dissected red-purple foliage, planted on a lawn against a backdrop of conifers."
 photoCredit: "Courtesy of Hello Hello Plants Nursery — hellohelloplants.com.au"
 shortDescription: "A vigorous laceleaf Japanese maple whose deeply dissected leaves emerge deep purple, hold purple-red through summer, and blaze bright red in fall over a graceful cascading mound."

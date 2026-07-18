@@ -78,6 +78,14 @@ const SIGN_NAME = {
   'heuchera-dolce-silver-gumdrop':           'Coral Bells',
   'heuchera-primo-black-pearl':              'Coral Bells',
   'heuchera-primo-pistachio-ambrosia':       'Coral Bells',
+  'heuchera-dolce-cherry-truffles':          'Coral Bells',
+  // Japanese maples: web display names carry the cultivar, but the physical
+  // signs stay the shorter "Japanese Maple" (the latin line gives the cultivar).
+  'acer-palmatum-crimson-queen':             'Japanese Maple',
+  'acer-palmatum-inaba-shidare':             'Japanese Maple',
+  'acer-palmatum-tamukeyama':                'Japanese Maple',
+  // Variegated Japanese red pine: cultivar lives on the latin line.
+  'pinus-densiflora-golden-ghost':           'Japanese Red Pine',
 };
 
 // Per-plant plaque_w overrides (mm). Minimum is 175.

@@ -86,6 +86,9 @@ const SIGN_NAME = {
   'acer-palmatum-tamukeyama':                'Japanese Maple',
   // Variegated Japanese red pine: cultivar lives on the latin line.
   'pinus-densiflora-golden-ghost':           'Japanese Red Pine',
+  // Leopard plant cultivar: drop the cultivar from the common name so it
+  // fits the sign (latin line carries 'Osiris Fantaisie').
+  'ligularia-dentata-osiris-fantaisie':      'Leopard Plant',
 };
 
 // Per-plant plaque_w overrides (mm). Minimum is 175.
@@ -137,6 +140,8 @@ const PLAQUE_W = {
   'heuchera-dolce-silver-gumdrop':           175,
   'heuchera-primo-black-pearl':              175,
   'heuchera-primo-pistachio-ambrosia':       175,
+  // Leopard plant: shortened name held at the minimum to fit the sign.
+  'ligularia-dentata-osiris-fantaisie':      175,
 };
 
 // Glob all plant markdown files

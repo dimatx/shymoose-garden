@@ -16,3 +16,10 @@ Quick reminders (full detail in AGENTS.md):
   `signs/<slug>.scad`, a clean build, and one commit containing all of it.
 - Never commit or echo `.env` (holds `SHLINK_API_KEY`, `PLANTS_SHEET_CSV_URL`).
 - Node >= 22, Windows PowerShell — chain commands with `;`, not `&&`.
+
+<!-- mermaid-ai-skills:start -->
+## Mermaid Diagrams
+
+When the user asks to create, edit, or visualize a diagram, follow the
+instructions in `.github/instructions/mermaid.instructions.md`.
+<!-- mermaid-ai-skills:end -->

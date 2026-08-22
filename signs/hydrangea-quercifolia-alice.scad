@@ -2,9 +2,9 @@
 orient_for_printing = true;
 remove_qr = false;
 // a shortened link to a wikipedia article about the plant
-qr_url = "https://s.shymoose.com/pXHRW";
-common_name = "Flame Thrower Redbud";
-scientific_name = "Cercis canadensis Flame Thrower® ('NC2016-2')";
+qr_url = "https://s.shymoose.com/yHqmy";
+common_name = "Oakleaf Hydrangea 'Alice'";
+scientific_name = "Hydrangea quercifolia 'Alice'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
 
@@ -12,7 +12,7 @@ qr_error_correction = "L"; // [L, M, Q, H]
 // height
 plaque_h = 35;
 // width
-plaque_w = 242;
+plaque_w = 264;
 // thickness
 plaque_t = 4;
 // depth of text/QR cutouts from face (filled by 2nd filament color)

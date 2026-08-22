@@ -89,6 +89,9 @@ const SIGN_NAME = {
   // Leopard plant cultivar: drop the cultivar from the common name so it
   // fits the sign (latin line carries 'Osiris Fantaisie').
   'ligularia-dentata-osiris-fantaisie':      'Leopard Plant',
+  // Little bluestem cultivar: drop the cultivar from the common name so it
+  // fits the sign (latin line carries 'Standing Ovation').
+  'schizachyrium-scoparium-standing-ovation': 'Little Bluestem',
 };
 
 // Per-plant plaque_w overrides (mm). Minimum is 175.
@@ -142,6 +145,9 @@ const PLAQUE_W = {
   'heuchera-primo-pistachio-ambrosia':       175,
   // Leopard plant: shortened name held at the minimum to fit the sign.
   'ligularia-dentata-osiris-fantaisie':      175,
+  // Little bluestem: shortened name, but latin "Schizachyrium scoparium
+  // 'Standing Ovation'" is long enough to still drive the width.
+  'schizachyrium-scoparium-standing-ovation': 228,
 };
 
 // Glob all plant markdown files

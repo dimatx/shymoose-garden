@@ -3,6 +3,9 @@ name: "Suyo Long Cucumber"
 latinName: "Cucumis sativus 'Suyo Long'"
 type: "Vegetable"
 nativeRange: "South Asia (the species); this heirloom was developed in China"
+mapZone: "Vegetable Garden"
+mapX: 1045
+mapY: 415
 photo: "../../assets/plants/cucumis-sativus-suyo-long.jpg"
 photoAlt: "A long, slender, ribbed Suyo Long cucumber hanging on the vine among green leaves."
 shortDescription: "An heirloom Chinese cucumber with long, ribbed, sweet, bitter-free fruit that thrives in hot weather — about 61 days."

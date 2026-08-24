@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from "astro:content";
+import { getImage } from "astro:assets";
 
 /**
  * Shared helpers for reading the plant collection. Every page that lists
@@ -71,4 +72,45 @@ export async function getCalendarRows(
       url: plantUrl(plant),
       months: plant.data[field],
     }));
+}
+
+/**
+ * Plants placed on the garden map (see /map and public/map/garden-map.svg).
+ * Anything missing mapX/mapY is left off — most plants won't have a pin yet
+ * until someone plots them with the map's pin-placement helper.
+ */
+export interface MapPin {
+  slug: string;
+  name: string;
+  latinName: string;
+  zone: string | null;
+  photo: string;
+  x: number;
+  y: number;
+}
+
+export async function getMapPins(): Promise<MapPin[]> {
+  const plants = await getCollection("plants");
+  const plotted = plants.filter(
+    (plant) => plant.data.mapX != null && plant.data.mapY != null
+  );
+  return Promise.all(
+    plotted.map(async (plant) => {
+      const thumb = await getImage({
+        src: plant.data.photo,
+        width: 160,
+        height: 160,
+        format: "webp",
+      });
+      return {
+        slug: plant.id,
+        name: plant.data.name,
+        latinName: plant.data.latinName,
+        zone: plant.data.mapZone ?? null,
+        photo: thumb.src,
+        x: plant.data.mapX!,
+        y: plant.data.mapY!,
+      };
+    })
+  );
 }

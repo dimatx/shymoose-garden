@@ -1,0 +1,283 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import { getMapPins } from "../lib/plants";
+
+// The basemap is a hand-traced SVG site plan (not a satellite photo) at
+// public/map/garden-map.svg — see that file's header comment for how to
+// re-trace/refine it. Its viewBox defines the pixel coordinate space that
+// every plant's mapX/mapY is plotted in.
+const MAP_WIDTH = 1560;
+const MAP_HEIGHT = 1060;
+
+const pins = await getMapPins();
+---
+
+<Layout
+  title="Garden Map"
+  description="An interactive map of the ShyMoose garden — tap a pin to see what's planted where."
+>
+  <section class="mb-6">
+    <a
+      href="/"
+      class="mb-5 inline-flex items-center gap-1.5 text-sm font-medium text-leaf-600 transition hover:text-leaf-800 dark:text-leaf-400 dark:hover:text-leaf-200"
+    >
+      <Icon name="chevron-left" class="h-4 w-4" strokeWidth={2} />
+      All plants
+    </a>
+    <h1 class="text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+      Garden Map
+    </h1>
+    <p class="mt-2 max-w-prose text-pretty text-leaf-700 dark:text-leaf-300">
+      Pinch or scroll to zoom in on a bed, then tap a pin to see what's
+      planted there.
+    </p>
+  </section>
+
+  <div class="relative">
+    <div
+      id="garden-map"
+      class="h-[70vh] w-full overflow-hidden rounded-2xl border border-leaf-200 dark:border-leaf-800"
+      style="background:#2f5233;"
+      data-map-width={MAP_WIDTH}
+      data-map-height={MAP_HEIGHT}
+      data-pins={JSON.stringify(pins)}
+    >
+    </div>
+
+    <!--
+      Fixed-position info card instead of a Leaflet popup anchored to the
+      pin: a popup's position depends on where the pin is, which forces the
+      map to pan/zoom to make room for it every time — a visible jolt on
+      each tap. This card always lives in the same place, so tapping any pin
+      never moves the map at all. It docks at the bottom (thumb-reachable,
+      the same pattern mobile map apps use for a tapped-pin summary) and
+      stays compact so it doesn't cover the zoom controls or much of the map.
+    -->
+    <div
+      id="garden-map-panel"
+      class="pointer-events-none absolute inset-x-3 bottom-3 z-[1000] translate-y-[130%] opacity-0 transition-all duration-200 ease-out"
+    >
+      <div class="pointer-events-auto flex items-center gap-4 rounded-2xl border border-leaf-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-sm dark:border-leaf-800 dark:bg-leaf-900/95">
+        <img
+          id="garden-map-panel-photo"
+          src=""
+          alt=""
+          class="h-20 w-20 shrink-0 rounded-xl object-cover"
+        />
+        <div class="min-w-0 flex-1">
+          <p
+            id="garden-map-panel-name"
+            class="truncate font-serif text-lg font-semibold text-leaf-950 dark:text-leaf-50"
+          >
+          </p>
+          <a
+            id="garden-map-panel-link"
+            href="#"
+            class="text-sm font-medium text-leaf-700 underline-offset-2 hover:underline dark:text-leaf-300"
+          >
+            View details →
+          </a>
+        </div>
+        <button
+          id="garden-map-panel-close"
+          type="button"
+          aria-label="Close"
+          class="shrink-0 rounded-full p-1.5 text-leaf-500 transition hover:bg-leaf-100 dark:text-leaf-400 dark:hover:bg-leaf-800"
+        >
+          <Icon name="x" class="h-5 w-5" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {
+    pins.length === 0 && (
+      <p class="mt-4 text-sm text-leaf-500 dark:text-leaf-400">
+        No plants are plotted on the map yet — add <code>mapX</code>/<code>mapY</code> to a
+        plant's frontmatter to give it a pin.
+      </p>
+    )
+  }
+</Layout>
+
+<script>
+  import "leaflet/dist/leaflet.css";
+  import "leaflet.markercluster/dist/MarkerCluster.css";
+  import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+  import L from "leaflet";
+  import "leaflet.markercluster";
+
+  interface MapPin {
+    slug: string;
+    name: string;
+    latinName: string;
+    zone: string | null;
+    photo: string;
+    x: number;
+    y: number;
+  }
+
+  // A small teardrop "map pin" divIcon reads far more intuitively than a bare
+  // dot — it has a clear tip pointing at the exact spot, like every mapping
+  // app's default marker. Sized close to the ~44px mobile touch-target
+  // guideline (was 28×36, felt small to tap). Numbers only ever show up
+  // later if we add marker clustering for beds crowded with plants a foot
+  // apart; a single plant's pin never carries one. The <svg> is wrapped in
+  // a plain div so a "selected" state (see selectMarker below) can scale
+  // just the graphic without fighting Leaflet's own positioning transform,
+  // which it sets directly on the outer .leaflet-marker-icon element.
+  function makePinIcon() {
+    return L.divIcon({
+      className: "",
+      html: `<div class="gm-pin-wrap" style="transition:transform .15s ease">
+        <svg width="36" height="46" viewBox="0 0 36 46" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 45C18 45 33 28 33 17C33 8.4 26.4 2 18 2C9.6 2 3 8.4 3 17C3 28 18 45 18 45Z"
+                fill="#2f5233" stroke="#dce8c4" stroke-width="2" />
+          <circle cx="18" cy="17" r="7" fill="#7cc26b" />
+        </svg>
+      </div>`,
+      iconSize: [36, 46],
+      iconAnchor: [18, 45], // tip of the teardrop points at the plant's spot
+    });
+  }
+
+  // Guard against Astro re-running this module script on view transitions:
+  // keep the current map instance (and its resize watcher) so we can
+  // properly tear them down before the next navigation swaps the container.
+  let mapInstance: L.Map | null = null;
+  let resizeObserver: ResizeObserver | null = null;
+
+  function initGardenMap() {
+    const container = document.getElementById("garden-map");
+    if (!container || (container as any)._leaflet_id) return;
+
+    const panel = document.getElementById("garden-map-panel");
+    const panelPhoto = document.getElementById("garden-map-panel-photo") as HTMLImageElement | null;
+    const panelName = document.getElementById("garden-map-panel-name");
+    const panelLink = document.getElementById("garden-map-panel-link") as HTMLAnchorElement | null;
+    const panelClose = document.getElementById("garden-map-panel-close");
+
+    const width = Number(container.dataset.mapWidth);
+    const height = Number(container.dataset.mapHeight);
+    const pins: MapPin[] = JSON.parse(container.dataset.pins || "[]");
+
+    // CRS.Simple treats the map as a flat pixel plane instead of the earth —
+    // the standard trick for floor-plan / game-map style diagrams. Bounds are
+    // [[southWest], [northEast]]; the image's top-left pixel lands at the
+    // north-west corner, so a pixel (x, y) becomes latlng [height - y, x].
+    const bounds = L.latLngBounds([0, 0], [height, width]);
+
+    const map = L.map(container, {
+      crs: L.CRS.Simple,
+      zoomSnap: 0.25,
+      attributionControl: false,
+      maxBoundsViscosity: 1, // bounds feel solid — no rubber-banding past the edge
+      // Leaflet's own default minZoom is 0, which would otherwise clamp our
+      // very first getBoundsZoom() call below to 0 before we ever get a
+      // chance to widen it (a chicken-and-egg problem for a CRS.Simple map,
+      // which routinely needs to zoom OUT past 0 to fit a large image in a
+      // small container). Start permissive; we tighten it to the real fit
+      // zoom as soon as we know the container's actual size.
+      minZoom: -10,
+    });
+    mapInstance = map;
+
+    L.imageOverlay("/map/garden-map.svg", bounds).addTo(map);
+
+    let selectedPinEl: HTMLElement | null = null;
+
+    function selectMarker(el: HTMLElement) {
+      selectedPinEl?.querySelector<HTMLElement>(".gm-pin-wrap")?.style.removeProperty("transform");
+      selectedPinEl = el;
+      const wrap = el.querySelector<HTMLElement>(".gm-pin-wrap");
+      if (wrap) wrap.style.transform = "scale(1.2) translateY(-2px)";
+    }
+
+    function deselectMarker() {
+      selectedPinEl?.querySelector<HTMLElement>(".gm-pin-wrap")?.style.removeProperty("transform");
+      selectedPinEl = null;
+    }
+
+    function hidePanel() {
+      if (!panel) return;
+      panel.classList.add("translate-y-[130%]", "opacity-0");
+      panel.classList.remove("translate-y-0", "opacity-100");
+      deselectMarker();
+    }
+
+    function showPanelFor(pin: MapPin, markerEl: HTMLElement) {
+      if (!panel || !panelPhoto || !panelName || !panelLink) return;
+      panelPhoto.src = pin.photo;
+      panelName.textContent = pin.name;
+      panelLink.href = `/plants/${pin.slug}/`;
+      panel.classList.remove("translate-y-[130%]", "opacity-0");
+      panel.classList.add("translate-y-0", "opacity-100");
+      selectMarker(markerEl);
+    }
+
+    panelClose?.addEventListener("click", hidePanel);
+    // Tapping empty map (not a pin) closes the panel too, matching how
+    // tapping empty space dismisses a callout in most map apps.
+    map.on("click", hidePanel);
+
+    // Overlapping/close-together pins auto-merge into a single numbered
+    // bubble at whatever zoom makes them overlap, and separate again once
+    // zoomed in enough to tell them apart — the standard fix for "plants a
+    // foot apart" rather than any zoom logic on the plain pin tap itself.
+    // Tapping a cluster bubble zooms in by exactly the amount needed to
+    // split it (its default zoomToBoundsOnClick), never further than that.
+    const clusterGroup = L.markerClusterGroup({
+      maxClusterRadius: 50,
+      showCoverageOnHover: false,
+      spiderfyOnMaxZoom: true,
+    });
+    map.addLayer(clusterGroup);
+
+    for (const pin of pins) {
+      const marker = L.marker([height - pin.y, pin.x], { icon: makePinIcon() });
+      // A single, already-distinguishable pin just gets selected — no zoom,
+      // no pan. Zooming is reserved entirely for the cluster-splitting case
+      // above; doing it here too was the "zooms further every tap" bug.
+      marker.on("click", () => {
+        const el = marker.getElement();
+        if (el) showPanelFor(pin, el);
+      });
+      clusterGroup.addLayer(marker);
+    }
+
+    // Never let someone zoom out past "the whole property fits the screen".
+    // getBoundsZoom() needs the container's REAL rendered size to answer
+    // correctly — right after a view-transition swap the container can still
+    // be mid-layout, which previously produced a too-deep "fit" zoom that
+    // then became a permanently-too-tight minZoom floor. A ResizeObserver
+    // fires once the container settles at its actual size, so we compute the
+    // fit there instead of guessing with a timeout. Later legitimate resizes
+    // (window resize, orientation change) just refresh minZoom without
+    // yanking the user's current view back to the fitted one.
+    let didInitialFit = false;
+    resizeObserver = new ResizeObserver(() => {
+      map.invalidateSize();
+      const fitZoom = map.getBoundsZoom(bounds, false);
+      map.setMinZoom(fitZoom);
+      if (!didInitialFit) {
+        map.setMaxZoom(fitZoom + 5); // enough to zoom into a single crowded bed
+        map.setMaxBounds(bounds);
+        map.fitBounds(bounds);
+        didInitialFit = true;
+      }
+    });
+    resizeObserver.observe(container);
+  }
+
+  function destroyGardenMap() {
+    resizeObserver?.disconnect();
+    resizeObserver = null;
+    mapInstance?.remove();
+    mapInstance = null;
+  }
+
+  initGardenMap();
+  document.addEventListener("astro:page-load", initGardenMap);
+  document.addEventListener("astro:before-swap", destroyGardenMap);
+</script>

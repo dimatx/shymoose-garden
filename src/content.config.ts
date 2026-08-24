@@ -77,6 +77,16 @@ const plants = defineCollection({
       learnMoreUrl: z.string().url().optional(),
       shortUrl: z.string().url().optional(),
 
+      // Position on the garden map (see /map and public/map/garden-map.svg).
+      // mapX/mapY are pixel coordinates in that SVG's 1560×1060 viewBox
+      // (origin top-left). mapZone is the bed name (matches a label on the
+      // map, e.g. "Back Border", "Vegetable Garden") — shown in the pin
+      // popup and useful later for a "browse by bed" view. All three are
+      // optional: a plant with no mapX/mapY simply has no pin on the map yet.
+      mapZone: z.string().optional(),
+      mapX: z.number().optional(),
+      mapY: z.number().optional(),
+
       // The date this plant was added to the catalog (ISO yyyy-mm-dd).
       // Internal metadata only — not surfaced in the UI today, but stored so it
       // can be exposed later (e.g. a "recently added" view). Backfilled from

@@ -3,6 +3,9 @@ name: "Shintokiwa Cucumber"
 latinName: "Cucumis sativus 'Shintokiwa'"
 type: "Vegetable"
 nativeRange: "South Asia (the species); this variety was bred in Japan"
+mapZone: "Vegetable Garden"
+mapX: 1020
+mapY: 450
 photo: "../../assets/plants/cucumis-sativus-shintokiwa.jpg"
 photoAlt: "A sprawling cucumber plant in a garden bed with a long, slender green cucumber on the vine."
 photoCredit: "Forest and Kim Starr, CC BY 3.0, via Wikimedia Commons"

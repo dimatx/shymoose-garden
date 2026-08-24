@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1560 1060" width="1560" height="1060">
+  <!-- ==========================================================
+       DRAFT garden site-plan for review. Coordinates are a
+       best-effort trace from the marked-up aerial screenshot.
+       Bed shapes/labels are placeholders — refine after feedback.
+       ========================================================== -->
+
+  <!-- Canopy / background -->
+  <rect x="0" y="0" width="1560" height="1060" fill="#2f5233" />
+
+  <!-- Central clearing around the house -->
+  <path d="M 260,150
+           C 500,110 1100,105 1360,160
+           C 1420,280 1410,520 1380,650
+           C 1200,700 500,700 300,660
+           C 250,500 240,300 260,150 Z"
+        fill="#dce8c4" />
+
+  <!-- Driveway clearing (lower corridor, passes between the two lower rock beds) -->
+  <path d="M 550,600
+           C 470,615 415,655 405,730
+           C 390,830 390,950 425,1060
+           L 785,1060
+           C 810,950 810,830 795,730
+           C 780,655 735,615 660,600
+           C 625,594 585,594 550,600 Z"
+        fill="#dce8c4" />
+
+  <!-- Driveway: parking apron by the garage, curving down and right to run between the two lower rock beds -->
+  <path d="M 405,330
+           L 555,330
+           L 555,470
+           C 585,520 625,555 650,600
+           C 668,635 682,675 690,715
+           L 707,715
+           L 707,1060
+           L 607,1060
+           L 607,715
+           L 620,715
+           C 610,675 595,635 570,600
+           C 545,555 500,520 465,470
+           L 405,470
+           Z"
+        fill="#c7c2b6" stroke="#a9a396" stroke-width="2" />
+
+  <!-- House footprint (simplified two-mass hip roof + bottom bump-out) -->
+  <path d="M 550,300
+           L 650,300
+           L 650,340
+           L 985,340
+           L 985,600
+           L 704,600
+           L 704,650
+           L 545,650
+           L 545,600
+           L 455,600
+           L 455,300
+           Z"
+        fill="#8a8f94" stroke="#6c7075" stroke-width="3" />
+
+  <!-- Bed 1: long back/side border (largest bed) -->
+  <path d="M 330,455
+           C 300,410 305,360 345,330
+           C 360,290 355,250 380,225
+           C 480,205 700,210 850,215
+           C 1020,220 1200,222 1340,240
+           C 1400,248 1415,275 1400,300
+           C 1200,285 900,278 700,275
+           C 560,272 460,270 405,285
+           C 400,320 400,360 370,395
+           C 365,420 355,440 330,455 Z"
+        fill="#8b5e3c" stroke="#5c3d26" stroke-width="3" />
+
+  <!-- Bed 2: enclosed vegetable garden (tomatoes, cucumbers, etc.) — a real
+       16×8 rectangular raised bed, drawn to that 2:1 ratio. -->
+  <rect x="995" y="392" width="140" height="70" rx="4"
+        fill="#8b5e3c" stroke="#5c3d26" stroke-width="3" />
+
+  <!-- Bed 3: side bed hugging house's rear corner -->
+  <path d="M 770,635
+           C 800,660 850,665 900,650
+           C 950,635 995,600 1000,555
+           C 1000,530 985,510 965,515
+           C 960,545 940,570 905,585
+           C 860,600 815,600 780,585
+           C 765,600 765,620 770,635 Z"
+        fill="#8b5e3c" stroke="#5c3d26" stroke-width="3" />
+
+  <!-- Bed 4: lower-left blob near driveway -->
+  <path d="M 505,745
+           C 555,745 585,780 585,830
+           C 590,880 585,930 560,970
+           C 545,1005 505,1030 465,1020
+           C 435,1010 430,970 435,930
+           C 430,880 435,830 450,790
+           C 460,765 480,745 505,745 Z"
+        fill="#8b5e3c" stroke="#5c3d26" stroke-width="3" />
+
+  <!-- Bed 5: lower-right sliver near walkway -->
+  <path d="M 735,830
+           C 760,835 790,860 810,900
+           C 830,935 850,975 875,1005
+           C 880,1015 870,1030 855,1025
+           C 815,1010 790,975 770,940
+           C 750,905 735,870 730,845
+           C 728,838 730,832 735,830 Z"
+        fill="#8b5e3c" stroke="#5c3d26" stroke-width="3" />
+</svg>

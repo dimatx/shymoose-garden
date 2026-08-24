@@ -25,19 +25,26 @@ const pins = await getMapPins();
       <Icon name="chevron-left" class="h-4 w-4" strokeWidth={2} />
       All plants
     </a>
-    <h1 class="text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+    <h1 class="flex flex-wrap items-center gap-2.5 text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
       Garden Map
+      <span
+        class="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-sans font-semibold uppercase tracking-wide text-amber-800 dark:bg-amber-900/60 dark:text-amber-300"
+        title="Bed shapes/positions are a rough first trace, not yet backed by real measurements."
+      >
+        Beta
+      </span>
     </h1>
     <p class="mt-2 max-w-prose text-pretty text-leaf-700 dark:text-leaf-300">
       Pinch or scroll to zoom in on a bed, then tap a pin to see what's
-      planted there.
+      planted there. This is a work in progress — bed shapes and plant
+      positions are still being refined.
     </p>
   </section>
 
   <div class="relative">
     <div
       id="garden-map"
-      class="h-[70vh] w-full overflow-hidden rounded-2xl border border-leaf-200 dark:border-leaf-800"
+      class="h-[60vh] w-full overflow-hidden rounded-2xl border border-leaf-200 dark:border-leaf-800"
       style="background:#2f5233;"
       data-map-width={MAP_WIDTH}
       data-map-height={MAP_HEIGHT}
@@ -101,6 +108,29 @@ const pins = await getMapPins();
   }
 </Layout>
 
+<style>
+  /* The selected pin (whatever the bottom panel is currently showing) needs
+     to read as obviously different — not just a subtle scale bump — or
+     there's no visible link between the panel and which plant it's for.
+     :global() because these elements are created by Leaflet at runtime, not
+     part of Astro's own scoped markup. */
+  :global(.gm-pin-wrap) {
+    transition: transform 0.15s ease;
+    transform-origin: 50% 100%; /* scale from the pin's tip, not its center */
+  }
+  :global(.gm-pin-wrap.gm-pin-selected) {
+    transform: scale(1.35);
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.45));
+  }
+  :global(.gm-pin-selected .gm-pin-body) {
+    fill: #d97706; /* amber — clearly distinct from the default green pins */
+    stroke: #fff7ed;
+  }
+  :global(.gm-pin-selected .gm-pin-dot) {
+    fill: #fed7aa;
+  }
+</style>
+
 <script>
   import "leaflet/dist/leaflet.css";
   import "leaflet.markercluster/dist/MarkerCluster.css";
@@ -130,11 +160,11 @@ const pins = await getMapPins();
   function makePinIcon() {
     return L.divIcon({
       className: "",
-      html: `<div class="gm-pin-wrap" style="transition:transform .15s ease">
+      html: `<div class="gm-pin-wrap">
         <svg width="36" height="46" viewBox="0 0 36 46" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 45C18 45 33 28 33 17C33 8.4 26.4 2 18 2C9.6 2 3 8.4 3 17C3 28 18 45 18 45Z"
+          <path class="gm-pin-body" d="M18 45C18 45 33 28 33 17C33 8.4 26.4 2 18 2C9.6 2 3 8.4 3 17C3 28 18 45 18 45Z"
                 fill="#2f5233" stroke="#dce8c4" stroke-width="2" />
-          <circle cx="18" cy="17" r="7" fill="#7cc26b" />
+          <circle class="gm-pin-dot" cx="18" cy="17" r="7" fill="#7cc26b" />
         </svg>
       </div>`,
       iconSize: [36, 46],
@@ -147,10 +177,32 @@ const pins = await getMapPins();
   // properly tear them down before the next navigation swaps the container.
   let mapInstance: L.Map | null = null;
   let resizeObserver: ResizeObserver | null = null;
+  let sizeMapContainer: (() => void) | null = null;
 
   function initGardenMap() {
     const container = document.getElementById("garden-map");
     if (!container || (container as any)._leaflet_id) return;
+
+    // Fill the rest of the viewport below the map instead of a fixed 60vh:
+    // vh is computed against the LARGEST possible mobile viewport (as if the
+    // browser's address bar were hidden), so a fixed vh height routinely
+    // overflows the actually-visible screen once you account for it — which
+    // is exactly what forced page-scrolling to see the rest of the map (and
+    // cut off the bottom info panel, anchored to the map's own bottom edge).
+    // Measuring the container's real position and sizing to what's left
+    // fixes both at once, and re-measuring on resize keeps it correct as the
+    // address bar shows/hides.
+    function fitToViewport() {
+      const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+      const top = container!.getBoundingClientRect().top + window.scrollY;
+      const bottomMargin = 24;
+      const nextHeight = Math.max(320, viewportHeight - top - bottomMargin);
+      container!.style.height = `${nextHeight}px`;
+    }
+    sizeMapContainer = fitToViewport;
+    fitToViewport();
+    window.addEventListener("resize", fitToViewport);
+    window.visualViewport?.addEventListener("resize", fitToViewport);
 
     const panel = document.getElementById("garden-map-panel");
     const panelPhoto = document.getElementById("garden-map-panel-photo") as HTMLImageElement | null;
@@ -188,14 +240,13 @@ const pins = await getMapPins();
     let selectedPinEl: HTMLElement | null = null;
 
     function selectMarker(el: HTMLElement) {
-      selectedPinEl?.querySelector<HTMLElement>(".gm-pin-wrap")?.style.removeProperty("transform");
+      selectedPinEl?.querySelector(".gm-pin-wrap")?.classList.remove("gm-pin-selected");
       selectedPinEl = el;
-      const wrap = el.querySelector<HTMLElement>(".gm-pin-wrap");
-      if (wrap) wrap.style.transform = "scale(1.2) translateY(-2px)";
+      el.querySelector(".gm-pin-wrap")?.classList.add("gm-pin-selected");
     }
 
     function deselectMarker() {
-      selectedPinEl?.querySelector<HTMLElement>(".gm-pin-wrap")?.style.removeProperty("transform");
+      selectedPinEl?.querySelector(".gm-pin-wrap")?.classList.remove("gm-pin-selected");
       selectedPinEl = null;
     }
 
@@ -273,6 +324,11 @@ const pins = await getMapPins();
   function destroyGardenMap() {
     resizeObserver?.disconnect();
     resizeObserver = null;
+    if (sizeMapContainer) {
+      window.removeEventListener("resize", sizeMapContainer);
+      window.visualViewport?.removeEventListener("resize", sizeMapContainer);
+      sizeMapContainer = null;
+    }
     mapInstance?.remove();
     mapInstance = null;
   }

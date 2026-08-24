@@ -100,3 +100,22 @@ all of the above.
 - `.env` holds `PLANTS_SHEET_CSV_URL` and `SHLINK_API_KEY`; it is gitignored.
 - The `.astro` data-store cache is gitignored; if you see phantom duplicate-id
   warnings, delete `.astro/data-store.json` and rebuild.
+- **Deploys via Cloudflare Pages**, triggered by pushing to `main` (no
+  in-repo workflow file — configured in the Cloudflare dashboard). Pushing
+  to `main` is effectively "ship it": there's no separate review/staging
+  step, so make sure a build actually succeeds before pushing.
+- **This dev machine's global npm registry points at a corporate proxy**
+  (`packagefeedproxy.microsoft.io`), not the public npm registry. Do **not**
+  add a project `.npmrc` to force the public registry — this machine's
+  network can't reach it directly, and that only breaks local installs
+  without fixing anything (the proxy already mirrors the public registry
+  fine; Cloudflare's own build has always resolved packages through it
+  without issue).
+- **After `npm install`-ing any dependency change, verify with `npm ci`
+  before committing/pushing** — not just `npm install`. `npm install` is
+  lenient and will happily leave `package-lock.json` and `package.json`
+  slightly out of sync (e.g. a transitive optional dependency version not
+  fully re-resolved after installing two packages back-to-back). Cloudflare
+  Pages runs `npm ci`, which enforces strict consistency and will fail the
+  build on exactly that kind of drift — `npm ci` locally first catches it
+  before it ever reaches a push.

@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
 import { getMapPins } from "../lib/plants";
+import { MAP_TYPE_COLORS, MAP_DEFAULT_PIN_COLOR } from "../lib/mapColors";
+import { getGeoTransform } from "../lib/geoCalibration";
 
 // The basemap is a hand-traced SVG site plan (not a satellite photo) at
 // public/map/garden-map.svg — see that file's header comment for how to
@@ -11,6 +13,28 @@ const MAP_WIDTH = 1560;
 const MAP_HEIGHT = 1060;
 
 const pins = await getMapPins();
+
+// Legend entries only for types that actually have a pin on the map right
+// now — same "only show buckets with real data" rule the home page's type
+// filter uses — in the same brightest-to-common order those types appear
+// in MAP_TYPE_COLORS, falling back to alphabetical for anything else.
+const presentTypes = [
+  ...new Set(pins.map((p) => p.type).filter((t): t is string => !!t)),
+].sort((a, b) => {
+  const order = Object.keys(MAP_TYPE_COLORS);
+  const ai = order.indexOf(a);
+  const bi = order.indexOf(b);
+  if (ai !== -1 && bi !== -1) return ai - bi;
+  if (ai !== -1) return -1;
+  if (bi !== -1) return 1;
+  return a.localeCompare(b);
+});
+
+// "Locate me" needs the two real-world GPS reference points in
+// src/lib/geoCalibration.ts to be filled in — until then this evaluates to
+// false and the button below simply doesn't render, rather than shipping a
+// button that can't actually work yet.
+const hasGeoCalibration = getGeoTransform() !== null;
 ---
 
 <Layout
@@ -40,6 +64,27 @@ const pins = await getMapPins();
       positions are still being refined.
     </p>
   </section>
+
+  {
+    presentTypes.length > 0 && (
+      <div class="mb-4 flex flex-wrap items-center gap-2" id="garden-map-legend">
+        {presentTypes.map((type) => (
+          <button
+            type="button"
+            class="garden-map-legend-chip inline-flex items-center gap-1.5 rounded-full border border-leaf-300 px-3 py-1 text-xs font-medium text-leaf-700 transition dark:border-leaf-700 dark:text-leaf-300"
+            data-type={type}
+            aria-pressed="false"
+          >
+            <span
+              class="h-2.5 w-2.5 rounded-full"
+              style={`background:${MAP_TYPE_COLORS[type] ?? MAP_DEFAULT_PIN_COLOR}`}
+            />
+            {type}
+          </button>
+        ))}
+      </div>
+    )
+  }
 
   <div class="relative">
     <div
@@ -96,6 +141,31 @@ const pins = await getMapPins();
         </button>
       </div>
     </div>
+
+    {
+      hasGeoCalibration && (
+        <button
+          id="garden-map-locate"
+          type="button"
+          aria-pressed="false"
+          aria-label="Show my location on the map"
+          class="absolute right-3 top-3 z-[1000] flex h-9 w-9 items-center justify-center rounded-full border border-leaf-200 bg-white text-leaf-700 shadow-md transition hover:bg-leaf-50 dark:border-leaf-800 dark:bg-leaf-900 dark:text-leaf-300 dark:hover:bg-leaf-800"
+        >
+          <Icon name="locate" class="h-5 w-5" />
+        </button>
+      )
+    }
+
+    <!-- Generic transient status message — GPS errors, or "this plant isn't
+         plotted yet" when a ?slug= link points at one that hasn't been
+         placed on the map. Always present (unlike the locate button, which
+         only exists once geo-calibrated) since the ?slug= case doesn't
+         depend on that. -->
+    <p
+      id="garden-map-toast"
+      class="pointer-events-none absolute right-3 top-14 z-[1000] hidden max-w-[220px] rounded-lg bg-red-600/95 px-3 py-1.5 text-right text-xs font-medium text-white shadow-md"
+    >
+    </p>
   </div>
 
   {
@@ -112,8 +182,10 @@ const pins = await getMapPins();
   /* The selected pin (whatever the bottom panel is currently showing) needs
      to read as obviously different — not just a subtle scale bump — or
      there's no visible link between the panel and which plant it's for.
-     :global() because these elements are created by Leaflet at runtime, not
-     part of Astro's own scoped markup. */
+     Amber is deliberately not used for any plant-type color (see
+     MAP_TYPE_COLORS in lib/plants.ts), so this never gets confused with a
+     type's own pin color. :global() because these elements are created by
+     Leaflet at runtime, not part of Astro's own scoped markup. */
   :global(.gm-pin-wrap) {
     transition: transform 0.15s ease;
     transform-origin: 50% 100%; /* scale from the pin's tip, not its center */
@@ -123,11 +195,19 @@ const pins = await getMapPins();
     filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.45));
   }
   :global(.gm-pin-selected .gm-pin-body) {
-    fill: #d97706; /* amber — clearly distinct from the default green pins */
+    fill: #d97706 !important;
     stroke: #fff7ed;
   }
   :global(.gm-pin-selected .gm-pin-dot) {
-    fill: #fed7aa;
+    fill: #fed7aa !important;
+  }
+
+  /* Legend chip active state — same "solo this type" convention as the
+     home page's filter chips. */
+  .garden-map-legend-chip[aria-pressed="true"] {
+    background-color: var(--color-leaf-600, #3f7a45);
+    border-color: var(--color-leaf-600, #3f7a45);
+    color: #fff;
   }
 </style>
 
@@ -137,11 +217,14 @@ const pins = await getMapPins();
   import "leaflet.markercluster/dist/MarkerCluster.Default.css";
   import L from "leaflet";
   import "leaflet.markercluster";
+  import { getGeoTransform } from "../lib/geoCalibration";
+  import { MAP_TYPE_COLORS, MAP_DEFAULT_PIN_COLOR } from "../lib/mapColors";
 
   interface MapPin {
     slug: string;
     name: string;
     latinName: string;
+    type: string | null;
     zone: string | null;
     photo: string;
     x: number;
@@ -157,14 +240,16 @@ const pins = await getMapPins();
   // a plain div so a "selected" state (see selectMarker below) can scale
   // just the graphic without fighting Leaflet's own positioning transform,
   // which it sets directly on the outer .leaflet-marker-icon element.
-  function makePinIcon() {
+  // Colored by plant type (see MAP_TYPE_COLORS) so the map reads as "what
+  // kind of thing is where" at a glance, not just "there's a plant here".
+  function makePinIcon(color: string) {
     return L.divIcon({
       className: "",
       html: `<div class="gm-pin-wrap">
         <svg width="36" height="46" viewBox="0 0 36 46" xmlns="http://www.w3.org/2000/svg">
           <path class="gm-pin-body" d="M18 45C18 45 33 28 33 17C33 8.4 26.4 2 18 2C9.6 2 3 8.4 3 17C3 28 18 45 18 45Z"
-                fill="#2f5233" stroke="#dce8c4" stroke-width="2" />
-          <circle class="gm-pin-dot" cx="18" cy="17" r="7" fill="#7cc26b" />
+                fill="${color}" stroke="#fdf8f1" stroke-width="2" />
+          <circle class="gm-pin-dot" cx="18" cy="17" r="6" fill="#fdf8f1" fill-opacity="0.85" />
         </svg>
       </div>`,
       iconSize: [36, 46],
@@ -178,6 +263,7 @@ const pins = await getMapPins();
   let mapInstance: L.Map | null = null;
   let resizeObserver: ResizeObserver | null = null;
   let sizeMapContainer: (() => void) | null = null;
+  let geoWatchId: number | null = null;
 
   function initGardenMap() {
     const container = document.getElementById("garden-map");
@@ -209,6 +295,16 @@ const pins = await getMapPins();
     const panelName = document.getElementById("garden-map-panel-name");
     const panelLink = document.getElementById("garden-map-panel-link") as HTMLAnchorElement | null;
     const panelClose = document.getElementById("garden-map-panel-close");
+
+    const toast = document.getElementById("garden-map-toast");
+    let toastHideTimer: number | undefined;
+    function showToast(message: string) {
+      if (!toast) return;
+      toast.textContent = message;
+      toast.classList.remove("hidden");
+      window.clearTimeout(toastHideTimer);
+      toastHideTimer = window.setTimeout(() => toast.classList.add("hidden"), 4000);
+    }
 
     const width = Number(container.dataset.mapWidth);
     const height = Number(container.dataset.mapHeight);
@@ -285,8 +381,16 @@ const pins = await getMapPins();
     });
     map.addLayer(clusterGroup);
 
+    // Keyed by plant slug so a "Find on map" link from a plant's own detail
+    // page (?slug=<id>) can zoom to and select that exact pin, even if it's
+    // currently folded into a cluster bubble.
+    const markersBySlug = new Map<string, { marker: L.Marker; pin: MapPin }>();
+
     for (const pin of pins) {
-      const marker = L.marker([height - pin.y, pin.x], { icon: makePinIcon() });
+      const color = pin.type
+        ? (MAP_TYPE_COLORS[pin.type] ?? MAP_DEFAULT_PIN_COLOR)
+        : MAP_DEFAULT_PIN_COLOR;
+      const marker = L.marker([height - pin.y, pin.x], { icon: makePinIcon(color) });
       // A single, already-distinguishable pin just gets selected — no zoom,
       // no pan. Zooming is reserved entirely for the cluster-splitting case
       // above; doing it here too was the "zooms further every tap" bug.
@@ -295,6 +399,57 @@ const pins = await getMapPins();
         if (el) showPanelFor(pin, el);
       });
       clusterGroup.addLayer(marker);
+      markersBySlug.set(pin.slug, { marker, pin });
+    }
+
+    // Legend chips (see the row above the map) double as a "solo this type"
+    // filter — tap one or more to show only those types; tap them all off
+    // again to go back to showing everything. Same OR-across-selections
+    // semantics as the home page's own type filter, just applied to which
+    // markers are currently in the cluster group rather than which cards
+    // are visible.
+    const legendChips = Array.from(
+      document.querySelectorAll<HTMLButtonElement>(".garden-map-legend-chip"),
+    );
+    const selectedTypes = new Set<string>();
+
+    function applyTypeFilter() {
+      for (const { marker, pin } of markersBySlug.values()) {
+        const shouldShow = selectedTypes.size === 0 || selectedTypes.has(pin.type ?? "");
+        const isShown = clusterGroup.hasLayer(marker);
+        if (shouldShow && !isShown) clusterGroup.addLayer(marker);
+        if (!shouldShow && isShown) {
+          if (marker.getElement()?.querySelector(".gm-pin-selected")) hidePanel();
+          clusterGroup.removeLayer(marker);
+        }
+      }
+    }
+
+    for (const chip of legendChips) {
+      chip.addEventListener("click", () => {
+        const type = chip.dataset.type ?? "";
+        const pressed = chip.getAttribute("aria-pressed") === "true";
+        chip.setAttribute("aria-pressed", pressed ? "false" : "true");
+        if (pressed) selectedTypes.delete(type);
+        else selectedTypes.add(type);
+        applyTypeFilter();
+      });
+    }
+
+    // "Find this plant": a plant's detail page can link to
+    // /map/?slug=<its-id>, which lands here and jumps straight to its pin —
+    // zoomToShowLayer handles zooming in (and un-clustering, if needed)
+    // exactly enough to reveal that one marker.
+    function focusPin(slug: string) {
+      const entry = markersBySlug.get(slug);
+      if (!entry) {
+        showToast("This plant hasn't been plotted on the map yet.");
+        return;
+      }
+      clusterGroup.zoomToShowLayer(entry.marker, () => {
+        const el = entry.marker.getElement();
+        if (el) showPanelFor(entry.pin, el);
+      });
     }
 
     // Never let someone zoom out past "the whole property fits the screen".
@@ -306,6 +461,7 @@ const pins = await getMapPins();
     // fit there instead of guessing with a timeout. Later legitimate resizes
     // (window resize, orientation change) just refresh minZoom without
     // yanking the user's current view back to the fitted one.
+    const requestedSlug = new URLSearchParams(window.location.search).get("slug");
     let didInitialFit = false;
     resizeObserver = new ResizeObserver(() => {
       map.invalidateSize();
@@ -316,14 +472,130 @@ const pins = await getMapPins();
         map.setMaxBounds(bounds);
         map.fitBounds(bounds);
         didInitialFit = true;
+        // Only safe to call now: zoomToShowLayer (inside focusPin) needs the
+        // map to already have a defined zoom/view, which fitBounds just gave
+        // it — calling this any earlier throws (no view set yet).
+        if (requestedSlug) focusPin(requestedSlug);
       }
     });
     resizeObserver.observe(container);
+
+    // "Locate me": optional, live GPS tracking on the map. The button only
+    // exists in the DOM when hasGeoCalibration was true at build time (see
+    // the frontmatter), i.e. once src/lib/geoCalibration.ts's REF_POINTS are
+    // filled in — so this whole block is a no-op (locateButton is null)
+    // until then.
+    const locateButton = document.getElementById("garden-map-locate");
+    let youAreHereMarker: L.CircleMarker | null = null;
+    let accuracyCircle: L.Circle | null = null;
+
+    function stopLocating() {
+      if (geoWatchId !== null) {
+        navigator.geolocation.clearWatch(geoWatchId);
+        geoWatchId = null;
+      }
+      youAreHereMarker?.remove();
+      youAreHereMarker = null;
+      accuracyCircle?.remove();
+      accuracyCircle = null;
+      locateButton?.setAttribute("aria-pressed", "false");
+      locateButton?.classList.remove("bg-leaf-600", "text-white", "dark:bg-leaf-600");
+    }
+
+    function startLocating() {
+      if (!navigator.geolocation) {
+        showToast("Location isn't supported on this device.");
+        return;
+      }
+      locateButton?.setAttribute("aria-pressed", "true");
+      locateButton?.classList.add("bg-leaf-600", "text-white", "dark:bg-leaf-600");
+
+      let hasCenteredOnce = false;
+      geoWatchId = navigator.geolocation.watchPosition(
+        (position) => {
+          const transform = getGeoTransform();
+          if (!transform) return; // shouldn't happen — button is gated on this
+          const { x, y } = transform.toMapXY(
+            position.coords.latitude,
+            position.coords.longitude,
+          );
+
+          // Sanity check: GPS under tree canopy (the very reason we couldn't
+          // just use satellite imagery for the basemap in the first place)
+          // can drift well outside the property. A wildly out-of-bounds fix
+          // isn't useful to plot and would just be confusing, so skip it.
+          const margin = 300;
+          if (x < -margin || x > width + margin || y < -margin || y > height + margin) {
+            showToast("Can't get a precise fix here — try a more open spot.");
+            return;
+          }
+
+          const latlng = L.latLng(height - y, x);
+          if (!youAreHereMarker) {
+            youAreHereMarker = L.circleMarker(latlng, {
+              radius: 8,
+              weight: 3,
+              color: "#fff",
+              fillColor: "#2563eb",
+              fillOpacity: 1,
+            }).addTo(map);
+          } else {
+            youAreHereMarker.setLatLng(latlng);
+          }
+
+          // Drawn to scale from the GPS fix's own accuracy (meters), via the
+          // same pixels-per-meter factor the calibration transform derived —
+          // so it visibly shrinks/grows with how confident the fix is,
+          // rather than being an arbitrary fixed size.
+          const radiusPixels = transform.metersToPixels(position.coords.accuracy);
+          if (!accuracyCircle) {
+            accuracyCircle = L.circle(latlng, {
+              radius: radiusPixels,
+              color: "#2563eb",
+              weight: 1,
+              fillColor: "#2563eb",
+              fillOpacity: 0.15,
+            }).addTo(map);
+          } else {
+            accuracyCircle.setLatLng(latlng);
+            accuracyCircle.setRadius(radiusPixels);
+          }
+
+          if (!hasCenteredOnce) {
+            map.panTo(latlng, { animate: true });
+            hasCenteredOnce = true;
+          }
+        },
+        (error) => {
+          const message =
+            error.code === error.PERMISSION_DENIED
+              ? "Location access denied — allow it in your browser settings to use this."
+              : error.code === error.POSITION_UNAVAILABLE
+                ? "Couldn't determine your location."
+                : "Location request timed out.";
+          showToast(message);
+          stopLocating();
+        },
+        { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 },
+      );
+    }
+
+    locateButton?.addEventListener("click", () => {
+      if (geoWatchId !== null) {
+        stopLocating();
+      } else {
+        startLocating();
+      }
+    });
   }
 
   function destroyGardenMap() {
     resizeObserver?.disconnect();
     resizeObserver = null;
+    if (geoWatchId !== null) {
+      navigator.geolocation.clearWatch(geoWatchId);
+      geoWatchId = null;
+    }
     if (sizeMapContainer) {
       window.removeEventListener("resize", sizeMapContainer);
       window.visualViewport?.removeEventListener("resize", sizeMapContainer);

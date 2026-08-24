@@ -251,21 +251,26 @@ function renderInlineMarkdown(text: string): string {
 
     <PlantMonths bloomMonths={bloomMonths} pruneMonths={pruneMonths} />
 
-    {
-      learnMoreUrl && (
-        <section class="mt-8">
-          <a
-            href={learnMoreUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1.5 rounded-full bg-leaf-600 px-5 py-2.5 text-sm font-semibold text-leaf-50 shadow-sm transition hover:bg-leaf-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:bg-leaf-500 dark:hover:bg-leaf-400"
-          >
-            Learn more
-            <Icon name="arrow-up-right" class="h-4 w-4" strokeWidth={2} />
-          </a>
-        </section>
-      )
-    }
+    <section class="mt-8 flex flex-wrap gap-3">
+      {learnMoreUrl && (
+        <a
+          href={learnMoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 rounded-full bg-leaf-600 px-5 py-2.5 text-sm font-semibold text-leaf-50 shadow-sm transition hover:bg-leaf-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:bg-leaf-500 dark:hover:bg-leaf-400"
+        >
+          Learn more
+          <Icon name="arrow-up-right" class="h-4 w-4" strokeWidth={2} />
+        </a>
+      )}
+      <a
+        href={`/map/?slug=${plant.id}`}
+        class="inline-flex items-center gap-1.5 rounded-full border border-leaf-300 px-5 py-2.5 text-sm font-semibold text-leaf-700 shadow-sm transition hover:bg-leaf-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:border-leaf-700 dark:text-leaf-300 dark:hover:bg-leaf-800"
+      >
+        <Icon name="map" class="h-4 w-4" strokeWidth={2} />
+        Find on map
+      </a>
+    </section>
   </article>
 </Layout>
 

@@ -83,6 +83,7 @@ export interface MapPin {
   slug: string;
   name: string;
   latinName: string;
+  type: string | null;
   zone: string | null;
   photo: string;
   x: number;
@@ -106,6 +107,7 @@ export async function getMapPins(): Promise<MapPin[]> {
         slug: plant.id,
         name: plant.data.name,
         latinName: plant.data.latinName,
+        type: plant.data.type ?? null,
         zone: plant.data.mapZone ?? null,
         photo: thumb.src,
         x: plant.data.mapX!,

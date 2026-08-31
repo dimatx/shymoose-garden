@@ -1,5 +1,5 @@
 ---
-name: "Lemon Meringue Wild Indigo"
+name: "Wild Indigo"
 latinName: "Baptisia Decadence® 'Lemon Meringue'"
 type: "Perennial"
 nativeRange: "Garden hybrid (the genus is native to eastern and central North America)"

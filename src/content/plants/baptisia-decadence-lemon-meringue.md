@@ -1,12 +1,12 @@
 ---
-name: "Lemon Meringue False Indigo"
+name: "Lemon Meringue Wild Indigo"
 latinName: "Baptisia Decadence® 'Lemon Meringue'"
 type: "Perennial"
 nativeRange: "Garden hybrid (the genus is native to eastern and central North America)"
 photo: "../../assets/plants/baptisia.jpg"
 photoAlt: "Vase-shaped clump of blue-green Baptisia foliage with tall spikes of lemon-yellow pea-like flowers opening from charcoal-gray buds."
 photoCredit: "F. D. Richards, CC BY-SA 2.0, via Wikimedia Commons"
-shortDescription: "A vigorous, long-lived false indigo with charcoal stems and lupine-like spires of soft lemon-yellow flowers over mounded blue-green foliage — tough, drought-tolerant, and nearly maintenance-free once established."
+shortDescription: "A vigorous, long-lived wild indigo with charcoal stems and lupine-like spires of soft lemon-yellow flowers over mounded blue-green foliage — tough, drought-tolerant, and nearly maintenance-free once established."
 care:
   water: "Average water while establishing; deeply drought-tolerant once its taproot is established. Avoid soggy or poorly drained sites."
   soil: "Average, dry-to-medium, well-drained soil; tolerates poor, sandy, rocky, or clay soil. Prefers slightly acidic to neutral pH. Does not transplant well once established, due to a deep taproot."
@@ -25,19 +25,19 @@ tags:
   - "Native plant"
   - "Cut flower"
 featured: false
-funFact: "'Lemon Meringue' is a 2011 Hans Hansen hybrid in the Decadence® series, bred to grow into a full, floriferous clump faster than most false indigos — a genus notorious for taking several years to hit its stride thanks to that deep, slow-to-establish taproot."
+funFact: "'Lemon Meringue' is a 2011 Hans Hansen hybrid in the Decadence® series, bred to grow into a full, floriferous clump faster than most wild indigos — a genus notorious for taking several years to hit its stride thanks to that deep, slow-to-establish taproot."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=294455"
 dateAdded: 2026-08-30
 shortUrl: "https://s.shymoose.com/A433p"
 ---
 
-*Baptisia* Decadence® 'Lemon Meringue' is a false indigo prized for its soft
+*Baptisia* Decadence® 'Lemon Meringue' is a wild indigo prized for its soft
 lemon-yellow flower spikes, held on near-black stems above a lush, rounded mound
 of blue-green, clover-like foliage. It's a long-lived, low-drama perennial: once
 its deep taproot is established, it shrugs off drought, poor soil, deer, and
 rabbits, and asks for almost nothing in return.
 
-## A faster-maturing false indigo
+## A faster-maturing wild indigo
 
 Baptisias are famous for taking their time to bulk up, but 'Lemon Meringue' was
 specifically bred to reach a full, floriferous clump faster than most cultivars

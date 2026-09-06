@@ -182,6 +182,11 @@ Optional env vars: `SHLINK_BASE_URL`, `SITE_URL`, `DRY_RUN=1`.
 
 ### Generate physical signs
 
+Signs use short common names without cultivars; website names are unchanged.
+The generator removes trailing quoted cultivars automatically and uses
+`SIGN_NAME` overrides for unquoted prefixes and other short labels. Cultivar
+identification stays on the Latin line.
+
 ```bash
 npm run gen:signs
 ```

@@ -3,7 +3,7 @@ orient_for_printing = true;
 remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "https://s.shymoose.com/cDSTI";
-common_name = "H.M. Eddie Yew";
+common_name = "Yew";
 scientific_name = "Taxus x media 'H.M. Eddie'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]

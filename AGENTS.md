@@ -82,6 +82,10 @@ reference and reconcile:
   sign instead of reverting it. Before committing regenerated signs, confirm the
   only diffs are ones you meant to make — never assume an unexpected sign change
   is "stale"; it may be a deliberate hand/override tweak.
+- Physical signs use short common names without cultivars, even when website
+  names include them. The generator strips a trailing quoted cultivar by
+  default; use `SIGN_NAME` for unquoted cultivar prefixes or other exceptions.
+  Keep cultivar identification on the Latin line and preserve width overrides.
 
 ### 7. Build, then commit EVERYTHING
 - `npm run build` to verify the collection and images validate.

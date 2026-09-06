@@ -13,6 +13,7 @@
     "import:plants": "node --env-file=.env scripts/import-plants.mjs",
     "gen:shortlinks": "node --env-file=.env scripts/gen-shortlinks.mjs",
     "gen:signs": "node scripts/gen-signs.mjs",
+    "gen:3mf": "node scripts/gen-3mf.mjs",
     "publish": "npm run build && npm run gen:shortlinks && npm run gen:signs"
   },
   "engines": {

@@ -1,6 +1,9 @@
 # Build output
 dist/
 .output/
+.tools/
+signs/3mf/.cache.json
+signs/3mf/.render-*/
 
 # Dependencies
 node_modules/

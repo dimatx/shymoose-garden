@@ -62,6 +62,11 @@ const SIGN_LATIN = {
 // Per-plant common name override for the sign.
 // When set, this replaces the name field on the sign only (latin name is unchanged).
 const SIGN_NAME = {
+  // Unquoted cultivar prefixes need explicit short labels.
+  'cercis-canadensis-flame-thrower':        'Eastern Redbud',
+  'karen-azelia':                          'Azalea',
+  'taxus-x-media-hm-eddie':                 'Yew',
+  'thuja-occidentalis-emerald':             'Arborvitae',
   'cucumis-sativus-shintokiwa':              'Cucumber',
   'cucumis-sativus-suyo-long':               'Cucumber',
   'cucumis-sativus-unagi':                   'Cucumber',
@@ -179,7 +184,9 @@ for (const relPath of plantFiles) {
   const latinName = latinMatch[1].trim();
   const shortUrl = shortUrlMatch ? shortUrlMatch[1].trim() : `https://garden.shymoose.com/plants/${slug}`;
 
-  const signName = SIGN_NAME[slug] ?? name;
+  // Website names can carry a quoted cultivar; the sign's Latin line already
+  // identifies it. Match the whole suffix, including apostrophes in cultivars.
+  const signName = SIGN_NAME[slug] ?? name.replace(/\s+'.*'$/, '');
   const signLatin = SIGN_LATIN[slug] ?? latinName;
   // Replace the per-plant variable lines in the template
   const plaqueW = PLAQUE_W[slug] ?? calcPlaqueW(signName, signLatin);

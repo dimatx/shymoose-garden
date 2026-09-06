@@ -12,7 +12,7 @@ qr_error_correction = "L"; // [L, M, Q, H]
 // height
 plaque_h = 35;
 // width
-plaque_w = 192;
+plaque_w = 220;
 // thickness
 plaque_t = 4;
 // depth of text/QR cutouts from face (filled by 2nd filament color)

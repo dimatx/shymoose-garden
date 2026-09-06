@@ -1,5 +1,5 @@
 ---
-name: "Bearded Tongue"
+name: "Beardtongue 'Dark Towers'"
 latinName: "Penstemon 'Dark Towers'"
 type: "Perennial"
 nativeRange: "Garden hybrid bred at the University of Nebraska (the parent species are native to North America)"

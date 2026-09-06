@@ -108,7 +108,16 @@ That's the whole workflow — commit the change and Cloudflare rebuilds the site
 > `bloomMonths` and `pruneMonths` accept an array of integers 1–12; duplicates
 > and out-of-order values are normalized automatically at build time.
 
-## Filtering the garden
+## Filtering and sorting the garden
+
+Search by common or Latin name, then sort by **Name (A–Z)** (the default) or
+**Recently added** (newest `dateAdded` first). Equal dates keep alphabetical
+order; plants without a recorded date appear last.
+
+Search, filter selections, and sort order are remembered when opening a plant
+and returning with browser Back or **All plants**. This is in-memory navigation
+state only: reloading, opening a fresh page, or arriving from another section
+starts with the default catalog. Explicit `?tag=` links still apply their tag.
 
 The home page has a filter bar so visitors can narrow the catalog down:
 

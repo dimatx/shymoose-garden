@@ -3,7 +3,7 @@ orient_for_printing = true;
 remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "http://s.shymoose.com/1fIoT";
-common_name = "Penstemon";
+common_name = "Beardtongue";
 scientific_name = "Penstemon digitalis 'Husker's Red'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]

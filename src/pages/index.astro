@@ -47,8 +47,8 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     </p>
   </section>
 
-  <div class="mb-4">
-    <label class="relative block">
+  <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+    <label class="relative block flex-1">
       <span class="sr-only">Search plants by common or Latin name</span>
       <Icon
         name="search"
@@ -63,6 +63,21 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         class="w-full rounded-full border border-leaf-300 bg-white py-2.5 pl-10 pr-4 text-sm text-leaf-900 placeholder:text-leaf-500 focus:border-leaf-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-500/40 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-400"
       />
     </label>
+    <details id="plant-sort" class="filter-dd relative shrink-0 self-start sm:self-auto">
+      <summary class="filter-trigger">
+        <Icon name="sort" class="h-4 w-4" />
+        <span>Sort by: <span id="plant-sort-label">Name (A–Z)</span></span>
+        <Icon name="chevron-down" strokeWidth={2} class="filter-caret h-3.5 w-3.5" />
+      </summary>
+      <div class="filter-panel sort-panel" role="group" aria-label="Sort plants by">
+        <button type="button" class="filter-chip" data-sort="name" aria-pressed="true">
+          Name (A–Z)
+        </button>
+        <button type="button" class="filter-chip" data-sort="recent" aria-pressed="false">
+          Recently added
+        </button>
+      </div>
+    </details>
   </div>
 
   {
@@ -185,6 +200,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
               class="plant-item"
               data-name={plant.data.name}
               data-latin={plant.data.latinName}
+              data-added={plant.data.dateAdded?.getTime() ?? 0}
               data-type={plant.data.type ?? ""}
               data-sun={`|${sunLevels(plant).join("|")}|`}
               data-tags={`|${plant.data.tags.join("|")}|`}
@@ -301,9 +317,56 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     border-color: var(--color-leaf-800, #234d28);
     background-color: var(--color-leaf-900, #16361a);
   }
+  .sort-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  @media (min-width: 640px) {
+    .sort-panel {
+      left: auto;
+      right: 0;
+    }
+  }
 </style>
 
 <script>
+  import { isTransitionBeforeSwapEvent } from "astro:transitions/client";
+
+  type CatalogState = {
+    search: string;
+    types: string[];
+    traits: string[];
+    suns: string[];
+    tag: string;
+    sort: string;
+  };
+
+  // Module memory survives ClientRouter navigation, but not reloads or new
+  // visits. Only a direct list -> detail -> list trip restores this snapshot.
+  let catalogState: CatalogState | undefined;
+  let detailReturnState: CatalogState | undefined;
+  let restoreState: CatalogState | undefined;
+
+  document.addEventListener("astro:before-swap", (event) => {
+    if (!isTransitionBeforeSwapEvent(event)) return;
+    const toDetail = /^\/plants\/[^/]+\/?$/.test(event.to.pathname);
+    const fromDetail = /^\/plants\/[^/]+\/?$/.test(event.from.pathname);
+    restoreState = undefined;
+    if (event.from.pathname === "/" && toDetail) {
+      detailReturnState = catalogState;
+    } else if (
+      fromDetail &&
+      event.to.pathname === "/" &&
+      (event.navigationType === "traverse" || event.to.search === "")
+    ) {
+      restoreState = detailReturnState;
+      detailReturnState = undefined;
+    } else {
+      detailReturnState = undefined;
+    }
+    catalogState = undefined;
+  });
+
   // Lightweight, no-framework filtering. With JS disabled every plant simply
   // stays visible, so the catalog still works.
   function initCatalog() {
@@ -341,7 +404,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     }
 
     const chips = Array.from(
-      document.querySelectorAll<HTMLButtonElement>(".filter-chip")
+      document.querySelectorAll<HTMLButtonElement>(".filter-chip[data-filter]")
     );
     const items = Array.from(
       document.querySelectorAll<HTMLElement>(".plant-item")
@@ -359,22 +422,53 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     const tagBar = document.getElementById("active-tag-bar");
     const tagLabel = document.getElementById("active-tag-label");
     const tagClear = document.getElementById("active-tag-clear");
+    const sortDropdown = document.querySelector<HTMLDetailsElement>("#plant-sort");
+    const sortLabel = document.getElementById("plant-sort-label");
+    const sortChoices = Array.from(
+      document.querySelectorAll<HTMLButtonElement>("[data-sort]")
+    );
     const total = items.length;
 
-    const selectedTypes = new Set<string>();
-    const selectedTraits = new Set<string>();
-    const selectedSuns = new Set<string>();
+    const restored = restoreState;
+    restoreState = undefined;
+    const selectedTypes = new Set(restored?.types ?? []);
+    const selectedTraits = new Set(restored?.traits ?? []);
+    const selectedSuns = new Set(restored?.suns ?? []);
     const filterSets: Record<string, Set<string>> = {
       type: selectedTypes,
       trait: selectedTraits,
       sun: selectedSuns,
     };
-    let searchTerm = "";
+    if (searchInput) searchInput.value = restored?.search ?? "";
+    let sortMode = restored?.sort ?? "name";
+    let searchTerm = (restored?.search ?? "").trim().toLowerCase();
     // A tag handed in via `?tag=` (from a clickable tag on a plant page). It
     // filters by the same data-tags mechanism as the trait chips, but can be
     // any tag — not only the curated shortlist.
     let activeTag =
+      restored?.tag ??
       new URLSearchParams(window.location.search).get("tag")?.trim() ?? "";
+
+    for (const chip of chips) {
+      chip.setAttribute(
+        "aria-pressed",
+        String(filterSets[chip.dataset.filter ?? ""]?.has(chip.dataset.value ?? "") ?? false)
+      );
+    }
+
+    function sortItems() {
+      for (const choice of sortChoices) {
+        const selected = choice.dataset.sort === sortMode;
+        choice.setAttribute("aria-pressed", String(selected));
+        if (selected && sortLabel) sortLabel.textContent = choice.textContent?.trim() ?? "";
+      }
+      // The source array stays alphabetical; stable sorting keeps that order
+      // for equal dates and places entries without dates at the end.
+      const sorted = sortMode === "recent"
+        ? [...items].sort((a, b) => Number(b.dataset.added) - Number(a.dataset.added))
+        : items;
+      grid.append(...sorted);
+    }
 
     // Update the per-dropdown count badge from its own pressed chips.
     function updateBadges() {
@@ -430,6 +524,14 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       if (clearEl) clearEl.classList.toggle("hidden", active === 0);
       updateBadges();
       if (noMatches) noMatches.classList.toggle("hidden", visible !== 0);
+      catalogState = {
+        search: searchInput?.value ?? "",
+        types: [...selectedTypes],
+        traits: [...selectedTraits],
+        suns: [...selectedSuns],
+        tag: activeTag,
+        sort: sortMode,
+      };
     }
 
     for (const chip of chips) {
@@ -463,7 +565,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       activeTag = "";
       const url = new URL(window.location.href);
       url.searchParams.delete("tag");
-      window.history.replaceState({}, "", url);
+      window.history.replaceState(window.history.state, "", url);
       syncTagBar();
       apply();
     }
@@ -486,11 +588,24 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       apply();
     });
 
+    for (const choice of sortChoices) {
+      choice.addEventListener("click", () => {
+        sortMode = choice.dataset.sort ?? "name";
+        sortItems();
+        apply();
+        if (sortDropdown) {
+          sortDropdown.open = false;
+          sortDropdown.querySelector("summary")?.focus();
+        }
+      });
+    }
+
     clearEl?.addEventListener("click", clearAll);
     noMatchesClear?.addEventListener("click", clearAll);
 
     // Paint the initial state, including any `?tag=` handed in from a plant page.
     syncTagBar();
+    sortItems();
     apply();
 
     // Close any open dropdown when clicking outside one, or pressing Escape.
@@ -501,11 +616,17 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
-        for (const dd of dropdowns) dd.open = false;
+        for (const dd of dropdowns) {
+          if (!dd.open) continue;
+          if (dd.contains(document.activeElement)) dd.querySelector("summary")?.focus();
+          dd.open = false;
+        }
       }
     });
   }
 
   initCatalog();
+  // Restore before the transition paints the incoming grid.
+  document.addEventListener("astro:after-swap", initCatalog);
   document.addEventListener("astro:page-load", initCatalog);
 </script>

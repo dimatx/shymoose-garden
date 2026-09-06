@@ -1,5 +1,5 @@
 ---
-name: "Ukrainian Purple Tomato"
+name: "Tomato 'Ukrainian Purple'"
 latinName: "Solanum lycopersicum 'Ukrainian Purple'"
 type: "Vegetable"
 nativeRange: "Western South America (the species); this heirloom comes from Ukraine"

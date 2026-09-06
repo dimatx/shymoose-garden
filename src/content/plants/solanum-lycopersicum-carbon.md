@@ -1,5 +1,5 @@
 ---
-name: "Carbon Tomato"
+name: "Tomato 'Carbon'"
 latinName: "Solanum lycopersicum 'Carbon'"
 type: "Vegetable"
 nativeRange: "Western South America (the species); this heirloom was developed in the United States"

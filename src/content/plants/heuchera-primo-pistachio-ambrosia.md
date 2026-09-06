@@ -1,5 +1,5 @@
 ---
-name: "Pistachio Ambrosia Coral Bells"
+name: "Coral Bells 'Pistachio Ambrosia'"
 latinName: "Heuchera Primo® 'Pistachio Ambrosia'"
 type: "Perennial"
 nativeRange: "Garden hybrid (the genus is native to North America)"

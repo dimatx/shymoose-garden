@@ -1,5 +1,5 @@
 ---
-name: "Cherry Truffles Coral Bells"
+name: "Coral Bells 'Cherry Truffles'"
 latinName: "Heuchera Dolce® 'Cherry Truffles'"
 type: "Perennial"
 nativeRange: "Garden hybrid (the genus is native to North America)"

@@ -1,5 +1,5 @@
 ---
-name: "Silberzwerg Sitka Spruce"
+name: "Sitka Spruce 'Silberzwerg'"
 latinName: "Picea sitchensis 'Silberzwerg'"
 type: "Conifer"
 nativeRange: "Garden cultivar of the species native to the Pacific coast of North America, from south-central Alaska to northern California"

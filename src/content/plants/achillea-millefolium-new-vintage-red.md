@@ -1,5 +1,5 @@
 ---
-name: "New Vintage Red Yarrow"
+name: "Yarrow 'New Vintage Red'"
 latinName: "Achillea millefolium 'New Vintage Red'"
 type: "Perennial"
 nativeRange: "Species native to Europe, Asia and North America; this is a garden cultivar"

@@ -88,9 +88,8 @@ const plants = defineCollection({
       mapY: z.number().optional(),
 
       // The date this plant was added to the catalog (ISO yyyy-mm-dd).
-      // Internal metadata only — not surfaced in the UI today, but stored so it
-      // can be exposed later (e.g. a "recently added" view). Backfilled from
-      // each file's first git commit; set it when adding new plants.
+      // Powers the "Recently added" catalog sort; undated entries sort last.
+      // Backfilled from each file's first git commit; set it for new plants.
       dateAdded: z.coerce.date().optional(),
     }),
 });

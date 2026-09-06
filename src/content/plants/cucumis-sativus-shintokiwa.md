@@ -1,5 +1,5 @@
 ---
-name: "Shintokiwa Cucumber"
+name: "Cucumber 'Shintokiwa'"
 latinName: "Cucumis sativus 'Shintokiwa'"
 type: "Vegetable"
 nativeRange: "South Asia (the species); this variety was bred in Japan"

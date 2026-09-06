@@ -70,8 +70,9 @@ const SIGN_NAME = {
   'solanum-lycopersicum-carbon':             'Tomato',
   'solanum-lycopersicum-ukrainian-purple':   'Tomato',
   'chamaecyparis-pisifera-golden-mop':       'False Cypress',
-  'penstemon-hartwegii-arabesque-red':       'Penstemon',
-  'penstemon-digitalis-huskers-red':         'Penstemon',
+  'penstemon-hartwegii-arabesque-red':       'Beardtongue',
+  'penstemon-digitalis-huskers-red':         'Beardtongue',
+  'penstemon-dark-towers':                  'Beardtongue',
   'achillea-millefolium-tutti-frutti':       'Yarrow',
   'achillea-millefolium-new-vintage-red':    'Yarrow',
   // Heuchera: drop the cultivar from the common name so it fits the sign.
@@ -137,7 +138,7 @@ const PLAQUE_W = {
   'polygonatum-biflorum-var-commutatum':     215, // Giant Solomon's Seal
   'rhododendron-dauricum':                   225, // Dahurian Rhododendron
   'picea-pungens-glauca-globosa':             195, // "Globe Blue Spruce" (17 chars)
-  'penstemon-hartwegii-arabesque-red':       175, // "Penstemon" (9 chars)
+  'penstemon-hartwegii-arabesque-red':       175, // "Beardtongue" (11 chars)
   'chamaecyparis-pisifera-golden-mop':       175, // "False Cypress" (13 chars)
   // Heuchera: shortened name + latin, held at the 175 minimum to fit the sign.
   'heuchera-dolce-silver-gumdrop':           175,

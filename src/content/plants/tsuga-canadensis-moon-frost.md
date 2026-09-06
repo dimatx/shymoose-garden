@@ -1,5 +1,5 @@
 ---
-name: "Moon Frost Canadian Hemlock"
+name: "Canadian Hemlock 'Moon Frost'"
 latinName: "Tsuga canadensis 'Moon Frost'"
 type: "Conifer"
 nativeRange: "Garden cultivar of the species native to eastern North America, from eastern Canada south to the Appalachian Mountains of Georgia and Alabama"

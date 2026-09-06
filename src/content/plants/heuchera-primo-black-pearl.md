@@ -1,5 +1,5 @@
 ---
-name: "Black Pearl Coral Bells"
+name: "Coral Bells 'Black Pearl'"
 latinName: "Heuchera Primo® 'Black Pearl'"
 type: "Perennial"
 nativeRange: "Garden hybrid (the genus is native to North America)"

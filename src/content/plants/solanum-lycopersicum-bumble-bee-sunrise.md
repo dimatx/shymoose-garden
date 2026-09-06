@@ -1,5 +1,5 @@
 ---
-name: "Sunrise Bumble Bee Tomato"
+name: "Tomato 'Sunrise Bumble Bee'"
 latinName: "Solanum lycopersicum 'Bumble Bee Sunrise'"
 type: "Vegetable"
 nativeRange: "Western South America (the species); this variety was bred in the United States"

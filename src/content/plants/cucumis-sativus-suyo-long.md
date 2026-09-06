@@ -1,5 +1,5 @@
 ---
-name: "Suyo Long Cucumber"
+name: "Cucumber 'Suyo Long'"
 latinName: "Cucumis sativus 'Suyo Long'"
 type: "Vegetable"
 nativeRange: "South Asia (the species); this heirloom was developed in China"

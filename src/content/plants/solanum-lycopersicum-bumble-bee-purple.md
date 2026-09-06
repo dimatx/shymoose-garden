@@ -1,5 +1,5 @@
 ---
-name: "Purple Bumble Bee Tomato"
+name: "Tomato 'Purple Bumble Bee'"
 latinName: "Solanum lycopersicum 'Bumble Bee Purple'"
 type: "Vegetable"
 nativeRange: "Western South America (the species); this variety was bred in the United States"

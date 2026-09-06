@@ -1,5 +1,5 @@
 ---
-name: "Tutti Frutti Yarrow"
+name: "Yarrow 'Tutti Frutti'"
 latinName: "Achillea millefolium 'Tutti Frutti'"
 type: "Perennial"
 nativeRange: "Species native to Europe, Asia and North America; this is a garden series"

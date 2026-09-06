@@ -1,5 +1,5 @@
 ---
-name: "Unagi Cucumber"
+name: "Cucumber 'Unagi'"
 latinName: "Cucumis sativus 'Unagi'"
 type: "Vegetable"
 nativeRange: "South Asia (the species); this variety was bred in Japan"

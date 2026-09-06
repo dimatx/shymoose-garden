@@ -1,5 +1,5 @@
 ---
-name: "Husker's Red Penstemon"
+name: "Beardtongue 'Husker's Red'"
 latinName: "Penstemon digitalis 'Husker's Red'"
 type: "Perennial"
 nativeRange: "Eastern and central North America (the species)"

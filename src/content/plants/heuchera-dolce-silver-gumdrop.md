@@ -1,5 +1,5 @@
 ---
-name: "Silver Gumdrop Coral Bells"
+name: "Coral Bells 'Silver Gumdrop'"
 latinName: "Heuchera Dolce® 'Silver Gumdrop'"
 type: "Perennial"
 nativeRange: "Garden hybrid (the genus is native to North America)"

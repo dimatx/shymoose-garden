@@ -1,5 +1,5 @@
 ---
-name: "Arabesque Red Penstemon"
+name: "Beardtongue 'Arabesque Red'"
 latinName: "Penstemon hartwegii Arabesque® Red"
 type: "Perennial"
 nativeRange: "Mexico (the species)"

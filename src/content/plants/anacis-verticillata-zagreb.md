@@ -1,5 +1,5 @@
 ---
-name: "Zagreb Tickseed"
+name: "Tickseed 'Zagreb'"
 latinName: "Anacis verticillata 'Zagreb'"
 type: "Perennial"
 nativeRange: "Eastern North America"

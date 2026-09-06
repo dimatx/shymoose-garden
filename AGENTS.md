@@ -86,18 +86,25 @@ reference and reconcile:
   names include them. The generator strips a trailing quoted cultivar by
   default; use `SIGN_NAME` for unquoted cultivar prefixes or other exceptions.
   Keep cultivar identification on the Latin line and preserve width overrides.
+- After `gen:signs`, run `npm run gen:3mf` to render the model-only files in
+  `signs/3mf/` for PrusaSlicer. OpenSCAD is required; see README for portable
+  setup and `OPENSCAD_BIN`. The exporter bundles its fonts, skips unchanged
+  models, and leaves printer/filament settings to the slicer. Commit changed
+  3MFs alongside their SCAD sources. Do not add this desktop-only export to
+  the Cloudflare website build.
 
 ### 7. Build, then commit EVERYTHING
 - `npm run build` to verify the collection and images validate.
-- Commit the `.md`, the photo, the new `signs/<slug>.scad`, and the frontmatter
+- Commit the `.md`, the photo, the new `signs/<slug>.scad` and matching
+  `signs/3mf/<slug>.3mf`, and the frontmatter
   `shortUrl` change together. `npm run publish` runs build + gen:shortlinks +
   gen:signs in the correct order as a convenience.
 
 ## Definition of done
 A new plant is finished only when it has: researched-and-reconciled care data,
 a verified+credited photo, a `shortUrl` in its frontmatter, a `signs/<slug>.scad`
-file whose QR uses that short URL, a clean build, and a single commit containing
-all of the above.
+file whose QR uses that short URL, its matching 3MF export, a clean build, and a
+single commit containing all of the above.
 
 ## Environment notes
 - Node >= 22, Windows PowerShell. Chain commands with `;`, not `&&`.

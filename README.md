@@ -197,8 +197,60 @@ and Latin name into [`scripts/plant-sign-template.scad`](scripts/plant-sign-temp
 
 The resulting `.scad` files are ready to open in
 [OpenSCAD](https://openscad.org/) and render/export for 3D printing. Each sign
-is a two-color plaque (white body, black inlay text and QR code) with a stake
-leg. Set `DRY_RUN=1` to preview what would be generated without writing files.
+is a two-color plaque (white body, black inlay text and QR code) with sockets
+for separate stakes. Set `DRY_RUN=1` to preview what would be generated without writing files.
+
+### Export 3MF models for PrusaSlicer
+
+```powershell
+npm run gen:signs
+npm run gen:3mf
+# Export one sign by its SCAD filename (the extension is optional):
+npm run gen:3mf -- tsuga-canadensis-moon-frost
+# Re-render even if the source and output are unchanged:
+npm run gen:3mf -- --force
+```
+
+Writes one **model-only** `.3mf` per SCAD file into [`signs/3mf/`](signs/3mf/).
+Open these files in PrusaSlicer as models, choose your printer and filament,
+configure the color change, and slice. They are not PrusaSlicer projects and
+contain no printer profiles, filament assignments, or G-code. MakerWorld is
+not needed.
+
+Install [OpenSCAD](https://openscad.org/downloads.html) first. A recent desktop
+build with the Manifold backend is recommended for faster batch rendering
+(the initial exports used Windows snapshot 2026.09.03). The script searches
+portable `OpenSCAD*` folders inside `.tools/`, then PATH, standard Windows
+installation folders, and the standard macOS app location. Alternatively:
+
+```powershell
+$env:OPENSCAD_BIN = 'C:\Program Files\OpenSCAD\openscad.com'
+npm run gen:3mf
+```
+
+On Windows, use the console executable `openscad.com`. A portable ZIP can be
+extracted into `.tools/` without a global installation. The required Barlow
+Condensed fonts and their OFL license are bundled in `scripts/fonts/`; the
+exporter registers them without installing system fonts.
+
+The export preserves the SCAD's millimeter scale and face-down orientation.
+PrusaSlicer places the imported model on the bed. The current design has a
+1 mm face inlay: inspect the sliced layers and set your filament change at
+the corresponding transition. SCAD display colors do not add color-change
+instructions. The separate stake-leg calls are disabled in the current SCAD;
+these files contain the plaque, sockets, and stabilizer, not loose stakes.
+
+Unchanged exports are skipped using hashes of the SCAD, renderer version,
+export script, fonts, and output file. The local `signs/3mf/.cache.json` is
+ignored by Git; the finished 3MFs are committed. A fresh checkout without
+that cache renders again. Warnings and render failures stop the command
+without replacing that sign's previous output; completed files are cached
+so a later run can resume. Old exports are never automatically deleted.
+
+Run this command **after** `gen:signs` whenever sign geometry or text changes,
+and commit the changed SCAD and 3MF files together. It is deliberately
+separate from the website build and `publish` command: Cloudflare does not
+need OpenSCAD to build the site.
 
 ## Physical signs
 

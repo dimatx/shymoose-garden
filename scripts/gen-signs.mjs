@@ -151,9 +151,14 @@ const PLAQUE_W = {
   'heuchera-primo-pistachio-ambrosia':       175,
   // Leopard plant: shortened name held at the minimum to fit the sign.
   'ligularia-dentata-osiris-fantaisie':      175,
-  // Little bluestem: shortened name, but latin "Schizachyrium scoparium
-  // 'Standing Ovation'" is long enough to still drive the width.
-  'schizachyrium-scoparium-standing-ovation': 228,
+  // Preserve the manually tuned widths in the published SCAD files.
+  'baptisia-decadence-lemon-meringue':       190,
+  'hydrangea-quercifolia-alice':             220,
+  'picea-sitchensis-silberzwerg':            180,
+  'schizachyrium-scoparium-standing-ovation': 210,
+  'tsuga-canadensis-moon-frost':             200,
+  'veronica-pink-potion':                    190,
+  'veronica-purple-illusion':                190,
 };
 
 // Glob all plant markdown files

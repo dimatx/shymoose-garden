@@ -54,6 +54,24 @@ reference and reconcile:
 - **View the downloaded image** to confirm it's the right cultivar, then write
   `photoAlt` describing what's actually in frame (e.g. foliage only vs. in
   flower).
+- **Check photo quality — resolution AND composition, not just "it loaded":**
+  - Run `npm run check:photos` after saving the file. It fails (exit 1) if the
+    source is narrower than 1200px — the largest width the detail page
+    (`src/pages/plants/[slug].astro`) requests — because anything narrower
+    gets upscaled by Sharp at build time and looks soft/blurry. Prefer a
+    source with plenty of headroom above 1200px if you have a choice of
+    candidates; treat the script's WARN band (1200–1440px) as a comfortable
+    minimum, not just a passing grade.
+  - Composition matters as much as pixel count: prefer a photo that shows the
+    plant's actual growth habit (foliage shape, how flowers sit on the plant)
+    over a tight macro crop of just one bloom — a shot can be sharp and
+    high-res and still be a bad choice if it doesn't read as "this plant" at
+    a glance.
+  - If the sheet/vendor photo fails the check or is a poor crop, go back to
+    Wikimedia Commons/Flickr CC search, compare a few high-res candidates
+    (`imageinfo` API with `iiprop=url|size|extmetadata` to batch-compare
+    dimensions and license before downloading), and pick the sharpest one
+    that best shows the plant.
 
 ### 4. Write the content file
 - Fill all frontmatter: `type`, `nativeRange`, `care.*`, `bloomMonths`,
@@ -102,7 +120,9 @@ reference and reconcile:
 
 ## Definition of done
 A new plant is finished only when it has: researched-and-reconciled care data,
-a verified+credited photo, a `shortUrl` in its frontmatter, a `signs/<slug>.scad`
+a verified+credited photo that **passes `npm run check:photos`** (sharp,
+high-res, and actually shows the plant's growth habit — not just a small or
+oddly-cropped source), a `shortUrl` in its frontmatter, a `signs/<slug>.scad`
 file whose QR uses that short URL, its matching 3MF export, a clean build, and a
 single commit containing all of the above.
 

@@ -211,11 +211,17 @@ npm run gen:3mf -- tsuga-canadensis-moon-frost
 npm run gen:3mf -- --force
 ```
 
-Writes one **model-only** `.3mf` per SCAD file into [`signs/3mf/`](signs/3mf/).
-Open these files in PrusaSlicer as models, choose your printer and filament,
-configure the color change, and slice. They are not PrusaSlicer projects and
-contain no printer profiles, filament assignments, or G-code. MakerWorld is
-not needed.
+Writes one **model-only** `.3mf` per SCAD file into [`signs/3mf/`](signs/3mf/),
+prefixed with that plant's number from the ShyMoose sheet's `Filename` column
+(e.g. `74_tsuga-canadensis-moon-frost.3mf`) so it's easy to find the right
+model to print. The plant is matched to its sheet row by `Full link`, falling
+back to Latin name; a plant the script can't match keeps its plain slug name
+and is listed in a `[WARN]` at the end. Requires `PLANTS_SHEET_CSV_URL` in
+`.env` (same as `npm run import:plants`) — without it, files keep their slug
+name. Open these files in PrusaSlicer as models, choose your printer and
+filament, configure the color change, and slice. They are not PrusaSlicer
+projects and contain no printer profiles, filament assignments, or G-code.
+MakerWorld is not needed.
 
 Install [OpenSCAD](https://openscad.org/downloads.html) first. A recent desktop
 build with the Manifold backend is recommended for faster batch rendering

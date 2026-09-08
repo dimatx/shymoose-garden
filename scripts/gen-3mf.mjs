@@ -11,11 +11,13 @@ import {
 import { dirname, join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { fetchCsv, parseCsv, normalizeLatin, normalizeUrl } from "./lib/sheet-csv.mjs";
 
 const scriptPath = fileURLToPath(import.meta.url);
 const root = resolve(dirname(scriptPath), "..");
 const signsDir = join(root, "signs");
 const outputDir = join(signsDir, "3mf");
+const contentDir = join(root, "src", "content", "plants");
 const cachePath = join(outputDir, ".cache.json");
 const fontsDir = join(root, "scripts", "fonts");
 const fonts = ["BarlowCondensed-Bold.ttf", "BarlowCondensed-Italic.ttf", "BarlowCondensed-Regular.ttf"];
@@ -24,6 +26,26 @@ function hash(...values) {
   const digest = createHash("sha256");
   for (const value of values) digest.update(value);
   return digest.digest("hex");
+}
+
+/**
+ * Windows antivirus (Defender) briefly locks freshly-written files to scan
+ * them, which makes fs.renameSync throw a transient EPERM/EBUSY right after
+ * a file is created. Retry a few times with a short backoff before giving up.
+ */
+function renameWithRetry(from, to, attempts = 5) {
+  for (let i = 0; ; i++) {
+    try {
+      renameSync(from, to);
+      return;
+    } catch (error) {
+      const transient = error.code === "EPERM" || error.code === "EBUSY";
+      if (!transient || i >= attempts - 1) throw error;
+      const wait = 200 * (i + 1);
+      const until = Date.now() + wait;
+      while (Date.now() < until) { /* brief synchronous backoff */ }
+    }
+  }
 }
 
 function run(executable, args, timeout = 30_000) {
@@ -97,13 +119,113 @@ function loadCache(force) {
   return cache;
 }
 
-function main() {
+/**
+ * Build a map of normalized Latin name -> the leading number from the
+ * sheet's "Filename" column (e.g. "74_Canadian Hemlock.3mf" -> "74"). Latin
+ * name is the reliable join key — the sheet's "QR link" column is often
+ * blank for newer rows, unlike "Latin name" which the sheet always has.
+ * Returns an empty map (with a warning) if PLANTS_SHEET_CSV_URL isn't set.
+ */
+/**
+ * Build maps from a plant's Full link / normalized Latin name to the leading
+ * number in the sheet's "Filename" column (e.g. "74_Canadian Hemlock.3mf" ->
+ * "74"). Two join keys, tried in order, mirror import-plants.mjs's own
+ * matching: Full link is exact and unambiguous when present; normalized
+ * Latin name is the fallback for rows the sheet has but our frontmatter has
+ * enriched with cultivar trademark text (e.g. "Veronica 'Purple Illusion'"
+ * in the sheet vs "Veronica Magic Show® 'Purple Illusion'" in frontmatter —
+ * a URL match still lines them up). Returns two empty maps (with a warning)
+ * if PLANTS_SHEET_CSV_URL isn't set.
+ */
+async function buildSheetNumberMaps() {
+  const csvUrl = process.env.PLANTS_SHEET_CSV_URL;
+  const byUrl = new Map();
+  const byLatin = new Map();
+  if (!csvUrl) {
+    console.warn(
+      "[WARN] PLANTS_SHEET_CSV_URL is not set — 3MFs will keep their current names " +
+      "instead of getting the sheet's number prefix."
+    );
+    return { byUrl, byLatin };
+  }
+  const rows = parseCsv(await fetchCsv(csvUrl));
+  const header = rows[0] ?? [];
+  const find = (label) =>
+    header.findIndex((h) => h.trim().toLowerCase() === label.toLowerCase());
+  const latinIdx = find("Latin name");
+  const urlIdx = find("Full link");
+  const filenameIdx = find("Filename");
+  if (latinIdx === -1 || filenameIdx === -1) {
+    console.warn("[WARN] Sheet is missing a 'Latin name' or 'Filename' column — skipping number prefixes.");
+    return { byUrl, byLatin };
+  }
+  for (const cells of rows.slice(1)) {
+    const latin = (cells[latinIdx] ?? "").trim();
+    const url = urlIdx !== -1 ? (cells[urlIdx] ?? "").trim() : "";
+    const number = (cells[filenameIdx] ?? "").trim().match(/^(\d+)_/)?.[1];
+    if (!number) continue;
+    if (latin) byLatin.set(normalizeLatin(latin), number);
+    if (url) byUrl.set(normalizeUrl(url), number);
+  }
+  return { byUrl, byLatin };
+}
+
+/** Read a plant's latinName straight from its content frontmatter. */
+function getLatinName(slug) {
+  const mdPath = join(contentDir, `${slug}.md`);
+  if (!existsSync(mdPath)) return null;
+  const match = readFileSync(mdPath, "utf8").match(/^latinName:\s*["']?(.+?)["']?\s*$/m);
+  return match ? match[1].trim() : null;
+}
+
+/** Read a plant's learnMoreUrl straight from its content frontmatter. */
+function getLearnMoreUrl(slug) {
+  const mdPath = join(contentDir, `${slug}.md`);
+  if (!existsSync(mdPath)) return null;
+  const match = readFileSync(mdPath, "utf8").match(/^learnMoreUrl:\s*["']?(.+?)["']?\s*$/m);
+  return match ? match[1].trim() : null;
+}
+
+/** Read a sign's qr_url value straight out of its rendered SCAD source. */
+function getSignQrUrl(source) {
+  const match = source.match(/^qr_url = "(.*)";$/m);
+  return match ? match[1] : null;
+}
+
+/** Strip protocol/trailing slash so URL variants (http vs https) compare equal. */
+function normalizeShortUrl(url) {
+  return (url ?? "").trim().replace(/^https?:\/\//, "").replace(/\/+$/, "");
+}
+
+/**
+ * Map every sign's qr_url to its content slug by matching against each
+ * plant's shortUrl frontmatter. This is needed because a sign's filename is
+ * derived from its Latin name (via gen-signs.mjs) and can differ from the
+ * plant's content slug (e.g. veronica-magic-show-purple-illusion.scad for
+ * src/content/plants/veronica-purple-illusion.md).
+ */
+function buildQrUrlToSlugMap() {
+  const map = new Map();
+  const files = readdirSync(contentDir).filter((f) => f.endsWith(".md"));
+  for (const file of files) {
+    const text = readFileSync(join(contentDir, file), "utf8");
+    const match = text.match(/^shortUrl:\s*["']?(.+?)["']?\s*$/m);
+    if (!match) continue;
+    map.set(normalizeShortUrl(match[1]), file.replace(/\.md$/, ""));
+  }
+  return map;
+}
+
+async function main() {
   const args = process.argv.slice(2);
   if (args.includes("--help")) {
     console.log(
       "Usage: npm run gen:3mf -- [--force] [sign-name[.scad] ...]\n" +
       "No names: export all signs. Names match filenames in signs/, not plant content IDs.\n" +
-      "Outputs: signs/3mf/*.3mf. Unchanged files are skipped using a local hash cache.\n" +
+      "Outputs: signs/3mf/*.3mf, prefixed with the plant's number from the\n" +
+      "sheet's Filename column (e.g. 74_tsuga-canadensis-moon-frost.3mf) when a\n" +
+      "matching plant is found; left as-is otherwise.\n" +
+      "Unchanged files are skipped using a local hash cache.\n" +
       "OPENSCAD_BIN overrides executable discovery. --force rebuilds without the cache."
     );
     return;
@@ -119,6 +241,39 @@ function main() {
   const selection = new Set(requested.map((name) => name.endsWith(".scad") ? name : `${name}.scad`));
   const files = selection.size ? allFiles.filter((file) => selection.has(file)) : allFiles;
   if (!files.length) throw new Error("No SCAD signs found. Run npm run gen:signs first.");
+
+  const { byUrl, byLatin } = await buildSheetNumberMaps();
+  const qrUrlToSlug = buildQrUrlToSlugMap();
+  const unmatched = [];
+  const outputNames = new Map(); // file (foo.scad) -> desired output filename ([N_]foo.3mf)
+  for (const file of files) {
+    const baseName = file.replace(/\.scad$/, "");
+    const qrUrl = getSignQrUrl(readFileSync(join(signsDir, file), "utf8"));
+    const slug = qrUrl ? qrUrlToSlug.get(normalizeShortUrl(qrUrl)) : null;
+    const learnMoreUrl = slug ? getLearnMoreUrl(slug) : null;
+    const latin = slug ? getLatinName(slug) : null;
+    const number =
+      (learnMoreUrl ? byUrl.get(normalizeUrl(learnMoreUrl)) : undefined) ??
+      (latin ? byLatin.get(normalizeLatin(latin)) : undefined);
+    if (number) {
+      outputNames.set(file, `${number}_${baseName}.3mf`);
+    } else {
+      unmatched.push(baseName);
+      outputNames.set(file, `${baseName}.3mf`);
+    }
+  }
+
+  // Migrate already-rendered files from the old (unprefixed) name to the
+  // sheet-numbered name, without forcing a re-render (content is unchanged).
+  for (const file of files) {
+    const legacyPath = join(outputDir, `${file.replace(/\.scad$/, "")}.3mf`);
+    const desiredName = outputNames.get(file);
+    const desiredPath = join(outputDir, desiredName);
+    if (legacyPath !== desiredPath && existsSync(legacyPath) && !existsSync(desiredPath)) {
+      renameWithRetry(legacyPath, desiredPath);
+      console.log(`[RENAME] ${file.replace(/\.scad$/, "")}.3mf -> ${desiredName}`);
+    }
+  }
 
   const { executable, version } = findOpenSCAD();
   const help = run(executable, ["--help"]);
@@ -144,7 +299,7 @@ function main() {
         throw new Error(`${file} is not self-contained. Regenerate it with npm run gen:signs.`);
       }
       const inputHash = hash(fingerprint, source);
-      const outputName = file.replace(/\.scad$/, ".3mf");
+      const outputName = outputNames.get(file);
       const outputPath = join(outputDir, outputName);
       const cached = cache.entries[file];
       if (!force && cached?.input === inputHash && existsSync(outputPath) &&
@@ -169,12 +324,12 @@ function main() {
       if (result.length < 22 || result.readUInt32LE(0) !== 0x04034b50) {
         throw new Error(`OpenSCAD did not produce a 3MF ZIP archive for ${file}.`);
       }
-      renameSync(temporaryOutput, outputPath);
+      renameWithRetry(temporaryOutput, outputPath);
       cache.entries[file] = { input: inputHash, output: hash(result) };
       // Save progress after each completed file so an interrupted batch can resume.
       const temporaryCache = join(tempDir, "cache.json");
       writeFileSync(temporaryCache, `${JSON.stringify(cache, null, 2)}\n`);
-      renameSync(temporaryCache, cachePath);
+      renameWithRetry(temporaryCache, cachePath);
       rendered++;
       console.log(`[OK] ${outputName} (${Math.round(result.length / 1024)} KB)`);
     }
@@ -182,11 +337,15 @@ function main() {
     rmSync(tempDir, { recursive: true, force: true });
   }
   console.log(`\nDone: ${rendered} rendered, ${skipped} unchanged. Open the 3MFs in PrusaSlicer.`);
+  if (unmatched.length) {
+    console.log(
+      `\n[WARN] No sheet number found for ${unmatched.length} sign(s) — left unprefixed:\n` +
+      unmatched.map((name) => `  - ${name}`).join("\n")
+    );
+  }
 }
 
-try {
-  main();
-} catch (error) {
+main().catch((error) => {
   console.error(`\ngen:3mf failed: ${error.message}`);
   process.exitCode = 1;
-}
+});

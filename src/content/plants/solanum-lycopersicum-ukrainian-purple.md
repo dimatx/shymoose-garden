@@ -7,8 +7,8 @@ mapZone: "Vegetable Garden"
 mapX: 1110
 mapY: 410
 photo: "../../assets/plants/solanum-lycopersicum-ukrainian-purple.jpg"
-photoAlt: "Fruit developing on a tomato plant, with green tomatoes and flowers on the vine (representative photo)."
-photoCredit: "Karelj, Public domain, via Wikimedia Commons — representative tomato, not the Ukrainian Purple variety"
+photoAlt: "A cluster of ripe purple-black heirloom tomatoes with dark shoulders shading to green and gold, in a studio still life (representative photo)."
+photoCredit: "Raju C Reddy, CC0, via Wikimedia Commons — representative purple heirloom tomatoes (Cherokee Purple), not the Ukrainian Purple variety"
 shortDescription: "A sweet, savory heirloom plum tomato in purply-black, with meaty, crack-resistant fruit that's excellent for sauce."
 care:
   water: "Keep the soil consistently moist. Uneven watering invites cracking and blossom-end rot; water the soil, not the foliage."

@@ -5,7 +5,7 @@ type: "Ornamental grass"
 nativeRange: "Temperate Europe, Asia and North America"
 photo: "../../assets/plants/ribbon-grass.jpg"
 photoAlt: "Upright blades of Ribbon Grass striped lengthwise in white and green, forming a dense variegated clump."
-photoCredit: "Ghislain118 (fleurs-des-montagnes.net), CC BY-SA 3.0, via Wikimedia Commons"
+photoCredit: "Salicyna, CC BY-SA 4.0, via Wikimedia Commons (labeled 'Feesey', a synonym of 'Picta')"
 shortDescription: "A bright, indestructible spreading grass whose upright blades are striped lengthwise in crisp white and green — a vigorous groundcover for sun or shade, damp ground or dry."
 care:
   water: "Adaptable. Thrives in everything from average garden soil to pond margins and shallow standing water, yet is very drought tolerant once established."

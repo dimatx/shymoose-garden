@@ -3,7 +3,7 @@ orient_for_printing = true;
 remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "https://s.shymoose.com/wTGqd";
-common_name = "Lenten Rose";
+common_name = "Helleborus";
 scientific_name = "Helleborus 'Spanish Flare'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]

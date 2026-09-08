@@ -1,5 +1,5 @@
 ---
-name: "Lenten Rose 'Spanish Flare'"
+name: "Helleborus 'Spanish Flare'"
 latinName: "Helleborus 'Spanish Flare'"
 type: "Perennial"
 nativeRange: "Garden hybrid; parent species native to Europe and western Asia"

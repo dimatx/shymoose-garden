@@ -45,9 +45,12 @@ export function sunLevels(plant: Plant): SunLevel[] {
 }
 
 /**
- * Stable display order: alphabetical by common name.
+ * Stable display order: alphabetical by common name, with archived plants
+ * (no longer actually growing here) always sorted after active ones.
  */
 export function comparePlants(a: Plant, b: Plant): number {
+  const archivedDiff = Number(a.data.archived) - Number(b.data.archived);
+  if (archivedDiff !== 0) return archivedDiff;
   return a.data.name.localeCompare(b.data.name);
 }
 
@@ -59,14 +62,15 @@ export async function getSortedPlants(): Promise<Plant[]> {
 /**
  * Build calendar rows from a per-plant month field. Plants with no months
  * for that field are dropped (e.g. conifers have no bloom, annuals have no
- * pruning window), so they never appear on the chart.
+ * pruning window), so they never appear on the chart. Archived plants are
+ * dropped too — they're no longer actually growing here.
  */
 export async function getCalendarRows(
   field: "bloomMonths" | "pruneMonths"
 ): Promise<CalendarRow[]> {
   const plants = await getCollection("plants");
   return plants
-    .filter((plant) => plant.data[field].length > 0)
+    .filter((plant) => !plant.data.archived && plant.data[field].length > 0)
     .map((plant) => ({
       name: plant.data.name,
       url: plantUrl(plant),
@@ -77,7 +81,8 @@ export async function getCalendarRows(
 /**
  * Plants placed on the garden map (see /map and public/map/garden-map.svg).
  * Anything missing mapX/mapY is left off — most plants won't have a pin yet
- * until someone plots them with the map's pin-placement helper.
+ * until someone plots them with the map's pin-placement helper. Archived
+ * plants are left off too, since they're no longer actually growing here.
  */
 export interface MapPin {
   slug: string;
@@ -93,7 +98,7 @@ export interface MapPin {
 export async function getMapPins(): Promise<MapPin[]> {
   const plants = await getCollection("plants");
   const plotted = plants.filter(
-    (plant) => plant.data.mapX != null && plant.data.mapY != null
+    (plant) => !plant.data.archived && plant.data.mapX != null && plant.data.mapY != null
   );
   return Promise.all(
     plotted.map(async (plant) => {

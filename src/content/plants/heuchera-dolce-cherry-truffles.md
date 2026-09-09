@@ -29,6 +29,8 @@ featured: false
 funFact: "The 'Dolce' in the series name is Italian for 'sweet' — fitting for a lineup of coral bells named after desserts. 'Cherry Truffles' gets its ever-shifting color from anthocyanin pigments that deepen as the leaves age, so a single plant carries bright cherry-red new growth and dark mahogany older leaves at the same time."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/dolce-cherry-truffles-coral-bells-heuchera-hybrid"
 shortUrl: "https://s.shymoose.com/OIfJB"
+archived: true
+archivedNote: "Did not survive initial planting (Summer 2026)."
 ---
 
 *Heuchera* Dolce® 'Cherry Truffles' is a coral bells grown above all for its

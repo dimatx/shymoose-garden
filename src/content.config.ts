@@ -96,6 +96,16 @@ const plants = defineCollection({
       // Powers the "Recently added" catalog sort; undated entries sort last.
       // Backfilled from each file's first git commit; set it for new plants.
       dateAdded: z.coerce.date().optional(),
+
+      // Set true for a plant that used to be in the garden but isn't
+      // anymore (e.g. it didn't survive). Archived plants stay in the
+      // catalog — grayed out and sorted after active plants on the home
+      // page — but are left off the bloom/pruning calendars and the
+      // garden map, since they're no longer actually growing there.
+      archived: z.boolean().default(false),
+      // Optional short reason/date shown alongside the "Archived" badge,
+      // e.g. "Did not survive initial planting (Summer 2026)".
+      archivedNote: z.string().optional(),
     }),
 });
 

@@ -30,6 +30,8 @@ funFact: "The leaves' silver sheen is a clever bit of plant optics — a thin re
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/dolce-silver-gumdrop-coral-bells-heuchera-hybrid"
 shortUrl: "http://s.shymoose.com/cc3bb"
 dateAdded: 2026-06-22
+archived: true
+archivedNote: "Did not survive initial planting (Summer 2026)."
 ---
 
 *Heuchera* Dolce® 'Silver Gumdrop' is a compact coral bells made for brightening

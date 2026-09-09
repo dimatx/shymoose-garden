@@ -204,6 +204,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
               data-type={plant.data.type ?? ""}
               data-sun={`|${sunLevels(plant).join("|")}|`}
               data-tags={`|${plant.data.tags.join("|")}|`}
+              data-archived={String(plant.data.archived)}
             >
               <PlantCard plant={plant} priority={i === 0} eager={i === 1} />
             </div>
@@ -464,8 +465,14 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       }
       // The source array stays alphabetical; stable sorting keeps that order
       // for equal dates and places entries without dates at the end.
+      // Archived plants always sort after active ones, in both modes.
       const sorted = sortMode === "recent"
-        ? [...items].sort((a, b) => Number(b.dataset.added) - Number(a.dataset.added))
+        ? [...items].sort((a, b) => {
+            const archivedDiff =
+              Number(a.dataset.archived === "true") - Number(b.dataset.archived === "true");
+            if (archivedDiff !== 0) return archivedDiff;
+            return Number(b.dataset.added) - Number(a.dataset.added);
+          })
         : items;
       grid.append(...sorted);
     }

@@ -19,13 +19,17 @@ interface Props {
 }
 
 const { plant, priority = false, eager = false } = Astro.props;
-const { name, latinName, photo, photoAlt, shortDescription } = plant.data;
+const { name, latinName, photo, photoAlt, shortDescription, archived, archivedNote } =
+  plant.data;
 ---
 
 <a
   href={`/plants/${plant.id}/`}
   data-astro-prefetch="viewport"
-  class="group flex flex-col overflow-hidden rounded-2xl border border-leaf-200/80 bg-white shadow-sm transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:border-transparent dark:bg-leaf-900 dark:shadow-none dark:ring-1 dark:ring-white/10 dark:hover:ring-white/20"
+  class:list={[
+    "group flex flex-col overflow-hidden rounded-2xl border border-leaf-200/80 bg-white shadow-sm transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:border-transparent dark:bg-leaf-900 dark:shadow-none dark:ring-1 dark:ring-white/10 dark:hover:ring-white/20",
+    { "grayscale-[60%] opacity-60 hover:opacity-90": archived },
+  ]}
 >
   <div class="relative aspect-4/3 overflow-hidden bg-leaf-100 dark:bg-leaf-800">
     <Image
@@ -47,6 +51,16 @@ const { name, latinName, photo, photoAlt, shortDescription } = plant.data;
       aria-hidden="true"
     >
     </div>
+    {
+      archived && (
+        <span
+          class="absolute right-2 top-2 rounded-full bg-black/70 px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-white"
+          title={archivedNote}
+        >
+          Archived
+        </span>
+      )
+    }
   </div>
   <div class="flex flex-1 flex-col gap-1 p-4">
     <h2 class="font-serif text-lg font-semibold leading-tight">{name}</h2>
@@ -54,5 +68,12 @@ const { name, latinName, photo, photoAlt, shortDescription } = plant.data;
     <p class="mt-1 line-clamp-2 text-sm text-leaf-700 dark:text-leaf-300">
       {shortDescription}
     </p>
+    {
+      archived && archivedNote && (
+        <p class="mt-1 text-xs italic text-leaf-500 dark:text-leaf-500">
+          {archivedNote}
+        </p>
+      )
+    }
   </div>
 </a>

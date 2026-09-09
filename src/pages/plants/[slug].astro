@@ -32,6 +32,8 @@ const {
   funFact,
   learnMoreUrl,
   shortUrl,
+  archived,
+  archivedNote,
 } = plant.data;
 
 // Use the plant's own photo as the social-share image so links shared from a
@@ -157,6 +159,16 @@ function renderInlineMarkdown(text: string): string {
       <p class="mt-1 text-lg italic text-leaf-600 dark:text-leaf-400">
         {latinName}
       </p>
+      {
+        archived && (
+          <p class="mt-3 inline-flex flex-col gap-0.5 rounded-xl border border-leaf-300 bg-leaf-100 px-3 py-2 text-sm dark:border-leaf-700 dark:bg-leaf-800">
+            <span class="font-semibold uppercase tracking-wide text-leaf-600 dark:text-leaf-400">
+              Archived — no longer in the garden
+            </span>
+            {archivedNote && <span class="text-leaf-700 dark:text-leaf-300">{archivedNote}</span>}
+          </p>
+        )
+      }
       {
         tags.length > 0 && (
           <ul class="mt-3 flex flex-wrap gap-2">

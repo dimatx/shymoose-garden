@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–9."
   size: "8–10 in. tall in leaf, 18–20 in. wide; flower scapes reach 18–20 in."
   bloom: "Slender wands of small white flowers with pink calyxes rise above the foliage in midsummer, drawing bees, butterflies, and hummingbirds."
+  spacing: "18–20 in apart, based on mature spread."
   pruning: "Maintenance: easy. Trim away tattered or winter-burned leaves in early spring as fresh growth begins; remove spent flower scapes to tidy the clump. Divide every few years to keep it vigorous."
 bloomMonths: [7]
 pruneMonths: [3]

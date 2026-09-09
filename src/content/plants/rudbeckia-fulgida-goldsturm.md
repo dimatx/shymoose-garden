@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 3–9."
   size: "Grows 18–24 in. tall (to about 3 ft in bloom) and 18–24 in. wide, forming dense clumps."
   bloom: "Golden-yellow daisies with dark brown-black cones from midsummer through fall."
+  spacing: "18–24 in apart."
   pruning: "Deadhead to extend bloom; cut back after frost or in early spring, and divide crowded clumps every 3–4 years."
 bloomMonths: [7, 8, 9, 10]
 pruneMonths: [10]

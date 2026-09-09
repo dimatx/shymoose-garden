@@ -1,7 +1,7 @@
 ---
 name: "Emerald Arborvitae"
 latinName: "Thuja occidentalis 'Emerald'"
-type: "Shrub"
+type: "Conifer"
 nativeRange: "Eastern North America"
 photo: "../../assets/plants/thuja-occidentalis-emerald.jpg"
 photoAlt: "A full, well-framed conical Emerald arborvitae specimen with dense green foliage."
@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 3–7."
   size: "10–15 ft tall and 3–4 ft wide; slow-growing, narrow column."
   bloom: "A needled evergreen with yellowish-green foliage that bronzes in winter; small light-brown cones."
+  spacing: "2–4 ft apart for a hedge; wider (5–6 ft) for individual specimens."
   pruning: "Maintenance: shear lightly in spring or early summer to shape a hedge, cutting only into green growth. Renewal: not possible — arborvitae won't resprout from bare old wood, so never cut back into leafless brown branches."
 pruneMonths: [4, 5, 6]
 tags:

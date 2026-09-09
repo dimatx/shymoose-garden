@@ -14,6 +14,7 @@ care:
   hardiness: "Very cold-hardy — USDA zones 4–7."
   size: "4–6 ft tall and wide, with an open, twiggy habit."
   bloom: "Clusters of rosy purple-pink, funnel-shaped flowers smother the bare branches in late winter to early spring, ahead of the leaves."
+  spacing: "4–6 ft apart, based on mature spread."
   pruning: "Maintenance: low. Prune lightly right after flowering to shape; avoid heavy cuts into old wood."
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]

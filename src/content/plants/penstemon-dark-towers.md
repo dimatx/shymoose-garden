@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 3–8."
   size: "Basal foliage clump 1–2 ft across; flowering spires rise 2–3 ft tall."
   bloom: "Loose, open panicles of pale pink, two-lipped tubular flowers about 1.5 in. long, from late spring into summer."
+  spacing: "12–18 in apart."
   pruning: "Maintenance: low. Deadhead to prolong bloom, leave winter seed heads for interest, then cut old stems back in late winter. Divide every few years."
 bloomMonths: [5, 6, 7]
 pruneMonths: [2]

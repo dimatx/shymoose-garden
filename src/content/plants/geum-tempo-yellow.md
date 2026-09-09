@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–9."
   size: "Mounding habit; flowering stems 14–20 in. tall and 18–24 in. wide."
   bloom: "Semi-double yellow flowers with dark edges on black stems, blooming in early spring, sometimes into early summer."
+  spacing: "18–24 in apart."
   pruning: "Maintenance: low. Deadhead spent blooms to encourage more flowering, feed with a balanced fertilizer in early spring after the first year, and cut back all growth in fall."
 bloomMonths: [4, 5, 6]
 pruneMonths: [3, 11]

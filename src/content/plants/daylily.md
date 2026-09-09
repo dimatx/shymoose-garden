@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 3–9."
   size: "Foliage clump 18–24 in. tall; flower scapes reach 2–3 ft; spreads 18–24 in. wide, slowly forming colonies by rhizomes."
   bloom: "Fragrant, clear lemon-yellow flowers about 3–4 in. across in late spring to early summer. Each flower lasts a single day, but many buds per scape extend the display for weeks."
+  spacing: "18–24 in apart."
   pruning: "Low maintenance. Deadhead spent flowers and cut back finished scapes to keep plants tidy. Remove ragged or dead foliage in early spring; divide congested clumps every few years."
 bloomMonths: [5, 6]
 pruneMonths: [3]

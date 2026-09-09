@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–8."
   size: "Mounding habit 14–16 in. tall and 18–22 in. wide."
   bloom: "Abundant, dense spikes of baby-pink flowers from early to midsummer, with a long bloom period and good repeat flowering when deadheaded."
+  spacing: "18–22 in apart, based on mature spread."
   pruning: "Maintenance: low. Deadhead and shear spent spikes to encourage more bloom, feed with a slow-release fertilizer in spring, and cut back in late fall or early spring. Divide every few years."
 bloomMonths: [6, 7]
 pruneMonths: [3, 11]

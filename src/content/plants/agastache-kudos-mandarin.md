@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–10."
   size: "Compact mound 17–22 in. tall and 16–20 in. wide."
   bloom: "Vivid orange, tubular flowers in dense upright spikes from early summer into fall."
+  spacing: "18–24 in apart."
   pruning: "Maintenance: low. Deadhead to encourage continued bloom, and trim old stems back in spring for fresh growth."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [3]

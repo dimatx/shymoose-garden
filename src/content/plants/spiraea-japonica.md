@@ -15,6 +15,7 @@ care:
   size: "2–3 ft tall and 3–4 ft wide, forming a tidy, rounded mound."
 
   bloom: "Flat to slightly domed clusters of tiny rosy-pink (sometimes white) flowers from early to late summer; shearing spent blooms encourages a second flush."
+  spacing: "3–4 ft apart, based on mature spread."
   pruning: "Maintenance: low. Cut back hard in late winter or early spring to keep it dense; deadhead in summer to prolong bloom."
 bloomMonths: [6, 7, 8]
 pruneMonths: [2, 3]

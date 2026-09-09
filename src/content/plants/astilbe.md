@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–8."
   size: "About 20 in. tall in flower and 18–24 in. wide, forming a clump of ferny foliage on reddish stems."
   bloom: "Large, fluffy pyramidal plumes of clear-white flowers in early to midsummer. The bronze dried seed heads stay attractive into winter."
+  spacing: "18–24 in apart."
   pruning: "Low maintenance. Leave the spent plumes for winter interest, then cut the old foliage back in late winter. Divide every 3–4 years in spring to keep clumps vigorous."
 bloomMonths: [6, 7]
 pruneMonths: [3]

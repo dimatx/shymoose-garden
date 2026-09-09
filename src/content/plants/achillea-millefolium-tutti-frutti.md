@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–8."
   size: "Flat flower heads on sturdy stems about 22–29 in. tall above a low mat of ferny foliage; roughly 24 in. wide."
   bloom: "Large flat-topped clusters that change colour as they mature — apricot, pink, cherry and red tones together — from early summer into late summer. Deadhead to prolong bloom."
+  spacing: "18–24 in apart."
   pruning: "Shear hard after the first flush for a tidy rebloom; cut to the ground in late winter. Divide every 2–3 years to keep clumps vigorous."
 bloomMonths: [6, 7, 8]
 pruneMonths: [3]

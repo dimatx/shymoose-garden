@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4b–8b."
   size: "Slowly matures to 8–10 ft tall and 6–8 ft wide; dwarf cultivars stay much smaller."
   bloom: "Drooping 3–6 in. chains of fragrant, white urn-shaped flowers in spring; showy flower buds form the summer before and decorate the shrub through fall and winter."
+  spacing: "6–8 ft apart, based on mature spread (dwarf cultivars can be planted closer)."
   pruning: "Maintenance: low. Deadhead spent flower clusters and lightly shape right after blooming — it flowers on old wood, so pruning later removes next spring's buds."
 bloomMonths: [3, 4, 5]
 pruneMonths: [5, 6]

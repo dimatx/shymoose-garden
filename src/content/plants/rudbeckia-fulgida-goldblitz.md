@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 3–9."
   size: "Grows 24–28 in. tall and about 18–24 in. wide."
   bloom: "Golden-yellow daisy flowers with dark brown centers from midsummer through fall."
+  spacing: "18–24 in apart."
   pruning: "Deadhead spent blooms to prolong flowering; cut back to the ground in late fall or early spring, and divide clumps every 3–4 years."
 bloomMonths: [6, 7, 8, 9, 10]
 pruneMonths: [3, 4, 9, 10]

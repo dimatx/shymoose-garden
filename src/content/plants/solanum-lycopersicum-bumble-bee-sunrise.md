@@ -17,6 +17,7 @@ care:
   hardiness: "Warm-season annual; frost-tender — transplant out only once nights stay reliably warm."
   size: "Indeterminate."
   bloom: "Yellow-and-red bicolor fruits, 20–25 g each; about 70 days to harvest."
+  spacing: "24–36 in apart in rows 4–5 ft apart, staked or caged."
   pruning: "Maintenance: thin the suckers and strip the lower leaves to improve airflow on the tall indeterminate vines, keeping them tied to a stout support."
 tags:
   - "Annual"

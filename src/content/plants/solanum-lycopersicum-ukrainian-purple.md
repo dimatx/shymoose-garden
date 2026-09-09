@@ -15,8 +15,9 @@ care:
   soil: "Rich, fertile, well-drained soil high in organic matter; slightly acidic pH (about 6.2–6.8)."
   sunlight: "Full sun — at least 6–8 hours of direct sun a day."
   hardiness: "Warm-season annual; frost-tender — transplant out only once nights stay reliably warm."
-  size: "Space plants 2–3 ft apart in rows 3–4 ft apart."
+  size: "Indeterminate."
   bloom: "Purply-black plum-shaped fruit; about 80 days from transplant."
+  spacing: "Space plants 2–3 ft apart in rows 3–4 ft apart."
   pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."
 tags:
   - "Annual"

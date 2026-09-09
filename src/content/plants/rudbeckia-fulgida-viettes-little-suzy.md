@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–8."
   size: "Compact, only about 10–15 in. tall and wide — one of the smallest black-eyed Susans."
   bloom: "Golden-yellow daisies with dark brown centers from midsummer into fall."
+  spacing: "10–15 in apart, based on this compact selection's mature spread."
   pruning: "Deadhead to prolong bloom; cut back after frost or in early spring and divide every few years."
 bloomMonths: [7, 8, 9, 10]
 pruneMonths: [10]

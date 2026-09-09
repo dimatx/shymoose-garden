@@ -14,6 +14,7 @@ care:
   hardiness: "Very cold-hardy — USDA zones 2–8."
   size: "Highly variable depending on staking — staked forms typically reach 6–10 ft tall; unstaked forms trail to 1–2 ft tall by 6–10 ft wide."
   bloom: "None — grown for its evergreen silvery-blue needles and weeping form rather than flowers."
+  spacing: "6–10 ft apart, based on mature spread."
   pruning: "Maintenance: low. Stake a leader to set the height, then prune only to guide form and remove damaged growth in spring."
 pruneMonths: [4]
 tags:

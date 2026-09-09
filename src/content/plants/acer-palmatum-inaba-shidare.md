@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–8."
   size: "4–6 ft tall in its first decade, eventually to about 10 ft tall and 12 ft or more wide; slow-growing, upright yet cascading mound."
   bloom: "Small reddish-purple flowers in spring, attractive up close but not showy, followed by paired winged samaras. Grown chiefly for its foliage and form."
+  spacing: "10–12 ft apart as a specimen, based on mature spread."
   pruning: "Keep pruning minimal. If needed, prune from late fall to mid-winter while dormant — spring or summer cuts cause heavy bleeding."
 bloomMonths: [4]
 pruneMonths: [11, 12]

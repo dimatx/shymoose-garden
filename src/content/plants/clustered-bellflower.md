@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 3–8."
   size: "'Superba' reaches 2–3 ft tall and 1–2 ft wide in bloom; basal foliage mound is lower."
   bloom: "Dense spherical clusters of up to 15 upward-facing, violet-purple bell-shaped flowers at stem tips and in upper leaf axils from late spring to early summer. Good for cutting."
+  spacing: "12–18 in apart."
   pruning: "Deadhead spent flower stems promptly to encourage rebloom. Divide clumps every 3–5 years in fall to keep plants vigorous and prevent aggressive spread."
 bloomMonths: [5, 6, 7]
 pruneMonths: [9, 10]

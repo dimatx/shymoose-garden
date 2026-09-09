@@ -13,6 +13,7 @@ care:
   hardiness: "USDA zones 3–9."
   size: "'Zagreb' is compact, reaching 12–18 in. tall and 12–18 in. wide."
   bloom: "Gold/yellow daisy-like flowers from spring into summer."
+  spacing: "18–24 in apart."
   pruning: "Maintenance: shear the whole plant back lightly after the main flush to trigger fresh bloom, and cut to the ground in late fall or early spring. Divide every two to three years to keep it dense."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [4, 11]

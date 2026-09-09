@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–9 (varies by species)."
   size: "Most garden pinks form low mounds 6–15 in. tall and about 12 in. wide; border carnations can reach 2–3 ft."
   bloom: "Fragrant, fringed five-petalled flowers in pink, white, red and bicolors, late spring into summer. Deadheading prolongs the display."
+  spacing: "10–12 in apart for mounding garden pinks; up to 18 in for taller border carnations."
   pruning: "Low maintenance. Shear the mound lightly after the main flush to keep it tidy and encourage a second round of bloom."
 bloomMonths: [5, 6, 7]
 pruneMonths: [6]

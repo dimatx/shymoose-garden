@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–9. Reliably hardy, but flower buds can be damaged by hard late freezes below about -10°F, so give it a sheltered spot in colder parts of its range."
   size: "'Alice' is a large selection, typically 6–8 ft tall and wide, though it can reach 10–12 ft in ideal conditions."
   bloom: "Large, cone-shaped (pyramidal) flower panicles 10–14 in long, opening creamy white in early-mid summer and aging to pink and tan by late summer."
+  spacing: "6–8 ft apart, based on mature spread (allow more room if it reaches its full 10–12 ft size)."
   pruning: "Blooms on old wood — prune only right after flowering if shaping is needed. Pruning in late winter or spring removes the coming season's flower buds."
 tags:
   - "Native"

@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–11."
   size: "Clumping habit, 2–3 ft tall and 1.5–2 ft wide, spreading slowly by rhizomes."
   bloom: "Flowers are small and insignificant; grown for its variegated, fragrant foliage rather than bloom."
+  spacing: "18–24 in apart."
   pruning: "Maintenance: low. Cut back winter-damaged or spent foliage in early spring, and divide congested clumps every few years."
 pruneMonths: [3]
 tags:

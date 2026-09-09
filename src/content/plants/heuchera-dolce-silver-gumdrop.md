@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–9."
   size: "6–8 in. tall in leaf, 14–16 in. wide; flower scapes reach 20–24 in."
   bloom: "Vibrant pink flowers on slender scapes appear in midsummer above the foliage, drawing bees, butterflies, and hummingbirds."
+  spacing: "12–18 in apart."
   pruning: "Maintenance: easy. Trim tattered or winter-burned foliage in early spring as new growth emerges; remove spent flower scapes. Divide every few years to keep the clump full."
 bloomMonths: [7]
 pruneMonths: [3]

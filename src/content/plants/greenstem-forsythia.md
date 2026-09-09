@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–8."
   size: "6–10 ft. tall and wide, with arching, multi-stemmed, dense form."
   bloom: "Bright yellow 4-lobed trumpet flowers appear in early spring (February–April) before foliage. Stems can be cut and forced indoors in late winter."
+  spacing: "6–10 ft apart as a specimen, based on mature spread (3–5 ft for a dense hedge)."
   pruning: "Prune immediately after flowering (April–May) to shape the shrub and promote vigorous new growth for next year's blooms. Do not prune in late summer or fall — this removes next year's flower buds."
 bloomMonths: [2, 3, 4]
 pruneMonths: [4, 5]

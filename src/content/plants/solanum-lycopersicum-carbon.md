@@ -17,6 +17,7 @@ care:
   hardiness: "Warm-season annual; frost-tender — transplant out only once nights stay reliably warm."
   size: "Indeterminate, with a well-balanced habit."
   bloom: "Blocky-round 10–14 oz. fruit, dark olive shoulders fading to dark brick red; about 76 days to harvest."
+  spacing: "24–36 in apart in rows 4–5 ft apart, staked or caged."
   pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."
 tags:
   - "Annual"

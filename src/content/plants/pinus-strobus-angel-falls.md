@@ -1,7 +1,7 @@
 ---
 name: "Weeping White Pine"
 latinName: "Pinus strobus 'Angel Falls'"
-type: "Shrub"
+type: "Conifer"
 nativeRange: "Northeastern North America (species); cultivar selection"
 photo: "../../assets/plants/pinus-strobus-angel-falls.jpg"
 photoAlt: "A weeping, multi-stemmed conifer with long, soft blue-green needles cascading in curtains from staked upright leaders, planted in a garden bed."
@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 3–8."
   size: "Slow to medium growth; reaches roughly 8–10 ft tall with an 4 ft spread at maturity, though ultimate height depends heavily on how the weeping leader is staked and trained."
   bloom: "Grown for its cascading blue-green needles and weeping habit, not flowers; non-flowering conifer."
+  spacing: "4–6 ft apart, based on mature spread (varies with how the weeping leader is trained)."
   pruning: "Low maintenance. Only trim back the current season's new growth (candles) if size control is wanted; remove dieback as needed. Stake and train the leader while young to establish height."
 bloomMonths: []
 pruneMonths: [6]

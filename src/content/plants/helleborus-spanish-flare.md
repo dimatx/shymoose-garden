@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–9."
   size: "Grows 12–18 in. tall and wide."
   bloom: "Pale yellow, nodding flowers with maroon flares at the petal base, from late winter into early spring."
+  spacing: "12–18 in apart."
   pruning: "Remove tattered old foliage in late winter before new flower stalks emerge; otherwise low-maintenance."
 bloomMonths: [1, 2, 3, 4]
 tags:

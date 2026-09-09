@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–8."
   size: "8–15 ft tall and 10–18 ft wide at maturity."
   bloom: "Clusters of white flowers in spring; foliage turns purple to burgundy in fall."
+  spacing: "8–10 ft apart as a specimen; allow more room (up to 15–18 ft) if it reaches its full mature spread."
   pruning: "Maintenance: prune right after flowering — it blooms on old wood, so wait until the spring show is over, then thin and shape. Renewal: rejuvenate an overgrown shrub gradually by removing up to a third of the oldest stems to the ground each year over three years."
 bloomMonths: [4, 5]
 pruneMonths: [6, 7]

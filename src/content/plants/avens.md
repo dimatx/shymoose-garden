@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–7."
   size: "Foliage mound to 12–15 in. tall; reaches 24–30 in. in bloom; spreads 12–18 in. wide."
   bloom: "Semi-double to double scarlet-orange flowers on branching wiry stems from late spring through summer. Feathery seed heads are ornamental after bloom."
+  spacing: "12–18 in apart."
   pruning: "Low maintenance. Deadhead spent flowers to prolong bloom. Divide clumps every 1–2 years in early spring to keep plants vigorous."
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3, 4]

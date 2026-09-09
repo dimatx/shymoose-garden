@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 3–8."
   size: "2–3 ft tall, spreading 2–4 ft wide — and considerably further if left unchecked."
   bloom: "Nodding, one-sided white flower spikes that curve like a goose's neck, from midsummer into early fall."
+  spacing: "3–4 ft apart (it spreads aggressively by rhizomes, so give it room or install a root barrier)."
   pruning: "Maintenance: low. Cut back after flowering to tidy the clump; divide or install a root barrier to keep the spread in bounds."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [9]

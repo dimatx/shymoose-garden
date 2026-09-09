@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–9."
   size: "Compact clumps, about 8–12 in. tall and wide."
   bloom: "Small, star-shaped blue-violet flowers with yellow centers from mid-spring through summer."
+  spacing: "6–12 in apart."
   pruning: "Shear back lightly after the main flush of bloom to tidy the foliage and encourage a second flush; self-seeds readily."
 bloomMonths: [4, 5, 6, 7]
 pruneMonths: [6, 7, 8]

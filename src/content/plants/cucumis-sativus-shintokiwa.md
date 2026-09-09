@@ -17,6 +17,7 @@ care:
   hardiness: "Warm-season annual; frost-tender — plant out only after all danger of frost has passed."
   size: "Best picked at 8 in. or smaller, though it stays sweet when larger."
   bloom: "Long, slender, thin-skinned fruit."
+  spacing: "12–18 in apart along a trellis."
   pruning: "Maintenance: train the vine up a trellis and pinch off the lowest side shoots and leaves for airflow, keeping the long fruit straight and clean."
 tags:
   - "Annual"

@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–9."
   size: "Grows 3–7 ft tall and 2–4 ft wide, dying back to the ground each winter."
   bloom: "Huge, saucer-shaped pink, red, or white flowers, often 6–8 in. across, from midsummer into early fall."
+  spacing: "3–4 ft apart, based on mature spread."
   pruning: "Cut stems to the ground in late fall after they die back, or leave for winter interest; emerges late in spring, so mark its location."
 bloomMonths: [7, 8, 9]
 pruneMonths: [10, 11]

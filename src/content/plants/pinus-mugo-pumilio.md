@@ -1,7 +1,7 @@
 ---
 name: "Dwarf Mugo Pine"
 latinName: "Pinus mugo 'Pumilio'"
-type: "Shrub"
+type: "Conifer"
 nativeRange: "Mountains of central and southern Europe (the species); 'Pumilio' is a dwarf selection"
 photo: "../../assets/plants/pinus-mugo-pumilio.jpg"
 photoAlt: "A low, dense mound of dark green two-needle pine foliage planted along a house foundation."
@@ -13,6 +13,7 @@ care:
   sunlight: "Full sun; somewhat tolerant of partial shade, though growth is looser and less dense."
   hardiness: "USDA zones 2–7."
   size: "Slow-growing; matures over time to about 3–5 ft tall and 6–10 ft wide, dense and spreading, often semi-prostrate with upright branching."
+  spacing: "6–10 ft apart, based on mature spread (closer, about 3–5 ft, for a low massed planting)."
   pruning: "Prune annually in late winter to retain its compact size, or pinch the soft new candles by half in spring — unpruned plants will slowly outgrow their space."
 tags:
   - "Conifer"

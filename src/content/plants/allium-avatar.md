@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–8."
   size: "About 15–18 in. tall and wide."
   bloom: "Rounded, lavender-pink flower clusters from mid-summer into early fall."
+  spacing: "12–18 in apart."
   pruning: "Deadhead spent flower heads to tidy the planting; cut foliage back after it yellows in fall."
 bloomMonths: [7, 8, 9]
 pruneMonths: [10, 11]

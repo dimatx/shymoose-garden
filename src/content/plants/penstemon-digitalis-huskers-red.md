@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 3–8."
   size: "Basal foliage clump 12–18 in. across; flowering stems rise 2–3 ft tall and about 18 in. wide."
   bloom: "Open panicles of white, lightly pink-blushed tubular flowers in late spring to early summer. Ornamental seed heads follow."
+  spacing: "12–18 in apart."
   pruning: "Low maintenance. Leave the rusty winter seed heads for interest, then cut old stems back in late winter. Divide clumps every few years to keep them vigorous."
 bloomMonths: [5, 6]
 pruneMonths: [3]

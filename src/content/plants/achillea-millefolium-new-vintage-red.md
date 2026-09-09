@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–9."
   size: "Compact: a tidy mound with flower stems about 12–16 in. tall and 12–14 in. wide — roughly half the height of common yarrow."
   bloom: "Flat-topped clusters of crimson-red flowers that hold their colour well, from late spring through summer, often reblooming into fall if deadheaded."
+  spacing: "18–24 in apart."
   pruning: "Deadhead or shear after flowering to encourage rebloom and stop self-seeding; cut back in late winter. Divide every 2–3 years."
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3]

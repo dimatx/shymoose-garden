@@ -14,6 +14,7 @@ care:
   hardiness: "Zones 5–9 (biennial, overwinters); grown as an annual in colder zones"
   size: "8–12 in tall in first year; up to 2–3 ft with flower stalks in second year"
   bloom: "Greenish-yellow compound umbels appear in summer of the second year. Flowers attract beneficial insects including hoverflies and parasitic wasps."
+  spacing: "6–8 in apart."
   pruning: "Harvest outer stems at the base to encourage new growth from the center. Remove flower stalks promptly as they appear to prolong the leaf harvest — leaf quality declines once flowering begins."
 pruneMonths: [4, 5, 6, 7, 8, 9]
 tags:

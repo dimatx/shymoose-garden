@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–9."
   size: "About 18–22 in. tall and wide."
   bloom: "Bright orange-red daisy-like flowers from early summer through fall."
+  spacing: "18–22 in apart."
   pruning: "Shear back by about a third after the first flush of bloom to encourage rebloom; cut to the ground in late winter."
 bloomMonths: [6, 7, 8, 9, 10]
 pruneMonths: [7, 2, 3]

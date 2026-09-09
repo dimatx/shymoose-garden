@@ -14,6 +14,7 @@ care:
   hardiness: "Cold-hardy — USDA zones 4–8."
   size: "18–24 in tall and about as wide, forming a neat basal clump."
   bloom: "Upright spikes of violet-blue (sometimes pink or white) flowers from late spring into summer; shearing back spent spikes brings a strong rebloom."
+  spacing: "12–18 in apart."
   pruning: "Maintenance: low. Cut spent flower spikes to encourage reflowering; cut the clump back in late fall or early spring."
 bloomMonths: [5, 6, 7]
 pruneMonths: [6, 7]

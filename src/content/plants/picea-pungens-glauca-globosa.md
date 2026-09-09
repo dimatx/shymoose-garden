@@ -14,6 +14,7 @@ care:
   hardiness: "Very cold-hardy — USDA zones 2–8."
   size: "Slowly reaches 3–5 ft tall and 4–6 ft wide over many years, forming a flattened globe."
   bloom: "None — grown for its evergreen silvery-blue needles rather than flowers."
+  spacing: "4–6 ft apart, based on mature spread."
   pruning: "Maintenance: very low. Little or no pruning needed; trim only to remove damaged growth or refine the shape in spring."
 pruneMonths: [4]
 tags:

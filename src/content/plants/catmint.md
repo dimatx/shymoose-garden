@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–9."
   size: "'Junior Walker' grows 1–1.5 ft tall and 1.5–2 ft wide; compact, low, and mounding (smaller than the related 'Walker's Low')."
   bloom: "Small, two-lipped lavender-blue flowers in dense spike-like terminal clusters from late spring through midsummer. Shearing after the first flush triggers a strong second wave of bloom."
+  spacing: "18–24 in apart."
   pruning: "Shear plants back by one-third to one-half after the first bloom flush fades (typically July) to encourage a full second flush. Clean up dead growth in early spring. Division every few years keeps plants vigorous."
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3, 7]

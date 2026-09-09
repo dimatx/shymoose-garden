@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zone 4 (some sources list zone 3)."
   size: "Extremely slow, growing only 3–6 in. per year; forms a compact globe when young that broadens with age, reaching roughly 6 ft tall and wide over many years."
   bloom: "None — grown for its evergreen foliage rather than flowers."
+  spacing: "4–6 ft apart, based on mature spread."
   pruning: "Maintenance: very low. Prune only in late May or June if needed to maintain shape; avoid heavy pruning."
 pruneMonths: [5, 6]
 tags:

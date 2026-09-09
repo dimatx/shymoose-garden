@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–8."
   size: "Species reaches 5–10 ft tall and wide; many compact cultivars stay 3–5 ft. Takes hard shearing to any size."
   bloom: "Inconspicuous small white flowers in late spring; female plants follow with small shiny black berries."
+  spacing: "2–3 ft apart for a dense hedge; 4–6 ft apart for informal plantings or larger cultivars."
   pruning: "Maintenance: low to moderate. Shears beautifully into hedges and topiary; trim in early summer after flowering."
 bloomMonths: [5, 6]
 pruneMonths: [6, 7]

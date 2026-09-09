@@ -1,7 +1,7 @@
 ---
 name: "Fernspray Hinoki Cypress"
 latinName: "Chamaecyparis obtusa 'Filicoides'"
-type: "Shrub"
+type: "Conifer"
 nativeRange: "Japan and Taiwan"
 photo: "../../assets/plants/hinoki-cypress.jpg"
 photoAlt: "A dense, pyramidal Fernspray Hinoki cypress with congested, fern-like green sprays, growing beside a house porch."
@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–8."
   size: "8–12 ft tall, 3–4 ft wide — slow growing; the straight species can reach 50–75 ft, but this cultivar stays much smaller."
   bloom: "No true flowers; evergreen, fern-like sprays of congested, thread-like foliage year-round."
+  spacing: "3–5 ft apart, based on mature spread."
   pruning: "Minimal — light shaping only as needed to maintain its narrow pyramidal form. Avoid cutting into bare, leafless wood, as false cypress won't resprout from it."
 bloomMonths: []
 pruneMonths: [4, 5]

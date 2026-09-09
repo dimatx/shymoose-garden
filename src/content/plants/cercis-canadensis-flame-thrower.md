@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–9."
   size: "15–20 ft tall and 10–15 ft wide, with a slight pendant habit (non-weeping)."
   bloom: "Abundant rosy pink-purple, pea-like flowers in clusters on bare branches in early spring, before leaf-out."
+  spacing: "10–15 ft apart, based on mature spread."
   pruning: "Maintenance: low. Prune lightly to shape and remove dead or crossing wood right after flowering. Redbuds dislike being transplanted, so choose the planting site carefully."
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]

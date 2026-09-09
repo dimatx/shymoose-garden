@@ -14,6 +14,7 @@ care:
   hardiness: "Annual (USDA zones 2–11). Direct-sow outdoors after the last frost date."
   size: "3–4 ft. tall, 8–12 in. wide; upright, erect habit."
   bloom: "Large fully double 4–5 inch lilac-purple blooms continuously from early summer until frost. Deadheading spent flowers keeps production strong."
+  spacing: "9–12 in apart."
   pruning: "No pruning needed. Pinch seedlings at 8–12 inches for bushier plants. Deadhead spent blooms regularly to extend the blooming season."
 bloomMonths: [6, 7, 8, 9, 10]
 tags:

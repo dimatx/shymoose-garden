@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 3–9."
   size: "2–2.5 ft tall and 1.5–2 ft wide."
   bloom: "Tiny star-shaped pink to purplish-red flowers in dense clusters from August to October, fading to burgundy."
+  spacing: "18–24 in apart."
   pruning: "Maintenance: leave the seed heads standing for winter interest, then cut old stems to the ground in early spring; an optional late-spring 'Chelsea chop' keeps the plant compact and upright. Divide every few years to rejuvenate."
 bloomMonths: [8, 9, 10]
 pruneMonths: [4, 6]

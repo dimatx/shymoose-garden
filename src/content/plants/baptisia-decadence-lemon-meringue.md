@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–9."
   size: "Reaches about 3 ft tall and 3–4 ft wide in a broadly vase-shaped mound."
   bloom: "Spikes of clear lemon-yellow, lupine-like flowers open from dark charcoal-gray buds on nearly black stems in late spring to early summer, followed by attractive seed pods that persist into fall."
+  spacing: "3–4 ft apart, based on mature spread."
   pruning: "Maintenance: very low. No deadheading needed — let seed pods stand for fall interest. Cut the whole clump back to the ground in late fall or early spring."
 bloomMonths: [5, 6]
 pruneMonths: [3, 11]

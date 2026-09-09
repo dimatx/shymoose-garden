@@ -55,6 +55,11 @@ const plants = defineCollection({
         size: z.string().optional(),
         bloom: z.string().optional(),
         pruning: z.string().optional(),
+        // How far apart to plant/space this plant, e.g. "18–24 in apart" or
+        // "3–4 ft between plants". Optional — only fill in what's verified
+        // against a reputable source (NCSU Extension, Missouri Botanical
+        // Garden, RHS, or the breeder page for a patented cultivar).
+        spacing: z.string().optional(),
       }),
 
       // Months this plant is in flower, as numbers 1–12 (1 = January).

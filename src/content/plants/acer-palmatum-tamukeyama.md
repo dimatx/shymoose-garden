@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–8."
   size: "6–8 ft tall and 8–12 ft wide at maturity; slow-growing, broad weeping mound."
   bloom: "Small, inconspicuous reddish-purple flowers in spring, followed by ornamental winged samaras. Grown primarily for its foliage and form."
+  spacing: "8–12 ft apart as a specimen, based on mature spread."
   pruning: "Minimal pruning needed. Remove dead or crossing branches in late winter while dormant; avoid heavy or late-season cuts, which bleed."
 bloomMonths: [4, 5]
 pruneMonths: [2, 3]

@@ -14,6 +14,7 @@ care:
   hardiness: "Zones 3–10"
   size: "Up to 2 ft tall (bulbil-bearing stalks)"
   bloom: "Does not produce true flowers. Instead, clusters of small bulbils (topsets) form at the stalk tips in late spring to early summer. If unharvested, stalks topple under the weight of the bulbils, rooting them nearby."
+  spacing: "Plant bulbils 4–5 in. apart; thin or divide established clumps to about 12 in. as they mature."
   pruning: "Harvest young shoots as green onions in early spring. Harvest or replant bulbils in early summer before they self-propagate. Divide basal clumps in spring to control spread and rejuvenate plants."
 pruneMonths: [5, 6]
 tags:

@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–8."
   size: "3–4 ft tall and 2–4 ft wide."
   bloom: "Clusters of orange-yellow daisy-like flowers on tall, dark purple stems in mid- to late summer, above large kidney-shaped leaves."
+  spacing: "2–3 ft apart, based on mature spread."
   pruning: "Maintenance: low. Deadhead spent flower stalks, then cut the foliage back after frost."
 bloomMonths: [7, 8]
 pruneMonths: [10, 11]

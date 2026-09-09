@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 6–9 (some cultivars hardy to zone 5)."
   size: "Typically 3–6 ft tall and wide, though dwarf and large cultivars range from about 1 to 10 ft."
   bloom: "Large rounded mophead (or flat lacecap) clusters in early to mid summer, in blue, purple, pink, or white depending on cultivar and soil pH. Blooms can persist and dry on the plant into fall."
+  spacing: "4–6 ft apart for typical cultivars; adjust to the mature spread of your specific variety."
   pruning: "Blooms mostly on old wood. Prune immediately after flowering in summer — do NOT cut back in late winter or spring or you remove the season's flower buds. Remove only dead or weak stems in early spring."
 bloomMonths: [6, 7, 8]
 pruneMonths: [7, 8]

@@ -1,7 +1,7 @@
 ---
 name: "Japanese Red Pine 'Golden Ghost'"
 latinName: "Pinus densiflora 'Golden Ghost'"
-type: "Tree"
+type: "Conifer"
 nativeRange: "Japan, Korea, and northeastern China (the species)"
 photo: "../../assets/plants/pinus-densiflora-golden-ghost.jpg"
 photoAlt: "A close-up of fresh new-growth needles on a Japanese red pine 'Golden Ghost', radiating outward in a starburst pattern with creamy-yellow variegation streaked through green."
@@ -13,6 +13,7 @@ care:
   sunlight: "Full sun — needed for the brightest yellow-and-cream variegation and dense growth."
   hardiness: "USDA zones 5–8."
   size: "About 6 ft tall and 4–5 ft wide in ten years (6–8 in. a year); a broadly upright to oval evergreen."
+  spacing: "5–8 ft apart to allow room for continued growth beyond its ten-year size."
   pruning: "Minimal. Shape or slow growth by pinching the soft new 'candles' by half in late spring; avoid cutting back into bare old wood, which won't resprout."
 tags:
   - "Conifer"

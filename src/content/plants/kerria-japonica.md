@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 4–9, hardy to roughly -30°F."
   size: "3–7 ft tall, spreading 6–10 ft or more by suckering; some cultivars reach 8–10 ft."
   bloom: "Bright yellow, 1–2 in. flowers in mid-spring, with occasional sporadic rebloom in summer."
+  spacing: "6–8 ft apart, based on mature spread (it suckers freely, so allow room to spread or plan to control it)."
   pruning: "Maintenance: low. Prune right after flowering — it blooms on old wood. Remove old or leggy canes at ground level and pull suckers to control spread."
 bloomMonths: [4, 5]
 pruneMonths: [5, 6]

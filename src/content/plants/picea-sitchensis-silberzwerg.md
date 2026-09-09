@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zone 5 (some sources list zones 5–8)."
   size: "Extremely slow, growing only 3–6 in. per year; reaches roughly 8 ft tall and 6 ft wide after many years in the garden — a tiny fraction of the wild species' size."
   bloom: "None — grown for its evergreen, two-tone needles rather than flowers."
+  spacing: "5–6 ft apart, based on mature spread."
   pruning: "Maintenance: very low. Remove only dead or damaged wood; no routine shaping needed."
 pruneMonths: [4]
 tags:

@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 2–9."
   size: "3–4 ft tall and 2–3 ft wide."
   bloom: "Pink, purple/lavender, or white flowers on spikes from July to October."
+  spacing: "18–24 in apart (it spreads by rhizomes, so divide to keep it in bounds)."
   pruning: "Maintenance: cut stems back by half in late spring for sturdier plants, deadhead to limit self-seeding, and cut to the ground after frost. Divide every year or two to renew and contain it."
 bloomMonths: [7, 8, 9, 10]
 pruneMonths: [6, 11]

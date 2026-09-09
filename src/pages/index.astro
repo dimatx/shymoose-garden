@@ -205,6 +205,9 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
               data-sun={`|${sunLevels(plant).join("|")}|`}
               data-tags={`|${plant.data.tags.join("|")}|`}
               data-archived={String(plant.data.archived)}
+              data-archived-first={String(
+                plant.data.archived && !plants[i - 1]?.data.archived
+              )}
             >
               <PlantCard plant={plant} priority={i === 0} eager={i === 1} />
             </div>
@@ -225,6 +228,17 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 </Layout>
 
 <style>
+  /* Archived plants always start a fresh grid row instead of sharing one
+     with the last active plant — active/archived cards differ enough in
+     height (the archived note adds a line) that sharing a row left an
+     awkward gap under the shorter card. Forcing column 1 on the first
+     archived card makes the grid's auto-placement skip to the next row,
+     regardless of how many active plants precede it. Harmless on the
+     single-column mobile layout, where every card is already column 1. */
+  .plant-item[data-archived-first="true"] {
+    grid-column-start: 1;
+  }
+
   /* Filter chip styling kept here so the buttons look consistent whether or
      not JavaScript has toggled their active state. */
   .filter-chip {
@@ -457,6 +471,21 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       );
     }
 
+    // Keep the "start a new grid row" marker (see the .plant-item
+    // [data-archived-first] CSS rule) on whichever archived card is
+    // currently first among the *visible* items — filtering can hide
+    // items and change that, and sorting can reorder the archived group
+    // itself. Re-run after both.
+    function markArchivedRowBreak() {
+      let seenArchived = false;
+      for (const item of items) {
+        if (item.hidden) continue;
+        const isArchived = item.dataset.archived === "true";
+        item.dataset.archivedFirst = String(isArchived && !seenArchived);
+        if (isArchived) seenArchived = true;
+      }
+    }
+
     function sortItems() {
       for (const choice of sortChoices) {
         const selected = choice.dataset.sort === sortMode;
@@ -515,6 +544,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         item.hidden = !show;
         if (show) visible++;
       }
+      markArchivedRowBreak();
 
       const active =
         selectedTypes.size +

@@ -14,10 +14,38 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, globSync } from 'fs';
 import { join, dirname, basename } from 'path';
 import { fileURLToPath } from 'url';
+import opentype from 'opentype.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const DRY_RUN = process.env.DRY_RUN === '1';
+
+// Same dimensions as plant-sign-template.scad's [Dimensions]/[Padding]/[Other]
+// sections — kept in sync by hand since the template isn't parsed at gen time.
+const PLAQUE_H = 35;
+const TEXT_PADDING = 4.0;
+const TOTAL_TEXT_H = PLAQUE_H - TEXT_PADDING * 3;
+const PRIMARY_TEXT_H = (TOTAL_TEXT_H / 3) * 2; // common_name (Bold)
+const SECONDARY_TEXT_H = TOTAL_TEXT_H / 3;     // scientific_name (Italic)
+// text_start when the QR code is shown (the default; remove_qr stays false
+// for every generated sign) + the right-hand text_padding margin.
+const TEXT_MARGIN = PLAQUE_H + TEXT_PADDING;
+
+const boldFont = opentype.parse(readFileSync(join(__dirname, 'fonts', 'BarlowCondensed-Bold.ttf')).buffer);
+const italicFont = opentype.parse(readFileSync(join(__dirname, 'fonts', 'BarlowCondensed-Italic.ttf')).buffer);
+
+// Real rendered advance width (mm) of `text` set in `font` at `sizeMm`,
+// matching how OpenSCAD's text() module sizes glyphs from the font's
+// em-square. Falls back to 0 for glyphs missing from the font (none
+// expected — Barlow Condensed covers basic Latin, ® and ™).
+function measureTextWidthMm(font, text, sizeMm) {
+  const scale = sizeMm / font.unitsPerEm;
+  let units = 0;
+  for (const ch of text) {
+    units += font.charToGlyph(ch).advanceWidth ?? 0;
+  }
+  return units * scale;
+}
 
 // Escape a value for use inside an OpenSCAD double-quoted string
 function escapeScad(str) {
@@ -101,13 +129,16 @@ const SIGN_NAME = {
 };
 
 // Per-plant plaque_w overrides (mm). Minimum is 175.
-// Primary text (~9mm/char Barlow Condensed Bold) and secondary latin text
-// (~4.5mm/char Barlow Condensed Italic) both checked. text_width = plaque_w - 39.
-// When a slug is NOT listed here, calcPlaqueW() computes the width automatically.
+// When a slug is NOT listed here, calcPlaqueW() computes the width from the
+// real rendered advance width of the common name (Bold) and latin name
+// (Italic) in Barlow Condensed, measured directly from the bundled font
+// files — not guessed from a per-character average — so the plaque grows
+// only as much as the longer line actually needs plus a fixed margin
+// (text_width = plaque_w - 39, matching the template's text_start + text_padding).
 function calcPlaqueW(signName, signLatin) {
-  const primaryW = signName.length * 9;
-  const latinW   = signLatin.length * 4.5;
-  return Math.max(175, Math.ceil(Math.max(primaryW, latinW) + 39));
+  const primaryW = measureTextWidthMm(boldFont, signName, PRIMARY_TEXT_H);
+  const latinW = measureTextWidthMm(italicFont, signLatin, SECONDARY_TEXT_H);
+  return Math.max(175, Math.ceil(Math.max(primaryW, latinW) + TEXT_MARGIN));
 }
 
 const PLAQUE_W = {

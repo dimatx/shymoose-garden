@@ -85,6 +85,10 @@ const SIGN_LATIN = {
   'heuchera-dolce-silver-gumdrop':           "Heuchera 'Dolce\u00ae Silver Gumdrop'",
   'heuchera-primo-black-pearl':              "Heuchera 'Primo\u00ae Black Pearl'",
   'heuchera-primo-pistachio-ambrosia':       "Heuchera 'Primo\u00ae Pistachio Ambrosia'",
+  // Geum TEMPO: site latinName now puts "TEMPO(tm)" inside the cultivar
+  // quotes ("Geum 'TEMPO(tm) Orange'"); keep the sign's existing wording.
+  'geum-tempo-orange':                       "Geum TEMPO\u2122 'Orange'",
+  'geum-tempo-yellow':                       "Geum TEMPO\u2122 'Yellow'",
 };
 
 // Per-plant common name override for the sign.

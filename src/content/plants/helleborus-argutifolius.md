@@ -1,5 +1,5 @@
 ---
-name: "Green Hellebore"
+name: "Hellebore"
 latinName: "Helleborus argutifolius"
 type: "Perennial"
 nativeRange: "Corsica and Sardinia"

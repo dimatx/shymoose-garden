@@ -1,5 +1,5 @@
 ---
-name: "Spiked Speedwell"
+name: "Spiked Speedwell 'Purple Illusion'"
 latinName: "Veronica Magic Show® 'Purple Illusion'"
 type: "Perennial"
 nativeRange: "Garden hybrid (the species is native to Europe and northern Asia)"

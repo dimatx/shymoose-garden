@@ -1,5 +1,5 @@
 ---
-name: "Helleborus 'Spanish Flare'"
+name: "Hellebore 'Spanish Flare'"
 latinName: "Helleborus 'Spanish Flare'"
 type: "Perennial"
 nativeRange: "Garden hybrid; parent species native to Europe and western Asia"

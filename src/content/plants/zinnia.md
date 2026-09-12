@@ -1,5 +1,5 @@
 ---
-name: "Zinnia"
+name: "Zinnia 'Benary's Giant Lilac'"
 latinName: "Zinnia elegans 'Benary's Giant Lilac'"
 type: "Annual"
 nativeRange: "Mexico"

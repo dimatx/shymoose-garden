@@ -1,5 +1,5 @@
 ---
-name: "Coneflower"
+name: "Coneflower 'Firefinch'"
 latinName: "Echinacea Summersong™ Firefinch™"
 type: "Perennial"
 nativeRange: "Garden hybrid of the species native to central and eastern North American prairies"

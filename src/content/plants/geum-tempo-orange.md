@@ -1,5 +1,5 @@
 ---
-name: "Avens"
+name: "Avens TEMPO™ 'Orange'"
 latinName: "Geum TEMPO™ 'Orange'"
 type: "Perennial"
 nativeRange: "Garden hybrid bred by Terra Nova Nurseries"

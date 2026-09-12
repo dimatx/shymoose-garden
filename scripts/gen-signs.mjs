@@ -107,6 +107,15 @@ const SIGN_NAME = {
   'penstemon-digitalis-huskers-red':         'Beardtongue',
   'penstemon-dark-towers':                  'Beardtongue',
   'achillea-millefolium-tutti-frutti':       'Yarrow',
+  // Site common names now include the cultivar (per maintainer request) but
+  // the physical signs should keep their existing shorter wording.
+  'astilbe':                                 'Astilbe',
+  'avens':                                   'Avens',
+  'geum-tempo-orange':                       'Avens',
+  'geum-tempo-yellow':                       'Avens',
+  'coneflower':                              'Coneflower',
+  'helleborus-argutifolius':                 'Green Hellebore',
+  'helleborus-spanish-flare':                'Helleborus',
   'achillea-millefolium-new-vintage-red':    'Yarrow',
   // Heuchera: drop the cultivar from the common name so it fits the sign.
   'heuchera-dolce-silver-gumdrop':           'Coral Bells',

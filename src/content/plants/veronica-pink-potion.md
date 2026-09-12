@@ -1,5 +1,5 @@
 ---
-name: "Spiked Speedwell"
+name: "Spiked Speedwell 'Pink Potion'"
 latinName: "Veronica Magic Show® 'Pink Potion'"
 type: "Perennial"
 nativeRange: "Garden hybrid (the species is native to Europe and northern Asia)"

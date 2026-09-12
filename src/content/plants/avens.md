@@ -1,5 +1,5 @@
 ---
-name: "Avens"
+name: "Avens 'Mrs. Bradshaw'"
 latinName: "Geum chiloense 'Mrs. Bradshaw'"
 type: "Perennial"
 nativeRange: "Chile (South America)"

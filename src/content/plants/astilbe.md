@@ -1,5 +1,5 @@
 ---
-name: "Astilbe"
+name: "Astilbe 'Rock and Roll'"
 latinName: "Astilbe 'Rock and Roll'"
 type: "Perennial"
 nativeRange: "Hybrid origin (parent species from China, Japan and Korea)"

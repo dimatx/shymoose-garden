@@ -1,5 +1,5 @@
 ---
-name: "Weeping White Pine"
+name: "Weeping White Pine 'Angel Falls'"
 latinName: "Pinus strobus 'Angel Falls'"
 type: "Conifer"
 nativeRange: "Northeastern North America (species); cultivar selection"

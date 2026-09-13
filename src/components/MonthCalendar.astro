@@ -1,15 +1,25 @@
 ---
 /**
- * A shared 12-month calendar used by both the Bloom Calendar and the Pruning
- * Calendar. Give it a list of rows (each with the months it's "active") and it
- * renders:
- *   1. a "now" panel listing what's active in the current month, and
- *   2. a horizontal month-by-month chart with the current column highlighted.
+ * A shared month-by-month calendar used by both the Bloom Calendar and the
+ * Pruning Calendar. Give it a list of rows (each with the months it's "active")
+ * and it renders:
+ *   1. a month chart whose columns start at the current month, and
+ *   2. a "now" panel underneath listing what's active this month.
  *
- * The current month is recomputed in the browser so the page stays correct
- * between rebuilds (a build in May still shows the right thing in June).
+ * Two things make this readable on a phone:
+ *   - Rows are ordered by *what's happening next*, not by January — active now
+ *     at the top, then upcoming, with what just finished at the bottom.
+ *   - Only as many month columns as actually fit are shown, and the arrows
+ *     page forward through the year. The plant-name column never scrolls away,
+ *     so you keep the context of which row you're reading.
+ *
+ * Both the order and the visible window are recomputed in the browser, so the
+ * page stays correct between rebuilds (a build in May still reads right in
+ * June).
  */
+import Icon from "./Icon.astro";
 import type { CalendarRow } from "../lib/plants";
+import { monthAt, orderRows } from "../lib/calendar-order";
 
 interface Props {
   rows: CalendarRow[];
@@ -42,30 +52,123 @@ const MONTHS = [
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
 ];
 
-// Sort here so the two callers can't drift: earliest start first, then
-// earliest end, then alphabetically.
-const sorted = [...rows].sort((a, b) => {
-  const firstA = Math.min(...a.months);
-  const firstB = Math.min(...b.months);
-  if (firstA !== firstB) return firstA - firstB;
-  const lastA = Math.max(...a.months);
-  const lastB = Math.max(...b.months);
-  if (lastA !== lastB) return lastA - lastB;
-  return a.name.localeCompare(b.name);
-});
-
-// Build-time current month, used as the pre-hydration fallback.
+// Build-time current month, used as the pre-hydration fallback for both the
+// row order and the "now" list.
 const buildMonth = new Date().getMonth() + 1; // 1–12
+
+// Sort here so the two callers can't drift; the script re-sorts if the
+// visitor's month has moved on since the build.
+const sorted = orderRows(rows, buildMonth);
 
 // Single source of truth for chip styling — read back by the script so the
 // client-rendered chips match the server-rendered ones exactly.
 const chipClass =
   "inline-flex items-center gap-1.5 rounded-full bg-leaf-100 px-3 py-1.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-200 dark:bg-leaf-800 dark:text-leaf-100 dark:hover:bg-leaf-700";
+
+const navButtonClass =
+  "grid h-9 w-9 shrink-0 place-items-center rounded-full border border-leaf-200/80 bg-white text-leaf-700 transition hover:bg-leaf-100 dark:border-leaf-800/80 dark:bg-leaf-900 dark:text-leaf-300 dark:hover:bg-leaf-800";
 ---
+
+<!-- Calendar chart -->
+<section class="month-calendar" data-build-month={buildMonth}>
+  <!-- Month paging. Only shown when the whole year doesn't fit. -->
+  <div class="cal-nav mb-3 hidden items-center justify-between gap-2" data-cal-nav>
+    <button type="button" class={navButtonClass} data-cal-step="-1">
+      <span class="sr-only">Show earlier months</span>
+      <Icon name="chevron-left" class="h-4 w-4" strokeWidth={2} />
+    </button>
+    <div class="flex min-w-0 items-center gap-2">
+      <span
+        class="truncate text-sm font-semibold text-leaf-800 dark:text-leaf-200"
+        data-cal-range
+        aria-live="polite"></span>
+      <button
+        type="button"
+        class="hidden shrink-0 rounded-full px-2.5 py-1 text-xs font-medium text-leaf-600 underline-offset-2 transition hover:text-leaf-900 hover:underline dark:text-leaf-400 dark:hover:text-leaf-100"
+        data-cal-today
+      >
+        This month
+      </button>
+    </div>
+    <button type="button" class={navButtonClass} data-cal-step="1">
+      <span class="sr-only">Show later months</span>
+      <Icon name="chevron-right" class="h-4 w-4" strokeWidth={2} />
+    </button>
+  </div>
+
+  <div class="overflow-x-auto pb-2">
+    <div class="cal-chart relative" data-cal-chart>
+      <!-- Month header -->
+      <div class="cal-grid">
+        <div data-cal-label-probe></div>
+        {
+          MONTHS.map((m, i) => (
+            <div
+              data-month={i + 1}
+              class="month-head cal-col rounded-t-md px-1 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400"
+            >
+              {m}
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Rows -->
+      <div
+        class="relative divide-y divide-leaf-200/70 dark:divide-leaf-800/70"
+        data-cal-rows
+      >
+        <!-- "Today" indicator line, positioned by the script below. -->
+        <div
+          class="now-line pointer-events-none absolute bottom-0 top-0 z-10 hidden w-px"
+          data-cal-now-line
+          aria-hidden="true"
+        >
+          <span class="now-line-dot"></span>
+        </div>
+        {
+          sorted.map((row) => (
+            <div
+              class="calendar-row cal-grid items-center py-1.5"
+              data-months={row.months.join(",")}
+              data-name={row.name}
+              data-url={row.url}
+            >
+              <a
+                href={row.url}
+                class="cal-name pr-2 text-sm font-medium leading-tight text-leaf-800 transition hover:text-leaf-950 dark:text-leaf-200 dark:hover:text-leaf-50"
+                title={row.name}
+              >
+                {row.name}
+              </a>
+              {MONTHS.map((_, i) => {
+                const month = i + 1;
+                const active = row.months.includes(month);
+                // Neighbours wrap around the year end, so a run like Nov–Feb
+                // reads as one continuous bar rather than two stubs.
+                const isStart = active && !row.months.includes(monthAt(month, -1));
+                const isEnd = active && !row.months.includes(monthAt(month, 1));
+                const rounding = [
+                  isStart ? "rounded-l-full" : "",
+                  isEnd ? "rounded-r-full" : "",
+                ].join(" ");
+                return (
+                  <div data-month={month} class="month-cell cal-col px-px py-0.5">
+                    <div class={`h-5 ${active ? `${accentBar} ${rounding}` : ""}`} />
+                  </div>
+                );
+              })}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Active now -->
 <section
-  class="mb-8 rounded-2xl border border-leaf-200/80 bg-white p-5 dark:border-leaf-800/80 dark:bg-leaf-900"
+  class="mt-6 rounded-2xl border border-leaf-200/80 bg-white p-5 dark:border-leaf-800/80 dark:bg-leaf-900"
 >
   <h2 class="flex items-center gap-2 font-serif text-lg font-semibold">
     <span
@@ -100,72 +203,40 @@ const chipClass =
   </p>
 </section>
 
-<!-- Calendar chart -->
-<section class="overflow-x-auto pb-2">
-  <div class="relative min-w-180">
-    <!-- Month header -->
-    <div class="grid grid-cols-[11rem_repeat(12,1fr)] gap-px">
-      <div></div>
-      {
-        MONTHS.map((m, i) => (
-          <div
-            data-month={i + 1}
-            class="month-head rounded-t-md px-1 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400"
-          >
-            {m}
-          </div>
-        ))
-      }
-    </div>
-
-    <!-- Rows -->
-    <div class="relative divide-y divide-leaf-200/70 dark:divide-leaf-800/70">
-      <!-- "Today" indicator line, positioned by the script below. -->
-      <div
-        id="now-line"
-        class="now-line pointer-events-none absolute bottom-0 top-0 z-10 hidden w-px"
-        aria-hidden="true"
-      >
-        <span class="now-line-dot"></span>
-      </div>
-      {
-        sorted.map((row) => (
-          <div
-            class="calendar-row grid grid-cols-[11rem_repeat(12,1fr)] items-center gap-px py-1.5"
-            data-months={row.months.join(",")}
-            data-name={row.name}
-            data-url={row.url}
-          >
-            <a
-              href={row.url}
-              class="truncate pr-2 text-sm font-medium text-leaf-800 transition hover:text-leaf-950 dark:text-leaf-200 dark:hover:text-leaf-50"
-              title={row.name}
-            >
-              {row.name}
-            </a>
-            {MONTHS.map((_, i) => {
-              const month = i + 1;
-              const active = row.months.includes(month);
-              const isStart = active && !row.months.includes(month - 1);
-              const isEnd = active && !row.months.includes(month + 1);
-              const rounding = [
-                isStart ? "rounded-l-full" : "",
-                isEnd ? "rounded-r-full" : "",
-              ].join(" ");
-              return (
-                <div data-month={month} class="month-cell px-px py-0.5">
-                  <div class={`h-5 ${active ? `${accentBar} ${rounding}` : ""}`} />
-                </div>
-              );
-            })}
-          </div>
-        ))
-      }
-    </div>
-  </div>
-</section>
-
 <style>
+  /* One shared grid for the header and every row, so the columns line up. The
+     script narrows --visible to however many months actually fit. */
+  .cal-chart {
+    --label-w: 7.5rem;
+    --visible: 12;
+    /* Without JS the full year still renders; this keeps the columns legible
+       and lets the wrapper scroll instead of squeezing them to nothing. */
+    min-width: calc(var(--label-w) + var(--visible) * 2.25rem);
+  }
+  @media (min-width: 640px) {
+    .cal-chart {
+      --label-w: 11rem;
+    }
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: var(--label-w) repeat(var(--visible), minmax(0, 1fr));
+    gap: 1px;
+  }
+  /* Months outside the visible window are pulled out of the grid entirely. */
+  .cal-col.is-out {
+    display: none;
+  }
+  /* Long plant names wrap to a second line rather than being cut off. */
+  .cal-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+  }
+
   /* The current-month column is highlighted by the script below. */
   .month-head.is-current {
     color: var(--color-leaf-700);
@@ -182,11 +253,10 @@ const chipClass =
     background-color: color-mix(in oklab, var(--color-leaf-800) 60%, transparent);
   }
 
-  /* A slim vertical line marking the exact spot in the year we're at today.
-     Positioned via --now-pos (0–1 across the 12 month columns), set by the
-     script. The 11rem offset accounts for the row-label column. */
+  /* A slim vertical line marking the exact spot we're at today. Positioned via
+     --now-pos (0–1 across the *visible* month columns), set by the script. */
   .now-line {
-    left: calc(11rem + (100% - 11rem) * var(--now-pos, 0));
+    left: calc(var(--label-w) + (100% - var(--label-w)) * var(--now-pos, 0));
     background-color: var(--color-leaf-600);
     /* A soft halo in the page background colour lifts the line off the column
        dividers, so it stays readable even when it lands on a grid line. */
@@ -214,43 +284,149 @@ const chipClass =
 </style>
 
 <script>
+  import { monthAt, monthDistance, orderRows } from "../lib/calendar-order";
+
+  const MONTH_NAMES = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+  ];
+  const MONTH_SHORT = MONTH_NAMES.map((m) => m.slice(0, 3));
+
+  /** Narrowest a month column may get before we start hiding months. */
+  const MIN_COLUMN_PX = 42;
+
   function initCalendar() {
-    const MONTH_NAMES = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December",
-    ];
+    const calendar = document.querySelector<HTMLElement>(".month-calendar");
+    if (!calendar) return;
+
+    const chart = calendar.querySelector<HTMLElement>("[data-cal-chart]");
+    const rowsParent = calendar.querySelector<HTMLElement>("[data-cal-rows]");
+    const nav = calendar.querySelector<HTMLElement>("[data-cal-nav]");
+    const rangeLabel = calendar.querySelector<HTMLElement>("[data-cal-range]");
+    const todayButton = calendar.querySelector<HTMLElement>("[data-cal-today]");
+    const nowLine = calendar.querySelector<HTMLElement>("[data-cal-now-line]");
+    const labelProbe = calendar.querySelector<HTMLElement>("[data-cal-label-probe]");
+    const scroller = chart?.parentElement;
+    if (!chart || !rowsParent || !scroller) return;
 
     const now = new Date().getMonth() + 1; // 1–12
+    const buildMonth = Number(calendar.dataset.buildMonth) || now;
 
     // Label: "in June"
     const label = document.getElementById("now-month");
     if (label) label.textContent = `in ${MONTH_NAMES[now - 1]}`;
 
-    // Highlight the current-month column (header + every cell).
-    document
-      .querySelectorAll(`[data-month="${now}"]`)
-      .forEach((el) => el.classList.add("is-current"));
+    const rows = Array.from(rowsParent.querySelectorAll<HTMLElement>(".calendar-row"));
+    const monthsOf = (row: HTMLElement) =>
+      (row.dataset.months || "").split(",").map(Number).filter(Boolean);
 
-    // Position the "today" line at the exact point in the year, accounting for
-    // the day within the current month so it drifts across the column as the
-    // month progresses.
-    const today = new Date();
-    const daysInMonth = new Date(
-      today.getFullYear(),
-      today.getMonth() + 1,
-      0,
-    ).getDate();
-    const monthFraction = (today.getDate() - 0.5) / daysInMonth;
-    const nowPos = (now - 1 + monthFraction) / 12;
-    const nowLine = document.getElementById("now-line");
-    if (nowLine) {
-      nowLine.style.setProperty("--now-pos", String(nowPos));
-      nowLine.classList.remove("hidden");
+    // Re-sort for the visitor's real month if the build has gone stale.
+    if (now !== buildMonth) {
+      const ordered = orderRows(
+        rows.map((el) => ({ el, name: el.dataset.name || "", months: monthsOf(el) })),
+        now,
+      );
+      rowsParent.append(...ordered.map((row) => row.el));
     }
 
+    // Highlight the current month (header cell + every row's cell).
+    calendar.querySelectorAll<HTMLElement>("[data-month]").forEach((el) => {
+      el.classList.toggle("is-current", Number(el.dataset.month) === now);
+    });
+
+    // --- Visible month window --------------------------------------------
+    // The window starts at whichever month the reader paged to, so by default
+    // the leftmost column is "now" and the plant names never scroll away.
+    let start = now;
+    let visible = 12;
+
+    function fittingMonths(): number {
+      const available = scroller!.clientWidth;
+      const labelWidth = labelProbe?.getBoundingClientRect().width ?? 0;
+      if (!available || !labelWidth) return 12;
+      const count = Math.floor((available - labelWidth) / MIN_COLUMN_PX);
+      return Math.max(1, Math.min(12, count));
+    }
+
+    function render() {
+      chart!.style.setProperty("--visible", String(visible));
+
+      calendar!.querySelectorAll<HTMLElement>("[data-month]").forEach((el) => {
+        const offset = monthDistance(start, Number(el.dataset.month));
+        el.style.order = String(offset + 1);
+        el.classList.toggle("is-out", offset >= visible);
+      });
+
+      // Paging only earns its keep when months are actually hidden.
+      nav?.classList.toggle("hidden", visible >= 12);
+      nav?.classList.toggle("flex", visible < 12);
+
+      if (rangeLabel) {
+        const last = monthAt(start, visible - 1);
+        rangeLabel.textContent =
+          visible === 1
+            ? MONTH_NAMES[start - 1]
+            : `${MONTH_SHORT[start - 1]} – ${MONTH_SHORT[last - 1]}`;
+      }
+      todayButton?.classList.toggle("hidden", start === now);
+
+      // Place the "today" line within the visible window, drifting across the
+      // current month's column as the days pass. Hidden once you page past it.
+      if (nowLine) {
+        const offset = monthDistance(start, now);
+        if (offset >= visible) {
+          nowLine.classList.add("hidden");
+        } else {
+          const today = new Date();
+          const daysInMonth = new Date(
+            today.getFullYear(),
+            today.getMonth() + 1,
+            0,
+          ).getDate();
+          const monthFraction = (today.getDate() - 0.5) / daysInMonth;
+          nowLine.style.setProperty(
+            "--now-pos",
+            String((offset + monthFraction) / visible),
+          );
+          nowLine.classList.remove("hidden");
+        }
+      }
+    }
+
+    function fit() {
+      const fits = fittingMonths();
+      if (fits === visible) return;
+      const wasFullYear = visible >= 12;
+      visible = fits;
+      // Showing the whole year means there's nothing to page through, so fall
+      // back to the familiar January-first chart. Coming back the other way
+      // (desktop → phone), re-anchor the window on the current month.
+      if (visible >= 12) start = 1;
+      else if (wasFullYear) start = now;
+      render();
+    }
+
+    calendar.querySelectorAll<HTMLElement>("[data-cal-step]").forEach((button) => {
+      button.addEventListener("click", () => {
+        // Nothing to page through when the whole year already fits.
+        if (visible >= 12) return;
+        start = monthAt(start, Number(button.dataset.calStep));
+        render();
+      });
+    });
+    todayButton?.addEventListener("click", () => {
+      start = now;
+      render();
+    });
+
+    visible = fittingMonths();
+    if (visible >= 12) start = 1;
+    render();
+    new ResizeObserver(fit).observe(scroller);
+
+    // --- "Now" list -------------------------------------------------------
     const list = document.getElementById("now-list");
     const empty = document.getElementById("now-empty");
-    const buildMonth = list ? Number(list.dataset.buildMonth) : now;
     const chipClass = list?.dataset.chipClass ?? "";
 
     // Build a chip safely via the DOM (no innerHTML / no string interpolation),
@@ -268,18 +444,14 @@ const chipClass =
       return li;
     }
 
-    // Recompute the "now" list for the visitor's actual current month.
+    // Recompute the "now" list for the visitor's actual current month, in the
+    // same order the rows now appear in.
     if (list && now !== buildMonth) {
-      const active: HTMLLIElement[] = [];
-      document.querySelectorAll<HTMLElement>(".calendar-row").forEach((row) => {
-        const months = (row.dataset.months || "")
-          .split(",")
-          .map(Number)
-          .filter(Boolean);
-        if (months.includes(now)) {
-          active.push(makeChip(row.dataset.name || "", row.dataset.url || "#"));
-        }
-      });
+      const active = Array.from(
+        rowsParent.querySelectorAll<HTMLElement>(".calendar-row"),
+      )
+        .filter((row) => monthsOf(row).includes(now))
+        .map((row) => makeChip(row.dataset.name || "", row.dataset.url || "#"));
       list.replaceChildren(...active);
       if (empty) empty.classList.toggle("hidden", active.length > 0);
     } else if (list && empty) {

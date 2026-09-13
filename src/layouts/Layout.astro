@@ -25,17 +25,31 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const imageUrl = image ? new URL(image, Astro.site).href : undefined;
 
-// Capture build time for deployment indicator
-const buildTime = new Date().toLocaleString("en-US", {
-  month: "short",
-  day: "numeric",
-  year: "numeric",
+// Capture build time and git commit hash for deployment indicator
+const buildDate = new Date();
+const year = buildDate.getFullYear();
+const month = String(buildDate.getMonth() + 1).padStart(2, "0");
+const day = String(buildDate.getDate()).padStart(2, "0");
+const dateStr = `${year}.${month}.${day}`;
+
+const timeStr = buildDate.toLocaleString("en-US", {
   hour: "2-digit",
   minute: "2-digit",
-  second: "2-digit",
   timeZone: "America/New_York",
-  timeZoneName: "short",
+  hour12: true,
 });
+
+// Get git commit hash (short form)
+let commitHash = "unknown";
+try {
+  const { execSync } = await import("child_process");
+  commitHash = execSync("git rev-parse --short HEAD", { encoding: "utf-8" }).trim();
+} catch {
+  // If git command fails, fall back to unknown
+}
+
+// Format: v2026.09.13-abc1234 (09:36 AM ET)
+const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
 ---
 
 <!doctype html>
@@ -203,7 +217,7 @@ const buildTime = new Date().toLocaleString("en-US", {
     >
       <p>🌿 Grown with care in the ShyMoose garden.</p>
       <p class="mt-2 text-xs text-leaf-500 dark:text-leaf-500">
-        Last deployment: {buildTime}
+        {versionStr}
       </p>
     </footer>
 

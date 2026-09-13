@@ -19,7 +19,12 @@
  */
 import Icon from "./Icon.astro";
 import type { CalendarRow } from "../lib/plants";
-import { monthAt, monthDistance, orderRows } from "../lib/calendar-order";
+import {
+  monthAt,
+  monthDistance,
+  orderRows,
+  WINDOW_WIDE,
+} from "../lib/calendar-order";
 
 interface Props {
   rows: CalendarRow[];
@@ -71,29 +76,37 @@ const navButtonClass =
 
 <!-- Calendar chart -->
 <section class="month-calendar" data-build-month={buildMonth}>
-  <!-- Month paging. Only shown when the whole year doesn't fit. -->
+  <!-- Month paging, revealed by the script once it can drive the buttons. -->
   <div class="cal-nav mb-3 hidden items-center justify-between gap-2" data-cal-nav>
-    <button type="button" class={navButtonClass} data-cal-step="-1">
-      <span class="sr-only">Show earlier months</span>
-      <Icon name="chevron-left" class="h-4 w-4" strokeWidth={2} />
-    </button>
-    <div class="flex min-w-0 items-center gap-2">
-      <span
-        class="truncate text-sm font-semibold text-leaf-800 dark:text-leaf-200"
-        data-cal-range
-        aria-live="polite"></span>
-      <button
-        type="button"
-        class="hidden shrink-0 rounded-full px-2.5 py-1 text-xs font-medium text-leaf-600 underline-offset-2 transition hover:text-leaf-900 hover:underline dark:text-leaf-400 dark:hover:text-leaf-100"
-        data-cal-today
-      >
-        This month
+    <div class="flex shrink-0 items-center gap-1">
+      <!-- Mirrors the reset button opposite so the range label stays centred. -->
+      <div class="h-9 w-9" aria-hidden="true"></div>
+      <button type="button" class={navButtonClass} data-cal-step="-1">
+        <span class="sr-only">Show earlier months</span>
+        <Icon name="chevron-left" class="h-4 w-4" strokeWidth={2} />
       </button>
     </div>
-    <button type="button" class={navButtonClass} data-cal-step="1">
-      <span class="sr-only">Show later months</span>
-      <Icon name="chevron-right" class="h-4 w-4" strokeWidth={2} />
-    </button>
+    <span
+      class="min-w-0 flex-1 truncate text-center text-sm font-semibold text-leaf-800 dark:text-leaf-200"
+      data-cal-range
+      aria-live="polite"></span>
+    <div class="flex shrink-0 items-center gap-1">
+      <button type="button" class={navButtonClass} data-cal-step="1">
+        <span class="sr-only">Show later months</span>
+        <Icon name="chevron-right" class="h-4 w-4" strokeWidth={2} />
+      </button>
+      <!-- Jumps back to the current month; hidden (but still reserving its slot)
+           whenever the window is already anchored there. -->
+      <button
+        type="button"
+        class={`${navButtonClass} invisible`}
+        title="Back to this month"
+        data-cal-today
+      >
+        <span class="sr-only">Back to this month</span>
+        <Icon name="locate" class="h-4 w-4" strokeWidth={2} />
+      </button>
+    </div>
   </div>
 
   <div class="overflow-x-auto pb-2">
@@ -102,15 +115,21 @@ const navButtonClass =
       <div class="cal-grid">
         <div data-cal-label-probe></div>
         {
-          MONTHS.map((m, i) => (
+          MONTHS.map((m, i) => {
+            const offset = monthDistance(buildMonth, i + 1);
+            return (
             <div
               data-month={i + 1}
-            style={`order:${monthDistance(buildMonth, i + 1) + 1}`}
-            class="month-head cal-col rounded-t-md px-1 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400"
+              style={`order:${offset + 1}`}
+              class:list={[
+                "month-head cal-col rounded-t-md px-1 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400",
+                offset >= WINDOW_WIDE && "is-out",
+              ]}
             >
               {m}
             </div>
-          ))
+            );
+          })
         }
       </div>
 
@@ -144,6 +163,7 @@ const navButtonClass =
               </a>
               {MONTHS.map((_, i) => {
                 const month = i + 1;
+                const offset = monthDistance(buildMonth, month);
                 const active = row.months.includes(month);
                 // Neighbours wrap around the year end, so a run like Nov–Feb
                 // reads as one continuous bar rather than two stubs.
@@ -156,8 +176,8 @@ const navButtonClass =
                 return (
                   <div
                     data-month={month}
-                    style={`order:${monthDistance(buildMonth, month) + 1}`}
-                    class="month-cell cal-col px-px py-0.5"
+                    style={`order:${offset + 1}`}
+                    class:list={["month-cell cal-col px-px py-0.5", offset >= WINDOW_WIDE && "is-out"]}
                   >
                     <div class={`h-5 ${active ? `${accentBar} ${rounding}` : ""}`} />
                   </div>
@@ -210,14 +230,16 @@ const navButtonClass =
 
 <style>
   /* One shared grid for the header and every row, so the columns line up. The
-     script narrows --visible to however many months actually fit. */
+     script sets --visible to the window size that fits the screen. */
   .cal-chart {
-    /* The same generous name column at every width: on a phone the script only
-       shows a three-month window, so there's room to spare for the names. */
+    /* The same generous name column at every width: the script only ever shows
+       a short window of months, so there's room to spare for the names. */
     --label-w: 11rem;
-    --visible: 12;
-    /* Without JS the full year still renders; this keeps the columns legible
-       and lets the wrapper scroll instead of squeezing them to nothing. */
+    /* Matches WINDOW_WIDE, so the server-rendered chart already shows the right
+       window and desktop loads don't flash a denser grid before hydration. */
+    --visible: 6;
+    /* Keeps the columns legible on a narrow screen without JS, letting the
+       wrapper scroll instead of squeezing them to nothing. */
     min-width: calc(var(--label-w) + var(--visible) * 2.25rem);
   }
   .cal-grid {
@@ -287,7 +309,13 @@ const navButtonClass =
 </style>
 
 <script>
-  import { monthAt, monthDistance, orderRows } from "../lib/calendar-order";
+  import {
+    monthAt,
+    monthDistance,
+    orderRows,
+    WINDOW_NARROW,
+    WINDOW_WIDE,
+  } from "../lib/calendar-order";
 
   const MONTH_NAMES = [
     "January", "February", "March", "April", "May", "June",
@@ -297,8 +325,6 @@ const navButtonClass =
 
   /** Narrowest a month column may get before we start hiding months. */
   const MIN_COLUMN_PX = 42;
-  /** How many months to page through at a time when the year doesn't fit. */
-  const WINDOW_MONTHS = 3;
 
   function initCalendar() {
     const calendar = document.querySelector<HTMLElement>(".month-calendar");
@@ -343,18 +369,18 @@ const navButtonClass =
     // The window starts at whichever month the reader paged to, so by default
     // the leftmost column is "now" and the plant names never scroll away.
     let start = now;
-    let visible = 12;
+    let visible = WINDOW_WIDE;
 
     function fittingMonths(): number {
       const available = scroller!.clientWidth;
       const labelWidth = labelProbe?.getBoundingClientRect().width ?? 0;
-      if (!available || !labelWidth) return 12;
+      if (!available || !labelWidth) return WINDOW_WIDE;
       const count = Math.floor((available - labelWidth) / MIN_COLUMN_PX);
-      // It's either the whole year at once, or a fixed short window you page
-      // through — anything in between gives the columns an awkward width and
-      // still hides most of the year.
-      if (count >= 12) return 12;
-      return Math.max(1, Math.min(WINDOW_MONTHS, count));
+      // Two fixed sizes rather than "however many fit": a window that sizes
+      // itself to the viewport lands on awkward counts and leaves the columns
+      // too thin to read at a glance.
+      if (count >= WINDOW_WIDE) return WINDOW_WIDE;
+      return Math.max(1, Math.min(WINDOW_NARROW, count));
     }
 
     function render() {
@@ -366,9 +392,11 @@ const navButtonClass =
         el.classList.toggle("is-out", offset >= visible);
       });
 
-      // Paging only earns its keep when months are actually hidden.
-      nav?.classList.toggle("hidden", visible >= 12);
-      nav?.classList.toggle("flex", visible < 12);
+      // The window is always shorter than a year now, so there's always more
+      // to page to. Revealed from the script so the buttons never appear
+      // without the code that makes them work.
+      nav?.classList.remove("hidden");
+      nav?.classList.add("flex");
 
       if (rangeLabel) {
         const last = monthAt(start, visible - 1);
@@ -377,7 +405,12 @@ const navButtonClass =
             ? MONTH_NAMES[start - 1]
             : `${MONTH_SHORT[start - 1]} – ${MONTH_SHORT[last - 1]}`;
       }
-      todayButton?.classList.toggle("hidden", start === now);
+      if (todayButton) {
+        // Keep the slot occupied so the centred range label never shifts.
+        const atNow = start === now;
+        todayButton.classList.toggle("invisible", atNow);
+        todayButton.toggleAttribute("inert", atNow);
+      }
 
       // Place the "today" line within the visible window, drifting across the
       // current month's column as the days pass. Hidden once you page past it.
@@ -405,17 +438,12 @@ const navButtonClass =
     function fit() {
       const fits = fittingMonths();
       if (fits === visible) return;
-      // Widening to the full year means paging is meaningless, so snap the
-      // rotation back to the current month rather than keeping a paged offset.
-      if (fits >= 12) start = now;
       visible = fits;
       render();
     }
 
     calendar.querySelectorAll<HTMLElement>("[data-cal-step]").forEach((button) => {
       button.addEventListener("click", () => {
-        // Nothing to page through when the whole year already fits.
-        if (visible >= 12) return;
         start = monthAt(start, Number(button.dataset.calStep));
         render();
       });

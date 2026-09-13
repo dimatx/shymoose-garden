@@ -17,6 +17,19 @@ export interface MonthRow {
   months: number[]; // 1–12 (1 = January)
 }
 
+/**
+ * How many months the chart shows at once. Two fixed sizes rather than
+ * "however many fit": a window that sizes itself to the viewport lands on
+ * awkward counts and leaves the columns too thin to read at a glance.
+ *
+ * Shared with the server render so the pre-hydration markup already shows the
+ * right window — otherwise every desktop load would flash a denser chart
+ * before the script trimmed it.
+ */
+export const WINDOW_WIDE = 6;
+/** Fallback window for phone-width screens, where six columns won't fit. */
+export const WINDOW_NARROW = 3;
+
 /** Months from `from` to `to`, wrapping around the year end. 0–11. */
 export function monthDistance(from: number, to: number): number {
   return (to - from + 12) % 12;

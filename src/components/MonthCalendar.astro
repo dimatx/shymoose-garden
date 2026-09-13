@@ -19,7 +19,7 @@
  */
 import Icon from "./Icon.astro";
 import type { CalendarRow } from "../lib/plants";
-import { monthAt, orderRows } from "../lib/calendar-order";
+import { monthAt, monthDistance, orderRows } from "../lib/calendar-order";
 
 interface Props {
   rows: CalendarRow[];
@@ -105,7 +105,8 @@ const navButtonClass =
           MONTHS.map((m, i) => (
             <div
               data-month={i + 1}
-              class="month-head cal-col rounded-t-md px-1 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400"
+            style={`order:${monthDistance(buildMonth, i + 1) + 1}`}
+            class="month-head cal-col rounded-t-md px-1 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400"
             >
               {m}
             </div>
@@ -153,7 +154,11 @@ const navButtonClass =
                   isEnd ? "rounded-r-full" : "",
                 ].join(" ");
                 return (
-                  <div data-month={month} class="month-cell cal-col px-px py-0.5">
+                  <div
+                    data-month={month}
+                    style={`order:${monthDistance(buildMonth, month) + 1}`}
+                    class="month-cell cal-col px-px py-0.5"
+                  >
                     <div class={`h-5 ${active ? `${accentBar} ${rounding}` : ""}`} />
                   </div>
                 );
@@ -400,13 +405,10 @@ const navButtonClass =
     function fit() {
       const fits = fittingMonths();
       if (fits === visible) return;
-      const wasFullYear = visible >= 12;
+      // Widening to the full year means paging is meaningless, so snap the
+      // rotation back to the current month rather than keeping a paged offset.
+      if (fits >= 12) start = now;
       visible = fits;
-      // Showing the whole year means there's nothing to page through, so fall
-      // back to the familiar January-first chart. Coming back the other way
-      // (desktop → phone), re-anchor the window on the current month.
-      if (visible >= 12) start = 1;
-      else if (wasFullYear) start = now;
       render();
     }
 
@@ -424,7 +426,6 @@ const navButtonClass =
     });
 
     visible = fittingMonths();
-    if (visible >= 12) start = 1;
     render();
     new ResizeObserver(fit).observe(scroller);
 

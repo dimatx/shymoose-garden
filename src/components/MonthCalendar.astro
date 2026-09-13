@@ -78,35 +78,18 @@ const navButtonClass =
 <section class="month-calendar" data-build-month={buildMonth}>
   <!-- Month paging, revealed by the script once it can drive the buttons. -->
   <div class="cal-nav mb-3 hidden items-center justify-between gap-2" data-cal-nav>
-    <div class="flex shrink-0 items-center gap-1">
-      <!-- Mirrors the reset button opposite so the range label stays centred. -->
-      <div class="h-9 w-9" aria-hidden="true"></div>
-      <button type="button" class={navButtonClass} data-cal-step="-1">
-        <span class="sr-only">Show earlier months</span>
-        <Icon name="chevron-left" class="h-4 w-4" strokeWidth={2} />
-      </button>
-    </div>
+    <button type="button" class={navButtonClass} data-cal-step="-1">
+      <span class="sr-only">Show earlier months</span>
+      <Icon name="chevron-left" class="h-4 w-4" strokeWidth={2} />
+    </button>
     <span
       class="min-w-0 flex-1 truncate text-center text-sm font-semibold text-leaf-800 dark:text-leaf-200"
       data-cal-range
       aria-live="polite"></span>
-    <div class="flex shrink-0 items-center gap-1">
-      <button type="button" class={navButtonClass} data-cal-step="1">
-        <span class="sr-only">Show later months</span>
-        <Icon name="chevron-right" class="h-4 w-4" strokeWidth={2} />
-      </button>
-      <!-- Jumps back to the current month; hidden (but still reserving its slot)
-           whenever the window is already anchored there. -->
-      <button
-        type="button"
-        class={`${navButtonClass} invisible`}
-        title="Back to this month"
-        data-cal-today
-      >
-        <span class="sr-only">Back to this month</span>
-        <Icon name="locate" class="h-4 w-4" strokeWidth={2} />
-      </button>
-    </div>
+    <button type="button" class={navButtonClass} data-cal-step="1">
+      <span class="sr-only">Show later months</span>
+      <Icon name="chevron-right" class="h-4 w-4" strokeWidth={2} />
+    </button>
   </div>
 
   <div class="overflow-x-auto pb-2">
@@ -334,7 +317,6 @@ const navButtonClass =
     const rowsParent = calendar.querySelector<HTMLElement>("[data-cal-rows]");
     const nav = calendar.querySelector<HTMLElement>("[data-cal-nav]");
     const rangeLabel = calendar.querySelector<HTMLElement>("[data-cal-range]");
-    const todayButton = calendar.querySelector<HTMLElement>("[data-cal-today]");
     const nowLine = calendar.querySelector<HTMLElement>("[data-cal-now-line]");
     const labelProbe = calendar.querySelector<HTMLElement>("[data-cal-label-probe]");
     const scroller = chart?.parentElement;
@@ -405,12 +387,6 @@ const navButtonClass =
             ? MONTH_NAMES[start - 1]
             : `${MONTH_SHORT[start - 1]} – ${MONTH_SHORT[last - 1]}`;
       }
-      if (todayButton) {
-        // Keep the slot occupied so the centred range label never shifts.
-        const atNow = start === now;
-        todayButton.classList.toggle("invisible", atNow);
-        todayButton.toggleAttribute("inert", atNow);
-      }
 
       // Place the "today" line within the visible window, drifting across the
       // current month's column as the days pass. Hidden once you page past it.
@@ -447,10 +423,6 @@ const navButtonClass =
         start = monthAt(start, Number(button.dataset.calStep));
         render();
       });
-    });
-    todayButton?.addEventListener("click", () => {
-      start = now;
-      render();
     });
 
     visible = fittingMonths();

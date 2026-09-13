@@ -4,7 +4,7 @@ remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "https://s.shymoose.com/0T6Bf";
 common_name = "Coneflower";
-scientific_name = "Echinacea Summersong™ Firefinch™";
+scientific_name = "Echinacea 'Summersong™ Firefinch™'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
 

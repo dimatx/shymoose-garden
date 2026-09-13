@@ -1,6 +1,6 @@
 ---
 name: "Coneflower 'Adobe Orange'"
-latinName: "Echinacea Sombrero® Adobe Orange"
+latinName: "Echinacea 'Sombrero® Adobe Orange'"
 type: "Perennial"
 nativeRange: "Garden cultivar of the species native to central and eastern North American prairies"
 photo: "../../assets/plants/echinacea-sombrero-adobe-orange.jpg"

@@ -4,7 +4,7 @@ remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "https://s.shymoose.com/giVQL";
 common_name = "Coneflower";
-scientific_name = "Echinacea Sombrero® Adobe Orange";
+scientific_name = "Echinacea 'Sombrero® Adobe Orange'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
 

@@ -1,0 +1,115 @@
+=== PROPAGATION RESEARCH RESULTS ===
+Generated: 2026-09-12 22:30:59
+Source: Background research agent b36f6a4f-88ac-4418-8256-00dd6345c5bb
+
+Format: filename | common_name | latin_name | propagation_method
+
+---RESEARCH DATA---
+acer-palmatum-crimson-queen | Japanese Maple 'Crimson Queen' | Acer palmatum 'Crimson Queen' | Not applicable
+acer-palmatum-inaba-shidare | Japanese Maple 'Inaba Shidare' | Acer palmatum 'Inaba Shidare' | Not applicable
+acer-palmatum-tamukeyama | Japanese Maple 'Tamukeyama' | Acer palmatum 'Tamukeyama' | Not applicable
+achillea-millefolium-new-vintage-red | Yarrow 'New Vintage Red' | Achillea millefolium 'New Vintage Red' | Divide in spring
+achillea-millefolium-tutti-frutti | Yarrow 'Tutti Frutti' | Achillea millefolium 'Tutti Frutti' | Divide in spring
+acorus-calamus-variegatus | Sweet Flag 'Variegatus' | Acorus calamus 'Variegatus' | Divide clumps in spring
+actaea-racemosa | Bugbane | Actaea racemosa | Divide rhizomes in spring
+agastache-kudos-mandarin | Anise Hyssop 'Kudos Mandarin' | Agastache 'Kudos Mandarin' | Divide in spring
+allium-avatar | Ornamental Onion 'Avatar' | Allium 'Avatar' | Divide bulb offsets in fall
+allium | Ornamental Onion | Allium | Divide bulb offsets in fall
+anacis-verticillata-zagreb | Knapweed 'Zagreb' | Centaurea sp. 'Zagreb' | Divide in spring or fall
+aquilegia-canadensis | Columbine | Aquilegia canadensis | Readily grown from seed
+aster | Aster | Aster sp. | Divide in spring
+astilbe-arendsii-amethyst | Astilbe 'Amethyst' | Astilbe x arendsii 'Amethyst' | Divide in spring or fall
+astilbe-chinensis-dark-side-of-the-moon | Astilbe 'Dark Side of the Moon' | Astilbe chinensis 'Dark Side of the Moon' | Divide in spring or fall
+astilbe-chinensis-visions | Astilbe 'Visions' | Astilbe chinensis 'Visions' | Divide in spring or fall
+astilbe | Astilbe | Astilbe sp. | Divide in spring or fall
+avens | Avens/Geum | Geum sp. | Divide in spring
+baptisia-decadence-lemon-meringue | False Indigo 'Lemon Meringue' | Baptisia 'Decadence Lemon Meringue' | Softwood cuttings in late spring
+bee-balm | Bee Balm 'Balmy Rose' | Monarda didyma 'Balbalmose' | Divide in spring
+bigleaf-hydrangea | Bigleaf Hydrangea | Hydrangea macrophylla | Layering
+blanket-flower | Blanket Flower | Gaillardia sp. | Readily grown from seed
+calendula-officinalis-geisha-girl | Calendula 'Geisha Girl' | Calendula officinalis 'Geisha Girl' | Readily grown from seed
+catmint | Catmint | Nepeta x faassenii | Divide in spring
+cercis-canadensis-flame-thrower | Redbud 'Flame Thrower' | Cercis canadensis 'Flame Thrower' | Not applicable
+cercis-canadensis | Redbud | Cercis canadensis | Seed after cold stratification
+chamaecyparis-pisifera-golden-mop | Sawara Cypress 'Golden Mop' | Chamaecyparis pisifera 'Golden Mop' | Semi-hardwood cuttings
+clustered-bellflower | Clustered Bellflower | Campanula glomerata | Divide in spring or fall
+coneflower | Coneflower 'Firefinch' | Echinacea 'Summersong Firefinch' | Divide in spring
+coreopsis-verticillata-crazy-cayenne | Coreopsis 'Crazy Cayenne' | Coreopsis verticillata 'Crazy Cayenne' | Divide in spring or fall
+cucumis-sativus-shintokiwa | Cucumber 'Shintokiwa' | Cucumis sativus 'Shintokiwa' | Readily grown from seed
+cucumis-sativus-suyo-long | Cucumber 'Suyo Long' | Cucumis sativus 'Suyo Long' | Readily grown from seed
+cucumis-sativus-unagi | Cucumber 'Unagi' | Cucumis sativus 'Unagi' | Readily grown from seed
+daylily | Daylily | Hemerocallis sp. | Divide in late summer or early fall
+dianthus | Dianthus/Pink | Dianthus sp. | Softwood cuttings in spring
+dill | Dill | Anethum graveolens | Readily grown from seed
+echinacea-sombrero-adobe-orange | Coneflower 'Adobe Orange' | Echinacea 'Sombrero Adobe Orange' | Divide in spring
+echinacea-sombrero-fiesta-orange | Coneflower 'Fiesta Orange' | Echinacea 'Sombrero Fiesta Orange' | Divide in spring
+egyptian-walking-onion | Egyptian Walking Onion | Allium x proliferum | Plant bulbils in late summer or fall
+festuca-glauca-elijah-blue | Blue Fescue 'Elijah Blue' | Festuca glauca 'Elijah Blue' | Divide in spring
+fuchsia | Fuchsia | Fuchsia sp. | Stem cuttings in late summer
+geum-tempo-orange | Avens 'Tempo Orange' | Geum 'Tempo Orange' | Divide in spring
+geum-tempo-yellow | Avens 'Tempo Yellow' | Geum 'Tempo Yellow' | Divide in spring
+greenstem-forsythia | Greenstem Forsythia | Forsythia viridissima | Root stem cuttings
+helleborus-argutifolius | Hellebore | Helleborus argutifolius | Divide after flowering
+helleborus-spanish-flare | Hellebore 'Spanish Flare' | Helleborus x hybridus 'Spanish Flare' | Divide after flowering
+heuchera-dolce-cherry-truffles | Coral Bells 'Cherry Truffles' | Heuchera 'Dolce Cherry Truffles' | Divide in spring
+heuchera-dolce-silver-gumdrop | Coral Bells 'Silver Gumdrop' | Heuchera 'Dolce Silver Gumdrop' | Divide in spring
+heuchera-primo-black-pearl | Coral Bells 'Black Pearl' | Heuchera Primo 'Black Pearl' | Divide in spring
+heuchera-primo-pistachio-ambrosia | Coral Bells 'Pistachio Ambrosia' | Heuchera Primo 'Pistachio Ambrosia' | Divide in spring
+hibiscus-syriacus-notwoodthree | Rose of Sharon | Hibiscus syriacus 'Notwoodthree' | Softwood cuttings in late spring
+hinoki-cypress-filicoides | Hinoki Cypress | Chamaecyparis obtusa 'Filicoides' | Cuttings
+hydrangea-quercifolia-alice | Oakleaf Hydrangea 'Alice' | Hydrangea quercifolia 'Alice' | Stem cuttings in summer
+hylotelephium-spectabile | Autumn Sedum | Hylotelephium spectabile | Stem cuttings
+hylotelephium-telephium | Autumn Sedum | Hylotelephium telephium | Divide in spring
+ilex-crenata | Box-leaved Holly | Ilex crenata | Semi-hardwood cuttings in late summer
+japanese-anemone | Japanese Anemone | Anemone x hybrida | Divide in spring
+japanese-astilbe | Japanese Astilbe | Astilbe japonica | Divide in spring
+karen-azelia | Korean Azalea | Rhododendron indicum | Semi-ripe cuttings in late summer
+kerria-japonica | Kerria | Kerria japonica | Softwood cuttings in early summer
+ligularia-dentata-osiris-fantaisie | Ligularia 'Osiris Fantaisie' | Ligularia dentata 'Osiris Fantaisie' | Divide in spring
+ligularia-dentata | Ligularia | Ligularia dentata | Divide in spring
+lysimachia-clethroides | Gooseneck Loosestrife | Lysimachia clethroides | Divide rhizomes in spring
+muenchhusia-moscheutos | Swamp Mallow | Hibiscus moscheutos | Readily grown from seed
+parsley | Parsley | Petroselinum crispum | Readily grown from seed
+peachleaf-bellflower | Peach-leaved Bellflower | Campanula persicifolia | Divide in spring or fall
+penstemon-dark-towers | Penstemon 'Dark Towers' | Penstemon 'Dark Towers' | Stem cuttings in summer
+penstemon-digitalis-huskers-red | Penstemon 'Huskers Red' | Penstemon digitalis 'Huskers Red' | Stem cuttings in summer
+penstemon-hartwegii-arabesque-red | Penstemon 'Arabesque Red' | Penstemon hartwegii 'Arabesque Red' | Readily grown from seed
+phedimus-aizoon | Gold Moss Sedum | Phedimus aizoon | Divide in spring
+physostegia-virginiana | Obedient Plant | Physostegia virginiana | Divide roots in spring or fall
+picea-pungens-glauca-globosa | Colorado Spruce | Picea pungens 'Glauca Globosa' | Semi-hardwood cuttings
+picea-pungens-pendula | Colorado Spruce 'Pendula' | Picea pungens 'Pendula' | Not applicable
+picea-sitchensis-silberzwerg | Sitka Spruce 'Silberzwerg' | Picea sitchensis 'Silberzwerg' | (incomplete - see note)
+pieris-japonica | Pieris | Pieris japonica | Stem cuttings
+pinus-densiflora-golden-ghost | Japanese Red Pine 'Golden Ghost' | Pinus densiflora 'Golden Ghost' | (incomplete - see note)
+pinus-mugo-pumilio | Mugo Pine 'Pumilio' | Pinus mugo 'Pumilio' | Not applicable
+pinus-strobus-angel-falls | White Pine 'Angel Falls' | Pinus strobus 'Angel Falls' | Cuttings
+polygonatum-biflorum-var-commutatum | Solomon's Seal | Polygonatum biflorum var. commutatum | Divide rhizomes in spring or fall
+rhododendron-dauricum | Rhododendron | Rhododendron dauricum | Stem cuttings
+ribbon-grass | Ribbon Grass | Phalaris arundinacea | Divide in spring
+rudbeckia-fulgida-goldblitz | Black-eyed Susan 'Goldblitz' | Rudbeckia fulgida 'Goldblitz' | Divide in spring or fall
+rudbeckia-fulgida-goldsturm | Black-eyed Susan 'Goldsturm' | Rudbeckia fulgida 'Goldsturm' | Divide in spring or fall
+rudbeckia-fulgida-viettes-little-suzy | Black-eyed Susan "Viette's Little Suzy" | Rudbeckia fulgida "Viette's Little Suzy" | Divide in spring or fall
+salvia-nemorosa | Meadow Sage | Salvia nemorosa | Stem cuttings
+schizachyrium-scoparium-carousel | Little Bluestem 'Carousel' | Schizachyrium scoparium 'Carousel' | Divide in spring
+schizachyrium-scoparium-standing-ovation | Little Bluestem 'Standing Ovation' | Schizachyrium scoparium 'Standing Ovation' | Divide in spring
+single-mum | Mum | Chrysanthemum sp. | Divide in early spring
+sisyrinchium-angustifolium | Blue-eyed Grass | Sisyrinchium angustifolium | Divide in early spring
+solanum-lycopersicum-bumble-bee-purple | Tomato 'Bumble Bee Purple' | Solanum lycopersicum 'Bumble Bee Purple' | Readily grown from seed
+solanum-lycopersicum-bumble-bee-sunrise | Tomato 'Bumble Bee Sunrise' | Solanum lycopersicum 'Bumble Bee Sunrise' | Readily grown from seed
+solanum-lycopersicum-carbon | Tomato 'Carbon' | Solanum lycopersicum 'Carbon' | Readily grown from seed
+solanum-lycopersicum-ukrainian-purple | Tomato 'Ukrainian Purple' | Solanum lycopersicum 'Ukrainian Purple' | Readily grown from seed
+spiraea-japonica | Spirea | Spiraea japonica | Softwood cuttings in summer
+taxus-x-media-hm-eddie | Yew 'HM Eddie' | Taxus x media 'Hicksii' or 'HM Eddie' | Stem cuttings
+thuja-occidentalis-emerald | Emerald Arborvitae | Thuja occidentalis 'Emerald' | Semi-hardwood cuttings
+tsuga-canadensis-moon-frost | Eastern Hemlock 'Moon Frost' | Tsuga canadensis 'Moon Frost' | Semi-ripe cuttings
+veronica-pink-potion | Veronica 'Pink Potion' | Veronica 'Pink Potion' | Divide in spring
+veronica-purple-illusion | Veronica 'Purple Illusion' | Veronica 'Purple Illusion' | Divide in spring
+veronica-spicata | Veronica | Veronica spicata | Divide in spring
+viburnum-plicatum | Japanese Snowball | Viburnum plicatum | Softwood cuttings in summer
+zinnia | Zinnia | Zinnia elegans | Readily grown from seed
+
+---NOTES---
+2 entries incomplete (no propagation data returned by agent):
+  - picea-sitchensis-silberzwerg
+  - pinus-densiflora-golden-ghost
+

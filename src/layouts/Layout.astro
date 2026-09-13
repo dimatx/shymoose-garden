@@ -24,6 +24,18 @@ const siteName = "ShyMoose Garden";
 const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const imageUrl = image ? new URL(image, Astro.site).href : undefined;
+
+// Capture build time for deployment indicator
+const buildTime = new Date().toLocaleString("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  timeZone: "America/New_York",
+  timeZoneName: "short",
+});
 ---
 
 <!doctype html>
@@ -190,6 +202,9 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
       class="mx-auto max-w-3xl px-4 pb-10 text-center text-sm text-leaf-600 dark:text-leaf-400 sm:px-6"
     >
       <p>🌿 Grown with care in the ShyMoose garden.</p>
+      <p class="mt-2 text-xs text-leaf-500 dark:text-leaf-500">
+        Last deployment: {buildTime}
+      </p>
     </footer>
 
     <script>

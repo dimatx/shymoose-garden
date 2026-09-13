@@ -73,8 +73,14 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         <button type="button" class="filter-chip" data-sort="name" aria-pressed="true">
           Name (A–Z)
         </button>
+        <button type="button" class="filter-chip" data-sort="name-desc" aria-pressed="false">
+          Name (Z–A)
+        </button>
         <button type="button" class="filter-chip" data-sort="recent" aria-pressed="false">
           Recently added
+        </button>
+        <button type="button" class="filter-chip" data-sort="oldest" aria-pressed="false">
+          Oldest first
         </button>
       </div>
     </details>
@@ -492,17 +498,21 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         choice.setAttribute("aria-pressed", String(selected));
         if (selected && sortLabel) sortLabel.textContent = choice.textContent?.trim() ?? "";
       }
-      // The source array stays alphabetical; stable sorting keeps that order
-      // for equal dates and places entries without dates at the end.
-      // Archived plants always sort after active ones, in both modes.
-      const sorted = sortMode === "recent"
-        ? [...items].sort((a, b) => {
-            const archivedDiff =
-              Number(a.dataset.archived === "true") - Number(b.dataset.archived === "true");
-            if (archivedDiff !== 0) return archivedDiff;
-            return Number(b.dataset.added) - Number(a.dataset.added);
-          })
-        : items;
+      // The source array is already alphabetical, so the name modes only need
+      // to keep or reverse it; stable sorting then preserves that order for
+      // equal dates. Archived plants always sort after active ones, in every
+      // mode — reversing happens within that grouping, not across it.
+      const byDate = sortMode === "recent" || sortMode === "oldest";
+      const newestFirst = sortMode === "recent";
+      const base = sortMode === "name-desc" ? [...items].reverse() : [...items];
+      const sorted = base.sort((a, b) => {
+        const archivedDiff =
+          Number(a.dataset.archived === "true") - Number(b.dataset.archived === "true");
+        if (archivedDiff !== 0) return archivedDiff;
+        if (!byDate) return 0;
+        const addedDiff = Number(a.dataset.added) - Number(b.dataset.added);
+        return newestFirst ? -addedDiff : addedDiff;
+      });
       grid.append(...sorted);
     }
 

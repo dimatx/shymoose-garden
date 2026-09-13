@@ -15,6 +15,7 @@ care:
   size: "2–4 ft tall in flower, spreading 1.5–2 ft wide."
   bloom: "Airy, purplish-bronze flowers in late summer mature into fluffy, silvery seed heads that persist through winter."
   spacing: "18–24 in apart."
+  propagation: "Divide in spring"
   pruning: "Cut back close to the ground in late winter or early spring, before new growth emerges."
 tags:
   - "Native"

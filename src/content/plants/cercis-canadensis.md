@@ -15,6 +15,7 @@ care:
   size: "20–30 ft tall and 25–35 ft wide, with a graceful, often multi-stemmed spreading crown."
   bloom: "Rosy pink-purple, pea-like flowers cover the bare branches and even the trunk in early spring, before the leaves emerge."
   spacing: "25–35 ft apart, based on mature spread."
+  propagation: "Seed after cold stratification"
   pruning: "Maintenance: low. Prune lightly to shape and remove dead or crossing wood right after flowering."
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]

@@ -15,6 +15,7 @@ care:
   size: "30–45 cm (12–18 in.) tall and 45–60 cm (18–24 in.) wide; clump-forming with upright, unbranched stems."
   bloom: "Yellow flowers in branched clusters in early summer, followed by star-like seed pods in late summer."
   spacing: "18–24 in apart."
+  propagation: "Divide in spring"
   pruning: "Maintenance: trim off spent flower stems and cut the clump back in late fall or early spring. Divide the clump to rejuvenate it."
 bloomMonths: [6, 7]
 pruneMonths: [4, 11]

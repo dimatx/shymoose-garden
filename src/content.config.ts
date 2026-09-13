@@ -60,7 +60,12 @@ const plants = defineCollection({
         // against a reputable source (NCSU Extension, Missouri Botanical
         // Garden, RHS, or the breeder page for a patented cultivar).
         spacing: z.string().optional(),
-      }),
+          // How to propagate this plant, e.g. "Divide in spring" or "Readily
+          // grown from seed". Optional — only fill in when propagation is
+          // practical for the gardener. Use "Not applicable" for plants where
+          // propagation isn't feasible (e.g. grafted trees, hybrid vegetables).
+          propagation: z.string().optional(),
+        }),
 
       // Months this plant is in flower, as numbers 1–12 (1 = January).
       // Drives the Bloom Calendar. Omit for plants with no floral display

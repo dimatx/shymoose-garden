@@ -15,6 +15,7 @@ care:
   size: "Compact habit, roughly 12–18 in. tall and wide."
   bloom: "Dense, upright plumes of raspberry-pink to purple flowers in mid- to late summer, notably fragrant for an astilbe."
   spacing: "12–18 in apart."
+  propagation: "Divide in spring or fall"
   pruning: "Deadhead or leave spent plumes for winter texture; divide congested clumps every 2–3 years in early spring."
 bloomMonths: [7, 8]
 pruneMonths: [2, 3]

@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 5–8."
   size: "About 6 ft tall and 4–5 ft wide in ten years (6–8 in. a year); a broadly upright to oval evergreen."
   spacing: "5–8 ft apart to allow room for continued growth beyond its ten-year size."
+  propagation: "Semi-hardwood cuttings"
   pruning: "Minimal. Shape or slow growth by pinching the soft new 'candles' by half in late spring; avoid cutting back into bare old wood, which won't resprout."
 tags:
   - "Conifer"

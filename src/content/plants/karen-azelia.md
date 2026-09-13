@@ -15,6 +15,7 @@ care:
   size: "3–4 ft tall and 3–5 ft wide; compact, dense, mounded habit."
   bloom: "Lavender-pink, fragrant, double (hose-in-hose) flowers blanketing the plant in mid-spring before the foliage fully leafs out. Glossy dark green leaves turn reddish in fall and winter."
   spacing: "3–5 ft apart, based on mature spread."
+  propagation: "Semi-ripe cuttings in late summer"
   pruning: "Maintenance: low. Trim lightly immediately after flowering to shape — it blooms on the previous year's wood, so pruning in summer or fall removes next spring's buds. Avoid heavy cutting into old bare wood."
 bloomMonths: [4, 5]
 pruneMonths: [5]

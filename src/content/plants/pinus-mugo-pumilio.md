@@ -14,6 +14,7 @@ care:
   hardiness: "USDA zones 2–7."
   size: "Slow-growing; matures over time to about 3–5 ft tall and 6–10 ft wide, dense and spreading, often semi-prostrate with upright branching."
   spacing: "6–10 ft apart, based on mature spread (closer, about 3–5 ft, for a low massed planting)."
+  propagation: "Not applicable"
   pruning: "Prune annually in late winter to retain its compact size, or pinch the soft new candles by half in spring — unpruned plants will slowly outgrow their space."
 tags:
   - "Conifer"

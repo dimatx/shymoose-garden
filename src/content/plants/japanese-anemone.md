@@ -15,6 +15,7 @@ care:
   size: "Grows 30–48 in. tall and 18–36 in. wide."
   bloom: "Semi-double white flowers with yellow stamens from late summer into fall."
   spacing: "18–24 in apart, based on mature spread."
+  propagation: "Divide in spring"
   pruning: "Cut back dead foliage after frost; avoid moving or dividing established clumps, which dislike root disturbance."
 bloomMonths: [8, 9, 10]
 pruneMonths: [10, 11]

@@ -15,6 +15,7 @@ care:
   size: "Compact mounding habit; flowering stems 9–15 in. tall and 13–18 in. wide."
   bloom: "Double to single flowers in cream-peach-orange shades, blooming in early spring, sometimes into early summer."
   spacing: "12–18 in apart."
+  propagation: "Divide in spring"
   pruning: "Maintenance: low. Deadhead spent blooms to encourage more flowering, feed with a balanced fertilizer in early spring after the first year, and cut back all growth in fall."
 bloomMonths: [4, 5, 6]
 pruneMonths: [3, 11]

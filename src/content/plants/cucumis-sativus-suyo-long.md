@@ -17,6 +17,7 @@ care:
   size: "Fruit grows up to 15 in. long."
   bloom: "Long, ribbed fruit up to 15 in.; about 61 days to harvest."
   spacing: "12–18 in apart along a trellis."
+  propagation: "Readily grown from seed"
   pruning: "Maintenance: train the vine up a trellis and pinch off the lowest side shoots and leaves to improve airflow and keep the long fruit hanging straight."
 tags:
   - "Annual"

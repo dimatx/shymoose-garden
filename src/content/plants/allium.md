@@ -15,6 +15,7 @@ care:
   size: "Grows 18–24 in. tall and 18–24 in. wide, with flower globes up to 6 in. across."
   bloom: "Large, soft pink-purple globe flower clusters from late spring into summer."
   spacing: "12–18 in apart, based on mature spread."
+  propagation: "Divide bulb offsets in fall"
   pruning: "Cut back flower stalks once blooms fade; foliage yellows after flowering and can be tucked behind later-emerging companions."
 bloomMonths: [5, 6, 7]
 tags:

@@ -15,6 +15,7 @@ care:
   size: "Slow growing to about 10–12 ft tall and 3 ft wide, columnar habit."
   bloom: "Grown for evergreen foliage, not flowers; female plants may produce small red, fleshy arils in fall if a male pollinator is nearby."
   spacing: "3–5 ft apart for a hedge, based on mature spread."
+  propagation: "Stem cuttings"
   pruning: "Very low maintenance — tolerates severe pruning at almost any time of year and takes well to shaping into hedges or topiary."
 bloomMonths: []
 pruneMonths: [3, 4, 8, 9]

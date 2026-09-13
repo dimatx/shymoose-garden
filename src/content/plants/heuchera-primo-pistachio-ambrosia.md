@@ -15,6 +15,7 @@ care:
   size: "10–12 in. tall in leaf and up to 2.5–3 ft wide; flower scapes reach 28–32 in."
   bloom: "Tall scapes of soft pink flowers appear in midsummer above the foliage, attracting bees, butterflies, and hummingbirds."
   spacing: "30–36 in apart, based on mature spread."
+  propagation: "Divide in spring"
   pruning: "Maintenance: easy. Trim tattered or winter-worn leaves in early spring; remove faded flower stems to keep the clump neat. Divide every few years to maintain vigor."
 bloomMonths: [7]
 pruneMonths: [3]

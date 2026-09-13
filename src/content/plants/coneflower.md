@@ -15,6 +15,7 @@ care:
   size: "Compact habit, 12–16 in. tall and 16–18 in. wide."
   bloom: "Reddish-orange to pinkish-red daisy flowers from early summer through fall, often to frost."
   spacing: "16–18 in apart, based on mature spread."
+  propagation: "Divide in spring"
   pruning: "Deadhead to encourage more flowers; leave seed heads standing through fall and winter for goldfinches, then cut back in late winter or early spring."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [2, 3]

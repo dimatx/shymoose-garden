@@ -15,6 +15,7 @@ care:
   size: "Compact mounds, about 8–12 in. tall and wide."
   bloom: "Airy, tan flower spikes rise above the foliage in early summer, though the plant is grown mainly for its foliage color."
   spacing: "8–12 in apart."
+  propagation: "Divide in spring"
   pruning: "Shear back by about a third to two-thirds in early spring to remove old growth and encourage fresh blue color; divide clumps every few years if the center dies out."
 bloomMonths: [5, 6, 7]
 pruneMonths: [3]

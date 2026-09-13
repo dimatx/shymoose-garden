@@ -15,6 +15,7 @@ care:
   size: "Compact mound 16–18 in. tall and 16–18 in. wide."
   bloom: "Dense spikes of rich purple flowers from early to midsummer, with a strong repeat bloom if sheared after the first flush."
   spacing: "16–18 in apart."
+  propagation: "Divide in spring"
   pruning: "Maintenance: low. Shear back after the first flush of bloom to encourage reflowering, and cut the clump to the ground in late fall or early spring. Divide every few years."
 bloomMonths: [6, 7]
 pruneMonths: [7, 11]

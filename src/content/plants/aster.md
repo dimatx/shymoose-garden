@@ -15,6 +15,7 @@ care:
   size: "Compact mound, 12–18 in. tall and wide."
   bloom: "Violet-purple daisy flowers with yellow centers from late summer to fall."
   spacing: "12–18 in apart, based on mature spread."
+  propagation: "Divide in spring"
   pruning: "Cut to the ground after flowering; divide clumps every 2–3 years in spring to maintain vigor."
 bloomMonths: [8, 9, 10]
 pruneMonths: [10, 11]

@@ -15,6 +15,7 @@ care:
   size: "Grows 24–36 in. tall and 18–24 in. wide."
   bloom: "Lilac-purple flower plumes in late spring to early summer."
   spacing: "18–24 in apart, based on mature spread."
+  propagation: "Divide in spring or fall"
   pruning: "Deadhead or leave spent plumes for winter interest; divide congested clumps every 3–4 years in early spring."
 bloomMonths: [5, 6]
 pruneMonths: [3, 4]

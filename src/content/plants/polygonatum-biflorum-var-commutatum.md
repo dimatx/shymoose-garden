@@ -15,6 +15,7 @@ care:
   size: "3–6 ft tall (occasionally to 7 ft) and 2–4 ft wide; spreads gradually by rhizomes."
   bloom: "Clusters of 2–10 greenish-white, bell-shaped flowers hang beneath the stems in May–June, followed by showy blue-black berries in fall."
   spacing: "12–18 in apart; clumps spread and merge into larger colonies over time."
+  propagation: "Divide rhizomes in spring or fall"
   pruning: "Maintenance: minimal — let the foliage die back and cut the spent stems to the ground in fall. Lift and divide the rhizomes in fall to rejuvenate or contain the clump."
 bloomMonths: [5, 6]
 pruneMonths: [10, 11]

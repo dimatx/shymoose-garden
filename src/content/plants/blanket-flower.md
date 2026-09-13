@@ -15,6 +15,7 @@ care:
   size: "Compact dwarf habit, 10–12 in. tall and 15 in. wide."
   bloom: "Red-and-yellow bicolor daisy flowers with dark centers from early summer to early fall."
   spacing: "12–15 in apart, based on mature spread."
+  propagation: "Readily grown from seed"
   pruning: "Deadhead to prolong bloom; cut clumps back to about 6 in. in late summer to improve winter survival, and divide every 2–3 years."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [8, 9]

@@ -15,6 +15,7 @@ care:
   size: "Compact, roughly 24–30 in. tall in bloom and 18–24 in. wide."
   bloom: "Fluffy, silver-white seedheads appear atop copper-orange fall foliage from late summer through winter."
   spacing: "18–24 in apart."
+  propagation: "Divide in spring"
   pruning: "Cut back to a few inches above the ground in late winter or early spring before new growth begins; no deadheading needed."
 bloomMonths: [9, 10, 11, 12]
 pruneMonths: [2, 3]

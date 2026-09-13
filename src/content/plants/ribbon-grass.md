@@ -15,6 +15,7 @@ care:
   size: "About 2–3 ft tall in leaf (taller in flower) and spreading indefinitely by rhizomes."
   bloom: "Thin, airy panicles of pale pink-and-white flowers in summer — incidental; this grass is grown entirely for its striped foliage."
   spacing: "24–36 in apart (it spreads aggressively by rhizomes — consider a root barrier)."
+  propagation: "Divide in spring"
   pruning: "Cut to the ground in late winter. If the foliage tires and browns in summer heat, shear it back hard to force a fresh flush of clean new blades. Contain the roots — it spreads aggressively."
 bloomMonths: [6, 7]
 pruneMonths: [3]

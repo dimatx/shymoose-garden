@@ -15,6 +15,7 @@ care:
   size: "5–10 ft tall and wide in mild climates. In zones 5–6, dies to ground each winter and regrows to 3–5 ft by late summer."
   bloom: "Pendulous, tubular flowers with reflexed scarlet sepals and purple petals and prominent long stamens, produced in abundance from early summer through first frost. Small dark berries follow."
   spacing: "3–5 ft apart (up to 5–10 ft in mild climates where the top doesn't die back)."
+  propagation: "Stem cuttings in late summer"
   pruning: "In cold climates: cut dead stems to the ground in early spring after frost danger passes. In mild climates: prune hard in early spring to rejuvenate. Remove dead wood anytime."
 bloomMonths: [6, 7, 8, 9, 10]
 pruneMonths: [3]

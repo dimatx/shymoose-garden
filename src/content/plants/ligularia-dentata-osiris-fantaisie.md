@@ -15,6 +15,7 @@ care:
   size: "Foliage mound to 24 in tall and wide; flower stems raise total height to 30–36 in."
   bloom: "Daisy-like, yellow-orange flowers (2–3 in across) in loose clusters on reddish-purple stems, mid- to late summer."
   spacing: "18–24 in apart."
+  propagation: "Divide in spring"
   pruning: "Maintenance: low. Deadhead spent flower stalks, then cut the foliage back after frost."
 bloomMonths: [7, 8]
 pruneMonths: [10, 11]

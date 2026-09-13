@@ -15,6 +15,7 @@ care:
   size: "Reaches roughly 18–24 in. tall and wide in flower."
   bloom: "Feathery plumes appear in mid- to late summer above dark, almost purple-black foliage."
   spacing: "18–24 in apart."
+  propagation: "Divide in spring or fall"
   pruning: "Cut back flower stalks and foliage after they fade, or leave the seed heads for winter interest; divide clumps every 3–4 years in early spring."
 bloomMonths: [7, 8]
 pruneMonths: [3]

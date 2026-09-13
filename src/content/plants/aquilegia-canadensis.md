@@ -15,6 +15,7 @@ care:
   size: "1–3 ft tall, roughly 1–1.5 ft wide."
   bloom: "Nodding, bell-shaped red-and-yellow flowers with long backward-pointing spurs, in mid-spring."
   spacing: "12–18 in apart."
+  propagation: "Readily grown from seed"
   pruning: "Deadhead for tidiness and possible rebloom. Foliage can be cut back if it declines in summer heat — it regrows the following spring."
 tags:
   - "Native"

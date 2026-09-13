@@ -15,6 +15,7 @@ care:
   size: "Grows 18–24 in. tall (to 30 in. in bloom) and 18–24 in. wide."
   bloom: "Clear pink flower plumes in late spring to early summer."
   spacing: "18–24 in apart, based on mature spread."
+  propagation: "Divide in spring"
   pruning: "Deadhead or leave spent plumes for winter interest; divide clumps every 3–4 years."
 bloomMonths: [5, 6]
 pruneMonths: [3, 4]

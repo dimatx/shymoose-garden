@@ -15,6 +15,7 @@ care:
   size: "Grows 18–24 in. tall and 16–20 in. wide, with heavily branched flowering stems."
   bloom: "Vivid orange daisy flowers with dark centers from early summer through fall."
   spacing: "16–20 in apart, based on mature spread."
+  propagation: "Divide in spring"
   pruning: "Deadhead to keep flowers coming; cut back in late winter or early spring, leaving seed heads through fall and winter for birds."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [2, 3]

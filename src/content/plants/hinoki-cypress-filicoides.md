@@ -15,6 +15,7 @@ care:
   size: "8–12 ft tall, 3–4 ft wide — slow growing; the straight species can reach 50–75 ft, but this cultivar stays much smaller."
   bloom: "No true flowers; evergreen, fern-like sprays of congested, thread-like foliage year-round."
   spacing: "3–5 ft apart, based on mature spread."
+  propagation: "Cuttings"
   pruning: "Minimal — light shaping only as needed to maintain its narrow pyramidal form. Avoid cutting into bare, leafless wood, as false cypress won't resprout from it."
 bloomMonths: []
 pruneMonths: [4, 5]

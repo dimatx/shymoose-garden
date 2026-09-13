@@ -15,6 +15,7 @@ care:
   size: "1–2 ft tall, 1–1.5 ft wide. 'Takion Blue' is a compact, mounded selection."
   bloom: "Large, outward-facing, bell-shaped lavender-blue flowers on slender, erect stems above a rosette of narrow, toothed, bright green leaves. Blooms June to July."
   spacing: "12–18 in apart."
+  propagation: "Divide in spring or fall"
   pruning: "Deadhead spent flowers promptly to encourage reblooming and limit self-seeding. Divide clumps every 2–4 years in spring to keep them vigorous."
 bloomMonths: [6, 7]
 pruneMonths: [6, 7]

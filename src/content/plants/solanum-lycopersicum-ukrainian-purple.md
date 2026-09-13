@@ -18,6 +18,7 @@ care:
   size: "Indeterminate."
   bloom: "Purply-black plum-shaped fruit; about 80 days from transplant."
   spacing: "Space plants 2–3 ft apart in rows 3–4 ft apart."
+  propagation: "Readily grown from seed"
   pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."
 tags:
   - "Annual"

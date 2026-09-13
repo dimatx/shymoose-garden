@@ -207,16 +207,13 @@ const navButtonClass =
   /* One shared grid for the header and every row, so the columns line up. The
      script narrows --visible to however many months actually fit. */
   .cal-chart {
-    --label-w: 7.5rem;
+    /* The same generous name column at every width: on a phone the script only
+       shows a three-month window, so there's room to spare for the names. */
+    --label-w: 11rem;
     --visible: 12;
     /* Without JS the full year still renders; this keeps the columns legible
        and lets the wrapper scroll instead of squeezing them to nothing. */
     min-width: calc(var(--label-w) + var(--visible) * 2.25rem);
-  }
-  @media (min-width: 640px) {
-    .cal-chart {
-      --label-w: 11rem;
-    }
   }
   .cal-grid {
     display: grid;
@@ -227,12 +224,13 @@ const navButtonClass =
   .cal-col.is-out {
     display: none;
   }
-  /* Long plant names wrap to a second line rather than being cut off. */
+  /* Long plant names wrap rather than being cut off. Paging through a short
+     month window leaves room for a third line before anything is clipped. */
   .cal-name {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
     overflow: hidden;
     overflow-wrap: anywhere;
   }
@@ -294,6 +292,8 @@ const navButtonClass =
 
   /** Narrowest a month column may get before we start hiding months. */
   const MIN_COLUMN_PX = 42;
+  /** How many months to page through at a time when the year doesn't fit. */
+  const WINDOW_MONTHS = 3;
 
   function initCalendar() {
     const calendar = document.querySelector<HTMLElement>(".month-calendar");
@@ -345,7 +345,11 @@ const navButtonClass =
       const labelWidth = labelProbe?.getBoundingClientRect().width ?? 0;
       if (!available || !labelWidth) return 12;
       const count = Math.floor((available - labelWidth) / MIN_COLUMN_PX);
-      return Math.max(1, Math.min(12, count));
+      // It's either the whole year at once, or a fixed short window you page
+      // through — anything in between gives the columns an awkward width and
+      // still hides most of the year.
+      if (count >= 12) return 12;
+      return Math.max(1, Math.min(WINDOW_MONTHS, count));
     }
 
     function render() {

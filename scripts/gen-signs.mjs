@@ -146,14 +146,12 @@ const SIGN_NAME = {
 // real rendered advance width of the common name (Bold) and latin name
 // (Italic) in Barlow Condensed, measured directly from the bundled font
 // files — not guessed from a per-character average — plus a minimum
-// whitespace margin on each side of whichever line is wider, so the text
-// never sits flush against the plaque edges. Bold common-name text reads as
-// more cramped than italic latin text at the same numeric margin, so it
-// gets a larger minimum (calibrated against "Blanket Flower", confirmed to
-// look right at ~26.7mm margin/side; "Chrysanthemum weyrichii 'White
-// Bomb'"'s previously-too-tight 18.4mm latin margin set the italic floor).
-const MIN_MARGIN_PRIMARY = 25; // mm, each side, common name (Bold)
-const MIN_MARGIN_SECONDARY = 20; // mm, each side, latin name (Italic)
+// whitespace margin on each side of whichever line is wider, so the plaque
+// has generous breathing room rather than text that merely clears the
+// edges. Bold common-name text reads as more cramped than italic latin
+// text at the same numeric margin, so it gets a larger minimum.
+const MIN_MARGIN_PRIMARY = 30; // mm, each side, common name (Bold)
+const MIN_MARGIN_SECONDARY = 25; // mm, each side, latin name (Italic)
 function calcPlaqueW(signName, signLatin) {
   const primaryW = measureTextWidthMm(boldFont, signName, PRIMARY_TEXT_H);
   const latinW = measureTextWidthMm(italicFont, signLatin, SECONDARY_TEXT_H);

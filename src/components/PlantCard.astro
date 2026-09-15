@@ -63,7 +63,9 @@ const { name, latinName, photo, photoAlt, shortDescription, archived, archivedNo
     }
   </div>
   <div class="flex flex-1 flex-col gap-1 p-4">
-    <h2 class="font-serif text-lg font-semibold leading-tight">{name}</h2>
+    <h2 class="truncate font-serif text-lg font-semibold leading-tight" title={name}>
+      {name}
+    </h2>
     <p class="text-sm italic text-leaf-600 dark:text-leaf-400">{latinName}</p>
     <p class="mt-1 line-clamp-2 text-sm text-leaf-700 dark:text-leaf-300">
       {shortDescription}

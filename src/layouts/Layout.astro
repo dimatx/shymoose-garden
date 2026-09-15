@@ -139,7 +139,9 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
           </a>
           <a
             href="/map/"
-            class="hidden items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:inline-flex"
+            data-beta-feature
+            hidden
+            class="items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:inline-flex"
           >
             <Icon name="map" class="h-4 w-4" />
             <span>Garden map</span>
@@ -184,7 +186,9 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
               <a
                 href="/map/"
                 role="menuitem"
-                class="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
+                data-beta-feature
+                hidden
+                class="items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
               >
                 <Icon name="map" class="h-4 w-4 shrink-0" />
                 <span>Garden map</span>
@@ -277,6 +281,19 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
 
       initNavMenu();
       document.addEventListener("astro:page-load", initNavMenu);
+
+      // Garden map is still in progress — its nav links only appear when
+      // ?beta is present in the URL. See src/pages/map.astro for the
+      // matching gate on the page itself.
+      function revealBetaFeatures() {
+        if (!new URLSearchParams(location.search).has("beta")) return;
+        document
+          .querySelectorAll("[data-beta-feature]")
+          .forEach((el) => el.removeAttribute("hidden"));
+      }
+
+      revealBetaFeatures();
+      document.addEventListener("astro:page-load", revealBetaFeatures);
     </script>
 
     <script>

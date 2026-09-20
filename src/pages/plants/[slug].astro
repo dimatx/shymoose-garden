@@ -262,11 +262,11 @@ function renderInlineMarkdown(text: string): string {
                           {item.label}
                         </dt>
                         {item.label === "Pet safety" && plant.data.care.petSafetyInfo && (
-                          <details class="cursor-pointer" title="View toxicity details">
+                          <details class="cursor-pointer relative" title="View toxicity details">
                             <summary class="text-xs font-semibold text-leaf-500 dark:text-leaf-400 hover:text-leaf-700 dark:hover:text-leaf-300 list-none">
                               <Icon name="info" class="h-4 w-4 inline" />
                             </summary>
-                            <div class="mt-2 border-t border-leaf-200 dark:border-leaf-700 pt-2">
+                            <div class="absolute top-full right-0 mt-1 w-64 rounded-lg border border-leaf-200 dark:border-leaf-700 bg-white dark:bg-leaf-900 p-3 shadow-lg z-10">
                               <p class="text-xs leading-relaxed text-leaf-700 dark:text-leaf-300">
                                 {plant.data.care.petSafetyInfo}
                               </p>
@@ -359,5 +359,22 @@ function renderInlineMarkdown(text: string): string {
   .prose-garden :global(strong) {
     color: inherit;
     font-weight: 600;
+  }
+
+  /* Pet safety details: position absolutely so it doesn't affect flex layout */
+  details[title="View toxicity details"] {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+  }
+  details[title="View toxicity details"] summary {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+  }
+  details[title="View toxicity details"] > div {
+    z-index: 50;
   }
 </style>

@@ -327,7 +327,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     flex-wrap: wrap;
     gap: 0.5rem;
     width: max-content;
-    max-width: min(20rem, calc(100vw - 2rem));
+    max-width: min(16rem, calc(100vw - 2rem));
     border-radius: 1rem;
     border: 1px solid var(--color-leaf-200, #cfe5d1);
     background-color: #fff;
@@ -335,6 +335,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     box-shadow:
       0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
+    overflow: hidden;
   }
   :global(.dark) .filter-panel {
     border-color: var(--color-leaf-800, #234d28);
@@ -348,6 +349,12 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     .sort-panel {
       left: auto;
       right: 0;
+    }
+  }
+  @media (max-width: 639px) {
+    .filter-panel {
+      right: 0;
+      left: auto;
     }
   }
 </style>

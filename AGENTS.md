@@ -104,12 +104,28 @@ reference and reconcile:
   names include them. The generator strips a trailing quoted cultivar by
   default; use `SIGN_NAME` for unquoted cultivar prefixes or other exceptions.
   Keep cultivar identification on the Latin line and preserve width overrides.
-- After `gen:signs`, run `npm run gen:3mf` to render the model-only files in
-  `signs/3mf/` for PrusaSlicer. OpenSCAD is required; see README for portable
-  setup and `OPENSCAD_BIN`. The exporter bundles its fonts, skips unchanged
-  models, and leaves printer/filament settings to the slicer. Commit changed
-  3MFs alongside their SCAD sources. Do not add this desktop-only export to
-  the Cloudflare website build.
+- After `gen:signs`, render **only the new plant's sign(s)** — pass their slug(s)
+  as arguments, e.g. `npm run gen:3mf -- <slug>` (or `node scripts/gen-3mf.mjs
+  <slug1> <slug2> ...` for several at once) — rather than the bare
+  `npm run gen:3mf`. OpenSCAD is required; see README for portable setup and
+  `OPENSCAD_BIN`.
+  **Never run the unscoped `npm run gen:3mf` when only adding plants.** The
+  render cache that lets it safely print `[SKIP]` for unchanged signs
+  (`signs/3mf/.cache.json`) is gitignored and does not persist across
+  machines or sessions, so an unscoped run forces a full re-render of every
+  sign. If the OpenSCAD build resolved on your machine isn't byte-identical
+  to whatever build last rendered the repo's committed 3MFs — a different
+  installed version, a different nightly snapshot, or even just a different
+  install alongside another one — that full re-render silently overwrites
+  dozens of unrelated, already-correct `.3mf` files with different (though
+  not necessarily wrong-looking) geometry. Scoping to the new slug(s) makes
+  the blast radius exactly the files you intend to touch. If you ever do run
+  it unscoped, treat the resulting `git status` the same as the `.scad` case
+  below: confirm every diff is one you meant to make before committing, and
+  revert (`git restore --worktree -- <path>`) anything that isn't.
+  The exporter bundles its fonts and leaves printer/filament settings to the
+  slicer. Commit changed 3MFs alongside their SCAD sources. Do not add this
+  desktop-only export to the Cloudflare website build.
 
 ### 7. Build, then commit EVERYTHING
 - `npm run build` to verify the collection and images validate.

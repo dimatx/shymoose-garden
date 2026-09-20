@@ -76,7 +76,12 @@ function findOpenSCAD() {
   const candidates = [...portable, binary];
   if (process.platform === "win32") {
     for (const directory of [process.env.ProgramFiles, process.env["ProgramFiles(x86)"]]) {
-      if (directory) candidates.push(join(directory, "OpenSCAD", binary));
+      if (!directory) continue;
+      // Prefer a stable install, but fall back to the nightly build if that's
+      // all that's present — Windows nightlies install to a separate
+      // "OpenSCAD (Nightly)" folder alongside (or instead of) the stable one.
+      candidates.push(join(directory, "OpenSCAD", binary));
+      candidates.push(join(directory, "OpenSCAD (Nightly)", binary));
     }
   } else if (process.platform === "darwin") {
     candidates.push("/Applications/OpenSCAD.app/Contents/MacOS/OpenSCAD");
@@ -240,6 +245,18 @@ async function main() {
   }
   const selection = new Set(requested.map((name) => name.endsWith(".scad") ? name : `${name}.scad`));
   const files = selection.size ? allFiles.filter((file) => selection.has(file)) : allFiles;
+  if (!selection.size && !force) {
+    console.warn(
+      `[WARN] No sign name given — this will re-check all ${allFiles.length} signs. ` +
+        "The render cache (signs/3mf/.cache.json) is gitignored and doesn't persist " +
+        "across machines/sessions, so a fresh cache forces a full re-render. If the " +
+        "resolved OpenSCAD build isn't byte-identical to whatever build last rendered " +
+        "the repo's committed 3MFs, that silently overwrites unrelated, already-correct " +
+        "files with different geometry. Prefer scoping to the sign(s) you actually " +
+        "changed, e.g. `npm run gen:3mf -- <slug>`. Review `git status`/diff on " +
+        "signs/3mf/ before committing either way.\n"
+    );
+  }
   if (!files.length) throw new Error("No SCAD signs found. Run npm run gen:signs first.");
 
   const { byUrl, byLatin } = await buildSheetNumberMaps();

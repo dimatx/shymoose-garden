@@ -101,10 +101,21 @@ async function main() {
   await mkdir(draftsDir, { recursive: true });
 
   const usedSlugs = new Set(existing.map((p) => p.slug));
+  const usedPhotoBases = new Set(existing.map((p) => p.photoBase).filter(Boolean));
   const written = [];
   for (const rec of newPlants) {
-    const slug = uniqueSlug(rec, usedSlugs);
+    const commonBase = slugify(rec.commonName);
+    const commonBaseTaken =
+      commonBase && (usedSlugs.has(commonBase) || usedPhotoBases.has(commonBase));
+    const slug = uniqueSlug(rec, usedSlugs, usedPhotoBases);
     usedSlugs.add(slug);
+    usedPhotoBases.add(slug); // the draft's default photo is "<slug>.jpg"
+    if (commonBaseTaken && commonBase !== slug) {
+      console.log(
+        `  ! note: "${commonBase}.jpg" is already used by another plant's photo — ` +
+          `scaffolding ${slug} instead so they don't share an image file.`
+      );
+    }
     const file = join(draftsDir, `${slug}.md`);
     if (existsSync(file)) {
       console.log(`  • skip (draft already exists): drafts/plants/${slug}.md`);
@@ -170,6 +181,12 @@ async function loadExistingPlants() {
       slug: file.replace(/\.md$/, ""),
       latinKey: normalizeLatin(fm.latinName ?? ""),
       urlKey: normalizeUrl(fm.learnMoreUrl ?? ""),
+      // The photo filename is NOT guaranteed to match this plant's own slug
+      // (some plants deliberately or accidentally point at a differently-named
+      // shared image). Track it separately so a new draft's default photo
+      // path — always "<slug>.jpg" — can be checked against every plant's
+      // ACTUAL photo reference, not just other content-file slugs.
+      photoBase: photoBasename(fm.photo ?? ""),
     });
   }
   return plants;
@@ -231,6 +248,13 @@ function frontmatter(text) {
   return out;
 }
 
+/** Extract the bare filename (no directory, no extension) from a photo path
+ * like "../../assets/plants/oakleaf-hydrangea.jpg" -> "oakleaf-hydrangea". */
+function photoBasename(photoPath) {
+  const file = photoPath.split(/[\\/]/).pop() ?? "";
+  return file.replace(/\.[^.]+$/, "");
+}
+
 function isKnown(rec, existing) {
   const url = normalizeUrl(rec.fullLink);
   const latin = normalizeLatin(rec.latinName);
@@ -253,21 +277,29 @@ function slugify(text) {
     .replace(/^-+|-+$/g, "");
 }
 
-function uniqueSlug(rec, used) {
+function uniqueSlug(rec, used, usedPhotoBases) {
   // Prefer the common name. But when several cultivars share one common name
   // (e.g. three "Japanese Maple"s), the common-name slug collides — fall back
   // to the full Latin name WITH its cultivar so each cultivar gets its own
   // meaningful slug (acer-palmatum-tamukeyama) instead of "japanese-maple-2".
+  //
+  // A draft's photo defaults to "<slug>.jpg", so the slug must also avoid
+  // colliding with any EXISTING plant's actual photo filename — which is not
+  // guaranteed to match that plant's own content slug (see photoBasename()).
+  // Skipping this check let two different "Oakleaf Hydrangea" plants end up
+  // pointing at the same image file, since their content slugs legitimately
+  // differed even though the naive photo path did not.
+  const collides = (candidate) => used.has(candidate) || usedPhotoBases.has(candidate);
   const commonBase = slugify(rec.commonName);
   const latinBase = slugify(rec.latinName);
   let base =
-    (commonBase && !used.has(commonBase) ? commonBase : "") ||
+    (commonBase && !collides(commonBase) ? commonBase : "") ||
     latinBase ||
     commonBase ||
     "plant";
   let slug = base;
   let n = 2;
-  while (used.has(slug)) slug = `${base}-${n++}`;
+  while (collides(slug)) slug = `${base}-${n++}`;
   return slug;
 }
 

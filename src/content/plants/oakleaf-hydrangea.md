@@ -1,9 +1,9 @@
 ---
-name: "Oakleaf Hydrangea"
+name: "Oakleaf Hydrangea 'Gatsby Moon'"
 latinName: "Hydrangea quercifolia 'Gatsby Moon®'"
 type: "Shrub"
 nativeRange: "Southeastern United States (species), where it grows in moist woods and along stream banks"
-photo: "../../assets/plants/oakleaf-hydrangea.jpg"
+photo: "../../assets/plants/hydrangea-quercifolia-gatsby-moon.jpg"
 photoAlt: "An oakleaf hydrangea shrub covered in large, cone-shaped white flower panicles above lobed, oak-shaped leaves."
 photoCredit: "Famartin, CC BY-SA 4.0, via Wikimedia Commons"
 shortDescription: "A native-species hydrangea with huge, full white mophead panicles, bold oak-shaped leaves, and exfoliating winter bark."

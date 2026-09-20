@@ -1,5 +1,5 @@
 ---
-name: "Peachleaf Bellflower"
+name: "Peachleaf Bellflower 'Takion Blue'"
 latinName: "Campanula persicifolia 'Takion Blue'"
 type: "Perennial"
 nativeRange: "Europe and western Asia"

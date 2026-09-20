@@ -1,5 +1,5 @@
 ---
-name: "Catmint"
+name: "Catmint 'Junior Walker'"
 latinName: "Nepeta x faassenii 'Junior Walker'"
 type: "Perennial"
 nativeRange: "Garden hybrid (sterile cross of European Nepeta species)"

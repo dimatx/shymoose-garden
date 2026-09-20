@@ -79,6 +79,17 @@ reference and reconcile:
   body below the `---`.
 - Clean cultivar Latin names — the sheet sometimes has stray nested quotes
   (e.g. `Heuchera Primo® 'Black Pearl'`).
+- **The website display `name` must include the cultivar** whenever the plant
+  is a named cultivar, e.g. `name: "Oakleaf Hydrangea 'Gatsby Moon'"` /
+  `name: "Red-twig Dogwood 'Arctic Fire'"` — not just the bare common name.
+  This disambiguates cultivars sharing a common name (two "Oakleaf
+  Hydrangea"s) and matches what the plant actually is. Skip this only when
+  the common name already plainly describes the cultivar's defining trait in
+  English (e.g. "Weeping Blue Spruce" for `'Pendula'`, "Globe Blue Spruce"
+  for `'Glauca Globosa'`) or the cultivar tag is an internal patent code
+  rather than a real trade name (e.g. `'Notwoodthree'`). This is independent
+  of the physical sign, which strips the cultivar back off by default (see
+  step 6) — no extra step is needed there.
 - Create the real file at `src/content/plants/<slug>.md` (slug is cultivar-based,
   matching its siblings). The draft is auto-pruned on the next import run.
 

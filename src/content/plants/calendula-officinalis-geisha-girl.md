@@ -1,5 +1,5 @@
 ---
-name: "Calendula"
+name: "Calendula 'Geisha Girl'"
 latinName: "Calendula officinalis 'Geisha Girl'"
 type: "Annual"
 nativeRange: "Southern Europe and the Mediterranean"

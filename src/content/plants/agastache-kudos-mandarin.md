@@ -1,5 +1,5 @@
 ---
-name: "Giant Hyssop"
+name: "Giant Hyssop 'Kudos Mandarin'"
 latinName: "Agastache 'Kudos Mandarin'"
 type: "Perennial"
 nativeRange: "Garden hybrid bred by Terra Nova Nurseries (parent species native to North America)"

@@ -1,5 +1,5 @@
 ---
-name: "Clustered Bellflower"
+name: "Clustered Bellflower 'Superba'"
 latinName: "Campanula glomerata 'Superba'"
 type: "Perennial"
 nativeRange: "Europe and temperate Asia"

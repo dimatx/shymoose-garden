@@ -1,5 +1,5 @@
 ---
-name: "Japanese Anemone"
+name: "Japanese Anemone 'Whirlwind'"
 latinName: "Anemone 'Whirlwind'"
 type: "Perennial"
 nativeRange: "Garden hybrid of species native to China and Japan"

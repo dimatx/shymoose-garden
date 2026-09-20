@@ -1,5 +1,5 @@
 ---
-name: "Siberian Cypress"
+name: "Siberian Cypress 'Celtic Pride'"
 latinName: "Microbiota decussata 'Celtic Pride®'"
 type: "Conifer"
 nativeRange: "Sikhote-Alin mountains of far-eastern Russia (species); this cold-hardy selection is a garden cultivar"

@@ -1,5 +1,5 @@
 ---
-name: "Red-twig Dogwood"
+name: "Red-twig Dogwood 'Arctic Fire'"
 latinName: "Cornus sericea 'Arctic Fire®'"
 type: "Shrub"
 nativeRange: "Most of North America (species), from Canada and Alaska south through the northern and western United States"

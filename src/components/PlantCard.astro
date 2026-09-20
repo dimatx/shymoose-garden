@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Icon from "./Icon.astro";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -21,6 +22,7 @@ interface Props {
 const { plant, priority = false, eager = false } = Astro.props;
 const { name, latinName, photo, photoAlt, shortDescription, archived, archivedNote } =
   plant.data;
+const isHighlyToxic = plant.data.care.petSafety === "Highly toxic";
 ---
 
 <a
@@ -58,6 +60,16 @@ const { name, latinName, photo, photoAlt, shortDescription, archived, archivedNo
           title={archivedNote}
         >
           Archived
+        </span>
+      )
+    }
+    {
+      isHighlyToxic && (
+        <span
+          class="highly-toxic-badge absolute right-2 top-2 hidden rounded-full bg-red-600/90 p-1.5 text-white transition-opacity"
+          title="Highly toxic to dogs"
+        >
+          <Icon name="skull-alert" class="h-4 w-4" strokeWidth={2} />
         </span>
       )
     }

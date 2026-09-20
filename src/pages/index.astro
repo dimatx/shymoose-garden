@@ -211,6 +211,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
               data-type={plant.data.type ?? ""}
               data-sun={`|${sunLevels(plant).join("|")}|`}
               data-tags={`|${plant.data.tags.join("|")}|`}
+              data-pet-safety={plant.data.care.petSafety ?? ""}
               data-archived={String(plant.data.archived)}
               data-archived-first={String(
                 plant.data.archived && !plants[i - 1]?.data.archived
@@ -556,6 +557,17 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         if (show) visible++;
       }
       markArchivedRowBreak();
+
+      // Show highly toxic icon only when "Toxic to pets" filter is active
+      const toxicFilterActive = selectedTraits.has("Toxic to pets");
+      for (const item of items) {
+        const badge = item.querySelector<HTMLElement>(".highly-toxic-badge");
+        if (badge && toxicFilterActive && !item.hidden) {
+          badge.classList.remove("hidden");
+        } else if (badge) {
+          badge.classList.add("hidden");
+        }
+      }
 
       const active =
         selectedTypes.size +

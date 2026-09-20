@@ -18,6 +18,8 @@ care:
   propagation: "Divide bulb offsets in fall"
   pruning: "Deadhead spent flower heads to tidy the planting; cut foliage back after it yellows in fall."
   petSafety: "Highly toxic"
+  petSafetyNotes: "All parts toxic in all forms (bulbs, leaves, raw, cooked, dried)"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, lethargy, pale gums, red-brown or dark-colored urine (signs of hemolytic anemia). Onset: stomach upset may come first; anemia signs can be delayed. Toxic compound: organosulfoxides"
 bloomMonths: [7, 8, 9]
 pruneMonths: [10, 11]
 tags:

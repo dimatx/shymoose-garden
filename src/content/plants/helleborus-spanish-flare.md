@@ -18,6 +18,8 @@ care:
   propagation: "Divide after flowering"
   pruning: "Remove tattered old foliage in late winter before new flower stalks emerge; otherwise low-maintenance."
   petSafety: "Highly toxic"
+  petSafetyNotes: "All parts toxic, especially roots"
+  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea; slow heart rate or tremors in more serious cases. Toxic compound: cardiac glycosides (hellebrin)"
 bloomMonths: [1, 2, 3, 4]
 tags:
   - "Toxic to dogs"

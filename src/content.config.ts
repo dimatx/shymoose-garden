@@ -69,6 +69,14 @@ const plants = defineCollection({
         // "Non-toxic", "Mildly toxic", "Highly toxic"
         // Optional — include only when verified against reputable pet toxicity sources.
         petSafety: z.string().optional(),
+        // Pet safety notes: clarification of which parts are toxic vs. safe.
+        // E.g. "Leaves and stems only (fruit is safe)" or "All parts"
+        // Optional — include when specific parts are safe or toxic.
+        petSafetyNotes: z.string().optional(),
+        // Pet safety info: toxic compound(s) and effects on dogs.
+        // E.g. "Toxic compound: saponins. Effects: vomiting, diarrhea, abdominal pain"
+        // Optional — include detailed toxicology for mildly/highly toxic plants.
+        petSafetyInfo: z.string().optional(),
         }),
 
       // Months this plant is in flower, as numbers 1–12 (1 = January).

@@ -18,6 +18,8 @@ care:
   propagation: "Stem cuttings in summer"
   pruning: "Blooms on old wood — prune only right after flowering if shaping is needed. Pruning in late winter or spring removes the coming season's flower buds."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "All parts toxic, especially flower buds and young leaves"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, depression or unusual tiredness. Toxic compound: cyanogenic glycosides"
 tags:
   - "Toxic to dogs"
   - "Native"

@@ -18,6 +18,8 @@ care:
   propagation: "Divide in spring"
   pruning: "Cut back dead foliage after frost; avoid moving or dividing established clumps, which dislike root disturbance."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "All fresh sap-containing parts (leaves, stems, flowers, roots)"
+  petSafetyInfo: "Symptoms: mouth irritation, excessive drooling, vomiting, diarrhea; tremors in more serious cases. Toxic compound: protoanemonin"
 bloomMonths: [8, 9, 10]
 pruneMonths: [10, 11]
 tags:

@@ -18,6 +18,8 @@ care:
   propagation: "Divide in early spring"
   pruning: "Deadhead to prolong bloom; cut back and divide in spring as needed to control spread."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "All parts toxic (flowers, leaves, stems, roots)"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, wobbliness; skin irritation after contact. Toxic compound: pyrethrins and sesquiterpene lactones"
 bloomMonths: [8, 9, 10]
 pruneMonths: [3, 4]
 tags:

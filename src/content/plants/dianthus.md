@@ -18,6 +18,8 @@ care:
   propagation: "Softwood cuttings in spring"
   pruning: "Low maintenance. Shear the mound lightly after the main flush to keep it tidy and encourage a second round of bloom."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "Above-ground parts (flowers, leaves, stems) cause mild upset"
+  petSafetyInfo: "Symptoms: mild vomiting, diarrhea, excessive drooling; mild skin irritation after contact. Toxic compound: unknown irritant"
 bloomMonths: [5, 6, 7]
 pruneMonths: [6]
 tags:

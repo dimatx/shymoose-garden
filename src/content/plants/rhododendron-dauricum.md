@@ -18,6 +18,8 @@ care:
   propagation: "Stem cuttings"
   pruning: "Maintenance: low. Prune lightly right after flowering to shape; avoid heavy cuts into old wood."
   petSafety: "Highly toxic"
+  petSafetyNotes: "All parts including leaves, stems, flowers, pollen and nectar"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, weakness; abnormal heart rhythm, tremors, or seizures in severe cases. Toxic compound: grayanotoxins"
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]
 tags:

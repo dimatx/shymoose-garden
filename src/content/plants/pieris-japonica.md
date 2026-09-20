@@ -18,6 +18,8 @@ care:
   propagation: "Stem cuttings"
   pruning: "Maintenance: low. Deadhead spent flower clusters and lightly shape right after blooming — it flowers on old wood, so pruning later removes next spring's buds."
   petSafety: "Highly toxic"
+  petSafetyNotes: "All parts, especially leaves"
+  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea, weakness; abnormal heart rhythm or collapse in severe cases. Toxic compound: grayanotoxins"
 bloomMonths: [3, 4, 5]
 pruneMonths: [5, 6]
 tags:

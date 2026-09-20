@@ -18,6 +18,8 @@ care:
   propagation: "Readily grown from seed"
   pruning: "Harvest outer stems at the base to encourage new growth from the center. Remove flower stalks promptly as they appear to prolong the leaf harvest — leaf quality declines once flowering begins."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "Seeds/oil highest concern; small culinary amounts generally low-risk"
+  petSafetyInfo: "Symptoms: skin irritation or rash, especially after sun exposure; usually only a risk with large amounts. Toxic compound: furanocoumarins"
 pruneMonths: [4, 5, 6, 7, 8, 9]
 tags:
   - "Toxic to dogs"

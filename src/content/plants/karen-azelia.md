@@ -18,6 +18,8 @@ care:
   propagation: "Semi-ripe cuttings in late summer"
   pruning: "Maintenance: low. Trim lightly immediately after flowering to shape — it blooms on the previous year's wood, so pruning in summer or fall removes next spring's buds. Avoid heavy cutting into old bare wood."
   petSafety: "Highly toxic"
+  petSafetyNotes: "All parts including leaves, stems, flowers, pollen and nectar"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, weakness; abnormal heart rhythm or tremors in serious cases. Toxic compound: grayanotoxins"
 bloomMonths: [4, 5]
 pruneMonths: [5]
 tags:

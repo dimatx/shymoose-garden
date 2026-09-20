@@ -18,6 +18,8 @@ care:
   propagation: "Stem cuttings"
   pruning: "Very low maintenance — tolerates severe pruning at almost any time of year and takes well to shaping into hedges or topiary."
   petSafety: "Highly toxic"
+  petSafetyNotes: "Needles/leaves, bark/wood, seeds toxic; only red fleshy aril safe"
+  petSafetyInfo: "Symptoms: sudden abnormal heart rhythm and potential heart failure (often fatal), tremors, difficulty breathing, seizures. Toxic compound: taxine alkaloids"
 bloomMonths: []
 pruneMonths: [3, 4, 8, 9]
 tags:

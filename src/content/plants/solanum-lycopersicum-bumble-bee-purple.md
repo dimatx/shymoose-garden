@@ -21,6 +21,8 @@ care:
   propagation: "Readily grown from seed"
   pruning: "Maintenance: thin the suckers and strip the lower leaves to improve airflow on the tall indeterminate vines, keeping them tied to a stout support."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "Leaves, stems/vines, flowers, unripe fruit—ripe red fruit is safe"
+  petSafetyInfo: "Symptoms: vomiting, excessive drooling, depression, weakness, dilated pupils, slow heart rate. Toxic compound: glycoalkaloids"
 tags:
   - "Toxic to dogs"
   - "Annual"

@@ -18,6 +18,8 @@ care:
   propagation: "Plant bulbils in late summer or fall"
   pruning: "Harvest young shoots as green onions in early spring. Harvest or replant bulbils in early summer before they self-propagate. Divide basal clumps in spring to control spread and rejuvenate plants."
   petSafety: "Highly toxic"
+  petSafetyNotes: "All parts toxic (bulbs, bulbils, leaves, stems, flowers)"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, weakness, pale gums, red-brown or dark-colored urine; collapse in severe cases. Onset: anemia signs may be delayed. Toxic compound: organosulfoxides"
 pruneMonths: [5, 6]
 tags:
   - "Toxic to dogs"

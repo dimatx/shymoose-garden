@@ -18,6 +18,8 @@ care:
   propagation: "Softwood cuttings in early summer, or layering low branches."
   pruning: "Blooms on old wood, so prune only right after flowering if shaping is needed. Remove winter-damaged or dead stems in early spring."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "All parts toxic, especially flower buds and young leaves"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, depression or unusual tiredness. Toxic compound: cyanogenic glycosides"
 bloomMonths: [6, 7]
 pruneMonths: [7]
 tags:

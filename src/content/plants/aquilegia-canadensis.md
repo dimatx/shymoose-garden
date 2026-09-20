@@ -18,6 +18,8 @@ care:
   propagation: "Readily grown from seed"
   pruning: "Deadhead for tidiness and possible rebloom. Foliage can be cut back if it declines in summer heat — it regrows the following spring."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "Seeds and roots most toxic; rest of plant may also cause upset"
+  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea, stomach pain, lethargy. Toxic compound: plant alkaloids"
 tags:
   - "Toxic to dogs"
   - "Native"

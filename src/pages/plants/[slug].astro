@@ -242,21 +242,37 @@ function renderInlineMarkdown(text: string): string {
             <dl class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {section.items.map((item) => {
                 const isPetSafety = item.label === "Pet safety";
+                const isHighlyToxic = isPetSafety && item.value?.includes("Highly");
+                const isMildlyToxic = isPetSafety && item.value?.includes("Mildly");
                 return (
-                  <div class={`flex gap-3 rounded-2xl border p-4 ${isPetSafety ? 'border-red-200 bg-red-50 dark:border-red-900 dark:bg-red-950' : 'border-leaf-200/80 bg-white dark:border-leaf-800/80 dark:bg-leaf-900'}`}>
+                  <div class={`flex gap-3 rounded-2xl border p-4 ${isPetSafety ? 'border-leaf-200/80 bg-leaf-50 dark:border-leaf-800/80 dark:bg-leaf-900' : 'border-leaf-200/80 bg-white dark:border-leaf-800/80 dark:bg-leaf-900'}`}>
                     <span
-                      class={`mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full ${isPetSafety ? 'bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300' : 'bg-leaf-100 text-leaf-600 dark:bg-leaf-800 dark:text-leaf-300'}`}
+                      class={`mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full ${
+                        isHighlyToxic ? 'bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300' :
+                        isMildlyToxic ? 'bg-yellow-100 text-yellow-600 dark:bg-yellow-900 dark:text-yellow-300' :
+                        'bg-leaf-100 text-leaf-600 dark:bg-leaf-800 dark:text-leaf-300'
+                      }`}
                       aria-hidden="true"
                     >
                       <Icon name={item.icon} class="h-5 w-5" />
                     </span>
                     <div>
-                      <dt class={`text-xs font-semibold uppercase tracking-wide ${isPetSafety ? 'text-red-600 dark:text-red-400' : 'text-leaf-500 dark:text-leaf-400'}`}>
+                      <dt class={`text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400`}>
                         {item.label}
                       </dt>
-                      <dd class={`mt-0.5 text-sm ${isPetSafety ? 'text-red-800 dark:text-red-200' : 'text-leaf-800 dark:text-leaf-200'}`}>
+                      <dd class={`mt-0.5 text-sm text-leaf-800 dark:text-leaf-200`}>
                         {item.value}
                       </dd>
+                      {item.label === "Pet safety" && plant.data.care.petSafetyNotes && (
+                        <p class={`mt-1 text-xs text-leaf-600 dark:text-leaf-400`}>
+                          {plant.data.care.petSafetyNotes}
+                        </p>
+                      )}
+                      {item.label === "Pet safety" && plant.data.care.petSafetyInfo && (
+                        <p class={`mt-2 text-xs leading-relaxed text-leaf-700 dark:text-leaf-300`}>
+                          {plant.data.care.petSafetyInfo}
+                        </p>
+                      )}
                     </div>
                   </div>
                 )

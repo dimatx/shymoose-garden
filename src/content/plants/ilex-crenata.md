@@ -18,6 +18,8 @@ care:
   propagation: "Semi-hardwood cuttings in late summer"
   pruning: "Maintenance: low to moderate. Shears beautifully into hedges and topiary; trim in early summer after flowering."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "Berries and leaves are main toxic parts"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, depression, lethargy. Toxic compound: saponins"
 bloomMonths: [5, 6]
 pruneMonths: [6, 7]
 tags:

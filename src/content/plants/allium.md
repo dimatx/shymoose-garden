@@ -18,6 +18,8 @@ care:
   propagation: "Divide bulb offsets in fall"
   pruning: "Cut back flower stalks once blooms fade; foliage yellows after flowering and can be tucked behind later-emerging companions."
   petSafety: "Highly toxic"
+  petSafetyNotes: "All parts toxic in all forms (bulbs, leaves, raw, cooked, dried)"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, lethargy, pale gums, red-brown or dark-colored urine (signs of hemolytic anemia). Onset: stomach upset may come first; anemia signs can be delayed. Toxic compound: organosulfoxides"
 bloomMonths: [5, 6, 7]
 tags:
   - "Toxic to dogs"

@@ -18,6 +18,8 @@ care:
   propagation: "Semi-hardwood cuttings in midsummer; named cultivars don't come true from seed."
   pruning: "Deadhead spent flower clusters right after bloom and prune lightly at the same time to encourage bushiness — next year's flowers form on this year's new growth."
   petSafety: "Highly toxic"
+  petSafetyNotes: "All parts including leaves, stems, flowers, nectar and pollen"
+  petSafetyInfo: "Symptoms: vomiting, excessive drooling, diarrhea, weakness; abnormal heart rhythm or tremors in serious cases. Toxic compound: grayanotoxins"
 bloomMonths: [5, 6]
 pruneMonths: [6]
 tags:

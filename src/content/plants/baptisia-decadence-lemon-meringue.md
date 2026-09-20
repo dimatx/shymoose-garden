@@ -18,6 +18,8 @@ care:
   propagation: "Softwood cuttings in late spring"
   pruning: "Maintenance: very low. No deadheading needed — let seed pods stand for fall interest. Cut the whole clump back to the ground in late fall or early spring."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "All parts contain alkaloids; roots, seeds, and pods main concern"
+  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea, weakness; tremors in heavier exposures. Toxic compound: quinolizidine alkaloids"
 bloomMonths: [5, 6]
 pruneMonths: [3, 11]
 tags:

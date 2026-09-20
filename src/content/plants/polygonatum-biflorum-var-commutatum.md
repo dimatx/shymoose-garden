@@ -18,6 +18,8 @@ care:
   propagation: "Divide rhizomes in spring or fall"
   pruning: "Maintenance: minimal — let the foliage die back and cut the spent stems to the ground in fall. Lift and divide the rhizomes in fall to rejuvenate or contain the clump."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "All parts toxic, especially berries and rhizomes"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, stomach pain, nausea, lethargy. Toxic compound: steroidal saponins"
 bloomMonths: [5, 6]
 pruneMonths: [10, 11]
 tags:

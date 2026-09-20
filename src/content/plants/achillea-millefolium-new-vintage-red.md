@@ -18,6 +18,8 @@ care:
   propagation: "Divide in spring"
   pruning: "Deadhead or shear after flowering to encourage rebloom and stop self-seeding; cut back in late winter. Divide every 2–3 years."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "Leaves, stems, and flowers—all above-ground parts—are toxic"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, tiredness; skin irritation or rash after contact. Toxic compound: sesquiterpene lactones"
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3]
 tags:

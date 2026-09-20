@@ -18,6 +18,8 @@ care:
   propagation: "Semi-hardwood cuttings"
   pruning: "Maintenance: shear lightly in spring or early summer to shape a hedge, cutting only into green growth. Renewal: not possible — arborvitae won't resprout from bare old wood, so never cut back into leafless brown branches."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "Foliage, twigs/bark, sap, essential oil are toxic"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, weakness; tremors in more serious cases. Toxic compound: thujone and essential-oil monoterpenes"
 pruneMonths: [4, 5, 6]
 tags:
   - "Toxic to dogs"

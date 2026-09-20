@@ -18,6 +18,8 @@ care:
   propagation: "Divide rhizomes in spring"
   pruning: "Maintenance: low — leave or remove the spent flower spikes as you like, then cut the foliage back after frost. It resents disturbance, so divide only occasionally to renew."
   petSafety: "Mildly toxic"
+  petSafetyNotes: "All parts toxic, especially berries and roots"
+  petSafetyInfo: "Symptoms: mouth irritation, vomiting, diarrhea, weakness; tremors or abnormal heart rhythm in more serious cases. Toxic compound: cardiac glycosides"
 bloomMonths: [6, 7, 8]
 pruneMonths: [10, 11]
 tags:

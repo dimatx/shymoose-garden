@@ -43,19 +43,45 @@ import Icon from "./Icon.astro";
     opacity: 0;
     transform: rotate(90deg) scale(0.5);
   }
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle :global(.theme-icon) {
+      transition: none;
+    }
+  }
 </style>
 
 <script>
+  const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+  let preference: string | null = null;
+  try {
+    preference = localStorage.getItem("theme");
+  } catch (error) {
+    console.warn("Theme preference storage is unavailable.", error);
+  }
+
+  function applyTheme() {
+    const dark = preference === "dark" || (preference !== "light" && systemTheme.matches);
+    document.documentElement.classList.toggle("dark", dark);
+    const toggle = document.getElementById("theme-toggle");
+    toggle?.setAttribute("aria-pressed", String(dark));
+    toggle?.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  }
+
   // Re-bind on every navigation so the toggle keeps working with the
   // client-side router (View Transitions).
   function initThemeToggle() {
+    applyTheme();
     const toggle = document.getElementById("theme-toggle");
     if (!toggle || toggle.dataset.bound) return;
     toggle.dataset.bound = "true";
     toggle.addEventListener("click", () => {
-      const root = document.documentElement;
-      const isDark = root.classList.toggle("dark");
-      localStorage.setItem("theme", isDark ? "dark" : "light");
+      preference = document.documentElement.classList.contains("dark") ? "light" : "dark";
+      applyTheme();
+      try {
+        localStorage.setItem("theme", preference);
+      } catch (error) {
+        console.warn("Theme preference could not be saved; it will last for this visit only.", error);
+      }
     });
   }
 
@@ -64,14 +90,11 @@ import Icon from "./Icon.astro";
 
   // The <html> class can be reset during a view transition; reapply the saved
   // theme right after the DOM swaps to avoid a flash of the wrong mode.
-  document.addEventListener("astro:after-swap", () => {
-    const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    document.documentElement.classList.toggle(
-      "dark",
-      stored === "dark" || (!stored && prefersDark)
-    );
+  document.addEventListener("astro:after-swap", applyTheme);
+  systemTheme.addEventListener("change", applyTheme);
+  window.addEventListener("storage", (event) => {
+    if (event.key !== "theme" && event.key !== null) return;
+    preference = event.newValue;
+    applyTheme();
   });
 </script>

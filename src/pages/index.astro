@@ -211,7 +211,6 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
               data-type={plant.data.type ?? ""}
               data-sun={`|${sunLevels(plant).join("|")}|`}
               data-tags={`|${plant.data.tags.join("|")}|`}
-              data-pet-safety={plant.data.care.petSafety ?? ""}
               data-archived={String(plant.data.archived)}
               data-archived-first={String(
                 plant.data.archived && !plants[i - 1]?.data.archived
@@ -327,7 +326,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     flex-wrap: wrap;
     gap: 0.5rem;
     width: max-content;
-    max-width: min(16rem, calc(100vw - 2rem));
+    max-width: min(20rem, calc(100vw - 2rem));
     border-radius: 1rem;
     border: 1px solid var(--color-leaf-200, #cfe5d1);
     background-color: #fff;
@@ -335,7 +334,6 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     box-shadow:
       0 10px 15px -3px rgb(0 0 0 / 0.1),
       0 4px 6px -4px rgb(0 0 0 / 0.1);
-    overflow: hidden;
   }
   :global(.dark) .filter-panel {
     border-color: var(--color-leaf-800, #234d28);
@@ -351,16 +349,11 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       right: 0;
     }
   }
-  @media (max-width: 639px) {
-    .filter-panel {
-      right: 0;
-      left: auto;
-    }
-  }
 </style>
 
 <script>
   import { isTransitionBeforeSwapEvent } from "astro:transitions/client";
+  import { compareCatalogItems, isSortMode, type SortMode } from "../lib/catalog";
 
   type CatalogState = {
     search: string;
@@ -368,7 +361,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     traits: string[];
     suns: string[];
     tag: string;
-    sort: string;
+    sort: SortMode;
   };
 
   // Module memory survives ClientRouter navigation, but not reloads or new
@@ -376,9 +369,12 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
   let catalogState: CatalogState | undefined;
   let detailReturnState: CatalogState | undefined;
   let restoreState: CatalogState | undefined;
+  let cleanupCatalog: (() => void) | undefined;
 
   document.addEventListener("astro:before-swap", (event) => {
     if (!isTransitionBeforeSwapEvent(event)) return;
+    cleanupCatalog?.();
+    cleanupCatalog = undefined;
     const toDetail = /^\/plants\/[^/]+\/?$/.test(event.to.pathname);
     const fromDetail = /^\/plants\/[^/]+\/?$/.test(event.from.pathname);
     restoreState = undefined;
@@ -403,6 +399,12 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     const grid = document.getElementById("plant-grid");
     if (!grid || grid.dataset.ready) return;
     grid.dataset.ready = "true";
+    const events = new AbortController();
+    let observer: IntersectionObserver | undefined;
+    cleanupCatalog = () => {
+      events.abort();
+      observer?.disconnect();
+    };
 
     // Gentle, staggered entrance as cards scroll into view. Classes are added
     // by JS so a no-JS visitor still sees every card immediately.
@@ -413,7 +415,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       "IntersectionObserver" in window &&
       window.matchMedia("(prefers-reduced-motion: no-preference)").matches
     ) {
-      const io = new IntersectionObserver(
+      observer = new IntersectionObserver(
         (entries, obs) => {
           for (const entry of entries) {
             if (!entry.isIntersecting) continue;
@@ -429,16 +431,24 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         el.classList.add("reveal");
         // Only the first couple of cards stagger; the rest pop in promptly.
         el.style.transitionDelay = `${Math.min(i, 3) * 45}ms`;
-        io.observe(el);
+        observer!.observe(el);
       });
     }
 
     const chips = Array.from(
       document.querySelectorAll<HTMLButtonElement>(".filter-chip[data-filter]")
     );
-    const items = Array.from(
-      document.querySelectorAll<HTMLElement>(".plant-item")
-    );
+    const items = itemEls;
+    const metadata = new Map(items.map((element) => [element, {
+      name: element.dataset.name ?? "",
+      archived: element.dataset.archived === "true",
+      added: Number(element.dataset.added) || 0,
+      search: `${element.dataset.name}\n${element.dataset.latin}\n${element.dataset.tags}`.toLowerCase(),
+      type: element.dataset.type ?? "",
+      sun: element.dataset.sun ?? "",
+      tags: element.dataset.tags ?? "",
+      toxicBadge: element.querySelector<HTMLElement>(".highly-toxic-badge"),
+    }]));
     const countEl = document.getElementById("filter-count");
     const clearEl = document.getElementById("filter-clear");
     const dropdowns = Array.from(
@@ -470,7 +480,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       sun: selectedSuns,
     };
     if (searchInput) searchInput.value = restored?.search ?? "";
-    let sortMode = restored?.sort ?? "name";
+    let sortMode: SortMode = restored?.sort ?? "name";
     let searchTerm = (restored?.search ?? "").trim().toLowerCase();
     // A tag handed in via `?tag=` (from a clickable tag on a plant page). It
     // filters by the same data-tags mechanism as the trait chips, but can be
@@ -507,22 +517,9 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         choice.setAttribute("aria-pressed", String(selected));
         if (selected && sortLabel) sortLabel.textContent = choice.textContent?.trim() ?? "";
       }
-      // The source array is already alphabetical, so the name modes only need
-      // to keep or reverse it; stable sorting then preserves that order for
-      // equal dates. Archived plants always sort after active ones, in every
-      // mode — reversing happens within that grouping, not across it.
-      const byDate = sortMode === "recent" || sortMode === "oldest";
-      const newestFirst = sortMode === "recent";
-      const base = sortMode === "name-desc" ? [...items].reverse() : [...items];
-      const sorted = base.sort((a, b) => {
-        const archivedDiff =
-          Number(a.dataset.archived === "true") - Number(b.dataset.archived === "true");
-        if (archivedDiff !== 0) return archivedDiff;
-        if (!byDate) return 0;
-        const addedDiff = Number(a.dataset.added) - Number(b.dataset.added);
-        return newestFirst ? -addedDiff : addedDiff;
-      });
-      grid.append(...sorted);
+      // Keep the array in DOM order so the archived row break follows sorting.
+      items.sort((a, b) => compareCatalogItems(metadata.get(a)!, metadata.get(b)!, sortMode));
+      grid!.append(...items);
     }
 
     // Update the per-dropdown count badge from its own pressed chips.
@@ -539,26 +536,22 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 
     function apply() {
       let visible = 0;
+      const suns = [...selectedSuns];
+      const traits = [...selectedTraits];
       for (const item of items) {
-        const type = item.dataset.type ?? "";
-        const sun = item.dataset.sun ?? "";
-        const tags = item.dataset.tags ?? "";
-        const name = (item.dataset.name ?? "").toLowerCase();
-        const latin = (item.dataset.latin ?? "").toLowerCase();
+        const { type, sun, tags, search } = metadata.get(item)!;
         // Types and sun levels are OR'd (broaden), traits are AND'd (narrow).
         const typeOk = selectedTypes.size === 0 || selectedTypes.has(type);
         const sunOk =
           selectedSuns.size === 0 ||
-          [...selectedSuns].some((s) => sun.includes(`|${s}|`));
-        const traitOk = [...selectedTraits].every((t) =>
+          suns.some((s) => sun.includes(`|${s}|`));
+        const traitOk = traits.every((t) =>
           tags.includes(`|${t}|`)
         );
         const tagOk = activeTag === "" || tags.includes(`|${activeTag}|`);
         const searchOk =
           searchTerm === "" ||
-          name.includes(searchTerm) ||
-          latin.includes(searchTerm) ||
-          tags.toLowerCase().includes(searchTerm);
+          search.includes(searchTerm);
         const show = typeOk && sunOk && traitOk && tagOk && searchOk;
         item.hidden = !show;
         if (show) visible++;
@@ -566,9 +559,9 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       markArchivedRowBreak();
 
       // Show highly toxic icon only when "Toxic to dogs" filter is active
-      const toxicFilterActive = selectedTraits.has("Toxic to dogs");
+      const toxicFilterActive = selectedTraits.has("Toxic to dogs") || activeTag === "Toxic to dogs";
       for (const item of items) {
-        const badge = item.querySelector<HTMLElement>(".highly-toxic-badge");
+        const badge = metadata.get(item)!.toxicBadge;
         if (badge && toxicFilterActive && !item.hidden) {
           badge.classList.remove("hidden");
         } else if (badge) {
@@ -657,7 +650,8 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 
     for (const choice of sortChoices) {
       choice.addEventListener("click", () => {
-        sortMode = choice.dataset.sort ?? "name";
+        if (!isSortMode(choice.dataset.sort)) return;
+        sortMode = choice.dataset.sort;
         sortItems();
         apply();
         if (sortDropdown) {
@@ -680,7 +674,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       for (const dd of dropdowns) {
         if (dd.open && !dd.contains(e.target as Node)) dd.open = false;
       }
-    });
+    }, { signal: events.signal });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         for (const dd of dropdowns) {
@@ -689,7 +683,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
           dd.open = false;
         }
       }
-    });
+    }, { signal: events.signal });
   }
 
   initCatalog();

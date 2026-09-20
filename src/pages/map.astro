@@ -131,12 +131,13 @@ const hasGeoCalibration = getGeoTransform() !== null;
     -->
     <div
       id="garden-map-panel"
+      inert
+      aria-hidden="true"
       class="pointer-events-none absolute inset-x-3 bottom-3 z-[1000] translate-y-[130%] opacity-0 transition-all duration-200 ease-out"
     >
       <div class="pointer-events-auto flex items-center gap-4 rounded-2xl border border-leaf-200 bg-white/95 p-3.5 shadow-lg backdrop-blur-sm dark:border-leaf-800 dark:bg-leaf-900/95">
         <img
           id="garden-map-panel-photo"
-          src=""
           alt=""
           class="h-20 w-20 shrink-0 rounded-xl object-cover"
         />
@@ -186,6 +187,7 @@ const hasGeoCalibration = getGeoTransform() !== null;
          depend on that. -->
     <p
       id="garden-map-toast"
+      role="status"
       class="pointer-events-none absolute right-3 top-14 z-[1000] hidden max-w-[220px] rounded-lg bg-red-600/95 px-3 py-1.5 text-right text-xs font-medium text-white shadow-md"
     >
     </p>
@@ -239,19 +241,11 @@ const hasGeoCalibration = getGeoTransform() !== null;
   import "leaflet/dist/leaflet.css";
   import "leaflet.markercluster/dist/MarkerCluster.css";
   import "leaflet.markercluster/dist/MarkerCluster.Default.css";
-  import L from "leaflet";
-  import "leaflet.markercluster";
+  import type * as Leaflet from "leaflet";
   import { getGeoTransform } from "../lib/geoCalibration";
   import { MAP_TYPE_COLORS, MAP_DEFAULT_PIN_COLOR } from "../lib/mapColors";
-
-  // Feature flag: the map only reveals itself with ?beta in the URL.
-  // Default (no flag) leaves the "still in progress" message showing and
-  // the real map content — and its Leaflet init below — untouched.
-  const betaEnabled = new URLSearchParams(location.search).has("beta");
-  if (betaEnabled) {
-    document.getElementById("garden-map-locked")?.setAttribute("hidden", "");
-    document.getElementById("garden-map-content")?.removeAttribute("hidden");
-  }
+  import { createMapLifecycle } from "../lib/mapLifecycle";
+  import { getMapFitZoom } from "../lib/mapViewport";
 
   interface MapPin {
     slug: string;
@@ -275,7 +269,7 @@ const hasGeoCalibration = getGeoTransform() !== null;
   // which it sets directly on the outer .leaflet-marker-icon element.
   // Colored by plant type (see MAP_TYPE_COLORS) so the map reads as "what
   // kind of thing is where" at a glance, not just "there's a plant here".
-  function makePinIcon(color: string) {
+  function makePinIcon(L: typeof Leaflet, color: string) {
     return L.divIcon({
       className: "",
       html: `<div class="gm-pin-wrap">
@@ -290,18 +284,19 @@ const hasGeoCalibration = getGeoTransform() !== null;
     });
   }
 
-  // Guard against Astro re-running this module script on view transitions:
-  // keep the current map instance (and its resize watcher) so we can
-  // properly tear them down before the next navigation swaps the container.
-  let mapInstance: L.Map | null = null;
-  let resizeObserver: ResizeObserver | null = null;
-  let sizeMapContainer: (() => void) | null = null;
-  let geoWatchId: number | null = null;
-
-  function initGardenMap() {
-    if (!betaEnabled) return;
-    const container = document.getElementById("garden-map");
-    if (!container || (container as any)._leaflet_id) return;
+  function initGardenMap(container: HTMLElement, L: typeof Leaflet, signal: AbortSignal) {
+    let resizeObserver: ResizeObserver | null = null;
+    let geoWatchId: number | null = null;
+    let locationGeneration = 0;
+    let toastHideTimer: number | undefined;
+    let map: Leaflet.Map | null = null;
+    signal.addEventListener("abort", () => {
+      locationGeneration++;
+      resizeObserver?.disconnect();
+      window.clearTimeout(toastHideTimer);
+      if (geoWatchId !== null) navigator.geolocation.clearWatch(geoWatchId);
+      map?.remove();
+    }, { once: true });
 
     // Fill the rest of the viewport below the map instead of a fixed 60vh:
     // vh is computed against the LARGEST possible mobile viewport (as if the
@@ -319,10 +314,9 @@ const hasGeoCalibration = getGeoTransform() !== null;
       const nextHeight = Math.max(320, viewportHeight - top - bottomMargin);
       container!.style.height = `${nextHeight}px`;
     }
-    sizeMapContainer = fitToViewport;
     fitToViewport();
-    window.addEventListener("resize", fitToViewport);
-    window.visualViewport?.addEventListener("resize", fitToViewport);
+    window.addEventListener("resize", fitToViewport, { signal });
+    window.visualViewport?.addEventListener("resize", fitToViewport, { signal });
 
     const panel = document.getElementById("garden-map-panel");
     const panelPhoto = document.getElementById("garden-map-panel-photo") as HTMLImageElement | null;
@@ -331,7 +325,6 @@ const hasGeoCalibration = getGeoTransform() !== null;
     const panelClose = document.getElementById("garden-map-panel-close");
 
     const toast = document.getElementById("garden-map-toast");
-    let toastHideTimer: number | undefined;
     function showToast(message: string) {
       if (!toast) return;
       toast.textContent = message;
@@ -350,24 +343,20 @@ const hasGeoCalibration = getGeoTransform() !== null;
     // north-west corner, so a pixel (x, y) becomes latlng [height - y, x].
     const bounds = L.latLngBounds([0, 0], [height, width]);
 
-    const map = L.map(container, {
+    map = L.map(container, {
       crs: L.CRS.Simple,
       zoomSnap: 0.25,
       attributionControl: false,
       maxBoundsViscosity: 1, // bounds feel solid — no rubber-banding past the edge
-      // Leaflet's own default minZoom is 0, which would otherwise clamp our
-      // very first getBoundsZoom() call below to 0 before we ever get a
-      // chance to widen it (a chicken-and-egg problem for a CRS.Simple map,
-      // which routinely needs to zoom OUT past 0 to fit a large image in a
-      // small container). Start permissive; we tighten it to the real fit
-      // zoom as soon as we know the container's actual size.
+      // CRS.Simple needs negative zoom levels to fit this large image on
+      // small screens. Tighten the floor once the container has a real size.
       minZoom: -10,
     });
-    mapInstance = map;
 
     L.imageOverlay("/map/garden-map.svg", bounds).addTo(map);
 
     let selectedPinEl: HTMLElement | null = null;
+    let selectedSlug: string | null = null;
 
     function selectMarker(el: HTMLElement) {
       selectedPinEl?.querySelector(".gm-pin-wrap")?.classList.remove("gm-pin-selected");
@@ -378,26 +367,36 @@ const hasGeoCalibration = getGeoTransform() !== null;
     function deselectMarker() {
       selectedPinEl?.querySelector(".gm-pin-wrap")?.classList.remove("gm-pin-selected");
       selectedPinEl = null;
+      selectedSlug = null;
     }
 
     function hidePanel() {
       if (!panel) return;
       panel.classList.add("translate-y-[130%]", "opacity-0");
       panel.classList.remove("translate-y-0", "opacity-100");
+      panel.inert = true;
+      panel.setAttribute("aria-hidden", "true");
       deselectMarker();
     }
 
     function showPanelFor(pin: MapPin, markerEl: HTMLElement) {
       if (!panel || !panelPhoto || !panelName || !panelLink) return;
       panelPhoto.src = pin.photo;
+      panelPhoto.alt = pin.name;
       panelName.textContent = pin.name;
       panelLink.href = `/plants/${pin.slug}/`;
       panel.classList.remove("translate-y-[130%]", "opacity-0");
       panel.classList.add("translate-y-0", "opacity-100");
+      panel.inert = false;
+      panel.setAttribute("aria-hidden", "false");
+      selectedSlug = pin.slug;
       selectMarker(markerEl);
     }
 
-    panelClose?.addEventListener("click", hidePanel);
+    panelClose?.addEventListener("click", hidePanel, { signal });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") hidePanel();
+    }, { signal });
     // Tapping empty map (not a pin) closes the panel too, matching how
     // tapping empty space dismisses a callout in most map apps.
     map.on("click", hidePanel);
@@ -418,19 +417,27 @@ const hasGeoCalibration = getGeoTransform() !== null;
     // Keyed by plant slug so a "Find on map" link from a plant's own detail
     // page (?slug=<id>) can zoom to and select that exact pin, even if it's
     // currently folded into a cluster bubble.
-    const markersBySlug = new Map<string, { marker: L.Marker; pin: MapPin }>();
+    const markersBySlug = new Map<string, { marker: Leaflet.Marker; pin: MapPin }>();
 
     for (const pin of pins) {
       const color = pin.type
         ? (MAP_TYPE_COLORS[pin.type] ?? MAP_DEFAULT_PIN_COLOR)
         : MAP_DEFAULT_PIN_COLOR;
-      const marker = L.marker([height - pin.y, pin.x], { icon: makePinIcon(color) });
+      const marker = L.marker([height - pin.y, pin.x], {
+        icon: makePinIcon(L, color),
+        title: pin.name,
+        alt: pin.name,
+      });
       // A single, already-distinguishable pin just gets selected — no zoom,
       // no pan. Zooming is reserved entirely for the cluster-splitting case
       // above; doing it here too was the "zooms further every tap" bug.
       marker.on("click", () => {
         const el = marker.getElement();
         if (el) showPanelFor(pin, el);
+      });
+      marker.on("add", () => {
+        const el = marker.getElement();
+        if (el && selectedSlug === pin.slug) selectMarker(el);
       });
       clusterGroup.addLayer(marker);
       markersBySlug.set(pin.slug, { marker, pin });
@@ -453,7 +460,7 @@ const hasGeoCalibration = getGeoTransform() !== null;
         const isShown = clusterGroup.hasLayer(marker);
         if (shouldShow && !isShown) clusterGroup.addLayer(marker);
         if (!shouldShow && isShown) {
-          if (marker.getElement()?.querySelector(".gm-pin-selected")) hidePanel();
+          if (selectedSlug === pin.slug) hidePanel();
           clusterGroup.removeLayer(marker);
         }
       }
@@ -467,7 +474,7 @@ const hasGeoCalibration = getGeoTransform() !== null;
         if (pressed) selectedTypes.delete(type);
         else selectedTypes.add(type);
         applyTypeFilter();
-      });
+      }, { signal });
     }
 
     // "Find this plant": a plant's detail page can link to
@@ -481,25 +488,30 @@ const hasGeoCalibration = getGeoTransform() !== null;
         return;
       }
       clusterGroup.zoomToShowLayer(entry.marker, () => {
+        if (signal.aborted) return;
         const el = entry.marker.getElement();
         if (el) showPanelFor(entry.pin, el);
       });
     }
 
     // Never let someone zoom out past "the whole property fits the screen".
-    // getBoundsZoom() needs the container's REAL rendered size to answer
-    // correctly — right after a view-transition swap the container can still
+    // Fitting needs the container's REAL rendered size to answer correctly —
+    // right after a view-transition swap the container can still
     // be mid-layout, which previously produced a too-deep "fit" zoom that
     // then became a permanently-too-tight minZoom floor. A ResizeObserver
     // fires once the container settles at its actual size, so we compute the
     // fit there instead of guessing with a timeout. Later legitimate resizes
     // (window resize, orientation change) just refresh minZoom without
-    // yanking the user's current view back to the fitted one.
+    // yanking the user's current view back to the fitted one. Compute the
+    // zoom without getBoundsZoom(): it clamps to the OLD minZoom, preventing
+    // the map from fitting a smaller viewport after an orientation change.
     const requestedSlug = new URLSearchParams(window.location.search).get("slug");
     let didInitialFit = false;
     resizeObserver = new ResizeObserver(() => {
+      if (signal.aborted || !map) return;
+      const fitZoom = getMapFitZoom(width, height, container.clientWidth, container.clientHeight);
+      if (fitZoom === null) return;
       map.invalidateSize();
-      const fitZoom = map.getBoundsZoom(bounds, false);
       map.setMinZoom(fitZoom);
       if (!didInitialFit) {
         map.setMaxZoom(fitZoom + 5); // enough to zoom into a single crowded bed
@@ -520,10 +532,11 @@ const hasGeoCalibration = getGeoTransform() !== null;
     // filled in — so this whole block is a no-op (locateButton is null)
     // until then.
     const locateButton = document.getElementById("garden-map-locate");
-    let youAreHereMarker: L.CircleMarker | null = null;
-    let accuracyCircle: L.Circle | null = null;
+    let youAreHereMarker: Leaflet.CircleMarker | null = null;
+    let accuracyCircle: Leaflet.Circle | null = null;
 
     function stopLocating() {
+      locationGeneration++;
       if (geoWatchId !== null) {
         navigator.geolocation.clearWatch(geoWatchId);
         geoWatchId = null;
@@ -545,8 +558,10 @@ const hasGeoCalibration = getGeoTransform() !== null;
       locateButton?.classList.add("bg-leaf-600", "text-white", "dark:bg-leaf-600");
 
       let hasCenteredOnce = false;
+      const generation = ++locationGeneration;
       geoWatchId = navigator.geolocation.watchPosition(
         (position) => {
+          if (signal.aborted || generation !== locationGeneration || !map) return;
           const transform = getGeoTransform();
           if (!transform) return; // shouldn't happen — button is gated on this
           const { x, y } = transform.toMapXY(
@@ -559,7 +574,8 @@ const hasGeoCalibration = getGeoTransform() !== null;
           // can drift well outside the property. A wildly out-of-bounds fix
           // isn't useful to plot and would just be confusing, so skip it.
           const margin = 300;
-          if (x < -margin || x > width + margin || y < -margin || y > height + margin) {
+          if (!Number.isFinite(x) || !Number.isFinite(y) ||
+              x < -margin || x > width + margin || y < -margin || y > height + margin) {
             showToast("Can't get a precise fix here — try a more open spot.");
             return;
           }
@@ -601,6 +617,7 @@ const hasGeoCalibration = getGeoTransform() !== null;
           }
         },
         (error) => {
+          if (signal.aborted || generation !== locationGeneration) return;
           const message =
             error.code === error.PERMISSION_DENIED
               ? "Location access denied — allow it in your browser settings to use this."
@@ -620,26 +637,34 @@ const hasGeoCalibration = getGeoTransform() !== null;
       } else {
         startLocating();
       }
-    });
+    }, { signal });
   }
 
-  function destroyGardenMap() {
-    resizeObserver?.disconnect();
-    resizeObserver = null;
-    if (geoWatchId !== null) {
-      navigator.geolocation.clearWatch(geoWatchId);
-      geoWatchId = null;
-    }
-    if (sizeMapContainer) {
-      window.removeEventListener("resize", sizeMapContainer);
-      window.visualViewport?.removeEventListener("resize", sizeMapContainer);
-      sizeMapContainer = null;
-    }
-    mapInstance?.remove();
-    mapInstance = null;
-  }
+  const lifecycle = createMapLifecycle({
+    getContainer: () => document.getElementById("garden-map"),
+    isEnabled: () => new URLSearchParams(location.search).has("beta"),
+    setVisibility(enabled) {
+      document.getElementById("garden-map-locked")?.toggleAttribute("hidden", enabled);
+      document.getElementById("garden-map-content")?.toggleAttribute("hidden", !enabled);
+    },
+    async load() {
+      // The plugin extends Leaflet's global L, so load Leaflet first.
+      const { default: L } = await import("leaflet");
+      await import("leaflet.markercluster");
+      return L;
+    },
+    initialize: initGardenMap,
+    onError(error) {
+      console.error("Unable to load the garden map", error);
+      const toast = document.getElementById("garden-map-toast");
+      if (toast) {
+        toast.textContent = "The map couldn't load. Please reload to try again.";
+        toast.classList.remove("hidden");
+      }
+    },
+  });
 
-  initGardenMap();
-  document.addEventListener("astro:page-load", initGardenMap);
-  document.addEventListener("astro:before-swap", destroyGardenMap);
+  void lifecycle.start();
+  document.addEventListener("astro:page-load", () => void lifecycle.start());
+  document.addEventListener("astro:before-swap", lifecycle.destroy);
 </script>

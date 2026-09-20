@@ -142,8 +142,9 @@ reference and reconcile:
 - `npm run build` to verify the collection and images validate.
 - Commit the `.md`, the photo, the new `signs/<slug>.scad` and matching
   `signs/3mf/<slug>.3mf`, and the frontmatter
-  `shortUrl` change together. `npm run publish` runs build + gen:shortlinks +
-  gen:signs in the correct order as a convenience.
+  `shortUrl` change together. `npm run publish` runs gen:shortlinks +
+  gen:signs + build in that order, so the build includes generated links.
+  Scoped 3MF export remains a separate desktop-only step.
 
 ## Definition of done
 A new plant is finished only when it has: researched-and-reconciled care data,
@@ -153,13 +154,29 @@ oddly-cropped source), a `shortUrl` in its frontmatter, a `signs/<slug>.scad`
 file whose QR uses that short URL, its matching 3MF export, a clean build, and a
 single commit containing all of the above.
 
+## Website code changes
+
+- Run `npm run check`, `npm test`, and `npm run build`; for browser behavior,
+  run `npm run test:e2e` after the build. Install its browser once with
+  `npx playwright install chromium`. Tests do not require `.env` or mutate
+  the garden catalog, short-link service, or committed signs.
+- Put reusable pure rules in `src/lib/` with regression tests in `tests/`.
+  Browser integration tests live in `tests/e2e/` and use production output.
+- Astro's ClientRouter retains script modules between pages. Initialize each
+  DOM instance once and clean up observers, document listeners, timers, and
+  camera/GPS resources on navigation. Keep optional map/scanner code lazy.
+- Preserve the map's `?beta` gate. Do not "clean up" research references or
+  generated plant/sign assets merely because website code does not import them.
+- The validation workflow is separate from Cloudflare deployments. A push to
+  `main` still deploys immediately; validate locally before an authorized push.
+
 ## Environment notes
-- Node >= 22, Windows PowerShell. Chain commands with `;`, not `&&`.
+- Node >= 22.18, Windows PowerShell. Chain commands with `;`, not `&&`.
 - `.env` holds `PLANTS_SHEET_CSV_URL` and `SHLINK_API_KEY`; it is gitignored.
 - The `.astro` data-store cache is gitignored; if you see phantom duplicate-id
   warnings, delete `.astro/data-store.json` and rebuild.
 - **Deploys via Cloudflare Pages**, triggered by pushing to `main` (no
-  in-repo workflow file — configured in the Cloudflare dashboard). Pushing
+  in-repo deployment workflow — configured in the Cloudflare dashboard). Pushing
   to `main` is effectively "ship it": there's no separate review/staging
   step, so make sure a build actually succeeds before pushing.
 - **This dev machine's global npm registry points at a corporate proxy**

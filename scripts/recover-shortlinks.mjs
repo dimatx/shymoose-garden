@@ -10,6 +10,8 @@
  * keep working.
  *
  * It does NOT modify any repo files; it only talks to the Shlink API.
+ * Existing codes are verified against the intended destination. Mismatches or
+ * failed verification count as failures; existing remote links are never edited.
  *
  * Usage:
  *   SHLINK_API_KEY=<key> node --env-file=.env scripts/recover-shortlinks.mjs
@@ -19,13 +21,15 @@
 import { readFile, readdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
+import { readScalars } from "./lib/frontmatter.mjs";
+import { recoverShortUrl, validateShortUrl } from "./lib/shortlinks.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
 const contentDir = join(repoRoot, "src", "content", "plants");
 
 const SHLINK_BASE_URL = (
-  process.env.SHLINK_BASE_URL ?? "http://s.shymoose.com"
+  process.env.SHLINK_BASE_URL ?? "https://s.shymoose.com"
 ).replace(/\/+$/, "");
 const SITE_URL = (process.env.SITE_URL ?? "https://garden.shymoose.com").replace(
   /\/+$/,
@@ -56,20 +60,16 @@ async function main() {
   for (const filename of files) {
     const slug = filename.replace(/\.md$/, "");
     const content = await readFile(join(contentDir, filename), "utf8");
-    const fm = content.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? "";
-
-    const shortMatch = fm.match(/^shortUrl:\s*"([^"]+)"/m);
-    if (!shortMatch) {
+    const fields = readScalars(content, ["shortUrl", "latinName"]);
+    if (!fields.shortUrl) {
       // No recorded short code yet (e.g. brand-new plant) — nothing to recover.
       skipped++;
       continue;
     }
 
-    const customSlug = new URL(shortMatch[1]).pathname.replace(/^\/+/, "");
+    const customSlug = new URL(validateShortUrl(fields.shortUrl)).pathname.replace(/^\/+/, "");
     const longUrl = `${SITE_URL}/plants/${slug}`;
-    const latinMatch =
-      fm.match(/^latinName:\s*"([^"]+)"/m) || fm.match(/^latinName:\s*(.+)$/m);
-    const title = latinMatch ? latinMatch[1].trim() : slug;
+    const title = fields.latinName || slug;
 
     if (DRY_RUN) {
       console.log(`  [dry] ${customSlug}  →  ${longUrl}`);
@@ -82,7 +82,7 @@ async function main() {
       console.log(`  + ${customSlug}  →  ${longUrl}`);
       recreated++;
     } else if (result === "exists") {
-      console.log(`  = ${customSlug}  (already present)`);
+      console.log(`  = ${customSlug}  (destination verified)`);
       already++;
     } else {
       console.error(`  ✗ ${customSlug}: ${result}`);
@@ -104,22 +104,12 @@ async function main() {
  * @returns {Promise<"created" | "exists" | string>}
  */
 async function recreate(customSlug, longUrl, title) {
-  const res = await fetch(`${SHLINK_BASE_URL}/rest/v3/short-urls`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-      "X-Api-Key": /** @type {string} */ (API_KEY),
-    },
-    body: JSON.stringify({ longUrl, title, customSlug, tags: ["garden"] }),
-  });
-
-  if (res.ok) return "created";
-
-  const body = await res.text().catch(() => "");
-  // A slug that already exists means it's already recovered — treat as success.
-  if (res.status === 400 && /non-unique-slug|already in use/i.test(body)) {
-    return "exists";
+  if (!API_KEY) throw new Error("SHLINK_API_KEY env var is required.");
+  try {
+    return await recoverShortUrl({
+      baseUrl: SHLINK_BASE_URL, apiKey: API_KEY, customSlug, longUrl, title,
+    });
+  } catch (error) {
+    return error instanceof Error ? error.message : "Unknown recovery failure.";
   }
-  return `HTTP ${res.status}: ${body.slice(0, 200)}`;
 }

@@ -25,12 +25,17 @@ src/
   content.config.ts    The plant schema — what fields a plant file can have.
   assets/plants/       Plant photos, optimized at build time.
   lib/plants.ts        Shared data helpers: sorting, page URLs, timeline rows.
+  lib/catalog.ts       Browser-safe catalog ordering, covered by unit tests.
+  lib/calendar-order.ts Browser/server calendar ordering and month arithmetic.
+  lib/build-info.ts    Build timestamp/revision, computed once per build.
   components/
     Icon.astro         Central registry of every inline SVG icon.
     PlantCard.astro    A plant tile on the home grid.
     MonthCalendar.astro 12-month chart shared by Bloom and Pruning.
     ThemeToggle.astro  Light/dark switch.
+    QRScanner.astro    Lazy-loaded camera scanner and modal lifecycle.
   layouts/Layout.astro Page shell: <head>, header nav, footer, theme script.
+  scripts/             Browser feature controllers (QR scanner, beta map).
   pages/
     index.astro        Home grid + search/filter bar.
     plants/[slug].astro A single plant page (one per Markdown file).
@@ -47,12 +52,14 @@ scripts/
   gen-signs.mjs        Generate per-plant OpenSCAD sign files from the template.
   plant-sign-template.scad  OpenSCAD template used by gen-signs.
 signs/                 Generated OpenSCAD files — one per plant, ready to 3D-print.
+tests/                 Native Node regression tests (no network or credentials).
+  e2e/                 Playwright checks against a production preview.
 ```
 
 The two pieces of shared logic worth knowing:
 
-- **[`src/lib/plants.ts`](src/lib/plants.ts)** is the single place that reads the
-  plant collection. `getSortedPlants()` (alphabetical home order), `getCalendarRows()` (bloom
+- **[`src/lib/plants.ts`](src/lib/plants.ts)** centralizes collection queries for
+  listings. `getSortedPlants()` (alphabetical home order), `getCalendarRows()` (bloom
   and pruning charts), and `plantUrl()` all live here, so the rules stay
   consistent across every page.
 - **[`src/components/Icon.astro`](src/components/Icon.astro)** holds every SVG
@@ -62,6 +69,11 @@ The two pieces of shared logic worth knowing:
 ## Add or edit a plant
 
 This is the part you'll do most. No coding required.
+
+**Read [AGENTS.md](AGENTS.md) first.** The steps below explain the content
+format, not the complete publishing pipeline. New plants also require
+multi-source care research, a verified/credited high-resolution photo,
+short links, and matching SCAD/3MF signs.
 
 1. **Add a photo.** Drop a `.jpg`/`.png` into
    [`src/assets/plants/`](src/assets/plants/) (e.g. `lavandula-angustifolia.jpg`).
@@ -102,7 +114,11 @@ This is the part you'll do most. No coding required.
    **"Keep reading"** content that's hidden until tapped. Use normal Markdown
    (headings, lists, **bold**, links, quotes).
 
-That's the whole workflow — commit the change and Cloudflare rebuilds the site.
+After editing, run `check:photos`, then `gen:shortlinks`, then `gen:signs`,
+then `gen:3mf -- <new-sign-slug>` for only the new signs, and finally `build`.
+Review all generated diffs. Publish the content, photo, short URL, SCAD and 3MF
+together as described in AGENTS.md. Pushing to `main` deploys to Cloudflare;
+local checks alone do not deploy.
 
 > Most fields are optional. Any care item you leave out simply won't show.
 > `bloomMonths` and `pruneMonths` accept an array of integers 1–12; duplicates
@@ -110,9 +126,10 @@ That's the whole workflow — commit the change and Cloudflare rebuilds the site
 
 ## Filtering and sorting the garden
 
-Search by common or Latin name, then sort by **Name (A–Z)** (the default) or
-**Recently added** (newest `dateAdded` first). Equal dates keep alphabetical
-order; plants without a recorded date appear last.
+Search by common name, Latin name, or tag, then sort by **Name (A–Z)** (the
+default), **Name (Z–A)**, **Recently added**, or **Oldest first**. Equal dates
+keep alphabetical order; plants without a recorded date appear last in both
+date modes. Archived plants always follow active plants.
 
 Search, filter selections, and sort order are remembered when opening a plant
 and returning with browser Back or **All plants**. This is in-memory navigation
@@ -149,8 +166,41 @@ Other commands:
 ```bash
 npm run build      # production build into dist/
 npm run preview    # preview the production build locally
-npm run publish    # build + gen:shortlinks + gen:signs (full release workflow)
+npm run publish    # gen:shortlinks + gen:signs + build (3MF export is separate)
 ```
+
+## Safe development and validation
+
+Use Node 22.18 or newer (unit tests use native TypeScript stripping).
+After changing dependencies, run `npm ci` to verify the lockfile, not only
+`npm install`. Do not override this machine's npm registry; see AGENTS.md.
+
+```powershell
+npm ci
+npm run check       # Astro + TypeScript diagnostics
+npm test            # isolated unit/script regressions; no .env or API calls
+npm run build
+npx playwright install chromium  # once per Playwright browser version
+npm run test:e2e    # desktop/mobile Chromium against dist/ on port 4322
+```
+
+The browser runner starts and stops its own preview server. Rebuild before
+running it after source changes. `.github/workflows/validate.yml` runs these
+checks for pull requests and pushes to `main`, without publishing, creating
+short links, or rendering signs. Cloudflare deployment remains separate;
+this workflow does not gate Cloudflare's push-triggered builds.
+
+Keep pure rules in `src/lib/`, with Node regression tests. Browser features
+must initialize idempotently on `astro:page-load` and release document
+listeners, observers, timers, and device streams when Astro replaces the
+page. Keep large optional libraries (Leaflet and jsQR) behind dynamic imports.
+Prefer focused components over growing the shared layout. Production styles
+use Astro's automatic inlining threshold so large shared CSS can be cached
+across navigations rather than repeated in every HTML page.
+
+The garden map remains opt-in with `?beta`; navigation links retain that
+flag. GPS stays unavailable until the reference points in
+`src/lib/geoCalibration.ts` are configured.
 
 ## Scripts
 
@@ -166,11 +216,18 @@ new rows into `drafts/plants/`. Review each draft, add a photo, fill in the
 `TODO` fields, and move it to `src/content/plants/` when ready. Re-running is
 safe — already-cataloged plants are skipped.
 
+Drafts also count as known plants, so repeated or reordered sheet rows do not
+create duplicate drafts. Invalid CSV/required headers stop the import before
+any published-draft pruning.
+
 ### Generate short links
 
-```bash
-SHLINK_API_KEY=<key> npm run gen:shortlinks
+```powershell
+npm run gen:shortlinks
 ```
+
+The command reads `SHLINK_API_KEY` from the ignored local `.env` file.
+Never commit or print that file.
 
 For every plant that doesn't already have a `shortUrl` in its frontmatter,
 creates a short link at `s.shymoose.com` (via the Shlink API) and writes it
@@ -179,6 +236,14 @@ skipped, and if Shlink already has a link for the same long URL it returns the
 existing one rather than creating a duplicate.
 
 Optional env vars: `SHLINK_BASE_URL`, `SITE_URL`, `DRY_RUN=1`.
+The default Shlink connection uses HTTPS and requests have timeouts. Shared
+frontmatter helpers preserve line endings and quoting; ambiguous scalar
+fields fail explicitly instead of risking a malformed content rewrite.
+
+`scripts/recover-shortlinks.mjs` is a separate disaster-recovery utility for
+already-printed codes, not part of normal publishing. It verifies the
+destination of an existing code and reports conflicts instead of silently
+accepting or overwriting a link to the wrong plant.
 
 ### Generate physical signs
 
@@ -199,16 +264,17 @@ The resulting `.scad` files are ready to open in
 [OpenSCAD](https://openscad.org/) and render/export for 3D printing. Each sign
 is a two-color plaque (white body, black inlay text and QR code) with sockets
 for separate stakes. Set `DRY_RUN=1` to preview what would be generated without writing files.
+All plant inputs and output-name collisions are checked before writing or
+pruning signs, so invalid content cannot remove an existing sign.
 
 ### Export 3MF models for PrusaSlicer
 
 ```powershell
 npm run gen:signs
-npm run gen:3mf
 # Export one sign by its SCAD filename (the extension is optional):
 npm run gen:3mf -- tsuga-canadensis-moon-frost
 # Re-render even if the source and output are unchanged:
-npm run gen:3mf -- --force
+npm run gen:3mf -- --force tsuga-canadensis-moon-frost
 ```
 
 Writes one **model-only** `.3mf` per SCAD file into [`signs/3mf/`](signs/3mf/),
@@ -252,6 +318,10 @@ ignored by Git; the finished 3MFs are committed. A fresh checkout without
 that cache renders again. Warnings and render failures stop the command
 without replacing that sign's previous output; completed files are cached
 so a later run can resume. Old exports are never automatically deleted.
+
+For new plants, always pass just the new sign slugs. An unscoped export can
+rewrite unrelated committed models on a machine with a different renderer
+or no local cache; reserve it for intentional whole-sign regeneration.
 
 Run this command **after** `gen:signs` whenever sign geometry or text changes,
 and commit the changed SCAD and 3MF files together. It is deliberately

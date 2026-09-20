@@ -16,11 +16,9 @@ export default defineConfig({
   // share one connection and never stall the real navigation.
   prefetch: true,
 
-  // Inline each page's CSS into its HTML. The stylesheets are small, and this
-  // removes a render-blocking <link> round-trip — a clear win for a QR-driven
-  // site where visitors usually land on a single page.
+  // Share/cache larger stylesheets across pages; inline only small ones.
   build: {
-    inlineStylesheets: "always",
+    inlineStylesheets: "auto",
   },
 
   vite: {

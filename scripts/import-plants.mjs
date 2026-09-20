@@ -25,25 +25,15 @@
  */
 
 import { readFile, readdir, writeFile, mkdir, unlink } from "node:fs/promises";
-import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
 import { fetchCsv, parseCsv, normalizeLatin, normalizeUrl } from "./lib/sheet-csv.mjs";
+import { readScalars } from "./lib/frontmatter.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
 const contentDir = join(repoRoot, "src", "content", "plants");
 const draftsDir = join(repoRoot, "drafts", "plants");
-
-const CSV_URL = process.env.PLANTS_SHEET_CSV_URL;
-if (!CSV_URL) {
-  console.error(
-    "\n✗ PLANTS_SHEET_CSV_URL env var is required.\n" +
-      "  Set it in your local .env (the published Google Sheet CSV URL),\n" +
-      "  e.g. PLANTS_SHEET_CSV_URL=https://docs.google.com/.../pub?...output=csv\n"
-  );
-  process.exit(1);
-}
 
 /** Column headers we care about, as they appear in the sheet. */
 const COL = {
@@ -54,19 +44,36 @@ const COL = {
   filename: "Filename",
 };
 
-main().catch((err) => {
-  console.error("\n✗ import-plants failed:", err?.message ?? err);
-  process.exitCode = 1;
-});
+/**
+ * @typedef {Record<keyof typeof COL, string>} SheetRecord
+ * @typedef {{latinKey: string, urlKey: string}} PlantIdentity
+ * @typedef {PlantIdentity & {slug: string, photoBase: string}} ExistingPlant
+ */
 
-async function main() {
-  console.log(`Fetching sheet…\n  ${CSV_URL}\n`);
-  const csv = await fetchCsv(CSV_URL);
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error("\n✗ import-plants failed:", err?.message ?? err);
+    process.exitCode = 1;
+  });
+}
+
+export async function main({
+  plantsDirectory = contentDir,
+  draftsDirectory = draftsDir,
+  csvUrl = process.env.PLANTS_SHEET_CSV_URL,
+  fetchSheet = fetchCsv,
+} = {}) {
+  if (!csvUrl) throw new Error("PLANTS_SHEET_CSV_URL env var is required.");
+  console.log("Fetching sheet…\n");
+  const csv = await fetchSheet(csvUrl);
   const rows = parseCsv(csv);
   if (rows.length === 0) throw new Error("Sheet appears to be empty.");
 
   const header = rows[0];
   const idx = indexHeader(header);
+  if (idx.commonName < 0 || idx.latinName < 0) {
+    throw new Error("Sheet is missing a 'Common name' or 'Latin name' column.");
+  }
   const records = rows
     .slice(1)
     .map((cells) => rowToRecord(cells, idx))
@@ -75,21 +82,24 @@ async function main() {
     // slug and display, so we skip rows missing either.
     .filter((r) => r.commonName && r.latinName);
 
-  const existing = await loadExistingPlants();
+  const existing = await loadExistingPlants(plantsDirectory);
 
   // Self-cleaning: drop any leftover drafts whose plant is now published.
-  await pruneStaleDrafts(existing);
+  await pruneStaleDrafts(existing, draftsDirectory);
+  const drafts = await loadExistingPlants(draftsDirectory, true);
+  const known = [...existing, ...drafts].map(({ latinKey, urlKey }) => ({ latinKey, urlKey }));
 
-  /** @type {ReturnType<typeof rowToRecord>[]} */
+  /** @type {SheetRecord[]} */
   const newPlants = [];
   for (const rec of records) {
-    if (isKnown(rec, existing)) continue;
+    if (isKnown(rec, known)) continue;
     newPlants.push(rec);
+    known.push({ latinKey: normalizeLatin(rec.latinName), urlKey: normalizeUrl(rec.fullLink) });
   }
 
   console.log(
     `Sheet rows with both names:   ${records.length}` +
-      `\nAlready in repo:               ${records.length - newPlants.length}` +
+      `\nAlready published, drafted, or duplicated: ${records.length - newPlants.length}` +
       `\nNew to scaffold:              ${newPlants.length}\n`
   );
 
@@ -98,10 +108,10 @@ async function main() {
     return;
   }
 
-  await mkdir(draftsDir, { recursive: true });
+  await mkdir(draftsDirectory, { recursive: true });
 
-  const usedSlugs = new Set(existing.map((p) => p.slug));
-  const usedPhotoBases = new Set(existing.map((p) => p.photoBase).filter(Boolean));
+  const usedSlugs = new Set([...existing, ...drafts].map((p) => p.slug));
+  const usedPhotoBases = new Set([...existing, ...drafts].map((p) => p.photoBase).filter(Boolean));
   const written = [];
   for (const rec of newPlants) {
     const commonBase = slugify(rec.commonName);
@@ -116,12 +126,8 @@ async function main() {
           `scaffolding ${slug} instead so they don't share an image file.`
       );
     }
-    const file = join(draftsDir, `${slug}.md`);
-    if (existsSync(file)) {
-      console.log(`  • skip (draft already exists): drafts/plants/${slug}.md`);
-      continue;
-    }
-    await writeFile(file, renderDraft(rec, slug), "utf8");
+    const file = join(draftsDirectory, `${slug}.md`);
+    await writeFile(file, renderDraft(rec, slug), { encoding: "utf8", flag: "wx" });
     written.push({ slug, rec });
     console.log(
       `  + drafts/plants/${slug}.md  ←  ${rec.commonName || rec.latinName}`
@@ -140,8 +146,12 @@ async function main() {
 /* --------------------------------- fetch --------------------------------- */
 /* fetchCsv() and parseCsv() live in ./lib/sheet-csv.mjs (shared with gen-3mf.mjs). */
 
-/** Map known column names to their position in the header row. */
+/**
+ * Map known column names to their position in the header row.
+ * @param {string[]} header
+ */
 function indexHeader(header) {
+  /** @param {string} label */
   const find = (label) =>
     header.findIndex((h) => h.trim().toLowerCase() === label.toLowerCase());
   return {
@@ -153,7 +163,13 @@ function indexHeader(header) {
   };
 }
 
+/**
+ * @param {string[]} cells
+ * @param {ReturnType<typeof indexHeader>} idx
+ * @returns {SheetRecord}
+ */
 function rowToRecord(cells, idx) {
+  /** @param {number} i */
   const at = (i) => (i >= 0 && i < cells.length ? cells[i].trim() : "");
   return {
     qrLink: at(idx.qrLink),
@@ -166,16 +182,22 @@ function rowToRecord(cells, idx) {
 
 /* ----------------------- existing-plant matching ------------------------- */
 
-async function loadExistingPlants() {
+/**
+ * @param {string} directory
+ * @param {boolean} [optional]
+ * @returns {Promise<ExistingPlant[]>}
+ */
+async function loadExistingPlants(directory, optional = false) {
   let files = [];
   try {
-    files = (await readdir(contentDir)).filter((f) => f.endsWith(".md"));
-  } catch {
-    return [];
+    files = (await readdir(directory)).filter((f) => f.endsWith(".md")).sort();
+  } catch (error) {
+    if (optional && error instanceof Error && "code" in error && error.code === "ENOENT") return [];
+    throw error;
   }
   const plants = [];
   for (const file of files) {
-    const text = await readFile(join(contentDir, file), "utf8");
+    const text = await readFile(join(directory, file), "utf8");
     const fm = frontmatter(text);
     plants.push({
       slug: file.replace(/\.md$/, ""),
@@ -198,26 +220,28 @@ async function loadExistingPlants() {
  * normalized Latin name — the same matching used for sheet rows. This keeps
  * drafts/plants/ from accumulating finished scaffolds after you move the real
  * file into the content collection (or recreate it there under a new slug).
- * @param {Awaited<ReturnType<typeof loadExistingPlants>>} existing
+ * @param {ExistingPlant[]} existing
+ * @param {string} directory
  */
-async function pruneStaleDrafts(existing) {
+async function pruneStaleDrafts(existing, directory) {
   let files = [];
   try {
-    files = (await readdir(draftsDir)).filter((f) => f.endsWith(".md"));
-  } catch {
-    return; // no drafts dir yet — nothing to prune
+    files = (await readdir(directory)).filter((f) => f.endsWith(".md"));
+  } catch (error) {
+    if (error instanceof Error && "code" in error && error.code === "ENOENT") return;
+    throw error;
   }
 
   let removed = 0;
   for (const file of files) {
-    const fm = frontmatter(await readFile(join(draftsDir, file), "utf8"));
+    const fm = frontmatter(await readFile(join(directory, file), "utf8"));
     // Reuse the sheet-row matcher: isKnown reads `fullLink` + `latinName`.
     const rec = {
       fullLink: fm.learnMoreUrl ?? "",
       latinName: fm.latinName ?? "",
     };
     if (!isKnown(rec, existing)) continue;
-    await unlink(join(draftsDir, file));
+    await unlink(join(directory, file));
     removed++;
     console.log(`  - drafts/plants/${file}  (already published — removed)`);
   }
@@ -227,34 +251,27 @@ async function pruneStaleDrafts(existing) {
   }
 }
 
-/** Pull a few scalar frontmatter values without a YAML dependency. */
+/**
+ * Pull a few scalar frontmatter values without a YAML dependency.
+ * @param {string} text
+ */
 function frontmatter(text) {
-  const normalized = text.replace(/\r\n?/g, "\n");
-  const m = normalized.match(/^---\n([\s\S]*?)\n---/);
-  const out = {};
-  if (!m) return out;
-  for (const line of m[1].split("\n")) {
-    const fm = line.match(/^([A-Za-z][A-Za-z0-9]*):\s*(.*)$/);
-    if (!fm) continue; // ignore nested/indented lines like care: fields
-    let val = fm[2].trim();
-    if (
-      (val.startsWith('"') && val.endsWith('"')) ||
-      (val.startsWith("'") && val.endsWith("'"))
-    ) {
-      val = val.slice(1, -1);
-    }
-    out[fm[1]] = val;
-  }
-  return out;
+  return readScalars(text, ["latinName", "learnMoreUrl", "photo"]);
 }
 
 /** Extract the bare filename (no directory, no extension) from a photo path
- * like "../../assets/plants/oakleaf-hydrangea.jpg" -> "oakleaf-hydrangea". */
+ * like "../../assets/plants/oakleaf-hydrangea.jpg" -> "oakleaf-hydrangea".
+ * @param {string} photoPath
+ */
 function photoBasename(photoPath) {
   const file = photoPath.split(/[\\/]/).pop() ?? "";
   return file.replace(/\.[^.]+$/, "");
 }
 
+/**
+ * @param {Pick<SheetRecord, "fullLink" | "latinName">} rec
+ * @param {PlantIdentity[]} existing
+ */
 function isKnown(rec, existing) {
   const url = normalizeUrl(rec.fullLink);
   const latin = normalizeLatin(rec.latinName);
@@ -269,6 +286,7 @@ function isKnown(rec, existing) {
 
 /* ------------------------------ scaffolding ------------------------------ */
 
+/** @param {string} text */
 function slugify(text) {
   return text
     .toLowerCase()
@@ -277,6 +295,11 @@ function slugify(text) {
     .replace(/^-+|-+$/g, "");
 }
 
+/**
+ * @param {SheetRecord} rec
+ * @param {Set<string>} used
+ * @param {Set<string>} usedPhotoBases
+ */
 function uniqueSlug(rec, used, usedPhotoBases) {
   // Prefer the common name. But when several cultivars share one common name
   // (e.g. three "Japanese Maple"s), the common-name slug collides — fall back
@@ -289,6 +312,7 @@ function uniqueSlug(rec, used, usedPhotoBases) {
   // Skipping this check let two different "Oakleaf Hydrangea" plants end up
   // pointing at the same image file, since their content slugs legitimately
   // differed even though the naive photo path did not.
+  /** @param {string} candidate */
   const collides = (candidate) => used.has(candidate) || usedPhotoBases.has(candidate);
   const commonBase = slugify(rec.commonName);
   const latinBase = slugify(rec.latinName);
@@ -303,7 +327,11 @@ function uniqueSlug(rec, used, usedPhotoBases) {
   return slug;
 }
 
-/** Render a draft Markdown file matching the content collection schema. */
+/**
+ * Render a draft Markdown file matching the content collection schema.
+ * @param {SheetRecord} rec
+ * @param {string} slug
+ */
 function renderDraft(rec, slug) {
   const learnMore = rec.fullLink
     ? `learnMoreUrl: ${JSON.stringify(rec.fullLink)}\n`

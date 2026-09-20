@@ -148,8 +148,8 @@ async function buildSheetNumberMaps() {
   const byLatin = new Map();
   if (!csvUrl) {
     console.warn(
-      "[WARN] PLANTS_SHEET_CSV_URL is not set — 3MFs will keep their current names " +
-      "instead of getting the sheet's number prefix."
+      "[WARN] PLANTS_SHEET_CSV_URL is not set — outputs will use unprefixed sign filenames. " +
+      "Existing numbered exports are left untouched; this can create an additional unprefixed export."
     );
     return { byUrl, byLatin };
   }

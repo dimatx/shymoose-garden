@@ -17,8 +17,8 @@ const monthList = z
  * data below. The Markdown body *after* the frontmatter is the longer
  * "keep reading" description.
  *
- * To add a plant: copy an existing file in `src/content/plants/`, rename it,
- * drop a photo into `src/assets/plants/`, and edit the fields. That's it.
+ * Follow AGENTS.md for the complete import, research, photo, and publishing
+ * workflow; schema validity alone does not make a plant ready to publish.
  */
 const plants = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/plants" }),
@@ -60,11 +60,11 @@ const plants = defineCollection({
         // against a reputable source (NCSU Extension, Missouri Botanical
         // Garden, RHS, or the breeder page for a patented cultivar).
         spacing: z.string().optional(),
-          // How to propagate this plant, e.g. "Divide in spring" or "Readily
-          // grown from seed". Optional — only fill in when propagation is
-          // practical for the gardener. Use "Not applicable" for plants where
-          // propagation isn't feasible (e.g. grafted trees, hybrid vegetables).
-          propagation: z.string().optional(),
+        // How to propagate this plant, e.g. "Divide in spring" or "Readily
+        // grown from seed". Optional — only fill in when propagation is
+        // practical for the gardener. Use "Not applicable" for plants where
+        // propagation isn't feasible (e.g. grafted trees, hybrid vegetables).
+        propagation: z.string().optional(),
         // Pet safety: toxicity level for dogs. One of:
         // "Non-toxic", "Mildly toxic", "Highly toxic"
         // Optional — include only when verified against reputable pet toxicity sources.
@@ -77,7 +77,7 @@ const plants = defineCollection({
         // E.g. "Toxic compound: saponins. Effects: vomiting, diarrhea, abdominal pain"
         // Optional — include detailed toxicology for mildly/highly toxic plants.
         petSafetyInfo: z.string().optional(),
-        }),
+      }),
 
       // Months this plant is in flower, as numbers 1–12 (1 = January).
       // Drives the Bloom Calendar. Omit for plants with no floral display

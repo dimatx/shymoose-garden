@@ -1,0 +1,194 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<garden-qr-scanner class="contents">
+  <dialog
+    id="qr-overlay"
+    aria-label="Scan plant QR code"
+    aria-describedby="qr-status"
+    class="fixed inset-0 m-0 h-dvh max-h-none w-screen max-w-none flex-col items-center justify-center border-0 bg-black p-0 open:flex"
+  >
+    <video
+      id="qr-video"
+      class="absolute inset-0 h-full w-full object-cover"
+      playsinline
+      muted
+      aria-hidden="true"
+    ></video>
+    <canvas id="qr-canvas" class="hidden"></canvas>
+
+    <div class="pointer-events-none relative z-10 flex flex-col items-center">
+      <div
+        class="relative h-56 w-56 rounded-lg"
+        style="box-shadow: 0 0 0 9999px rgba(0,0,0,0.55);"
+      >
+        <svg
+          class="absolute inset-0 h-full w-full text-white"
+          viewBox="0 0 100 100"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="5"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="M10 30 L10 10 L30 10"></path>
+          <path d="M70 10 L90 10 L90 30"></path>
+          <path d="M90 70 L90 90 L70 90"></path>
+          <path d="M30 90 L10 90 L10 70"></path>
+        </svg>
+        <div
+          id="qr-scan-line"
+          class="absolute left-1 right-1 h-px rounded-full bg-green-400"
+          style="top: 50%; box-shadow: 0 0 6px 2px rgba(74,222,128,0.7);"
+        ></div>
+      </div>
+      <p
+        id="qr-status"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        class="mt-5 max-w-xs px-4 text-center text-sm text-white/70"
+      >
+        Point at a plant QR code
+      </p>
+    </div>
+
+    <button
+      id="qr-close"
+      type="button"
+      autofocus
+      aria-label="Close QR scanner"
+      class="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition hover:bg-black/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+    >
+      <Icon name="x" class="h-5 w-5" />
+    </button>
+  </dialog>
+</garden-qr-scanner>
+
+<style>
+  #qr-scan-line {
+    animation: scan 2s ease-in-out infinite alternate;
+  }
+  @keyframes scan {
+    from { top: 18%; }
+    to { top: 82%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #qr-scan-line { animation: none; }
+  }
+</style>
+
+<script>
+  import { createQRScanner, scanDimensions, type QRDecoder } from "../scripts/qr-scanner";
+
+  // Keep the large decoder out of the initial page bundle, and allow load retries.
+  let decoderPromise: Promise<QRDecoder> | undefined;
+  function loadDecoder() {
+    return decoderPromise ??= import("jsqr")
+      .then((module) => module.default)
+      .catch((error) => {
+        decoderPromise = undefined;
+        throw error;
+      });
+  }
+
+  class GardenQRScanner extends HTMLElement {
+    private cleanup?: () => void;
+
+    connectedCallback() {
+      if (this.cleanup) return;
+      const button = document.getElementById("qr-scan-button");
+      const dialog = this.querySelector<HTMLDialogElement>("dialog");
+      const video = this.querySelector<HTMLVideoElement>("video");
+      const canvas = this.querySelector<HTMLCanvasElement>("canvas");
+      const closeButton = this.querySelector<HTMLButtonElement>("#qr-close");
+      const status = this.querySelector<HTMLElement>("#qr-status");
+      if (!button || !dialog || !video || !canvas || !closeButton || !status) return;
+
+      const context = canvas.getContext("2d", { willReadFrequently: true });
+      const listeners = new AbortController();
+      const options = { signal: listeners.signal };
+      let returnFocus: HTMLElement | null = null;
+      let previousOverflow = "";
+      const scanner = createQRScanner({
+        loadDecoder,
+        getStream: navigator.mediaDevices?.getUserMedia
+          ? () => navigator.mediaDevices.getUserMedia({
+              audio: false,
+              video: {
+                facingMode: { ideal: "environment" },
+                width: { ideal: 1280 },
+                height: { ideal: 720 },
+              },
+            })
+          : undefined,
+        attachStream: (stream) => { video.srcObject = stream; },
+        detachStream: () => {
+          video.pause();
+          video.srcObject = null;
+        },
+        play: () => video.play(),
+        readCode: (decoder) => {
+          if (!context) throw new Error("Canvas unavailable");
+          if (video.readyState < video.HAVE_CURRENT_DATA) return null;
+          const size = scanDimensions(video.videoWidth, video.videoHeight);
+          if (!size) return null;
+          if (canvas.width !== size.width) canvas.width = size.width;
+          if (canvas.height !== size.height) canvas.height = size.height;
+          context.drawImage(video, 0, 0, size.width, size.height);
+          const image = context.getImageData(0, 0, size.width, size.height);
+          return decoder(image.data, image.width, image.height, {
+            inversionAttempts: "dontInvert",
+          })?.data ?? null;
+        },
+        requestFrame: (callback) => requestAnimationFrame(callback),
+        cancelFrame: (id) => cancelAnimationFrame(id),
+        show: () => {
+          returnFocus = button;
+          previousOverflow = document.body.style.overflow;
+          document.body.style.overflow = "hidden";
+          dialog.showModal();
+          closeButton.focus();
+        },
+        hide: (restoreFocus) => {
+          dialog.close();
+          document.body.style.overflow = previousOverflow;
+          if (restoreFocus && returnFocus?.isConnected) returnFocus.focus();
+        },
+        setStatus: (message) => {
+          if (status.textContent !== message) status.textContent = message;
+        },
+        navigate: (url) => { window.location.href = url; },
+      });
+
+      button.addEventListener("click", () => void scanner.open(), options);
+      closeButton.addEventListener("click", () => scanner.close(), options);
+      dialog.addEventListener("cancel", (event) => {
+        event.preventDefault();
+        scanner.close();
+      }, options);
+      dialog.addEventListener("close", () => {
+        if (!dialog.open) scanner.close();
+      }, options);
+      document.addEventListener("astro:before-preparation", () => scanner.close(false), options);
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) scanner.close(false);
+      }, options);
+      window.addEventListener("pagehide", () => scanner.close(false), options);
+      this.cleanup = () => {
+        listeners.abort();
+        scanner.dispose();
+      };
+    }
+
+    disconnectedCallback() {
+      this.cleanup?.();
+      this.cleanup = undefined;
+    }
+  }
+
+  if (!customElements.get("garden-qr-scanner")) {
+    customElements.define("garden-qr-scanner", GardenQRScanner);
+  }
+</script>

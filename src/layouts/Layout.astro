@@ -2,7 +2,9 @@
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
 import ThemeToggle from "../components/ThemeToggle.astro";
+import QRScanner from "../components/QRScanner.astro";
 import Icon from "../components/Icon.astro";
+import { buildVersion } from "../lib/build-info";
 
 interface Props {
   title: string;
@@ -25,31 +27,6 @@ const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const imageUrl = image ? new URL(image, Astro.site).href : undefined;
 
-// Capture build time and git commit hash for deployment indicator
-const buildDate = new Date();
-const year = buildDate.getFullYear();
-const month = String(buildDate.getMonth() + 1).padStart(2, "0");
-const day = String(buildDate.getDate()).padStart(2, "0");
-const dateStr = `${year}.${month}.${day}`;
-
-const timeStr = buildDate.toLocaleString("en-US", {
-  hour: "2-digit",
-  minute: "2-digit",
-  timeZone: "America/New_York",
-  hour12: true,
-});
-
-// Get git commit hash (short form)
-let commitHash = "unknown";
-try {
-  const { execSync } = await import("child_process");
-  commitHash = execSync("git rev-parse --short HEAD", { encoding: "utf-8" }).trim();
-} catch {
-  // If git command fails, fall back to unknown
-}
-
-// Format: v2026.09.13-abc1234 (09:36 AM ET)
-const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
 ---
 
 <!doctype html>
@@ -92,7 +69,12 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
     <!-- Set theme before paint to avoid a flash of the wrong theme. -->
     <script is:inline>
       (() => {
-        const stored = localStorage.getItem("theme");
+        let stored;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch (error) {
+          console.warn("Theme preference storage is unavailable.", error);
+        }
         const prefersDark = window.matchMedia(
           "(prefers-color-scheme: dark)"
         ).matches;
@@ -105,6 +87,9 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
   <body
     class="app-bg min-h-full bg-leaf-50 font-sans text-leaf-950 antialiased transition-colors dark:bg-leaf-950 dark:text-leaf-50"
   >
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:p-3 focus:text-leaf-950">
+      Skip to content
+    </a>
     <header
       class="sticky top-0 z-40 border-b border-leaf-200/70 bg-leaf-50/80 backdrop-blur-md dark:border-leaf-800/70 dark:bg-leaf-950/80"
     >
@@ -152,7 +137,6 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
             <button
               id="nav-menu-button"
               type="button"
-              aria-haspopup="true"
               aria-expanded="false"
               aria-controls="nav-menu"
               aria-label="Open menu"
@@ -162,14 +146,11 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
             </button>
             <div
               id="nav-menu"
-              role="menu"
-              aria-labelledby="nav-menu-button"
               hidden
               class="absolute right-0 top-full z-50 mt-2 min-w-52 overflow-hidden rounded-2xl border border-leaf-200/80 bg-white p-1.5 shadow-lg dark:border-leaf-800/80 dark:bg-leaf-900"
             >
               <a
                 href="/bloom/"
-                role="menuitem"
                 class="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
               >
                 <Icon name="bloom" class="h-4 w-4 shrink-0" />
@@ -177,7 +158,6 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
               </a>
               <a
                 href="/pruning/"
-                role="menuitem"
                 class="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
               >
                 <Icon name="scissors" class="h-4 w-4 shrink-0" />
@@ -185,7 +165,6 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
               </a>
               <a
                 href="/map/"
-                role="menuitem"
                 data-beta-feature
                 hidden
                 class="items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
@@ -212,7 +191,7 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
       </div>
     </header>
 
-    <main class="mx-auto w-full max-w-3xl px-4 pb-20 pt-6 sm:px-6">
+    <main id="main-content" tabindex="-1" class="mx-auto w-full max-w-3xl px-4 pb-20 pt-6 sm:px-6">
       <slot />
     </main>
 
@@ -221,7 +200,7 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
     >
       <p>🌿 Grown with care in the ShyMoose garden.</p>
       <p class="mt-2 text-xs text-leaf-500 dark:text-leaf-500">
-        {versionStr}
+        {buildVersion}
       </p>
     </footer>
 
@@ -230,6 +209,8 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
       // click, Escape, or when navigating. Re-bound after each view
       // transition (astro:page-load) using a dataset guard so we never
       // attach duplicate listeners.
+      let navEvents: AbortController | undefined;
+      document.addEventListener("astro:before-swap", () => navEvents?.abort());
       function initNavMenu() {
         const button = document.getElementById("nav-menu-button");
         const menu = document.getElementById("nav-menu");
@@ -249,11 +230,14 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
 
         if (button.dataset.bound !== "true") {
           button.dataset.bound = "true";
+          navEvents?.abort();
+          navEvents = new AbortController();
+          const { signal } = navEvents;
 
           button.addEventListener("click", (e) => {
             e.stopPropagation();
             toggle();
-          });
+          }, { signal });
 
           // Close when clicking anywhere outside the menu.
           document.addEventListener("click", (e) => {
@@ -264,7 +248,7 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
             ) {
               close();
             }
-          });
+          }, { signal });
 
           // Close on Escape and return focus to the button.
           document.addEventListener("keydown", (e) => {
@@ -272,7 +256,7 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
               close();
               button.focus();
             }
-          });
+          }, { signal });
         }
 
         // Always start closed on (re)bind / navigation.
@@ -288,8 +272,13 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
       function revealBetaFeatures() {
         if (!new URLSearchParams(location.search).has("beta")) return;
         document
-          .querySelectorAll("[data-beta-feature]")
-          .forEach((el) => el.removeAttribute("hidden"));
+          .querySelectorAll<HTMLAnchorElement>("[data-beta-feature]")
+          .forEach((el) => {
+            el.removeAttribute("hidden");
+            const url = new URL(el.href);
+            url.searchParams.set("beta", "");
+            el.href = url.href;
+          });
       }
 
       revealBetaFeatures();
@@ -297,6 +286,10 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
     </script>
 
     <script>
+      import {
+        isTransitionBeforePreparationEvent,
+        isTransitionBeforeSwapEvent,
+      } from "astro:transitions/client";
       // Scoped shared-element morph between the plant list and a detail page.
       //
       // Cards do NOT carry a permanent `view-transition-name`: if all 44 did,
@@ -307,9 +300,7 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
       // detail page, and the matching card on the way back. The detail hero
       // keeps its static name, so the two endpoints share a name and morph,
       // while every other card swaps instantly with no animation.
-      if (!(window as any).__plantMorphInit) {
-        (window as any).__plantMorphInit = true;
-
+      {
         const DETAIL = /^\/plants\/([^/]+)\/?$/;
         const clearNames = (doc: Document | DocumentFragment) =>
           doc
@@ -322,7 +313,8 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
         // Forward (list → detail): the source card lives in the OLD document,
         // whose snapshot is taken before the swap, so tag it as early as
         // possible — during preparation, while the list is still on screen.
-        document.addEventListener("astro:before-preparation", (e: any) => {
+        document.addEventListener("astro:before-preparation", (e) => {
+          if (!isTransitionBeforePreparationEvent(e)) return;
           clearNames(document);
           const detail = e.to?.pathname?.match(DETAIL);
           if (e.from?.pathname === "/" && detail) {
@@ -337,7 +329,8 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
 
         // Back (detail → list): the target card lives in the INCOMING
         // document, whose snapshot is taken after the swap, so tag it there.
-        document.addEventListener("astro:before-swap", (e: any) => {
+        document.addEventListener("astro:before-swap", (e) => {
+          if (!isTransitionBeforeSwapEvent(e)) return;
           clearNames(e.newDocument);
           const detail = e.from?.pathname?.match(DETAIL);
           if (detail && e.to?.pathname === "/") {
@@ -349,203 +342,6 @@ const versionStr = `v${dateStr}-${commitHash} (${timeStr} ET)`;
         });
       }
     </script>
-    <!-- QR Scanner Overlay -->
-    <div
-      id="qr-overlay"
-      hidden
-      role="dialog"
-      aria-modal="true"
-      aria-label="Scan plant QR code"
-      class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black"
-    >
-      <video
-        id="qr-video"
-        class="absolute inset-0 h-full w-full object-cover"
-        playsinline
-        muted
-      ></video>
-      <canvas id="qr-canvas" class="hidden"></canvas>
-
-      <!-- Viewfinder: box-shadow dims everything outside the scan area -->
-      <div class="pointer-events-none relative z-10 flex flex-col items-center">
-        <div
-          class="relative h-56 w-56 rounded-lg"
-          style="box-shadow: 0 0 0 9999px rgba(0,0,0,0.55);"
-        >
-          <!-- Corner brackets -->
-          <svg
-            class="absolute inset-0 h-full w-full text-white"
-            viewBox="0 0 100 100"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="5"
-            stroke-linecap="round"
-          >
-            <path d="M10 30 L10 10 L30 10" />
-            <path d="M70 10 L90 10 L90 30" />
-            <path d="M90 70 L90 90 L70 90" />
-            <path d="M30 90 L10 90 L10 70" />
-          </svg>
-          <!-- Animated scan line -->
-          <div
-            id="qr-scan-line"
-            class="absolute left-1 right-1 h-px rounded-full bg-green-400"
-            style="top: 50%; box-shadow: 0 0 6px 2px rgba(74,222,128,0.7);"
-          ></div>
-        </div>
-        <p id="qr-status" class="mt-5 text-sm text-white/70">
-          Point at a plant QR code
-        </p>
-      </div>
-
-      <!-- Close button -->
-      <button
-        id="qr-close"
-        type="button"
-        aria-label="Close QR scanner"
-        class="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm transition hover:bg-black/70"
-      >
-        <Icon name="x" class="h-5 w-5" />
-      </button>
-    </div>
-
-    <script>
-      // jsQR is ~125 KB — far too heavy to ship on every page when the
-      // scanner is a rarely-used, mobile-only feature. Load it lazily the
-      // first time someone opens the scanner so the catalog and plant detail
-      // pages stay light and navigate instantly.
-      import type jsQRType from "jsqr";
-      let jsQR: typeof jsQRType | null = null;
-
-      function initQRScanner() {
-        const button = document.getElementById("qr-scan-button");
-        const overlay = document.getElementById("qr-overlay");
-        const video = document.getElementById("qr-video") as HTMLVideoElement | null;
-        const canvas = document.getElementById("qr-canvas") as HTMLCanvasElement | null;
-        const closeBtn = document.getElementById("qr-close");
-        const statusEl = document.getElementById("qr-status");
-        const scanLine = document.getElementById("qr-scan-line");
-
-        if (!button || !overlay || !video || !canvas || !closeBtn) return;
-        if (button.dataset.bound === "true") return;
-        button.dataset.bound = "true";
-
-        let stream: MediaStream | null = null;
-        let animFrame: number | null = null;
-        let scanLinePos = 50;
-        let scanLineDir = 1;
-
-        const ctx = canvas.getContext("2d")!;
-
-        async function openScanner() {
-          overlay.hidden = false;
-          document.body.style.overflow = "hidden";
-          if (statusEl) statusEl.textContent = "Point at a plant QR code";
-
-          // getUserMedia only exists in secure contexts (https or localhost).
-          if (!navigator.mediaDevices?.getUserMedia) {
-            if (statusEl)
-              statusEl.textContent =
-                "Camera needs a secure (https) connection.";
-            return;
-          }
-
-          // Fetch the decoder on demand — this downloads/parses in parallel
-          // with the user granting camera permission, so it adds no perceived
-          // delay while keeping it out of the every-page bundle.
-          if (!jsQR) {
-            try {
-              jsQR = (await import("jsqr")).default;
-            } catch {
-              if (statusEl)
-                statusEl.textContent = "Couldn't load the QR scanner.";
-              return;
-            }
-          }
-
-          try {
-            stream = await navigator.mediaDevices.getUserMedia({
-              video: { facingMode: { ideal: "environment" } },
-            });
-            video.srcObject = stream;
-            await video.play();
-            animFrame = requestAnimationFrame(tick);
-          } catch (err) {
-            const name = (err as Error)?.name;
-            if (statusEl)
-              statusEl.textContent =
-                name === "NotAllowedError" || name === "SecurityError"
-                  ? "Camera blocked. Allow camera access in your browser settings, then try again."
-                  : name === "NotFoundError" || name === "OverconstrainedError"
-                    ? "No camera found on this device."
-                    : name === "NotReadableError"
-                      ? "Camera is in use by another app."
-                      : "Couldn't start the camera.";
-          }
-        }
-
-        function closeScanner() {
-          overlay.hidden = true;
-          document.body.style.overflow = "";
-          if (animFrame !== null) {
-            cancelAnimationFrame(animFrame);
-            animFrame = null;
-          }
-          if (stream) {
-            stream.getTracks().forEach((t) => t.stop());
-            stream = null;
-          }
-          video.srcObject = null;
-        }
-
-        function tick() {
-          if (overlay.hidden) return;
-
-          if (scanLine) {
-            scanLinePos += scanLineDir * 0.6;
-            if (scanLinePos > 82) scanLineDir = -1;
-            if (scanLinePos < 18) scanLineDir = 1;
-            scanLine.style.top = `${scanLinePos}%`;
-          }
-
-          if (video.readyState === video.HAVE_ENOUGH_DATA && jsQR) {
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const code = jsQR(imageData.data, imageData.width, imageData.height, {
-              inversionAttempts: "dontInvert",
-            });
-
-            if (code) {
-              closeScanner();
-              try {
-                const url = new URL(code.data);
-                if (url.protocol === "https:" || url.protocol === "http:") {
-                  window.location.href = url.href;
-                }
-              } catch {
-                // Not a URL — ignore
-              }
-              return;
-            }
-          }
-
-          animFrame = requestAnimationFrame(tick);
-        }
-
-        button.addEventListener("click", openScanner);
-        closeBtn.addEventListener("click", closeScanner);
-        document.addEventListener("keydown", (e) => {
-          if (e.key === "Escape" && !overlay.hidden) closeScanner();
-        });
-        // Stop the camera stream on view-transition navigations.
-        document.addEventListener("astro:before-preparation", closeScanner);
-      }
-
-      initQRScanner();
-      document.addEventListener("astro:page-load", initQRScanner);
-    </script>
+    <QRScanner />
   </body>
 </html>

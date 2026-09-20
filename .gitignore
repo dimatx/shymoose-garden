@@ -8,6 +8,10 @@ signs/3mf/.render-*/
 # Dependencies
 node_modules/
 
+# Browser regression artifacts
+test-results/
+playwright-report/
+
 # Astro
 .astro/
 

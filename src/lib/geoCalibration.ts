@@ -58,7 +58,8 @@ function toLocalMeters(
   const dLng = ((lng - originLng) * Math.PI) / 180;
   return {
     x: dLng * Math.cos(latRad) * EARTH_RADIUS_M,
-    y: dLat * EARTH_RADIUS_M,
+    // SVG/map pixels increase downward, opposite to north-positive latitude.
+    y: -dLat * EARTH_RADIUS_M,
   };
 }
 
@@ -71,13 +72,21 @@ let cachedTransform: GeoTransform | null | undefined;
  */
 export function getGeoTransform(): GeoTransform | null {
   if (cachedTransform !== undefined) return cachedTransform;
+  cachedTransform = createGeoTransform(REF_POINTS);
+  return cachedTransform;
+}
 
-  if (!REF_POINTS) {
-    cachedTransform = null;
-    return null;
-  }
+/** Build a calibration without mutating the site's cached transform. */
+export function createGeoTransform(
+  referencePoints: readonly [GeoRefPoint, GeoRefPoint] | null,
+): GeoTransform | null {
+  if (!referencePoints) return null;
 
-  const [a, b] = REF_POINTS;
+  const [a, b] = referencePoints;
+  if (![a, b].every((point) =>
+    [point.lat, point.lng, point.mapX, point.mapY].every(Number.isFinite) &&
+    Math.abs(point.lat) < 90 && Math.abs(point.lng) <= 180
+  )) return null;
   const bMeters = toLocalMeters(b.lat, b.lng, a.lat, a.lng);
 
   const dMeters = { x: bMeters.x, y: bMeters.y }; // aMeters is always {0,0}
@@ -88,7 +97,6 @@ export function getGeoTransform(): GeoTransform | null {
   if (meterDist === 0 || pixelDist === 0) {
     // Degenerate calibration (identical points) — treat as unconfigured
     // rather than dividing by zero.
-    cachedTransform = null;
     return null;
   }
 
@@ -98,7 +106,7 @@ export function getGeoTransform(): GeoTransform | null {
   const cos = Math.cos(rotation);
   const sin = Math.sin(rotation);
 
-  cachedTransform = {
+  return {
     toMapXY(lat, lng) {
       const m = toLocalMeters(lat, lng, a.lat, a.lng);
       const scaledX = m.x * scale;
@@ -112,5 +120,4 @@ export function getGeoTransform(): GeoTransform | null {
       return meters * scale;
     },
   };
-  return cachedTransform;
 }

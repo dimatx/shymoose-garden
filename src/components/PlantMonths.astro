@@ -18,7 +18,11 @@ interface Props {
 
 const { bloomMonths, pruneMonths } = Astro.props;
 
-const MONTHS = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+const MONTH_NAMES = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+const MONTHS = MONTH_NAMES.map((month) => month[0]);
 
 type Row = { label: string; icon: IconName; months: number[]; bar: string };
 
@@ -65,6 +69,9 @@ const rows: Row[] = (
               <span class="flex items-center gap-1.5 pr-2 text-sm font-medium text-leaf-800 dark:text-leaf-200">
                 <Icon name={row.icon} class="h-4 w-4 shrink-0" />
                 {row.label}
+                <span class="sr-only">
+                  {row.months.map((month) => MONTH_NAMES[month - 1]).join(", ")}
+                </span>
               </span>
               {MONTHS.map((_, i) => {
                 const month = i + 1;

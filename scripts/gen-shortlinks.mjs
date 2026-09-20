@@ -9,7 +9,7 @@
  *
  * Optional env vars:
  *   SHLINK_BASE_URL  — base URL of your Shlink instance
- *                      (default: http://s.shymoose.com)
+ *                      (default: https://s.shymoose.com)
  *   SITE_URL         — base URL of the garden site
  *                      (default: https://garden.shymoose.com)
  *   DRY_RUN          — set to "1" to print what would happen without calling
@@ -25,18 +25,20 @@
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
+import { readScalars } from "./lib/frontmatter.mjs";
+import { validateShortUrl, withShortUrl } from "./lib/shortlinks.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, "..");
 const contentDir = join(repoRoot, "src", "content", "plants");
 
 const SHLINK_BASE_URL = (
-  process.env.SHLINK_BASE_URL ?? "http://s.shymoose.com"
-).replace(/\/$/, "");
+  process.env.SHLINK_BASE_URL ?? "https://s.shymoose.com"
+).replace(/\/+$/, "");
 
 const SITE_URL = (
   process.env.SITE_URL ?? "https://garden.shymoose.com"
-).replace(/\/$/, "");
+).replace(/\/+$/, "");
 
 const API_KEY = process.env.SHLINK_API_KEY;
 const DRY_RUN = process.env.DRY_RUN === "1";
@@ -66,28 +68,18 @@ async function main() {
     const filePath = join(contentDir, filename);
     const content = await readFile(filePath, "utf8");
 
-    // Locate the frontmatter block (between the first two --- delimiters).
-    const fmMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-    if (!fmMatch) {
-      console.warn(`  ? ${filename}: no frontmatter found, skipping.`);
-      continue;
-    }
-
-    const frontmatter = fmMatch[1];
+    const fields = readScalars(content, ["shortUrl", "latinName"]);
 
     // Already has a shortUrl — nothing to do.
-    if (/^shortUrl:/m.test(frontmatter)) {
+    if (fields.shortUrl) {
+      validateShortUrl(fields.shortUrl);
       skipped++;
       continue;
     }
 
     // Extract latinName to use as the Shlink title (matches the examples in
     // the screenshot). Falls back to slug if the field can't be parsed.
-    const latinMatch =
-      frontmatter.match(/^latinName:\s*"([^"]+)"/m) ||
-      frontmatter.match(/^latinName:\s*'([^']+)'/m) ||
-      frontmatter.match(/^latinName:\s*(.+)$/m);
-    const latinName = latinMatch ? latinMatch[1].trim() : slug;
+    const latinName = fields.latinName || slug;
 
     const longUrl = `${SITE_URL}/plants/${slug}`;
 
@@ -104,10 +96,7 @@ async function main() {
     const shortUrl = await createShortUrl(longUrl, latinName);
 
     // Append shortUrl as the last field before the closing ---.
-    const updated = content.replace(
-      /^---\r?\n([\s\S]*?)\r?\n---/,
-      `---\n${frontmatter}\nshortUrl: "${shortUrl}"\n---`
-    );
+    const updated = withShortUrl(content, shortUrl);
     await writeFile(filePath, updated, "utf8");
 
     console.log(`  + ${slug}: ${shortUrl}`);
@@ -127,10 +116,13 @@ async function main() {
  * @returns {Promise<string>} The resulting short URL.
  */
 async function createShortUrl(longUrl, title) {
+  if (!API_KEY) throw new Error("SHLINK_API_KEY env var is required.");
   const apiUrl = `${SHLINK_BASE_URL}/rest/v3/short-urls`;
 
   const res = await fetch(apiUrl, {
     method: "POST",
+    redirect: "error",
+    signal: AbortSignal.timeout(30_000),
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -155,11 +147,5 @@ async function createShortUrl(longUrl, title) {
 
   const data = await res.json();
 
-  if (typeof data?.shortUrl !== "string") {
-    throw new Error(
-      `Shlink response did not include a shortUrl field:\n${JSON.stringify(data)}`
-    );
-  }
-
-  return data.shortUrl;
+  return validateShortUrl(data?.shortUrl);
 }

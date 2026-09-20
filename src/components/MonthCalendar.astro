@@ -64,6 +64,7 @@ const buildMonth = new Date().getMonth() + 1; // 1–12
 // Sort here so the two callers can't drift; the script re-sorts if the
 // visitor's month has moved on since the build.
 const sorted = orderRows(rows, buildMonth);
+const activeNow = sorted.filter((row) => row.months.includes(buildMonth));
 
 // Single source of truth for chip styling — read back by the script so the
 // client-rendered chips match the server-rendered ones exactly.
@@ -141,6 +142,7 @@ const navButtonClass =
                 href={row.url}
                 class="cal-name pr-2 text-sm font-medium leading-tight text-leaf-800 transition hover:text-leaf-950 dark:text-leaf-200 dark:hover:text-leaf-50"
                 title={row.name}
+                aria-label={`${row.name}: ${row.months.map((month) => MONTHS[month - 1]).join(", ")}`}
               >
                 {row.name}
               </a>
@@ -174,6 +176,13 @@ const navButtonClass =
   </div>
 </section>
 
+<noscript>
+  <style is:inline>
+    .month-calendar .cal-chart { --visible: 12; }
+    .month-calendar .cal-col.is-out { display: block; }
+  </style>
+</noscript>
+
 <!-- Active now -->
 <section
   class="mt-6 rounded-2xl border border-leaf-200/80 bg-white p-5 dark:border-leaf-800/80 dark:bg-leaf-900"
@@ -194,9 +203,7 @@ const navButtonClass =
     data-chip-class={chipClass}
   >
     {
-      sorted
-        .filter((r) => r.months.includes(buildMonth))
-        .map((r) => (
+      activeNow.map((r) => (
           <li>
             <a href={r.url} class={chipClass}>
               <span class="h-2 w-2 rounded-full bg-leaf-500" aria-hidden="true" />
@@ -206,7 +213,7 @@ const navButtonClass =
         ))
     }
   </ul>
-  <p id="now-empty" class="mt-3 hidden text-sm text-leaf-600 dark:text-leaf-400">
+  <p id="now-empty" class:list={["mt-3 text-sm text-leaf-600 dark:text-leaf-400", activeNow.length > 0 && "hidden"]}>
     {emptyMessage}
   </p>
 </section>
@@ -309,9 +316,15 @@ const navButtonClass =
   /** Narrowest a month column may get before we start hiding months. */
   const MIN_COLUMN_PX = 42;
 
+  let cleanupCalendar: (() => void) | undefined;
+  document.addEventListener("astro:before-swap", () => {
+    cleanupCalendar?.();
+    cleanupCalendar = undefined;
+  });
+
   function initCalendar() {
     const calendar = document.querySelector<HTMLElement>(".month-calendar");
-    if (!calendar) return;
+    if (!calendar || calendar.dataset.ready) return;
 
     const chart = calendar.querySelector<HTMLElement>("[data-cal-chart]");
     const rowsParent = calendar.querySelector<HTMLElement>("[data-cal-rows]");
@@ -321,6 +334,7 @@ const navButtonClass =
     const labelProbe = calendar.querySelector<HTMLElement>("[data-cal-label-probe]");
     const scroller = chart?.parentElement;
     if (!chart || !rowsParent || !scroller) return;
+    calendar.dataset.ready = "true";
 
     const now = new Date().getMonth() + 1; // 1–12
     const buildMonth = Number(calendar.dataset.buildMonth) || now;
@@ -427,7 +441,9 @@ const navButtonClass =
 
     visible = fittingMonths();
     render();
-    new ResizeObserver(fit).observe(scroller);
+    const observer = new ResizeObserver(fit);
+    observer.observe(scroller);
+    cleanupCalendar = () => observer.disconnect();
 
     // --- "Now" list -------------------------------------------------------
     const list = document.getElementById("now-list");

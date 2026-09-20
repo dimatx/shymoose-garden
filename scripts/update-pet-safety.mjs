@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// Legacy one-off research migration, not part of publishing. Before reuse,
+// review the reference data and YAML assumptions (block-list tags only).
 
 import fs from 'fs/promises';
 import path from 'path';

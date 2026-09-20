@@ -11,10 +11,11 @@
  *   DRY_RUN=1 node scripts/gen-signs.mjs
  */
 
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, globSync } from 'fs';
-import { join, dirname, basename } from 'path';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync } from 'fs';
+import { join, dirname, basename, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import opentype from 'opentype.js';
+import { readScalars } from './lib/frontmatter.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -51,7 +52,10 @@ function measureTextWidthMm(font, text, sizeMm) {
 function escapeScad(str) {
   return str
     .replace(/\\/g, '\\\\')
-    .replace(/"/g, '\\"');
+    .replace(/"/g, '\\"')
+    .replace(/\r/g, '\\r')
+    .replace(/\n/g, '\\n')
+    .replace(/\t/g, '\\t');
 }
 
 // Convert a latin name to a kebab-case filename slug.
@@ -68,11 +72,7 @@ function latinToSlug(latin) {
 const templatePath = join(__dirname, 'plant-sign-template.scad');
 const template = readFileSync(templatePath, 'utf8');
 
-// Ensure output directory exists
 const signsDir = join(ROOT, 'signs');
-if (!DRY_RUN) {
-  mkdirSync(signsDir, { recursive: true });
-}
 
 // Per-plant latin name override for the sign.
 // When set, this replaces the latinName field on the sign only (frontmatter is unchanged).
@@ -211,71 +211,77 @@ const PLAQUE_W = {
   'veronica-purple-illusion':                190,
 };
 
-// Glob all plant markdown files
-const plantFiles = globSync('src/content/plants/*.md', { cwd: ROOT });
-plantFiles.sort();
+export function generateSigns({
+  contentDirectory = join(ROOT, 'src', 'content', 'plants'),
+  outputDirectory = signsDir,
+  dryRun = DRY_RUN,
+} = {}) {
+  const plantFiles = readdirSync(contentDirectory).filter(file => file.endsWith('.md'));
+  plantFiles.sort();
+  if (!plantFiles.length) throw new Error('No plants found; refusing to remove existing signs.');
 
-let generated = 0;
-let skipped = 0;
-const writtenFiles = new Set();
+  const writtenFiles = new Set();
+  const planned = [];
 
-for (const relPath of plantFiles) {
-  const slug = basename(relPath, '.md');
-  const fullPath = join(ROOT, relPath);
-  const md = readFileSync(fullPath, 'utf8');
+  for (const relPath of plantFiles) {
+    const slug = basename(relPath, '.md');
+    const fullPath = join(contentDirectory, relPath);
+    const md = readFileSync(fullPath, 'utf8');
 
-  // Extract frontmatter fields
-  const nameMatch = md.match(/^name:\s*["']?(.+?)["']?\s*$/m);
-  const latinMatch = md.match(/^latinName:\s*["']?(.+?)["']?\s*$/m);
-  const shortUrlMatch = md.match(/^shortUrl:\s*["']?(.+?)["']?\s*$/m);
+    const fields = readScalars(md, ['name', 'latinName', 'shortUrl']);
+    const name = fields.name?.trim();
+    const latinName = fields.latinName?.trim();
+    if (!name || !latinName) throw new Error(`${slug}: missing name or latinName; no signs written.`);
+    const shortUrl = fields.shortUrl?.trim() || `https://garden.shymoose.com/plants/${slug}`;
 
-  if (!nameMatch || !latinMatch) {
-    console.warn(`[SKIP] ${slug}: missing name or latinName`);
-    skipped++;
-    continue;
-  }
+    // Website names can carry a quoted cultivar; the sign's Latin line already
+    // identifies it. Match the whole suffix, including apostrophes in cultivars.
+    const signName = SIGN_NAME[slug] ?? name.replace(/\s+'.*'$/, '');
+    const signLatin = SIGN_LATIN[slug] ?? latinName;
+    const plaqueW = PLAQUE_W[slug] ?? calcPlaqueW(signName, signLatin);
+    const scad = template
+      .replace(/^qr_url = ".*";$/m, () => `qr_url = "${escapeScad(shortUrl)}";`)
+      .replace(/^common_name = ".*";$/m, () => `common_name = "${escapeScad(signName)}";`)
+      .replace(/^scientific_name = ".*";$/m, () => `scientific_name = "${escapeScad(signLatin)}";`)
+      .replace(/^plaque_w = \d+;$/m, () => `plaque_w = ${plaqueW};`);
 
-  const name = nameMatch[1].trim();
-  const latinName = latinMatch[1].trim();
-  const shortUrl = shortUrlMatch ? shortUrlMatch[1].trim() : `https://garden.shymoose.com/plants/${slug}`;
-
-  // Website names can carry a quoted cultivar; the sign's Latin line already
-  // identifies it. Match the whole suffix, including apostrophes in cultivars.
-  const signName = SIGN_NAME[slug] ?? name.replace(/\s+'.*'$/, '');
-  const signLatin = SIGN_LATIN[slug] ?? latinName;
-  // Replace the per-plant variable lines in the template
-  const plaqueW = PLAQUE_W[slug] ?? calcPlaqueW(signName, signLatin);
-  const scad = template
-    .replace(/^qr_url = ".*";$/m, `qr_url = "${escapeScad(shortUrl)}";`)
-    .replace(/^common_name = ".*";$/m, `common_name = "${escapeScad(signName)}";`)
-    .replace(/^scientific_name = ".*";$/m, `scientific_name = "${escapeScad(signLatin)}";`)
-    .replace(/^plaque_w = \d+;$/m, `plaque_w = ${plaqueW};`);
-
-  const outFilename = `${latinToSlug(latinName)}.scad`;
-  const outPath = join(signsDir, outFilename);
-
-  const widthNote = `  [plaque_w=${plaqueW}]`;
-  const nameNote = signName !== name ? `  [name: "${signName}"]` : '';
-  const latinNote = signLatin !== latinName ? `  [latin: "${signLatin}"]` : '';
-  if (DRY_RUN) {
-    console.log(`[DRY RUN] Would write: signs/${outFilename}  (${name} / ${latinName})${nameNote}${latinNote}${widthNote}`);
-  } else {
-    writeFileSync(outPath, scad, 'utf8');
+    const latinSlug = latinToSlug(latinName);
+    if (!latinSlug) throw new Error(`${slug}: Latin name produces an empty sign filename.`);
+    const outFilename = `${latinSlug}.scad`;
+    if (writtenFiles.has(outFilename)) throw new Error(`Duplicate sign filename: ${outFilename}; no signs written.`);
     writtenFiles.add(outFilename);
-    console.log(`[OK] signs/${outFilename}  (${name} / ${latinName})${nameNote}${latinNote}${widthNote}`);
+
+    const widthNote = `  [plaque_w=${plaqueW}]`;
+    const nameNote = signName !== name ? `  [name: "${signName}"]` : '';
+    const latinNote = signLatin !== latinName ? `  [latin: "${signLatin}"]` : '';
+    planned.push({ filename: outFilename, content: scad, description: `(${name} / ${latinName})${nameNote}${latinNote}${widthNote}` });
   }
-  generated++;
+
+  // Validate the complete batch before writing anything or pruning old signs.
+  if (!dryRun) mkdirSync(outputDirectory, { recursive: true });
+  for (const sign of planned) {
+    if (!dryRun) writeFileSync(join(outputDirectory, sign.filename), sign.content, 'utf8');
+    console.log(`${dryRun ? '[DRY RUN] Would write:' : '[OK]'} signs/${sign.filename}  ${sign.description}`);
+  }
+
+  console.log(`\nDone: ${planned.length} signs ${dryRun ? 'would be ' : ''}generated, 0 skipped.`);
+
+  // Remove any stale .scad files left over from the old slug-based naming.
+  if (!dryRun) {
+    const existing = readdirSync(outputDirectory).filter(f => f.endsWith('.scad'));
+    for (const f of existing) {
+      if (!writtenFiles.has(f)) {
+        rmSync(join(outputDirectory, f));
+        console.log(`[REMOVED stale] signs/${f}`);
+      }
+    }
+  }
+  return planned;
 }
 
-console.log(`\nDone: ${generated} signs ${DRY_RUN ? 'would be ' : ''}generated, ${skipped} skipped.`);
-
-// Remove any stale .scad files left over from the old slug-based naming
-if (!DRY_RUN) {
-  const existing = readdirSync(signsDir).filter(f => f.endsWith('.scad'));
-  for (const f of existing) {
-    if (!writtenFiles.has(f)) {
-      rmSync(join(signsDir, f));
-      console.log(`[REMOVED stale] signs/${f}`);
-    }
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  try { generateSigns(); } catch (error) {
+    console.error(`gen:signs failed: ${error.message}`);
+    process.exitCode = 1;
   }
 }

@@ -6,7 +6,7 @@
 
 /** @param {string} url */
 export async function fetchCsv(url) {
-  const res = await fetch(url, { redirect: "follow" });
+  const res = await fetch(url, { redirect: "follow", signal: AbortSignal.timeout(30_000) });
   if (!res.ok) {
     throw new Error(`HTTP ${res.status} ${res.statusText} fetching the sheet.`);
   }
@@ -25,7 +25,8 @@ export function parseCsv(text) {
   let field = "";
   let inQuotes = false;
   // Normalize newlines so \r\n and \r both behave.
-  const s = text.replace(/\r\n?/g, "\n");
+  const s = text.replace(/^\uFEFF/, "").replace(/\r\n?/g, "\n");
+  let afterQuote = false;
 
   for (let i = 0; i < s.length; i++) {
     const c = s[i];
@@ -36,24 +37,31 @@ export function parseCsv(text) {
           i++;
         } else {
           inQuotes = false;
+          afterQuote = true;
         }
       } else {
         field += c;
       }
+    } else if (afterQuote && c !== "," && c !== "\n") {
+      throw new Error("Invalid CSV: unexpected character after a closing quote.");
     } else if (c === '"') {
+      if (field.length) throw new Error("Invalid CSV: quote inside an unquoted field.");
       inQuotes = true;
     } else if (c === ",") {
       row.push(field);
       field = "";
+      afterQuote = false;
     } else if (c === "\n") {
       row.push(field);
       rows.push(row);
       row = [];
       field = "";
+      afterQuote = false;
     } else {
       field += c;
     }
   }
+  if (inQuotes) throw new Error("Invalid CSV: unterminated quoted field.");
   // Flush the final field/row if the file didn't end with a newline.
   if (field.length > 0 || row.length > 0) {
     row.push(field);

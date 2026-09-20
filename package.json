@@ -8,6 +8,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
+    "check": "astro check",
+    "test": "node --experimental-strip-types --test tests/*.test.*",
+    "test:e2e": "playwright test",
     "preview": "astro preview",
     "astro": "astro",
     "import:plants": "node --env-file=.env scripts/import-plants.mjs",
@@ -15,10 +18,10 @@
     "gen:signs": "node scripts/gen-signs.mjs",
     "gen:3mf": "node --env-file=.env scripts/gen-3mf.mjs",
     "check:photos": "node scripts/check-photo-quality.mjs",
-    "publish": "npm run build && npm run gen:shortlinks && npm run gen:signs"
+    "publish": "npm run gen:shortlinks && npm run gen:signs && npm run build"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=22.18.0"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
@@ -33,8 +36,11 @@
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@playwright/test": "^1.56.0",
     "@types/leaflet": "^1.9.22",
     "@types/leaflet.markercluster": "^1.5.6",
-    "opentype.js": "^2.0.0"
+    "opentype.js": "^2.0.0",
+    "typescript": "^5.9.3"
   }
 }

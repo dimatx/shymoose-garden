@@ -264,17 +264,14 @@ function renderInlineMarkdown(text: string): string {
                           {item.label}
                         </dt>
                         {item.label === "Pet safety" && plant.data.care.petSafetyInfo && (
-                          <details class="cursor-pointer relative" title="View toxicity details">
-                            <summary class="text-xs font-semibold text-leaf-500 dark:text-leaf-400 hover:text-leaf-700 dark:hover:text-leaf-300 list-none">
-                              <Icon name="info" class="h-4 w-4 inline" />
-                              <span class="sr-only">View toxicity details</span>
-                            </summary>
-                            <div class="absolute top-full right-0 mt-1 w-64 rounded-lg border border-leaf-200 dark:border-leaf-700 bg-white dark:bg-leaf-900 p-3 shadow-lg z-10">
-                              <p class="text-xs leading-relaxed text-leaf-700 dark:text-leaf-300">
-                                {plant.data.care.petSafetyInfo}
-                              </p>
-                            </div>
-                          </details>
+                          <button
+                            class="pet-safety-toggle text-xs font-semibold text-leaf-500 dark:text-leaf-400 hover:text-leaf-700 dark:hover:text-leaf-300 cursor-pointer p-0 bg-none border-none"
+                            type="button"
+                            aria-label="View toxicity details"
+                            data-pet-info={plant.data.care.petSafetyInfo}
+                          >
+                            <Icon name="info" class="h-4 w-4 inline" />
+                          </button>
                         )}
                       </div>
                       <dd class={`mt-0.5 text-sm text-leaf-800 dark:text-leaf-200`}>
@@ -320,6 +317,10 @@ function renderInlineMarkdown(text: string): string {
       </a>
     </section>
   </article>
+
+  <div id="pet-safety-popup" class="hidden fixed rounded-lg border border-leaf-200 dark:border-leaf-700 bg-white dark:bg-leaf-900 p-3 shadow-lg z-50 max-w-xs" style="display: none;">
+    <p id="pet-safety-popup-text" class="text-xs leading-relaxed text-leaf-700 dark:text-leaf-300"></p>
+  </div>
 </Layout>
 
 <script>
@@ -364,6 +365,55 @@ function renderInlineMarkdown(text: string): string {
   // Run on first load and after every view-transition navigation.
   initCopyButton();
   document.addEventListener("astro:page-load", initCopyButton);
+
+  function initPetSafetyPopup() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>(".pet-safety-toggle");
+    const popup = document.getElementById("pet-safety-popup");
+    const popupText = document.getElementById("pet-safety-popup-text");
+    
+    if (!buttons.length || !popup || !popupText) return;
+
+    buttons.forEach((btn) => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = "true";
+
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const info = btn.dataset.petInfo;
+        if (!info) return;
+
+        popupText.textContent = info;
+        const rect = btn.getBoundingClientRect();
+        
+        // Position below the button, account for scroll
+        const top = window.scrollY + rect.bottom + 8;
+        const left = Math.max(8, rect.right - 256);
+        
+        popup.style.top = `${top}px`;
+        popup.style.left = `${left}px`;
+        popup.style.display = "block";
+        popup.classList.remove("hidden");
+
+        // Close on outside click
+        setTimeout(() => {
+          document.addEventListener("click", closePopup, { once: true });
+        }, 0);
+      });
+    });
+
+    function closePopup() {
+      popup.style.display = "none";
+      popup.classList.add("hidden");
+    }
+
+    // Also close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closePopup();
+    });
+  }
+
+  initPetSafetyPopup();
+  document.addEventListener("astro:page-load", initPetSafetyPopup);
 </script>
 
 <style>

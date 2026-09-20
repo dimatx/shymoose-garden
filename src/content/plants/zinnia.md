@@ -17,6 +17,7 @@ care:
   spacing: "9–12 in apart."
   propagation: "Readily grown from seed"
   pruning: "No pruning needed. Pinch seedlings at 8–12 inches for bushier plants. Deadhead spent blooms regularly to extend the blooming season."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8, 9, 10]
 tags:
   - "Cut flower"

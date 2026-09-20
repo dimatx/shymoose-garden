@@ -17,6 +17,7 @@ care:
   spacing: "6–10 ft apart as a specimen, based on mature spread (3–5 ft for a hedge)."
   propagation: "Softwood cuttings in late spring"
   pruning: "Maintenance: prune while dormant in late winter to early spring, before bud break — it flowers on new wood, so cutting back hard yields larger blooms; remove suckers and crossing stems. Renewal: an old, overgrown shrub can be rejuvenated by cutting it nearly to the ground in early spring."
+  petSafety: "Non-toxic"
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3, 4]
 tags:

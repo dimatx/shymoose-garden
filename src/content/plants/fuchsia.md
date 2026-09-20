@@ -17,6 +17,7 @@ care:
   spacing: "3–5 ft apart (up to 5–10 ft in mild climates where the top doesn't die back)."
   propagation: "Stem cuttings in late summer"
   pruning: "In cold climates: cut dead stems to the ground in early spring after frost danger passes. In mild climates: prune hard in early spring to rejuvenate. Remove dead wood anytime."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8, 9, 10]
 pruneMonths: [3]
 tags:

@@ -17,6 +17,7 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: leave the seed heads standing for winter interest, then cut old stems to the ground in early spring; an optional late-spring 'Chelsea chop' keeps the plant compact and upright. Divide every few years to rejuvenate."
+  petSafety: "Non-toxic"
 bloomMonths: [8, 9, 10]
 pruneMonths: [4, 6]
 tags:

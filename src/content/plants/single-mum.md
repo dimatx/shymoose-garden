@@ -17,9 +17,11 @@ care:
   spacing: "12–18 in apart, based on mature spread."
   propagation: "Divide in early spring"
   pruning: "Deadhead to prolong bloom; cut back and divide in spring as needed to control spread."
+  petSafety: "Mildly toxic"
 bloomMonths: [8, 9, 10]
 pruneMonths: [3, 4]
 tags:
+  - "Toxic to pets"
   - "Full sun"
   - "Attracts pollinators"
   - "Attracts butterflies"

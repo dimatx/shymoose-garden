@@ -17,6 +17,7 @@ care:
   spacing: "9–12 in apart."
   propagation: "Readily grown from seed"
   pruning: "Pinch off flower buds as they appear to extend leaf harvest and delay bolting. Snip the top 2–3 in of the main stem to encourage side branching. Never remove more than one-third of the plant at once."
+  petSafety: "Non-toxic"
 bloomMonths: [7, 8]
 pruneMonths: []
 tags:

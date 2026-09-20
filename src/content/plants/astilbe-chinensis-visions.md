@@ -17,6 +17,7 @@ care:
   spacing: "12–18 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Deadhead or leave spent plumes for winter texture; divide congested clumps every 2–3 years in early spring."
+  petSafety: "Non-toxic"
 bloomMonths: [7, 8]
 pruneMonths: [2, 3]
 tags:

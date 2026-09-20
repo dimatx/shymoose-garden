@@ -17,8 +17,10 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide clumps in spring"
   pruning: "Maintenance: low. Cut back winter-damaged or spent foliage in early spring, and divide congested clumps every few years."
+  petSafety: "Mildly toxic"
 pruneMonths: [3]
 tags:
+  - "Toxic to pets"
   - "Foliage interest"
   - "Deer resistant"
   - "Low maintenance"

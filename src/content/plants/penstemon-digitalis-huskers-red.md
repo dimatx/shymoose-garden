@@ -17,6 +17,7 @@ care:
   spacing: "12–18 in apart."
   propagation: "Stem cuttings in summer"
   pruning: "Low maintenance. Leave the rusty winter seed heads for interest, then cut old stems back in late winter. Divide clumps every few years to keep them vigorous."
+  petSafety: "Non-toxic"
 bloomMonths: [5, 6]
 pruneMonths: [3]
 tags:

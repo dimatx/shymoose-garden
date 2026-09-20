@@ -17,9 +17,11 @@ care:
   spacing: "8–12 ft apart if planting more than one; more often used as a single specimen."
   propagation: "Semi-hardwood cuttings in summer or fall; named cultivars don't come true from seed."
   pruning: "Little pruning is needed — the irregular, twisted form develops on its own. Prune only to remove dead wood or to control size; heavy shearing flattens the sculptural silhouette that makes this plant distinctive."
+  petSafety: "Mildly toxic"
 bloomMonths: []
 pruneMonths: []
 tags:
+  - "Toxic to pets"
   - "Evergreen"
   - "Conifer"
   - "Drought tolerant"

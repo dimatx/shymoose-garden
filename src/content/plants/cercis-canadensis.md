@@ -17,6 +17,7 @@ care:
   spacing: "25–35 ft apart, based on mature spread."
   propagation: "Seed after cold stratification"
   pruning: "Maintenance: low. Prune lightly to shape and remove dead or crossing wood right after flowering."
+  petSafety: "Non-toxic"
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]
 tags:

@@ -17,6 +17,7 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: low. Deadhead to encourage continued bloom, and trim old stems back in spring for fresh growth."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [3]
 tags:

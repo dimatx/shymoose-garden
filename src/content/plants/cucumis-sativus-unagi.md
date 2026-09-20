@@ -20,6 +20,7 @@ care:
   spacing: "12–18 in apart along a trellis."
   propagation: "Readily grown from seed"
   pruning: "Maintenance: train up a single string or trellis, removing the side shoots and lower leaves on the bottom of the stem for airflow, then let the upper laterals run."
+  petSafety: "Non-toxic"
 tags:
   - "Annual"
   - "Edible"

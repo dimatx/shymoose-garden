@@ -17,6 +17,7 @@ care:
   spacing: "3–4 ft apart, based on mature spread."
   propagation: "Readily grown from seed"
   pruning: "Cut stems to the ground in late fall after they die back, or leave for winter interest; emerges late in spring, so mark its location."
+  petSafety: "Non-toxic"
 bloomMonths: [7, 8, 9]
 pruneMonths: [10, 11]
 tags:

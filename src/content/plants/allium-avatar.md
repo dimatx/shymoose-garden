@@ -17,9 +17,11 @@ care:
   spacing: "12–18 in apart."
   propagation: "Divide bulb offsets in fall"
   pruning: "Deadhead spent flower heads to tidy the planting; cut foliage back after it yellows in fall."
+  petSafety: "Highly toxic"
 bloomMonths: [7, 8, 9]
 pruneMonths: [10, 11]
 tags:
+  - "Toxic to pets"
   - "Attracts pollinators"
   - "Deer resistant"
   - "Full sun"

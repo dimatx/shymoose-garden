@@ -17,6 +17,7 @@ care:
   spacing: "3–5 ft apart, based on mature spread."
   propagation: "Cuttings"
   pruning: "Minimal — light shaping only as needed to maintain its narrow pyramidal form. Avoid cutting into bare, leafless wood, as false cypress won't resprout from it."
+  petSafety: "Non-toxic"
 bloomMonths: []
 pruneMonths: [4, 5]
 tags:

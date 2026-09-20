@@ -17,6 +17,7 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: trim off spent flower stems and cut the clump back in late fall or early spring. Divide the clump to rejuvenate it."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7]
 pruneMonths: [4, 11]
 tags:

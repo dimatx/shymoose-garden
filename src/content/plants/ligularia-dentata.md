@@ -17,6 +17,7 @@ care:
   spacing: "2–3 ft apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Maintenance: low. Deadhead spent flower stalks, then cut the foliage back after frost."
+  petSafety: "Non-toxic"
 bloomMonths: [7, 8]
 pruneMonths: [10, 11]
 tags:

@@ -17,7 +17,9 @@ care:
   spacing: "6–8 ft apart, based on mature spread (allow more room if it reaches its full 10–12 ft size)."
   propagation: "Stem cuttings in summer"
   pruning: "Blooms on old wood — prune only right after flowering if shaping is needed. Pruning in late winter or spring removes the coming season's flower buds."
+  petSafety: "Mildly toxic"
 tags:
+  - "Toxic to pets"
   - "Native"
   - "Fall color"
   - "Pollinator friendly"

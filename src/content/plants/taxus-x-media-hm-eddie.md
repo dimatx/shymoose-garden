@@ -17,9 +17,11 @@ care:
   spacing: "3–5 ft apart for a hedge, based on mature spread."
   propagation: "Stem cuttings"
   pruning: "Very low maintenance — tolerates severe pruning at almost any time of year and takes well to shaping into hedges or topiary."
+  petSafety: "Highly toxic"
 bloomMonths: []
 pruneMonths: [3, 4, 8, 9]
 tags:
+  - "Toxic to pets"
   - "Conifer"
   - "Evergreen"
   - "Hedging"

@@ -17,6 +17,7 @@ care:
   spacing: "24–36 in apart (it spreads aggressively by rhizomes — consider a root barrier)."
   propagation: "Divide in spring"
   pruning: "Cut to the ground in late winter. If the foliage tires and browns in summer heat, shear it back hard to force a fresh flush of clean new blades. Contain the roots — it spreads aggressively."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7]
 pruneMonths: [3]
 tags:

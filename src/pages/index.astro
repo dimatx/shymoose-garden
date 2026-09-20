@@ -29,6 +29,7 @@ const traitCandidates = [
   "Edible",
   "Deer resistant",
   "Shade garden",
+  "Toxic to pets",
 ];
 const allTags = new Set(plants.flatMap((p) => p.data.tags));
 const traits = traitCandidates.filter((t) => allTags.has(t));

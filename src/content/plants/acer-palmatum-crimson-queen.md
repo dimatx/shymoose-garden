@@ -17,6 +17,7 @@ care:
   spacing: "10–12 ft apart as a specimen, based on mature spread."
   propagation: "Not applicable"
   pruning: "Minimal pruning needed. Remove dead or crossing branches in late winter while dormant. Avoid heavy pruning."
+  petSafety: "Non-toxic"
 bloomMonths: [4, 5]
 pruneMonths: [2, 3]
 tags:

@@ -17,6 +17,7 @@ care:
   spacing: "16–18 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Deadhead to encourage more flowers; leave seed heads standing through fall and winter for goldfinches, then cut back in late winter or early spring."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [2, 3]
 tags:

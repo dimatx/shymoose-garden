@@ -17,9 +17,11 @@ care:
   spacing: "12–18 in apart; clumps spread and merge into larger colonies over time."
   propagation: "Divide rhizomes in spring or fall"
   pruning: "Maintenance: minimal — let the foliage die back and cut the spent stems to the ground in fall. Lift and divide the rhizomes in fall to rejuvenate or contain the clump."
+  petSafety: "Mildly toxic"
 bloomMonths: [5, 6]
 pruneMonths: [10, 11]
 tags:
+  - "Toxic to pets"
   - "Native"
   - "Shade garden"
   - "Low maintenance"

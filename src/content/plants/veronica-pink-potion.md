@@ -17,6 +17,7 @@ care:
   spacing: "18–22 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Maintenance: low. Deadhead and shear spent spikes to encourage more bloom, feed with a slow-release fertilizer in spring, and cut back in late fall or early spring. Divide every few years."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7]
 pruneMonths: [3, 11]
 tags:

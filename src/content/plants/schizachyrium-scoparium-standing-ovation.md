@@ -17,6 +17,7 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Cut back close to the ground in late winter or early spring, before new growth emerges."
+  petSafety: "Non-toxic"
 tags:
   - "Native"
   - "Drought tolerant"

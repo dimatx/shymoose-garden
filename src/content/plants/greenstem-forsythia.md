@@ -17,6 +17,7 @@ care:
   spacing: "6–10 ft apart as a specimen, based on mature spread (3–5 ft for a dense hedge)."
   propagation: "Root stem cuttings"
   pruning: "Prune immediately after flowering (April–May) to shape the shrub and promote vigorous new growth for next year's blooms. Do not prune in late summer or fall — this removes next year's flower buds."
+  petSafety: "Non-toxic"
 bloomMonths: [2, 3, 4]
 pruneMonths: [4, 5]
 tags:

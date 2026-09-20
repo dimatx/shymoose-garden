@@ -17,6 +17,7 @@ care:
   spacing: "3–5 ft apart, based on mature spread."
   propagation: "Semi-hardwood cuttings"
   pruning: "Maintenance: seldom needed — trim lightly in spring to tidy the mound, staying within foliage-bearing growth. Renewal: not possible — like other false cypress it won't resprout from bare old wood, so avoid cutting into leafless branches."
+  petSafety: "Non-toxic"
 pruneMonths: [4, 5]
 tags:
   - "Evergreen"

@@ -17,6 +17,7 @@ care:
   spacing: "8–12 in apart."
   propagation: "Divide in spring"
   pruning: "Shear back by about a third to two-thirds in early spring to remove old growth and encourage fresh blue color; divide clumps every few years if the center dies out."
+  petSafety: "Non-toxic"
 bloomMonths: [5, 6, 7]
 pruneMonths: [3]
 tags:

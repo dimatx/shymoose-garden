@@ -17,8 +17,10 @@ care:
   spacing: "2–4 ft apart for a hedge; wider (5–6 ft) for individual specimens."
   propagation: "Semi-hardwood cuttings"
   pruning: "Maintenance: shear lightly in spring or early summer to shape a hedge, cutting only into green growth. Renewal: not possible — arborvitae won't resprout from bare old wood, so never cut back into leafless brown branches."
+  petSafety: "Mildly toxic"
 pruneMonths: [4, 5, 6]
 tags:
+  - "Toxic to pets"
   - "Evergreen"
   - "Conical"
   - "Low maintenance"

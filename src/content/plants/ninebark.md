@@ -17,6 +17,7 @@ care:
   spacing: "3–5 ft apart for a hedge or mass planting."
   propagation: "Softwood cuttings in early summer."
   pruning: "Flowers form on old wood, so prune right after blooming (no later than mid-August) if shaping is needed. Can be cut nearly to the ground in late winter to rejuvenate an overgrown plant."
+  petSafety: "Non-toxic"
 bloomMonths: [5, 6]
 pruneMonths: [6]
 tags:

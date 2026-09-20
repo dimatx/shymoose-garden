@@ -17,6 +17,7 @@ care:
   spacing: "5–8 ft apart for a hedge or mass planting."
   propagation: "By seed, or by digging rooted suckers/root cuttings in fall or spring."
   pruning: "Needs little pruning. Since fruit and next year's flowers form on old wood, prune right after flowering if shaping is needed, and remove unwanted suckers any time to control spread."
+  petSafety: "Non-toxic"
 bloomMonths: []
 pruneMonths: [5]
 tags:

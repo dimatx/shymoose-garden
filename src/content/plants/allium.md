@@ -17,8 +17,10 @@ care:
   spacing: "12–18 in apart, based on mature spread."
   propagation: "Divide bulb offsets in fall"
   pruning: "Cut back flower stalks once blooms fade; foliage yellows after flowering and can be tucked behind later-emerging companions."
+  petSafety: "Highly toxic"
 bloomMonths: [5, 6, 7]
 tags:
+  - "Toxic to pets"
   - "Full sun"
   - "Attracts pollinators"
   - "Drought tolerant"

@@ -17,6 +17,7 @@ care:
   spacing: "12–15 in apart, based on mature spread."
   propagation: "Readily grown from seed"
   pruning: "Deadhead to prolong bloom; cut clumps back to about 6 in. in late summer to improve winter survival, and divide every 2–3 years."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [8, 9]
 tags:

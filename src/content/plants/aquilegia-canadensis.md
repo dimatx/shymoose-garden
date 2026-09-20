@@ -17,7 +17,9 @@ care:
   spacing: "12–18 in apart."
   propagation: "Readily grown from seed"
   pruning: "Deadhead for tidiness and possible rebloom. Foliage can be cut back if it declines in summer heat — it regrows the following spring."
+  petSafety: "Mildly toxic"
 tags:
+  - "Toxic to pets"
   - "Native"
   - "Pollinator friendly"
   - "Deer resistant"

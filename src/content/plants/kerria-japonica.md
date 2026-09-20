@@ -17,6 +17,7 @@ care:
   spacing: "6–8 ft apart, based on mature spread (it suckers freely, so allow room to spread or plan to control it)."
   propagation: "Softwood cuttings in early summer"
   pruning: "Maintenance: low. Prune right after flowering — it blooms on old wood. Remove old or leggy canes at ground level and pull suckers to control spread."
+  petSafety: "Non-toxic"
 bloomMonths: [4, 5]
 pruneMonths: [5, 6]
 tags:

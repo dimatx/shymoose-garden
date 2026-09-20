@@ -17,9 +17,11 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Deadhead or shear after flowering to encourage rebloom and stop self-seeding; cut back in late winter. Divide every 2–3 years."
+  petSafety: "Mildly toxic"
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3]
 tags:
+  - "Toxic to pets"
   - "Cottage garden"
   - "Pollinator friendly"
   - "Butterfly friendly"

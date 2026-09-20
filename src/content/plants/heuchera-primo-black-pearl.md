@@ -17,6 +17,7 @@ care:
   spacing: "18–20 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Maintenance: easy. Trim away tattered or winter-burned leaves in early spring as fresh growth begins; remove spent flower scapes to tidy the clump. Divide every few years to keep it vigorous."
+  petSafety: "Non-toxic"
 bloomMonths: [7]
 pruneMonths: [3]
 tags:

@@ -17,6 +17,7 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Cut back to a few inches above the ground in late winter or early spring before new growth begins; no deadheading needed."
+  petSafety: "Non-toxic"
 bloomMonths: [9, 10, 11, 12]
 pruneMonths: [2, 3]
 tags:

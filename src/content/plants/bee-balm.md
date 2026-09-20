@@ -17,6 +17,7 @@ care:
   spacing: "12–15 in apart, based on this compact selection's mature spread."
   propagation: "Divide in spring"
   pruning: "Shear spent blooms to rebloom. Cut stems back in late winter — or leave 12–24 in. of the hollow stems standing for native stem-nesting bees. Divide every 2–3 years; this Balmy selection resists the powdery mildew that plagues older bee balms."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8]
 pruneMonths: [3]
 tags:

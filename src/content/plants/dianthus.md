@@ -17,9 +17,11 @@ care:
   spacing: "10–12 in apart for mounding garden pinks; up to 18 in for taller border carnations."
   propagation: "Softwood cuttings in spring"
   pruning: "Low maintenance. Shear the mound lightly after the main flush to keep it tidy and encourage a second round of bloom."
+  petSafety: "Mildly toxic"
 bloomMonths: [5, 6, 7]
 pruneMonths: [6]
 tags:
+  - "Toxic to pets"
   - "Cottage garden"
   - "Fragrant flowers"
   - "Pollinator friendly"

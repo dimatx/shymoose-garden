@@ -17,9 +17,11 @@ care:
   spacing: "2–3 ft apart, based on mature spread."
   propagation: "Divide rhizomes in spring"
   pruning: "Maintenance: low — leave or remove the spent flower spikes as you like, then cut the foliage back after frost. It resents disturbance, so divide only occasionally to renew."
+  petSafety: "Mildly toxic"
 bloomMonths: [6, 7, 8]
 pruneMonths: [10, 11]
 tags:
+  - "Toxic to pets"
   - "Native"
   - "Shade garden"
   - "Pollinator friendly"

@@ -17,6 +17,7 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: shear spent spikes after the first flush to spark a second bloom, and cut the clump to the ground in late fall or early spring. Divide every few years to keep it vigorous."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8]
 pruneMonths: [4, 11]
 tags:

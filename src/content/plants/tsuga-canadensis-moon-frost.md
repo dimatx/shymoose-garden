@@ -17,6 +17,7 @@ care:
   spacing: "4–6 ft apart, based on mature spread."
   propagation: "Semi-ripe cuttings"
   pruning: "Maintenance: very low. Prune only in late May or June if needed to maintain shape; avoid heavy pruning."
+  petSafety: "Non-toxic"
 pruneMonths: [5, 6]
 tags:
   - "Evergreen"

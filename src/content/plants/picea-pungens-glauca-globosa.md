@@ -17,6 +17,7 @@ care:
   spacing: "4–6 ft apart, based on mature spread."
   propagation: "Semi-hardwood cuttings"
   pruning: "Maintenance: very low. Little or no pruning needed; trim only to remove damaged growth or refine the shape in spring."
+  petSafety: "Non-toxic"
 pruneMonths: [4]
 tags:
   - "Evergreen"

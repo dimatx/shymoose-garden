@@ -17,9 +17,11 @@ care:
   spacing: "4–6 ft apart as a specimen or informal mass."
   propagation: "Semi-hardwood cuttings in midsummer; named cultivars don't come true from seed."
   pruning: "Deadhead spent flower clusters right after bloom and prune lightly at the same time to encourage bushiness — next year's flowers form on this year's new growth."
+  petSafety: "Highly toxic"
 bloomMonths: [5, 6]
 pruneMonths: [6]
 tags:
+  - "Toxic to pets"
   - "Native"
   - "Evergreen"
   - "Pollinator friendly"

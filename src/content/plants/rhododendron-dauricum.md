@@ -17,9 +17,11 @@ care:
   spacing: "4–6 ft apart, based on mature spread."
   propagation: "Stem cuttings"
   pruning: "Maintenance: low. Prune lightly right after flowering to shape; avoid heavy cuts into old wood."
+  petSafety: "Highly toxic"
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]
 tags:
+  - "Toxic to pets"
   - "Spring bloom"
   - "Pollinator friendly"
   - "Cold hardy"

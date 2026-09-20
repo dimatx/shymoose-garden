@@ -17,6 +17,7 @@ care:
   spacing: "12–18 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Cut to the ground after flowering; divide clumps every 2–3 years in spring to maintain vigor."
+  petSafety: "Non-toxic"
 bloomMonths: [8, 9, 10]
 pruneMonths: [10, 11]
 tags:

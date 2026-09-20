@@ -17,6 +17,7 @@ care:
   spacing: "16–20 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Deadhead to keep flowers coming; cut back in late winter or early spring, leaving seed heads through fall and winter for birds."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [2, 3]
 tags:

@@ -17,6 +17,7 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Low maintenance. Leave the spent plumes for winter interest, then cut the old foliage back in late winter. Divide every 3–4 years in spring to keep clumps vigorous."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7]
 pruneMonths: [3]
 tags:

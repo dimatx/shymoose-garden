@@ -65,6 +65,10 @@ const plants = defineCollection({
           // practical for the gardener. Use "Not applicable" for plants where
           // propagation isn't feasible (e.g. grafted trees, hybrid vegetables).
           propagation: z.string().optional(),
+        // Pet safety: toxicity level for dogs. One of:
+        // "Non-toxic", "Mildly toxic", "Highly toxic"
+        // Optional — include only when verified against reputable pet toxicity sources.
+        petSafety: z.string().optional(),
         }),
 
       // Months this plant is in flower, as numbers 1–12 (1 = January).

@@ -17,9 +17,11 @@ care:
   spacing: "6–8 ft apart, based on mature spread (dwarf cultivars can be planted closer)."
   propagation: "Stem cuttings"
   pruning: "Maintenance: low. Deadhead spent flower clusters and lightly shape right after blooming — it flowers on old wood, so pruning later removes next spring's buds."
+  petSafety: "Highly toxic"
 bloomMonths: [3, 4, 5]
 pruneMonths: [5, 6]
 tags:
+  - "Toxic to pets"
   - "Evergreen"
   - "Spring bloom"
   - "Fragrant flowers"

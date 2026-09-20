@@ -17,9 +17,11 @@ care:
   spacing: "2–3 ft apart, based on mature spread."
   propagation: "Divide after flowering"
   pruning: "Maintenance: in early spring, as new growth resumes, cut off the old, tattered leaves to show off the blooms and reduce leaf spot; remove spent flower stems at the base after the flowers fade in late spring. Rejuvenate an aging clump by dividing it."
+  petSafety: "Highly toxic"
 bloomMonths: [2, 3, 4]
 pruneMonths: [4, 5]
 tags:
+  - "Toxic to pets"
   - "Evergreen"
   - "Winter interest"
   - "Shade garden"

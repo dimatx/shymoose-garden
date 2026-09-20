@@ -17,6 +17,7 @@ care:
   spacing: "4–5 ft apart, allowing room for the spreading habit."
   propagation: "Semi-hardwood cuttings in summer, or seed sown in autumn."
   pruning: "Very low maintenance — regular pruning is not required. Trim only to control spread or remove damaged growth."
+  petSafety: "Non-toxic"
 bloomMonths: []
 pruneMonths: []
 tags:

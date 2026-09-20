@@ -17,6 +17,7 @@ care:
   spacing: "8–10 ft apart as a specimen; allow more room (up to 15–18 ft) if it reaches its full mature spread."
   propagation: "Softwood cuttings in summer"
   pruning: "Maintenance: prune right after flowering — it blooms on old wood, so wait until the spring show is over, then thin and shape. Renewal: rejuvenate an overgrown shrub gradually by removing up to a third of the oldest stems to the ground each year over three years."
+  petSafety: "Non-toxic"
 bloomMonths: [4, 5]
 pruneMonths: [6, 7]
 tags:

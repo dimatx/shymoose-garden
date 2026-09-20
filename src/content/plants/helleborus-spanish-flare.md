@@ -17,8 +17,10 @@ care:
   spacing: "12–18 in apart."
   propagation: "Divide after flowering"
   pruning: "Remove tattered old foliage in late winter before new flower stalks emerge; otherwise low-maintenance."
+  petSafety: "Highly toxic"
 bloomMonths: [1, 2, 3, 4]
 tags:
+  - "Toxic to pets"
   - "Shade garden"
   - "Evergreen"
   - "Deer resistant"

@@ -17,6 +17,7 @@ care:
   spacing: "3–4 ft apart (it spreads aggressively by rhizomes, so give it room or install a root barrier)."
   propagation: "Divide rhizomes in spring"
   pruning: "Maintenance: low. Cut back after flowering to tidy the clump; divide or install a root barrier to keep the spread in bounds."
+  petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [9]
 tags:

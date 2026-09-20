@@ -20,6 +20,7 @@ care:
   spacing: "12–18 in apart along a trellis."
   propagation: "Readily grown from seed"
   pruning: "Maintenance: train the vine up a trellis and pinch off the lowest side shoots and leaves for airflow, keeping the long fruit straight and clean."
+  petSafety: "Non-toxic"
 tags:
   - "Annual"
   - "Edible"

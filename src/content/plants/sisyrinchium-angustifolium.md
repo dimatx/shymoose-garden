@@ -17,6 +17,7 @@ care:
   spacing: "6–12 in apart."
   propagation: "Divide in early spring"
   pruning: "Shear back lightly after the main flush of bloom to tidy the foliage and encourage a second flush; self-seeds readily."
+  petSafety: "Non-toxic"
 bloomMonths: [4, 5, 6, 7]
 pruneMonths: [6, 7, 8]
 tags:

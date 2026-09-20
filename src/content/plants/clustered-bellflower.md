@@ -17,6 +17,7 @@ care:
   spacing: "12–18 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Deadhead spent flower stems promptly to encourage rebloom. Divide clumps every 3–5 years in fall to keep plants vigorous and prevent aggressive spread."
+  petSafety: "Non-toxic"
 bloomMonths: [5, 6, 7]
 pruneMonths: [9, 10]
 tags:

@@ -17,9 +17,11 @@ care:
   spacing: "4–6 ft apart for typical cultivars; adjust to the mature spread of your specific variety."
   propagation: "Layering"
   pruning: "Blooms mostly on old wood. Prune immediately after flowering in summer — do NOT cut back in late winter or spring or you remove the season's flower buds. Remove only dead or weak stems in early spring."
+  petSafety: "Mildly toxic"
 bloomMonths: [6, 7, 8]
 pruneMonths: [7, 8]
 tags:
+  - "Toxic to pets"
   - "Pollinator friendly"
   - "Shade garden"
   - "Cut flowers"

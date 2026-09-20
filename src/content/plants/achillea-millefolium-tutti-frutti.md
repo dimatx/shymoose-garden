@@ -17,9 +17,11 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Shear hard after the first flush for a tidy rebloom; cut to the ground in late winter. Divide every 2–3 years to keep clumps vigorous."
+  petSafety: "Mildly toxic"
 bloomMonths: [6, 7, 8]
 pruneMonths: [3]
 tags:
+  - "Toxic to pets"
   - "Cottage garden"
   - "Pollinator friendly"
   - "Butterfly friendly"

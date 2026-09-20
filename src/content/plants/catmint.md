@@ -17,6 +17,7 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Shear plants back by one-third to one-half after the first bloom flush fades (typically July) to encourage a full second flush. Clean up dead growth in early spring. Division every few years keeps plants vigorous."
+  petSafety: "Non-toxic"
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3, 7]
 tags:

@@ -20,7 +20,9 @@ care:
   spacing: "Space plants 2–3 ft apart in rows 3–4 ft apart."
   propagation: "Readily grown from seed"
   pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."
+  petSafety: "Mildly toxic"
 tags:
+  - "Toxic to pets"
   - "Annual"
   - "Edible"
   - "Plum Tomato"

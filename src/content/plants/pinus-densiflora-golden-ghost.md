@@ -16,6 +16,7 @@ care:
   spacing: "5–8 ft apart to allow room for continued growth beyond its ten-year size."
   propagation: "Semi-hardwood cuttings"
   pruning: "Minimal. Shape or slow growth by pinching the soft new 'candles' by half in late spring; avoid cutting back into bare old wood, which won't resprout."
+  petSafety: "Non-toxic"
 tags:
   - "Conifer"
   - "Evergreen"

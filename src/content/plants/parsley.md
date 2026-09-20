@@ -17,8 +17,10 @@ care:
   spacing: "6–8 in apart."
   propagation: "Readily grown from seed"
   pruning: "Harvest outer stems at the base to encourage new growth from the center. Remove flower stalks promptly as they appear to prolong the leaf harvest — leaf quality declines once flowering begins."
+  petSafety: "Mildly toxic"
 pruneMonths: [4, 5, 6, 7, 8, 9]
 tags:
+  - "Toxic to pets"
   - "Herb"
   - "Edible"
   - "Pollinator friendly"

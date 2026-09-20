@@ -17,9 +17,11 @@ care:
   spacing: "3–5 ft apart, based on mature spread."
   propagation: "Semi-ripe cuttings in late summer"
   pruning: "Maintenance: low. Trim lightly immediately after flowering to shape — it blooms on the previous year's wood, so pruning in summer or fall removes next spring's buds. Avoid heavy cutting into old bare wood."
+  petSafety: "Highly toxic"
 bloomMonths: [4, 5]
 pruneMonths: [5]
 tags:
+  - "Toxic to pets"
   - "Evergreen"
   - "Spring bloom"
   - "Acid-loving"

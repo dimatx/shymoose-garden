@@ -17,6 +17,7 @@ care:
   spacing: "12–18 in apart."
   propagation: "Stem cuttings in summer"
   pruning: "Maintenance: low. Deadhead to prolong bloom, leave winter seed heads for interest, then cut old stems back in late winter. Divide every few years."
+  petSafety: "Non-toxic"
 bloomMonths: [5, 6, 7]
 pruneMonths: [2]
 tags:

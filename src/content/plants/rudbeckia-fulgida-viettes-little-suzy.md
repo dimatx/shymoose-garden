@@ -17,6 +17,7 @@ care:
   spacing: "10–15 in apart, based on this compact selection's mature spread."
   propagation: "Divide in spring or fall"
   pruning: "Deadhead to prolong bloom; cut back after frost or in early spring and divide every few years."
+  petSafety: "Non-toxic"
 bloomMonths: [7, 8, 9, 10]
 pruneMonths: [10]
 tags:

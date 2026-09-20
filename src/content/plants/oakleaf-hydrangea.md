@@ -17,9 +17,11 @@ care:
   spacing: "6–8 ft apart as a specimen or informal hedge."
   propagation: "Softwood cuttings in early summer, or layering low branches."
   pruning: "Blooms on old wood, so prune only right after flowering if shaping is needed. Remove winter-damaged or dead stems in early spring."
+  petSafety: "Mildly toxic"
 bloomMonths: [6, 7]
 pruneMonths: [7]
 tags:
+  - "Toxic to pets"
   - "Native"
   - "Fall color"
   - "Pollinator friendly"

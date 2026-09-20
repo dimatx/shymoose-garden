@@ -17,6 +17,7 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in late summer or early fall"
   pruning: "Low maintenance. Deadhead spent flowers and cut back finished scapes to keep plants tidy. Remove ragged or dead foliage in early spring; divide congested clumps every few years."
+  petSafety: "Non-toxic"
 bloomMonths: [5, 6]
 pruneMonths: [3]
 tags:

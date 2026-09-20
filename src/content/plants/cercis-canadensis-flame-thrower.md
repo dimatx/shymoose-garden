@@ -17,6 +17,7 @@ care:
   spacing: "10–15 ft apart, based on mature spread."
   propagation: "Not applicable"
   pruning: "Maintenance: low. Prune lightly to shape and remove dead or crossing wood right after flowering. Redbuds dislike being transplanted, so choose the planting site carefully."
+  petSafety: "Non-toxic"
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]
 tags:

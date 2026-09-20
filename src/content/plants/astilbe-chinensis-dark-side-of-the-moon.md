@@ -17,6 +17,7 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Cut back flower stalks and foliage after they fade, or leave the seed heads for winter interest; divide clumps every 3–4 years in early spring."
+  petSafety: "Non-toxic"
 bloomMonths: [7, 8]
 pruneMonths: [3]
 tags:

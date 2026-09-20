@@ -17,9 +17,11 @@ care:
   spacing: "2–3 ft apart for a dense hedge; 4–6 ft apart for informal plantings or larger cultivars."
   propagation: "Semi-hardwood cuttings in late summer"
   pruning: "Maintenance: low to moderate. Shears beautifully into hedges and topiary; trim in early summer after flowering."
+  petSafety: "Mildly toxic"
 bloomMonths: [5, 6]
 pruneMonths: [6, 7]
 tags:
+  - "Toxic to pets"
   - "Evergreen"
   - "Pollinator friendly"
   - "Hedging"

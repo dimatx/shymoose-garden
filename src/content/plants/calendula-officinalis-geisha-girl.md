@@ -17,6 +17,7 @@ care:
   spacing: "12–18 in apart."
   propagation: "Readily grown from seed"
   pruning: "Maintenance: deadhead spent blooms to keep it flowering, and shear the whole plant back hard in summer heat to rejuvenate a leggy plant."
+  petSafety: "Non-toxic"
 bloomMonths: [5, 6, 7, 8]
 tags:
   - "Edible"

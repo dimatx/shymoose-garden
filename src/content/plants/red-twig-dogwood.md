@@ -17,6 +17,7 @@ care:
   spacing: "3–4 ft apart for a hedge or mass planting."
   propagation: "Roots easily from softwood cuttings taken in summer."
   pruning: "Prune out about 20–25% of the oldest stems down to the ground each year in early spring — new stems carry the brightest winter color, so regular renewal keeps the display vivid. Remove any unwanted root suckers at the same time."
+  petSafety: "Non-toxic"
 bloomMonths: [5, 6]
 pruneMonths: [3]
 tags:

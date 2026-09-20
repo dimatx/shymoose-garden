@@ -17,6 +17,7 @@ care:
   spacing: "6–10 ft apart, based on mature spread."
   propagation: "Not applicable"
   pruning: "Maintenance: low. Stake a leader to set the height, then prune only to guide form and remove damaged growth in spring."
+  petSafety: "Non-toxic"
 pruneMonths: [4]
 tags:
   - "Evergreen"

@@ -174,6 +174,12 @@ npm run publish    # gen:shortlinks + gen:signs + build (3MF export is separate)
 Use Node 22.18 or newer (unit tests use native TypeScript stripping).
 After changing dependencies, run `npm ci` to verify the lockfile, not only
 `npm install`. Do not override this machine's npm registry; see AGENTS.md.
+Cloudflare currently installs with npm 10.9.2; CI uses the same installer.
+After dependency changes, also check a clean directory containing only the
+two package manifests with `npx --yes npm@10.9.2 ci --ignore-scripts`.
+An npm 11 install with an existing `node_modules` directory is not sufficient
+to detect missing dependencies for other platforms. `npm test` includes a
+lockfile regression for those missing entries.
 
 ```powershell
 npm ci

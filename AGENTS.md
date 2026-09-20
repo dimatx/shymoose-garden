@@ -194,3 +194,14 @@ single commit containing all of the above.
   Pages runs `npm ci`, which enforces strict consistency and will fail the
   build on exactly that kind of drift — `npm ci` locally first catches it
   before it ever reaches a push.
+- **Also validate the lockfile without an existing dependency tree using
+  Cloudflare's npm 10.9.2.** npm 11 on Windows can accept an incomplete lock
+  when `node_modules` is populated, while a fresh npm 10 install fails on
+  missing transitive WASM dependencies. Copy only `package.json` and
+  `package-lock.json` into a temporary directory and run
+  `npx --yes npm@10.9.2 ci --ignore-scripts` there. For repair, run
+  `npx --yes npm@10.9.2 install --package-lock-only --ignore-scripts` in that
+  clean directory, review/copy back the generated lock, then repeat `ci`.
+  Do not discard the lockfile or upgrade unrelated packages. The lockfile
+  regression in `npm test` checks required dependencies even on optional
+  packages for platforms other than the current machine.

@@ -21,7 +21,7 @@ care:
 bloomMonths: []
 pruneMonths: []
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Evergreen"
   - "Conifer"
   - "Drought tolerant"

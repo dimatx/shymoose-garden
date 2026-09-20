@@ -29,7 +29,7 @@ const traitCandidates = [
   "Edible",
   "Deer resistant",
   "Shade garden",
-  "Toxic to pets",
+  "Toxic to dogs",
 ];
 const allTags = new Set(plants.flatMap((p) => p.data.tags));
 const traits = traitCandidates.filter((t) => allTags.has(t));
@@ -558,8 +558,8 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       }
       markArchivedRowBreak();
 
-      // Show highly toxic icon only when "Toxic to pets" filter is active
-      const toxicFilterActive = selectedTraits.has("Toxic to pets");
+      // Show highly toxic icon only when "Toxic to dogs" filter is active
+      const toxicFilterActive = selectedTraits.has("Toxic to dogs");
       for (const item of items) {
         const badge = item.querySelector<HTMLElement>(".highly-toxic-badge");
         if (badge && toxicFilterActive && !item.hidden) {

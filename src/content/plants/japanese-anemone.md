@@ -21,7 +21,7 @@ care:
 bloomMonths: [8, 9, 10]
 pruneMonths: [10, 11]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Shade garden"
   - "Attracts butterflies"
   - "Fall flowers"

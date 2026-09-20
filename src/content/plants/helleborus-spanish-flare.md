@@ -20,7 +20,7 @@ care:
   petSafety: "Highly toxic"
 bloomMonths: [1, 2, 3, 4]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Shade garden"
   - "Evergreen"
   - "Deer resistant"

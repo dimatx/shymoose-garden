@@ -19,7 +19,7 @@ care:
   pruning: "Deadhead for tidiness and possible rebloom. Foliage can be cut back if it declines in summer heat — it regrows the following spring."
   petSafety: "Mildly toxic"
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Native"
   - "Pollinator friendly"
   - "Deer resistant"

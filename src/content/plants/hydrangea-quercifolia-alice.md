@@ -19,7 +19,7 @@ care:
   pruning: "Blooms on old wood — prune only right after flowering if shaping is needed. Pruning in late winter or spring removes the coming season's flower buds."
   petSafety: "Mildly toxic"
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Native"
   - "Fall color"
   - "Pollinator friendly"

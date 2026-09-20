@@ -20,7 +20,7 @@ care:
   petSafety: "Highly toxic"
 pruneMonths: [5, 6]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Vegetable"
   - "Edible"
   - "Onion"

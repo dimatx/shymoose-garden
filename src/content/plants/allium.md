@@ -20,7 +20,7 @@ care:
   petSafety: "Highly toxic"
 bloomMonths: [5, 6, 7]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Full sun"
   - "Attracts pollinators"
   - "Drought tolerant"

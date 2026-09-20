@@ -20,7 +20,7 @@ care:
   petSafety: "Mildly toxic"
 pruneMonths: [4, 5, 6]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Evergreen"
   - "Conical"
   - "Low maintenance"

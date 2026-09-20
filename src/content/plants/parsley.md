@@ -20,7 +20,7 @@ care:
   petSafety: "Mildly toxic"
 pruneMonths: [4, 5, 6, 7, 8, 9]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Herb"
   - "Edible"
   - "Pollinator friendly"

@@ -21,7 +21,7 @@ care:
 bloomMonths: [6, 7, 8]
 pruneMonths: [3]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Cottage garden"
   - "Pollinator friendly"
   - "Butterfly friendly"

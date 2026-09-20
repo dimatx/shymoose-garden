@@ -20,7 +20,7 @@ care:
   petSafety: "Mildly toxic"
 pruneMonths: [3]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Foliage interest"
   - "Deer resistant"
   - "Low maintenance"

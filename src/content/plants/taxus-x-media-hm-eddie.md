@@ -21,7 +21,7 @@ care:
 bloomMonths: []
 pruneMonths: [3, 4, 8, 9]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Conifer"
   - "Evergreen"
   - "Hedging"

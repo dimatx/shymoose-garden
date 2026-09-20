@@ -21,7 +21,7 @@ care:
 bloomMonths: [5, 6]
 pruneMonths: [6]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Native"
   - "Evergreen"
   - "Pollinator friendly"

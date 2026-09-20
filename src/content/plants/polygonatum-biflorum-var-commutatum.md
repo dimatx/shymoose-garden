@@ -21,7 +21,7 @@ care:
 bloomMonths: [5, 6]
 pruneMonths: [10, 11]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Native"
   - "Shade garden"
   - "Low maintenance"

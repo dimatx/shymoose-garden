@@ -21,7 +21,7 @@ care:
 bloomMonths: [2, 3, 4]
 pruneMonths: [4, 5]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Evergreen"
   - "Winter interest"
   - "Shade garden"

@@ -21,7 +21,7 @@ care:
 bloomMonths: [3, 4, 5]
 pruneMonths: [5, 6]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Evergreen"
   - "Spring bloom"
   - "Fragrant flowers"

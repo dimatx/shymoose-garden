@@ -21,7 +21,7 @@ care:
 bloomMonths: [4, 5]
 pruneMonths: [5]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Evergreen"
   - "Spring bloom"
   - "Acid-loving"

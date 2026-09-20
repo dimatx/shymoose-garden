@@ -21,7 +21,7 @@ care:
 bloomMonths: [7, 8, 9]
 pruneMonths: [10, 11]
 tags:
-  - "Toxic to pets"
+  - "Toxic to dogs"
   - "Attracts pollinators"
   - "Deer resistant"
   - "Full sun"

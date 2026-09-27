@@ -18,7 +18,6 @@ care:
   propagation: "Not applicable for home gardeners — propagated commercially by grafting onto rootstock."
   pruning: "Minimal. Shape and stake while young to establish the desired height and branch direction; thereafter just remove dead or crossing wood."
   petSafety: "Non-toxic"
-  petSafetyNotes: "Not listed among ASPCA's toxic plants (Siberian larch, a close relative, is explicitly listed as non-toxic); large ingestion of needles or bark could still cause mild mouth irritation or GI upset, as with most plant material."
 bloomMonths: []
 pruneMonths: []
 tags:

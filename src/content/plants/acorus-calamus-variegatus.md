@@ -18,6 +18,7 @@ care:
   propagation: "Divide clumps in spring"
   pruning: "Maintenance: low. Cut back winter-damaged or spent foliage in early spring, and divide congested clumps every few years."
   petSafety: "Mildly toxic"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling; skin irritation after direct contact. Toxic compound: beta-asarone, concentrated in the rhizome."
 pruneMonths: [3]
 tags:
   - "Toxic to dogs"

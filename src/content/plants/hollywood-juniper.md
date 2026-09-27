@@ -18,6 +18,7 @@ care:
   propagation: "Semi-hardwood cuttings in summer or fall; named cultivars don't come true from seed."
   pruning: "Little pruning is needed — the irregular, twisted form develops on its own. Prune only to remove dead wood or to control size; heavy shearing flattens the sculptural silhouette that makes this plant distinctive."
   petSafety: "Mildly toxic"
+  petSafetyInfo: "Symptoms: vomiting, diarrhea, abdominal pain, drooling, lethargy; tremors or an elevated heart rate in more serious cases. Toxic compound: terpenes and volatile essential oils, concentrated most heavily in the berries."
 bloomMonths: []
 pruneMonths: []
 tags:

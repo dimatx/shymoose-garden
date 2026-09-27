@@ -385,14 +385,29 @@ function renderInlineMarkdown(text: string): string {
         popupText.textContent = info;
         const rect = btn.getBoundingClientRect();
         
-        // Position below the button, account for scroll
-        const top = window.scrollY + rect.bottom + 8;
+        // The popup is `position: fixed`, so it's positioned relative to the
+        // viewport — getBoundingClientRect() is already viewport-relative too,
+        // so no scrollY offset here. Adding scrollY (as if placing a
+        // `position: absolute` element in document coordinates) pushed the
+        // popup hundreds/thousands of pixels below the visible viewport
+        // whenever the page was scrolled, which is always true for the pet
+        // safety card near the bottom of the detail page — so it looked like
+        // tapping the info icon did nothing.
+        const top = rect.bottom + 8;
         const left = Math.max(8, rect.right - 256);
         
         popup.style.top = `${top}px`;
         popup.style.left = `${left}px`;
         popup.style.display = "block";
         popup.classList.remove("hidden");
+
+        // If the popup would overflow the bottom of the viewport (common,
+        // since the pet safety card sits near the end of the detail page),
+        // flip it to open above the button instead.
+        const popupRect = popup.getBoundingClientRect();
+        if (popupRect.bottom > window.innerHeight - 8) {
+          popup.style.top = `${Math.max(8, rect.top - 8 - popupRect.height)}px`;
+        }
 
         // Close on outside click
         setTimeout(() => {

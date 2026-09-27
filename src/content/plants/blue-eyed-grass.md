@@ -17,6 +17,8 @@ care:
   spacing: "6–12 in apart."
   propagation: "Divide every 2–3 years to maintain vigor. Self-seeds, though 'Lucerne' does so less readily than the straight species."
   pruning: "Shear back after flowering to remove spent stalks, tidy the clump, and limit self-seeding."
+  petSafety: "Non-toxic"
+  petSafetyNotes: "Not individually listed by the ASPCA; unlike true irises (Iris spp., a toxic relative in the same family), blue-eyed grass is not documented as toxic to dogs."
 tags:
   - "Native"
   - "Rock garden"

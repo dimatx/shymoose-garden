@@ -4,29 +4,30 @@
    caching), so there's no render-blocking request to fonts.googleapis.com and
    no cross-origin font-download chain. Only the Latin subset the browser needs
    is fetched, thanks to the unicode-range rules these packages ship with. */
-@import "@fontsource-variable/inter";
-@import "@fontsource-variable/fraunces";
+@import "@fontsource-variable/atkinson-hyperlegible-next/wght.css";
+@import "@fontsource-variable/atkinson-hyperlegible-next/wght-italic.css";
+@import "@fontsource-variable/newsreader/wght.css";
 
 /* Metric-matched fallback faces. Each fallback is a *local* system font with
    ascent/descent/size overrides (generated with @capsizecss/core) so it
-   occupies the exact same space as the real webfont. That way, when Fraunces
-   or Inter finishes loading and swaps in, there's no reflow or font-size jump
+   occupies the exact same space as the real webfont. That way, when Newsreader
+   or Atkinson finishes loading and swaps in, there's no reflow or font-size jump
    — the headings and body stay put. */
 @font-face {
-  font-family: "Fraunces Fallback";
+  font-family: "Newsreader Fallback";
   src: local("Georgia");
-  ascent-override: 92.9623%;
-  descent-override: 24.2386%;
+  ascent-override: 76.4676%;
+  descent-override: 27.5699%;
   line-gap-override: 0%;
-  size-adjust: 105.2039%;
+  size-adjust: 96.1192%;
 }
 @font-face {
-  font-family: "Inter Fallback";
+  font-family: "Atkinson Fallback";
   src: local("Arial"), local("ArialMT");
-  ascent-override: 90.4365%;
-  descent-override: 22.518%;
+  ascent-override: 98.7991%;
+  descent-override: 31.7282%;
   line-gap-override: 0%;
-  size-adjust: 107.1194%;
+  size-adjust: 99.5961%;
 }
 
 /* Enable class-based dark mode (toggled on <html class="dark">). */
@@ -34,9 +35,9 @@
 
 /* Garden theme tokens */
 @theme {
-  --font-sans: "Inter Variable", "Inter Fallback", ui-sans-serif, system-ui,
+  --font-sans: "Atkinson Hyperlegible Next Variable", "Atkinson Fallback", ui-sans-serif, system-ui,
     -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-serif: "Fraunces Variable", "Fraunces Fallback", ui-serif, Georgia,
+  --font-serif: "Newsreader Variable", "Newsreader Fallback", ui-serif, Georgia,
     Cambria, "Times New Roman", Times, serif;
 
   --color-leaf-50: #f1f8f1;
@@ -72,13 +73,6 @@ html {
      fast scroll from top to bottom. There are no in-page anchor links that
      would benefit from smooth scrolling, so instant restore is the right call. */
   -webkit-text-size-adjust: 100%;
-}
-
-/* Let Fraunces breathe: the variable font carries an optical-size axis that
-   was drawn to make large headings high-contrast and elegant while keeping
-   small text sturdy. `auto` maps it to the rendered font-size for free. */
-.font-serif {
-  font-optical-sizing: auto;
 }
 
 /* A barely-there gradient gives the page a soft, paper-like depth instead of a

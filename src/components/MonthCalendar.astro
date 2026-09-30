@@ -251,6 +251,13 @@ const navButtonClass =
     overflow: hidden;
     overflow-wrap: anywhere;
   }
+  /* Touch screens: pad the name link to a 44px hit area without changing row height. */
+  @media (pointer: coarse) {
+    .cal-name {
+      padding-block: 0.85rem;
+      margin-block: -0.85rem;
+    }
+  }
 
   /* The current-month column is highlighted by the script below. */
   .month-head.is-current {

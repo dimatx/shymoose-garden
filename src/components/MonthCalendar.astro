@@ -106,7 +106,7 @@ const navButtonClass =
               data-month={i + 1}
               style={`order:${offset + 1}`}
               class:list={[
-                "month-head cal-col rounded-t-md px-1 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-leaf-500 dark:text-leaf-400",
+                "month-head cal-col rounded-t-md px-1 py-1.5 text-center text-xs font-semibold uppercase tracking-wide text-leaf-600 dark:text-leaf-300",
                 offset >= WINDOW_WIDE && "is-out",
               ]}
             >
@@ -194,7 +194,7 @@ const navButtonClass =
     >
       <slot name="now-icon" />
     </span>
-    {nowVerb} <span id="now-month" class="text-leaf-600 dark:text-leaf-400">now</span>
+    {nowVerb} <span id="now-month" class="text-leaf-600 dark:text-leaf-300">now</span>
   </h2>
   <ul
     id="now-list"
@@ -213,7 +213,7 @@ const navButtonClass =
         ))
     }
   </ul>
-  <p id="now-empty" class:list={["mt-3 text-sm text-leaf-600 dark:text-leaf-400", activeNow.length > 0 && "hidden"]}>
+  <p id="now-empty" class:list={["mt-3 text-sm text-leaf-600 dark:text-leaf-300", activeNow.length > 0 && "hidden"]}>
     {emptyMessage}
   </p>
 </section>

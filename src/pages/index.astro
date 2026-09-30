@@ -54,14 +54,14 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       <Icon
         name="search"
         strokeWidth={2}
-        class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-leaf-500 dark:text-leaf-400"
+        class="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-leaf-600 dark:text-leaf-300"
       />
       <input
         type="search"
         id="plant-search"
         placeholder="Search plants by name or Latin name…"
         autocomplete="off"
-        class="w-full rounded-full border border-leaf-300 bg-white py-2.5 pl-10 pr-4 text-sm text-leaf-900 placeholder:text-leaf-500 focus:border-leaf-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-500/40 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-400"
+        class="w-full rounded-full border border-leaf-300 bg-white py-2.5 pl-10 pr-4 text-sm text-leaf-900 placeholder:text-leaf-600 focus:border-leaf-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-500/40 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-300"
       />
     </label>
     <details id="plant-sort" class="filter-dd relative shrink-0 self-start sm:self-auto">
@@ -98,7 +98,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
               <span class="filter-badge hidden">0</span>
               <Icon name="chevron-down" strokeWidth={2} class="filter-caret h-3.5 w-3.5" />
             </summary>
-            <div class="filter-panel" aria-label="Filter by type">
+            <div class="filter-panel" role="group" aria-label="Filter by type">
               {types.map((type) => (
                 <button
                   type="button"
@@ -122,7 +122,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
               <span class="filter-badge hidden">0</span>
               <Icon name="chevron-down" strokeWidth={2} class="filter-caret h-3.5 w-3.5" />
             </summary>
-            <div class="filter-panel" aria-label="Filter by sun exposure">
+            <div class="filter-panel" role="group" aria-label="Filter by sun exposure">
               {suns.map((sun) => (
                 <button
                   type="button"
@@ -146,7 +146,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
               <span class="filter-badge hidden">0</span>
               <Icon name="chevron-down" strokeWidth={2} class="filter-caret h-3.5 w-3.5" />
             </summary>
-            <div class="filter-panel" aria-label="Filter by trait">
+            <div class="filter-panel" role="group" aria-label="Filter by trait">
               {traits.map((trait) => (
                 <button
                   type="button"
@@ -164,7 +164,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 
         <p
           id="filter-count"
-          class="text-sm text-leaf-600 dark:text-leaf-400"
+          class="text-sm text-leaf-600 dark:text-leaf-300"
           aria-live="polite"
         >
           Showing all {plants.length} plants
@@ -182,11 +182,11 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
   }
 
   <div id="active-tag-bar" class="mb-4 hidden flex-wrap items-center gap-2">
-    <span class="text-sm text-leaf-600 dark:text-leaf-400">Filtered by tag:</span>
+    <span class="text-sm text-leaf-600 dark:text-leaf-300">Filtered by tag:</span>
     <button
       type="button"
       id="active-tag-clear"
-      class="inline-flex items-center gap-1.5 rounded-full bg-leaf-600 px-3 py-1 text-sm font-medium text-white transition hover:bg-leaf-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:bg-leaf-500 dark:hover:bg-leaf-400"
+      class="inline-flex items-center gap-1.5 rounded-full bg-leaf-600 px-3 py-1 text-sm font-medium text-white transition hover:bg-leaf-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:bg-leaf-600 dark:hover:bg-leaf-500"
     >
       <span id="active-tag-label"></span>
       <span aria-hidden="true" class="text-base leading-none">×</span>
@@ -196,7 +196,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 
   {
     plants.length === 0 ? (
-      <p class="rounded-2xl border border-dashed border-leaf-300 p-8 text-center text-leaf-600 dark:border-leaf-700 dark:text-leaf-400">
+      <p class="rounded-2xl border border-dashed border-leaf-300 p-8 text-center text-leaf-600 dark:border-leaf-700 dark:text-leaf-300">
         No plants yet — add your first one in <code>src/content/plants/</code>.
       </p>
     ) : (
@@ -222,7 +222,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         </div>
         <p
           id="no-matches"
-          class="hidden rounded-2xl border border-dashed border-leaf-300 p-8 text-center text-leaf-600 dark:border-leaf-700 dark:text-leaf-400"
+          class="hidden rounded-2xl border border-dashed border-leaf-300 p-8 text-center text-leaf-600 dark:border-leaf-700 dark:text-leaf-300"
         >
           No plants match those filters.{" "}
           <button type="button" id="no-matches-clear" class="font-medium underline underline-offset-2">

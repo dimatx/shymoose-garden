@@ -29,7 +29,7 @@ const isHighlyToxic = plant.data.care.petSafety === "Highly toxic";
   href={`/plants/${plant.id}/`}
   data-astro-prefetch="viewport"
   class:list={[
-    "group flex flex-col overflow-hidden rounded-2xl border border-leaf-200/80 bg-white shadow-sm transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:border-transparent dark:bg-leaf-900 dark:shadow-none dark:ring-1 dark:ring-white/10 dark:hover:ring-white/20",
+    "group flex flex-col overflow-hidden rounded-2xl border border-leaf-200/80 bg-white shadow-sm transition duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:border-transparent dark:bg-leaf-900 dark:shadow-none dark:ring-1 dark:ring-white/10 dark:hover:ring-white/20",
     { "grayscale-[60%] opacity-60 hover:opacity-90": archived },
   ]}
 >
@@ -45,7 +45,7 @@ const isHighlyToxic = plant.data.care.petSafety === "Highly toxic";
       loading={priority || eager ? "eager" : "lazy"}
       fetchpriority={priority ? "high" : "auto"}
       data-plant-photo={plant.id}
-      class="h-full w-full rounded-t-2xl object-cover transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+      class="h-full w-full rounded-t-2xl object-cover transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:group-hover:scale-105"
     />
     <!-- Soft scrim keeps the rounded image edge from clashing with busy photos. -->
     <div
@@ -70,6 +70,7 @@ const isHighlyToxic = plant.data.care.petSafety === "Highly toxic";
           title="Highly toxic to dogs"
         >
           <Icon name="alert-triangle" class="h-4 w-4" strokeWidth={2} />
+          <span class="sr-only">Highly toxic to dogs</span>
         </span>
       )
     }
@@ -78,13 +79,13 @@ const isHighlyToxic = plant.data.care.petSafety === "Highly toxic";
     <h2 class="truncate font-serif text-lg font-semibold leading-tight" title={name}>
       {name}
     </h2>
-    <p class="text-sm italic text-leaf-600 dark:text-leaf-400">{latinName}</p>
+    <p class="text-sm italic text-leaf-600 dark:text-leaf-300">{latinName}</p>
     <p class="mt-1 line-clamp-2 text-sm text-leaf-700 dark:text-leaf-300">
       {shortDescription}
     </p>
     {
       archived && archivedNote && (
-        <p class="mt-1 text-xs italic text-leaf-500 dark:text-leaf-500">
+        <p class="mt-1 text-xs italic text-leaf-600 dark:text-leaf-300">
           {archivedNote}
         </p>
       )

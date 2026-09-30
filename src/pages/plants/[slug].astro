@@ -265,9 +265,11 @@ function renderInlineMarkdown(text: string): string {
                         </dt>
                         {item.label === "Pet safety" && plant.data.care.petSafetyInfo && (
                           <button
-                            class="pet-safety-toggle text-xs font-semibold text-leaf-600 dark:text-leaf-300 hover:text-leaf-700 dark:hover:text-leaf-300 cursor-pointer p-0 bg-none border-none"
+                            class="pet-safety-toggle -m-2 grid h-10 w-10 place-items-center rounded-full text-xs font-semibold text-leaf-600 transition hover:text-leaf-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:text-leaf-300 dark:hover:text-leaf-100 cursor-pointer bg-transparent"
                             type="button"
                             aria-label="View toxicity details"
+                            aria-expanded="false"
+                            aria-controls="pet-safety-popup"
                             data-pet-info={plant.data.care.petSafetyInfo}
                           >
                             <Icon name="info" class="h-4 w-4 inline" />
@@ -318,7 +320,7 @@ function renderInlineMarkdown(text: string): string {
     </section>
   </article>
 
-  <div id="pet-safety-popup" class="hidden fixed rounded-lg border border-leaf-200 dark:border-leaf-700 bg-white dark:bg-leaf-900 p-3 shadow-lg z-50 max-w-xs" style="display: none;">
+  <div id="pet-safety-popup" role="note" class="hidden fixed rounded-lg border border-leaf-200 dark:border-leaf-700 bg-white dark:bg-leaf-900 p-3 shadow-lg z-50 max-w-xs" style="display: none;">
     <p id="pet-safety-popup-text" class="text-xs leading-relaxed text-leaf-700 dark:text-leaf-300"></p>
   </div>
 </Layout>
@@ -366,25 +368,56 @@ function renderInlineMarkdown(text: string): string {
   initCopyButton();
   document.addEventListener("astro:page-load", initCopyButton);
 
+  let petSafetyEvents: AbortController | undefined;
+  document.addEventListener("astro:before-swap", () => petSafetyEvents?.abort());
+
   function initPetSafetyPopup() {
+    petSafetyEvents?.abort();
     const buttons = document.querySelectorAll<HTMLButtonElement>(".pet-safety-toggle");
     const popup = document.getElementById("pet-safety-popup");
     const popupText = document.getElementById("pet-safety-popup-text");
-    
+
     if (!buttons.length || !popup || !popupText) return;
 
-    buttons.forEach((btn) => {
-      if (btn.dataset.bound) return;
-      btn.dataset.bound = "true";
+    const events = new AbortController();
+    petSafetyEvents = events;
+    const { signal } = events;
+    let openFor: HTMLButtonElement | null = null;
 
-      btn.addEventListener("click", (e) => {
-        e.stopPropagation();
+    const closePopup = (restoreFocus = false) => {
+      popup.style.display = "none";
+      popup.classList.add("hidden");
+      openFor?.setAttribute("aria-expanded", "false");
+      if (restoreFocus) openFor?.focus();
+      openFor = null;
+    };
+
+    const placePopup = () => {
+      if (!openFor) return;
+      const rect = openFor.getBoundingClientRect();
+      popup.style.top = `${rect.bottom + 8}px`;
+      popup.style.left = `${Math.max(8, rect.right - 256)}px`;
+      // If the popup would overflow the bottom of the viewport (common,
+      // since the pet safety card sits near the end of the detail page),
+      // flip it to open above the button instead.
+      const popupRect = popup.getBoundingClientRect();
+      if (popupRect.bottom > window.innerHeight - 8) {
+        popup.style.top = `${Math.max(8, rect.top - 8 - popupRect.height)}px`;
+      }
+    };
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (openFor === btn) {
+          closePopup();
+          return;
+        }
         const info = btn.dataset.petInfo;
         if (!info) return;
+        closePopup();
 
         popupText.textContent = info;
-        const rect = btn.getBoundingClientRect();
-        
+
         // The popup is `position: fixed`, so it's positioned relative to the
         // viewport — getBoundingClientRect() is already viewport-relative too,
         // so no scrollY offset here. Adding scrollY (as if placing a
@@ -393,40 +426,29 @@ function renderInlineMarkdown(text: string): string {
         // whenever the page was scrolled, which is always true for the pet
         // safety card near the bottom of the detail page — so it looked like
         // tapping the info icon did nothing.
-        const top = rect.bottom + 8;
-        const left = Math.max(8, rect.right - 256);
-        
-        popup.style.top = `${top}px`;
-        popup.style.left = `${left}px`;
         popup.style.display = "block";
         popup.classList.remove("hidden");
-
-        // If the popup would overflow the bottom of the viewport (common,
-        // since the pet safety card sits near the end of the detail page),
-        // flip it to open above the button instead.
-        const popupRect = popup.getBoundingClientRect();
-        if (popupRect.bottom > window.innerHeight - 8) {
-          popup.style.top = `${Math.max(8, rect.top - 8 - popupRect.height)}px`;
-        }
-
-        // Close on outside click
-        setTimeout(() => {
-          document.addEventListener("click", closePopup, { once: true });
-        }, 0);
-      });
+        btn.setAttribute("aria-expanded", "true");
+        openFor = btn;
+        placePopup();
+      }, { signal });
     });
 
-    function closePopup() {
-      popup.style.display = "none";
-      popup.classList.add("hidden");
-    }
-
-    // Also close on Escape
+    // Listeners are scoped to this page's signal so navigating between plant
+    // pages never stacks duplicates. The fixed popup would drift away from its
+    // button on scroll or resize, so it follows the button instead.
+    document.addEventListener("click", (e) => {
+      if (!openFor) return;
+      const target = e.target as Node;
+      if (popup.contains(target) || openFor.contains(target)) return;
+      closePopup();
+    }, { signal });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closePopup();
-    });
+      if (e.key === "Escape" && openFor) closePopup(true);
+    }, { signal });
+    window.addEventListener("scroll", placePopup, { signal, passive: true });
+    window.addEventListener("resize", placePopup, { signal });
   }
-
   initPetSafetyPopup();
   document.addEventListener("astro:page-load", initPetSafetyPopup);
 </script>

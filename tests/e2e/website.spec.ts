@@ -78,13 +78,18 @@ test("clipboard failure is visible and toxicity details stay beside their headin
   await page.goto("/plants/pieris-japonica/");
   await page.locator("#copy-shorturl").click();
   await expect(page.locator("#copy-status")).toContainText("Couldn't copy automatically");
-  const summary = page.getByText("View toxicity details", { exact: true });
-  await summary.locator("..").click();
-  const info = page.locator('details[title="View toxicity details"]');
-  await expect(info).toHaveAttribute("open", "");
-  const box = await info.boundingBox();
+  const toggle = page.getByRole("button", { name: "View toxicity details" });
+  await toggle.click();
+  await expect(toggle).toHaveAttribute("aria-expanded", "true");
+  const popup = page.locator("#pet-safety-popup");
+  await expect(popup).toBeVisible();
+  const box = await toggle.boundingBox();
   const heading = await page.getByText("Pet safety", { exact: true }).boundingBox();
   expect(Math.abs(box!.y - heading!.y)).toBeLessThan(20);
+  await page.keyboard.press("Escape");
+  await expect(popup).toBeHidden();
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await expect(toggle).toBeFocused();
 });
 
 test("beta map links preserve opt-in and remain hidden by default", async ({ page }) => {

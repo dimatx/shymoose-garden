@@ -82,17 +82,27 @@ html {
 }
 
 /* A barely-there gradient gives the page a soft, paper-like depth instead of a
-   flat fill — light pools toward the top, the way light falls in a garden. */
+   flat fill — light pools toward the top, the way light falls in a garden.
+   It lives on a fixed pseudo-element rather than `background-attachment:
+   fixed`, which forces a repaint on every scroll frame and is ignored by some
+   mobile browsers. */
 .app-bg {
+  isolation: isolate;
+}
+.app-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-image: radial-gradient(
     120% 60% at 50% -10%,
     var(--color-leaf-100) 0%,
     transparent 60%
   );
   background-repeat: no-repeat;
-  background-attachment: fixed;
 }
-:root.dark .app-bg {
+:root.dark .app-bg::before {
   background-image: radial-gradient(
     120% 60% at 50% -10%,
     var(--color-leaf-900) 0%,

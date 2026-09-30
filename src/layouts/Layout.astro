@@ -96,7 +96,7 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
       <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <a
           href="/"
-          class="group flex items-center gap-2 font-serif text-lg font-semibold tracking-tight"
+          class="group relative flex items-center gap-2 font-serif text-lg font-semibold tracking-tight after:absolute after:inset-x-0 after:-inset-y-1 after:content-['']"
         >
           <span
             class="grid h-9 w-9 place-items-center rounded-full bg-leaf-600 text-leaf-50 shadow-sm transition-transform group-hover:scale-105 dark:bg-leaf-500"
@@ -106,18 +106,18 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
           </span>
           <span>ShyMoose Garden</span>
         </a>
-        <div class="flex items-center gap-1.5">
+        <div class="flex items-center gap-2">
           <!-- Desktop: inline links with full text. -->
           <a
             href="/bloom/"
-            class="hidden items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:inline-flex"
+            class="relative after:absolute after:inset-x-0 after:-inset-y-1.5 after:content-[''] hidden items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:inline-flex"
           >
             <Icon name="bloom" class="h-4 w-4" />
             <span>Bloom calendar</span>
           </a>
           <a
             href="/pruning/"
-            class="hidden items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:inline-flex"
+            class="relative after:absolute after:inset-x-0 after:-inset-y-1.5 after:content-[''] hidden items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:inline-flex"
           >
             <Icon name="scissors" class="h-4 w-4" />
             <span>Pruning calendar</span>
@@ -126,7 +126,7 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
             href="/map/"
             data-beta-feature
             hidden
-            class="items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:inline-flex"
+            class="relative after:absolute after:inset-x-0 after:-inset-y-1.5 after:content-[''] items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:inline-flex"
           >
             <Icon name="map" class="h-4 w-4" />
             <span>Garden map</span>
@@ -140,7 +140,7 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
               aria-expanded="false"
               aria-controls="nav-menu"
               aria-label="Open menu"
-              class="inline-flex h-9 w-9 items-center justify-center rounded-full text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800"
+              class="relative after:absolute after:-inset-1 after:content-[''] inline-flex h-9 w-9 items-center justify-center rounded-full text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800"
             >
               <Icon name="menu" class="h-5 w-5" />
             </button>
@@ -151,14 +151,14 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
             >
               <a
                 href="/bloom/"
-                class="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
+                class="flex items-center gap-2.5 rounded-xl px-3 py-3 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
               >
                 <Icon name="bloom" class="h-4 w-4 shrink-0" />
                 <span>Bloom calendar</span>
               </a>
               <a
                 href="/pruning/"
-                class="flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
+                class="flex items-center gap-2.5 rounded-xl px-3 py-3 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
               >
                 <Icon name="scissors" class="h-4 w-4 shrink-0" />
                 <span>Pruning calendar</span>
@@ -167,7 +167,7 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
                 href="/map/"
                 data-beta-feature
                 hidden
-                class="items-center gap-2.5 rounded-xl px-3 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
+                class="items-center gap-2.5 rounded-xl px-3 py-3 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100 dark:text-leaf-200 dark:hover:bg-leaf-800"
               >
                 <Icon name="map" class="h-4 w-4 shrink-0" />
                 <span>Garden map</span>
@@ -181,7 +181,7 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
             id="qr-scan-button"
             type="button"
             aria-label="Scan plant QR code"
-            class="inline-flex h-9 w-9 items-center justify-center rounded-full text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:hidden"
+            class="relative after:absolute after:-inset-1 after:content-[''] inline-flex h-9 w-9 items-center justify-center rounded-full text-leaf-700 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800 sm:hidden"
           >
             <Icon name="qr-scan" class="h-5 w-5" />
           </button>

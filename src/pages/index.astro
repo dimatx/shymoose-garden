@@ -61,7 +61,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         id="plant-search"
         placeholder="Search plants by name or Latin name…"
         autocomplete="off"
-        class="w-full rounded-full border border-leaf-300 bg-white py-2.5 pl-10 pr-4 text-sm text-leaf-900 placeholder:text-leaf-600 focus:border-leaf-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-500/40 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-300"
+        class="min-h-11 w-full rounded-full border border-leaf-300 bg-white py-2.5 pl-10 pr-4 text-sm text-leaf-900 placeholder:text-leaf-600 focus:border-leaf-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-500/40 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-300"
       />
     </label>
     <details id="plant-sort" class="filter-dd relative shrink-0 self-start sm:self-auto">
@@ -173,7 +173,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         <button
           type="button"
           id="filter-clear"
-          class="hidden text-sm font-medium text-leaf-700 underline-offset-2 hover:underline dark:text-leaf-300"
+          class="hidden pointer-coarse:min-h-11 text-sm font-medium text-leaf-700 underline-offset-2 hover:underline dark:text-leaf-300"
         >
           Clear filters
         </button>
@@ -186,7 +186,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     <button
       type="button"
       id="active-tag-clear"
-      class="inline-flex items-center gap-1.5 rounded-full bg-leaf-600 px-3 py-1 text-sm font-medium text-white transition hover:bg-leaf-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:bg-leaf-600 dark:hover:bg-leaf-500"
+      class="inline-flex items-center gap-1.5 rounded-full pointer-coarse:min-h-11 bg-leaf-600 px-3 py-1 text-sm font-medium text-white transition hover:bg-leaf-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:bg-leaf-600 dark:hover:bg-leaf-500"
     >
       <span id="active-tag-label"></span>
       <span aria-hidden="true" class="text-base leading-none">×</span>
@@ -293,6 +293,18 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
   }
   :global(.dark) .filter-trigger:hover {
     background-color: var(--color-leaf-800, #234d28);
+  }
+
+  /* Touch screens get 44px-tall controls; mouse layouts keep the compact size. */
+  @media (pointer: coarse) {
+    .filter-chip,
+    .filter-trigger {
+      min-height: 2.75rem;
+    }
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+    }
   }
 
   /* Rotate the caret when the dropdown is open. */

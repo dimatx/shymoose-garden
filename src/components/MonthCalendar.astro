@@ -69,10 +69,10 @@ const activeNow = sorted.filter((row) => row.months.includes(buildMonth));
 // Single source of truth for chip styling — read back by the script so the
 // client-rendered chips match the server-rendered ones exactly.
 const chipClass =
-  "inline-flex items-center gap-1.5 rounded-full bg-leaf-100 px-3 py-1.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-200 dark:bg-leaf-800 dark:text-leaf-100 dark:hover:bg-leaf-700";
+  "inline-flex items-center gap-1.5 rounded-full pointer-coarse:min-h-11 bg-leaf-100 px-3 py-1.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-200 dark:bg-leaf-800 dark:text-leaf-100 dark:hover:bg-leaf-700";
 
 const navButtonClass =
-  "grid h-9 w-9 shrink-0 place-items-center rounded-full border border-leaf-200/80 bg-white text-leaf-700 transition hover:bg-leaf-100 dark:border-leaf-800/80 dark:bg-leaf-900 dark:text-leaf-300 dark:hover:bg-leaf-800";
+  "relative after:absolute after:-inset-1 after:content-[''] grid h-9 w-9 shrink-0 place-items-center rounded-full border border-leaf-200/80 bg-white text-leaf-700 transition hover:bg-leaf-100 dark:border-leaf-800/80 dark:bg-leaf-900 dark:text-leaf-300 dark:hover:bg-leaf-800";
 ---
 
 <!-- Calendar chart -->

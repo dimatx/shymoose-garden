@@ -1,6 +1,6 @@
 ---
 name: "Japanese Holly 'Glow Pop'"
-latinName: "Ilex crenata 'NCIC1'"
+latinName: "Ilex crenata Glow Pop®"
 type: "Shrub"
 nativeRange: "Japan, Korea, eastern China, and the Russian Far East (species); this bright-foliaged form is a garden cultivar"
 photo: "../../assets/plants/japanese-holly.jpg"

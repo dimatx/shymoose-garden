@@ -4,7 +4,7 @@ remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "https://s.shymoose.com/91gwI";
 common_name = "Japanese Holly";
-scientific_name = "Ilex crenata 'NCIC1'";
+scientific_name = "Ilex crenata Glow Pop®";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
 

@@ -142,3 +142,47 @@ for (const width of [320, 360, 390, 412, 768, 1280]) {
     await expectNoHorizontalScroll(page, "pet safety popup");
   });
 }
+
+for (const width of [320, 360, 390, 412, 600]) {
+  test(`beta map page does not overflow or leak the desktop nav at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto("/map/?beta");
+    await expect(page.locator("#garden-map-content")).toBeVisible();
+
+    const overflow = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+    );
+    expect(overflow, "page should not scroll horizontally").toBeLessThanOrEqual(0);
+
+    // The inline "Garden map" header link is desktop-only; phones reach it via the menu.
+    await expect(page.locator('header a[data-beta-feature]').first()).toBeHidden();
+    await page.locator("#nav-menu-button").click();
+    const menuLink = page.locator('#nav-menu a[data-beta-feature]');
+    await expect(menuLink).toBeVisible();
+    const box = await menuLink.boundingBox();
+    const menu = await page.locator("#nav-menu").boundingBox();
+    expect(box!.width, "menu row should fill the menu like its siblings").toBeGreaterThan(menu!.width * 0.8);
+  });
+}
+
+test("beta map link shows inline in the header on desktop widths", async ({ page }) => {
+  await page.setViewportSize({ width: 1024, height: 800 });
+  await page.goto("/map/?beta");
+  await expect(page.locator('header a[data-beta-feature]').first()).toBeVisible();
+  await expect(page.locator("#nav-menu-button")).toBeHidden();
+});
+
+test.describe("map controls on touch screens", () => {
+  test.use({ hasTouch: true, isMobile: true, viewport: { width: 390, height: 800 } });
+
+  test("legend chips, zoom buttons and the pin card have 44px touch targets", async ({ page }) => {
+    await page.goto("/map/?beta");
+    await expect(page.locator("#garden-map-content")).toBeVisible();
+    await expect(page.locator(".leaflet-control-zoom-in")).toBeVisible();
+    for (const selector of [".garden-map-legend-chip", ".leaflet-control-zoom-in", ".leaflet-control-zoom-out"]) {
+      const box = await page.locator(selector).first().boundingBox();
+      expect(box!.width, `${selector} width`).toBeGreaterThanOrEqual(43.5);
+      expect(box!.height, `${selector} height`).toBeGreaterThanOrEqual(43.5);
+    }
+  });
+});

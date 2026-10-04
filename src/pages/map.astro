@@ -94,7 +94,7 @@ const hasGeoCalibration = getGeoTransform() !== null;
         {presentTypes.map((type) => (
           <button
             type="button"
-            class="garden-map-legend-chip inline-flex items-center gap-1.5 rounded-full border border-leaf-300 px-3 py-1 text-xs font-medium text-leaf-700 transition dark:border-leaf-700 dark:text-leaf-300"
+            class="garden-map-legend-chip inline-flex items-center gap-1.5 rounded-full pointer-coarse:min-h-11 border border-leaf-300 px-3 py-1 text-xs font-medium text-leaf-700 transition dark:border-leaf-700 dark:text-leaf-300"
             data-type={type}
             aria-pressed="false"
           >
@@ -150,7 +150,7 @@ const hasGeoCalibration = getGeoTransform() !== null;
           <a
             id="garden-map-panel-link"
             href="#"
-            class="text-sm font-medium text-leaf-700 underline-offset-2 hover:underline dark:text-leaf-300"
+            class="inline-flex items-center pointer-coarse:min-h-11 text-sm font-medium text-leaf-700 underline-offset-2 hover:underline dark:text-leaf-300"
           >
             View details →
           </a>
@@ -159,7 +159,7 @@ const hasGeoCalibration = getGeoTransform() !== null;
           id="garden-map-panel-close"
           type="button"
           aria-label="Close"
-          class="relative after:absolute after:-inset-1 after:content-[''] shrink-0 rounded-full p-1.5 text-leaf-600 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800"
+          class="relative after:absolute after:-inset-1 after:content-[''] shrink-0 rounded-full p-1.5 pointer-coarse:p-3 text-leaf-600 transition hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-800"
         >
           <Icon name="x" class="h-5 w-5" />
         </button>
@@ -234,6 +234,15 @@ const hasGeoCalibration = getGeoTransform() !== null;
     background-color: var(--color-leaf-600, #3f7a45);
     border-color: var(--color-leaf-600, #3f7a45);
     color: #fff;
+  }
+
+  /* Leaflet's zoom buttons are 30px; touch screens get a 44px target. */
+  @media (pointer: coarse) {
+    :global(.leaflet-touch .leaflet-bar a) {
+      width: 44px;
+      height: 44px;
+      line-height: 44px;
+    }
   }
 </style>
 

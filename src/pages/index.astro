@@ -48,7 +48,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     </p>
   </section>
 
-  <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+  <div class="relative mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
     <label class="relative block flex-1">
       <span class="sr-only">Search plants by common or Latin name</span>
       <Icon
@@ -64,7 +64,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         class="min-h-11 w-full rounded-full border border-leaf-300 bg-white py-2.5 pl-10 pr-4 text-sm text-leaf-900 placeholder:text-leaf-600 focus:border-leaf-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-500/40 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-300"
       />
     </label>
-    <details id="plant-sort" class="filter-dd relative shrink-0 self-start sm:self-auto">
+    <details id="plant-sort" class="filter-dd shrink-0 self-start sm:relative sm:self-auto">
       <summary class="filter-trigger">
         <Icon name="sort" class="h-4 w-4" />
         <span>Sort by: <span id="plant-sort-label">Name (A–Z)</span></span>
@@ -89,9 +89,9 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 
   {
     hasFilters && (
-      <div class="mb-6 flex flex-wrap items-center gap-3">
+      <div class="relative mb-6 flex flex-wrap items-center gap-3">
         {types.length > 0 && (
-          <details class="filter-dd relative">
+          <details class="filter-dd sm:relative">
             <summary class="filter-trigger">
               <Icon name="filter-type" class="h-4 w-4" />
               Type
@@ -115,7 +115,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         )}
 
         {suns.length > 0 && (
-          <details class="filter-dd relative">
+          <details class="filter-dd sm:relative">
             <summary class="filter-trigger">
               <Icon name="sun" class="h-4 w-4" />
               Sun
@@ -139,7 +139,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         )}
 
         {traits.length > 0 && (
-          <details class="filter-dd relative">
+          <details class="filter-dd sm:relative">
             <summary class="filter-trigger">
               <Icon name="tag" class="h-4 w-4" />
               Traits
@@ -361,12 +361,15 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       right: 0;
     }
   }
-  /* Mobile: try right alignment first, fall back to left if needed */
+  /* Phones: anchor every panel to the full-width control row instead of its
+     own button. A panel hung off a button near the left edge used to run off
+     the screen; spanning the row can never leave the viewport. */
   @media (max-width: 639px) {
     .filter-panel {
+      left: 0;
       right: 0;
-      left: auto;
-      max-width: calc(100vw - 2rem);
+      width: auto;
+      max-width: none;
     }
   }
 </style>

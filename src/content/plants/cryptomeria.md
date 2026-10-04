@@ -1,5 +1,5 @@
 ---
-name: "Japanese Cedar 'Mushroom'"
+name: "Cryptomeria 'Mushroom'"
 latinName: "Cryptomeria japonica 'Mushroom'"
 type: "Conifer"
 nativeRange: "Japan and southern China"

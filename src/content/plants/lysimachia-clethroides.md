@@ -30,6 +30,7 @@ featured: false
 funFact: "Each flower spike bends over at the tip so all the blooms line up on the upper side — the whole thing curves just like the neck of a goose, which is exactly where the common name comes from."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/lysimachia-clethroides/"
 shortUrl: "https://s.shymoose.com/Dgw6S"
+dateAdded: 2026-08-18
 ---
 
 *Lysimachia clethroides* — gooseneck loosestrife — is a herbaceous perennial from

@@ -29,6 +29,7 @@ featured: false
 funFact: "'Tamukeyama' is one of the oldest named laceleaf maples still grown — it dates to around 1710, when it appeared in the first published catalogue of Japanese maple cultivars. It is prized for holding its deep crimson-purple color through summer heat and humidity far better than most red cutleaf maples, which is why it thrives in the American South where others fade to bronze-green."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c564"
 shortUrl: "https://s.shymoose.com/G6lgH"
+dateAdded: 2026-07-18
 ---
 
 *Acer palmatum* 'Tamukeyama' is a weeping laceleaf (dissectum) Japanese maple

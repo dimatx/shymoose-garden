@@ -30,6 +30,7 @@ tags:
 featured: false
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/pinus-strobus/"
 shortUrl: "https://s.shymoose.com/dnCmq"
+dateAdded: 2026-08-09
 ---
 
 *Pinus strobus* 'Angel Falls' is a weeping cultivar of eastern white pine, a

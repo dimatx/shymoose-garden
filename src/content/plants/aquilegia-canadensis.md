@@ -33,6 +33,7 @@ pruneMonths: [6]
 funFact: "Eastern Red Columbine was named North Carolina's Wildflower of the Year in 1987. Its nodding red-and-yellow flowers are a favorite of hummingbirds returning north in spring, and the plant self-seeds readily to form loose colonies."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/aquilegia-canadensis/"
 shortUrl: "https://s.shymoose.com/W7tb8"
+dateAdded: 2026-08-22
 ---
 
 *Aquilegia canadensis*, or eastern red columbine, is a native woodland wildflower found from Canada south to Florida and west to Texas. It brings a light, airy presence to shady borders and rock gardens, with delicate compound foliage and nodding, spurred flowers held on wiry branching stems.

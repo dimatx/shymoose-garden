@@ -30,6 +30,7 @@ pruneMonths: [2, 3]
 funFact: "'Standing Ovation' was bred for a sturdier, more upright habit than the wild species, which can flop open by late summer. Its seed heads feed birds through winter and its foliage is a larval host for several native skipper butterflies."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/schizachyrium-scoparium/"
 shortUrl: "https://s.shymoose.com/Ky2Ti"
+dateAdded: 2026-08-22
 ---
 
 *Schizachyrium scoparium* 'Standing Ovation' is a selection of little bluestem, a warm-season bunchgrass native to prairies and open woodlands across most of North America. It brings fine-textured, upright structure to sunny borders and naturalistic plantings, with vivid seasonal color changes from blue-green summer foliage to blazing orange-red fall color.

@@ -26,6 +26,7 @@ featured: false
 funFact: "'Pumilio' is one of the oldest and most widely planted dwarf conifer selections of mugo pine, prized for its naturally prostrate, mounding habit without any grafting needed. It has earned the Royal Horticultural Society's Award of Garden Merit for its reliable garden performance."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=252877"
 shortUrl: "https://s.shymoose.com/cU0it"
+dateAdded: 2026-07-20
 ---
 
 *Pinus mugo* 'Pumilio' is a dwarf form of the mugo, or Swiss mountain, pine —

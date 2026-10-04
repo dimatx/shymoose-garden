@@ -33,6 +33,7 @@ pruneMonths: [7]
 funFact: "Oakleaf hydrangea is the only hydrangea native to North America. 'Alice' is a University of Georgia introduction prized for its extra-large flower panicles and reliably vivid maroon-purple fall foliage."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hydrangea-quercifolia-alice/"
 shortUrl: "https://s.shymoose.com/yHqmy"
+dateAdded: 2026-08-22
 ---
 
 *Hydrangea quercifolia* 'Alice' is a University of Georgia selection of our native oakleaf hydrangea, grown for its oversized, cone-shaped flower panicles and bold, oak-shaped foliage. It's a big shrub that earns its space as a specimen or informal hedge, with three seasons of interest: early-summer bloom, deep fall color, and exfoliating winter bark.

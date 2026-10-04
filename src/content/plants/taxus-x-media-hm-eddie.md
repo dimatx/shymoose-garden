@@ -34,6 +34,7 @@ tags:
 featured: false
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/taxus-x-media/"
 shortUrl: "https://s.shymoose.com/cDSTI"
+dateAdded: 2026-08-09
 ---
 
 *Taxus x media* is a hybrid yew — a cross between English yew (*Taxus

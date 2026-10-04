@@ -33,6 +33,7 @@ learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/dolce-cherry-truffl
 shortUrl: "https://s.shymoose.com/OIfJB"
 archived: true
 archivedNote: "Did not survive initial planting (Summer 2026)."
+dateAdded: 2026-07-18
 ---
 
 *Heuchera* Dolce® 'Cherry Truffles' is a coral bells grown above all for its

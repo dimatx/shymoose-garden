@@ -30,6 +30,7 @@ featured: false
 funFact: "Flame Thrower was bred at North Carolina State University by crossing 'The Rising Sun' (gold-leaf) with a weeping purple-leaf seedling. Because every leaf on the tree is at a different stage of its purple-to-red-to-yellow color transition at once, the whole canopy looks like it's on fire, especially in the flush of new growth through early summer."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/cercis-canadensis-flame-thrower-nc2016-2/"
 shortUrl: "https://s.shymoose.com/pXHRW"
+dateAdded: 2026-08-09
 ---
 
 *Cercis canadensis* Flame Thrower® is a redbud cultivar bred by Dennis J. Werner

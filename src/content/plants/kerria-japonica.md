@@ -30,6 +30,7 @@ featured: false
 funFact: "Even bare in winter, Japanese rose earns its keep — its slender stems stay bright green year-round, giving the garden a jolt of color long after the yellow spring flowers are gone."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/kerria-japonica/"
 shortUrl: "https://s.shymoose.com/aQL4F"
+dateAdded: 2026-08-18
 ---
 
 *Kerria japonica* — Japanese rose or Easter rose — is a graceful deciduous shrub

@@ -30,6 +30,7 @@ tags:
 featured: false
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=270668&isprofile=1&gen=Ligularia"
 shortUrl: "https://s.shymoose.com/B9o6g"
+dateAdded: 2026-08-09
 ---
 
 *Ligularia dentata* 'Osiris Fantaisie' is a patented cultivar (U.S. Plant

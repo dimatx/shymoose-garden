@@ -27,6 +27,7 @@ featured: false
 funFact: "The straight species is famous for its flaking orange-red bark — the 'red' in Japanese red pine — and is one of the classic bonsai and garden pines of Japan. 'Golden Ghost' is a modern variegated selection of unknown origin, first recorded in a 2003 nursery catalog and now rated among the finest variegated pines in cultivation."
 learnMoreUrl: "https://conifersociety.org/conifers/pinus-densiflora-golden-ghost"
 shortUrl: "https://s.shymoose.com/3IXDa"
+dateAdded: 2026-07-18
 ---
 
 *Pinus densiflora* 'Golden Ghost' is a variegated form of the Japanese red pine,

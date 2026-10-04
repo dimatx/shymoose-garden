@@ -31,7 +31,7 @@ tags:
 featured: false
 funFact: "'Undaunted' was selected from 'Autumn Embers' for better cold hardiness, which is why it succeeds farther north than many other pink muhly grasses."
 learnMoreUrl: "https://www.provenwinners.com/plants/muhlenbergia/undaunted-muhly-grass-muhlenbergia-reverchonii"
-dateAdded: 2026-06-03
+dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/xsG9h"
 ---
 

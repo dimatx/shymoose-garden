@@ -33,7 +33,7 @@ tags:
 featured: false
 funFact: "Wintergreen earned its name because it stays greener through cold weather than many boxwoods, which is why it became a go-to choice in northern gardens."
 learnMoreUrl: "https://landscapeplants.oregonstate.edu/plants/buxus-microphylla-var-koreana-wintergreen"
-dateAdded: 2026-06-03
+dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/ui6Th"
 ---
 

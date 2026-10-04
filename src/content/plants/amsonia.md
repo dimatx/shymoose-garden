@@ -4,7 +4,7 @@ latinName: "Amsonia hybrid 'String Theory'"
 type: "Perennial"
 nativeRange: "Cultivated selection of a south-central U.S. native bluestar (Arkansas and Oklahoma)"
 photo: "../../assets/plants/amsonia.jpg"
-photoAlt: "A broad, mounded clump of 'String Theory' amsonia covered in soft periwinkle-blue starry flowers above fine threadleaf foliage."
+photoAlt: "A dense, mounded clump of 'String Theory' amsonia blooming with soft periwinkle-blue starry flowers above fine threadleaf foliage in a mulched garden bed."
 photoCredit: "Courtesy of Proven Winners — provenwinners.com"
 shortDescription: "A compact bluestar with airy threadleaf foliage, soft periwinkle-blue flowers in late spring, and glowing gold fall color."
 care:
@@ -29,7 +29,7 @@ tags:
 featured: false
 funFact: "Amsonia is named for Dr. John Amson, an 18th-century Williamsburg physician and amateur botanist; when cut, the stems ooze a milky latex that helps deter browsing."
 learnMoreUrl: "https://www.provenwinners.com/plants/amsonia/string-theory-blue-star-amsonia-hybrid"
-dateAdded: 2026-06-03
+dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/EXpcs"
 ---
 

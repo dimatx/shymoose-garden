@@ -27,7 +27,7 @@ tags:
 featured: false
 funFact: "The species name *aesculifolia* literally means 'with leaves like *Aesculus*' — a nod to the horse-chestnut-like leaf shape that makes this plant instantly recognizable."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=286955"
-dateAdded: 2026-06-03
+dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/6WdEl"
 ---
 

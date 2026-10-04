@@ -31,7 +31,7 @@ tags:
   - "Container-suitable"
 funFact: "White bigleaf hydrangeas don't turn blue or pink with soil pH, so 'Magical Bride' keeps its bridal-white palette and instead ages to a soft minty green."
 learnMoreUrl: "https://plantsnouveau.com/plants/cut-flowers/hydrangea-magical-bride"
-dateAdded: 2026-06-03
+dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/X1WnH"
 ---
 

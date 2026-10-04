@@ -32,7 +32,7 @@ tags:
 featured: false
 funFact: "Glow Pop was bred by Dr. Tom Ranney for bright evergreen color that stays clear and cheerful without scorching in full sun."
 learnMoreUrl: "https://www.provenwinnerscolorchoice.com/product/glow-pop-japanese-holly/"
-dateAdded: 2026-06-03
+dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/91gwI"
 ---
 

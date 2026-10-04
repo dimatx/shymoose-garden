@@ -28,7 +28,7 @@ tags:
 featured: false
 funFact: "Japanese cedar is not a true cedar at all — it is the sole species in *Cryptomeria* and is honored as the national tree of Japan."
 learnMoreUrl: "https://www.rhs.org.uk/plants/210670/cryptomeria-japonica-mushroom/details"
-dateAdded: 2026-06-03
+dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/qm8EM"
 ---
 

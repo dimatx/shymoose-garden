@@ -31,7 +31,7 @@ tags:
   - "Container-suitable"
 funFact: "Unlike the familiar pink-or-blue mopheads that shift with soil chemistry, 'Heart Throb' was selected for an unusually dark red flower color that keeps its drama even as the blooms age green."
 learnMoreUrl: "https://southernlivingplants.com/the-collection/plant/heart-throb-hydrangea/"
-dateAdded: 2026-06-03
+dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/CxWhd"
 ---
 

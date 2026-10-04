@@ -4,8 +4,8 @@ latinName: "Buxus microphylla var. japonica 'Gregem'"
 type: "Shrub"
 nativeRange: "Japan (species), with this dense dwarf selection maintained in cultivation"
 photo: "../../assets/plants/boxwood.jpg"
-photoAlt: "A dense rounded Baby Gem boxwood shrub growing in a nursery pot, showing its tight habit and small glossy leaves."
-photoCredit: "Courtesy of The Tree Center — thetreecenter.com"
+photoAlt: "A dense rounded Baby Gem boxwood shrub growing as a full clipped mound in a mulched garden bed with stone edging behind it, showing its tight habit and small glossy leaves."
+photoCredit: "Courtesy of Garden Debut — gardendebut.com"
 shortDescription: "A dense, rounded evergreen boxwood selected for small leaves, tidy habit, and lighter pruning needs."
 care:
   water: "Water regularly while establishing, then deeply during extended dry spells. It is drought tolerant once rooted but looks best with even moisture."
@@ -33,7 +33,7 @@ tags:
 featured: false
 funFact: "Baby Gem became popular because it keeps a formal-looking dome with noticeably less clipping than many older boxwoods."
 learnMoreUrl: "https://buchanansplants.com/plant-library/shrubs/baby-gem-boxwood/"
-dateAdded: 2026-06-03
+dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/Eeg8G"
 ---
 

@@ -92,6 +92,9 @@ reference and reconcile:
   step 6) — no extra step is needed there.
 - Create the real file at `src/content/plants/<slug>.md` (slug is cultivar-based,
   matching its siblings). The draft is auto-pruned on the next import run.
+- Set `dateAdded: YYYY-MM-DD` to **today's actual date** (check the system
+  date; never copy an older plant's value). It powers the "Recently added"
+  sort — an old or missing date makes new plants sort to the wrong place or last.
 
 ### 5. Short links — BEFORE signs
 - `npm run gen:shortlinks` creates a Shlink short URL (`s.shymoose.com/XXXX`)

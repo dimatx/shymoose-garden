@@ -67,6 +67,11 @@ reference and reconcile:
     over a tight macro crop of just one bloom — a shot can be sharp and
     high-res and still be a bad choice if it doesn't read as "this plant" at
     a glance.
+  - **Reject** photos with price/plant tags, nursery pots, nursery-sale or
+    garden-center scenes, buildings/walls/windows, watermarks, illustrations,
+    or a single-leaf close-up. Show the whole plant, with some margin, in the
+    ground or against a clean background. If a candidate is still a close-up
+    or watermarked and nothing better exists, tell the user and let them choose.
   - If the sheet/vendor photo fails the check or is a poor crop, go back to
     Wikimedia Commons/Flickr CC search, compare a few high-res candidates
     (`imageinfo` API with `iiprop=url|size|extmetadata` to batch-compare
@@ -155,7 +160,17 @@ a verified+credited photo that **passes `npm run check:photos`** (sharp,
 high-res, and actually shows the plant's growth habit — not just a small or
 oddly-cropped source), a `shortUrl` in its frontmatter, a `signs/<slug>.scad`
 file whose QR uses that short URL, its matching 3MF export, a clean build, and a
-single commit containing all of the above.
+single commit containing all of the above. `dateAdded` must be today's real
+date (enforced by a test).
+
+## Working with sub-agents and the user
+- When delegating plants to sub-agents, tell them today's actual date and the
+  rules above (photo rejects, `dateAdded`, toxicity `petSafetyInfo`). Their
+  output is unverified: **view every photo and check the frontmatter yourself**
+  before committing.
+- The user supplies photos of the plant tags. Treat them as evidence, but
+  report every conflict with research (size, zones, bloom, pruning, light) to
+  the user before generating signs/3MFs or committing, and recommend a value.
 
 ## Website code changes
 

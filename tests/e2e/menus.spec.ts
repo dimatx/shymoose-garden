@@ -45,6 +45,12 @@ for (const width of WIDTHS) {
       );
       await expectNoHorizontalScroll(page, `${label} menu at ${width}px`);
 
+      // The panel must open directly under the button that opened it.
+      const trigger = await details.locator("summary").boundingBox();
+      const gap = box!.y - (trigger!.y + trigger!.height);
+      expect(gap, `${label} panel should open right under its button at ${width}px`).toBeGreaterThanOrEqual(0);
+      expect(gap, `${label} panel should open right under its button at ${width}px`).toBeLessThanOrEqual(16);
+
       const chips = await panel.locator(".filter-chip").evaluateAll((els) =>
         els.map((el) => {
           const r = el.getBoundingClientRect();
@@ -74,6 +80,21 @@ test("filter menu stays inside the viewport when the page is scrolled and the ro
   expect(box!.x).toBeGreaterThanOrEqual(-MARGIN);
   expect(box!.x + box!.width).toBeLessThanOrEqual(320 + MARGIN);
   await expectNoHorizontalScroll(page, "scrolled traits menu");
+});
+
+test("menu stays under its button after the viewport is resized while open", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 800 });
+  await page.goto("/");
+  const details = page.locator("details.filter-dd").nth(2);
+  await details.locator("summary").click();
+  await page.setViewportSize({ width: 320, height: 800 });
+  const panel = await details.locator(".filter-panel").boundingBox();
+  const trigger = await details.locator("summary").boundingBox();
+  expect(panel!.x).toBeGreaterThanOrEqual(-MARGIN);
+  expect(panel!.x + panel!.width).toBeLessThanOrEqual(320 + MARGIN);
+  const gap = panel!.y - (trigger!.y + trigger!.height);
+  expect(gap).toBeGreaterThanOrEqual(0);
+  expect(gap).toBeLessThanOrEqual(16);
 });
 
 test("opening one filter menu closes the previous one", async ({ page }) => {

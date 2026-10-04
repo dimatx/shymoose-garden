@@ -48,7 +48,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     </p>
   </section>
 
-  <div class="relative mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+  <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center">
     <label class="relative block flex-1">
       <span class="sr-only">Search plants by common or Latin name</span>
       <Icon
@@ -64,7 +64,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         class="min-h-11 w-full rounded-full border border-leaf-300 bg-white py-2.5 pl-10 pr-4 text-sm text-leaf-900 placeholder:text-leaf-600 focus:border-leaf-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-leaf-500/40 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-300"
       />
     </label>
-    <details id="plant-sort" class="filter-dd shrink-0 self-start sm:relative sm:self-auto">
+    <details id="plant-sort" class="filter-dd relative shrink-0 self-start sm:self-auto">
       <summary class="filter-trigger">
         <Icon name="sort" class="h-4 w-4" />
         <span>Sort by: <span id="plant-sort-label">Name (A–Z)</span></span>
@@ -89,9 +89,9 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 
   {
     hasFilters && (
-      <div class="relative mb-6 flex flex-wrap items-center gap-3">
+      <div class="mb-6 flex flex-wrap items-center gap-3">
         {types.length > 0 && (
-          <details class="filter-dd sm:relative">
+          <details class="filter-dd relative">
             <summary class="filter-trigger">
               <Icon name="filter-type" class="h-4 w-4" />
               Type
@@ -115,7 +115,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         )}
 
         {suns.length > 0 && (
-          <details class="filter-dd sm:relative">
+          <details class="filter-dd relative">
             <summary class="filter-trigger">
               <Icon name="sun" class="h-4 w-4" />
               Sun
@@ -139,7 +139,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
         )}
 
         {traits.length > 0 && (
-          <details class="filter-dd sm:relative">
+          <details class="filter-dd relative">
             <summary class="filter-trigger">
               <Icon name="tag" class="h-4 w-4" />
               Traits
@@ -361,15 +361,16 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       right: 0;
     }
   }
-  /* Phones: anchor every panel to the full-width control row instead of its
-     own button. A panel hung off a button near the left edge used to run off
-     the screen; spanning the row can never leave the viewport. */
+  /* Phones: the panel still opens directly under its button, but spans the
+     whole control row so it can never run off-screen. The script sets
+     --panel-left / --panel-width from the live layout; the fallback keeps the
+     panel inside the viewport if it hasn't run. */
   @media (max-width: 639px) {
     .filter-panel {
-      left: 0;
-      right: 0;
-      width: auto;
-      max-width: none;
+      left: var(--panel-left, 0);
+      right: auto;
+      width: var(--panel-width, max-content);
+      max-width: calc(100vw - 2rem);
     }
   }
 </style>
@@ -691,6 +692,31 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     syncTagBar();
     sortItems();
     apply();
+
+    // On phones each panel opens right under its button but is as wide as the
+    // control row, so measure that row against the button's position.
+    const phone = window.matchMedia("(max-width: 639px)");
+    function placePanel(dd: HTMLDetailsElement) {
+      const panel = dd.querySelector<HTMLElement>(".filter-panel");
+      const row = dd.parentElement;
+      if (!panel || !row) return;
+      if (!phone.matches) {
+        panel.style.removeProperty("--panel-left");
+        panel.style.removeProperty("--panel-width");
+        return;
+      }
+      const rowBox = row.getBoundingClientRect();
+      panel.style.setProperty("--panel-left", `${rowBox.left - dd.getBoundingClientRect().left}px`);
+      panel.style.setProperty("--panel-width", `${rowBox.width}px`);
+    }
+    for (const dd of dropdowns) {
+      // Place before the native toggle so the panel never paints in the old spot.
+      dd.querySelector("summary")?.addEventListener("click", () => placePanel(dd), { signal: events.signal });
+      dd.addEventListener("toggle", () => placePanel(dd), { signal: events.signal });
+    }
+    window.addEventListener("resize", () => {
+      for (const dd of dropdowns) if (dd.open) placePanel(dd);
+    }, { signal: events.signal });
 
     // Close any open dropdown when clicking outside one, or pressing Escape.
     document.addEventListener("click", (e) => {

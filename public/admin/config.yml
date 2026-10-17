@@ -1,0 +1,58 @@
+backend:
+  name: github
+  repo: dimatx/shymoose-garden
+  branch: main
+  # OAuth proxy Worker (see workers/sveltia-cms-auth/README.md).
+  base_url: https://shymoose-cms-auth.long-limit-8367.workers.dev
+  commit_messages:
+    create: "Add notes for {{slug}}"
+    update: "Update notes for {{slug}}"
+    delete: "Delete notes for {{slug}}"
+
+site_url: https://garden.shymoose.com
+display_url: https://garden.shymoose.com
+logo_url: https://garden.shymoose.com/icon-192x192.png
+
+media_folder: public/uploads/notes
+public_folder: /uploads/notes
+
+collections:
+  - name: notes
+    label: Plant notes
+    label_singular: Plant note
+    folder: src/content/notes
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    slug: "{{plant}}"
+    summary: "{{plant}}"
+    sortable_fields: [plant]
+    fields:
+      - label: Plant
+        name: plant
+        widget: relation
+        collection: plants
+        value_field: "{{slug}}"
+        search_fields: [name, latinName]
+        display_fields: [name]
+        hint: One notes file per plant. Pick the plant, then write below.
+      - label: Notes
+        name: body
+        widget: markdown
+        hint: Shown on the plant's page on the public site.
+
+  # Read-only source for the plant picker above. Hidden so it can't be opened
+  # or saved from the CMS; plant files are only ever changed via the normal
+  # pipeline (see AGENTS.md).
+  - name: plants
+    label: Plants
+    hide: true
+    folder: src/content/plants
+    extension: md
+    format: frontmatter
+    create: false
+    delete: false
+    fields:
+      - { label: Name, name: name, widget: string }
+      - { label: Latin name, name: latinName, widget: string }

@@ -19,6 +19,8 @@ playwright-report/
 .env
 .env.production
 .env.*.local
+.dev.vars
+.dev.vars.*
 
 # Logs
 npm-debug.log*

@@ -66,6 +66,24 @@ The two pieces of shared logic worth knowing:
   icon in one labeled map. Use one anywhere with `<Icon name="leaf" />`; add a
   new icon by adding a single entry to that file.
 
+## Garden notes
+
+Open [the notes editor](https://garden.shymoose.com/admin/) and sign in with
+GitHub. Both editors need repository write access. Create a plant note, choose
+the plant, and write in the Notes field. To update an existing note, open it
+from the notes list. Publishing commits to `main` and triggers Cloudflare Pages;
+allow the deployment to finish before checking the plant page.
+
+Notes are **public**, including their Git history. They are Markdown files in
+`src/content/notes/`, separate from researched plant content so the CMS cannot
+rewrite plant care data or generated sign metadata. Keep one note per plant.
+Notes support Markdown formatting and appear under "Garden notes" on the plant
+page; plants without notes have no empty section.
+
+The OAuth Worker is deployed separately from the static site. Its setup and
+credential handling are documented in
+[`workers/sveltia-cms-auth/README.md`](workers/sveltia-cms-auth/README.md).
+
 ## Add or edit a plant
 
 This is the part you'll do most. No coding required.

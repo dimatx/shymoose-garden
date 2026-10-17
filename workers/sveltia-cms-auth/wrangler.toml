@@ -1,0 +1,9 @@
+name = "shymoose-cms-auth"
+main = "index.js"
+compatibility_date = "2026-01-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://garden.shymoose.com"
+# GITHUB_CLIENT_ID is public; set it here after creating the OAuth app.
+GITHUB_CLIENT_ID = "Ov23li54GlLkNvmZEPzE"
+# GITHUB_CLIENT_SECRET is a secret: `npx wrangler secret put GITHUB_CLIENT_SECRET`

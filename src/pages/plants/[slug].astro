@@ -16,6 +16,8 @@ export async function getStaticPaths() {
 
 const { plant } = Astro.props;
 const { Content } = await render(plant);
+const plantNote = (await getCollection("notes")).find((n) => n.data.plant === plant.id);
+const NoteContent = plantNote?.body?.trim() ? (await render(plantNote)).Content : undefined;
 const {
   name,
   latinName,
@@ -226,6 +228,17 @@ function renderInlineMarkdown(text: string): string {
               <p class="text-xs font-semibold uppercase tracking-wide text-leaf-600 dark:text-leaf-300">Fun Fact</p>
               <p class="mt-0.5 text-sm leading-relaxed text-leaf-800 dark:text-leaf-200" set:html={renderInlineMarkdown(funFact)} />
             </div>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      NoteContent && (
+        <section class="mt-8" aria-labelledby="garden-notes">
+          <h2 id="garden-notes" class="font-serif text-xl font-semibold">Garden notes</h2>
+          <div class="prose-garden mt-2 space-y-4 leading-relaxed text-leaf-700 dark:text-leaf-300">
+            <NoteContent />
           </div>
         </section>
       )

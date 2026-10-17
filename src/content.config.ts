@@ -126,4 +126,17 @@ const plants = defineCollection({
     }),
 });
 
-export const collections = { plants };
+/**
+ * Free-form gardener notes, authored through the Sveltia CMS at /admin.
+ * One Markdown file per plant in `src/content/notes/`; `plant` is the plant's
+ * slug (its filename in `src/content/plants/`) and the body is the note.
+ * Kept separate from `plants` so the CMS never rewrites plant frontmatter.
+ */
+const notes = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
+  schema: z.object({
+    plant: z.string(),
+  }),
+});
+
+export const collections = { plants, notes };

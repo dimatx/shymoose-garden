@@ -15,6 +15,8 @@ care:
   size: "18–24 in. tall and wide."
   bloom: "Double, near-black burgundy flowers bloom in late winter and early spring."
   pruning: "Remove old or damaged leaves before flower buds open and cut spent flower stems back after bloom."
+  spacing: "18–24 in. apart."
+  propagation: "Divide established clumps in early autumn or in spring after flowering to retain the parent's traits. Seedlings may differ from the parent."
   petSafety: "Highly toxic"
   petSafetyNotes: "All parts toxic, especially roots"
   petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea; slow heart rate or tremors in more serious cases. Toxic compound: cardiac glycosides (hellebrin)"
@@ -55,3 +57,8 @@ blooming.
 
 > **Heads up:** all parts of hellebores are toxic if eaten, especially the
 > roots. Keep the plant away from curious pets and children.
+
+Spacing follows the
+[Proven Winners cultivar profile](https://www.provenwinners.com/plants/helleborus/wedding-party-dark-and-handsome-lenten-rose-helleborus-hybrid);
+division timing and seedling variability follow the
+[RHS hellebore growing guide](https://www.rhs.org.uk/plants/hellebore/growing-guide).

@@ -16,6 +16,10 @@ care:
   bloom: "Rarely flowers; grown mainly for its large silver leaves."
   pruning: "Remove damaged leaves and any flower stalks that appear; little routine pruning is needed."
   propagation: "Divide clumps in spring."
+  spacing: "12–18 in. apart for ground cover."
+  petSafety: "No known toxicity"
+  petSafetyNotes: "Discourage chewing; this ornamental is not pet food."
+  petSafetyInfo: "Gardenia describes Stachys byzantina as not known to be toxic to humans or pets. Gardeners' World also reports no toxic effects for the same species' Silver Carpet cultivar, including cats and dogs. This is horticultural guidance rather than a cultivar-specific veterinary study. Eating plant material may still cause digestive upset; contact a veterinarian if symptoms develop."
 bloomMonths: []
 pruneMonths: []
 tags:
@@ -50,3 +54,14 @@ Give lamb's ears full sun and soil that drains freely. Once established, it
 tolerates dry spells; consistently wet soil can cause the foliage and crowns
 to rot. Remove damaged leaves as needed and divide the clump if it spreads
 beyond its allotted space.
+
+[Gardenia's species profile](https://www.gardenia.net/plant/stachys-byzantina-lambs-ears)
+describes lamb's ears as not known to be toxic to people or pets.
+[Gardeners' World](https://www.gardenersworld.com/plants/stachys-byzantina-silver-carpet/)
+corroborates no reported toxicity to cats and dogs for another cultivar of
+the same species, 'Silver Carpet'. Neither is a veterinary study of
+'Helen von Stein'; discourage chewing and monitor for digestive upset.
+
+Ground-cover spacing follows the
+[Missouri Botanical Garden Big Ears profile](https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=f690),
+which lists 'Helene von Stein' as a synonym.

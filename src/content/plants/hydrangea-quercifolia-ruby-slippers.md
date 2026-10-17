@@ -15,6 +15,7 @@ care:
   size: "3–4 ft tall and 3–5 ft wide."
   bloom: "Upright panicles open white in June and age through pink to ruby red by midsummer."
   spacing: "3–5 ft apart, allowing room for its mature spread."
+  propagation: "Root softwood stem cuttings in late spring or early summer; cuttings preserve the cultivar."
   pruning: "Blooms on old wood; prune immediately after flowering only if needed."
   petSafety: "Mildly toxic"
   petSafetyNotes: "All parts"
@@ -54,3 +55,6 @@ especially while it establishes. Full sun to part shade suits the shrub, with
 afternoon shade helpful in hot summers. It flowers on old wood, so prune only
 just after flowering if shaping is necessary; pruning later can remove next
 year's buds.
+
+The [U.S. National Arboretum introduction sheet](https://usna.usda.gov/assets/images/as_standard_image/Hydrangea_quercifolia_Ruby_Slippers.pdf)
+describes propagation by softwood cuttings, rooting in 4–6 weeks under mist.

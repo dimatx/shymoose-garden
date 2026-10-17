@@ -82,6 +82,15 @@ reference and reconcile:
 - Fill all frontmatter: `type`, `nativeRange`, `care.*`, `bloomMonths`,
   `pruneMonths`, `tags` (reuse the existing vocabulary), `funFact`, and a longer
   body below the `---`.
+- Review `care.spacing` and `care.propagation` explicitly before publishing;
+  schema-optional does not mean the research can be skipped. Include verified
+  methods, timing, and applicable propagation restrictions. For pet safety,
+  fill `care.petSafety`, `care.petSafetyNotes`, and `care.petSafetyInfo` with
+  researched guidance and cite sources in the body. Absence from a poison
+  database is not proof of safety: explicitly state when pet-specific safety
+  is not established, with precautions and the limits of the evidence, rather
+  than leaving the fields blank. Do not fabricate toxic-part or symptom
+  details or treat human/related-species studies as dog/cat safety clearance.
 - Clean cultivar Latin names — the sheet sometimes has stray nested quotes
   (e.g. `Heuchera Primo® 'Black Pearl'`).
 - **The website display `name` must include the cultivar** whenever the plant

@@ -4,7 +4,7 @@ remove_qr = false;
 // a shortened link to a wikipedia article about the plant
 qr_url = "https://s.shymoose.com/3ARKg";
 common_name = "Mountain Hydrangea";
-scientific_name = "Hydrangea serrata 'SMNMAKTSR'";
+scientific_name = "Hydrangea serrata 'Tuff Stuff™ Red'";
 // L: 7%, M: 15%, Q: 25%, H: 30%
 qr_error_correction = "L"; // [L, M, Q, H]
 

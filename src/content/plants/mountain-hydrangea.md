@@ -1,10 +1,10 @@
 ---
-name: "Mountain Hydrangea 'Tuff Stuff Red'"
-latinName: "Hydrangea serrata 'SMNMAKTSR'"
+name: "Mountain Hydrangea 'Tuff Stuff™ Red'"
+latinName: "Hydrangea serrata 'Tuff Stuff™ Red'"
 type: "Shrub"
 nativeRange: "Japan and Korea (species); cultivated selection"
 photo: "../../assets/plants/mountain-hydrangea.jpg"
-photoAlt: "Deep pink-red lacecap flowers and dark green foliage of mountain hydrangea 'Tuff Stuff Red'."
+photoAlt: "Deep pink-red lacecap flowers and dark green foliage of mountain hydrangea 'Tuff Stuff™ Red'."
 photoCredit: "Courtesy of Proven Winners — provenwinners.com"
 shortDescription: "A compact, cold-hardy mountain hydrangea with deep pink-red lacecap flowers that rebloom from early summer into fall."
 care:
@@ -29,22 +29,23 @@ tags:
   - "Specimen"
   - "Toxic to dogs"
 featured: false
-funFact: "'Tuff Stuff Red' is a reblooming mountain hydrangea: its first flowers open on old stems, and later flowers develop on new growth."
+funFact: "'Tuff Stuff™ Red' is a reblooming mountain hydrangea: its first flowers open on old stems, and later flowers develop on new growth."
 learnMoreUrl: "https://www.provenwinners.com/plants/hydrangea/tuff-stuff-red-mountain-hydrangea-hydrangea-serrata"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/3ARKg"
 ---
 
 Mountain hydrangea (*Hydrangea serrata*) is a compact relative of bigleaf
-hydrangea, native to Japan and Korea. 'Tuff Stuff Red' combines the species'
+hydrangea, native to Japan and Korea. 'Tuff Stuff™ Red' combines the species'
 smaller habit and lacecap flowers with improved cold hardiness and repeat
 blooming.
 
 ## A long season of flowers
 
-The deep pink-red flower clusters begin opening in early summer on stems
-carried through winter. The shrub then produces more flowers on new growth,
-continuing the display into fall. Flower color can shift with soil pH.
+The deep pink-red flower clusters of 'Tuff Stuff™ Red' begin opening in early
+summer on stems carried through winter. The shrub then produces more flowers
+on new growth, continuing the display into fall. Flower color can shift with
+soil pH.
 
 ## Care tips
 

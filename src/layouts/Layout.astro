@@ -13,6 +13,9 @@ interface Props {
   image?: string;
   /** Alt text describing the share image. */
   imageAlt?: string;
+  noindex?: boolean;
+  /** Pages guarding unsaved work opt out so leaving fires `beforeunload`. */
+  viewTransitions?: boolean;
 }
 
 const {
@@ -20,6 +23,8 @@ const {
   description = "A living catalog of the plants in the ShyMoose garden. Scan, learn, grow.",
   image,
   imageAlt,
+  noindex = false,
+  viewTransitions = true,
 } = Astro.props;
 
 const siteName = "ShyMoose Garden";
@@ -45,11 +50,12 @@ const imageUrl = image ? new URL(image, Astro.site).href : undefined;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#27592c" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0d2010" media="(prefers-color-scheme: dark)" />
 
     <!-- Buttery client-side morphs between pages (e.g. card → detail photo). -->
-    <ClientRouter />
+    {viewTransitions && <ClientRouter />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

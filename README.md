@@ -69,23 +69,25 @@ The two pieces of shared logic worth knowing:
 ## Garden notes
 
 Open [the notes editor](https://garden.shymoose.com/admin/) and sign in with
-GitHub, or use the discreet **Add garden notes** link at the bottom of any plant
-page to start with that plant preselected. If a note already exists, the link
-reads **Edit garden notes** and opens it directly. Both editors need repository
-write access. From the editor's main page, create a plant note, choose
-the plant, and write in the Notes field. To update an existing note, open it
-from the notes list. Publishing commits to `main` and triggers Cloudflare Pages;
-allow the deployment to finish before checking the plant page.
+GitHub, or use the discreet **Add/Edit garden notes** link at the bottom of any
+plant page to open that plant directly. Choosing a plant always loads its
+published note. **Publish** commits to `main` and triggers Cloudflare Pages, so
+the plant page updates about a minute later. **Save draft** keeps unpublished
+text on this device only. Leaving a plant with unpublished changes asks
+whether to publish, save a draft, or discard them. Publishing an empty note
+removes it. Editing requires write access to the repository.
 
-Notes are **public**, including their Git history. They are Markdown files in
-`src/content/notes/`, separate from researched plant content so the CMS cannot
-rewrite plant care data or generated sign metadata. Keep one note per plant.
-Notes support Markdown formatting and appear under "Garden notes" on the plant
-page; plants without notes have no empty section.
+Notes are **public**, including their Git history. They are Markdown files at
+`src/content/notes/<plant-slug>.md`, separate from researched plant content so
+the editor cannot rewrite plant care data or generated sign metadata. Notes
+support Markdown formatting and appear under "Garden notes" on the plant page;
+plants without notes have no empty section.
 
-The OAuth Worker is deployed separately from the static site. Its setup and
+The editor (`src/pages/admin/index.astro`, `src/scripts/notes-editor.ts`) talks
+to the GitHub API directly from the browser. Its GitHub sign-in goes through a
+small OAuth Worker, deployed separately from the static site; its setup and
 credential handling are documented in
-[`workers/sveltia-cms-auth/README.md`](workers/sveltia-cms-auth/README.md).
+[`workers/notes-auth/README.md`](workers/notes-auth/README.md).
 
 ## Add or edit a plant
 

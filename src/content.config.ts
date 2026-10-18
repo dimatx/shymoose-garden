@@ -127,10 +127,10 @@ const plants = defineCollection({
 });
 
 /**
- * Free-form gardener notes, authored through the Sveltia CMS at /admin.
- * One Markdown file per plant in `src/content/notes/`; `plant` is the plant's
- * slug (its filename in `src/content/plants/`) and the body is the note.
- * Kept separate from `plants` so the CMS never rewrites plant frontmatter.
+ * Free-form gardener notes, written in the notes editor at /admin/.
+ * One Markdown file per plant at `src/content/notes/<plant-slug>.md`; `plant` is
+ * the plant's slug (its filename in `src/content/plants/`) and the body is the note.
+ * Kept separate from `plants` so the editor never rewrites plant frontmatter.
  */
 const notes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),

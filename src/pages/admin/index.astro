@@ -1,38 +1,284 @@
 ---
-import "@fontsource-variable/atkinson-hyperlegible-next/wght.css";
-import "@fontsource-variable/newsreader/wght.css";
-import "../../styles/admin.css";
+import { getCollection } from "astro:content";
+import { getImage } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import Icon from "../../components/Icon.astro";
+import { plantUrl } from "../../lib/plants";
+
+const notedPlants = new Set((await getCollection("notes")).map((note) => note.data.plant));
+const plants = await Promise.all(
+  (await getCollection("plants"))
+    .sort((a, b) => a.data.name.localeCompare(b.data.name))
+    .map(async (plant) => ({
+      id: plant.id,
+      name: plant.data.name,
+      latinName: plant.data.latinName,
+      url: plantUrl(plant),
+      archived: plant.data.archived,
+      thumb: (await getImage({ src: plant.data.photo, width: 128, height: 128, fit: "cover", format: "webp" })).src,
+    })),
+);
+const authUrl = "https://shymoose-cms-auth.long-limit-8367.workers.dev";
+
+const button =
+  "inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 disabled:cursor-not-allowed disabled:opacity-50";
+const primary = `${button} bg-leaf-600 text-leaf-50 shadow-sm hover:bg-leaf-700 dark:hover:bg-leaf-500`;
+const secondary = `${button} border border-leaf-300 text-leaf-800 hover:bg-leaf-100 dark:border-leaf-700 dark:text-leaf-100 dark:hover:bg-leaf-800`;
+const quiet = `${button} px-3 text-leaf-700 underline decoration-leaf-300 underline-offset-4 hover:text-leaf-900 dark:text-leaf-300 dark:decoration-leaf-700 dark:hover:text-leaf-100`;
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
-    <title>ShyMoose Garden — Notes</title>
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
-    <script is:inline>
-      try {
-        const theme = localStorage.getItem("theme");
-        if (theme === "light" || theme === "dark") {
-          // Seed Sveltia's preference before it mounts, preserving other settings.
-          const preferences = JSON.parse(localStorage.getItem("sveltia-cms.prefs") || "{}");
-          localStorage.setItem("sveltia-cms.prefs", JSON.stringify({ ...preferences, theme }));
-          document.documentElement.dataset.theme = theme;
-        }
-      } catch (error) {
-        console.warn("Garden theme preference could not be loaded.", error);
-      }
-    </script>
-  </head>
-  <body>
-    <script
-      is:inline
-      src="https://unpkg.com/@sveltia/cms@0.233.1/dist/sveltia-cms.js"
-      integrity="sha384-yp71QPgroiSMC4/Jwff1SciLlpayjGi7MsNEFX4rsJXB/EEdaEloIFYi3IIiiUlQ"
-      crossorigin="anonymous"
-    ></script>
-  </body>
-</html>
+<Layout title="Garden notes" description="Write the notes shown on ShyMoose Garden plant pages." noindex viewTransitions={false}>
+  <div id="notes-app" data-state="loading" data-auth-url={authUrl} class="notes-app">
+    <script is:inline type="application/json" id="notes-plants" set:html={JSON.stringify(plants)} />
+
+    <p data-view="loading" class="py-16 text-center text-leaf-700 dark:text-leaf-300" role="status">Loading…</p>
+
+    <section data-view="signed-out" hidden class="mx-auto max-w-md py-10 text-center">
+      <span class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-leaf-100 text-leaf-700 dark:bg-leaf-900 dark:text-leaf-300" aria-hidden="true">
+        <Icon name="leaf" class="h-7 w-7" />
+      </span>
+      <h1 class="mt-5 font-serif text-3xl font-semibold tracking-tight text-balance">Garden notes</h1>
+      <p class="mt-3 leading-relaxed text-leaf-700 dark:text-leaf-300">
+        Write what you've noticed about a plant. Published notes appear at the bottom of its page.
+      </p>
+      <button type="button" data-action="sign-in" class={`${primary} mt-7`}>Sign in with GitHub</button>
+      <p class="mt-4 text-sm text-leaf-700 dark:text-leaf-300">Only gardeners with access to the garden's repository can publish.</p>
+    </section>
+
+    <section data-view="forbidden" hidden class="mx-auto max-w-md py-10 text-center">
+      <h1 class="font-serif text-3xl font-semibold tracking-tight">This account can't publish</h1>
+      <p class="mt-3 leading-relaxed text-leaf-700 dark:text-leaf-300">
+        <span data-bind="login"></span> doesn't have write access to the garden. Ask Dima to add you, then sign in again.
+      </p>
+      <button type="button" data-action="sign-out" class={`${secondary} mt-7`}>Sign out</button>
+    </section>
+
+    <section data-view="picker" hidden aria-labelledby="picker-title">
+      <div class="flex flex-wrap items-end justify-between gap-x-4 gap-y-2">
+        <h1 id="picker-title" class="font-serif text-3xl font-semibold tracking-tight">Garden notes</h1>
+        <p class="text-sm text-leaf-700 dark:text-leaf-300">
+          <span data-bind="login"></span> ·
+          <button type="button" data-action="sign-out" class="underline decoration-leaf-300 underline-offset-4 hover:text-leaf-900 dark:decoration-leaf-700 dark:hover:text-leaf-100">Sign out</button>
+        </p>
+      </div>
+      <p class="mt-2 text-leaf-700 dark:text-leaf-300">Choose a plant to write about.</p>
+
+      <div class="sticky top-[61px] z-10 -mx-4 mt-5 bg-leaf-50/90 px-4 py-3 backdrop-blur-md sm:-mx-6 sm:px-6 dark:bg-leaf-950/90">
+        <label class="relative block">
+          <span class="sr-only">Search plants</span>
+          <Icon name="search" class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-leaf-600 dark:text-leaf-400" />
+          <input
+            type="search"
+            data-bind="search"
+            placeholder="Search by name or Latin name"
+            autocomplete="off"
+            class="h-12 w-full rounded-full border border-leaf-300 bg-white pl-12 pr-4 text-base text-leaf-950 placeholder:text-leaf-600 focus:border-leaf-500 focus:outline-2 focus:outline-leaf-500/40 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-400"
+          />
+        </label>
+        <div class="mt-3 flex gap-2" role="group" aria-label="Show">
+          <button type="button" data-filter="all" aria-pressed="true" class="filter-chip">All plants</button>
+          <button type="button" data-filter="noted" aria-pressed="false" class="filter-chip">With notes <span data-bind="noted-count"></span></button>
+        </div>
+      </div>
+
+      <ul data-bind="plant-list" class="mt-2 divide-y divide-leaf-200/80 dark:divide-leaf-800/80">
+        {plants.map((plant) => (
+          <li data-plant-row={plant.id} data-search={`${plant.name} ${plant.latinName}`.toLowerCase()} data-noted={notedPlants.has(plant.id) ? "" : undefined}>
+            <a href={`/admin/?plant=${encodeURIComponent(plant.id)}`} data-plant-link={plant.id} class="group flex min-h-16 items-center gap-4 rounded-xl px-2 py-2.5 transition hover:bg-leaf-100 focus-visible:outline-2 focus-visible:outline-leaf-500 dark:hover:bg-leaf-900">
+              <img src={plant.thumb} alt="" width="48" height="48" loading="lazy" decoding="async" class:list={["h-12 w-12 shrink-0 rounded-lg object-cover", plant.archived && "grayscale"]} />
+              <span class="min-w-0 flex-1">
+                <span class="block truncate font-medium">{plant.name}</span>
+                <span class="block truncate font-serif text-sm italic text-leaf-700 dark:text-leaf-300">{plant.latinName}</span>
+              </span>
+              <span class="noted-mark shrink-0 items-center gap-1 rounded-full bg-leaf-100 px-2.5 py-1 text-xs font-semibold text-leaf-800 dark:bg-leaf-800 dark:text-leaf-100">
+                <Icon name="check" class="h-3.5 w-3.5" strokeWidth={2.5} /> Notes
+              </span>
+              <Icon name="chevron-right" class="h-5 w-5 shrink-0 text-leaf-500 transition group-hover:translate-x-0.5" />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p data-bind="empty" hidden class="py-12 text-center text-leaf-700 dark:text-leaf-300">No plants match your search.</p>
+    </section>
+
+    <section data-view="editor" hidden aria-labelledby="editor-title">
+      <a href="/admin/" data-action="all-plants" class={`${quiet} -ml-3`}>
+        <Icon name="chevron-left" class="h-4 w-4" /> All plants
+      </a>
+
+      <header class="mt-3 flex items-center gap-4">
+        <img data-bind="thumb" alt="" width="64" height="64" class="h-16 w-16 shrink-0 rounded-xl object-cover shadow-sm" />
+        <div class="min-w-0">
+          <h1 id="editor-title" data-bind="name" class="font-serif text-2xl font-semibold leading-tight tracking-tight text-balance sm:text-3xl"></h1>
+          <p data-bind="latin" class="mt-0.5 font-serif italic text-leaf-700 dark:text-leaf-300"></p>
+        </div>
+      </header>
+
+      <div data-bind="draft-banner" hidden class="mt-6 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 rounded-2xl bg-soil-100 px-4 py-3 text-sm text-soil-600 dark:bg-soil-600/20 dark:text-soil-100" role="status">
+        <p data-bind="draft-text"></p>
+        <button type="button" data-action="discard-draft" class="font-semibold underline underline-offset-4">Discard draft</button>
+      </div>
+
+      <div class="mt-6">
+        <div class="flex items-baseline justify-between gap-4">
+          <label for="note-text" class="font-serif text-xl font-semibold">Garden notes</label>
+          <span data-bind="status" class="status-pill" role="status"></span>
+        </div>
+        <textarea
+          id="note-text"
+          data-bind="text"
+          rows="10"
+          aria-describedby="note-hint"
+          placeholder="What have you noticed? When it woke up, how it handled the heat, where it's happiest…"
+          class="note-text mt-3 w-full rounded-2xl border border-leaf-300 bg-white p-4 text-base leading-relaxed text-leaf-950 shadow-sm placeholder:text-leaf-600 focus:border-leaf-500 focus:outline-2 focus:outline-leaf-500/40 disabled:opacity-60 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-50 dark:placeholder:text-leaf-400"
+        ></textarea>
+        <p id="note-hint" class="mt-2 text-sm text-leaf-700 dark:text-leaf-300">
+          Leave a blank line between paragraphs. <code>**bold**</code>, <code>*italic*</code> and <code>- lists</code> work too.
+          Notes are public.
+        </p>
+      </div>
+
+      <div class="editor-actions sticky bottom-0 -mx-4 mt-6 flex flex-wrap items-center gap-3 border-t border-leaf-200/80 bg-leaf-50/90 px-4 py-3 backdrop-blur-md sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:px-0 sm:backdrop-blur-none dark:border-leaf-800/80 dark:bg-leaf-950/90 sm:dark:bg-transparent">
+        <button type="button" data-action="publish" class={primary}>Publish</button>
+        <button type="button" data-action="save-draft" class={secondary}>Save draft</button>
+        <a data-bind="plant-link" class={`${quiet} ml-auto`}>
+          View plant page <Icon name="arrow-up-right" class="h-4 w-4" />
+        </a>
+      </div>
+      <div data-bind="message" class="mt-4 empty:hidden" role="alert"></div>
+    </section>
+
+    <p data-bind="global-message" class="mt-6 text-center text-sm text-bloom-600 empty:hidden dark:text-bloom-300" role="alert"></p>
+
+    <dialog data-bind="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-body" class="notes-dialog">
+      <form method="dialog">
+        <h2 id="dialog-title" class="font-serif text-2xl font-semibold tracking-tight"></h2>
+        <p id="dialog-body" class="mt-2 leading-relaxed text-leaf-700 dark:text-leaf-300"></p>
+        <div class="mt-6 flex flex-col gap-2 sm:flex-row-reverse sm:flex-wrap">
+          <button value="publish" class={primary}>Publish</button>
+          <button value="draft" class={secondary}>Save draft</button>
+          <button value="discard" class={`${secondary} border-bloom-300 text-bloom-600 hover:bg-bloom-100 dark:border-bloom-600 dark:text-bloom-300 dark:hover:bg-bloom-600/20`}>Discard changes</button>
+          <button value="cancel" class={`${quiet} sm:mr-auto`}>Keep editing</button>
+        </div>
+      </form>
+    </dialog>
+  </div>
+</Layout>
+
+<style>
+  .notes-app [hidden] {
+    display: none !important;
+  }
+
+  .filter-chip {
+    display: inline-flex;
+    min-height: 2.25rem;
+    align-items: center;
+    gap: 0.375rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-leaf-300);
+    padding-inline: 0.875rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-leaf-800);
+    transition: background-color 150ms, color 150ms;
+  }
+  .filter-chip[aria-pressed="true"] {
+    border-color: var(--color-leaf-600);
+    background: var(--color-leaf-600);
+    color: var(--color-leaf-50);
+  }
+  :global(.dark) .filter-chip {
+    border-color: var(--color-leaf-700);
+    color: var(--color-leaf-100);
+  }
+  :global(.dark) .filter-chip[aria-pressed="true"] {
+    border-color: var(--color-leaf-500);
+    background: var(--color-leaf-600);
+  }
+
+  .noted-mark {
+    display: none;
+  }
+  [data-noted] .noted-mark {
+    display: inline-flex;
+  }
+
+  .note-text {
+    field-sizing: content;
+    min-height: 14rem;
+    max-height: 70vh;
+    resize: vertical;
+  }
+
+  .status-pill {
+    border-radius: 9999px;
+    padding: 0.125rem 0.625rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    white-space: nowrap;
+    background: var(--color-leaf-100);
+    color: var(--color-leaf-800);
+  }
+  .status-pill:empty {
+    display: none;
+  }
+  .status-pill[data-tone="pending"] {
+    background: var(--color-soil-100);
+    color: var(--color-soil-600);
+  }
+  :global(.dark) .status-pill {
+    background: var(--color-leaf-800);
+    color: var(--color-leaf-100);
+  }
+  :global(.dark) .status-pill[data-tone="pending"] {
+    background: color-mix(in oklab, var(--color-soil-600) 30%, transparent);
+    color: var(--color-soil-100);
+  }
+
+  .notes-dialog {
+    width: min(32rem, calc(100vw - 2rem));
+    margin: auto;
+    border-radius: 1.5rem;
+    border: 1px solid var(--color-leaf-200);
+    background: white;
+    padding: 1.5rem;
+    color: var(--color-leaf-950);
+    box-shadow: 0 24px 48px -12px rgb(13 32 16 / 0.35);
+  }
+  .notes-dialog::backdrop {
+    background: rgb(13 32 16 / 0.45);
+    backdrop-filter: blur(3px);
+  }
+  .notes-dialog[open] {
+    animation: dialog-in 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  :global(.dark) .notes-dialog {
+    border-color: var(--color-leaf-800);
+    background: var(--color-leaf-900);
+    color: var(--color-leaf-50);
+  }
+  @keyframes dialog-in {
+    from {
+      opacity: 0;
+      transform: translateY(0.75rem) scale(0.98);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .notes-dialog[open] {
+      animation: none;
+    }
+  }
+
+  code {
+    border-radius: 0.25rem;
+    background: color-mix(in oklab, var(--color-leaf-200) 60%, transparent);
+    padding: 0 0.25rem;
+    font-size: 0.875em;
+  }
+</style>
+
+<script>
+  import { initNotesEditor } from "../../scripts/notes-editor";
+  initNotesEditor();
+</script>

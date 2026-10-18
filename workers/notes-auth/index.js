@@ -1,4 +1,5 @@
-// Minimal GitHub OAuth proxy for Sveltia/Decap CMS, run as a Cloudflare Worker.
+// Minimal GitHub OAuth proxy for the garden notes editor (/admin/), run as a
+// Cloudflare Worker. It speaks the Decap-style popup postMessage handshake.
 // Its only job is to keep the OAuth client secret out of the browser.
 //
 // Env: GITHUB_CLIENT_ID (var), GITHUB_CLIENT_SECRET (secret),

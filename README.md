@@ -69,7 +69,10 @@ The two pieces of shared logic worth knowing:
 ## Garden notes
 
 Open [the notes editor](https://garden.shymoose.com/admin/) and sign in with
-GitHub. Both editors need repository write access. Create a plant note, choose
+GitHub, or use the discreet **Add garden notes** link at the bottom of any plant
+page to start with that plant preselected. If a note already exists, the link
+reads **Edit garden notes** and opens it directly. Both editors need repository
+write access. From the editor's main page, create a plant note, choose
 the plant, and write in the Notes field. To update an existing note, open it
 from the notes list. Publishing commits to `main` and triggers Cloudflare Pages;
 allow the deployment to finish before checking the plant page.

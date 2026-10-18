@@ -4,6 +4,7 @@ import { Image, getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Icon from "../../components/Icon.astro";
 import PlantMonths from "../../components/PlantMonths.astro";
+import { noteEditorUrl } from "../../lib/notes";
 import type { IconName } from "../../components/Icon.astro";
 
 export async function getStaticPaths() {
@@ -331,6 +332,16 @@ function renderInlineMarkdown(text: string): string {
         Find on map
       </a>
     </section>
+    <div class="mt-8 border-t border-leaf-200 pt-3 dark:border-leaf-800">
+      <a
+        href={noteEditorUrl(plant.id, plantNote?.id)}
+        data-astro-reload
+        class="inline-flex min-h-11 items-center rounded text-sm text-leaf-700 underline decoration-leaf-300 underline-offset-4 transition hover:text-leaf-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-leaf-500 dark:text-leaf-300 dark:decoration-leaf-700 dark:hover:text-leaf-100"
+      >
+        {plantNote ? "Edit garden notes" : "Add garden notes"}
+        <span class="sr-only"> for {name} (GitHub sign-in required)</span>
+      </a>
+    </div>
   </article>
 
   <div id="pet-safety-popup" role="note" class="hidden fixed rounded-lg border border-leaf-200 dark:border-leaf-700 bg-white dark:bg-leaf-900 p-3 shadow-lg z-50 w-80 max-w-[calc(100vw-1rem)]" style="display: none;">

@@ -10,6 +10,7 @@ backend:
     delete: "Delete notes for {{slug}}"
 
 site_url: https://garden.shymoose.com
+app_title: ShyMoose Garden Notes
 display_url: https://garden.shymoose.com
 logo_url: https://garden.shymoose.com/icon-192x192.png
 
@@ -28,6 +29,7 @@ collections:
     slug: "{{plant}}"
     summary: "{{plant}}"
     sortable_fields: [plant]
+    preview_path: plants/{{plant}}/
     fields:
       - label: Plant
         name: plant

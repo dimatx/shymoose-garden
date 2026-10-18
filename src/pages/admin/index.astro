@@ -1,0 +1,38 @@
+---
+import "@fontsource-variable/atkinson-hyperlegible-next/wght.css";
+import "@fontsource-variable/newsreader/wght.css";
+import "../../styles/admin.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>ShyMoose Garden — Notes</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "light" || theme === "dark") {
+          // Seed Sveltia's preference before it mounts, preserving other settings.
+          const preferences = JSON.parse(localStorage.getItem("sveltia-cms.prefs") || "{}");
+          localStorage.setItem("sveltia-cms.prefs", JSON.stringify({ ...preferences, theme }));
+          document.documentElement.dataset.theme = theme;
+        }
+      } catch (error) {
+        console.warn("Garden theme preference could not be loaded.", error);
+      }
+    </script>
+  </head>
+  <body>
+    <script
+      is:inline
+      src="https://unpkg.com/@sveltia/cms@0.233.1/dist/sveltia-cms.js"
+      integrity="sha384-yp71QPgroiSMC4/Jwff1SciLlpayjGi7MsNEFX4rsJXB/EEdaEloIFYi3IIiiUlQ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

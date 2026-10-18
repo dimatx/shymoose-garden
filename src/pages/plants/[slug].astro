@@ -234,17 +234,6 @@ function renderInlineMarkdown(text: string): string {
       )
     }
 
-    {
-      NoteContent && (
-        <section class="mt-8" aria-labelledby="garden-notes">
-          <h2 id="garden-notes" class="font-serif text-xl font-semibold">Garden notes</h2>
-          <div class="prose-garden mt-2 space-y-4 leading-relaxed text-leaf-700 dark:text-leaf-300">
-            <NoteContent />
-          </div>
-        </section>
-      )
-    }
-
     <section class="mt-8 space-y-8">
       {
         sections.map((section) => (
@@ -309,6 +298,17 @@ function renderInlineMarkdown(text: string): string {
     </section>
 
     <PlantMonths bloomMonths={bloomMonths} pruneMonths={pruneMonths} />
+
+    {
+      NoteContent && (
+        <section class="mt-8" aria-labelledby="garden-notes">
+          <h2 id="garden-notes" class="font-serif text-xl font-semibold">Garden notes</h2>
+          <div class="prose-garden mt-2 space-y-4 leading-relaxed text-leaf-700 dark:text-leaf-300">
+            <NoteContent />
+          </div>
+        </section>
+      )
+    }
 
     <section class="mt-8 flex flex-wrap gap-3">
       {learnMoreUrl && (

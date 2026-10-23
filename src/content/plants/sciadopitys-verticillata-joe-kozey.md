@@ -18,8 +18,8 @@ care:
   propagation: "Cultivars are grafted; the species is slow to root from cuttings or seed."
   pruning: "Little or none needed; its sturdy, tight branches shed snow well. Remove dead or damaged branches as needed."
   petSafety: "Unknown"
-  petSafetyNotes: "Van den Berk rates the species usually non-toxic to pets, but dog/cat safety is unconfirmed."
-  petSafetyInfo: "The nursery's usually non-toxic rating is reassuring, but no dog/cat-specific veterinary assessment was verified."
+  petSafetyNotes: "Avoid chewing."
+  petSafetyInfo: "Van den Berk lists it as usually non-toxic, but dog/cat safety is unconfirmed."
 pruneMonths: []
 tags:
   - "Evergreen"
@@ -53,8 +53,4 @@ is not drought or pollution tolerant and does best in cool summers, with
 afternoon shade in very hot ones. Sources: Oregon State Landscape Plants and
 Iseli Nursery (cultivar), NC State Extension Plant Toolbox (species culture).
 
-## Pet safety
-
-**Unknown for dogs and cats.** [Van den Berk Nurseries](https://www.vdberk.com/trees/sciadopitys-verticillata/)
-rates the species usually non-toxic to pets, but no dog/cat-specific
-veterinary assessment was verified.
+Pet-safety source: [Van den Berk](https://www.vdberk.com/trees/sciadopitys-verticillata/).

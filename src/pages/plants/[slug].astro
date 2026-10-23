@@ -492,6 +492,15 @@ function renderInlineMarkdown(text: string): string {
     text-decoration: underline;
     text-underline-offset: 2px;
   }
+  .prose-garden :global(a:hover) {
+    color: var(--color-leaf-800);
+  }
+  :global(.dark) .prose-garden :global(a) {
+    color: var(--color-leaf-300);
+  }
+  :global(.dark) .prose-garden :global(a:hover) {
+    color: var(--color-leaf-200);
+  }
   .prose-garden :global(ul) {
     list-style: disc;
     padding-left: 1.25rem;

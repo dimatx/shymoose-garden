@@ -1,5 +1,30 @@
 import { expect, test } from "@playwright/test";
 
+test("plant body links use readable theme colors", async ({ page }) => {
+  await page.goto("/plants/metasequoia-glyptostroboides-miss-grace/");
+  const link = page.locator(".prose-garden a").first();
+  for (const dark of [false, true]) {
+    await page.evaluate((enabled) => document.documentElement.classList.toggle("dark", enabled), dark);
+    await expect(link).toHaveCSS("color", dark ? "rgb(143, 201, 143)" : "rgb(47, 112, 53)");
+    await expect(link).toHaveCSS("text-decoration-line", "underline");
+    const contrast = await link.evaluate((element, isDark) => {
+      const luminance = (channels: number[]) => {
+        const linear = channels.map((value) => {
+          const s = value / 255;
+          return s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+        });
+        return linear[0] * 0.2126 + linear[1] * 0.7152 + linear[2] * 0.0722;
+      };
+      const foreground = luminance(getComputedStyle(element).color.match(/\d+/g)!.map(Number));
+      const token = getComputedStyle(document.documentElement)
+        .getPropertyValue(isDark ? "--color-leaf-900" : "--color-leaf-100").trim();
+      const background = luminance(token.slice(1).match(/../g)!.map((value) => parseInt(value, 16)));
+      return (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05);
+    }, dark);
+    expect(contrast).toBeGreaterThanOrEqual(4.5);
+  }
+});
+
 test("catalog search and sort survive a detail round trip", async ({ page }) => {
   await page.goto("/");
   await page.locator("#plant-search").fill("heuchera");

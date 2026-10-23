@@ -18,8 +18,8 @@ care:
   propagation: "Usually grafted or grown from stem cuttings (the species can be grown from seed, but cultivars do not come true from seed)."
   pruning: "Needs little pruning. Stake the leader to the height you want, and remove dead or crossing branches in late winter while the tree is leafless."
   petSafety: "Unknown"
-  petSafetyNotes: "Van den Berk rates the species usually non-toxic to pets, but dog/cat safety is unconfirmed."
-  petSafetyInfo: "The nursery's usually non-toxic rating is reassuring, but no dog/cat-specific veterinary assessment was verified."
+  petSafetyNotes: "Avoid chewing."
+  petSafetyInfo: "Van den Berk lists it as usually non-toxic, but dog/cat safety is unconfirmed."
 pruneMonths: [2, 3]
 tags:
   - "Specimen"
@@ -56,8 +56,4 @@ a small weeping tree rather than a sprawling mound. Sources: Oregon State
 Landscape Plants (cultivar), NC State Extension Plant Toolbox (species
 culture).
 
-## Pet safety
-
-**Unknown for dogs and cats.** [Van den Berk Nurseries](https://www.vdberk.com/trees/metasequoia-glyptostroboides/)
-rates the species usually non-toxic to pets, but no dog/cat-specific
-veterinary assessment was verified.
+Pet-safety source: [Van den Berk](https://www.vdberk.com/trees/metasequoia-glyptostroboides/).

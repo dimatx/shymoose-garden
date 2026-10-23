@@ -18,8 +18,8 @@ care:
   propagation: "Cultivars are normally grafted; seed-grown plants do not come true."
   pruning: "Prune lightly in late fall or winter while dormant to remove dead or crossing branches and to show off the colorful stems."
   petSafety: "Unknown"
-  petSafetyNotes: "Gardeners' World reports no dog/cat toxicity for Acer palmatum, but Dogs Trust broadly cautions about Acer species."
-  petSafetyInfo: "Dog/cat safety is unconfirmed: Gardeners' World reports no toxicity for this species, while Dogs Trust broadly flags maples without species-specific details."
+  petSafetyNotes: "Avoid chewing."
+  petSafetyInfo: "Gardeners' World reports no toxicity; Dogs Trust broadly cautions about maples, so dog/cat safety remains unconfirmed."
 pruneMonths: [11, 12, 1, 2]
 tags:
   - "Specimen"
@@ -52,8 +52,5 @@ have frost-tender young leaves, are not drought tolerant, and can scorch with
 too much sun, wind or drought. Sources: Iseli Nursery (cultivar), NC State
 Extension Plant Toolbox (species culture).
 
-## Pet safety
-
-**Unknown for dogs and cats.** [Gardeners' World](https://www.gardenersworld.com/plants/acer-palmatum/)
-reports no toxicity for this species, but [Dogs Trust](https://www.vpisglobal.com/wp-content/uploads/2019/01/factsheetpoisonoussubstances091.pdf)
-broadly flags maples without species-specific details.
+Pet-safety sources: [Gardeners' World](https://www.gardenersworld.com/plants/acer-palmatum/),
+[Dogs Trust](https://www.vpisglobal.com/wp-content/uploads/2019/01/factsheetpoisonoussubstances091.pdf).

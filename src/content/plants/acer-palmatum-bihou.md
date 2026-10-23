@@ -17,9 +17,9 @@ care:
   spacing: "About 15 ft wide at maturity, so allow 12–15 ft from other trees or structures."
   propagation: "Cultivars are normally grafted; seed-grown plants do not come true."
   pruning: "Prune lightly in late fall or winter while dormant to remove dead or crossing branches and to show off the colorful stems."
-  petSafety: "Caution — pet-specific safety not established"
-  petSafetyNotes: "No cultivar-specific pet-toxicity data found; keep pets from chewing leaves or bark."
-  petSafetyInfo: "A reliable ASPCA entry for Japanese maple could not be retrieved, and no species- or cultivar-specific veterinary assessment was found. Absence of a toxicity report is not proof of safety. Discourage chewing and contact a veterinarian if a pet eats a large amount or shows symptoms."
+  petSafety: "Caution — conflicting safety guidance"
+  petSafetyNotes: "Gardeners' World reports no dog/cat toxicity for Acer palmatum, but Dogs Trust broadly cautions about Acer species."
+  petSafetyInfo: "Gardeners' World's species profile reports no toxic effects for Acer palmatum, including dogs and cats. A Dogs Trust poisonous-plants list hosted by VPIS includes 'Maple Tree - Acer species' without species, toxin or symptom details. No dog/cat assessment specific to Acer palmatum or 'Bihou' was verified from a veterinary poison-control source. These sources do not support either a confirmed poisoning claim or an unconditional safety clearance. Prevent chewing; contact a veterinarian after significant ingestion or if symptoms occur."
 pruneMonths: [11, 12, 1, 2]
 tags:
   - "Specimen"
@@ -51,3 +51,32 @@ sheltered from drying winds. NC State Extension notes that Japanese maples
 have frost-tender young leaves, are not drought tolerant, and can scorch with
 too much sun, wind or drought. Sources: Iseli Nursery (cultivar), NC State
 Extension Plant Toolbox (species culture).
+
+## Pet safety: evidence and sources
+
+**Reassuring species-specific guidance, but not a conclusive veterinary
+clearance.** [BBC Gardeners' World's *Acer palmatum*
+profile](https://www.gardenersworld.com/plants/acer-palmatum/) reports
+"no toxic effects reported" and explicitly includes dogs and cats.
+This is affirmative horticultural guidance, not merely absence from a
+poison list, but it is not a veterinary study or a separate assessment of
+'Bihou'.
+
+There is conflicting broader advice: a [Dogs Trust poisonous-plants list
+hosted by the Veterinary Poisons Information
+Service](https://www.vpisglobal.com/wp-content/uploads/2019/01/factsheetpoisonoussubstances091.pdf)
+includes "Maple Tree" / "*Acer* species" without identifying a species,
+toxin, dose or symptoms for that entry. It warrants caution but does not
+demonstrate poisoning by *A. palmatum* specifically. No species-specific
+dog/cat assessment from a veterinary poison-control source was verified
+in this review, so an unqualified "non-toxic" claim would overstate the
+evidence.
+
+Do not transfer horse-poisoning warnings from other maples to this tree
+and dogs or cats. For example, [ASPCA's red maple
+entry](https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/red-maple)
+is for *Acer rubrum*, not *A. palmatum*, and distinguishes toxicity to
+horses from non-toxicity to dogs and cats. It does not establish the safety
+of 'Bihou'. Discourage chewing, remove accessible prunings, and contact a
+veterinarian after significant ingestion or if symptoms develop.
+Sources reviewed October 23, 2026.

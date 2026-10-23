@@ -17,9 +17,9 @@ care:
   spacing: "About 15 ft wide at maturity, so allow 8–15 ft depending on hedge or specimen use."
   propagation: "Cultivars are grafted or rooted from cuttings; seed-grown plants do not come true."
   pruning: "Tolerates shearing into a golden hedge (Iseli), though the species looks best unpruned (NC State). If shaping, prune in late spring to early summer."
-  petSafety: "Caution — pet-specific safety not established"
-  petSafetyNotes: "No pet-toxicity data found for this cultivar; keep pets from chewing needles."
-  petSafetyInfo: "The ASPCA entry called 'hemlock' refers to poison hemlock (Conium maculatum), a different plant; it is not evidence about Tsuga canadensis. No species- or cultivar-specific veterinary assessment was found, so pet safety is not established. Discourage chewing and contact a veterinarian if a pet eats needles or shows symptoms."
+  petSafety: "Non-toxic"
+  petSafetyNotes: "ASPCA lists Canadian hemlock (Tsuga canadensis) as non-toxic to dogs and cats; discourage chewing."
+  petSafetyInfo: "ASPCA Poison Control explicitly lists Tsuga canadensis as non-toxic to dogs, cats and horses. This is a species-level classification, not a separate test of 'Golden Splendor'. Canadian hemlock is not poison hemlock (Conium maculatum). Non-toxic does not mean edible: any plant material may cause stomach upset. Contact a veterinarian if a pet becomes unwell after chewing it."
 pruneMonths: [5, 6]
 tags:
   - "Evergreen"
@@ -53,3 +53,20 @@ somewhat acidic soil in sun to part shade; it grows best where summers are
 cool and does not tolerate drought. Hemlock woolly adelgid is a major pest,
 along with several scale and mite problems. Sources: Iseli Nursery
 (cultivar), NC State Extension Plant Toolbox (species culture).
+
+## Pet safety: evidence and sources
+
+**Non-toxic to dogs and cats.** [ASPCA Poison Control's Canada Hemlock
+entry](https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/canada-hemlock)
+identifies the plant as *Tsuga canadensis* and explicitly lists it as
+non-toxic to dogs, cats and horses. This species-level classification is
+the relevant guidance for 'Golden Splendor'; it is not cultivar-specific
+feeding-trial evidence. The earlier statement that no species-specific
+assessment was available was incorrect.
+
+Do not confuse this conifer with poison hemlock (*Conium maculatum*),
+an unrelated plant. Discourage chewing even on non-toxic plants:
+[ASPCA's general guidance](https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants)
+notes that any plant material may cause vomiting or gastrointestinal upset.
+Contact a veterinarian if a pet becomes unwell after ingestion.
+Sources reviewed October 23, 2026.

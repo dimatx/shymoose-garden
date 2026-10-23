@@ -17,9 +17,9 @@ care:
   spacing: "Allow 4–6 ft of width for a staked specimen; more if left to sprawl."
   propagation: "Usually grafted or grown from stem cuttings (the species can be grown from seed, but cultivars do not come true from seed)."
   pruning: "Needs little pruning. Stake the leader to the height you want, and remove dead or crossing branches in late winter while the tree is leafless."
-  petSafety: "Caution — pet-specific safety not established"
-  petSafetyNotes: "A nursery rates the species usually non-toxic to pets, but dog/cat-specific veterinary safety evidence was not verified."
-  petSafetyInfo: "Van den Berk Nurseries rates Metasequoia glyptostroboides 'usually not toxic' to people, pets and livestock. This is reassuring horticultural guidance, not a dog/cat toxicology assessment or a separate test of 'Miss Grace'. Published research on extracts and isolated compounds does not establish that garden foliage is safe for pets to eat. Prevent chewing and contact a veterinarian after significant ingestion or if symptoms occur."
+  petSafety: "Unknown"
+  petSafetyNotes: "Van den Berk rates the species usually non-toxic to pets, but dog/cat safety is unconfirmed."
+  petSafetyInfo: "The nursery's usually non-toxic rating is reassuring, but no dog/cat-specific veterinary assessment was verified."
 pruneMonths: [2, 3]
 tags:
   - "Specimen"
@@ -56,27 +56,8 @@ a small weeping tree rather than a sprawling mound. Sources: Oregon State
 Landscape Plants (cultivar), NC State Extension Plant Toolbox (species
 culture).
 
-## Pet safety: evidence and sources
+## Pet safety
 
-**Reassuring horticultural guidance; dog/cat safety is not established by
-the evidence verified here.** [Van den Berk Nurseries' species
-profile](https://www.vdberk.com/trees/metasequoia-glyptostroboides/)
-rates *Metasequoia glyptostroboides* "usually not toxic to people, (large)
-pets and livestock." That supports a qualified, reassuring assessment,
-but the page does not provide dog/cat-specific toxicology data or a
-separate assessment of 'Miss Grace'.
-
-A [peer-reviewed review of dawn-redwood
-phytochemistry](https://pmc.ncbi.nlm.nih.gov/articles/PMC4799292/)
-discusses bioactive extracts and isolated compounds, including the need
-for further safety and toxicity work for proposed applications. Such
-research is not evidence that a dog or cat can safely eat the plant.
-No species-specific veterinary poison-control assessment or dog/cat
-ingestion study was verified in this review. That evidence gap is not
-proof of toxicity, but neither can a missing poison-list entry prove safety.
-
-Discourage chewing and clear accessible prunings. [ASPCA's general plant
-guidance](https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants)
-notes that any plant material may cause vomiting or gastrointestinal
-upset. Contact a veterinarian after significant ingestion or if symptoms
-develop. Sources reviewed October 23, 2026.
+**Unknown for dogs and cats.** [Van den Berk Nurseries](https://www.vdberk.com/trees/metasequoia-glyptostroboides/)
+rates the species usually non-toxic to pets, but no dog/cat-specific
+veterinary assessment was verified.

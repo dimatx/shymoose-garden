@@ -17,9 +17,9 @@ care:
   spacing: "About 6 ft wide at 20 ft tall, so allow 5–6 ft of width."
   propagation: "Cultivars are grafted; the species is slow to root from cuttings or seed."
   pruning: "Little or none needed; its sturdy, tight branches shed snow well. Remove dead or damaged branches as needed."
-  petSafety: "Caution — pet-specific safety not established"
-  petSafetyNotes: "A nursery rates the species usually non-toxic to pets, but dog/cat-specific veterinary safety evidence was not verified."
-  petSafetyInfo: "Van den Berk Nurseries rates Sciadopitys verticillata 'usually not toxic' to people, pets and livestock. This is horticultural guidance, not a dog/cat toxicology assessment or a separate test of 'Joe Kozey'. Research on its resin's antibacterial activity does not establish pet ingestion safety. Do not confuse it with unrelated plants called umbrella tree. Prevent chewing and contact a veterinarian after significant ingestion or if symptoms occur."
+  petSafety: "Unknown"
+  petSafetyNotes: "Van den Berk rates the species usually non-toxic to pets, but dog/cat safety is unconfirmed."
+  petSafetyInfo: "The nursery's usually non-toxic rating is reassuring, but no dog/cat-specific veterinary assessment was verified."
 pruneMonths: []
 tags:
   - "Evergreen"
@@ -53,26 +53,8 @@ is not drought or pollution tolerant and does best in cool summers, with
 afternoon shade in very hot ones. Sources: Oregon State Landscape Plants and
 Iseli Nursery (cultivar), NC State Extension Plant Toolbox (species culture).
 
-## Pet safety: evidence and sources
+## Pet safety
 
-**Reassuring horticultural guidance; dog/cat safety is not established by
-the evidence verified here.** [Van den Berk Nurseries' species
-profile](https://www.vdberk.com/trees/sciadopitys-verticillata/) rates
-*Sciadopitys verticillata* "usually not toxic to people, (large) pets and
-livestock." This is a nursery assessment without dog/cat-specific
-toxicology data or a separate assessment of 'Joe Kozey'.
-
-The [peer-reviewed study of umbrella-pine resin](https://pmc.ncbi.nlm.nih.gov/articles/PMC6833092/)
-examines effects on bacteria, not ingestion by dogs or cats. Antibacterial
-activity cannot establish either pet safety or pet poisoning. No
-species-specific veterinary poison-control assessment or dog/cat ingestion
-study was verified in this review. An absent poison-list entry is not
-proof of safety; equally, the evidence gap alone does not establish toxicity.
-Check the scientific name: this is *Sciadopitys*, not an unrelated houseplant
-sold as an "umbrella tree"; common-name matches are not toxicity evidence.
-
-Discourage chewing and clear accessible prunings. [ASPCA's general plant
-guidance](https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants)
-notes that any plant material may cause vomiting or gastrointestinal
-upset. Contact a veterinarian after significant ingestion or if symptoms
-develop. Sources reviewed October 23, 2026.
+**Unknown for dogs and cats.** [Van den Berk Nurseries](https://www.vdberk.com/trees/sciadopitys-verticillata/)
+rates the species usually non-toxic to pets, but no dog/cat-specific
+veterinary assessment was verified.

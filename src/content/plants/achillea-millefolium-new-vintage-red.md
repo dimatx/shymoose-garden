@@ -6,7 +6,7 @@ nativeRange: "Species native to Europe, Asia and North America; this is a garden
 photo: "../../assets/plants/achillea-millefolium-new-vintage-red.jpg"
 photoAlt: "Flat-topped clusters of small crimson-magenta yarrow flowers above ferny green foliage — a representative red Achillea millefolium."
 photoCredit: "Krzysztof Ziarnek, Kenraiz, CC BY-SA 4.0, via Wikimedia Commons — a red Achillea millefolium ('Red Beauty'), representative of New Vintage Red."
-shortDescription: "A compact, well-behaved yarrow with flat heads of rich crimson-red flowers that hold their colour, blooming late spring through summer above aromatic ferny foliage — short enough that it never flops."
+shortDescription: "A compact yarrow with crimson-red flower clusters above aromatic, ferny foliage from late spring through summer."
 care:
   water: "Low. Drought tolerant once established; avoid wet, rich soil."
   soil: "Lean, average, well-drained soil. Tolerates poor, dry and salty ground."
@@ -31,7 +31,7 @@ tags:
   - "Drought tolerant"
   - "Cut flower"
   - "Small spaces"
-funFact: "Sold under the patent name 'Balvinred', New Vintage Red was bred for an unusually compact, sturdy habit — about half the height of common yarrow — so its flat crimson flower heads stay upright instead of flopping the way taller yarrows do."
+funFact: "Its compact, sturdy stems are less prone to flopping than those of taller yarrows."
 learnMoreUrl: "https://www.provenwinners.com/plants/achillea/new-vintage-red-yarrow-achillea-millefolium"
 shortUrl: "http://s.shymoose.com/CvXrP"
 dateAdded: 2026-06-24

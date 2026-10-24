@@ -30,7 +30,7 @@ tags:
   - "Deer resistant"
   - "Cut flower"
 featured: false
-funFact: "Missouri Botanical Garden lists 'Sheffield Pink' as a name for the same heirloom mum also sold as 'Hillside Sheffield Pink' and 'Single Apricot'."
+funFact: "This heirloom mum is also sold as 'Hillside Sheffield Pink' and 'Single Apricot'."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=f223"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/PKCXA"

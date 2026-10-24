@@ -30,7 +30,7 @@ tags:
   - "Shade garden"
   - "Low maintenance"
 featured: false
-funFact: "Japanese holly looks so much like Boxwood (Buxus) that it's widely used as a drop-in substitute — especially as Boxwood blight has become a growing concern. An easy way to tell them apart: Japanese Holly produces small, jet-black berries; Boxwood has none."
+funFact: "Japanese holly has alternate leaves; similar-looking boxwood has opposite leaves."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/ilex-crenata/"
 shortUrl: "http://s.shymoose.com/S9Y01"
 dateAdded: 2026-06-02

@@ -6,7 +6,7 @@ nativeRange: "Garden hybrid bred at the University of Nebraska (the parent speci
 photo: "../../assets/plants/bearded-tongue.jpg"
 photoAlt: "Tall spires of pale pink, tubular Penstemon 'Dark Towers' flowers on dark maroon stems."
 photoCredit: "Nadiatalent, CC BY-SA 4.0, via Wikimedia Commons"
-shortDescription: "A tall, tough beardtongue hybrid with dark burgundy stems and foliage, topped in early summer by loose spires of pale pink, tubular flowers that bees and hummingbirds visit constantly."
+shortDescription: "A tall beardtongue with dark burgundy foliage and pale pink tubular flowers in early summer."
 care:
   water: "Dry to medium; drought tolerant once established. Wet, poorly drained winter soil is its main enemy."
   soil: "Average to dry, well-drained soil; adapts to most textures and pH as long as drainage is good."
@@ -27,7 +27,7 @@ tags:
   - "Drought tolerant"
   - "Foliage interest"
 featured: false
-funFact: "'Dark Towers' was bred by Dr. Dale Lindgren at the University of Nebraska — the same breeding program behind 'Husker's Red' — as a cross of 'Husker's Red' with two other Penstemon species, selected for taller flower spires and darker, more persistent foliage colour through the heat of summer."
+funFact: "'Dark Towers' came from the same University of Nebraska breeding program as 'Husker's Red'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/penstemon/"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/uLfgH"

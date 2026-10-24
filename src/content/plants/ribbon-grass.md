@@ -6,7 +6,7 @@ nativeRange: "Temperate Europe, Asia and North America"
 photo: "../../assets/plants/ribbon-grass.jpg"
 photoAlt: "Upright blades of Ribbon Grass striped lengthwise in white and green, forming a dense variegated clump."
 photoCredit: "Salicyna, CC BY-SA 4.0, via Wikimedia Commons (labeled 'Feesey', a synonym of 'Picta')"
-shortDescription: "A bright, indestructible spreading grass whose upright blades are striped lengthwise in crisp white and green — a vigorous groundcover for sun or shade, damp ground or dry."
+shortDescription: "A vigorous, spreading grass with white-and-green striped leaves; contain it to prevent unwanted spread."
 care:
   water: "Adaptable. Thrives in everything from average garden soil to pond margins and shallow standing water, yet is very drought tolerant once established."
   soil: "Almost any soil, wet or dry, rich or poor."
@@ -28,7 +28,7 @@ tags:
   - "Deer resistant"
   - "Naturalizing"
   - "Easy to grow"
-funFact: "Ribbon grass is one of the oldest cultivated ornamental grasses, grown in gardens for centuries. Its old country name, *gardener's garters*, comes from the way the long striped blades look just like lengths of ribbon."
+funFact: "Its old name 'gardener's garters' refers to the ribbon-like striped leaves."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/phalaris-arundinacea-picta/"
 shortUrl: "http://s.shymoose.com/X99HS"
 dateAdded: 2026-06-24

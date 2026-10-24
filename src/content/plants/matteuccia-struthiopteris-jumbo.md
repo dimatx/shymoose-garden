@@ -17,9 +17,9 @@ care:
   pruning: "Remove old or damaged fronds in late winter or early spring before new fiddleheads unfurl."
   propagation: "Divide the spreading rhizomes in early spring."
   spacing: "3–5 ft apart, based on mature spread."
-  petSafety: "Caution — raw fiddleheads are hazardous"
-  petSafetyNotes: "Prevent pets from eating raw emerging fronds; human edibility after cooking does not establish pet safety."
-  petSafetyInfo: "Penn State Extension warns that uncooked ostrich-fern fiddleheads are toxic. CDC investigations documented vomiting and diarrhea in people who ate raw or undercooked fiddleheads, with the suspected toxin unidentified. Dog/cat toxicity and a safe dose are not established by those reports. Keep pets from grazing and contact a veterinarian after suspected ingestion."
+  petSafety: "Unknown"
+  petSafetyNotes: "Keep pets from eating fiddleheads."
+  petSafetyInfo: "Raw fiddleheads have caused illness in people; dog/cat safety is unconfirmed. Contact a veterinarian after ingestion."
 bloomMonths: []
 pruneMonths: [3, 4]
 tags:
@@ -53,9 +53,5 @@ fern can grow at the edge of a pond or in other wet places, but it is a poor
 choice for dry shade. Remove old fronds before new fiddleheads emerge in
 spring.
 
-**Pet precaution:** prevent grazing, particularly on raw emerging fiddleheads.
-[Penn State Extension](https://extension.psu.edu/native-plants-of-pa-ostrich-fern-matteuccia-struthiopteris)
-warns that uncooked fiddleheads are toxic, and the
-[CDC documented gastrointestinal illness](https://www.cdc.gov/mmwr/preview/mmwrhtml/00032588.htm)
-after people ate raw or lightly cooked ostrich fern. These are not
-dog/cat-specific studies and do not establish a safe amount for pets.
+Safety sources: [Penn State Extension](https://extension.psu.edu/native-plants-of-pa-ostrich-fern-matteuccia-struthiopteris),
+[CDC fiddlehead investigation](https://www.cdc.gov/mmwr/preview/mmwrhtml/00032588.htm).

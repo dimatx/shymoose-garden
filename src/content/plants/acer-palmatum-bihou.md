@@ -10,15 +10,15 @@ shortDescription: "The 'Golden Bark' Japanese maple: glowing yellow-orange winte
 care:
   water: "Even, moderate moisture; not drought tolerant. Mulch and water deeply in dry spells."
   soil: "Evenly moist, well-drained, organically rich soil."
-  sunlight: "Sun to part shade (per Iseli); afternoon shade and shelter from drying wind help prevent leaf scorch."
-  hardiness: "USDA zone 5 (Iseli Nursery)."
+  sunlight: "Sun to part shade; afternoon shade and shelter from drying wind help prevent leaf scorch."
+  hardiness: "USDA zone 5."
   size: "About 20 ft tall and 15 ft wide at maturity, growing roughly 12–15 in. per year; broad, upright habit."
   bloom: "Not grown for flowers; ornamental value is the bark, spring leaf color, and fall color."
   spacing: "About 15 ft wide at maturity, so allow 12–15 ft from other trees or structures."
   propagation: "Cultivars are normally grafted; seed-grown plants do not come true."
   pruning: "Prune lightly in late fall or winter while dormant to remove dead or crossing branches and to show off the colorful stems."
   petSafety: "Unknown"
-  petSafetyNotes: "Avoid chewing."
+  petSafetyNotes: "Keep pets from chewing."
   petSafetyInfo: "Gardeners' World reports no toxicity; Dogs Trust broadly cautions about maples, so dog/cat safety remains unconfirmed."
 pruneMonths: [11, 12, 1, 2]
 tags:
@@ -35,8 +35,7 @@ shortUrl: "https://s.shymoose.com/WS6rf"
 
 'Bihou', the Golden Bark Japanese maple, is an upright, broad-crowned
 selection of Acer palmatum grown for its bright yellow stems with an orange
-tinge. Iseli Nursery lists it at about 20 ft tall and 15 ft wide, hardy to
-zone 5.
+tinge. It grows about 20 ft tall and 15 ft wide.
 
 ## Through the seasons
 
@@ -47,10 +46,11 @@ leaves drop the bright branches are revealed for winter.
 ## Care tips
 
 Plant in dappled sun or part shade in evenly moist, well-drained soil,
-sheltered from drying winds. NC State Extension notes that Japanese maples
-have frost-tender young leaves, are not drought tolerant, and can scorch with
-too much sun, wind or drought. Sources: Iseli Nursery (cultivar), NC State
-Extension Plant Toolbox (species culture).
+sheltered from drying winds. Protect young leaves from frost, and water
+during dry spells to help prevent leaf scorch.
+
+Care sources: [Iseli Nursery](https://iselinursery.com/garden-maples/acer-palmatum-bihou/),
+[NC State Extension](https://plants.ces.ncsu.edu/plants/acer-palmatum/).
 
 Pet-safety sources: [Gardeners' World](https://www.gardenersworld.com/plants/acer-palmatum/),
 [Dogs Trust](https://www.vpisglobal.com/wp-content/uploads/2019/01/factsheetpoisonoussubstances091.pdf).

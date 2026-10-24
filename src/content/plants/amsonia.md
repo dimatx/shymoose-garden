@@ -16,7 +16,7 @@ care:
   bloom: "Soft periwinkle-blue, star-shaped flowers in late spring to early summer."
   spacing: "32–36 in apart."
   propagation: "Divide established clumps in spring or fall; named cultivars are best kept vegetative rather than grown from seed."
-  pruning: "If stems start to splay, shear back by about 6 in after flowering; otherwise leave the clump standing for fall color and cut it back in late winter or early spring. Wear gloves if pruning, since the milky sap can irritate skin."
+  pruning: "Trim splaying stems by 6 in after flowering. Otherwise cut back in late winter. Wear gloves; milky sap can irritate skin."
   petSafety: "Non-toxic"
 bloomMonths: [5, 6]
 pruneMonths: [3, 6]

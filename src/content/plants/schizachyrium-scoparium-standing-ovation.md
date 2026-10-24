@@ -9,7 +9,7 @@ photoCredit: "Becky Laboy / U.S. Fish and Wildlife Service, CC BY 4.0, via Wikim
 shortDescription: "A tough native prairie grass with blue-green summer foliage that turns fiery orange and maroon in fall, holding its fluffy silver seed heads through winter."
 care:
   water: "Excellent drought tolerance once established; needs regular water only during its first season."
-  soil: "Very adaptable — clay, sandy, or shallow rocky soils, tolerant of a wide pH range. Prefers average to dry, well-drained conditions; avoid rich soil or heavy fertilizing, which causes floppy growth."
+  soil: "Average to dry, well-drained soil, including clay, sand, or rocky ground. Rich soil and heavy feeding cause flopping."
   sunlight: "Full sun. Needed for the strongest, most upright habit and best fall color."
   hardiness: "USDA zones 3–9."
   size: "2–4 ft tall in flower, spreading 1.5–2 ft wide."
@@ -27,7 +27,7 @@ tags:
   - "Low maintenance"
 bloomMonths: [8, 9]
 pruneMonths: [2, 3]
-funFact: "'Standing Ovation' was bred for a sturdier, more upright habit than the wild species, which can flop open by late summer. Its seed heads feed birds through winter and its foliage is a larval host for several native skipper butterflies."
+funFact: "Little bluestem is a host plant for several native skipper butterflies."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/schizachyrium-scoparium/"
 shortUrl: "https://s.shymoose.com/Ky2Ti"
 dateAdded: 2026-08-22

@@ -6,7 +6,7 @@ nativeRange: "Japan, Korea, and China"
 photo: "../../assets/plants/acer-palmatum-tamukeyama.jpg"
 photoAlt: "Close-up of the deeply dissected, thread-like purple-red laceleaf foliage of Acer palmatum 'Tamukeyama' on slender red stems."
 photoCredit: "David J. Stang, CC BY-SA 4.0, via Wikimedia Commons"
-shortDescription: "A vigorous weeping laceleaf Japanese maple with deeply dissected crimson foliage that resists summer fade and cascades into a broad, graceful mound — one of the most heat-tolerant red cutleaf maples."
+shortDescription: "A heat-tolerant, weeping Japanese maple with finely cut crimson leaves and a broad, cascading form."
 care:
   water: "Regular; prefers consistently moist but well-drained soil. Avoid drought stress and waterlogging, which scorch the fine foliage."
   soil: "Rich, loamy, and well-drained with high organic matter; slightly acidic pH preferred. Mulch to retain moisture and keep the shallow roots cool."
@@ -15,7 +15,7 @@ care:
   size: "6–8 ft tall and 8–12 ft wide at maturity; slow-growing, broad weeping mound."
   bloom: "Small, inconspicuous reddish-purple flowers in spring, followed by ornamental winged samaras. Grown primarily for its foliage and form."
   spacing: "8–12 ft apart as a specimen, based on mature spread."
-  propagation: "Not applicable"
+  propagation: "Layer in autumn or graft onto Japanese maple rootstock in late winter."
   pruning: "Minimal pruning needed. Remove dead or crossing branches in late winter while dormant; avoid heavy or late-season cuts, which bleed."
   petSafety: "Non-toxic"
 bloomMonths: [4, 5]
@@ -26,7 +26,7 @@ tags:
   - "Specimen"
   - "Asian garden"
 featured: false
-funFact: "'Tamukeyama' is one of the oldest named laceleaf maples still grown — it dates to around 1710, when it appeared in the first published catalogue of Japanese maple cultivars. It is prized for holding its deep crimson-purple color through summer heat and humidity far better than most red cutleaf maples, which is why it thrives in the American South where others fade to bronze-green."
+funFact: "'Tamukeyama' has been cultivated since around 1710, making it one of the oldest named laceleaf maples still grown."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c564"
 shortUrl: "https://s.shymoose.com/G6lgH"
 dateAdded: 2026-07-18

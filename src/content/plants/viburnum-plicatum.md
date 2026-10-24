@@ -16,7 +16,7 @@ care:
   bloom: "Clusters of white flowers in spring; foliage turns purple to burgundy in fall."
   spacing: "8–10 ft apart as a specimen; allow more room (up to 15–18 ft) if it reaches its full mature spread."
   propagation: "Softwood cuttings in summer"
-  pruning: "Maintenance: prune right after flowering — it blooms on old wood, so wait until the spring show is over, then thin and shape. Renewal: rejuvenate an overgrown shrub gradually by removing up to a third of the oldest stems to the ground each year over three years."
+  pruning: "Shape just after flowering; it blooms on old wood. For renewal, remove up to one-third of the oldest stems at ground level each year."
   petSafety: "Non-toxic"
 bloomMonths: [4, 5]
 pruneMonths: [6, 7]
@@ -26,7 +26,7 @@ tags:
   - "Pollinator friendly"
   - "Drought tolerant"
 featured: true
-funFact: "The large, globe-shaped flowerheads are entirely sterile — they produce no seeds and no pollen. They exist purely as visual lures to draw pollinators toward the small fertile flowers hidden in the center, acting like a living advertisement."
+funFact: "The snowball-like flowerheads are made of sterile flowers, so this form does not produce berries."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/viburnum-plicatum/"
 shortUrl: "http://s.shymoose.com/IJxgv"
 dateAdded: 2026-06-01

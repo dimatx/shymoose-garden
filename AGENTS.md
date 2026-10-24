@@ -80,12 +80,22 @@ reference and reconcile:
 
 ### 4. Write the content file
 - Fill all frontmatter: `type`, `nativeRange`, `care.*`, `bloomMonths`,
-  `pruneMonths`, `tags` (reuse the existing vocabulary), `funFact`, and a longer
+  `pruneMonths`, `tags` (reuse the existing vocabulary), `funFact`, and a brief
   body below the `---`.
+- Write finished, practical garden advice, not research notes. Keep source
+  names, reconciliation commentary, patent numbers, and internal corrections
+  out of care cards; retain citations separately in the body. Propagation
+  fields describe the method and timing, not patent or licensing commentary.
+  Keep summaries to one identifying sentence and fun facts to one useful or
+  interesting fact; avoid marketing superlatives and repetitive background.
+  For unknown pet safety, use "Unknown" with a short precaution and put any useful
+  evidence summary in the info tooltip, without repeating it in the body.
+  Review the complete page copy for clarity, consistency, and repetition
+  before publishing.
 - Review `care.spacing` and `care.propagation` explicitly before publishing;
   schema-optional does not mean the research can be skipped. Include verified
-  methods, timing, and applicable propagation restrictions. For pet safety,
-  fill `care.petSafety`, `care.petSafetyNotes`, and `care.petSafetyInfo` with
+  methods and timing. For pet safety, fill `care.petSafety`,
+  `care.petSafetyNotes`, and `care.petSafetyInfo` with
   researched guidance and cite sources in the body. Absence from a poison
   database is not proof of safety: explicitly state when pet-specific safety
   is not established, with precautions and the limits of the evidence, rather

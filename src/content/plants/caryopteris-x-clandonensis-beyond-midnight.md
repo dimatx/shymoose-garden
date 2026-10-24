@@ -15,7 +15,7 @@ care:
   size: "About 2–3 ft tall and wide; compact and mounded."
   bloom: "Deep blue flower spikes on new wood from late summer into fall, when little else is blooming."
   spacing: "24–36 in apart."
-  propagation: "Not applicable"
+  propagation: "Take softwood cuttings in late spring or semi-ripe cuttings in summer."
   pruning: "Cut back hard in late winter to early spring, just above where new growth appears; it blooms on new wood."
   petSafety: "Non-toxic"
 bloomMonths: [8, 9, 10]
@@ -43,4 +43,8 @@ Give it full sun and loose, well-drained soil. Once established it is drought to
 
 ## Care tips
 
-Flowers form on new wood, so cut the plant back hard in late winter to early spring, leaving a few inches of stem. In colder zones the stems may die back to the ground over winter, which is normal. Avoid wet soil and heavy fertilizer. Cultivar size and hardiness follow Proven Winners, with genus culture from NC State Extension.
+Flowers form on new wood, so cut back in late winter or early spring,
+just above emerging growth. Stems may die back over winter in colder
+zones. Avoid wet soil and heavy fertilizer.
+
+Propagation reference: [RHS](https://www.rhs.org.uk/plants/caryopteris/growing-guide).

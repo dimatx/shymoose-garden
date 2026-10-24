@@ -30,7 +30,7 @@ tags:
   - "Winter interest"
   - "Toxic"
 featured: false
-funFact: "Lenten rose gets its common name from its habit of blooming during the Christian season of Lent, in late winter to early spring — often pushing up flowers through the last of the snow, making it one of the earliest signs of the coming garden season."
+funFact: "Lenten rose is named for its late-winter flowering season, which often overlaps with Lent."
 learnMoreUrl: "https://www.chicagobotanic.org/plant-information/plant-finder/helleborus-spanish-flare-spanish-flare-lenten-rose"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/wTGqd"

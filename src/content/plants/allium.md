@@ -29,7 +29,7 @@ tags:
   - "Deer resistant"
   - "Cut flowers"
 featured: false
-funFact: "'Big Beauty' produces some of the largest flower globes of any garden allium — up to 6 inches across — on sturdy stems bred to resist the flopping that affects many giant ornamental onions."
+funFact: "'Big Beauty' produces flower globes up to 6 inches across."
 learnMoreUrl: "https://www.midwestgroundcovers.com/allium-x-big-beauty-11-1-24183.1g"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/Vt3a7"

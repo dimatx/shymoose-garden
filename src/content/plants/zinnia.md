@@ -6,7 +6,7 @@ nativeRange: "Mexico"
 photo: "../../assets/plants/zinnia.jpg"
 photoAlt: "A large fully double purple zinnia flower with a bright yellow center, surrounded by bright green leaves."
 photoCredit: "Shuvaev, CC BY 4.0, via Wikimedia Commons"
-shortDescription: "A towering cottage-garden annual with large, fully double lilac blooms on long stems all summer — a butterfly magnet and one of the finest fresh-cut flowers in the garden."
+shortDescription: "A tall annual with large, double lilac flowers on long stems for summer borders and bouquets."
 care:
   water: "Low to moderate; drought tolerant once established. Water at the base to keep foliage dry and reduce powdery mildew risk."
   soil: "Loamy or organically rich, well-drained soil. Adaptable to a wide pH range."
@@ -24,7 +24,7 @@ tags:
   - "Butterfly friendly"
   - "Pollinator friendly"
   - "Deer resistant"
-funFact: "Zinnias were first formally described for science by Johann Gottfried Zinn (1727–1759), and the genus was named in his honour — making him one of the few scientists commemorated in a plant they personally studied. Spanish explorers who first encountered wild Mexican zinnias reportedly called them 'mal de ojos' (eyesores) because the untamed plants were scraggly and dull — it took European breeders nearly two centuries to produce the big, vibrant blooms we know today."
+funFact: "Zinnias are named for the 18th-century botanist Johann Gottfried Zinn."
 learnMoreUrl: "https://www.johnnyseeds.com/flowers/zinnias/benarys-giant-series/benarys-giant-purple-zinnia-seed-1369.html"
 shortUrl: "http://s.shymoose.com/SiqEG"
 dateAdded: 2026-06-04

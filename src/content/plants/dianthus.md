@@ -31,7 +31,7 @@ tags:
   - "Deer resistant"
   - "Rock garden"
   - "Drought tolerant"
-funFact: "The common name 'pinks' has nothing to do with the colour. It refers to the petals' frilly, *pinked* edges — as if trimmed with pinking shears. The verb came first; the colour pink was later named after the flower, not the other way around."
+funFact: "The name 'pinks' refers to the petals' fringed edges, as if cut with pinking shears."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/dianthus/"
 shortUrl: "http://s.shymoose.com/i0oUX"
 dateAdded: 2026-06-24

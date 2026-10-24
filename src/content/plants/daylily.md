@@ -28,7 +28,7 @@ tags:
   - "Fragrant"
   - "Naturalizing"
 featured: false
-funFact: "The genus name Hemerocallis comes from the Greek hemera ('day') and kallos ('beauty') — a nod to the fact that each gorgeous flower opens for just one day. Carl Linnaeus formally named this species in 1753, and it was one of the very first daylilies grown in European gardens. In China its young flower buds are eaten as a traditional vegetable known as 'golden needles' (黄花菜)."
+funFact: "*Hemerocallis* means 'beauty for a day': each flower lasts just one day, but successive buds extend the show."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/plantfinder/PlantFinderDetails.aspx?taxonid=281955"
 shortUrl: "http://s.shymoose.com/tJqve"
 dateAdded: 2026-06-10

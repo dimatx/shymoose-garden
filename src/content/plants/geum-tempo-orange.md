@@ -25,7 +25,7 @@ tags:
   - "Deer resistant"
   - "Low maintenance"
 featured: false
-funFact: "'Orange' is the smallest member of Terra Nova's TEMPO™ avens series, staying under 15 in. tall — a scale bred deliberately so it holds its ruffled double blooms upright without flopping, unlike many older geum varieties."
+funFact: "'Orange' is the smallest member of the TEMPO™ avens series."
 learnMoreUrl: "https://www.terranovanurseries.com/product/geum-tempo-orange/"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/AuNO4"

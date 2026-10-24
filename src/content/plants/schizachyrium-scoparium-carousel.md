@@ -29,7 +29,7 @@ tags:
   - "Winter interest"
   - "Foliage interest"
 featured: false
-funFact: "'Carousel' is a compact selection of little bluestem, a grass native to nearly every North American prairie, bred to stay more upright and tidy than the wild species while keeping its signature blue-green summer color and fiery copper fall display."
+funFact: "Its copper-orange fall foliage and silvery seedheads remain attractive through winter."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=358530&isprofile=0&gen=Schizachyrium"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/YaPMN"

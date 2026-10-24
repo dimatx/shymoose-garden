@@ -6,7 +6,7 @@ nativeRange: "Garden hybrid (the genus is native to North America)"
 photo: "../../assets/plants/heuchera-primo-black-pearl.jpg"
 photoAlt: "Dense mound of glossy, ruffled jet-black Heuchera leaves with rosy-purple undersides."
 photoCredit: "Courtesy of Proven Winners — provenwinners.com"
-shortDescription: "An award-winning coral bells with a dense mound of glossy, ruffled jet-black leaves and airy sprays of white flowers — happy in sun or shade and a 2018 Perennial of the Year."
+shortDescription: "A coral bells with glossy, ruffled, near-black leaves and airy sprays of white flowers."
 care:
   water: "Average; water when the top inch or two of soil dries. Needs good drainage and dislikes sitting wet, especially over winter."
   soil: "Humus-rich, well-drained soil of average fertility amended with organic matter (leaf compost or pine-bark fines); slightly acidic to neutral pH. Dislikes heavy clay. Salt tolerant."
@@ -16,7 +16,7 @@ care:
   bloom: "Slender wands of small white flowers with pink calyxes rise above the foliage in midsummer, drawing bees, butterflies, and hummingbirds."
   spacing: "18–20 in apart, based on mature spread."
   propagation: "Divide in spring"
-  pruning: "Maintenance: easy. Trim away tattered or winter-burned leaves in early spring as fresh growth begins; remove spent flower scapes to tidy the clump. Divide every few years to keep it vigorous."
+  pruning: "Remove damaged leaves in early spring and spent flower stems after blooming."
   petSafety: "Non-toxic"
 bloomMonths: [7]
 pruneMonths: [3]
@@ -28,7 +28,7 @@ tags:
   - "Salt tolerant"
   - "Deer resistant"
 featured: false
-funFact: "Named the 2018 Perennial of the Year by the National Garden Bureau. Its leaves are among the closest to true black in any hardy perennial — a color that comes from dense anthocyanin pigments, the same compounds that make blueberries and red cabbage their deep hues."
+funFact: "Dense anthocyanin pigments give its leaves their near-black color."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/primo-black-pearl-coral-bells-heuchera-hybrid"
 shortUrl: "http://s.shymoose.com/DxfK2"
 dateAdded: 2026-06-22

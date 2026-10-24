@@ -6,7 +6,7 @@ nativeRange: "Garden hybrid bred by Terra Nova Nurseries"
 photo: "../../assets/plants/geum-tempo-yellow.jpg"
 photoAlt: "A mounding clump of Geum TEMPO Yellow with semi-double yellow flowers on dark wiry stems."
 photoCredit: "Courtesy of Terra Nova Nurseries — terranovanurseries.com"
-shortDescription: "A compact, mounding avens with semi-double yellow flowers held on dark, wiry stems above a tidy clump of green foliage in early spring — bred to stay tidy rather than flop."
+shortDescription: "A compact avens with semi-double yellow spring flowers on dark, wiry stems above a mound of green foliage."
 care:
   water: "Average water; prefers moist, well-drained soil. Let the soil dry moderately between waterings."
   soil: "Moist, loamy, well-drained soil."
@@ -25,7 +25,7 @@ tags:
   - "Deer resistant"
   - "Low maintenance"
 featured: false
-funFact: "TEMPO™ is a Terra Nova Nurseries series bred specifically to fix the biggest complaint about older geums — a floppy, sprawling habit — into a neat, clump-forming mound that stays put. The near-black flower stems make the semi-double yellow blooms of 'Yellow' pop even more."
+funFact: "Its near-black flower stems provide a strong contrast to the yellow blooms."
 learnMoreUrl: "https://www.terranovanurseries.com/product/geum-tempo-yellow/"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/d4urh"

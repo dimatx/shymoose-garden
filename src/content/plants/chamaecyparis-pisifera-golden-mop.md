@@ -16,7 +16,7 @@ care:
   bloom: "No true flowers; bright golden, thread-like evergreen foliage year-round, with reddish-brown exfoliating bark."
   spacing: "3–5 ft apart, based on mature spread."
   propagation: "Semi-hardwood cuttings"
-  pruning: "Maintenance: seldom needed — trim lightly in spring to tidy the mound, staying within foliage-bearing growth. Renewal: not possible — like other false cypress it won't resprout from bare old wood, so avoid cutting into leafless branches."
+  pruning: "Trim lightly in spring only if needed. Stay within green growth; bare old wood will not resprout."
   petSafety: "Non-toxic"
 pruneMonths: [4, 5]
 tags:
@@ -25,7 +25,7 @@ tags:
   - "Drought tolerant"
   - "Slow growing"
   - "Year-round interest"
-funFact: "Despite the name, it's not a true cypress. True cypresses (genus Cupressus) are native to the Mediterranean; 'False Cypress' (Chamaecyparis) is a separate genus native to Japan and eastern North America. The mix-up dates to early Western botanical exploration of Japan in the 1800s."
+funFact: "False cypress belongs to *Chamaecyparis*, a different genus from true cypresses."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/chamaecyparis-pisifera-golden-mop/"
 shortUrl: "http://s.shymoose.com/c6fxB"
 dateAdded: 2026-06-01

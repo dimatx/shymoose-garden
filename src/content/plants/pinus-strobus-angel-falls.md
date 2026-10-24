@@ -16,7 +16,7 @@ care:
   bloom: "Grown for its cascading blue-green needles and weeping habit, not flowers; non-flowering conifer."
   spacing: "4–6 ft apart, based on mature spread (varies with how the weeping leader is trained)."
   propagation: "Cuttings"
-  pruning: "Low maintenance. Only trim back the current season's new growth (candles) if size control is wanted; remove dieback as needed. Stake and train the leader while young to establish height."
+  pruning: "Trim new candles only for size control and remove dieback. Stake the young leader to establish height."
   petSafety: "Non-toxic"
 bloomMonths: []
 pruneMonths: [6]

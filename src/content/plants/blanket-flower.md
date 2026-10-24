@@ -6,7 +6,7 @@ nativeRange: "Garden hybrid of species native to central and southern North Amer
 photo: "../../assets/plants/blanket-flower.jpg"
 photoAlt: "Red-and-yellow bicolor daisy flowers with dark centers on a low, compact mound of foliage."
 photoCredit: "David J. Stang, CC BY-SA 4.0, via Wikimedia Commons"
-shortDescription: "A compact, drought-tough blanket flower with fiery red-and-yellow bicolor daisies that bloom non-stop from early summer to fall, standing up to heat and poor soil with ease."
+shortDescription: "A compact, heat- and drought-tolerant perennial with red-and-yellow daisies from early summer into fall."
 care:
   water: "Low water needs; drought-tolerant once established. Avoid overwatering."
   soil: "Average, well-drained soil; does well in sandy or rocky ground. Avoid heavy, poorly drained clay."
@@ -29,7 +29,7 @@ tags:
   - "Compact"
   - "Bicolor blooms"
 featured: false
-funFact: "'Goblin' has held the RHS Award of Garden Merit for decades — a rare distinction for a blanket flower cultivar, earned for its reliably compact habit and season-long bicolor blooms."
+funFact: "'Goblin' holds the Royal Horticultural Society's Award of Garden Merit."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/gaillardia-x-grandiflora/"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/G2Cir"

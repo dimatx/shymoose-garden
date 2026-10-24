@@ -16,7 +16,7 @@ care:
   bloom: "A needled evergreen with yellowish-green foliage that bronzes in winter; small light-brown cones."
   spacing: "2–4 ft apart for a hedge; wider (5–6 ft) for individual specimens."
   propagation: "Semi-hardwood cuttings"
-  pruning: "Maintenance: shear lightly in spring or early summer to shape a hedge, cutting only into green growth. Renewal: not possible — arborvitae won't resprout from bare old wood, so never cut back into leafless brown branches."
+  pruning: "Shape lightly in spring or early summer. Cut only into green growth; bare brown branches will not resprout."
   petSafety: "Mildly toxic"
   petSafetyNotes: "Foliage, twigs/bark, sap, essential oil are toxic"
   petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, weakness; tremors in more serious cases. Toxic compound: thujone and essential-oil monoterpenes"
@@ -28,7 +28,7 @@ tags:
   - "Low maintenance"
   - "Specimen"
   - "Native"
-funFact: "'Arborvitae' is Latin for 'tree of life.' The name was earned in the 1530s when French explorer Jacques Cartier reportedly saved his scurvy-stricken crew by brewing tea from the foliage — a remedy that works because the needles are rich in vitamin C."
+funFact: "'Arborvitae' is Latin for 'tree of life'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/thuja-occidentalis/"
 shortUrl: "http://s.shymoose.com/jyA7T"
 dateAdded: 2026-06-01

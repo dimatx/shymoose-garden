@@ -25,7 +25,7 @@ tags:
   - "Pollinator friendly"
   - "Deer resistant"
   - "Rock garden"
-funFact: "The cultivar name 'Mrs. Bradshaw' was given around 1900 and honours a real woman — a contemporary of the English nurseryman who introduced it. Over 125 years later it remains one of the most widely sold named geums in the world, remarkable staying power in a hobby driven by novelty."
+funFact: "'Mrs. Bradshaw' has been grown in gardens since around 1900."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/geum/"
 shortUrl: "http://s.shymoose.com/A69E5"
 dateAdded: 2026-06-04

@@ -15,11 +15,11 @@ care:
   size: "3–5 ft tall and 1–1.5 ft wide."
   bloom: "Pink-purple plumes appear in early to midsummer, then fade to tan and persist into winter."
   pruning: "Cut back old stems to a few inches above the ground in late winter or early spring before new growth begins."
-  propagation: "Divide clumps in spring; this sterile cultivar does not come true from seed."
+  propagation: "Divide clumps in spring; this cultivar is sterile."
   spacing: "12–18 in. apart, based on mature spread."
   petSafety: "Non-toxic"
-  petSafetyNotes: "Sharp points can scratch or irritate pets; discourage chewing."
-  petSafetyInfo: "ASPCA Poison Control identifies Karl Foerster feather reed grass as non-toxic to pets, but warns that sharp points can cause mechanical irritation. Eating even non-toxic plants may cause mild gastrointestinal upset. Contact a veterinarian if irritation or other symptoms persist."
+  petSafetyNotes: "Sharp points can scratch or irritate."
+  petSafetyInfo: "Chewing can cause mouth irritation or stomach upset. Contact a veterinarian if symptoms persist."
 bloomMonths: [6, 7]
 pruneMonths: [3, 4]
 tags:
@@ -53,9 +53,5 @@ handles both moist conditions and some drought once established. In late
 winter or early spring, cut back the previous year's stems before new growth
 starts.
 
-For pet safety, [ASPCA Poison Control](https://www.aspcapro.org/resource/hazardous-or-harmless-discover-which-fall-plants-are-toxic-pets)
-specifically identifies 'Karl Foerster' as non-toxic, while warning that its
-sharp points can cause mechanical irritation. It is an ornamental, not pet food.
-
-Planting distance is based on the mature width in
-[NC State Extension's cultivar profile](https://plants.ces.ncsu.edu/plants/calamagrostis-x-acutiflora-karl-foerster/).
+Sources: [NC State Extension](https://plants.ces.ncsu.edu/plants/calamagrostis-x-acutiflora-karl-foerster/),
+[ASPCA Poison Control](https://www.aspcapro.org/resource/hazardous-or-harmless-discover-which-fall-plants-are-toxic-pets).

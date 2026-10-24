@@ -6,7 +6,7 @@ nativeRange: "South-central and southeastern China"
 photo: "../../assets/plants/hibiscus-syriacus-notwoodthree.jpg"
 photoAlt: "Close-up of lavender-blue double Blue Chiffon rose of Sharon flowers and buds."
 photoCredit: "F. D. Richards, CC BY-SA 2.0, via Flickr"
-shortDescription: "A deciduous shrub with large, tropical-looking blue blooms — sold as Blue Chiffon® — that flower from spring into summer."
+shortDescription: "A deciduous shrub with large blue flowers and ruffled centers from summer into fall, sold as Blue Chiffon®."
 care:
   water: "Best in moist, well-drained soil; tolerates everything but extreme wet or dry. Drought tolerant once established."
   soil: "Adaptable to a wide range of pH with good drainage. Moderately salt tolerant."
@@ -16,7 +16,7 @@ care:
   bloom: "Large single blue blooms with a lacy center, 2–4 in. across, from spring into summer; modest yellow fall foliage."
   spacing: "6–10 ft apart as a specimen, based on mature spread (3–5 ft for a hedge)."
   propagation: "Softwood cuttings in late spring"
-  pruning: "Maintenance: prune while dormant in late winter to early spring, before bud break — it flowers on new wood, so cutting back hard yields larger blooms; remove suckers and crossing stems. Renewal: an old, overgrown shrub can be rejuvenated by cutting it nearly to the ground in early spring."
+  pruning: "Prune in late winter or early spring; it flowers on new wood. Remove suckers and crossing stems; overgrown plants tolerate hard renewal pruning."
   petSafety: "Non-toxic"
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3, 4]
@@ -27,7 +27,7 @@ tags:
   - "Pollinator friendly"
   - "Heat tolerant"
   - "Drought tolerant"
-funFact: "Hibiscus syriacus is the national flower of South Korea, where it is called Mugunghwa (무궁화), meaning 'eternal flower.' It appears on the Korean national emblem, the presidential seal, and in the national anthem — one of the most symbolically loaded plants in any country's culture."
+funFact: "*Hibiscus syriacus* is the national flower of South Korea, where it is called Mugunghwa."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hibiscus-syriacus/"
 shortUrl: "http://s.shymoose.com/IhFSw"
 dateAdded: 2026-06-01

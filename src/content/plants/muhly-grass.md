@@ -12,7 +12,7 @@ care:
   soil: "Sandy, rocky, or otherwise sharply drained soil is ideal; tolerates poor soil but dislikes winter-wet ground."
   sunlight: "Full sun for the best plume show; light part sun is acceptable."
   hardiness: "USDA zones 5–9."
-  size: "Roughly 1.5–2.5 ft tall and 2–4 ft wide, depending on site and source."
+  size: "Roughly 1.5–2.5 ft tall and 2–4 ft wide."
   bloom: "Airy pink to ruby-pink plumes from late summer through fall, aging tawny for winter."
   spacing: "24–48 in apart, based on mature spread and how quickly you want clumps to knit together."
   propagation: "Divide clumps in spring."

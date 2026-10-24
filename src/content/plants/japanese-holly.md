@@ -16,7 +16,7 @@ care:
   bloom: "Tiny white spring flowers are easy to miss; female plants can set small black berries if a male pollinator is nearby."
   spacing: "2–4 ft apart, depending on how quickly you want plants to knit into a low hedge."
   propagation: "Semi-hardwood cuttings; named cultivars are kept true by vegetative propagation."
-  pruning: "Very low maintenance. Usually needs little to no pruning; shape in late winter to early spring, or give a light post-bloom trim if you want a crisper outline. Deer resistance is low, so protect young plants where deer browse."
+  pruning: "Usually unnecessary. Shape lightly in late winter to early spring, or after flowering."
   petSafety: "Mildly toxic"
   petSafetyNotes: "Berries and leaves are the main toxic parts"
   petSafetyInfo: "Symptoms: vomiting, diarrhea, depression, lethargy. Toxic compound: saponins"

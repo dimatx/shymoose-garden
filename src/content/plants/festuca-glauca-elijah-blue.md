@@ -28,7 +28,7 @@ tags:
   - "Foliage interest"
   - "Low maintenance"
 featured: false
-funFact: "The silvery-blue color of 'Elijah Blue' comes from a waxy coating on the needle-fine leaves that also helps the plant conserve moisture — one reason this compact grass shrugs off heat and drought so easily."
+funFact: "A waxy coating gives the leaves their silvery-blue color and helps conserve moisture."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=c760"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/Bqi3F"

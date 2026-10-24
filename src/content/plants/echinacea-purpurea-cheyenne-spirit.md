@@ -27,7 +27,7 @@ tags:
   - "Cut flower"
   - "Long blooming"
 featured: false
-funFact: "'Cheyenne Spirit' won the 2013 All-America Selections award because it flowers in its first year from seed — unusually fast for a coneflower — while still offering a whole painter's palette of bloom colors."
+funFact: "'Cheyenne Spirit' won an All-America Selections award in 2013."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/echinacea-purpurea-cheyenne-spirit/"
 dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/rQQzn"

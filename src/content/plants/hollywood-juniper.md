@@ -16,7 +16,7 @@ care:
   bloom: "Non-flowering conifer. Tiny, berry-like blue-green seed cones appear on female plants and mature to violet-brown over two years."
   spacing: "8–12 ft apart if planting more than one; more often used as a single specimen."
   propagation: "Semi-hardwood cuttings in summer or fall; named cultivars don't come true from seed."
-  pruning: "Little pruning is needed — the irregular, twisted form develops on its own. Prune only to remove dead wood or to control size; heavy shearing flattens the sculptural silhouette that makes this plant distinctive."
+  pruning: "Remove dead wood or trim lightly for size. Avoid shearing; the irregular form develops naturally."
   petSafety: "Mildly toxic"
   petSafetyInfo: "Symptoms: vomiting, diarrhea, abdominal pain, drooling, lethargy; tremors or an elevated heart rate in more serious cases. Toxic compound: terpenes and volatile essential oils, concentrated most heavily in the berries."
 bloomMonths: []
@@ -30,7 +30,7 @@ tags:
   - "Specimen"
   - "Salt tolerant"
 featured: false
-funFact: "Its irregular, twisted form became famous in mid-century Los Angeles landscaping — hence the name — but Missouri Botanical Garden notes the cultivar name 'Torulosa' was actually a mistaken relabeling of the true Japanese cultivar 'Kaizuka'; both names are still used interchangeably in the nursery trade today."
+funFact: "Hollywood juniper is also sold under the cultivar name 'Kaizuka'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/juniperus-chinensis-torulosa/"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/9jNC0"

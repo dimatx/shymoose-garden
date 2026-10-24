@@ -9,14 +9,14 @@ photoCredit: "MarkusHagenlocher, CC BY-SA 3.0, via Wikimedia Commons"
 shortDescription: "Aromatic annual herb with feathery blue-green foliage and flat-topped golden-yellow umbels, essential in the kitchen and beloved by pollinators and black swallowtail butterflies."
 care:
   water: "Average; keep soil consistently moist, especially early in the season — consistent moisture prevents premature bolting. Tolerates short periods of drought once established."
-  soil: "Well-drained, fertile; prefers slightly acidic to neutral pH (6.0–8.0). Sandy loam or loamy soils work best. Direct-sow seeds ¼ inch deep — dill's long taproot makes transplanting very difficult."
+  soil: "Fertile, well-drained loam; pH 6.0–8.0."
   sunlight: "Full sun (6 or more hours of direct sunlight per day). Protect from strong winds, which can knock over tall, hollow stems."
   hardiness: "Zones 2–11"
   size: "2–5 ft tall, 2–3 ft wide"
   bloom: "Fragrant golden-yellow umbels up to 10 in across appear in midsummer. Flowers attract bees, hoverflies, butterflies, and parasitic wasps."
   spacing: "9–12 in apart."
-  propagation: "Readily grown from seed"
-  pruning: "Pinch off flower buds as they appear to extend leaf harvest and delay bolting. Snip the top 2–3 in of the main stem to encourage side branching. Never remove more than one-third of the plant at once."
+  propagation: "Direct-sow seeds ¼ in deep in spring; its taproot makes transplanting difficult."
+  pruning: "Pinch flower buds to extend leaf harvest. Snip tips for branching, taking no more than one-third at once."
   petSafety: "Non-toxic"
 bloomMonths: [7, 8]
 pruneMonths: []
@@ -25,7 +25,7 @@ tags:
   - "Edible"
   - "Pollinator friendly"
 featured: false
-funFact: "The genus name *Anethum* is derived from the Greek meaning 'to calm or soothe,' reflecting its ancient use as a digestive remedy. Dill seeds have been found in the tomb of Amenhotep II (circa 1400 BCE), and it was listed in the Ebers Papyrus as a medicinal herb — making it one of humanity's oldest recorded cultivated plants. In medieval Europe it was believed to ward off witches and was used in love potions."
+funFact: "Dill is a host plant for black swallowtail caterpillars, which feed on its feathery leaves."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/anethum-graveolens/"
 shortUrl: "http://s.shymoose.com/ZmTEW"
 dateAdded: 2026-06-09

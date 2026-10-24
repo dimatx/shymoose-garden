@@ -6,7 +6,7 @@ nativeRange: "South China and South Korea"
 photo: "../../assets/plants/greenstem-forsythia.jpg"
 photoAlt: "A dense arching Forsythia viridissima shrub in full bloom, smothered in bright yellow flowers on bare stems in early spring."
 photoCredit: "Fanghong, CC BY-SA 3.0, via Wikimedia Commons"
-shortDescription: "One of the first shrubs to bloom each spring, smothering bare arching stems with bright yellow trumpet-shaped flowers before the leaves emerge — a bold, reliable herald of the new season."
+shortDescription: "An early-spring shrub with bright yellow flowers along bare, arching stems before the leaves emerge."
 care:
   water: "Low to moderate; drought tolerant once established. Water regularly the first season while roots settle in."
   soil: "Adaptable to clay, loam, or sandy soils; tolerates poor and compacted sites; pH 6.0–8.5."
@@ -16,7 +16,7 @@ care:
   bloom: "Bright yellow 4-lobed trumpet flowers appear in early spring (February–April) before foliage. Stems can be cut and forced indoors in late winter."
   spacing: "6–10 ft apart as a specimen, based on mature spread (3–5 ft for a dense hedge)."
   propagation: "Root stem cuttings"
-  pruning: "Prune immediately after flowering (April–May) to shape the shrub and promote vigorous new growth for next year's blooms. Do not prune in late summer or fall — this removes next year's flower buds."
+  pruning: "Shape immediately after flowering. Summer or fall pruning removes next spring's flower buds."
   petSafety: "Non-toxic"
 bloomMonths: [2, 3, 4]
 pruneMonths: [4, 5]
@@ -25,7 +25,7 @@ tags:
   - "Deer resistant"
   - "Drought tolerant"
   - "Cut flower"
-funFact: "Forsythia was named posthumously after William Forsyth (1737–1804), a Scottish botanist who never visited Asia — the genus honored him decades after his death, when plant hunters first brought specimens back from China and Japan. Cut stems brought indoors in late winter will burst into golden bloom within days in a warm vase, one of the earliest and most reliable signs of the coming spring."
+funFact: "Branches cut in late winter can be brought indoors and forced into bloom in a vase."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/forsythia-viridissima/"
 shortUrl: "http://s.shymoose.com/tOoE7"
 dateAdded: 2026-06-04

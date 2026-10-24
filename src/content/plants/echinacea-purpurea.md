@@ -16,7 +16,7 @@ care:
   bloom: "Pinkish-purple ray petals surround a dark purplish-brown cone from early summer through mid-fall."
   spacing: "18–24 in apart."
   propagation: "Readily grown from seed and will reseed itself in the garden; can also be divided in spring."
-  pruning: "Deadhead to prolong bloom, or leave spent flower heads standing through fall for the seeds — goldfinches and other birds feed on them. Cut the dead stems back to 12–24 in in late winter, and leave the cut pieces nearby a while longer; native bees nest in the hollow stems."
+  pruning: "Deadhead for more bloom or leave seedheads for birds. In late winter cut stems to 12–24 in for nesting bees."
   petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8, 9, 10]
 pruneMonths: [3]

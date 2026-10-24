@@ -6,7 +6,7 @@ nativeRange: "Eastern Asia — Japan, Korea, and China"
 photo: "../../assets/plants/spiraea-japonica.jpg"
 photoAlt: "Flat-topped cluster of small rosy-pink Spiraea japonica flowers in summer."
 photoCredit: "Jean-Pol GRANDMONT, CC BY-SA 3.0, via Wikimedia Commons"
-shortDescription: "A tough, compact deciduous shrub smothered in flat-topped clusters of rosy-pink flowers through summer, beloved by butterflies and easy to grow almost anywhere."
+shortDescription: "A compact deciduous shrub with rosy-pink summer flower clusters; invasive in parts of the United States."
 care:
   water: "Average moisture; water during dry spells, but established plants tolerate short droughts well."
   soil: "Adaptable to most soils as long as they drain reasonably; tolerates clay and a wide pH range."
@@ -28,7 +28,7 @@ tags:
   - "Low maintenance"
   - "Compact shrub"
 featured: false
-funFact: "Despite being widely planted for its long bloom season, Japanese spiraea is listed as invasive in many U.S. states. It spreads readily from gardens into natural areas and can crowd out native wildflowers along stream banks and forest edges."
+funFact: "Escaped seedlings can crowd out native wildflowers along streams and woodland edges."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/spiraea-japonica-goldmound/"
 shortUrl: "http://s.shymoose.com/uk12i"
 dateAdded: 2026-06-02

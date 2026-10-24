@@ -27,7 +27,7 @@ tags:
   - "Drought tolerant"
   - "Fragrant foliage"
 featured: false
-funFact: "'Kudos Mandarin' is one of the compact Kudos® series from Terra Nova Nurseries, bred to give this notoriously floppy, short-lived genus a tidy, long-blooming, more winter-hardy form — a big improvement in a plant whose aromatic foliage has long been used to attract hummingbirds and bees but whose older varieties rarely returned reliably each year."
+funFact: "Its tubular orange flowers attract hummingbirds, while crushed leaves release a mint-and-licorice scent."
 learnMoreUrl: "https://www.terranovanurseries.com/product/agastache-kudos-mandarin/"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/vGga0"

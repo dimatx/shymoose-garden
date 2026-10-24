@@ -29,7 +29,7 @@ tags:
   - "Deer resistant"
   - "Compact"
 featured: false
-funFact: "Sombrero® coneflowers were bred by Walters Gardens specifically for extra cold hardiness and heavier branching than older coneflower varieties — meaning more flowers per plant and a sturdier, less floppy habit."
+funFact: "Heavy branching gives Sombrero® coneflowers many flowering stems on a compact plant."
 learnMoreUrl: "https://www.provenwinners.com/plants/echinacea/sombrero-adobe-orange-coneflower-echinacea-hybrid"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/giVQL"

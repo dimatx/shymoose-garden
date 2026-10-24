@@ -13,10 +13,10 @@ care:
   sunlight: "Full sun to part shade. Best red stem color develops with more direct sun."
   hardiness: "USDA zones 3–7."
   size: "3–5 ft tall and wide — a compact selection of a species that can otherwise reach 6–9 ft."
-  bloom: "Flat clusters of small, fragrant white flowers in late spring, followed by white (sometimes blue-tinged) berries in summer. The real show is the bright red stems, most vivid in winter."
+  bloom: "Flat white flower clusters in late spring, followed by white to blue-tinged berries in summer."
   spacing: "3–4 ft apart for a hedge or mass planting."
   propagation: "Roots easily from softwood cuttings taken in summer."
-  pruning: "Prune out about 20–25% of the oldest stems down to the ground each year in early spring — new stems carry the brightest winter color, so regular renewal keeps the display vivid. Remove any unwanted root suckers at the same time."
+  pruning: "Remove 20–25% of the oldest stems at ground level in early spring for brighter winter color. Remove unwanted suckers."
   petSafety: "Non-toxic"
 bloomMonths: [5, 6]
 pruneMonths: [3]
@@ -28,7 +28,7 @@ tags:
   - "Rain garden"
   - "Pollinator friendly"
 featured: false
-funFact: "The red color is strongest on young stems — leaving old wood in place actually dulls the winter show, which is why cutting a portion of the oldest stems to the ground each spring is the single most important thing you can do for this plant."
+funFact: "Young stems have the brightest red color, so periodic renewal pruning improves the winter display."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=262959"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/J9ajz"

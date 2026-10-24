@@ -27,7 +27,7 @@ tags:
   - "Deer resistant"
   - "Compact"
 featured: false
-funFact: "Bred by the Viette family of nurserymen in Virginia, 'Little Suzy' was selected as a naturally dwarf sport of the classic 'Goldsturm' — giving gardeners the same reliable black-eyed Susan look in a fraction of the space."
+funFact: "'Little Suzy' was selected as a naturally dwarf form by the Viette family in Virginia."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=261675&isprofile=1&gen=Rudbeckia"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/HmvJo"

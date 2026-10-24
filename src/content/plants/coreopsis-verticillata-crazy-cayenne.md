@@ -27,7 +27,7 @@ tags:
   - "Full sun"
   - "Long bloom season"
 featured: false
-funFact: "'Crazy Cayenne' packs some of the most intense orange-red color found in any threadleaf coreopsis, a genus better known for softer yellows and pinks — its fine, needle-like foliage stays airy and never overwhelms the flower show."
+funFact: "'Crazy Cayenne' brings orange-red flowers to a group better known for yellow blooms."
 learnMoreUrl: "https://www.waltersgardens.com/variety.php?ID=CORCZ"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/1Wz6k"

@@ -28,7 +28,7 @@ tags:
   - "Drought tolerant"
   - "Long blooming"
 featured: false
-funFact: "Black-eyed Susans are named for their signature dark, dome-shaped centers, which stand out against golden petals — a color combo that makes them one of the most reliable magnets for bees and butterflies in a late-summer border."
+funFact: "The dark central cone gives black-eyed Susan its common name."
 learnMoreUrl: "https://info.ballseed.com/PlantInfo/?phid=053800604046271"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/HPdcl"

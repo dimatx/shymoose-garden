@@ -6,7 +6,7 @@ nativeRange: "Garden cultivar of the species native to the Rocky Mountains, west
 photo: "../../assets/plants/picea-pungens-pendula.jpg"
 photoAlt: "A low, ground-hugging weeping blue spruce sprawling across a garden bed with silvery-blue foliage."
 photoCredit: "F. D. Richards, CC BY-SA 2.0, via Flickr"
-shortDescription: "A dramatic, sculptural conifer with silvery-blue needles and branches that cascade downward, taking whatever shape it is trained to — narrow and upright or low and sprawling."
+shortDescription: "A weeping blue spruce with cascading branches, grown upright with staking or left low and sprawling."
 care:
   water: "Water regularly while establishing; mature trees are drought-tolerant but dislike waterlogged soil."
   soil: "Well-drained soil of most types; tolerates a range of pH but resents standing water."
@@ -15,7 +15,7 @@ care:
   size: "Highly variable depending on staking — staked forms typically reach 6–10 ft tall; unstaked forms trail to 1–2 ft tall by 6–10 ft wide."
   bloom: "None — grown for its evergreen silvery-blue needles and weeping form rather than flowers."
   spacing: "6–10 ft apart, based on mature spread."
-  propagation: "Not applicable"
+  propagation: "Graft onto spruce rootstock in late winter or early spring to preserve its weeping form."
   pruning: "Maintenance: low. Stake a leader to set the height, then prune only to guide form and remove damaged growth in spring."
   petSafety: "Non-toxic"
 pruneMonths: [4]
@@ -26,7 +26,7 @@ tags:
   - "Specimen"
   - "Architectural"
 featured: false
-funFact: "No two weeping blue spruces ever look the same. Without staking to guide the central leader, each tree sprawls along the ground or folds over itself in a completely individual form. Every mature 'Pendula' is essentially a one-of-a-kind living sculpture."
+funFact: "Staking the central leader determines its height; without support, it grows as a sprawling groundcover."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/picea-pungens-pendula/"
 shortUrl: "http://s.shymoose.com/vKbGx"
 dateAdded: 2026-06-02

@@ -28,7 +28,7 @@ tags:
   - "Salt tolerant"
   - "Deer resistant"
 featured: false
-funFact: "An improvement on the older 'Pretty Pistachio', this Primo® selection is one of the largest coral bells you can grow — a single plant can spread nearly three feet, making it a true foliage anchor for the shade garden rather than just an edging plant."
+funFact: "A mature plant can spread nearly three feet, making it a substantial foliage accent."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/primo-pistachio-ambrosia-coral-bells-heuchera-hybrid"
 shortUrl: "http://s.shymoose.com/yK1fV"
 dateAdded: 2026-06-22

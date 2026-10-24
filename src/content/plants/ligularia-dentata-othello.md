@@ -17,9 +17,9 @@ care:
   pruning: "Remove spent flower stalks and cut back old foliage after frost."
   spacing: "18–30 in. apart, based on mature spread."
   propagation: "Divide established clumps in spring or after flowering to preserve the cultivar."
-  petSafety: "Potentially toxic — prevent ingestion"
-  petSafetyNotes: "The species contains toxic pyrrolizidine alkaloids; keep pets from chewing it."
-  petSafetyInfo: "Clivorine, a pyrrolizidine alkaloid isolated from Ligularia dentata, produced liver tumors in a long-term rat study. This demonstrates a species-level hazard, not a known toxic dose or severity for cats and dogs or a test of the Othello cultivar. Prevent ingestion and contact a veterinarian after suspected consumption; do not wait for symptoms."
+  petSafety: "Potentially toxic"
+  petSafetyNotes: "Keep pets from chewing."
+  petSafetyInfo: "The species contains liver-toxic alkaloids; effects in dogs and cats are not established. Contact a veterinarian after ingestion."
 bloomMonths: [7, 8]
 pruneMonths: [10, 11]
 tags:
@@ -53,14 +53,6 @@ part to full shade. It wilts in hot sun and can suffer if the soil dries out,
 so water deeply during hot or dry spells. Remove spent flower stalks and cut
 back old foliage after frost.
 
-**Pet precaution:** do not allow pets to eat this plant. A
-[published toxicology study](https://www.sciencedirect.com/science/article/abs/pii/0304383580900348)
-isolated the pyrrolizidine alkaloid clivorine from *Ligularia dentata* and
-demonstrated liver tumors after prolonged exposure in rats. This is evidence
-of a hazard in this species, not a measured dog/cat toxic dose or a
-cultivar-specific test. Contact a veterinarian after suspected ingestion.
-
-Planting distance follows the mature spread in the
-[Missouri Botanical Garden cultivar profile](https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=244813).
-Division timing follows the
-[RHS Othello profile](https://www.rhs.org.uk/plants/90290/ligularia-dentata-othello/details).
+Sources: [Missouri Botanical Garden](https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=244813),
+[RHS](https://www.rhs.org.uk/plants/90290/ligularia-dentata-othello/details),
+[species toxicology study](https://www.sciencedirect.com/science/article/abs/pii/0304383580900348).

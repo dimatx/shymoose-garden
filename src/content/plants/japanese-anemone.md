@@ -30,7 +30,7 @@ tags:
   - "Deer resistant"
   - "Naturalizes"
 featured: false
-funFact: "'Whirlwind' is a heritage cultivar introduced in the 1880s by the French nurseryman Victor Lemoine, and remains one of the most widely grown white Japanese anemones nearly a century and a half later."
+funFact: "'Whirlwind' has been grown in gardens since the 19th century."
 learnMoreUrl: "https://www.chicagobotanic.org/plant-information/plant-finder/anemone-x-hybrida-whirlwind-whirlwind-japanese-anemone"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/K9G0u"

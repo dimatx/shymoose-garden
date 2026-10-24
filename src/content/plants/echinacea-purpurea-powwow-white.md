@@ -12,7 +12,7 @@ care:
   soil: "Fertile, well-drained soil ideal, but adaptable to average or poor soils once established."
   sunlight: "Full sun for the best flowering; tolerates part sun but blooms less freely."
   hardiness: "USDA zones 3–9."
-  size: "18–30 in tall (2–3 ft at maturity per Missouri Botanical Garden) and 12–18 in wide — more compact than the straight purple species."
+  size: "About 2–3 ft tall and 12–18 in. wide."
   bloom: "Creamy white, slightly reflexed petals around a golden-yellow cone from late spring through fall, with occasional autumn rebloom."
   spacing: "12–16 in apart."
   propagation: "Grows readily and flowers in its first year from seed (about 20 weeks after sowing); established clumps can also be divided in spring."
@@ -26,7 +26,7 @@ tags:
   - "Drought tolerant"
   - "Cut flower"
 featured: false
-funFact: "'PowWow White' was bred by PanAmerican Seed to flower in its very first year from seed — a genuine breeding milestone, since older seed-grown Echinacea typically took two years to bloom. Its sister cultivar 'PowWow Wild Berry' won a 2010 All-America Selections award, but 'PowWow White' itself was not an AAS winner."
+funFact: "'PowWow White' can flower in its first year from seed."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=271992"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/OW8Y9"
@@ -36,7 +36,7 @@ shortUrl: "https://s.shymoose.com/OW8Y9"
 
 ## A brighter take on a garden classic
 
-Where typical purple coneflower forms loose 2–4 ft clumps, 'PowWow White' stays compact at 16–24 inches, with sturdy, well-branched stems that hold up to the wind and rain without staking. Its flowers open in late spring and continue for weeks, with occasional rebloom into fall — all while drawing native bees, butterflies, and skippers, and later feeding goldfinches on the ripened seed heads.
+Where typical purple coneflower forms loose 2–4 ft clumps, 'PowWow White' forms a compact, upright clump about 2–3 ft tall, with sturdy, well-branched stems that do not need staking. Its flowers open in late spring and continue for weeks, with occasional rebloom into fall — all while drawing native bees, butterflies, and skippers, and later feeding goldfinches on the ripened seed heads.
 
 ## Care tips
 

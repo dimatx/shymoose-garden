@@ -6,7 +6,7 @@ nativeRange: "Cultivated hybrid; parent Hylotelephium/Sedum germplasm native to 
 photo: "../../assets/plants/stonecrop.jpg"
 photoAlt: "A cluster of Sedum 'Mojave Jewels Sapphire' rosettes with smoky sapphire-purple succulent foliage growing in a mulched trial bed, with a plant ID tag reading 'Sedum Mojave Jewels Sapphire PPAF'."
 photoCredit: "Courtesy of Penn State Flower Trials — agsci.psu.edu/flower-trials"
-shortDescription: "A patented upright stonecrop with smoky sapphire-blue-purple succulent foliage and clusters of rosy pink flowers in late summer."
+shortDescription: "An upright stonecrop with smoky blue-purple succulent foliage and rosy pink flower clusters in late summer."
 care:
   water: "Low to moderate. Water to establish, then only during extended drought — never let it sit in soggy soil."
   soil: "Average to lean, sandy or gravelly soil with sharp drainage. Struggles in wet, heavy clay."
@@ -26,18 +26,22 @@ tags:
   - "Pollinator friendly"
   - "Patented variety"
 featured: false
-funFact: "The genus name Sedum comes from the Latin sedeo, 'to sit,' describing how many species sprawl low and sit over rocks — a fitting root even for this upright, jewel-toned cultivar bred for the rock garden and border alike."
+funFact: "*Sedum* comes from the Latin 'to sit', describing how many stonecrops grow low over rocks."
 learnMoreUrl: "https://www.gardenia.net/plant/sedum-mojave-jewels-sapphire-stonecrop-grow-care-guide"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/cuT09"
 ---
 
-*Sedum* 'Mojave Jewels Sapphire' is a patented, upright stonecrop from the Mojave Jewels™ series, bred by AB Cultivars and introduced by Plants Nouveau. It belongs to the same "tall sedum" group as *Hylotelephium spectabile* and *H. telephium*, and its general care needs closely track those well-documented relatives, cross-referenced here with NC State Extension's genus and species profiles.
+'Mojave Jewels Sapphire' is an upright stonecrop with smoky blue-purple
+foliage and rosy pink flowers for sunny borders and rock gardens.
 
 ## Jewel-toned foliage
 
-The fleshy, succulent leaves emerge a dusky blue-purple in spring and deepen into smoky sapphire and plum tones as summer heat sets in — the more sun the plant gets, the richer the color. In late summer, buds open green and quickly spiral into bright rosy-pink flower clusters held just above the foliage, drawing bees and other pollinators.
+The fleshy leaves deepen in color through summer. In late summer,
+rosy pink flower clusters rise above them and attract bees.
 
 ## Care tips
 
-Give it full sun and sharply drained, average-to-lean soil; like other sedums it resents wet feet and is prone to root rot in heavy or waterlogged ground. It's drought tolerant once established and needs little supplemental water beyond its first season. Deer resistance is inconsistent — some sedums are browsed occasionally — but it's rarely a first choice. Divide congested clumps every few years in spring to keep plants vigorous and compact.
+Give it full sun and freely draining, average-to-lean soil. Established
+plants tolerate drought, but wet soil can cause root rot. Divide crowded
+clumps in spring.

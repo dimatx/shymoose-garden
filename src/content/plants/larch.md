@@ -12,10 +12,10 @@ care:
   soil: "Well-drained, gravelly or sandy loam; acidic to neutral pH. Avoid heavy, wet clay."
   sunlight: "Full sun."
   hardiness: "USDA zones 2–6; struggles in hot, humid climates."
-  size: "Highly variable and dependent on graft height and training — commonly reaches around 8 ft tall and wide in 10 years as a staked small specimen, or sprawls low and wide if left unstaked."
+  size: "About 8 ft tall and wide in 10 years when staked; low and spreading otherwise. Size depends on training."
   bloom: "Not applicable — grown for foliage and form. Small reddish-pink female and yellow male cone-flowers appear in early spring, followed by small upright, hairy, reddish-brown cones."
   spacing: "Give it a wide, open, unobstructed area on all sides — at least a 6–10 ft radius — since its sculptural, irregular branching is the whole point of the cultivar."
-  propagation: "Not applicable for home gardeners — propagated commercially by grafting onto rootstock."
+  propagation: "Graft onto larch rootstock; seedlings will not preserve its weeping form."
   pruning: "Minimal. Shape and stake while young to establish the desired height and branch direction; thereafter just remove dead or crossing wood."
   petSafety: "Non-toxic"
 bloomMonths: []
@@ -27,7 +27,7 @@ tags:
   - "Specimen"
   - "Winter interest"
 featured: false
-funFact: "Unlike most conifers, larch is deciduous — its needles turn a striking gold each autumn before dropping for winter. This particular cultivar was bred not in Europe but in Storrs, Connecticut, by University of Connecticut horticulturist Dr. Sidney Waxman, a pioneer of irregular dwarf conifer selection; the original specimen still grows on UConn's campus today."
+funFact: "Unlike most conifers, larch turns gold in autumn and sheds its needles for winter."
 learnMoreUrl: "https://iselinursery.com/colorful-conifers/larix-larch/larix-decidua-varied-directions/"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/Dom4X"

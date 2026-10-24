@@ -27,7 +27,7 @@ tags:
   - "Naturalizes"
   - "Ground cover"
 featured: false
-funFact: "Despite its grassy good looks and common name, blue-eyed grass isn't a grass at all — it's a member of the iris family, and its tiny six-petaled flowers only open fully on sunny mornings, closing up again by afternoon."
+funFact: "Blue-eyed grass belongs to the iris family, not the grass family."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=i870"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/0GngF"

@@ -33,12 +33,9 @@ shortUrl: "https://s.shymoose.com/B9o6g"
 dateAdded: 2026-08-09
 ---
 
-*Ligularia dentata* 'Osiris Fantaisie' is a patented cultivar (U.S. Plant
-Patent PP19,302) of leopard plant, bred by Serge Farard of Les Jardins Osiris
-in Quebec, Canada. Like the species — a clump-forming perennial in the daisy
-family native to moist mountain woodlands of China and Japan — it is grown as
-much for its dramatic foliage as its flowers, but in a more compact package
-than the straight species.
+'Osiris Fantaisie' is a compact leopard plant with thick, wavy-edged leaves,
+dark green above and burgundy beneath. It brings bold foliage to damp,
+shaded borders.
 
 ## Bold foliage, bright flowers
 

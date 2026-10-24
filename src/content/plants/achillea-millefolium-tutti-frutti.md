@@ -6,7 +6,7 @@ nativeRange: "Species native to Europe, Asia and North America; this is a garden
 photo: "../../assets/plants/achillea-millefolium-tutti-frutti.jpg"
 photoAlt: "Flat-topped clusters of small pink yarrow flowers above ferny green foliage — a representative pink Achillea millefolium."
 photoCredit: "hedera.baltica, CC BY-SA 2.0, via Wikimedia Commons — a representative pink yarrow, not the exact Tutti Frutti cultivar."
-shortDescription: "A colour-shifting yarrow series whose big flat flower heads open one fruity shade and age to another — apricot, pink, cherry and red all at once — above aromatic, fern-like foliage."
+shortDescription: "A yarrow series with color-changing flower clusters in apricot, pink, cherry, and red above ferny foliage."
 care:
   water: "Low. Drought tolerant once established and happiest kept on the dry side; soggy soil rots the crown."
   soil: "Lean, average, well-drained soil. Rich ground makes the stems floppy. Tolerates poor, dry and salty soils."
@@ -31,7 +31,7 @@ tags:
   - "Drought tolerant"
   - "Cut flower"
   - "Heat tolerant"
-funFact: "The Tutti Frutti yarrows are bred to be chameleons: each flat flower cluster opens in one shade and matures to another, so a single plant can show a whole fruit-salad of colours at the same time."
+funFact: "Each flower cluster changes color as it ages, so several shades can appear on one plant."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/achillea-millefolium/"
 shortUrl: "http://s.shymoose.com/ZTcCO"
 dateAdded: 2026-06-24

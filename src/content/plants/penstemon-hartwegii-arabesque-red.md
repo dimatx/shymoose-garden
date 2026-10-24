@@ -16,7 +16,7 @@ care:
   bloom: "Red and white bicolor, large bell-shaped flowers all summer long."
   spacing: "18–24 in apart."
   propagation: "Readily grown from seed"
-  pruning: "Maintenance: deadhead spent spikes through summer to keep the flowers coming, then cut the old stems back in early spring once hard frost has passed. It's a tender, short-lived perennial only marginally hardy in our zone 6B winters, so it's best refreshed by replanting or division."
+  pruning: "Deadhead through summer. Cut old stems back in spring after hard frosts; plants may need replacing after cold winters."
   petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [4]
@@ -26,7 +26,7 @@ tags:
   - "Butterfly friendly"
   - "Container-suitable"
   - "Pollinator friendly"
-funFact: "Penstemon is the largest genus of flowering plants native exclusively to North America, with over 270 species. The long, tubular red flowers are perfectly shaped for hummingbirds — the birds' bills fit exactly, ensuring pollination with every visit."
+funFact: "The tubular red flowers attract hummingbirds, which reach inside for nectar."
 learnMoreUrl: "https://all-americaselections.org/product/penstemon-arabesque-red/"
 shortUrl: "http://s.shymoose.com/LvrF3"
 dateAdded: 2026-06-01

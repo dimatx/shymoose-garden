@@ -11,7 +11,7 @@ care:
   water: "Consistent moisture, about 1 inch per week once established. Mulch to keep roots cool and even out soil moisture — avoid letting it dry out or sit soggy."
   soil: "Organically rich, well-drained soil. Tolerates clay better than most hydrangeas once established, but performs best with added organic matter."
   sunlight: "Full sun to part shade. Best flowering and fullest habit with morning sun and afternoon shade; hot afternoon sun can scorch the large leaves."
-  hardiness: "USDA zones 5–9. Reliably hardy, but flower buds can be damaged by hard late freezes below about -10°F, so give it a sheltered spot in colder parts of its range."
+  hardiness: "USDA zones 5–9; protect flower buds from severe cold and late freezes."
   size: "'Alice' is a large selection, typically 6–8 ft tall and wide, though it can reach 10–12 ft in ideal conditions."
   bloom: "Large, cone-shaped (pyramidal) flower panicles 10–14 in long, opening creamy white in early-mid summer and aging to pink and tan by late summer."
   spacing: "6–8 ft apart, based on mature spread (allow more room if it reaches its full 10–12 ft size)."
@@ -30,7 +30,7 @@ tags:
   - "Cut flower"
 bloomMonths: [6, 7]
 pruneMonths: [7]
-funFact: "Oakleaf hydrangea is the only hydrangea native to North America. 'Alice' is a University of Georgia introduction prized for its extra-large flower panicles and reliably vivid maroon-purple fall foliage."
+funFact: "'Alice' is a University of Georgia introduction known for extra-large flower panicles."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hydrangea-quercifolia-alice/"
 shortUrl: "https://s.shymoose.com/yHqmy"
 dateAdded: 2026-08-22

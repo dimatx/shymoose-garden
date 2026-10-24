@@ -6,7 +6,7 @@ nativeRange: "Species native to wetlands across North America, Europe, and Asia;
 photo: "../../assets/plants/variegated-sweet-flag.jpg"
 photoAlt: "Clumps of sword-like, cream-and-green striped Acorus foliage emerging from reddish leaf bases."
 photoCredit: "Krzysztof Ziarnek, Kenraiz, CC BY-SA 4.0, via Wikimedia Commons"
-shortDescription: "A moisture-loving, iris-like perennial with fragrant, sword-shaped leaves striped in cream and green — an accent plant for pond margins, rain gardens, or any spot that stays reliably wet."
+shortDescription: "A moisture-loving perennial with fragrant, cream-and-green sword-shaped leaves for pond edges and wet borders."
 care:
   water: "Keep consistently moist to wet; thrives in boggy soil or even a few inches of standing water. Leaf tips scorch if it's allowed to dry out."
   soil: "Fertile, humus-rich, organic soil; tolerates average garden soil as long as moisture is constant. Prefers pH about 5.5–7.5."
@@ -27,7 +27,7 @@ tags:
   - "Low maintenance"
   - "Pond plant"
 featured: false
-funFact: "Bruise or crush the foliage and it releases a sweet, spicy fragrance — the source of both the common name 'sweet flag' and the historical use of its rhizomes in perfumes and traditional remedies. Despite the grassy, iris-like leaves, Acorus is actually more closely related to philodendrons than to true grasses or irises."
+funFact: "Bruised foliage releases the sweet, spicy fragrance behind the name 'sweet flag'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/acorus-calamus-variegatus/"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/mlrOU"

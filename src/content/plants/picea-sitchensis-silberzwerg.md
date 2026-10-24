@@ -6,12 +6,12 @@ nativeRange: "Garden cultivar of the species native to the Pacific coast of Nort
 photo: "../../assets/plants/sitka-spruce.jpg"
 photoAlt: "Dense mound of two-tone conifer needles, silvery-blue on top and dark green beneath, on a dwarf Sitka spruce."
 photoCredit: "Courtesy of Kigi Nursery — kiginursery.com"
-shortDescription: "A very slow-growing dwarf conifer prized for its striking two-tone foliage — silvery-blue above, dark green beneath — that forms a dense, broadly upright mound over many years."
+shortDescription: "A very slow-growing dwarf Sitka spruce with two-tone silvery-blue and dark green needles."
 care:
   water: "Regular water while young; more drought-tolerant once established, but appreciates consistent moisture in hot weather."
   soil: "Moist, well-drained soil, slightly acidic to neutral (pH about 6.5–7.5). Dislikes heavy, poorly drained ground."
   sunlight: "Full sun for the densest growth and best needle color; tolerates partial shade."
-  hardiness: "USDA zone 5 (some sources list zones 5–8)."
+  hardiness: "USDA zone 5."
   size: "Extremely slow, growing only 3–6 in. per year; reaches roughly 8 ft tall and 6 ft wide after many years in the garden — a tiny fraction of the wild species' size."
   bloom: "None — grown for its evergreen, two-tone needles rather than flowers."
   spacing: "5–6 ft apart, based on mature spread."
@@ -26,7 +26,7 @@ tags:
   - "Low maintenance"
   - "Foliage interest"
 featured: false
-funFact: "The wild species behind this dwarf, Sitka spruce, is one of the tallest trees on Earth, regularly topping 200 ft along the foggy Pacific coast. 'Silberzwerg' ('silver dwarf' in German) packs the same striking silvery-blue needles into a mound just a few feet across."
+funFact: "'Silberzwerg' means 'silver dwarf'; wild Sitka spruces can grow more than 200 feet tall."
 learnMoreUrl: "https://www.iseli.com/plant/picea-sitchensis-silberzwerg/"
 dateAdded: 2026-08-30
 shortUrl: "https://s.shymoose.com/wgO5w"

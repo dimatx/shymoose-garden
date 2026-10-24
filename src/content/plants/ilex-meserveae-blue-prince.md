@@ -11,15 +11,15 @@ care:
   water: "Medium moisture; keep evenly moist, especially while establishing."
   soil: "Average, slightly acidic, moist, well-drained soil."
   sunlight: "Full sun to part shade; afternoon shade is best in hot summer climates."
-  hardiness: "USDA zones 4–7 (Missouri Botanical Garden); may need a sheltered site and winter protection in zone 5."
+  hardiness: "USDA zones 4–7; may need a sheltered site and winter protection in zone 5."
   size: "8–12 ft tall and 8–12 ft wide."
   bloom: "Tiny greenish-white flowers in April–May, inconspicuous but pollen-rich. 'Blue Prince' is male and will not set berries."
   spacing: "4–6 ft apart as a hedge; plant one male for every 3–5 female hollies."
-  propagation: "Semi-hardwood cuttings; the cultivar is U.S. Plant Patent PP3,517 (1974), which has expired, but check current restrictions before propagating for sale."
-  pruning: "Responds well to shearing and shaping; prune in late winter to early spring before new growth (general holly practice; MoBot lists low maintenance)."
+  propagation: "Take semi-hardwood cuttings in summer."
+  pruning: "Responds well to shearing and shaping; prune in late winter to early spring before new growth."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "Holly leaves are toxic to dogs and cats and their spines can injure the mouth; this male cultivar produces no berries."
-  petSafetyInfo: "Pet Poison Helpline covers Ilex spp.: saponins in holly leaves and berries can cause nausea, vomiting and diarrhea, and spiny leaves can injure lips and gums. 'Blue Prince' is male and berryless, but its leaves remain a hazard. ASPCA's Holly entry is specifically Ilex opaca, not this hybrid or the entire genus. Prevent chewing and contact a veterinarian or poison-control service after suspected ingestion."
+  petSafetyNotes: "Keep pets from chewing the spiny leaves; this male cultivar has no berries."
+  petSafetyInfo: "Eating leaves can cause vomiting or diarrhea; spines can injure the mouth. Call a veterinarian if your pet eats them."
 bloomMonths: [4, 5]
 pruneMonths: [2, 3]
 tags:
@@ -37,8 +37,7 @@ shortUrl: "https://s.shymoose.com/Km13k"
 
 'Blue Prince' is a male Meserve (blue) holly, a dense, bushy evergreen shrub
 with purplish stems and dark blue-green leaves with spiny-toothed margins.
-Missouri Botanical Garden lists it at 8–12 ft tall and wide, hardy in zones
-4–7.
+It grows 8–12 ft tall and wide.
 
 ## Through the seasons
 
@@ -53,28 +52,9 @@ produces no berries itself.
 Grow in average, slightly acidic, moist, well-drained soil in full sun to
 part shade, in a spot protected from cold winter winds. Plant one male for
 every three to five females if you want berries. Potential problems include
-holly leaf miner, spider mites, scale and leaf spot. Source: Missouri
-Botanical Garden Plant Finder (cultivar and species culture).
+holly leaf miner, spider mites, scale and leaf spot.
 
-## Pet safety: evidence and sources
+Care sources: [Missouri Botanical Garden](https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=265249&isprofile=0&pt=2),
+[NC State Extension](https://plants.ces.ncsu.edu/plants/ilex-x-meserveae/).
 
-**Toxic to dogs and cats; gastrointestinal and mouth-injury risks.**
-[Pet Poison Helpline's holly guidance](https://www.petpoisonhelpline.com/poison/holly/)
-explicitly covers *Ilex* species. It identifies saponins and describes
-nausea, vomiting and diarrhea after ingestion of leaves or berries, plus
-painful injury to lips and gums from chewing the spiny leaves. This is
-genus-level veterinary poison-control guidance, not a separate study of
-'Blue Prince'.
-
-[NC State Extension's Meserve holly profile](https://plants.ces.ncsu.edu/plants/ilex-x-meserveae/)
-identifies 'Blue Prince' as a male pollinizer. It produces no berries,
-but that removes only the berry exposure, not the leaf hazard.
-[ASPCA's Holly entry](https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/holly)
-describes leaves and berries as low toxicity, but its named species is
-*Ilex opaca*. The previous claim that this ASPCA entry covered the entire
-genus was incorrect; Pet Poison Helpline supplies the broader guidance.
-
-The "mildly toxic" label does not make chewing safe or predict severity
-for an individual pet. Prevent access to clippings and contact a veterinarian
-or Pet Poison Helpline at (855) 764-7661 after suspected ingestion; a
-consultation fee applies. Sources reviewed October 23, 2026.
+Pet-safety source: [Pet Poison Helpline](https://www.petpoisonhelpline.com/poison/holly/).

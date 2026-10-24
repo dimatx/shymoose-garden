@@ -16,7 +16,7 @@ care:
   bloom: "Blue, star-shaped flowers in dense spikes from late spring to mid-summer."
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
-  pruning: "Maintenance: shear spent spikes after the first flush to spark a second bloom, and cut the clump to the ground in late fall or early spring. Divide every few years to keep it vigorous."
+  pruning: "Shear spent spikes after the first bloom. Cut to the ground in late fall or early spring."
   petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8]
 pruneMonths: [4, 11]
@@ -25,7 +25,7 @@ tags:
   - "Low maintenance"
   - "Rock garden"
   - "Deer resistant"
-funFact: "The genus Veronica was traditionally said to be named after Saint Veronica — the woman who, according to Catholic tradition, wiped Christ's face on the road to Calvary. Others trace the name to the Latin vera (true) + Greek eikon (image). Either way, it's a plant with a legendary name."
+funFact: "The species name *spicata* means 'spiked', describing the upright flower clusters."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/veronica-spicata/"
 shortUrl: "http://s.shymoose.com/FQFOc"
 dateAdded: 2026-06-01

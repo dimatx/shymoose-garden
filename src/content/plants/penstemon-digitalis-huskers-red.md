@@ -6,7 +6,7 @@ nativeRange: "Eastern and central North America (the species)"
 photo: "../../assets/plants/penstemon-digitalis-huskers-red.jpg"
 photoAlt: "An upright clump of Husker's Red Penstemon in bloom — spires of white, pink-blushed tubular flowers on dark maroon stems above green foliage."
 photoCredit: "Wendy Cutler, CC BY 2.0, via Flickr"
-shortDescription: "A tough native beardtongue grown for its dramatic maroon-red foliage and stems, topped in early summer by airy panicles of white, pink-blushed tubular flowers that bees and hummingbirds work over."
+shortDescription: "A beardtongue with maroon foliage and white, pink-blushed tubular flowers in early summer."
 care:
   water: "Moderate while establishing, then drought tolerant. Wet winter soils are the main enemy — they cause root rot."
   soil: "Average to dry, well-drained soil; adapts to most textures and pH as long as drainage is good."
@@ -29,7 +29,7 @@ tags:
   - "Drought tolerant"
   - "Foliage interest"
   - "Cottage garden"
-funFact: "'Husker's Red' was selected at the University of Nebraska — home of the Cornhuskers — and in 1996 it became the first *Penstemon* ever named Perennial Plant of the Year. *Penstemon* is also the largest genus of flowering plants found only in North America."
+funFact: "'Husker's Red' was named Perennial Plant of the Year in 1996."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/penstemon-digitalis-huskers-red/"
 shortUrl: "http://s.shymoose.com/1fIoT"
 dateAdded: 2026-06-24

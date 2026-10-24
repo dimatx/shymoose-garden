@@ -11,7 +11,7 @@ care:
   water: "Medium — moist to average soil preferred, though it tolerates some drought once established. Good drainage prevents winter crown rot."
   soil: "Well-drained, humus-rich soil; adaptable to sandy, loamy, or clay soils and a range of pH."
   sunlight: "Full sun to part shade."
-  hardiness: "USDA zones 5–9 (some sources report hardiness to zone 3)."
+  hardiness: "USDA zones 5–9."
   size: "8–12 in tall and 6–12 in wide."
   bloom: "Violet-blue, star-shaped flowers with a golden-yellow eye, up to 1 in across — notably larger than the species — from late spring through early summer."
   spacing: "6–12 in apart."
@@ -24,7 +24,7 @@ tags:
   - "Easy to grow"
   - "Naturalizes"
 featured: false
-funFact: "Despite its grass-like leaves, blue-eyed grass isn't a grass at all — it's a member of the iris family. The 'Lucerne' cultivar wasn't bred; it was a chance discovery found growing near Lucerne, Switzerland, and later introduced by White Flower Farm."
+funFact: "Despite its grass-like leaves, blue-eyed grass belongs to the iris family."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=261050"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/NXKP6"

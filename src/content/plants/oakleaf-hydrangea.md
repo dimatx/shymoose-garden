@@ -31,7 +31,7 @@ tags:
   - "Specimen"
   - "Cut flower"
 featured: false
-funFact: "Its deeply lobed leaves — the reason for the name \"oakleaf\" — turn a rich burgundy-wine red in fall, and its older stems peel away in curls of reddish-brown bark, giving this hydrangea two seasons of interest that most hydrangeas skip entirely."
+funFact: "Older stems reveal peeling, reddish-brown bark after the burgundy fall leaves drop."
 learnMoreUrl: "https://provenwinnersdirect.com/products/gatsby-moon-oakleaf-hydrangea"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/khB2V"

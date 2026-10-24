@@ -16,7 +16,7 @@ care:
   bloom: "Deep pink-red lacecap flowers begin on old wood in early summer and rebloom on new wood through fall; flower color may shift with soil pH."
   pruning: "Little pruning is needed. Remove weak or winter-damaged stems in early spring; shape after flowering if necessary."
   spacing: "2–3 ft apart."
-  propagation: "Do not propagate without permission from the rights holder; this cultivar is protected by U.S. plant patent PP28,672."
+  propagation: "Take softwood cuttings in early summer or layer a low branch."
   petSafety: "Mildly toxic"
   petSafetyNotes: "All parts"
   petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, depression or unusual tiredness. Toxic compound: cyanogenic glycosides"
@@ -56,6 +56,4 @@ sun helps prevent scorching. Little pruning is needed: remove weak or
 winter-damaged stems in early spring and shape the shrub after flowering only
 if necessary.
 
-The [Proven Winners cultivar profile](https://www.provenwinners.com/plants/hydrangea/tuff-stuff-red-mountain-hydrangea-hydrangea-serrata)
-identifies Tuff Stuff Red as 'SMNMAKTSR', protected by U.S. plant patent
-PP28,672.
+Source: [Proven Winners](https://www.provenwinners.com/plants/hydrangea/tuff-stuff-red-mountain-hydrangea-hydrangea-serrata).

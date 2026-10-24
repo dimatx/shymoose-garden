@@ -26,7 +26,7 @@ tags:
   - "Woodland edge"
   - "Deer resistant"
 featured: false
-funFact: "'Godzilla' was discovered as a chance seedling at Plant Delights Nursery in the mid-1990s — believed to be a cross between Athyrium niponicum 'Pictum' and the much larger Lady Fern (Athyrium filix-femina), giving it the silvery-purple coloring of the painted fern at several times the size, hence its giant-monster name."
+funFact: "'Godzilla' was discovered as a chance seedling at Plant Delights Nursery in the mid-1990s."
 learnMoreUrl: "https://www.waltersgardens.com/variety.php?ID=ATHGO"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/Pq2Jw"

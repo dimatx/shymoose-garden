@@ -6,7 +6,7 @@ nativeRange: "Japan, Korea, and northeastern China (the species)"
 photo: "../../assets/plants/pinus-densiflora-golden-ghost.jpg"
 photoAlt: "A close-up of fresh new-growth needles on a Japanese red pine 'Golden Ghost', radiating outward in a starburst pattern with creamy-yellow variegation streaked through green."
 photoCredit: "Photo shared by a home gardener via Reddit (r/conifers)"
-shortDescription: "A variegated Japanese red pine whose soft needles are banded in yellow and creamy white, forming a bright, broadly upright accent — considered one of the best of the variegated pines."
+shortDescription: "An upright Japanese red pine with soft needles banded in yellow and creamy white."
 care:
   water: "Average; water regularly while establishing, then quite drought tolerant. Needs good drainage and dislikes soggy soil."
   soil: "Well-drained soil; adaptable to poor, sandy, and rocky ground. Tolerates a range of pH and low fertility."
@@ -24,7 +24,7 @@ tags:
   - "Deer resistant"
   - "Specimen"
 featured: false
-funFact: "The straight species is famous for its flaking orange-red bark — the 'red' in Japanese red pine — and is one of the classic bonsai and garden pines of Japan. 'Golden Ghost' is a modern variegated selection of unknown origin, first recorded in a 2003 nursery catalog and now rated among the finest variegated pines in cultivation."
+funFact: "Japanese red pine takes its common name from the orange-red bark revealed as older bark flakes away."
 learnMoreUrl: "https://conifersociety.org/conifers/pinus-densiflora-golden-ghost"
 shortUrl: "https://s.shymoose.com/3IXDa"
 dateAdded: 2026-07-18

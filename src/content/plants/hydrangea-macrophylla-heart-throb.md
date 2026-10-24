@@ -35,12 +35,17 @@ dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/CxWhd"
 ---
 
-*Hydrangea macrophylla* 'Heart Throb' is a compact, reblooming bigleaf hydrangea grown for its unusually rich flower color. This patented selection (`'Hortmagitri'`, PP30,044) stays small enough for foundation beds, mixed shrub borders, or a roomy container, but still gives the lush, broad-leaved look gardeners expect from a mophead hydrangea.
+Bigleaf hydrangea 'Heart Throb' combines dark cherry-red flowers with a
+compact, rounded habit for small borders and roomy containers.
 
 ## Dramatic color on a compact shrub
 
-The flower heads are what make this cultivar stand out: rounded mopheads that open dark cherry red to wine red, with green edging and marbling that becomes more noticeable as the blooms mature. Southern Living and Plants Nouveau both describe it as a compact plant with strong cut-flower value, and its reblooming habit means it can continue producing color beyond the first flush.
+The rounded mopheads develop green edging and marbling as they age.
+Flowers form on both old and new growth, extending the summer display,
+and the sturdy stems work well for cutting.
 
 ## Care tips
 
-Like the species, it prefers rich, evenly moist, well-drained soil and protection from hot afternoon sun. NC State, Missouri Botanical Garden, and RHS all agree that bigleaf hydrangeas perform best with consistent moisture and some shade, while the breeder notes that 'Heart Throb' flowers on both old and new wood. In practice that means prune very lightly, if at all: enjoy the spent blooms, then remove only dead or weak wood in spring or shape it right after flowering if it needs tidying.
+Provide rich, evenly moist, well-drained soil and afternoon shade. Prune
+sparingly: remove dead or weak stems in spring and shape lightly after
+flowering only if needed.

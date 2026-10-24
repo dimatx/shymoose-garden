@@ -16,7 +16,7 @@ care:
   bloom: "Tiny star-shaped pink to purplish-red flowers in dense clusters from August to October, fading to burgundy."
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
-  pruning: "Maintenance: leave the seed heads standing for winter interest, then cut old stems to the ground in early spring; an optional late-spring 'Chelsea chop' keeps the plant compact and upright. Divide every few years to rejuvenate."
+  pruning: "Leave seedheads for winter; cut back in early spring. Shorten stems in late spring to keep the clump compact."
   petSafety: "Non-toxic"
 bloomMonths: [8, 9, 10]
 pruneMonths: [4, 6]
@@ -25,7 +25,7 @@ tags:
   - "Drought tolerant"
   - "Pollinator friendly"
   - "Rock garden"
-funFact: "In European folk tradition, pairs of picked orpine stems were hung indoors as love oracles on Midsummer's Eve: if the stems arched toward each other, the relationship would flourish; if they withered apart, trouble lay ahead. The plant was called 'midsummer-men' for this custom."
+funFact: "In European folklore, paired orpine stems were used to predict a couple's future on Midsummer's Eve."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hylotelephium-telephium/"
 shortUrl: "http://s.shymoose.com/kRFav"
 dateAdded: 2026-06-01

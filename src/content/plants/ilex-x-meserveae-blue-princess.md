@@ -6,16 +6,16 @@ nativeRange: "Garden hybrid (English holly × Tsuru holly), bred in New York, US
 photo: "../../assets/plants/ilex-x-meserveae-blue-princess.jpg"
 photoAlt: "A dense, rounded Blue Princess holly shrub with glossy, spiny blue-green evergreen leaves growing in a mixed garden bed."
 photoCredit: "Famartin, CC BY-SA 4.0, via Wikimedia Commons"
-shortDescription: "A cold-hardy, dense evergreen holly with glossy blue-green spiny leaves and purple stems; female plants carry bright red berries through winter when a male pollinator is nearby."
+shortDescription: "A cold-hardy evergreen holly with spiny blue-green leaves and red winter berries when a male pollinator grows nearby."
 care:
   water: "Regular; keep evenly moist while establishing. Mulch to hold moisture and avoid drought stress."
   soil: "Average, slightly acidic, moist, well-drained soil. High-pH soil can cause leaf yellowing (chlorosis)."
   sunlight: "Full sun to part shade; give afternoon shade in hot-summer areas and shelter from cold winter winds."
   hardiness: "USDA zones 5–8; in zone 5 site in a sheltered spot with winter protection."
-  size: "8–12 ft tall and 6–8 ft wide at maturity (Missouri Botanical Garden); slow-growing."
+  size: "8–12 ft tall and 6–8 ft wide; slow-growing."
   bloom: "Tiny, inconspicuous greenish-white flowers in May. Female plants set abundant dark red berries that persist through winter if pollinated."
   spacing: "5–6 ft apart for a hedge; 6–8 ft as a specimen."
-  propagation: "Not applicable"
+  propagation: "Take semi-ripe cuttings in late summer or hardwood cuttings in autumn to midwinter."
   pruning: "Prune lightly in winter to shape or shear as a hedge; remove dead or crossing wood."
   petSafety: "Mildly toxic"
   petSafetyNotes: "Berries and leaves are the main toxic parts"
@@ -30,7 +30,7 @@ tags:
   - "Toxic to dogs"
   - "Deer resistant"
 featured: false
-funFact: "The blue hollies were created in the 1950s by Kathleen Meserve of New York, who crossed tender English holly with hardy Tsuru holly to get a classic-looking holly that could survive northeastern winters. 'Blue Princess' is a female clone and needs a male such as 'Blue Prince' nearby to bear berries."
+funFact: "'Blue Princess' needs a male holly such as 'Blue Prince' nearby to produce berries."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=d470"
 dateAdded: 2026-10-10
 shortUrl: "https://s.shymoose.com/LaO6m"

@@ -14,8 +14,8 @@ care:
   hardiness: "USDA zones 2–7."
   size: "Slow-growing; matures over time to about 3–5 ft tall and 6–10 ft wide, dense and spreading, often semi-prostrate with upright branching."
   spacing: "6–10 ft apart, based on mature spread (closer, about 3–5 ft, for a low massed planting)."
-  propagation: "Not applicable"
-  pruning: "Prune annually in late winter to retain its compact size, or pinch the soft new candles by half in spring — unpruned plants will slowly outgrow their space."
+  propagation: "Sow seed outdoors in pots in autumn; seedlings vary in size and habit."
+  pruning: "Usually unnecessary. For size control, pinch soft new candles by half in spring; avoid cutting into bare old wood."
   petSafety: "Non-toxic"
 tags:
   - "Conifer"
@@ -23,7 +23,7 @@ tags:
   - "Deer resistant"
   - "Rock garden"
 featured: false
-funFact: "'Pumilio' is one of the oldest and most widely planted dwarf conifer selections of mugo pine, prized for its naturally prostrate, mounding habit without any grafting needed. It has earned the Royal Horticultural Society's Award of Garden Merit for its reliable garden performance."
+funFact: "'Pumilio' has a naturally low, mounding habit rather than needing pruning to stay compact."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=252877"
 shortUrl: "https://s.shymoose.com/cU0it"
 dateAdded: 2026-07-20

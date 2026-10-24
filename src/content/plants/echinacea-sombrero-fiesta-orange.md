@@ -28,7 +28,7 @@ tags:
   - "Deer resistant"
   - "Long blooming"
 featured: false
-funFact: "'Fiesta Orange' (sold under the variety name 'Balsomstor') is part of Walters Gardens' Sombrero® series, bred specifically for heavier branching than older coneflower varieties — meaning more flowers per plant and a longer season of color."
+funFact: "Like other coneflowers, it has a spiny central cone made up of many tiny flowers."
 learnMoreUrl: "https://www.waysidegardens.com/products/echinacea-sombrero-fiesta-orange-coneflower-29717"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/Wkv1P"

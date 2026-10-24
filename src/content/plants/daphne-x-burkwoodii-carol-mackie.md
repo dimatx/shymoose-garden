@@ -15,7 +15,7 @@ care:
   size: "3–4 ft tall and wide; slow-growing, dense and rounded."
   bloom: "Very fragrant, pale pink flower clusters in mid-spring, with a light repeat bloom in fall. Followed by poisonous red berries."
   spacing: "3–4 ft apart."
-  propagation: "Not applicable"
+  propagation: "Take semi-hardwood cuttings in summer or graft in winter."
   pruning: "Do not prune except to remove dead branches; it recovers poorly from hard pruning."
   petSafety: "Highly toxic"
   petSafetyNotes: "All parts are toxic, especially the red berries and bark"
@@ -30,7 +30,7 @@ tags:
   - "Deer resistant"
   - "Variegated"
 featured: false
-funFact: "'Carol Mackie' was found in 1962 as a chance variegated sport in the Pennsylvania garden of Carol Mackie, and quickly became the best-known variegated daphne. Daphnes also have a reputation for dying with no warning, so many gardeners treat them as a fragrant gamble."
+funFact: "'Carol Mackie' began as a chance variegated branch, or sport, discovered in a garden in 1962."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/daphne-x-burkwoodii-carole-mackie/"
 dateAdded: 2026-10-10
 shortUrl: "https://s.shymoose.com/UdtfE"

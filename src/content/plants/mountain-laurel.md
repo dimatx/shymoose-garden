@@ -11,7 +11,7 @@ care:
   water: "Keep evenly moist, especially while establishing; avoid soggy or waterlogged soil."
   soil: "Cool, moist, acidic, humus-rich, well-drained soil. Struggles in heavy clay or wet sites — consider a raised planting if drainage is poor."
   sunlight: "Best in partial shade (morning sun, afternoon shade); tolerates full sun to full shade, but flowers less in heavy shade."
-  hardiness: "USDA zones 5–9 (some sources cite zone 4 for the species)."
+  hardiness: "USDA zones 5–9."
   size: "4–6 ft tall and wide, dense and rounded; the species can eventually reach 6–10 ft."
   bloom: "Terminal clusters of bell-shaped flowers in late spring to early summer, with distinctive inner purple-pink markings and ten anther pockets."
   spacing: "4–6 ft apart as a specimen or informal mass."

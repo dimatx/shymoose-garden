@@ -6,7 +6,7 @@ nativeRange: "Garden cultivar of the species native to Japan"
 photo: "../../assets/plants/japanese-astilbe.jpg"
 photoAlt: "Bright pink, feathery astilbe flower spikes rising above deep green, finely divided foliage."
 photoCredit: "David J. Stang, CC BY-SA 4.0, via Wikimedia Commons"
-shortDescription: "One of the very first astilbe japonica hybrids, still grown over a century later for its clear pink flower plumes over neat, deep green foliage in a shady, consistently moist border."
+shortDescription: "A classic shade perennial with clear pink flower plumes above deep green foliage in early summer."
 care:
   water: "Requires consistently moist soil; does not tolerate drought. Mulch to help retain moisture."
   soil: "Rich, humusy, well-drained soil; slightly acidic to neutral pH."
@@ -25,7 +25,7 @@ tags:
   - "Attracts pollinators"
   - "Deer resistant"
 featured: false
-funFact: "'Rheinland' was introduced in 1902 by German nurseryman Georg Arends, making it one of the very first astilbe japonica hybrids ever bred — and it's still a widely grown pink astilbe more than a century later."
+funFact: "'Rheinland' was introduced by Georg Arends in 1902."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=a140"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/CSKiU"

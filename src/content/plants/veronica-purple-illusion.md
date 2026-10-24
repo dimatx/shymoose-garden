@@ -6,7 +6,7 @@ nativeRange: "Garden hybrid (the species is native to Europe and northern Asia)"
 photo: "../../assets/plants/spike-speedwell.jpg"
 photoAlt: "A single cut stem of Veronica 'Purple Illusion' with a dense spike of deep purple flowers and serrated green leaves, photographed against a white background."
 photoCredit: "Courtesy of Proven Winners — provenwinners.com"
-shortDescription: "A compact, floriferous speedwell in the Magic Show® series, forming a tidy mound densely packed with upright spikes of rich, rosy-purple flowers over glossy dark green foliage."
+shortDescription: "A compact speedwell with rosy-purple flower spikes above glossy dark green foliage."
 care:
   water: "Average water; prefers evenly moist, well-drained soil. Avoid overhead watering to help prevent powdery mildew."
   soil: "Average, humus-rich, well-drained soil. Amend heavy or poor soils with compost before planting."
@@ -26,7 +26,7 @@ tags:
   - "Low maintenance"
   - "Drought tolerant"
 featured: false
-funFact: "'Purple Illusion' is part of Walters Gardens' Magic Show® series, bred specifically to keep the tidy, non-flopping habit and long bloom season of the original 'Royal Candles' while expanding the color range — this one channels the deep purple of the older 'Sunny Border Blue' into a much more compact plant."
+funFact: "It belongs to the Magic Show® series of compact speedwells."
 learnMoreUrl: "https://www.waltersgardens.com/variety.php?ID=VERPL"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/WeO0Y"

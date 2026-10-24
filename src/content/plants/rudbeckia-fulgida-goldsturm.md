@@ -28,7 +28,7 @@ tags:
   - "Drought tolerant"
   - "Long blooming"
 featured: false
-funFact: "'Goldsturm' was named the Perennial Plant of the Year in 1999 by the Perennial Plant Association and holds the Royal Horticultural Society's Award of Garden Merit — a testament to just how tough and dependable this black-eyed Susan really is."
+funFact: "'Goldsturm' was named Perennial Plant of the Year in 1999."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=i780"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/U1SSC"

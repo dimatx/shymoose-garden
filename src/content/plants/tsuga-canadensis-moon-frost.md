@@ -11,7 +11,7 @@ care:
   water: "Keep evenly moist; intolerant of drought. Mulch to conserve soil moisture."
   soil: "Moist, well-drained, acidic soil (pH about 4.0–6.0)."
   sunlight: "Partial shade is best, especially with protection from strong wind and hot afternoon sun; tolerates more sun in cooler climates."
-  hardiness: "USDA zone 4 (some sources list zone 3)."
+  hardiness: "USDA zone 4."
   size: "Extremely slow, growing only 3–6 in. per year; forms a compact globe when young that broadens with age, reaching roughly 6 ft tall and wide over many years."
   bloom: "None — grown for its evergreen foliage rather than flowers."
   spacing: "4–6 ft apart, based on mature spread."
@@ -26,7 +26,7 @@ tags:
   - "Low maintenance"
   - "Foliage interest"
 featured: false
-funFact: "Each spring, 'Moon Frost' flushes out new growth in a bright, almost luminous white before it settles to a soft green — as if the plant were dusted with frost even in the height of summer. Unlike poison hemlock (an unrelated plant in the carrot family), Tsuga canadensis is not toxic and is even the state tree of Pennsylvania."
+funFact: "Its white spring growth gradually turns green, creating the frosted effect behind its name."
 learnMoreUrl: "https://www.iseli.com/plant/tsuga-canadensis-moon-frost/"
 dateAdded: 2026-08-30
 shortUrl: "https://s.shymoose.com/G5hAJ"

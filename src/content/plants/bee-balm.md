@@ -16,7 +16,7 @@ care:
   bloom: "Rounded clusters of ruffled, rose-pink tubular flowers through summer. Deadhead to keep the flowers coming."
   spacing: "12–15 in apart, based on this compact selection's mature spread."
   propagation: "Divide in spring"
-  pruning: "Shear spent blooms to rebloom. Cut stems back in late winter — or leave 12–24 in. of the hollow stems standing for native stem-nesting bees. Divide every 2–3 years; this Balmy selection resists the powdery mildew that plagues older bee balms."
+  pruning: "Shear spent flowers to encourage rebloom. Cut back in late winter, leaving 12–24 in of stems for nesting bees."
   petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8]
 pruneMonths: [3]
@@ -29,7 +29,7 @@ tags:
   - "Cottage garden"
   - "Fragrant"
   - "Small spaces"
-funFact: "Bee balm is in the mint family, and its crushed leaves smell of bergamot. The Oswego people — and later American colonists boycotting British tea after the Boston Tea Party — brewed those leaves into a fragrant 'Oswego tea'."
+funFact: "Bee balm belongs to the mint family; its crushed leaves smell of bergamot."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=439398"
 dateAdded: 2026-06-25
 shortUrl: "http://s.shymoose.com/PjAX2"

@@ -11,11 +11,11 @@ care:
   water: "Medium — keep soil consistently moist but never soggy."
   soil: "Average, well-drained soil is essential; poorly drained sites lead to root rot."
   sunlight: "Full sun to part shade — more shade tolerant than most ground-cover conifers."
-  hardiness: "USDA zones 2–7 (cultivar is more cold hardy than the species, rated to zone 3 by most growers)."
+  hardiness: "USDA zones 2–7."
   size: "1–3 ft tall, spreading to fill a 4–5 ft area."
   bloom: "Non-flowering; tiny, inconspicuous berry-like cones appear on the feathery, scale-like foliage. Bright green in summer, turning bronze-purple in fall and winter."
   spacing: "4–5 ft apart, allowing room for the spreading habit."
-  propagation: "Semi-hardwood cuttings in summer, or seed sown in autumn."
+  propagation: "Take semi-hardwood cuttings in summer to preserve the cultivar."
   pruning: "Very low maintenance — regular pruning is not required. Trim only to control spread or remove damaged growth."
   petSafety: "Non-toxic"
 bloomMonths: []
@@ -28,7 +28,7 @@ tags:
   - "Low maintenance"
   - "Winter interest"
 featured: false
-funFact: "This ground-hugging conifer grows wild above the timberline on remote Russian mountain peaks and stayed almost unknown in the West until the 1970s, when its native range was still a closely guarded secret."
+funFact: "Its bronze-purple winter color is seasonal; the foliage greens up again in spring."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=449508"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/AQpdP"

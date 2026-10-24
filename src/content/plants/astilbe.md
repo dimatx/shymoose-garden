@@ -28,7 +28,7 @@ tags:
   - "Butterfly friendly"
   - "Cut flower"
   - "Foliage interest"
-funFact: "The name *Astilbe* comes from the Greek *a-* ('without') and *stilbe* ('brightness') — 'without glitter', a dig at the dull leaves of some wild species. It's an ironic name for a plant whose modern hybrids light up the shade with their plumes."
+funFact: "*Astilbe* means 'without brightness', referring to the dull leaves of some wild species."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/astilbe-x-arendsii/"
 dateAdded: 2026-06-25
 shortUrl: "http://s.shymoose.com/H18ia"

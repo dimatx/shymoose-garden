@@ -16,7 +16,7 @@ care:
   bloom: "Star-shaped pink flowers in flat 4–6 in. heads from late summer into fall, aging to dark reddish-brown."
   spacing: "18–24 in apart."
   propagation: "Stem cuttings"
-  pruning: "Maintenance: leave the dried heads for winter and cut old stems to the ground in early spring; an optional late-spring 'Chelsea chop' prevents the clump from flopping. Divide every few years to renew."
+  pruning: "Leave dried heads for winter; cut back in early spring. Shorten stems in late spring for a sturdier clump."
   petSafety: "Non-toxic"
 bloomMonths: [8, 9, 10]
 pruneMonths: [4, 6]
@@ -26,7 +26,7 @@ tags:
   - "Fall flowers"
   - "Low maintenance"
   - "Salt tolerant"
-funFact: "The flat-topped flowerheads are a favourite late-season fuel stop for monarch butterflies migrating south in autumn. Because it blooms in late summer and fall when few other plants are still flowering, it can host dozens of butterfly species in a single afternoon."
+funFact: "Its late-season flowers provide nectar for migrating monarch butterflies."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hylotelephium-spectabile/"
 shortUrl: "http://s.shymoose.com/7YoTn"
 dateAdded: 2026-06-01

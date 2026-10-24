@@ -6,7 +6,7 @@ nativeRange: "Garden hybrid of species native to China, Japan, and Korea"
 photo: "../../assets/plants/astilbe-arendsii-amethyst.jpg"
 photoAlt: "Dense, upright plumes of lilac-purple astilbe flowers rising above deep green, fern-like foliage."
 photoCredit: "David J. Stang, CC BY-SA 4.0, via Wikimedia Commons"
-shortDescription: "A classic Arends hybrid astilbe with dense, upright lilac-purple plumes over deep green, fern-like foliage — a reliable shade perennial that needs steady moisture to thrive."
+shortDescription: "A moisture-loving shade perennial with upright lilac-purple plumes above deep green, fern-like foliage."
 care:
   water: "Requires consistently moist soil; does not tolerate drought. Mulch to help retain moisture."
   soil: "Rich, humusy, well-drained soil with good moisture retention; slightly acidic to neutral pH."
@@ -25,7 +25,7 @@ tags:
   - "Attracts pollinators"
   - "Deer resistant"
 featured: false
-funFact: "'Amethyst' is one of the original Astilbe × arendsii hybrids bred by German nurseryman Georg Arends in the early 1900s — a breeding program that produced most of the astilbe cultivars still grown in gardens today."
+funFact: "'Amethyst' belongs to the hybrid astilbes developed by Georg Arends in the early 1900s."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=256644&isprofile=1&gen=Astilbe"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/IAq0G"

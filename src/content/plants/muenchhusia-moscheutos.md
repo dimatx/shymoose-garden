@@ -28,7 +28,7 @@ tags:
   - "Rain garden"
   - "Wetland plant"
 featured: false
-funFact: "Rose mallow produces some of the largest flowers of any perennial hardy in temperate gardens — blooms can reach the size of a dinner plate, rivaling tropical hibiscus despite the plant dying back to bare ground every winter."
+funFact: "Its dinner-plate-sized blooms look tropical, but the plant survives winter by dying back to its roots."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/muenchhusia-moscheutos/"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/HSNft"

@@ -28,7 +28,7 @@ tags:
   - "Specimen"
   - "Rain garden"
 featured: false
-funFact: "Rodgersia was named for US Navy Admiral John Rodgers, whose expedition to Japan in the 1850s collected the first plants. The genus is sometimes called 'Rodger's flower', and its leaves can look like a giant horse chestnut's."
+funFact: "*Rodgersia* is named for U.S. Navy Admiral John Rodgers, whose expedition collected plants in Asia."
 learnMoreUrl: "https://www.rhs.org.uk/plants/70111/rodgersia-pinnata-superba/details"
 dateAdded: 2026-10-10
 shortUrl: "https://s.shymoose.com/hJnGm"

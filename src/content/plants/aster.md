@@ -6,7 +6,7 @@ nativeRange: "Garden cultivar of species native to eastern North America"
 photo: "../../assets/plants/aster.jpg"
 photoAlt: "Compact mounds of small violet-purple daisy flowers with yellow centers covering the plant in late summer."
 photoCredit: "David J. Stang, CC BY-SA 4.0, via Wikimedia Commons"
-shortDescription: "A compact, mildew-resistant New York aster that smothers itself in small violet-purple daisies from late summer into fall, a favorite last stop for pollinators before winter."
+shortDescription: "A compact, mildew-resistant aster with violet-purple daisies that feed pollinators from late summer into fall."
 care:
   water: "Medium moisture; regular water is best, though it tolerates some drought once established."
   soil: "Average, well-drained soil; tolerates clay, sandy, and loam soils. Good air circulation reduces disease."
@@ -28,7 +28,7 @@ tags:
   - "Deer resistant"
   - "Compact"
 featured: false
-funFact: "'Wood's Purple' belongs to the 'Wood's' series of dwarf New York asters, bred specifically for strong resistance to powdery mildew — a problem that plagues many taller, older aster varieties by late summer."
+funFact: "The dwarf Wood's series was selected for resistance to powdery mildew."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=b868"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/K9M3P"

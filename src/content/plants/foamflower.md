@@ -18,8 +18,8 @@ care:
   propagation: "Divide clumps or separate rooted plantlets."
   pruning: "Remove damaged foliage at the beginning of the growing season."
   petSafety: "Generally considered non-toxic"
-  petSafetyNotes: "Not a food plant; chewing may cause mild digestive upset."
-  petSafetyInfo: "Garden Design describes foamflower as non-toxic to humans and pets, and Gardeners' World reports no toxic effects for Tiarella cordifolia, including cats and dogs. These are horticultural assessments, not a guarantee that ingestion is harmless. Discourage grazing and contact a veterinarian if symptoms develop."
+  petSafetyNotes: "Discourage chewing."
+  petSafetyInfo: "No toxicity to dogs or cats is reported in horticultural references. Eating foliage can still cause stomach upset."
 bloomMonths: [4, 5]
 pruneMonths: [3]
 tags:
@@ -53,8 +53,5 @@ but drains well. It dislikes drought and should not sit in saturated soil
 through winter. Divide established clumps or separate rooted plantlets to
 propagate it.
 
-[Garden Design's foamflower guide](https://www.gardendesign.com/perennials/foamflower.html)
-states that foamflower is not considered toxic to people or pets.
-[Gardeners' World](https://www.gardenersworld.com/plants/tiarella-cordifolia/)
-also reports no toxic effects for the species, including cats and dogs.
-Eating ornamental foliage can still cause digestive upset.
+Pet-safety sources: [Garden Design](https://www.gardendesign.com/perennials/foamflower.html),
+[Gardeners' World](https://www.gardenersworld.com/plants/tiarella-cordifolia/).

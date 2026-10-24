@@ -26,7 +26,7 @@ tags:
   - "Cucumber"
   - "Heirloom"
   - "Organic"
-funFact: "Cucumbers are technically fruits — they develop from a flower and contain seeds. 'Suyo Long' fruits can reach 15 inches and, unlike many cucumbers, grow sweeter rather than more bitter as they enlarge."
+funFact: "'Suyo Long' cucumbers can reach 15 inches; a trellis helps the fruit grow straight."
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/cucumbers/specialty-cucumbers/suyo-long-organic-cucumber-seed-333G.html"
 shortUrl: "http://s.shymoose.com/r9WHy"
 dateAdded: 2026-06-01

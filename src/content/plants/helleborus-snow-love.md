@@ -19,7 +19,7 @@ care:
   petSafetyNotes: "All parts toxic, especially roots"
   petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea; slow heart rate or tremors in more serious cases. Toxic compound: cardiac glycosides (hellebrin)"
   spacing: "About 2 ft apart, based on mature spread."
-  propagation: "Divide large clumps in early spring and water well until established, only where propagation rights permit; check applicable patent and breeder restrictions first."
+  propagation: "Divide large clumps in early spring and water well until established."
 bloomMonths: [2, 3, 4]
 pruneMonths: [2, 4]
 tags:
@@ -56,6 +56,4 @@ flowers; cut back spent flower stems after blooming.
 > **Heads up:** all parts of hellebores are toxic if eaten, especially the
 > roots. Keep the plant away from curious pets and children.
 
-The [RHS Snow Love profile](https://www.rhs.org.uk/plants/277435/helleborus-%C3%97-nigercors-snow-love/details)
-recommends early-spring division and flags licensing restrictions on
-propagation for resale.
+Source: [RHS](https://www.rhs.org.uk/plants/277435/helleborus-%C3%97-nigercors-snow-love/details).

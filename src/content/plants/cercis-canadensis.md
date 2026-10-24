@@ -27,7 +27,7 @@ tags:
   - "Native"
   - "Woodland edge"
 featured: false
-funFact: "Eastern redbud is a cauliflory tree — its magenta flowers bloom directly on the trunk and older branches, not just at the branch tips. The flowers are edible (mildly sweet-tart) and were harvested fresh by some Indigenous peoples; today they make a vivid salad garnish."
+funFact: "Redbud flowers can grow directly from the trunk and older branches, a trait called cauliflory."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/cercis-canadensis/"
 shortUrl: "http://s.shymoose.com/UjhDt"
 dateAdded: 2026-06-02

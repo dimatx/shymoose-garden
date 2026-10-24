@@ -6,7 +6,7 @@ nativeRange: "Garden hybrid (the species is native to Europe and northern Asia)"
 photo: "../../assets/plants/veronica-pink-potion.jpg"
 photoAlt: "A mass planting of Veronica 'Pink Potion' with abundant upright pink-purple flower spikes in a mixed garden bed, with dark red heuchera foliage in the foreground."
 photoCredit: "Courtesy of Proven Winners — provenwinners.com"
-shortDescription: "A compact Magic Show® speedwell with abundant upright spikes of clear baby-pink flowers over a neat, dense mound of dark green foliage — a soft, long-blooming counterpart to its purple-flowered siblings."
+shortDescription: "A compact speedwell with upright baby-pink flower spikes above a dense mound of dark green foliage."
 care:
   water: "Average water; prefers evenly moist, well-drained soil. Avoid overhead watering to help prevent powdery mildew."
   soil: "Average, humus-rich, well-drained soil. Amend heavy or infertile soils with organic matter."
@@ -16,7 +16,7 @@ care:
   bloom: "Abundant, dense spikes of baby-pink flowers from early to midsummer, with a long bloom period and good repeat flowering when deadheaded."
   spacing: "18–22 in apart, based on mature spread."
   propagation: "Divide in spring"
-  pruning: "Maintenance: low. Deadhead and shear spent spikes to encourage more bloom, feed with a slow-release fertilizer in spring, and cut back in late fall or early spring. Divide every few years."
+  pruning: "Shear spent flower spikes for repeat bloom. Cut back in late fall or early spring."
   petSafety: "Non-toxic"
 bloomMonths: [6, 7]
 pruneMonths: [3, 11]
@@ -26,7 +26,7 @@ tags:
   - "Low maintenance"
   - "Drought tolerant"
 featured: false
-funFact: "'Pink Potion' is a Walters Gardens Magic Show® introduction bred from the same compact, non-flopping lineage as 'Purple Illusion' — its wide, mounding spread of 18–22 in. actually exceeds its own height, giving it a fuller, broader look than most upright speedwells."
+funFact: "Its mound grows wider than it is tall, making a full edging plant."
 learnMoreUrl: "https://www.waltersgardens.com/variety.php?ID=VERPN"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/HwU0C"

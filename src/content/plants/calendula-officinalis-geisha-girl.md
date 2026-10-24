@@ -24,7 +24,7 @@ tags:
   - "Pollinator friendly"
   - "Butterfly friendly"
   - "Deer resistant"
-funFact: "Calendula petals have been used for centuries as a cheap substitute for saffron to color butter, cheese, and rice yellow — earning the plant the nickname 'poor man's saffron.' The petals are fully edible and still appear as garnishes in modern cooking."
+funFact: "Calendula's edible petals were used to color food yellow, earning it the nickname 'poor man's saffron'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/calendula-officinalis/"
 shortUrl: "http://s.shymoose.com/jWYcz"
 dateAdded: 2026-06-01

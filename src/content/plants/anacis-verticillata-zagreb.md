@@ -15,7 +15,7 @@ care:
   bloom: "Gold/yellow daisy-like flowers from spring into summer."
   spacing: "18–24 in apart."
   propagation: "Divide in spring or fall"
-  pruning: "Maintenance: shear the whole plant back lightly after the main flush to trigger fresh bloom, and cut to the ground in late fall or early spring. Divide every two to three years to keep it dense."
+  pruning: "Shear lightly after the main bloom to encourage more flowers. Cut to the ground in late fall or early spring."
   petSafety: "Non-toxic"
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [4, 11]
@@ -25,7 +25,7 @@ tags:
   - "Drought tolerant"
   - "Deer resistant"
 featured: true
-funFact: "'Zagreb' is named after the capital of Croatia, where the cultivar was selected. Its thread-like foliage resists drought far better than broad-leaved plants, and with regular deadheading it can bloom continuously for three to four months — one of the longest bloom windows of any perennial."
+funFact: "'Zagreb' is named after the capital of Croatia."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/anacis-verticillata/"
 shortUrl: "http://s.shymoose.com/kiGvx"
 dateAdded: 2026-06-01

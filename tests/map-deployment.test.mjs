@@ -29,7 +29,7 @@ test("deployed map permits same-origin GPS without permitting third-party locati
 });
 
 test("clean HTML routes receive background revalidation caching", () => {
-  for (const path of ["/", "/404.html", "/plants/example/", "/plants/example/index.html", "/map", "/map/", "/bloom", "/bloom/", "/pruning", "/pruning/"]) {
+  for (const path of ["/", "/404.html", "/plants/example/", "/plants/example/index.html", "/map", "/map/", "/bloom", "/bloom/", "/pruning", "/pruning/", "/feeding", "/feeding/"]) {
     assert.deepEqual(headersFor(path, "cache-control"), [
       "public, max-age=0, stale-while-revalidate=60",
     ], path);

@@ -7,6 +7,8 @@ import PlantMonths from "../../components/PlantMonths.astro";
 import { noteEditorUrl } from "../../lib/notes";
 import { plantTypes, plantDisplayTags, petSafetyFacts, isMapped } from "../../lib/plant-facets";
 import type { IconName } from "../../components/Icon.astro";
+import { feedingRecommendations } from "../../data/feeding";
+import { feedingAnchor, recommendationsForPlant } from "../../lib/feeding";
 
 export async function getStaticPaths() {
   const plants = await getCollection("plants");
@@ -40,6 +42,7 @@ const {
 } = plant.data;
 const tags = plantDisplayTags(plant.data);
 const safety = petSafetyFacts(care.petSafety);
+const feeding = recommendationsForPlant(plant.id, feedingRecommendations);
 function sourceLabel(url: string): string {
   const host = new URL(url).hostname.replace(/^www\./, "");
   return ({
@@ -206,6 +209,25 @@ function renderInlineMarkdown(text: string): string {
         )
       }
     </header>
+
+    {!archived && (
+      <section aria-label="Feeding guidance" class="mt-5 rounded-2xl border border-leaf-200 p-4 dark:border-leaf-800">
+        <h2 class="font-serif text-xl font-semibold">Feeding</h2>
+        {feeding.length > 0 ? feeding.map((entry) => (
+          <div class="mt-2">
+            <p class="text-sm font-semibold">{entry.need}{entry.product ? ` · ${entry.product.name}` : ""}</p>
+            <p class="mt-1 text-sm text-leaf-700 dark:text-leaf-300">{entry.condition}</p>
+            <p class="mt-2 text-sm font-semibold">Caution: {entry.warning}</p>
+            <a href={feedingAnchor(entry.id)} class="mt-2 inline-flex min-h-11 items-center rounded-lg text-sm font-semibold text-leaf-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-leaf-300">Feeding timing, instructions & sources</a>
+          </div>
+        )) : (
+          <p class="mt-2 text-sm text-leaf-700 dark:text-leaf-300">
+            Feeding guidance not yet reviewed. This does not mean no fertilizer is needed.
+            {" "}<a href="/feeding/#guidance-coverage" class="inline-flex min-h-11 items-center rounded-lg font-semibold underline underline-offset-4">About the feeding guide</a>
+          </p>
+        )}
+      </section>
+    )}
 
     <section class="mt-5">
       <p class="text-lg leading-relaxed text-leaf-800 dark:text-leaf-200">

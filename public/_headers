@@ -37,3 +37,9 @@
 
 /pruning/
   Cache-Control: public, max-age=0, stale-while-revalidate=60
+
+/feeding
+  Cache-Control: public, max-age=0, stale-while-revalidate=60
+
+/feeding/
+  Cache-Control: public, max-age=0, stale-while-revalidate=60

@@ -66,6 +66,31 @@ The two pieces of shared logic worth knowing:
   icon in one labeled map. Use one anywhere with `<Icon name="leaf" />`; add a
   new icon by adding a single entry to that file.
 
+## Feeding guide
+
+[`/feeding/`](https://garden.shymoose.com/feeding/) is a seasonal reference, not
+an application tracker. It groups active plants into seasonal windows and
+distinguishes routine, conditional, and not-routinely-needed feeding. Product
+and feeding-need filters narrow recommendations; application instructions,
+soil/acidity notes, current product directions and references expand in place.
+Plant pages link to the same recommendations. Without JavaScript, the complete
+guide and its disclosures remain usable.
+
+Curated recommendations live in `src/data/feeding.ts`, explicitly associated
+with plant collection IDs. Shared rules in `src/lib/feeding.ts` exclude archived
+plants and report uncovered active plants as **not yet reviewed**, never as
+"no fertilizer needed". Broad established-border and landscape baselines are
+labeled as such, not presented as cultivar-specific research. Add new plants to
+an appropriate researched recommendation or leave them visibly uncovered.
+
+When changing advice, verify extension/RHS plant guidance and current product
+directions, retain the sources and review date, and distinguish plant nutrition
+from a preferred brand or a separate pH amendment. Product label schedules
+must not become blanket annual feeding requirements. Doses are not inferred
+from plant height or copied between fertilizer analyses. Do not regenerate
+plant signs or short links for guide-only edits. Run the unit and browser
+regressions along with the website checks described in `AGENTS.md`.
+
 ## Garden notes
 
 Open [the notes editor](https://garden.shymoose.com/admin/) and sign in with

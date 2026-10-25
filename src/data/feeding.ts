@@ -31,6 +31,8 @@ const reviewedOn = "2026-10-25";
 export const feedingRecommendations: readonly FeedingRecommendation[] = [
   {
     id: "mountain-laurel",
+    quickCaution: "Check soil pH before feeding.",
+    evidenceScope: "plant-group",
     title: "Mountain laurel",
     plantIds: ["mountain-laurel"],
     window: "spring",
@@ -50,6 +52,8 @@ export const feedingRecommendations: readonly FeedingRecommendation[] = [
   },
   {
     id: "azalea-rhododendron",
+    quickCaution: "Overfeeding can burn shallow roots.",
+    evidenceScope: "plant-group",
     title: "Azalea & rhododendron",
     plantIds: ["karen-azelia", "rhododendron-dauricum"],
     window: "spring",
@@ -66,6 +70,8 @@ export const feedingRecommendations: readonly FeedingRecommendation[] = [
   },
   {
     id: "pieris-holly",
+    quickCaution: "Do not over-acidify the soil.",
+    evidenceScope: "plant-group",
     title: "Pieris & hollies",
     plantIds: ["pieris-japonica", "ilex-crenata", "japanese-holly", "ilex-meserveae-blue-prince", "ilex-x-meserveae-blue-princess"],
     window: "spring",
@@ -86,6 +92,8 @@ export const feedingRecommendations: readonly FeedingRecommendation[] = [
   },
   {
     id: "boxwood-arborvitae",
+    quickCaution: "Not an acid-loving feed by default.",
+    evidenceScope: "plant-group",
     title: "Boxwood & arborvitae",
     plantIds: ["boxwood", "korean-boxwood", "thuja-occidentalis-emerald"],
     window: "spring",
@@ -102,6 +110,8 @@ export const feedingRecommendations: readonly FeedingRecommendation[] = [
   },
   {
     id: "hydrangeas",
+    quickCaution: "Feeding is not a flower-color treatment.",
+    evidenceScope: "plant-group",
     title: "Hydrangeas",
     plantIds: ["bigleaf-hydrangea", "hydrangea-macrophylla-heart-throb", "hydrangea-macrophylla-magical-bride", "mountain-hydrangea", "hydrangea-paniculata-fire-light-tidbit", "hydrangea-quercifolia-alice", "hydrangea-quercifolia-ruby-slippers", "oakleaf-hydrangea"],
     window: "spring",
@@ -117,6 +127,8 @@ export const feedingRecommendations: readonly FeedingRecommendation[] = [
   },
   {
     id: "tomatoes",
+    quickCaution: "No weed-and-feed; avoid excess nitrogen.",
+    evidenceScope: "plant-group",
     title: "Tomatoes",
     plantIds: ["solanum-lycopersicum-bumble-bee-purple", "solanum-lycopersicum-bumble-bee-sunrise", "solanum-lycopersicum-carbon", "solanum-lycopersicum-ukrainian-purple"],
     window: "growing",
@@ -132,6 +144,8 @@ export const feedingRecommendations: readonly FeedingRecommendation[] = [
   },
   {
     id: "cucumbers",
+    quickCaution: "No weed-and-feed on food crops.",
+    evidenceScope: "plant-group",
     title: "Cucumbers",
     plantIds: ["cucumis-sativus-shintokiwa", "cucumis-sativus-suyo-long", "cucumis-sativus-unagi"],
     window: "growing",
@@ -147,6 +161,8 @@ export const feedingRecommendations: readonly FeedingRecommendation[] = [
   },
   {
     id: "established-woody",
+    quickCaution: "Do not feed to treat unexplained decline.",
+    evidenceScope: "general",
     title: "Other established trees & shrubs",
     plantIds: [
       "acer-palmatum-bihou", "acer-palmatum-crimson-queen", "acer-palmatum-inaba-shidare", "acer-palmatum-tamukeyama",
@@ -171,6 +187,8 @@ export const feedingRecommendations: readonly FeedingRecommendation[] = [
   },
   {
     id: "yarrow-stonecrop",
+    quickCaution: "Avoid rich, wet soil.",
+    evidenceScope: "plant-group",
     title: "Yarrow & stonecrops",
     plantIds: ["achillea-millefolium-new-vintage-red", "achillea-millefolium-tutti-frutti", "hylotelephium-spectabile", "hylotelephium-telephium", "stonecrop", "phedimus-aizoon"],
     window: "no-routine",
@@ -190,6 +208,8 @@ export const feedingRecommendations: readonly FeedingRecommendation[] = [
   },
   {
     id: "ornamental-grasses",
+    quickCaution: "Excess fertilizer can reduce flowering.",
+    evidenceScope: "general",
     title: "Ornamental grasses",
     plantIds: ["calamagrostis-x-acutiflora-karl-foerster", "dwarf-fountain-grass", "festuca-glauca-elijah-blue", "muhly-grass", "ribbon-grass", "schizachyrium-scoparium-carousel", "schizachyrium-scoparium-standing-ovation"],
     window: "no-routine",
@@ -205,6 +225,8 @@ export const feedingRecommendations: readonly FeedingRecommendation[] = [
   },
   {
     id: "border-perennials",
+    quickCaution: "Avoid blanket annual feeding.",
+    evidenceScope: "general",
     title: "Established border perennials",
     plantIds: [
       "actaea-racemosa", "agastache-kudos-mandarin", "allium", "allium-avatar", "amsonia", "anacis-verticillata-zagreb",

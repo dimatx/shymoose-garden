@@ -3,9 +3,12 @@ import { test } from "node:test";
 import { auditPlants } from "../scripts/check-plant-data.ts";
 import { feedingRecommendations } from "../src/data/feeding.ts";
 import {
-  FEEDING_NEEDS, FEEDING_WINDOWS, feedingAnchor, getFeedingGuide,
-  matchesFeedingFilters, recommendationsForPlant,
+  FEEDING_NEEDS, FEEDING_WINDOWS, getFeedingGuide,
+  recommendationsForPlant, getFeedingProductGroups,
+  feedingPlantUrl, matchesFeedingRow, readFeedingFilters, feedingSearchText,
+  type FeedingFilters,
 } from "../src/lib/feeding.ts";
+import { auditFeedingRecommendations } from "../src/lib/feeding-schema.ts";
 
 const { plants } = auditPlants();
 
@@ -25,7 +28,7 @@ test("feeding recommendations reference real plants, complete guidance and curre
       assert.ok(!memberships.has(id), `Conflicting feeding groups for ${id}`);
       memberships.add(id);
     }
-    for (const field of ["title", "timing", "requirement", "condition", "warning", "instructions", "soil"] as const) {
+    for (const field of ["title", "timing", "requirement", "condition", "quickCaution", "warning", "instructions", "soil"] as const) {
       assert.ok(entry[field].trim(), `${entry.id}: missing ${field}`);
     }
     assert.match(entry.reviewedOn, /^\d{4}-\d{2}-\d{2}$/);
@@ -62,10 +65,96 @@ test("active plants partition into covered and missing without treating unknown 
 test("all-archived, empty and unreviewed gardens have honest coverage", () => {
   const archived = plants.map((plant) => ({ ...plant, data: { ...plant.data, archived: true } }));
   assert.deepEqual(getFeedingGuide(archived, feedingRecommendations), {
-    entries: [], coveredCount: 0, activeCount: 0, missing: [],
+    entries: [], coveredCount: 0, baselineCount: 0, plantGroupCount: 0, activeCount: 0, missing: [],
   });
   assert.deepEqual(getFeedingGuide([], feedingRecommendations).entries, []);
   assert.equal(getFeedingGuide(plants, []).missing.length, plants.filter((plant) => !plant.data.archived).length);
+});
+
+test("coverage separates plant/group guidance from broad baselines", () => {
+  const guide = getFeedingGuide(plants, feedingRecommendations);
+  assert.ok(guide.baselineCount > guide.plantGroupCount);
+  assert.equal(guide.plantGroupCount + guide.baselineCount, guide.coveredCount);
+  assert.equal(guide.coveredCount + guide.missing.length, guide.activeCount);
+});
+
+test("fertilizer groups contain every explicitly associated active plant exactly once", () => {
+  const guide = getFeedingGuide(plants, feedingRecommendations);
+  const groups = getFeedingProductGroups(guide.entries);
+  assert.deepEqual(groups.map((group) => group.product.id), ["holly-tone", "plant-tone"]);
+  for (const { product, plants: members } of groups) {
+    const expected = plants.filter((plant) => !plant.data.archived
+      && recommendationsForPlant(plant.id, feedingRecommendations).some((entry) => entry.product?.id === product.id));
+    assert.deepEqual(members.map(({ plant }) => plant.id).sort(), expected.map((plant) => plant.id).sort());
+    assert.equal(new Set(members.map(({ plant }) => plant.id)).size, members.length);
+    assert.ok(members.every(({ recommendation }) => recommendation.evidenceScope === "plant-group"));
+  }
+  assert.deepEqual(getFeedingProductGroups([]), []);
+});
+
+test("plant search uses names and Latin names, independent of case, accents and extra spaces", () => {
+  const plant = { id: "test-plant", data: { name: "Corál Bells 'Black Pearl'", latinName: "Heuchera Primo" } };
+  const row = { search: feedingSearchText(plant), window: "no-routine", reviewed: true };
+  const filters: FeedingFilters = { view: "plants", window: "spring", product: "", query: "CORAL   BELLS" };
+  assert.ok(matchesFeedingRow(row, filters));
+  assert.ok(matchesFeedingRow(row, { ...filters, query: "HEUCHERA primo" }));
+  assert.ok(!matchesFeedingRow(row, { ...filters, query: "" }), "Plant lookup starts with a query, not a 146-plant dump");
+  assert.ok(!matchesFeedingRow(row, { ...filters, view: "season", query: "" }));
+  assert.ok(matchesFeedingRow(row, { ...filters, view: "season", window: "no-routine", query: "" }));
+});
+
+test("unreviewed plants are findable but never become product or seasonal prescriptions", () => {
+  const row = { search: "parsley petroselinum crispum", reviewed: false };
+  const filters: FeedingFilters = { view: "plants", window: "spring", product: "no-product", query: "parsley" };
+  assert.ok(matchesFeedingRow(row, filters));
+  assert.ok(!matchesFeedingRow(row, { ...filters, view: "product" }));
+  assert.ok(!matchesFeedingRow(row, { ...filters, view: "season" }));
+  assert.ok(!matchesFeedingRow({ ...row, reviewed: true }, { ...filters, view: "product", product: "" }));
+});
+
+test("URL filters restore valid state, normalize unsupported choices and preserve plant links", () => {
+  assert.deepEqual(readFeedingFilters(new URLSearchParams(), ["holly-tone"]), {
+    view: "season", window: "spring", product: "", query: "",
+  });
+  assert.deepEqual(readFeedingFilters(new URLSearchParams("view=product&product=holly-tone&q=laurel"), ["holly-tone"]), {
+    view: "product", window: "spring", product: "holly-tone", query: "laurel",
+  });
+  assert.equal(readFeedingFilters(new URLSearchParams("product=holly-tone"), ["holly-tone"]).view, "product");
+  const invalid = readFeedingFilters(new URLSearchParams("view=invalid&window=13&product=unreviewed"), ["holly-tone"]);
+  assert.equal(invalid.window, "spring");
+  assert.equal(invalid.product, "");
+  assert.equal(feedingPlantUrl("mountain-laurel"), "/feeding/?plant=mountain-laurel#plant-mountain-laurel");
+});
+
+test("build-time feeding audit validates the published dataset", () => {
+  assert.deepEqual(auditFeedingRecommendations(plants, feedingRecommendations), []);
+});
+
+test("feeding audit rejects incomplete guidance, impossible dates and invalid source URLs", () => {
+  const base = feedingRecommendations[0];
+  const { reviewedOn, ...undated } = base;
+  const { quickCaution, ...noCaution } = base;
+  assert.match(auditFeedingRecommendations(plants, [undated]).join("\n"), /reviewedOn/);
+  assert.match(auditFeedingRecommendations(plants, [noCaution]).join("\n"), /quickCaution/);
+  assert.match(auditFeedingRecommendations(plants, [{ ...base, reviewedOn: "2026-02-31" }]).join("\n"), /real calendar date/);
+  assert.match(auditFeedingRecommendations(plants, [{ ...base, reviewedOn: "2099-01-01" }]).join("\n"), /future/);
+  assert.match(auditFeedingRecommendations(plants, [{ ...base, sources: [] }]).join("\n"), /sources/);
+  assert.match(auditFeedingRecommendations(plants, [{ ...base, sources: [{ label: "Bad URL", url: "javascript:alert(1)" }] }]).join("\n"), /HTTPS/);
+  assert.match(auditFeedingRecommendations(plants, [{ ...base, instructions: "TODO research" }]).join("\n"), /Finish/);
+});
+
+test("feeding audit prevents bad associations and broad baselines being used as product evidence", () => {
+  const base = feedingRecommendations[0];
+  assert.ok(base.product);
+  const product = base.product;
+  assert.match(auditFeedingRecommendations(plants, [{ ...base, plantIds: ["missing-plant"] }]).join("\n"), /unknown plant/);
+  assert.match(auditFeedingRecommendations(plants, [base, { ...base, id: "second-recommendation" }]).join("\n"), /already assigned/);
+  assert.match(auditFeedingRecommendations(plants, [base, base]).join("\n"), /duplicate recommendation ID/);
+  assert.match(auditFeedingRecommendations(plants, [{ ...base, evidenceScope: "general" }]).join("\n"), /baseline cannot establish/);
+  assert.match(auditFeedingRecommendations(plants, [{ ...base, window: "no-routine" }]).join("\n"), /must agree/);
+  assert.match(auditFeedingRecommendations(plants, [{ ...base, sources: [{ label: "Label only", url: product.url }] }]).join("\n"), /independent horticultural support/);
+  const conflicting = { ...base, id: "other-choice", plantIds: ["karen-azelia"], product: { ...product, note: "A conflicting definition" } };
+  assert.match(auditFeedingRecommendations(plants, [base, conflicting]).join("\n"), /conflicting definition/);
 });
 
 test("mountain laurel and non-acid-loving evergreens retain distinct product choices", () => {
@@ -75,22 +164,9 @@ test("mountain laurel and non-acid-loving evergreens retain distinct product cho
   assert.match(laurel.condition, /soil report/);
   assert.match(laurel.soil, /not a substitute/);
   assert.match(laurel.instructions, /No fixed dose/);
-  assert.equal(feedingAnchor(laurel.id), "/feeding/#mountain-laurel");
   for (const id of ["boxwood", "korean-boxwood", "thuja-occidentalis-emerald"]) {
     const [entry] = recommendationsForPlant(id, feedingRecommendations);
     assert.equal(entry.product?.id, "plant-tone");
     assert.equal(entry.need, "Conditional");
   }
-});
-
-test("product and need filters intersect, including absent products and empty results", () => {
-  const laurel = feedingRecommendations.find((entry) => entry.id === "mountain-laurel")!;
-  const grasses = feedingRecommendations.find((entry) => entry.id === "ornamental-grasses")!;
-  assert.ok(matchesFeedingFilters(laurel, "", ""));
-  assert.ok(matchesFeedingFilters(laurel, "holly-tone", "Conditional"));
-  assert.ok(!matchesFeedingFilters(laurel, "plant-tone", "Conditional"));
-  assert.ok(!matchesFeedingFilters(laurel, "holly-tone", "Routine"));
-  assert.ok(matchesFeedingFilters(grasses, "no-product", "Not routinely needed"));
-  assert.ok(!matchesFeedingFilters(laurel, "no-product", ""));
-  assert.ok(!matchesFeedingFilters(grasses, "holly-tone", ""));
 });

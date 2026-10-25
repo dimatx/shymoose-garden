@@ -8,7 +8,7 @@ import { noteEditorUrl } from "../../lib/notes";
 import { plantTypes, plantDisplayTags, petSafetyFacts, isMapped } from "../../lib/plant-facets";
 import type { IconName } from "../../components/Icon.astro";
 import { feedingRecommendations } from "../../data/feeding";
-import { feedingAnchor, recommendationsForPlant } from "../../lib/feeding";
+import { FEEDING_EVIDENCE, feedingPlantUrl, recommendationsForPlant } from "../../lib/feeding";
 
 export async function getStaticPaths() {
   const plants = await getCollection("plants");
@@ -210,25 +210,6 @@ function renderInlineMarkdown(text: string): string {
       }
     </header>
 
-    {!archived && (
-      <section aria-label="Feeding guidance" class="mt-5 rounded-2xl border border-leaf-200 p-4 dark:border-leaf-800">
-        <h2 class="font-serif text-xl font-semibold">Feeding</h2>
-        {feeding.length > 0 ? feeding.map((entry) => (
-          <div class="mt-2">
-            <p class="text-sm font-semibold">{entry.need}{entry.product ? ` · ${entry.product.name}` : ""}</p>
-            <p class="mt-1 text-sm text-leaf-700 dark:text-leaf-300">{entry.condition}</p>
-            <p class="mt-2 text-sm font-semibold">Caution: {entry.warning}</p>
-            <a href={feedingAnchor(entry.id)} class="mt-2 inline-flex min-h-11 items-center rounded-lg text-sm font-semibold text-leaf-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-leaf-300">Feeding timing, instructions & sources</a>
-          </div>
-        )) : (
-          <p class="mt-2 text-sm text-leaf-700 dark:text-leaf-300">
-            Feeding guidance not yet reviewed. This does not mean no fertilizer is needed.
-            {" "}<a href="/feeding/#guidance-coverage" class="inline-flex min-h-11 items-center rounded-lg font-semibold underline underline-offset-4">About the feeding guide</a>
-          </p>
-        )}
-      </section>
-    )}
-
     <section class="mt-5">
       <p class="text-lg leading-relaxed text-leaf-800 dark:text-leaf-200">
         {shortDescription}
@@ -332,6 +313,27 @@ function renderInlineMarkdown(text: string): string {
         ))
       }
     </section>
+
+    {!archived && (
+      <section aria-label="Feeding guidance" class="mt-8 rounded-2xl border border-leaf-200 p-4 dark:border-leaf-800">
+        <h2 class="font-serif text-xl font-semibold">Feeding</h2>
+        {feeding.length > 0 ? feeding.map((entry) => (
+          <div class="mt-2">
+            <p class="text-sm font-semibold">{entry.need}{entry.product ? ` · ${entry.product.name}` : ""}</p>
+            <p class="mt-1 text-sm text-leaf-700 dark:text-leaf-300">{entry.condition}</p>
+            <p class="mt-2 text-sm text-leaf-700 dark:text-leaf-300"><strong>When: </strong>{entry.timing}</p>
+            <p class="mt-2 text-sm font-semibold">Caution: {entry.warning}</p>
+            <p class="mt-2 text-xs text-leaf-600 dark:text-leaf-300">{FEEDING_EVIDENCE[entry.evidenceScope]}{entry.evidenceScope === "general" ? " — not a cultivar-specific feeding assessment." : ""}</p>
+            <a href={feedingPlantUrl(plant.id)} class="mt-2 inline-flex min-h-11 items-center rounded-lg text-sm font-semibold text-leaf-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-leaf-300">Open feeding guidance</a>
+          </div>
+        )) : (
+          <p class="mt-2 text-sm text-leaf-700 dark:text-leaf-300">
+            Feeding guidance not yet reviewed. This does not mean no fertilizer is needed.
+            {" "}<a href={feedingPlantUrl(plant.id)} class="inline-flex min-h-11 items-center rounded-lg font-semibold underline underline-offset-4">Open feeding guidance</a>
+          </p>
+        )}
+      </section>
+    )}
 
     <PlantMonths bloomMonths={bloomMonths} pruneMonths={pruneMonths} />
 

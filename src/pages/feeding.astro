@@ -1,188 +1,175 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
 import { getSortedPlants, plantUrl } from "../lib/plants";
 import { feedingRecommendations } from "../data/feeding";
-import { FEEDING_NEEDS, FEEDING_WINDOWS, getFeedingGuide } from "../lib/feeding";
+import {
+  FEEDING_EVIDENCE, feedingSearchText, getFeedingGuide,
+  getFeedingProductGroups, recommendationsForPlant,
+} from "../lib/feeding";
 
-const guide = getFeedingGuide(await getSortedPlants(), feedingRecommendations);
-const products = [...new Map(guide.entries.flatMap(({ recommendation }) =>
-  recommendation.product ? [[recommendation.product.id, recommendation.product] as const] : [],
-)).values()];
+const plants = (await getSortedPlants()).filter((plant) => !plant.data.archived);
+const guide = getFeedingGuide(plants, feedingRecommendations);
+const products = getFeedingProductGroups(guide.entries);
 ---
 
-<Layout title="Feeding guide" description="What to feed in the ShyMoose garden, when to consider it, and when to leave healthy plants unfed.">
-  <section class="mb-6">
-    <a href="/" class="mb-4 inline-flex min-h-11 items-center gap-1.5 rounded-lg text-sm font-medium text-leaf-600 hover:underline dark:text-leaf-300">
-      <Icon name="chevron-left" class="h-4 w-4" /> All plants
-    </a>
-    <h1 class="text-balance font-serif text-3xl font-semibold tracking-tight sm:text-4xl">Feeding guide</h1>
-    <p class="mt-2 max-w-prose text-pretty text-leaf-700 dark:text-leaf-300">
-      What to use, when to consider it, and when to leave well enough alone.
-      Seasonal reference for plants in the ground, not a list of feedings you must do.
-    </p>
-  </section>
-
-  <aside aria-label="Before feeding" class="rounded-2xl border border-leaf-300 bg-leaf-100 p-5 text-leaf-900 dark:border-leaf-700 dark:bg-leaf-900 dark:text-leaf-100">
-    <h2 class="font-serif text-xl font-semibold">Soil first. Fertilizer second.</h2>
-    <p class="mt-2">Test the soil before choosing nutrients or changing pH. Healthy established plants often need no extra feed; yellow leaves can signal water, drainage or pH problems instead.</p>
-    <p class="mt-2 font-semibold">Never feed drought-stressed plants or frozen ground. Follow the current bag label, keep fertilizer away from pets, and prevent runoff into waterways.</p>
-  </aside>
-
-  <nav aria-label="Feeding seasons" class="my-5 flex flex-wrap gap-x-5 gap-y-1">
-    {FEEDING_WINDOWS.map((window) => <a data-feeding-season={window.id} href={`#${window.id}`} class="inline-flex min-h-11 items-center rounded-lg text-sm font-semibold text-leaf-700 underline underline-offset-4 dark:text-leaf-300">{window.label}</a>)}
-    <a href="#guidance-coverage" class="inline-flex min-h-11 items-center rounded-lg text-sm font-semibold text-leaf-700 underline underline-offset-4 dark:text-leaf-300">Coverage & gaps</a>
-  </nav>
+<Layout title="Feeding guide" description="Choose a season or fertilizer, find the matching garden plants, and open only the care guidance you need.">
+  <header class="mb-5">
+    <h1 class="font-serif text-3xl font-semibold tracking-tight sm:text-4xl">Feeding guide</h1>
+    <p class="mt-1 text-leaf-700 dark:text-leaf-300">Choose a season, a fertilizer, or a plant.</p>
+  </header>
 
   <div data-feeding-guide>
-    <div data-feeding-filters hidden class="mb-6 flex flex-wrap gap-4">
-      <label class="flex min-w-0 flex-1 basis-full flex-col gap-1 text-sm font-semibold sm:basis-0">
-        Preferred product
-        <select data-feeding-product class="min-h-11 w-full rounded-xl border border-leaf-300 bg-white px-3 text-base font-normal dark:border-leaf-700 dark:bg-leaf-900">
-          <option value="">All products</option>
-          {products.map((product) => <option value={product.id}>{product.name}</option>)}
-          <option value="no-product">No preferred product</option>
-        </select>
-      </label>
-      <label class="flex min-w-0 flex-1 basis-full flex-col gap-1 text-sm font-semibold sm:basis-0">
-        Feeding need
-        <select data-feeding-need class="min-h-11 w-full rounded-xl border border-leaf-300 bg-white px-3 text-base font-normal dark:border-leaf-700 dark:bg-leaf-900">
-          <option value="">All needs</option>
-          {FEEDING_NEEDS.map((need) => <option value={need}>{need}</option>)}
-        </select>
-      </label>
-      <button data-feeding-reset type="button" class="min-h-11 self-end rounded-xl border border-leaf-300 px-4 text-sm font-semibold hover:bg-leaf-100 dark:border-leaf-700 dark:hover:bg-leaf-800">Reset filters</button>
+    <div data-feeding-tools hidden>
+      <div role="group" aria-label="Browse feeding guidance" class="feeding-modes mb-4 grid grid-cols-3 gap-1 rounded-2xl bg-leaf-100 p-1 dark:bg-leaf-900">
+        <button type="button" data-feeding-view="season" aria-pressed="true" class="mode-button">By season</button>
+        <button type="button" data-feeding-view="product" aria-pressed="false" class="mode-button">By fertilizer</button>
+        <button type="button" data-feeding-view="plants" aria-pressed="false" class="mode-button">Find a plant</button>
+      </div>
+      <div class="mb-3 flex flex-wrap items-end gap-3">
+        <label data-season-control class="flex min-w-0 flex-1 basis-full flex-col gap-1 text-sm font-semibold sm:basis-0">
+          Seasonal window
+          <select data-feeding-window class="feeding-input">
+            <option value="spring">Late winter & spring</option>
+            <option value="growing">Planting & growing season</option>
+            <option value="no-routine">Usually no feeding needed</option>
+          </select>
+        </label>
+        <label data-product-control hidden class="flex min-w-0 flex-1 basis-full flex-col gap-1 text-sm font-semibold sm:basis-0">
+          Fertilizer
+          <select data-feeding-product class="feeding-input">
+            <option value="">Choose a fertilizer</option>
+            {products.map(({ product, plants: members }) => <option value={product.id}>{product.name} · {members.length} plants</option>)}
+            <option value="no-product">No preferred product recorded</option>
+          </select>
+        </label>
+        <div class="flex min-w-0 flex-1 basis-full flex-col gap-1 sm:basis-0">
+          <label for="feeding-search" data-search-label class="text-sm font-semibold">Search these plants</label>
+          <div class="flex gap-2">
+            <input id="feeding-search" data-feeding-search type="search" autocomplete="off" placeholder="Common or Latin name" class="feeding-input min-w-0 flex-1" />
+            <button data-feeding-reset type="button" class="min-h-11 rounded-xl px-2 text-sm font-semibold text-leaf-700 hover:bg-leaf-100 dark:text-leaf-300 dark:hover:bg-leaf-900">Reset</button>
+          </div>
+        </div>
+      </div>
+      <p data-product-context hidden class="mb-3 text-sm text-leaf-700 dark:text-leaf-300"></p>
     </div>
-    <p data-feeding-count role="status" class="mb-4 text-sm text-leaf-700 dark:text-leaf-300">{guide.entries.length} recommendations</p>
-    <p data-feeding-empty hidden class="my-6 rounded-xl border border-leaf-300 p-4 dark:border-leaf-700">No recommendations match these filters. Reset filters to see the whole guide.</p>
-    {FEEDING_WINDOWS.map((window) => (
-      <section id={window.id} data-feeding-section class="feeding-target mb-10">
-        <h2 class="font-serif text-2xl font-semibold">{window.label}</h2>
-        <p class="mt-1 text-sm text-leaf-700 dark:text-leaf-300">{window.note}</p>
-        {guide.entries.filter(({ recommendation }) => recommendation.window === window.id).map(({ recommendation: entry, plants }) => (
-          <article
-            id={entry.id}
-            data-feeding-entry
-            data-product={entry.product?.id ?? "no-product"}
-            data-need={entry.need}
-            class="feeding-target mt-5 border-t border-leaf-300 pt-5 dark:border-leaf-700"
-          >
-            <div class="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 class="font-serif text-xl font-semibold">{entry.title}</h3>
-              <span class="text-sm font-semibold text-leaf-700 dark:text-leaf-300">{entry.need}</span>
-            </div>
-            <p class="mt-2 font-semibold">{entry.timing}</p>
-            <p class="mt-2 text-leaf-800 dark:text-leaf-200">{entry.condition}</p>
-            <dl class="mt-3 space-y-2 text-sm">
-              <div><dt class="font-semibold">Fertilizer type</dt><dd class="text-leaf-700 dark:text-leaf-300">{entry.requirement}</dd></div>
-              <div><dt class="font-semibold">Preferred product</dt><dd class="text-leaf-700 dark:text-leaf-300">{entry.product?.name ?? "None selected; choose by soil results if feeding is needed."}</dd></div>
-            </dl>
-            <p class="mt-3 text-sm font-semibold"><span class="text-leaf-700 dark:text-leaf-300">Caution: </span>{entry.warning}</p>
-            {plants.length <= 8 ? (
-              <ul aria-label={`${entry.title} plants`} class="mt-3 flex flex-wrap gap-x-4">
-                {plants.map((plant) => <li><a data-feeding-plant={plant.id} href={plantUrl(plant)} class="inline-flex min-h-11 items-center rounded-lg text-sm text-leaf-700 underline underline-offset-4 dark:text-leaf-300">{plant.data.name}</a></li>)}
-              </ul>
-            ) : (
-              <details class="group mt-3">
-                <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg text-sm font-semibold underline underline-offset-4">Plants in this group ({plants.length}) <Icon name="chevron-down" class="h-4 w-4 transition-transform group-open:rotate-180" /></summary>
-                <ul class="mt-2 columns-1 sm:columns-2">
-                  {plants.map((plant) => <li class="break-inside-avoid"><a data-feeding-plant={plant.id} href={plantUrl(plant)} class="inline-flex min-h-11 items-center rounded-lg text-sm text-leaf-700 underline underline-offset-4 dark:text-leaf-300">{plant.data.name}</a></li>)}
-                </ul>
-              </details>
-            )}
-            <details class="group mt-1">
-              <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg text-sm font-semibold text-leaf-700 underline underline-offset-4 dark:text-leaf-300">
-                Instructions, soil & sources
-                <Icon name="chevron-down" class="h-4 w-4 transition-transform group-open:rotate-180" />
+
+    <aside aria-label="Before feeding" class="mb-4 flex items-start gap-2 rounded-xl border border-leaf-300 px-3 py-2.5 text-sm dark:border-leaf-700">
+      <Icon name="alert-triangle" class="mt-0.5 h-4 w-4 shrink-0 text-leaf-700 dark:text-leaf-300" />
+      <p>Check soil and pH first. <strong>Never feed drought-stressed plants or frozen soil.</strong></p>
+    </aside>
+
+    <div class="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+      <p data-feeding-count role="status" class="text-sm font-semibold">{plants.length} active plants</p>
+      <a href="#about-feeding" class="inline-flex min-h-11 items-center rounded-lg text-sm text-leaf-700 underline underline-offset-4 dark:text-leaf-300">About the guidance</a>
+    </div>
+    <p data-feeding-empty hidden class="rounded-2xl border border-leaf-300 p-5 text-leaf-700 dark:border-leaf-700 dark:text-leaf-300"></p>
+    <noscript><p class="mb-4 text-sm">All active plants are shown below. Open a plant for its guidance; filtering requires JavaScript.</p></noscript>
+
+    <ul data-feeding-results class="space-y-2">
+      {plants.map((plant) => {
+        const entry = recommendationsForPlant(plant.id, feedingRecommendations)[0];
+        return (
+          <li data-feeding-item>
+            <details
+              id={`plant-${plant.id}`}
+              name="feeding-plant"
+              data-feeding-row
+              data-plant-id={plant.id}
+              data-plant-name={plant.data.name}
+              data-search={feedingSearchText(plant)}
+              data-recommendation={entry?.id}
+              data-window={entry?.window}
+              data-product={entry?.product?.id ?? "no-product"}
+              data-evidence={entry?.evidenceScope}
+              class="feeding-row group overflow-hidden rounded-2xl border border-leaf-200 bg-white dark:border-leaf-800 dark:bg-leaf-900"
+            >
+              <summary class="flex min-h-22 cursor-pointer list-none items-center gap-3 p-3 [&::-webkit-details-marker]:hidden">
+                <Image src={plant.data.photo} alt="" width={96} height={96} format="webp" class="h-14 w-14 shrink-0 rounded-xl object-cover" />
+                <span class="min-w-0 flex-1">
+                  <span class="block font-semibold leading-snug">{plant.data.name}</span>
+                  <span class="mt-1 block text-xs text-leaf-600 dark:text-leaf-300">
+                    {entry
+                      ? `${entry.need}${entry.product ? ` · ${entry.product.name}` : ""}${entry.evidenceScope === "general" ? " · General baseline" : ""}`
+                      : "Guidance not yet reviewed"}
+                  </span>
+                  {entry && <span class="mt-1 block text-xs font-medium text-leaf-800 dark:text-leaf-200">{entry.quickCaution}</span>}
+                </span>
+                <Icon name="chevron-down" class="h-4 w-4 shrink-0 text-leaf-600 transition-transform group-open:rotate-180 dark:text-leaf-300" />
               </summary>
-              <div class="mt-2 space-y-4 rounded-2xl bg-white/70 p-4 text-sm leading-relaxed text-leaf-800 dark:bg-leaf-900 dark:text-leaf-200">
-                <div><h4 class="font-semibold">How to apply</h4><p>{entry.instructions}</p></div>
-                <div><h4 class="font-semibold">Soil & acidity</h4><p>{entry.soil}</p></div>
-                {entry.product && <div><h4 class="font-semibold">Product choice, not a plant requirement</h4><p>{entry.product.note}</p><a href={entry.product.url} class="inline-flex min-h-11 items-center rounded-lg text-leaf-700 underline underline-offset-4 dark:text-leaf-300">Current {entry.product.name} directions</a></div>}
-                <div>
-                  <h4 class="font-semibold">Reference sources</h4>
-                  <ul>
-                    {entry.sources.map((source) => <li><a href={source.url} class="inline-flex min-h-11 items-center rounded-lg text-leaf-700 underline underline-offset-4 dark:text-leaf-300">{source.label}</a></li>)}
-                  </ul>
-                  <p class="mt-2 text-leaf-600 dark:text-leaf-300">Reviewed <time datetime={entry.reviewedOn}>{entry.reviewedOn}</time>. Seasonal cues shift with weather; product directions can change.</p>
-                </div>
+              <div class="border-t border-leaf-200 px-4 pb-4 pt-3 dark:border-leaf-800">
+                <p class="text-sm italic text-leaf-600 dark:text-leaf-300">{plant.data.latinName}</p>
+                {entry ? (
+                  <>
+                    <p class="mt-3 font-semibold">{entry.condition}</p>
+                    <p class="mt-2 text-sm font-semibold">Caution: {entry.warning}</p>
+                    <dl class="mt-4 space-y-4 text-sm leading-relaxed">
+                      <div><dt class="font-semibold">When</dt><dd class="mt-1 text-leaf-700 dark:text-leaf-300">{entry.timing}</dd></div>
+                      <div><dt class="font-semibold">Fertilizer type</dt><dd class="mt-1 text-leaf-700 dark:text-leaf-300">{entry.requirement}</dd></div>
+                      <div><dt class="font-semibold">Product choice</dt><dd class="mt-1 text-leaf-700 dark:text-leaf-300">{entry.product ? `${entry.product.name}. ${entry.product.note}` : "None recorded. If feeding is needed, choose by soil results."}</dd></div>
+                      <div><dt class="font-semibold">How to apply</dt><dd class="mt-1 text-leaf-700 dark:text-leaf-300">{entry.instructions}</dd></div>
+                      <div><dt class="font-semibold">Soil & acidity</dt><dd class="mt-1 text-leaf-700 dark:text-leaf-300">{entry.soil}</dd></div>
+                    </dl>
+                    <details class="mt-4">
+                      <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg text-sm font-semibold text-leaf-700 dark:text-leaf-300">Sources & review <Icon name="info" class="h-4 w-4" /></summary>
+                      <div class="mt-2 text-sm">
+                        <p class="font-semibold">{FEEDING_EVIDENCE[entry.evidenceScope]}</p>
+                        <p class="mt-1 text-leaf-700 dark:text-leaf-300">{entry.evidenceScope === "general" ? "This is a shared established-landscape or border baseline, not a cultivar-specific feeding assessment." : "Plant or plant-group advice; not a soil test or a diagnosis of this individual plant."}</p>
+                        <ul class="mt-2">
+                          {entry.product && <li><a href={entry.product.url} class="source-link">Current {entry.product.name} directions</a></li>}
+                          {entry.sources.map((source) => <li><a href={source.url} class="source-link">{source.label}</a></li>)}
+                        </ul>
+                        <p class="mt-2 text-leaf-600 dark:text-leaf-300">Reviewed <time datetime={entry.reviewedOn}>{entry.reviewedOn}</time>. Weather and product labels can change.</p>
+                      </div>
+                    </details>
+                  </>
+                ) : (
+                  <p class="mt-3 text-sm text-leaf-700 dark:text-leaf-300">No feeding schedule or product has been reviewed for this plant yet. That does not mean no fertilizer is needed. Use its care notes and soil-test-based advice before feeding.</p>
+                )}
+                <a href={plantUrl(plant)} class="source-link mt-2 font-semibold">Full plant page <Icon name="arrow-up-right" class="ml-1 h-4 w-4" /></a>
               </div>
             </details>
-          </article>
-        ))}
-      </section>
-    ))}
+          </li>
+        );
+      })}
+    </ul>
   </div>
 
-  <section id="guidance-coverage" class="feeding-target border-t border-leaf-300 pt-5 dark:border-leaf-700">
-    <h2 class="font-serif text-2xl font-semibold">Coverage & gaps</h2>
-    <p class="mt-2 text-leaf-700 dark:text-leaf-300">
-      {guide.coveredCount} of {guide.activeCount} active plants have guidance, including shared established-border or landscape advice where noted.
-      Archived plants are excluded. Missing guidance does not mean no fertilizer is needed.
-    </p>
-    {guide.missing.length > 0 && (
-      <details class="group mt-3">
-        <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg font-semibold underline underline-offset-4">Guidance not yet reviewed ({guide.missing.length} plants) <Icon name="chevron-down" class="h-4 w-4 transition-transform group-open:rotate-180" /></summary>
-        <p class="mt-2 text-sm text-leaf-700 dark:text-leaf-300">No feeding schedule or product is assigned to these plants yet. Use their existing care notes and seek soil-test-based advice before feeding.</p>
-        <ul class="mt-2 columns-1 sm:columns-2">
-          {guide.missing.map((plant) => <li class="break-inside-avoid"><a data-feeding-missing={plant.id} href={plantUrl(plant)} class="inline-flex min-h-11 items-center rounded-lg text-sm text-leaf-700 underline underline-offset-4 dark:text-leaf-300">{plant.data.name}</a></li>)}
-        </ul>
-      </details>
-    )}
-    <p class="mt-4 text-sm text-leaf-700 dark:text-leaf-300">This guide does not record applications or mark tasks done.</p>
-  </section>
+  <details id="about-feeding" class="feeding-row mt-6 border-t border-leaf-200 pt-3 dark:border-leaf-800">
+    <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg text-sm font-semibold">How this guide works <Icon name="info" class="h-4 w-4" /></summary>
+    <div class="mt-2 space-y-3 text-sm leading-relaxed text-leaf-700 dark:text-leaf-300">
+      <p>This is a seasonal reference for in-ground plants, not an application tracker. A fertilizer choice is separate from a demonstrated need to feed. Follow the current label, keep fertilizers away from pets, and avoid runoff into waterways.</p>
+      <p>{guide.plantGroupCount} active plants have plant/group guidance; {guide.baselineCount} have only a general baseline; {guide.missing.length} await review. Archived plants are excluded. Sources support advice, not a diagnosis of the garden’s soil.</p>
+      <p>Product lists contain reviewed choices, not every plant a manufacturer lists as compatible. No preferred product recorded does not mean no suitable product exists.</p>
+      {guide.missing.length > 0 && (
+        <details>
+          <summary class="inline-flex min-h-11 cursor-pointer items-center rounded-lg font-semibold">Plants awaiting review ({guide.missing.length})</summary>
+          <ul class="mt-2">
+            {guide.missing.map((plant) => <li><a data-feeding-missing={plant.id} href={`/feeding/?plant=${plant.id}#plant-${plant.id}`} class="source-link">{plant.data.name}</a></li>)}
+          </ul>
+        </details>
+      )}
+    </div>
+  </details>
 </Layout>
 
 <style>
-  .feeding-target { scroll-margin-top: 7rem; }
-  select:focus-visible, button:focus-visible, summary:focus-visible, a:focus-visible {
-    outline: 2px solid var(--color-leaf-500);
-    outline-offset: 3px;
-  }
+  .feeding-row { scroll-margin-top: 7rem; }
+  .feeding-row[open] { border-color: var(--color-leaf-500); }
+  .mode-button { min-height: 44px; border-radius: 12px; padding: 8px 6px; font-size: 14px; font-weight: 600; color: var(--color-leaf-700); }
+  .mode-button[aria-pressed="true"] { background: var(--color-leaf-700); color: white; }
+  :global(.dark) .mode-button { color: var(--color-leaf-300); }
+  :global(.dark) .mode-button[aria-pressed="true"] { background: var(--color-leaf-300); color: var(--color-leaf-950); }
+  .feeding-input { min-height: 44px; width: 100%; border: 1px solid var(--color-leaf-300); border-radius: 12px; background: white; padding: 8px 12px; font-size: 16px; font-weight: 400; }
+  :global(.dark) .feeding-input { border-color: var(--color-leaf-700); background: var(--color-leaf-900); }
+  .feeding-input::placeholder { color: var(--color-leaf-600); }
+  :global(.dark) .feeding-input::placeholder { color: var(--color-leaf-300); }
+  .source-link { display: inline-flex; min-height: 44px; align-items: center; border-radius: 6px; color: var(--color-leaf-700); text-decoration: underline; text-underline-offset: 4px; }
+  :global(.dark) .source-link { color: var(--color-leaf-300); }
+  input:focus-visible, select:focus-visible, button:focus-visible, summary:focus-visible, a:focus-visible { outline: 2px solid var(--color-leaf-500); outline-offset: 3px; }
 </style>
 
 <script>
-  import { matchesFeedingFilters } from "../lib/feeding";
-
-  let events: AbortController | undefined;
-  document.addEventListener("astro:before-swap", () => events?.abort());
-  function initFeedingGuide() {
-    const root = document.querySelector<HTMLElement>("[data-feeding-guide]");
-    if (!root || root.dataset.bound === "true") return;
-    root.dataset.bound = "true";
-    events?.abort();
-    events = new AbortController();
-    const { signal } = events;
-    const product = root.querySelector<HTMLSelectElement>("[data-feeding-product]")!;
-    const need = root.querySelector<HTMLSelectElement>("[data-feeding-need]")!;
-    const entries = [...root.querySelectorAll<HTMLElement>("[data-feeding-entry]")];
-    const update = () => {
-      for (const entry of entries) {
-        const criteria = {
-          product: entry.dataset.product === "no-product" ? undefined : { id: entry.dataset.product! },
-          need: entry.dataset.need!,
-        };
-        entry.hidden = !matchesFeedingFilters(criteria, product.value, need.value);
-      }
-      for (const section of root.querySelectorAll<HTMLElement>("[data-feeding-section]")) {
-        section.hidden = !section.querySelector("[data-feeding-entry]:not([hidden])");
-        document.querySelector<HTMLElement>(`[data-feeding-season="${section.id}"]`)!.hidden = section.hidden;
-      }
-      const visible = entries.filter((entry) => !entry.hidden).length;
-      root.querySelector<HTMLElement>("[data-feeding-count]")!.textContent =
-        `${visible} of ${entries.length} recommendations`;
-      root.querySelector<HTMLElement>("[data-feeding-empty]")!.hidden = visible > 0;
-    };
-    product.addEventListener("change", update, { signal });
-    need.addEventListener("change", update, { signal });
-    root.querySelector("[data-feeding-reset]")!.addEventListener("click", () => {
-      product.value = "";
-      need.value = "";
-      update();
-    }, { signal });
-    root.querySelector<HTMLElement>("[data-feeding-filters]")!.hidden = false;
-    update();
-  }
-  initFeedingGuide();
-  document.addEventListener("astro:page-load", initFeedingGuide);
+  import "../scripts/feeding-guide";
 </script>

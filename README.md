@@ -68,20 +68,35 @@ The two pieces of shared logic worth knowing:
 
 ## Feeding guide
 
-[`/feeding/`](https://garden.shymoose.com/feeding/) is a seasonal reference, not
-an application tracker. It groups active plants into seasonal windows and
-distinguishes routine, conditional, and not-routinely-needed feeding. Product
-and feeding-need filters narrow recommendations; application instructions,
-soil/acidity notes, current product directions and references expand in place.
-Plant pages link to the same recommendations. Without JavaScript, the complete
-guide and its disclosures remain usable.
+[`/feeding/`](https://garden.shymoose.com/feeding/) is a focused plant browser,
+not an application tracker. **By season** shows one seasonal window at a time.
+**By fertilizer** shows every active plant with an explicitly researched product
+choice. **Find a plant** searches common and Latin names across the garden,
+including plants awaiting review. Compact photo rows open one at a time;
+instructions and soil needs appear on selection, and source links are behind a
+second disclosure. Short cautions stay visible on closed rows.
+
+View, selection, search, and the open plant are encoded in the URL, so refresh,
+sharing, bookmarks, and a plant-page round trip retain the context. Plant pages
+open their exact plant's guidance; old recommendation fragment links still work.
+Without JavaScript, all active plants and native disclosures remain usable.
 
 Curated recommendations live in `src/data/feeding.ts`, explicitly associated
 with plant collection IDs. Shared rules in `src/lib/feeding.ts` exclude archived
 plants and report uncovered active plants as **not yet reviewed**, never as
 "no fertilizer needed". Broad established-border and landscape baselines are
-labeled as such, not presented as cultivar-specific research. Add new plants to
-an appropriate researched recommendation or leave them visibly uncovered.
+labeled and counted separately from plant/group guidance, not presented as
+cultivar-specific research. Product lists are reviewed choices, not every plant
+a manufacturer lists as compatible or a prescription to feed all matches.
+Add new plants to an appropriate researched recommendation or leave them
+visibly uncovered.
+
+`src/lib/feeding-schema.ts` runs as part of `npm run check:data` and the build.
+It rejects unknown or conflicting plant assignments, missing advice/cautions,
+invalid or future review dates, missing references, inconsistent product
+definitions, mismatched no-routine status, and product choices supported only
+by a vendor label or broad baseline. The audit checks structural integrity;
+horticultural accuracy still requires reviewing the cited evidence.
 
 When changing advice, verify extension/RHS plant guidance and current product
 directions, retain the sources and review date, and distinguish plant nutrition

@@ -1,7 +1,11 @@
 ---
 name: "Beardtongue 'Arabesque Red'"
 latinName: "Penstemon hartwegii Arabesque® Red"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Mexico (the species)"
 photo: "../../assets/plants/penstemon-hartwegii-arabesque-red.jpg"
 photoAlt: "Tall spike of large red and white bicolor bell-shaped penstemon flowers."
@@ -17,21 +21,18 @@ care:
   spacing: "18–24 in apart."
   propagation: "Readily grown from seed"
   pruning: "Deadhead through summer. Cut old stems back in spring after hard frosts; plants may need replacing after cold winters."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [4]
-tags:
-  - "Bicolor blooms"
-  - "Hummingbird friendly"
-  - "Butterfly friendly"
-  - "Container-suitable"
-  - "Pollinator friendly"
+tags: ["Bicolor blooms", "Attracts hummingbirds", "Attracts butterflies", "Container-suitable", "Pollinator friendly"]
 funFact: "The tubular red flowers attract hummingbirds, which reach inside for nectar."
 learnMoreUrl: "https://all-americaselections.org/product/penstemon-arabesque-red/"
 shortUrl: "http://s.shymoose.com/LvrF3"
 dateAdded: 2026-06-01
 ---
-
 Arabesque® Red is a striking F1 hybrid penstemon and a 2014 All-America
 Selections Flower Award Winner. From early summer on, it produces tall spikes
 crowded with large, bell-shaped flowers in a vivid red-and-white bicolor that

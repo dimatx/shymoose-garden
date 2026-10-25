@@ -1,7 +1,11 @@
 ---
 name: "Japanese Maple 'Tamukeyama'"
 latinName: "Acer palmatum 'Tamukeyama'"
-type: "Tree"
+growthForms: ["Tree"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Part shade"]
 nativeRange: "Japan, Korea, and China"
 photo: "../../assets/plants/acer-palmatum-tamukeyama.jpg"
 photoAlt: "Close-up of the deeply dissected, thread-like purple-red laceleaf foliage of Acer palmatum 'Tamukeyama' on slender red stems."
@@ -17,21 +21,19 @@ care:
   spacing: "8–12 ft apart as a specimen, based on mature spread."
   propagation: "Layer in autumn or graft onto Japanese maple rootstock in late winter."
   pruning: "Minimal pruning needed. Remove dead or crossing branches in late winter while dormant; avoid heavy or late-season cuts, which bleed."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [4, 5]
 pruneMonths: [2, 3]
-tags:
-  - "Fall color"
-  - "Deer resistant"
-  - "Specimen"
-  - "Asian garden"
+tags: ["Fall color", "Deer resistant", "Specimen", "Asian garden"]
 featured: false
 funFact: "'Tamukeyama' has been cultivated since around 1710, making it one of the oldest named laceleaf maples still grown."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c564"
 shortUrl: "https://s.shymoose.com/G6lgH"
 dateAdded: 2026-07-18
 ---
-
 *Acer palmatum* 'Tamukeyama' is a weeping laceleaf (dissectum) Japanese maple
 grown for combining vigor and toughness with the delicate grace of a cutleaf
 maple. Its deeply dissected, thread-like leaves emerge and hold a deep

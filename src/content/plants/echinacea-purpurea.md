@@ -1,7 +1,11 @@
 ---
 name: "Purple Coneflower"
 latinName: "Echinacea purpurea"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Central and eastern United States"
 photo: "../../assets/plants/echinacea-purpurea.jpg"
 photoAlt: "Several vivid magenta-purple coneflowers with orange-brown domed centers blooming amid green foliage."
@@ -17,23 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Readily grown from seed and will reseed itself in the garden; can also be divided in spring."
   pruning: "Deadhead for more bloom or leave seedheads for birds. In late winter cut stems to 12–24 in for nesting bees."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8, 9, 10]
 pruneMonths: [3]
-tags:
-  - "Native"
-  - "Pollinator friendly"
-  - "Butterfly friendly"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Cut flower"
+tags: ["Native", "Pollinator friendly", "Attracts butterflies", "Drought tolerant", "Deer resistant", "Cut flowers"]
 featured: false
 funFact: "Its genus name comes from the Greek word for \"hedgehog\" — a nod to the spiny, bristling cone at the center of every flower."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/echinacea-purpurea/"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/NltVc"
 ---
-
 Purple coneflower is a sturdy, long-blooming herbaceous perennial in the daisy
 family (Asteraceae), native to prairies, meadows, and open woods across
 central and eastern North America. It's one of the most reliable native

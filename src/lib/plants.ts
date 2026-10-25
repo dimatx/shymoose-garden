@@ -1,5 +1,6 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { getImage } from "astro:assets";
+import { isMapped, isOnCalendar, plantTypes } from "./plant-facets";
 
 /**
  * Shared helpers for reading the plant collection. Every page that lists
@@ -18,30 +19,6 @@ export interface CalendarRow {
 /** The page URL for a plant, e.g. `/plants/japanese-snowball/`. */
 export function plantUrl(plant: Plant): string {
   return `/plants/${plant.id}/`;
-}
-
-/**
- * Coarse sun-exposure buckets, in brightest-to-shadiest order. Derived from the
- * free-form `care.sunlight` prose so the home page can offer a "Sun" filter
- * without anyone having to maintain a separate field.
- */
-export const SUN_LEVELS = ["Full sun", "Part shade", "Full shade"] as const;
-export type SunLevel = (typeof SUN_LEVELS)[number];
-
-/**
- * Map a plant's `care.sunlight` description to the buckets it can grow in. A
- * plant often spans more than one (e.g. "Full sun to part shade"), so the
- * filter behaves as "show me plants that work in this light".
- */
-export function sunLevels(plant: Plant): SunLevel[] {
-  const text = (plant.data.care.sunlight ?? "").toLowerCase();
-  const levels: SunLevel[] = [];
-  if (/full sun/.test(text)) levels.push("Full sun");
-  if (/part(ial)? shade|part sun|dappled|filtered light/.test(text)) {
-    levels.push("Part shade");
-  }
-  if (/full shade|deep shade/.test(text)) levels.push("Full shade");
-  return levels;
 }
 
 /**
@@ -70,7 +47,7 @@ export async function getCalendarRows(
 ): Promise<CalendarRow[]> {
   const plants = await getCollection("plants");
   return plants
-    .filter((plant) => !plant.data.archived && plant.data[field].length > 0)
+    .filter((plant) => isOnCalendar(plant.data, field))
     .map((plant) => ({
       name: plant.data.name,
       url: plantUrl(plant),
@@ -88,7 +65,8 @@ export interface MapPin {
   slug: string;
   name: string;
   latinName: string;
-  type: string | null;
+  types: string[];
+  colorType: string;
   zone: string | null;
   photo: string;
   x: number;
@@ -98,7 +76,7 @@ export interface MapPin {
 export async function getMapPins(): Promise<MapPin[]> {
   const plants = await getCollection("plants");
   const plotted = plants.filter(
-    (plant) => !plant.data.archived && plant.data.mapX != null && plant.data.mapY != null
+    (plant) => isMapped(plant.data)
   );
   return Promise.all(
     plotted.map(async (plant) => {
@@ -112,7 +90,8 @@ export async function getMapPins(): Promise<MapPin[]> {
         slug: plant.id,
         name: plant.data.name,
         latinName: plant.data.latinName,
-        type: plant.data.type ?? null,
+        types: plantTypes(plant.data),
+        colorType: plant.data.plantGroups[0] ?? plant.data.growthForms.find((form) => form !== "Herbaceous") ?? plant.data.lifeCycle,
         zone: plant.data.mapZone ?? null,
         photo: thumb.src,
         x: plant.data.mapX!,

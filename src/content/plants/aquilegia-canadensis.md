@@ -1,7 +1,11 @@
 ---
 name: "Eastern Red Columbine"
 latinName: "Aquilegia canadensis"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern and central North America"
 photo: "../../assets/plants/eastern-red-columbine.jpg"
 photoAlt: "Nodding red and yellow bell-shaped Eastern Red Columbine flowers with long backward-pointing spurs, growing among ferns and moss on a rocky slope."
@@ -17,17 +21,11 @@ care:
   spacing: "12–18 in apart."
   propagation: "Readily grown from seed"
   pruning: "Deadhead for tidiness and possible rebloom. Foliage can be cut back if it declines in summer heat — it regrows the following spring."
-  petSafety: "Mildly toxic"
-  petSafetyNotes: "Seeds and roots most toxic; rest of plant may also cause upset"
-  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea, stomach pain, lethargy. Toxic compound: plant alkaloids"
-tags:
-  - "Toxic to dogs"
-  - "Native"
-  - "Pollinator friendly"
-  - "Deer resistant"
-  - "Shade tolerant"
-  - "Naturalizing"
-  - "Easy to grow"
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing; contact a veterinarian after ingestion."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://plants.ces.ncsu.edu/plants/aquilegia-canadensis/", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+tags: ["Native", "Pollinator friendly", "Deer resistant", "Shade tolerant", "Naturalizes", "Easy to grow"]
 bloomMonths: [4, 5]
 pruneMonths: [6]
 funFact: "Eastern red columbine was North Carolina's Wildflower of the Year in 1987."
@@ -35,7 +33,6 @@ learnMoreUrl: "https://plants.ces.ncsu.edu/plants/aquilegia-canadensis/"
 shortUrl: "https://s.shymoose.com/W7tb8"
 dateAdded: 2026-08-22
 ---
-
 *Aquilegia canadensis*, or eastern red columbine, is a native woodland wildflower found from Canada south to Florida and west to Texas. It brings a light, airy presence to shady borders and rock gardens, with delicate compound foliage and nodding, spurred flowers held on wiry branching stems.
 
 ## Spring color for hummingbirds

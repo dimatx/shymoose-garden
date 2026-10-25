@@ -1,7 +1,11 @@
 ---
 name: "Coral Bells 'Black Pearl'"
 latinName: "Heuchera Primo® 'Black Pearl'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Full sun", "Part shade", "Full shade"]
 nativeRange: "Garden hybrid (the genus is native to North America)"
 photo: "../../assets/plants/heuchera-primo-black-pearl.jpg"
 photoAlt: "Dense mound of glossy, ruffled jet-black Heuchera leaves with rosy-purple undersides."
@@ -17,23 +21,19 @@ care:
   spacing: "18–20 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Remove damaged leaves in early spring and spent flower stems after blooming."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7]
 pruneMonths: [3]
-tags:
-  - "Shade garden"
-  - "Foliage interest"
-  - "Pollinator friendly"
-  - "Evergreen"
-  - "Salt tolerant"
-  - "Deer resistant"
+tags: ["Foliage interest", "Pollinator friendly", "Salt tolerant", "Deer resistant"]
 featured: false
 funFact: "Dense anthocyanin pigments give its leaves their near-black color."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/primo-black-pearl-coral-bells-heuchera-hybrid"
 shortUrl: "http://s.shymoose.com/DxfK2"
 dateAdded: 2026-06-22
 ---
-
 *Heuchera* Primo® 'Black Pearl' is a coral bells grown above all for its
 foliage: a dense, weather-resistant mound of large, glossy leaves with
 scalloped, ruffled edges. The tops are a near-true jet black, while the

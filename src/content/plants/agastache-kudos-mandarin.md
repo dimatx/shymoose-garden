@@ -1,7 +1,11 @@
 ---
 name: "Giant Hyssop 'Kudos Mandarin'"
 latinName: "Agastache 'Kudos Mandarin'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid bred by Terra Nova Nurseries (parent species native to North America)"
 photo: "../../assets/plants/giant-hyssop.jpg"
 photoAlt: "Upright spikes of bright orange tubular Agastache 'Kudos Mandarin' flowers over aromatic green foliage."
@@ -17,22 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: low. Deadhead to encourage continued bloom, and trim old stems back in spring for fresh growth."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [3]
-tags:
-  - "Pollinator friendly"
-  - "Hummingbird friendly"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Fragrant foliage"
+tags: ["Pollinator friendly", "Attracts hummingbirds", "Deer resistant", "Drought tolerant", "Fragrant foliage"]
 featured: false
 funFact: "Its tubular orange flowers attract hummingbirds, while crushed leaves release a mint-and-licorice scent."
 learnMoreUrl: "https://www.terranovanurseries.com/product/agastache-kudos-mandarin/"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/vGga0"
 ---
-
 *Agastache* 'Kudos Mandarin' is a compact hummingbird mint bred by Terra
 Nova Nurseries, forming a tidy mound of aromatic, minty-licorice-scented
 foliage topped from early summer through fall by dense, upright spikes of

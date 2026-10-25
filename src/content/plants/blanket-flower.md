@@ -1,7 +1,11 @@
 ---
 name: "Blanket Flower 'Goblin'"
 latinName: "Gaillardia x grandflora 'Goblin'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Garden hybrid of species native to central and southern North American prairies"
 photo: "../../assets/plants/blanket-flower.jpg"
 photoAlt: "Red-and-yellow bicolor daisy flowers with dark centers on a low, compact mound of foliage."
@@ -17,24 +21,19 @@ care:
   spacing: "12–15 in apart, based on mature spread."
   propagation: "Readily grown from seed"
   pruning: "Deadhead to prolong bloom; cut clumps back to about 6 in. in late summer to improve winter survival, and divide every 2–3 years."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [8, 9]
-tags:
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Attracts butterflies"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Compact"
-  - "Bicolor blooms"
+tags: ["Pollinator friendly", "Attracts butterflies", "Drought tolerant", "Deer resistant", "Compact", "Bicolor blooms"]
 featured: false
 funFact: "'Goblin' holds the Royal Horticultural Society's Award of Garden Merit."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/gaillardia-x-grandiflora/"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/G2Cir"
 ---
-
 *Gaillardia* x grandiflora 'Goblin' is a dwarf blanket flower bred for a
 tidy, ground-hugging habit and nonstop red-and-yellow daisies from early
 summer clear through to fall — all on a plant that thrives on neglect.

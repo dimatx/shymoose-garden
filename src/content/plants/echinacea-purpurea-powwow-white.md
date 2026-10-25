@@ -1,7 +1,11 @@
 ---
 name: "Coneflower 'PowWow White'"
 latinName: "Echinacea purpurea 'PowWow White'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Central and eastern North America (species); 'PowWow White' is a cultivated seed selection"
 photo: "../../assets/plants/echinacea-purpurea-powwow-white.jpg"
 photoAlt: "Several white coneflowers with reflexed petals and a golden-orange domed center, backlit against a dark background amid green foliage."
@@ -17,21 +21,19 @@ care:
   spacing: "12–16 in apart."
   propagation: "Grows readily and flowers in its first year from seed (about 20 weeks after sowing); established clumps can also be divided in spring."
   pruning: "Deadhead to prolong bloom, or leave some seed heads standing through fall and winter for goldfinches. Cut old stems back to 12–24 in in late winter."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6, 7, 8, 9, 10]
 pruneMonths: [3]
-tags:
-  - "Pollinator friendly"
-  - "Butterfly friendly"
-  - "Drought tolerant"
-  - "Cut flower"
+tags: ["Pollinator friendly", "Attracts butterflies", "Drought tolerant", "Cut flowers"]
 featured: false
 funFact: "'PowWow White' can flower in its first year from seed."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=271992"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/OW8Y9"
 ---
-
 *Echinacea purpurea* 'PowWow White' is a compact, seed-grown coneflower cultivar prized for its creamy white, slightly reflexed petals surrounding a golden-orange cone — a striking departure from the magenta-purple of the wild species. Bred by PanAmerican Seed, it shares the species' tough, sun-loving nature while offering a shorter, more uniform habit better suited to smaller borders and containers.
 
 ## A brighter take on a garden classic

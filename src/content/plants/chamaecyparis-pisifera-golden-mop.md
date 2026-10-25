@@ -1,7 +1,11 @@
 ---
 name: "Golden Mop False Cypress"
 latinName: "Chamaecyparis pisifera 'Golden Mop'"
-type: "Conifer"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Japan"
 photo: "../../assets/plants/chamaecyparis-pisifera-golden-mop.jpg"
 photoAlt: "Close-up of bright golden, thread-like Golden Mop false cypress foliage."
@@ -17,20 +21,19 @@ care:
   spacing: "3–5 ft apart, based on mature spread."
   propagation: "Semi-hardwood cuttings"
   pruning: "Trim lightly in spring only if needed. Stay within green growth; bare old wood will not resprout."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 pruneMonths: [4, 5]
-tags:
-  - "Evergreen"
-  - "Small spaces"
-  - "Drought tolerant"
-  - "Slow growing"
-  - "Year-round interest"
+tags: ["Small spaces", "Drought tolerant", "Slow growing", "Year-round interest"]
 funFact: "False cypress belongs to *Chamaecyparis*, a different genus from true cypresses."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/chamaecyparis-pisifera-golden-mop/"
 shortUrl: "http://s.shymoose.com/c6fxB"
 dateAdded: 2026-06-01
+bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 ---
-
 'Golden Mop' is a dwarf, golden-needled false cypress whose long, thread-like
 branchlets droop and tangle into a soft, mounded, mop-like form. The vivid
 chartreuse-gold color holds all year, making it a bright, low-maintenance accent

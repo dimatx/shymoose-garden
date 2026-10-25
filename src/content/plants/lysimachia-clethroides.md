@@ -1,7 +1,11 @@
 ---
 name: "Gooseneck Loosestrife"
 latinName: "Lysimachia clethroides"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "East Asia — China, Japan, and Korea"
 photo: "../../assets/plants/gooseneck-loosestrife.jpg"
 photoAlt: "Arching white gooseneck loosestrife flower spikes, with a zebra swallowtail butterfly feeding on the blooms."
@@ -17,22 +21,19 @@ care:
   spacing: "3–4 ft apart (it spreads aggressively by rhizomes, so give it room or install a root barrier)."
   propagation: "Divide rhizomes in spring"
   pruning: "Maintenance: low. Cut back after flowering to tidy the clump; divide or install a root barrier to keep the spread in bounds."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [9]
-tags:
-  - "Summer bloom"
-  - "Pollinator friendly"
-  - "Cold hardy"
-  - "Aggressive spreader"
-  - "Rain garden"
+tags: ["Summer bloom", "Pollinator friendly", "Cold hardy", "Aggressive spreader", "Rain garden"]
 featured: false
 funFact: "Each flower spike bends over at the tip so all the blooms line up on the upper side — the whole thing curves just like the neck of a goose, which is exactly where the common name comes from."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/lysimachia-clethroides/"
 shortUrl: "https://s.shymoose.com/Dgw6S"
 dateAdded: 2026-08-18
 ---
-
 *Lysimachia clethroides* — gooseneck loosestrife — is a herbaceous perennial from
 East Asia grown for its distinctive summer flower spikes: slender white racemes
 that arch over at the tip so every bloom faces the same direction, exactly like a

@@ -1,7 +1,11 @@
 ---
 name: "Hellebore 'Spanish Flare'"
 latinName: "Helleborus 'Spanish Flare'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Garden hybrid; parent species native to Europe and western Asia"
 photo: "../../assets/plants/helleborus-spanish-flare.jpg"
 photoAlt: "A full clump of Helleborus 'Spanish Flare' in a garden bed, its pale yellow, downward-facing flowers marked with dark maroon flares held above mounding green foliage in front of a wooden lattice fence."
@@ -18,24 +22,18 @@ care:
   propagation: "Divide after flowering"
   pruning: "Remove tattered old foliage in late winter before new flower stalks emerge; otherwise low-maintenance."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts toxic, especially roots"
-  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea; slow heart rate or tremors in more serious cases. Toxic compound: cardiac glycosides (hellebrin)"
+  petSafetyNotes: "Keep all parts away from pets."
+  petSafetyInfo: "Can cause stomach upset and affect the heart. Contact a veterinarian immediately after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/hellebore/"]
 bloomMonths: [1, 2, 3, 4]
-tags:
-  - "Toxic to dogs"
-  - "Shade garden"
-  - "Evergreen"
-  - "Deer resistant"
-  - "Early bloomer"
-  - "Winter interest"
-  - "Toxic"
+tags: ["Deer resistant", "Early bloomer", "Winter interest"]
 featured: false
 funFact: "Lenten rose is named for its late-winter flowering season, which often overlaps with Lent."
 learnMoreUrl: "https://www.chicagobotanic.org/plant-information/plant-finder/helleborus-spanish-flare-spanish-flare-lenten-rose"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/wTGqd"
+pruneMonths: [1, 2]
 ---
-
 *Helleborus* 'Spanish Flare' is a Lenten rose hybrid grown for its striking,
 nodding flowers — pale yellow petals marked with bold maroon flares at the
 base — that open in late winter, often before almost anything else is

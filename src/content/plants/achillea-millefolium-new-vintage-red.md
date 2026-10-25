@@ -1,7 +1,11 @@
 ---
 name: "Yarrow 'New Vintage Red'"
 latinName: "Achillea millefolium 'New Vintage Red'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Species native to Europe, Asia and North America; this is a garden cultivar"
 photo: "../../assets/plants/achillea-millefolium-new-vintage-red.jpg"
 photoAlt: "Flat-topped clusters of small crimson-magenta yarrow flowers above ferny green foliage — a representative red Achillea millefolium."
@@ -18,25 +22,17 @@ care:
   propagation: "Divide in spring"
   pruning: "Deadhead or shear after flowering to encourage rebloom and stop self-seeding; cut back in late winter. Divide every 2–3 years."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "Leaves, stems, and flowers—all above-ground parts—are toxic"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, tiredness; skin irritation or rash after contact. Toxic compound: sesquiterpene lactones"
+  petSafetyNotes: "Keep pets from chewing."
+  petSafetyInfo: "Eating yarrow can cause vomiting or diarrhea; skin contact may cause irritation."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/yarrow"]
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3]
-tags:
-  - "Toxic to dogs"
-  - "Cottage garden"
-  - "Pollinator friendly"
-  - "Butterfly friendly"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Cut flower"
-  - "Small spaces"
+tags: ["Cottage garden", "Pollinator friendly", "Attracts butterflies", "Deer resistant", "Drought tolerant", "Cut flowers", "Small spaces"]
 funFact: "Its compact, sturdy stems are less prone to flopping than those of taller yarrows."
 learnMoreUrl: "https://www.provenwinners.com/plants/achillea/new-vintage-red-yarrow-achillea-millefolium"
 shortUrl: "http://s.shymoose.com/CvXrP"
 dateAdded: 2026-06-24
 ---
-
 *Achillea millefolium* New Vintage™ Red is a compact selection of common yarrow grown for eye-catching crimson-red flower heads on a short, dense, well-mannered plant. Like all yarrows it forms a low mat of soft, aromatic, fern-like foliage, but the flowering stems stay markedly shorter than the species — a deliberate breeding goal that keeps the flat flower clusters from flopping.
 
 ## Long-blooming jewel tones

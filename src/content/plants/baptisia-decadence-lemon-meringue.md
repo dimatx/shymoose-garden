@@ -1,7 +1,11 @@
 ---
 name: "Wild Indigo 'Lemon Meringue'"
 latinName: "Baptisia Decadence® 'Lemon Meringue'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid (the genus is native to eastern and central North America)"
 photo: "../../assets/plants/baptisia.jpg"
 photoAlt: "Vase-shaped clump of blue-green Baptisia foliage with tall spikes of lemon-yellow pea-like flowers opening from charcoal-gray buds."
@@ -17,26 +21,19 @@ care:
   spacing: "3–4 ft apart, based on mature spread."
   propagation: "Softwood cuttings in late spring"
   pruning: "Maintenance: very low. No deadheading needed — let seed pods stand for fall interest. Cut the whole clump back to the ground in late fall or early spring."
-  petSafety: "Mildly toxic"
-  petSafetyNotes: "All parts contain alkaloids; roots, seeds, and pods main concern"
-  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea, weakness; tremors in heavier exposures. Toxic compound: quinolizidine alkaloids"
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing; contact a veterinarian after ingestion."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=294455", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 bloomMonths: [5, 6]
 pruneMonths: [3, 11]
-tags:
-  - "Toxic to dogs"
-  - "Pollinator friendly"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Low maintenance"
-  - "Native plant"
-  - "Cut flower"
+tags: ["Pollinator friendly", "Drought tolerant", "Deer resistant", "Low maintenance", "Native", "Cut flowers"]
 featured: false
 funFact: "Wild indigos develop deep roots and can take several years to reach their full flowering size."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=294455"
 dateAdded: 2026-08-30
 shortUrl: "https://s.shymoose.com/A433p"
 ---
-
 *Baptisia* Decadence® 'Lemon Meringue' is a wild indigo prized for its soft
 lemon-yellow flower spikes, held on near-black stems above a lush, rounded mound
 of blue-green, clover-like foliage. It's a long-lived, low-drama perennial: once

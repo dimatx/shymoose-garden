@@ -1,7 +1,11 @@
 ---
 name: "Little Bluestem 'Standing Ovation'"
 latinName: "Schizachyrium scoparium 'Standing Ovation'"
-type: "Ornamental grass"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Ornamental grass"]
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "North America (prairies and savannas); cultivated selection"
 photo: "../../assets/plants/little-bluestem.jpg"
 photoAlt: "A clump of Little Bluestem ornamental grass with fine, upright, feathery seed heads in late-season tan and green coloring at a roadside planting."
@@ -17,14 +21,11 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Cut back close to the ground in late winter or early spring, before new growth emerges."
-  petSafety: "Non-toxic"
-tags:
-  - "Native"
-  - "Drought tolerant"
-  - "Fall color"
-  - "Winter interest"
-  - "Deer resistant"
-  - "Low maintenance"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
+tags: ["Native", "Drought tolerant", "Fall color", "Winter interest", "Deer resistant", "Low maintenance"]
 bloomMonths: [8, 9]
 pruneMonths: [2, 3]
 funFact: "Little bluestem is a host plant for several native skipper butterflies."
@@ -32,7 +33,6 @@ learnMoreUrl: "https://plants.ces.ncsu.edu/plants/schizachyrium-scoparium/"
 shortUrl: "https://s.shymoose.com/Ky2Ti"
 dateAdded: 2026-08-22
 ---
-
 *Schizachyrium scoparium* 'Standing Ovation' is a selection of little bluestem, a warm-season bunchgrass native to prairies and open woodlands across most of North America. It brings fine-textured, upright structure to sunny borders and naturalistic plantings, with vivid seasonal color changes from blue-green summer foliage to blazing orange-red fall color.
 
 ## Built to stand tall

@@ -1,7 +1,11 @@
 ---
 name: "Peachleaf Bellflower 'Takion Blue'"
 latinName: "Campanula persicifolia 'Takion Blue'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Europe and western Asia"
 photo: "../../assets/plants/peachleaf-bellflower.jpg"
 photoAlt: "Several large, lavender-blue, bell-shaped Campanula persicifolia flowers on slender stems growing from a rosette of narrow bright-green leaves."
@@ -17,22 +21,19 @@ care:
   spacing: "12–18 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Deadhead spent flowers promptly to encourage reblooming and limit self-seeding. Divide clumps every 2–4 years in spring to keep them vigorous."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7]
 pruneMonths: [6, 7]
-tags:
-  - "Blue flowers"
-  - "Pollinator friendly"
-  - "Cottage garden"
-  - "Cut flower"
-  - "Deer resistant"
+tags: ["Blue flowers", "Pollinator friendly", "Cottage garden", "Cut flowers", "Deer resistant"]
 featured: false
 funFact: "*Campanula* means 'little bell', describing the flower shape."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/campanula-persicifolia/"
 shortUrl: "http://s.shymoose.com/UmV3P"
 dateAdded: 2026-06-03
 ---
-
 *Campanula persicifolia* — peachleaf bellflower — is a clump-forming herbaceous perennial native to meadows and shrubby slopes across Europe and western Asia. The species name *persicifolia* means "having leaves like a peach," a reference to the narrow, leathery, bright-green foliage arranged in basal rosettes. 'Takion Blue' is a compact, mounded selection reaching just 1–2 feet, with lavender-blue, upward- and outward-facing bells appearing in June and July.
 
 ## A classic cottage garden flower

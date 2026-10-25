@@ -1,7 +1,11 @@
 ---
 name: "Japanese Maple 'Inaba-shidare'"
 latinName: "Acer palmatum 'Inaba-shidare'"
-type: "Tree"
+growthForms: ["Tree"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Japan, Korea, and China"
 photo: "../../assets/plants/acer-palmatum-inaba-shidare.jpg"
 photoAlt: "A young grafted Japanese Maple 'Inaba-shidare' with a cascading canopy of finely dissected red-purple foliage, planted on a lawn against a backdrop of conifers."
@@ -17,21 +21,19 @@ care:
   spacing: "10–12 ft apart as a specimen, based on mature spread."
   propagation: "Layer in autumn or graft onto Japanese maple rootstock in late winter."
   pruning: "Keep pruning minimal. If needed, prune from late fall to mid-winter while dormant — spring or summer cuts cause heavy bleeding."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [4]
 pruneMonths: [11, 12]
-tags:
-  - "Fall color"
-  - "Deer resistant"
-  - "Specimen"
-  - "Asian garden"
+tags: ["Fall color", "Deer resistant", "Specimen", "Asian garden"]
 featured: false
 funFact: "'Inaba-shidare' holds the Royal Horticultural Society's Award of Garden Merit."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=269581"
 dateAdded: 2026-07-07
 shortUrl: "https://s.shymoose.com/shPEu"
 ---
-
 'Inaba-shidare' is a vigorous laceleaf Japanese maple. Upright branches
 arch into a broad, cascading mound that can eventually reach 10 feet tall
 and 12 feet or more across.

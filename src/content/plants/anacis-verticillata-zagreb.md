@@ -1,10 +1,16 @@
 ---
 name: "Tickseed 'Zagreb'"
 latinName: "Anacis verticillata 'Zagreb'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern North America"
 photo: "../../assets/plants/anacis-verticillata-zagreb.jpg"
-photoAlt: "A wide bed of threadleaf tickseed covered in masses of small golden-yellow daisy-like flowers above airy green foliage."
+photoAlt: "Golden-yellow Zagreb tickseed flowers and buds above finely divided green foliage, photographed close up."
+photoCredit: "Shuvaev / Wikimedia Commons, CC BY 4.0"
+photoSourceUrl: "https://commons.wikimedia.org/wiki/File:Coreopsis_verticillata_%27Zagreb%27,_Longwood_Gardens_2024_01.jpg"
 shortDescription: "A compact threadleaf tickseed that forms airy mounds of fine foliage topped with cheerful gold, daisy-like flowers all summer."
 care:
   water: "Low — drought tolerant once established. Rich or overly moist soil makes the stems floppy."
@@ -17,20 +23,18 @@ care:
   propagation: "Divide in spring or fall"
   pruning: "Shear lightly after the main bloom to encourage more flowers. Cut to the ground in late fall or early spring."
   petSafety: "Non-toxic"
+  petSafetyInfo: "The genus is listed as non-toxic to dogs and cats. Eating plant material can still cause stomach upset."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/coreopsis"]
+  petSafetyNotes: "Discourage chewing."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [4, 11]
-tags:
-  - "Native"
-  - "Pollinator friendly"
-  - "Drought tolerant"
-  - "Deer resistant"
+tags: ["Native", "Pollinator friendly", "Drought tolerant", "Deer resistant"]
 featured: true
 funFact: "'Zagreb' is named after the capital of Croatia."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/anacis-verticillata/"
 shortUrl: "http://s.shymoose.com/kiGvx"
 dateAdded: 2026-06-01
 ---
-
 'Zagreb' is a tidy, long-blooming cultivar of threadleaf tickseed that forms
 soft, airy mounds of thread-fine foliage smothered in small golden, daisy-like
 flowers. It is one of the easiest perennials you can grow — tough, drought

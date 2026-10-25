@@ -1,7 +1,11 @@
 ---
 name: "Feather Reed Grass 'Karl Foerster'"
 latinName: "Calamagrostis x acutiflora 'Karl Foerster'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Ornamental grass"]
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid of feather reed grasses native to Europe and Asia"
 photo: "../../assets/plants/feather-reed-grass.jpg"
 photoAlt: "Fine, pale plumes of feather reed grass rise above upright green stems in a softly blurred garden setting."
@@ -17,23 +21,19 @@ care:
   pruning: "Cut back old stems to a few inches above the ground in late winter or early spring before new growth begins."
   propagation: "Divide clumps in spring; this cultivar is sterile."
   spacing: "12–18 in. apart, based on mature spread."
-  petSafety: "Non-toxic"
-  petSafetyNotes: "Sharp points can scratch or irritate."
-  petSafetyInfo: "Chewing can cause mouth irritation or stomach upset. Contact a veterinarian if symptoms persist."
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 bloomMonths: [6, 7]
 pruneMonths: [3, 4]
-tags:
-  - "Full sun"
-  - "Drought tolerant"
-  - "Winter interest"
-  - "Low maintenance"
+tags: ["Drought tolerant", "Winter interest", "Low maintenance"]
 featured: false
 funFact: "The cultivar is sterile, so its wheat-like plumes will not produce volunteer seedlings; the dried stems also hold their shape through winter."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/calamagrostis-x-acutiflora-karl-foerster/"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/8BM4I"
 ---
-
 Feather reed grass 'Karl Foerster' is a tidy, upright clump-forming grass.
 Its narrow green leaves make a vertical accent in the border, followed by
 slender, feathery plumes that catch the light from early summer into winter.

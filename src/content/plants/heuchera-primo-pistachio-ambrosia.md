@@ -1,7 +1,11 @@
 ---
 name: "Coral Bells 'Pistachio Ambrosia'"
 latinName: "Heuchera Primo® 'Pistachio Ambrosia'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Garden hybrid (the genus is native to North America)"
 photo: "../../assets/plants/heuchera-primo-pistachio-ambrosia.jpg"
 photoAlt: "Broad mound of large, well-rounded chartreuse Heuchera leaves in a garden bed among silvery and burgundy foliage."
@@ -17,23 +21,19 @@ care:
   spacing: "30–36 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Maintenance: easy. Trim tattered or winter-worn leaves in early spring; remove faded flower stems to keep the clump neat. Divide every few years to maintain vigor."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7]
 pruneMonths: [3]
-tags:
-  - "Shade garden"
-  - "Foliage interest"
-  - "Pollinator friendly"
-  - "Evergreen"
-  - "Salt tolerant"
-  - "Deer resistant"
+tags: ["Foliage interest", "Pollinator friendly", "Salt tolerant", "Deer resistant"]
 featured: false
 funFact: "A mature plant can spread nearly three feet, making it a substantial foliage accent."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/primo-pistachio-ambrosia-coral-bells-heuchera-hybrid"
 shortUrl: "http://s.shymoose.com/yK1fV"
 dateAdded: 2026-06-22
 ---
-
 *Heuchera* Primo® 'Pistachio Ambrosia' is a big, bold coral bells whose large,
 well-rounded leaves glow a fresh chartreuse — a color that lights up shady
 corners where darker foliage would simply disappear. The leaves take on warmer

@@ -1,7 +1,11 @@
 ---
 name: "Astilbe 'Dark Side of the Moon'"
 latinName: "Astilbe chinensis 'Dark Side of the Moon'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Garden hybrid; parent species native to China, Japan, and Korea"
 photo: "../../assets/plants/astilbe-chinensis-dark-side-of-the-moon.jpg"
 photoAlt: "Dense plume of pink-purple astilbe flowers rising above dark, glossy foliage."
@@ -17,21 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Cut back flower stalks and foliage after they fade, or leave the seed heads for winter interest; divide clumps every 3–4 years in early spring."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7, 8]
 pruneMonths: [3]
-tags:
-  - "Shade garden"
-  - "Deer resistant"
-  - "Attracts pollinators"
-  - "Foliage interest"
+tags: ["Deer resistant", "Pollinator friendly", "Foliage interest"]
 featured: false
 funFact: "'Dark Side of the Moon' is a hybrid selection prized as much for its near-black, glossy leaves as for its flowers — the foliage holds its dark color from spring through fall, long after the summer plumes have faded."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=451966&isprofile=0&basic=Astilbe"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/sUMFE"
 ---
-
 *Astilbe chinensis* 'Dark Side of the Moon' pairs feathery, dusky pink-purple
 flower plumes with strikingly dark, glossy foliage — a rare astilbe selection
 where the leaves are as much of a draw as the bloom. It's a reliable choice for

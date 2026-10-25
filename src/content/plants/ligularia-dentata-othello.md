@@ -1,7 +1,11 @@
 ---
 name: "Leopard Plant 'Othello'"
 latinName: "Ligularia dentata 'Othello'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "China and Japan (species)"
 photo: "../../assets/plants/ligularia-dentata-othello.jpg"
 photoAlt: "A leopard plant with broad rounded leaves and yellow-orange flower clusters growing in woodland shade."
@@ -20,21 +24,16 @@ care:
   petSafety: "Potentially toxic"
   petSafetyNotes: "Keep pets from chewing."
   petSafetyInfo: "The species contains liver-toxic alkaloids; effects in dogs and cats are not established. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.sciencedirect.com/science/article/abs/pii/0304383580900348"]
 bloomMonths: [7, 8]
 pruneMonths: [10, 11]
-tags:
-  - "Shade garden"
-  - "Bog & waterside"
-  - "Foliage interest"
-  - "Pollinator friendly"
-  - "Summer bloom"
+tags: ["Bog & waterside", "Foliage interest", "Pollinator friendly", "Summer bloom"]
 featured: false
 funFact: "'Othello' is grown for its foliage as much as its flowers: new leaves emerge purplish red, then mature to brownish green above and purple beneath."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=244813"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/82Zvu"
 ---
-
 *Ligularia dentata* 'Othello' is a bold-leaved perennial from China and Japan.
 It forms a broad clump of rounded leaves, with reddish-purple undersides,
 veins, and stems that make a striking contrast in a shady, moisture-rich

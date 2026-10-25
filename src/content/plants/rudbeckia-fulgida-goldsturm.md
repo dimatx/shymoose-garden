@@ -1,7 +1,11 @@
 ---
 name: "Black-eyed Susan 'Goldsturm'"
 latinName: "Rudbeckia fulgida 'Goldsturm'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden cultivar of the species native to eastern and central North America"
 photo: "../../assets/plants/rudbeckia-fulgida-goldsturm.jpg"
 photoAlt: "Mass planting of golden-yellow black-eyed Susan flowers with dark cone centers."
@@ -17,23 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Deadhead to extend bloom; cut back after frost or in early spring, and divide crowded clumps every 3–4 years."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7, 8, 9, 10]
 pruneMonths: [10]
-tags:
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Attracts butterflies"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Long blooming"
+tags: ["Pollinator friendly", "Attracts butterflies", "Deer resistant", "Drought tolerant", "Long bloom season"]
 featured: false
 funFact: "'Goldsturm' was named Perennial Plant of the Year in 1999."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=i780"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/U1SSC"
 ---
-
 *Rudbeckia fulgida* 'Goldsturm' is arguably the most recognizable black-eyed
 Susan in American gardens — bold, golden-yellow daisies with near-black cones
 held on sturdy stems, blooming in dense clumps from midsummer straight through

@@ -20,6 +20,8 @@ export const MAP_TYPE_COLORS: Record<string, string> = {
   Biennial: "#9333ea",
   Conifer: "#065f46",
   "Ornamental grass": "#65a30d",
+  Vine: "#4d7c0f",
+  Fern: "#047857",
 };
 
 export const MAP_DEFAULT_PIN_COLOR = "#57534e"; // any type not in the map above

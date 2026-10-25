@@ -1,7 +1,11 @@
 ---
 name: "Daphne 'Carol Mackie'"
 latinName: "Daphne × burkwoodii 'Carol Mackie'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Part shade"]
 nativeRange: "Garden hybrid (Daphne caucasica × D. cneorum), bred in England"
 photo: "../../assets/plants/daphne-x-burkwoodii-carol-mackie.jpg"
 photoAlt: "A rounded Carol Mackie daphne shrub with small, light green leaves, growing in dappled shade beneath a tree."
@@ -18,24 +22,18 @@ care:
   propagation: "Take semi-hardwood cuttings in summer or graft in winter."
   pruning: "Do not prune except to remove dead branches; it recovers poorly from hard pruning."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts are toxic, especially the red berries and bark"
-  petSafetyInfo: "Symptoms: drooling, vomiting, diarrhea, mouth and stomach irritation. Toxic compounds: daphnetoxin and mezerein"
+  petSafetyNotes: "Keep pets away from berries and bark."
+  petSafetyInfo: "All parts are poisonous and can irritate the mouth and stomach. Contact a veterinarian immediately after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/daphne/"]
 bloomMonths: [4, 5]
 pruneMonths: [5]
-tags:
-  - "Fragrant"
-  - "Spring bloom"
-  - "Small spaces"
-  - "Toxic to dogs"
-  - "Deer resistant"
-  - "Variegated"
+tags: ["Fragrant", "Spring bloom", "Small spaces", "Deer resistant", "Variegated"]
 featured: false
 funFact: "'Carol Mackie' began as a chance variegated branch, or sport, discovered in a garden in 1962."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/daphne-x-burkwoodii-carole-mackie/"
 dateAdded: 2026-10-10
 shortUrl: "https://s.shymoose.com/UdtfE"
 ---
-
 *Daphne* × *burkwoodii* 'Carol Mackie' is a compact, rounded, semi-evergreen shrub with small leaves edged in cream-gold. In mid-spring it is covered with clusters of very fragrant pale pink flowers that can be smelled from several feet away, and it may bloom lightly again in fall.
 
 ## Placement matters

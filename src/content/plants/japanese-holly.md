@@ -1,7 +1,11 @@
 ---
 name: "Japanese Holly 'Glow Pop'"
 latinName: "Ilex crenata Glow Pop®"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Japan, Korea, eastern China, and the Russian Far East (species); this bright-foliaged form is a garden cultivar"
 photo: "../../assets/plants/japanese-holly.jpg"
 photoAlt: "Glow Pop Japanese holly growing as a compact rounded shrub with bright yellow-green new growth in a mulched planting bed."
@@ -20,22 +24,16 @@ care:
   petSafety: "Mildly toxic"
   petSafetyNotes: "Berries and leaves are the main toxic parts"
   petSafetyInfo: "Symptoms: vomiting, diarrhea, depression, lethargy. Toxic compound: saponins"
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/holly/"]
 bloomMonths: [5, 6]
 pruneMonths: [3, 4, 6]
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Hedging"
-  - "Low maintenance"
-  - "Shade garden"
-  - "Specimen"
+tags: ["Hedging", "Low maintenance", "Specimen"]
 featured: false
 funFact: "Glow Pop was bred by Dr. Tom Ranney for bright evergreen color that stays clear and cheerful without scorching in full sun."
 learnMoreUrl: "https://www.provenwinnerscolorchoice.com/product/glow-pop-japanese-holly/"
 dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/91gwI"
 ---
-
 Glow Pop is a compact Japanese holly selected for luminous yellow new growth and a naturally rounded, boxwood-like habit. It keeps the small, spineless leaves that make *Ilex crenata* such a useful evergreen, but adds a bright chartreuse-gold cast that reads from across the garden.
 
 Through the growing season, the foliage shifts from its strongest spring yellow to a fresher green-yellow in summer, then brightens again as weather cools. Tiny white flowers appear in late spring, and if a male Japanese holly is nearby, female plants can follow with small black berries tucked among the leaves.

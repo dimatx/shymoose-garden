@@ -1,7 +1,11 @@
 ---
 name: "Stonecrop 'Mojave Jewels Sapphire'"
 latinName: "Sedum 'Mojave Jewels Sapphire'"
-type: "Succulent"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Succulent"]
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Cultivated hybrid; parent Hylotelephium/Sedum germplasm native to China and Korea"
 photo: "../../assets/plants/stonecrop.jpg"
 photoAlt: "A cluster of Sedum 'Mojave Jewels Sapphire' rosettes with smoky sapphire-purple succulent foliage growing in a mulched trial bed, with a plant ID tag reading 'Sedum Mojave Jewels Sapphire PPAF'."
@@ -17,21 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide established clumps in spring, or root stem cuttings during active growth."
   pruning: "Cut old stems to the ground in late winter or early spring before new growth emerges. Avoid summer pruning, which delays bloom."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [8, 9]
 pruneMonths: [2, 3]
-tags:
-  - "Drought tolerant"
-  - "Rock garden"
-  - "Pollinator friendly"
-  - "Patented variety"
+tags: ["Drought tolerant", "Rock garden", "Pollinator friendly"]
 featured: false
 funFact: "*Sedum* comes from the Latin 'to sit', describing how many stonecrops grow low over rocks."
 learnMoreUrl: "https://www.gardenia.net/plant/sedum-mojave-jewels-sapphire-stonecrop-grow-care-guide"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/cuT09"
 ---
-
 'Mojave Jewels Sapphire' is an upright stonecrop with smoky blue-purple
 foliage and rosy pink flowers for sunny borders and rock gardens.
 

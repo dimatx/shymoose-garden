@@ -1,7 +1,11 @@
 ---
 name: "Japanese Painted Fern 'Godzilla'"
 latinName: "Athyrium niponicum 'Godzilla'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Fern"]
+foliage: "Seasonal"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Japan, Korea, Taiwan, and China"
 photo: "../../assets/plants/japanese-painted-fern.jpg"
 photoAlt: "A dense, arching clump of Japanese Painted Fern 'Godzilla' showing silvery-green fronds with dark purple-red midribs, growing beside dark heuchera foliage."
@@ -17,21 +21,20 @@ care:
   spacing: "4–5 ft apart as a specimen, given its large mature spread."
   propagation: "Divide clumps in early spring; named cultivars like 'Godzilla' won't come true from spores."
   pruning: "Cut back old or dead fronds in early spring before new growth (fiddleheads) emerges."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: []
+bloomCalendarNote: "Fern: reproduces by spores, not flowers."
 pruneMonths: [3]
-tags:
-  - "Shade garden"
-  - "Foliage interest"
-  - "Woodland edge"
-  - "Deer resistant"
+tags: ["Foliage interest", "Woodland edge", "Deer resistant"]
 featured: false
 funFact: "'Godzilla' was discovered as a chance seedling at Plant Delights Nursery in the mid-1990s."
 learnMoreUrl: "https://www.waltersgardens.com/variety.php?ID=ATHGO"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/Pq2Jw"
 ---
-
 *Athyrium niponicum* 'Godzilla' is a giant selection of the beloved Japanese painted fern, native to woodlands across Japan, Korea, Taiwan, and China. Where the straight species (and its familiar 'Pictum' form) forms a tidy 1–2 ft clump, 'Godzilla' explodes to two or three times that size — a massive, arching mound of silvery fronds overlaid with green and wine-purple, more than living up to its name.
 
 ## Built for the shade garden

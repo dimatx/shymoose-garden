@@ -1,7 +1,11 @@
 ---
 name: "Astilbe 'Visions'"
 latinName: "Astilbe chinensis 'Visions'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Garden cultivar of the species native to China, Japan, and Korea"
 photo: "../../assets/plants/astilbe-chinensis-visions.jpg"
 photoAlt: "Dense, tapering plumes of raspberry-pink astilbe flowers above deep green, finely cut foliage."
@@ -17,21 +21,19 @@ care:
   spacing: "12–18 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Deadhead or leave spent plumes for winter texture; divide congested clumps every 2–3 years in early spring."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7, 8]
 pruneMonths: [2, 3]
-tags:
-  - "Shade garden"
-  - "Fragrant"
-  - "Attracts pollinators"
-  - "Deer resistant"
+tags: ["Fragrant", "Pollinator friendly", "Deer resistant"]
 featured: false
 funFact: "'Visions' is one of the few astilbe cultivars bred with a noticeable fragrance — most astilbes are scentless, but this one's dense plumes carry a light, sweet perfume on warm summer days."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=h400"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/BJNgB"
 ---
-
 *Astilbe chinensis* 'Visions' brings dense, upright plumes of raspberry-pink to
 purple flowers over finely cut, deep green foliage — a compact astilbe that
 fits neatly into smaller shade gardens or the front of a border. It's also

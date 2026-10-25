@@ -1,7 +1,11 @@
 ---
 name: "Coral Bells 'Silver Gumdrop'"
 latinName: "Heuchera Dolce® 'Silver Gumdrop'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Garden hybrid (the genus is native to North America)"
 photo: "../../assets/plants/heuchera-dolce-silver-gumdrop.jpg"
 photoAlt: "Compact mound of semi-glossy iridescent silver Heuchera leaves with a rosy blush, topped with vibrant pink flowers."
@@ -17,16 +21,13 @@ care:
   spacing: "12–18 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: easy. Trim tattered or winter-burned foliage in early spring as new growth emerges; remove spent flower scapes. Divide every few years to keep the clump full."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7]
 pruneMonths: [3]
-tags:
-  - "Shade garden"
-  - "Foliage interest"
-  - "Pollinator friendly"
-  - "Evergreen"
-  - "Salt tolerant"
-  - "Deer resistant"
+tags: ["Foliage interest", "Pollinator friendly", "Salt tolerant", "Deer resistant"]
 featured: false
 funFact: "Its silver leaves take on a rosy blush as the season progresses."
 learnMoreUrl: "https://www.provenwinners.com/plants/heuchera/dolce-silver-gumdrop-coral-bells-heuchera-hybrid"
@@ -35,7 +36,6 @@ dateAdded: 2026-06-22
 archived: true
 archivedNote: "Did not survive initial planting (Summer 2026)."
 ---
-
 *Heuchera* Dolce® 'Silver Gumdrop' is a compact coral bells made for brightening
 the shade. Its semi-glossy leaves shimmer an iridescent silver, then warm to a
 rosy blush as the season goes on, so the plant shifts gently in color from

@@ -1,7 +1,11 @@
 ---
 name: "Spiked Speedwell 'Purple Illusion'"
 latinName: "Veronica Magic Show® 'Purple Illusion'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid (the species is native to Europe and northern Asia)"
 photo: "../../assets/plants/spike-speedwell.jpg"
 photoAlt: "A single cut stem of Veronica 'Purple Illusion' with a dense spike of deep purple flowers and serrated green leaves, photographed against a white background."
@@ -17,21 +21,19 @@ care:
   spacing: "16–18 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: low. Shear back after the first flush of bloom to encourage reflowering, and cut the clump to the ground in late fall or early spring. Divide every few years."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7]
 pruneMonths: [7, 11]
-tags:
-  - "Pollinator friendly"
-  - "Deer resistant"
-  - "Low maintenance"
-  - "Drought tolerant"
+tags: ["Pollinator friendly", "Deer resistant", "Low maintenance", "Drought tolerant"]
 featured: false
 funFact: "It belongs to the Magic Show® series of compact speedwells."
 learnMoreUrl: "https://www.waltersgardens.com/variety.php?ID=VERPL"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/WeO0Y"
 ---
-
 *Veronica* Magic Show® 'Purple Illusion' is a compact spiked speedwell that
 packs an enormous number of upright, densely flowered spikes onto a tidy,
 rounded mound — the effect from a distance is almost a solid block of rich

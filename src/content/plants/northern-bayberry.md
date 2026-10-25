@@ -1,7 +1,11 @@
 ---
 name: "Northern Bayberry"
 latinName: "Morella pensylvanica"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern North America, from Newfoundland to North Carolina"
 photo: "../../assets/plants/northern-bayberry.jpg"
 photoAlt: "Close-up of Northern Bayberry's glossy, aromatic leaves and clusters of small, waxy, grayish-white berries."
@@ -17,23 +21,20 @@ care:
   spacing: "5–8 ft apart for a hedge or mass planting."
   propagation: "By seed, or by digging rooted suckers/root cuttings in fall or spring."
   pruning: "Needs little pruning. Since fruit and next year's flowers form on old wood, prune right after flowering if shaping is needed, and remove unwanted suckers any time to control spread."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: []
+bloomCalendarNote: "Grown for foliage and berries rather than its inconspicuous spring catkins."
 pruneMonths: [5]
-tags:
-  - "Native"
-  - "Salt tolerant"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Wildlife"
-  - "Low maintenance"
+tags: ["Native", "Salt tolerant", "Drought tolerant", "Deer resistant", "Wildlife", "Low maintenance"]
 featured: false
 funFact: "The waxy coating on its berries is what gives real bayberry candles their name and scent — colonists once boiled the fruit to skim off the fragrant wax."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/myrica-pensylvanica/"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/pmNyr"
 ---
-
 Northern bayberry is a dense, rounded, deciduous-to-semi-evergreen shrub
 native to sand dunes, coastal thickets, and woodland edges from Newfoundland
 south to North Carolina. It's an exceptionally tough, low-fuss shrub — the

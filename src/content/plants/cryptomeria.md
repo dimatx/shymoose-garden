@@ -1,7 +1,11 @@
 ---
 name: "Cryptomeria 'Mushroom'"
 latinName: "Cryptomeria japonica 'Mushroom'"
-type: "Conifer"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Japan and southern China"
 photo: "../../assets/plants/cryptomeria.jpg"
 photoAlt: "Close-up of 'Mushroom' Japanese cedar foliage in winter, with bronze-red needles beaded with water droplets."
@@ -17,21 +21,20 @@ care:
   spacing: "3–4 ft apart."
   propagation: "Semi-hardwood cuttings."
   pruning: "Usually unnecessary. If needed, trim lightly in spring to neaten the dome and avoid hard cuts into old wood."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 pruneMonths: [4, 5]
-tags:
-  - "Evergreen"
-  - "Slow growing"
-  - "Small spaces"
-  - "Year-round interest"
+tags: ["Slow growing", "Small spaces", "Year-round interest"]
 featured: false
 funFact: "Japanese cedar is not a true cedar at all — it is the sole species in *Cryptomeria* and is honored as the national tree of Japan."
 learnMoreUrl: "https://www.rhs.org.uk/plants/210670/cryptomeria-japonica-mushroom/details"
 dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/qm8EM"
 ---
-
 'Mushroom' is a dwarf form of Japanese cedar selected for its unusually broad,
 rounded silhouette — more a layered dome than the tall spire most people
 associate with *Cryptomeria japonica*. The fine awl-like needles give it a

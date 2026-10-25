@@ -1,7 +1,11 @@
 ---
 name: "Fingerleaf Rodgersia"
 latinName: "Rodgersia aesculifolia"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Moist woods and stream banks of China"
 photo: "../../assets/plants/fingerleaf-rodgersia.jpg"
 photoAlt: "Creamy pink-white fingerleaf rodgersia flower plumes rising above large, pleated, horse-chestnut-like leaves in a shady planting."
@@ -17,20 +21,19 @@ care:
   spacing: "3–5 ft apart."
   propagation: "Divide rhizomatous clumps in spring."
   pruning: "Leave the foliage to feed the crown, then cut old leaves and spent stems back in late winter or early spring. Deadhead only if you want a tidier look."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8]
 pruneMonths: [3]
-tags:
-  - "Shade garden"
-  - "Bog & waterside"
-  - "Foliage interest"
+tags: ["Bog & waterside", "Foliage interest"]
 featured: false
 funFact: "The species name *aesculifolia* literally means 'with leaves like *Aesculus*' — a nod to the horse-chestnut-like leaf shape that makes this plant instantly recognizable."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=286955"
 dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/6WdEl"
 ---
-
 *Rodgersia aesculifolia* is one of those dramatic foliage perennials that can
 make a temperate shade garden feel almost subtropical. Each leaf is divided
 into broad, pleated leaflets like a horse chestnut, and the whole clump reads

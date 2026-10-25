@@ -1,7 +1,11 @@
 ---
 name: "Greenstem Forsythia"
 latinName: "Forsythia viridissima"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "South China and South Korea"
 photo: "../../assets/plants/greenstem-forsythia.jpg"
 photoAlt: "A dense arching Forsythia viridissima shrub in full bloom, smothered in bright yellow flowers on bare stems in early spring."
@@ -17,20 +21,18 @@ care:
   spacing: "6–10 ft apart as a specimen, based on mature spread (3–5 ft for a dense hedge)."
   propagation: "Root stem cuttings"
   pruning: "Shape immediately after flowering. Summer or fall pruning removes next spring's flower buds."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [2, 3, 4]
 pruneMonths: [4, 5]
-tags:
-  - "Spring bloom"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Cut flower"
+tags: ["Spring bloom", "Deer resistant", "Drought tolerant", "Cut flowers"]
 funFact: "Branches cut in late winter can be brought indoors and forced into bloom in a vase."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/forsythia-viridissima/"
 shortUrl: "http://s.shymoose.com/tOoE7"
 dateAdded: 2026-06-04
 ---
-
 *Forsythia viridissima* — Greenstem Forsythia, also called Golden Bells — is a deciduous shrub in the olive family (Oleaceae), native to south China and South Korea. The species name *viridissima* means "very green," referring to the distinctively green stems that set it apart from the more commonly planted hybrid forsythias.
 
 ## The original forsythia

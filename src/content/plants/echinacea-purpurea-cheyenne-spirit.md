@@ -1,7 +1,11 @@
 ---
 name: "Coneflower 'Cheyenne Spirit'"
 latinName: "Echinacea purpurea 'Cheyenne Spirit'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Central and eastern North America (species); 'Cheyenne Spirit' is a cultivated seed strain"
 photo: "../../assets/plants/echinacea-purpurea-cheyenne-spirit.jpg"
 photoAlt: "A broad planting of 'Cheyenne Spirit' coneflowers blooming in mixed red, orange, pink, cream, and yellow beside a weathered wooden fence."
@@ -17,22 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Usually grown from seed; established clumps can also be divided in spring."
   pruning: "Deadhead to encourage continued bloom, or leave seed heads for birds and cut stems back in late winter or early spring."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [3]
-tags:
-  - "Pollinator friendly"
-  - "Butterfly friendly"
-  - "Drought tolerant"
-  - "Cut flower"
-  - "Long blooming"
+tags: ["Pollinator friendly", "Attracts butterflies", "Drought tolerant", "Cut flowers", "Long bloom season"]
 featured: false
 funFact: "'Cheyenne Spirit' won an All-America Selections award in 2013."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/echinacea-purpurea-cheyenne-spirit/"
 dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/rQQzn"
 ---
-
 *Echinacea purpurea* 'Cheyenne Spirit' takes the toughness of the native purple
 coneflower and turns it into a color festival. Instead of blooming in one fixed
 shade, each seed-grown planting opens in a shifting mix of red, orange, yellow,

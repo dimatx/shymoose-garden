@@ -1,7 +1,11 @@
 ---
 name: "Canadian Hemlock 'Golden Splendor'"
 latinName: "Tsuga canadensis 'Golden Splendor'"
-type: "Tree"
+growthForms: ["Tree"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern and central Canada and the United States (species); cultivated selection"
 photo: "../../assets/plants/tsuga-canadensis-golden-splendor.jpg"
 photoAlt: "A broad, conical Golden Splendor Canadian hemlock with arching, golden-yellow foliage, planted in bark mulch in front of a dark green conifer."
@@ -18,22 +22,19 @@ care:
   propagation: "Cultivars are grafted or rooted from cuttings; seed-grown plants do not come true."
   pruning: "Usually best left unpruned, but tolerates shearing into a hedge. If shaping, prune in late spring to early summer."
   petSafety: "Non-toxic"
-  petSafetyNotes: "Keep pets from chewing."
-  petSafetyInfo: "ASPCA lists Canadian hemlock as non-toxic to dogs and cats. It is unrelated to poison hemlock; eating plant material can still cause stomach upset."
+  petSafetyNotes: "Discourage chewing."
+  petSafetyInfo: "Canadian hemlock is listed as non-toxic to dogs and cats. Eating plant material can still cause stomach upset."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/canada-hemlock"]
 pruneMonths: [5, 6]
-tags:
-  - "Evergreen"
-  - "Conifer"
-  - "Specimen"
-  - "Hedging"
-  - "Foliage interest"
+tags: ["Specimen", "Hedging", "Foliage interest"]
 featured: false
 funFact: "Despite its name, Canadian hemlock is a conifer unrelated to the poisonous herb called poison hemlock."
 learnMoreUrl: "https://iselinursery.com/colorful-conifers/tsuga-hemlock/tsuga-canadensis-golden-splendor/"
 dateAdded: 2026-10-23
 shortUrl: "https://s.shymoose.com/bHhG8"
+bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 ---
-
 'Golden Splendor' resembles the native Canadian (eastern) hemlock in all but
 color: its foliage is golden. It was introduced by John Mitsch of Aurora,
 Oregon, and grows more than 15 in. per year to about

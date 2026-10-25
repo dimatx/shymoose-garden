@@ -1,7 +1,11 @@
 ---
 name: "Ninebark 'Tiny Wine'"
 latinName: "Physocarpus opulifolius 'Tiny Wine®'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Central and eastern North America (species) — rocky banks and streamsides"
 photo: "../../assets/plants/ninebark.jpg"
 photoAlt: "Clusters of pink buds opening to white flowers on Tiny Wine ninebark, set against its dark maroon foliage."
@@ -17,23 +21,19 @@ care:
   spacing: "3–5 ft apart for a hedge or mass planting."
   propagation: "Softwood cuttings in early summer."
   pruning: "Flowers form on old wood, so prune right after blooming (no later than mid-August) if shaping is needed. Can be cut nearly to the ground in late winter to rejuvenate an overgrown plant."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6]
 pruneMonths: [6]
-tags:
-  - "Native"
-  - "Foliage interest"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Low maintenance"
-  - "Winter interest"
+tags: ["Native", "Foliage interest", "Deer resistant", "Drought tolerant", "Low maintenance", "Winter interest"]
 featured: false
 funFact: "\"Ninebark\" comes from its shaggy, exfoliating bark, which peels away in thin layers said to number nine — most visible once the leaves drop in winter."
 learnMoreUrl: "https://www.hortmag.com/tiny-wine-ninebark"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/7b3HN"
 ---
-
 Ninebark is a tough, adaptable, native deciduous shrub found along stream
 banks and rocky hillsides across central and eastern North America. This
 dwarf cultivar packs the species' best traits — dark, colorful foliage,

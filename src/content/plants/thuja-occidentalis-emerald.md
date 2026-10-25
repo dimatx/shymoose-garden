@@ -1,7 +1,11 @@
 ---
 name: "Emerald Arborvitae"
 latinName: "Thuja occidentalis 'Emerald'"
-type: "Conifer"
+growthForms: ["Tree", "Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern North America"
 photo: "../../assets/plants/thuja-occidentalis-emerald.jpg"
 photoAlt: "A full, well-framed conical Emerald arborvitae specimen with dense green foliage."
@@ -17,23 +21,19 @@ care:
   spacing: "2–4 ft apart for a hedge; wider (5–6 ft) for individual specimens."
   propagation: "Semi-hardwood cuttings"
   pruning: "Shape lightly in spring or early summer. Cut only into green growth; bare brown branches will not resprout."
-  petSafety: "Mildly toxic"
-  petSafetyNotes: "Foliage, twigs/bark, sap, essential oil are toxic"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, weakness; tremors in more serious cases. Toxic compound: thujone and essential-oil monoterpenes"
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing; contact a veterinarian after ingestion."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://plants.ces.ncsu.edu/plants/thuja-occidentalis/", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 pruneMonths: [4, 5, 6]
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Conical"
-  - "Low maintenance"
-  - "Specimen"
-  - "Native"
+tags: ["Conical", "Low maintenance", "Specimen", "Native"]
 funFact: "'Arborvitae' is Latin for 'tree of life'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/thuja-occidentalis/"
 shortUrl: "http://s.shymoose.com/jyA7T"
 dateAdded: 2026-06-01
+bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 ---
-
 The American arborvitae is a dense, conical evergreen in the cypress family, and
 the cultivar 'Emerald' (also sold as 'Smaragd') is one of the most popular for
 its narrow, upright form and bright green foliage that holds its color well

@@ -1,7 +1,11 @@
 ---
 name: "Boxwood 'Baby Gem'"
 latinName: "Buxus microphylla var. japonica 'Gregem'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Japan (species), with this dense dwarf selection maintained in cultivation"
 photo: "../../assets/plants/boxwood.jpg"
 photoAlt: "A dense rounded Baby Gem boxwood shrub growing as a full clipped mound in a mulched garden bed with stone edging behind it, showing its tight habit and small glossy leaves."
@@ -18,25 +22,18 @@ care:
   propagation: "Stem cuttings; named cultivars are propagated vegetatively to stay true."
   pruning: "Low maintenance and naturally dense. If shaping is needed, prune after the last spring frost or lightly shear in early summer."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "Leaves, bark, and twigs are toxic if chewed or eaten"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, drooling, lethargy; large ingestions can cause tremors. Toxic compound: steroidal alkaloids (including buxine)"
+  petSafetyNotes: "Keep pets from chewing leaves or twigs."
+  petSafetyInfo: "Eating boxwood can cause vomiting or diarrhea. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/boxwood"]
 bloomMonths: [4, 5]
 pruneMonths: [5, 6]
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Hedging"
-  - "Low maintenance"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Shade garden"
+tags: ["Hedging", "Low maintenance", "Deer resistant", "Drought tolerant"]
 featured: false
 funFact: "Baby Gem became popular because it keeps a formal-looking dome with noticeably less clipping than many older boxwoods."
 learnMoreUrl: "https://buchanansplants.com/plant-library/shrubs/baby-gem-boxwood/"
 dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/Eeg8G"
 ---
-
 Baby Gem is a compact Japanese boxwood grown for its naturally dense, rounded habit and small glossy leaves. It has the familiar look of a classic boxwood hedge, but on a scale that fits foundation beds, knot gardens, and other smaller spaces more easily than older, larger selections.
 
 Its spring flowers are tiny and not especially ornamental, but they can be lightly fragrant up close. The real appeal is year-round structure: a full evergreen mound that takes shaping well yet usually stays neat with only occasional trimming. Once established, it is tougher about deer and dry spells than its polished appearance suggests.

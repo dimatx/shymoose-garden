@@ -1,7 +1,11 @@
 ---
 name: "Rose Mallow"
 latinName: "Muenchhusia moscheutos"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Marshes, wet meadows, and pond and stream edges of the eastern and southeastern United States"
 photo: "../../assets/plants/muenchhusia-moscheutos.jpg"
 photoAlt: "Large pink hibiscus-like flower with a dark red center, partially visible amid broad green foliage."
@@ -17,23 +21,19 @@ care:
   spacing: "3–4 ft apart, based on mature spread."
   propagation: "Readily grown from seed"
   pruning: "Cut stems to the ground in late fall after they die back, or leave for winter interest; emerges late in spring, so mark its location."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7, 8, 9]
 pruneMonths: [10, 11]
-tags:
-  - "Native plant"
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Attracts hummingbirds"
-  - "Rain garden"
-  - "Wetland plant"
+tags: ["Native", "Pollinator friendly", "Attracts hummingbirds", "Rain garden", "Wetland plant"]
 featured: false
 funFact: "Its dinner-plate-sized blooms look tropical, but the plant survives winter by dying back to its roots."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/muenchhusia-moscheutos/"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/HSNft"
 ---
-
 *Muenchhusia moscheutos* (formerly classified as *Hibiscus moscheutos*), known
 as rose mallow, is a native wetland perennial that produces some of the
 biggest flowers you'll find in a perennial border — broad, saucer-shaped

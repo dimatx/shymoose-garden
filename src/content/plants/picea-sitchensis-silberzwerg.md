@@ -1,7 +1,11 @@
 ---
 name: "Sitka Spruce 'Silberzwerg'"
 latinName: "Picea sitchensis 'Silberzwerg'"
-type: "Conifer"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden cultivar of the species native to the Pacific coast of North America, from south-central Alaska to northern California"
 photo: "../../assets/plants/sitka-spruce.jpg"
 photoAlt: "Dense mound of two-tone conifer needles, silvery-blue on top and dark green beneath, on a dwarf Sitka spruce."
@@ -17,21 +21,20 @@ care:
   spacing: "5–6 ft apart, based on mature spread."
   propagation: "Semi-hardwood cuttings"
   pruning: "Maintenance: very low. Remove only dead or damaged wood; no routine shaping needed."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 pruneMonths: [4]
-tags:
-  - "Evergreen"
-  - "Dwarf conifer"
-  - "Deer resistant"
-  - "Low maintenance"
-  - "Foliage interest"
+tags: ["Dwarf conifer", "Deer resistant", "Low maintenance", "Foliage interest"]
 featured: false
 funFact: "'Silberzwerg' means 'silver dwarf'; wild Sitka spruces can grow more than 200 feet tall."
 learnMoreUrl: "https://www.iseli.com/plant/picea-sitchensis-silberzwerg/"
 dateAdded: 2026-08-30
 shortUrl: "https://s.shymoose.com/wgO5w"
+bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 ---
-
 *Picea sitchensis* 'Silberzwerg' is a dwarf form of Sitka spruce — a species that,
 in the wild, ranks among the tallest conifers on the planet — bred down into a
 dense, slow-growing mound for small gardens and containers. Its claim to fame is

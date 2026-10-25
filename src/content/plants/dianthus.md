@@ -1,7 +1,11 @@
 ---
 name: "Dianthus"
 latinName: "Dianthus"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Europe and Asia (a few from southern Africa)"
 photo: "../../assets/plants/dianthus.jpg"
 photoAlt: "A white cottage pink (Dianthus plumarius) flower with deeply fringed, feathery petals above slender blue-green foliage."
@@ -20,23 +24,15 @@ care:
   petSafety: "Mildly toxic"
   petSafetyNotes: "Above-ground parts (flowers, leaves, stems) cause mild upset"
   petSafetyInfo: "Symptoms: mild vomiting, diarrhea, excessive drooling; mild skin irritation after contact. Toxic compound: unknown irritant"
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/eastern-star"]
 bloomMonths: [5, 6, 7]
 pruneMonths: [6]
-tags:
-  - "Toxic to dogs"
-  - "Cottage garden"
-  - "Fragrant flowers"
-  - "Pollinator friendly"
-  - "Butterfly friendly"
-  - "Deer resistant"
-  - "Rock garden"
-  - "Drought tolerant"
+tags: ["Cottage garden", "Fragrant flowers", "Pollinator friendly", "Attracts butterflies", "Deer resistant", "Rock garden", "Drought tolerant"]
 funFact: "The name 'pinks' refers to the petals' fringed edges, as if cut with pinking shears."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/dianthus/"
 shortUrl: "http://s.shymoose.com/i0oUX"
 dateAdded: 2026-06-24
 ---
-
 *Dianthus* is a large genus in the carnation family (Caryophyllaceae) with more than 27,000 registered cultivar names, grown as annuals, biennials and — most usefully in the garden — evergreen perennials. The group includes cottage pinks, cheddar pinks, sweet William and the florist's carnation. Most form neat cushions or mats of narrow, often glaucous blue-green leaves that look good even out of flower.
 
 ## Fringed, clove-scented flowers

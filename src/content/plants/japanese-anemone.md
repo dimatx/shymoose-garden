@@ -1,7 +1,11 @@
 ---
 name: "Japanese Anemone 'Whirlwind'"
 latinName: "Anemone 'Whirlwind'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid of species native to China and Japan"
 photo: "../../assets/plants/japanese-anemone.jpg"
 photoAlt: "Semi-double white anemone flowers with yellow centers on tall wiry stems above dark green foliage."
@@ -17,25 +21,19 @@ care:
   spacing: "18–24 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Cut back dead foliage after frost; avoid moving or dividing established clumps, which dislike root disturbance."
-  petSafety: "Mildly toxic"
-  petSafetyNotes: "All fresh sap-containing parts (leaves, stems, flowers, roots)"
-  petSafetyInfo: "Symptoms: mouth irritation, excessive drooling, vomiting, diarrhea; tremors in more serious cases. Toxic compound: protoanemonin"
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing; contact a veterinarian after ingestion."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.chicagobotanic.org/plant-information/plant-finder/anemone-x-hybrida-whirlwind-whirlwind-japanese-anemone", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 bloomMonths: [8, 9, 10]
 pruneMonths: [10, 11]
-tags:
-  - "Toxic to dogs"
-  - "Shade garden"
-  - "Attracts butterflies"
-  - "Fall flowers"
-  - "Deer resistant"
-  - "Naturalizes"
+tags: ["Attracts butterflies", "Fall flowers", "Deer resistant", "Naturalizes"]
 featured: false
 funFact: "'Whirlwind' has been grown in gardens since the 19th century."
 learnMoreUrl: "https://www.chicagobotanic.org/plant-information/plant-finder/anemone-x-hybrida-whirlwind-whirlwind-japanese-anemone"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/K9G0u"
 ---
-
 *Anemone* 'Whirlwind' brings a late-season lift to the shade garden: airy,
 semi-double white flowers with bright yellow centers that appear to float on
 tall, wiry stems well above the foliage, from late summer right through fall.

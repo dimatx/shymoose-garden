@@ -1,7 +1,11 @@
 ---
 name: "Coneflower 'Firefinch'"
 latinName: "Echinacea 'Summersong™ Firefinch™'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid of the species native to central and eastern North American prairies"
 photo: "../../assets/plants/coneflower.jpg"
 photoAlt: "Reddish-orange coneflowers with dark orange-brown centers on compact, well-branched stems."
@@ -17,25 +21,19 @@ care:
   spacing: "16–18 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Deadhead to encourage more flowers; leave seed heads standing through fall and winter for goldfinches, then cut back in late winter or early spring."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [2, 3]
-tags:
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Attracts butterflies"
-  - "Attracts hummingbirds"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Long blooming"
-  - "Compact"
+tags: ["Pollinator friendly", "Attracts butterflies", "Attracts hummingbirds", "Drought tolerant", "Deer resistant", "Long bloom season", "Compact"]
 featured: false
 funFact: "Firefinch is part of Proven Winners' Summersong® series, one of the first coneflower breeding programs to push the genus's color range into true reds and oranges instead of the usual pinks and purples."
 learnMoreUrl: "https://www.provenwinners.com/plants/echinacea/summersong-firefinch-coneflower-echinacea-hybrid"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/0T6Bf"
 ---
-
 *Echinacea* Summersong™ Firefinch™ brings a warm reddish-orange to the
 classic prairie coneflower, on a compact plant bred for heavier branching
 than older varieties. That extra branching means far more flowers over a

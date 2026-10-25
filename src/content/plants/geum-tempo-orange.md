@@ -1,7 +1,11 @@
 ---
 name: "Avens 'TEMPO™ Orange'"
 latinName: "Geum 'TEMPO™ Orange'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid bred by Terra Nova Nurseries"
 photo: "../../assets/plants/geum-tempo-orange.jpg"
 photoAlt: "Double, ruffled orange-peach Geum TEMPO Orange flowers over green foliage."
@@ -17,20 +21,19 @@ care:
   spacing: "12–18 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: low. Deadhead spent blooms to encourage more flowering, feed with a balanced fertilizer in early spring after the first year, and cut back all growth in fall."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [4, 5, 6]
 pruneMonths: [3, 11]
-tags:
-  - "Pollinator friendly"
-  - "Deer resistant"
-  - "Low maintenance"
+tags: ["Pollinator friendly", "Deer resistant", "Low maintenance"]
 featured: false
 funFact: "'Orange' is the smallest member of the TEMPO™ avens series."
 learnMoreUrl: "https://www.terranovanurseries.com/product/geum-tempo-orange/"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/AuNO4"
 ---
-
 *Geum* TEMPO™ 'Orange' is a compact, clump-forming avens bred by Terra Nova
 Nurseries, producing double to single ruffled flowers in warm
 cream-peach-orange shades over a low, tidy mound of green foliage — the

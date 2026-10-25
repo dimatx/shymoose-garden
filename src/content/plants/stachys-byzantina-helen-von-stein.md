@@ -1,7 +1,11 @@
 ---
 name: "Lamb's Ears 'Helen von Stein'"
 latinName: "Stachys byzantina 'Helen von Stein'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Turkey, Armenia, and Iran"
 photo: "../../assets/plants/lambs-ears.jpg"
 photoAlt: "A dense mat of large, soft, silver-green lamb's-ears leaves with no flower stalks."
@@ -17,25 +21,21 @@ care:
   pruning: "Remove damaged leaves and any flower stalks that appear; little routine pruning is needed."
   propagation: "Divide clumps in spring."
   spacing: "12–18 in. apart for ground cover."
-  petSafety: "No known toxicity"
-  petSafetyNotes: "Discourage chewing."
-  petSafetyInfo: "Horticultural references report no known pet toxicity for the species. Eating foliage can still cause stomach upset."
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 bloomMonths: []
+bloomCalendarNote: "This foliage cultivar rarely flowers."
 pruneMonths: []
-tags:
-  - "Full sun"
-  - "Foliage interest"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Ground cover"
-  - "Low maintenance"
+pruneCalendarNote: "As-needed maintenance rather than a fixed annual pruning window; follow the care advice."
+tags: ["Foliage interest", "Drought tolerant", "Deer resistant", "Ground cover", "Low maintenance"]
 featured: false
 funFact: "This cultivar is also sold as 'Big Ears' for its unusually broad, soft leaves, and it flowers much less often than many lamb's-ears plants."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=p980"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/LINGl"
 ---
-
 Lamb's ears 'Helen von Stein' is grown primarily for its broad, woolly
 silver foliage. The leaves overlap to form a soft-looking mat that brightens
 sunny borders and edges, and the cultivar usually produces few or no flower

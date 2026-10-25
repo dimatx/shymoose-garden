@@ -1,7 +1,11 @@
 ---
 name: "Avens 'TEMPO™ Yellow'"
 latinName: "Geum 'TEMPO™ Yellow'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid bred by Terra Nova Nurseries"
 photo: "../../assets/plants/geum-tempo-yellow.jpg"
 photoAlt: "A mounding clump of Geum TEMPO Yellow with semi-double yellow flowers on dark wiry stems."
@@ -17,20 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: low. Deadhead spent blooms to encourage more flowering, feed with a balanced fertilizer in early spring after the first year, and cut back all growth in fall."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [4, 5, 6]
 pruneMonths: [3, 11]
-tags:
-  - "Pollinator friendly"
-  - "Deer resistant"
-  - "Low maintenance"
+tags: ["Pollinator friendly", "Deer resistant", "Low maintenance"]
 featured: false
 funFact: "Its near-black flower stems provide a strong contrast to the yellow blooms."
 learnMoreUrl: "https://www.terranovanurseries.com/product/geum-tempo-yellow/"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/d4urh"
 ---
-
 *Geum* TEMPO™ 'Yellow' is a compact, clump-forming avens bred by Terra Nova
 Nurseries, carrying semi-double yellow flowers with fine dark edging on
 near-black, wiry stems above a tidy mound of green foliage.

@@ -1,7 +1,11 @@
 ---
 name: "Woodland Sage"
 latinName: "Salvia nemorosa"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Central Europe to western Asia"
 photo: "../../assets/plants/salvia-nemorosa.jpg"
 photoAlt: "Dense stand of Salvia nemorosa with upright spikes of violet-blue flowers."
@@ -17,22 +21,19 @@ care:
   spacing: "12–18 in apart."
   propagation: "Stem cuttings"
   pruning: "Maintenance: low. Cut spent flower spikes to encourage reflowering; cut the clump back in late fall or early spring."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6, 7]
 pruneMonths: [6, 7]
-tags:
-  - "Summer bloom"
-  - "Pollinator friendly"
-  - "Cold hardy"
-  - "Drought tolerant"
-  - "Cottage garden"
+tags: ["Summer bloom", "Pollinator friendly", "Cold hardy", "Drought tolerant", "Cottage garden"]
 featured: false
 funFact: "*Salvia* comes from the Latin *salvere*, meaning 'to be healthy'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/salvia-nemorosa/"
 shortUrl: "http://s.shymoose.com/G88cZ"
 dateAdded: 2026-06-02
 ---
-
 *Salvia nemorosa* — woodland sage, sometimes called Balkan clary — is a hardy,
 clump-forming perennial from the grasslands of central Europe and western Asia.
 It is one of the most reliable and longest-blooming perennials for a sunny

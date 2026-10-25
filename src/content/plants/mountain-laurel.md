@@ -1,7 +1,11 @@
 ---
 name: "Mountain Laurel 'Carousel'"
 latinName: "Kalmia latifolia 'Carousel'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade", "Full shade"]
 nativeRange: "Eastern North America — rocky or sandy woods, meadows, balds, mountain slopes, and acidic woodland margins"
 photo: "../../assets/plants/mountain-laurel.jpg"
 photoAlt: "Clusters of pink mountain laurel flower buds opening amid glossy, leathery evergreen leaves."
@@ -18,25 +22,18 @@ care:
   propagation: "Semi-hardwood cuttings in midsummer; named cultivars don't come true from seed."
   pruning: "Deadhead spent flower clusters right after bloom and prune lightly at the same time to encourage bushiness — next year's flowers form on this year's new growth."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts including leaves, stems, flowers, nectar and pollen"
-  petSafetyInfo: "Symptoms: vomiting, excessive drooling, diarrhea, weakness; abnormal heart rhythm or tremors in serious cases. Toxic compound: grayanotoxins"
+  petSafetyNotes: "Keep all parts away from pets."
+  petSafetyInfo: "Can affect the heart and nervous system. Contact a veterinarian immediately after ingestion."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/laurel"]
 bloomMonths: [5, 6]
 pruneMonths: [6]
-tags:
-  - "Toxic to dogs"
-  - "Native"
-  - "Evergreen"
-  - "Pollinator friendly"
-  - "Shade garden"
-  - "Acid-loving"
-  - "Poisonous"
+tags: ["Native", "Pollinator friendly", "Acid-loving"]
 featured: false
 funFact: "Its flowers have spring-loaded anthers tucked into pockets in the petals — when a bee lands and triggers one, the filament snaps outward and dusts the bee with pollen, like a tiny pollen catapult."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/kalmia-latifolia/"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/HqDHM"
 ---
-
 Mountain laurel is a broadleaf evergreen shrub native to eastern North
 America, where it grows on rocky slopes, acidic woodland margins, and
 mountain balds. This cultivar keeps the species' hallmark good looks —

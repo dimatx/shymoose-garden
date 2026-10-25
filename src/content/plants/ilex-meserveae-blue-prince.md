@@ -1,7 +1,11 @@
 ---
 name: "Blue Holly 'Blue Prince'"
 latinName: "Ilex × meserveae 'Blue Prince'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid of English holly (Ilex aquifolium) and Tsuru holly (I. rugosa), bred in New York in the 1950s"
 photo: "../../assets/plants/ilex-meserveae-blue-prince.jpg"
 photoAlt: "A dense, rounded blue holly shrub with glossy, dark blue-green, spiny-margined leaves growing on a lawn."
@@ -20,21 +24,16 @@ care:
   petSafety: "Mildly toxic"
   petSafetyNotes: "Keep pets from chewing the spiny leaves; this male cultivar has no berries."
   petSafetyInfo: "Eating leaves can cause vomiting or diarrhea; spines can injure the mouth. Call a veterinarian if your pet eats them."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/holly/"]
 bloomMonths: [4, 5]
 pruneMonths: [2, 3]
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Hedging"
-  - "Winter interest"
-  - "Pollinator friendly"
+tags: ["Hedging", "Winter interest", "Pollinator friendly"]
 featured: false
 funFact: "Meserve hollies were bred by Kathleen K. Meserve of St. James, New York, who crossed English holly with the cold-hardy Tsuru holly to make an English-style holly that could survive harsh Northeastern winters."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=265249&isprofile=0&pt=2"
 dateAdded: 2026-10-23
 shortUrl: "https://s.shymoose.com/Km13k"
 ---
-
 'Blue Prince' is a male Meserve (blue) holly, a dense, bushy evergreen shrub
 with purplish stems and dark blue-green leaves with spiny-toothed margins.
 It grows 8–12 ft tall and wide.

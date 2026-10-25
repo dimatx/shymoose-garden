@@ -1,7 +1,11 @@
 ---
 name: "Ribbon Grass"
 latinName: "Phalaris arundinacea 'Picta'"
-type: "Ornamental grass"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Ornamental grass"]
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Temperate Europe, Asia and North America"
 photo: "../../assets/plants/ribbon-grass.jpg"
 photoAlt: "Upright blades of Ribbon Grass striped lengthwise in white and green, forming a dense variegated clump."
@@ -17,23 +21,18 @@ care:
   spacing: "24–36 in apart (it spreads aggressively by rhizomes — consider a root barrier)."
   propagation: "Divide in spring"
   pruning: "Cut to the ground in late winter. If the foliage tires and browns in summer heat, shear it back hard to force a fresh flush of clean new blades. Contain the roots — it spreads aggressively."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7]
 pruneMonths: [3]
-tags:
-  - "Foliage interest"
-  - "Rain garden"
-  - "Bog & waterside"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Naturalizing"
-  - "Easy to grow"
+tags: ["Foliage interest", "Rain garden", "Bog & waterside", "Drought tolerant", "Deer resistant", "Naturalizes", "Easy to grow"]
 funFact: "Its old name 'gardener's garters' refers to the ribbon-like striped leaves."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/phalaris-arundinacea-picta/"
 shortUrl: "http://s.shymoose.com/X99HS"
 dateAdded: 2026-06-24
 ---
-
 *Phalaris arundinacea* 'Picta' — ribbon grass or gardener's garters — is a rhizomatous perennial grass (Poaceae) grown for its boldly variegated foliage: upright blades striped lengthwise in white and green that brighten a border, a damp margin or a difficult dry corner. It is one of the toughest, most adaptable ornamentals you can plant.
 
 ## Foliage, not flowers

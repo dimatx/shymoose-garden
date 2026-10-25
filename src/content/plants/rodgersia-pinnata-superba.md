@@ -1,7 +1,11 @@
 ---
 name: "Featherleaf Rodgersia 'Superba'"
 latinName: "Rodgersia pinnata 'Superba'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Part shade"]
 nativeRange: "Species native to China; 'Superba' is a garden selection"
 photo: "../../assets/plants/rodgersia-pinnata-superba.jpg"
 photoAlt: "A clump of Rodgersia pinnata 'Superba' with large, palm-like green leaves and tall, feathery panicles of creamy-pink flowers rising above the foliage in a shady garden bed."
@@ -17,23 +21,19 @@ care:
   spacing: "3–4 ft apart."
   propagation: "Divide in spring"
   pruning: "Cut back spent foliage and stems in late fall or early spring. Seed heads can be left for winter interest."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8]
 pruneMonths: [3, 11]
-tags:
-  - "Shade garden"
-  - "Foliage interest"
-  - "Deer resistant"
-  - "Bog & waterside"
-  - "Specimen"
-  - "Rain garden"
+tags: ["Foliage interest", "Deer resistant", "Bog & waterside", "Specimen", "Rain garden"]
 featured: false
 funFact: "*Rodgersia* is named for U.S. Navy Admiral John Rodgers, whose expedition collected plants in Asia."
 learnMoreUrl: "https://www.rhs.org.uk/plants/70111/rodgersia-pinnata-superba/details"
 dateAdded: 2026-10-10
 shortUrl: "https://s.shymoose.com/hJnGm"
 ---
-
 *Rodgersia pinnata* 'Superba' is a clump-forming perennial grown mainly for its architectural foliage. In spring the new leaves unfurl bronze, then expand into large, pleated, palm-like leaves that mature to rich green with a bronze tinge. In early to mid-summer, red stems carry feathery plumes of bright pink flowers that resemble a giant astilbe.
 
 ## Bold texture for shade

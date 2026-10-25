@@ -1,7 +1,11 @@
 ---
 name: "Rose of Sharon"
 latinName: "Hibiscus syriacus 'Notwoodthree'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "South-central and southeastern China"
 photo: "../../assets/plants/hibiscus-syriacus-notwoodthree.jpg"
 photoAlt: "Close-up of lavender-blue double Blue Chiffon rose of Sharon flowers and buds."
@@ -18,21 +22,17 @@ care:
   propagation: "Softwood cuttings in late spring"
   pruning: "Prune in late winter or early spring; it flowers on new wood. Remove suckers and crossing stems; overgrown plants tolerate hard renewal pruning."
   petSafety: "Non-toxic"
+  petSafetyInfo: "The species is listed as non-toxic to dogs and cats. Eating plant material can still cause stomach upset."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/hibiscus"]
+  petSafetyNotes: "Discourage chewing."
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3, 4]
-tags:
-  - "Deciduous"
-  - "Small tree"
-  - "Hummingbird friendly"
-  - "Pollinator friendly"
-  - "Heat tolerant"
-  - "Drought tolerant"
+tags: ["Small tree", "Attracts hummingbirds", "Pollinator friendly", "Heat tolerant", "Drought tolerant"]
 funFact: "*Hibiscus syriacus* is the national flower of South Korea, where it is called Mugunghwa."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hibiscus-syriacus/"
 shortUrl: "http://s.shymoose.com/IhFSw"
 dateAdded: 2026-06-01
 ---
-
 Rose of Sharon is a hardy, upright member of the mallow family that brings a
 tropical look to temperate gardens. The cultivar 'Notwoodthree' — sold as
 Blue Chiffon® — produces large, five-petaled blue flowers with a lacy center

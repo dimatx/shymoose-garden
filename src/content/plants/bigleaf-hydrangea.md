@@ -1,7 +1,11 @@
 ---
 name: "Bigleaf Hydrangea"
 latinName: "Hydrangea macrophylla"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Part shade"]
 nativeRange: "Japan (coastal regions of Honshu)"
 photo: "../../assets/plants/bigleaf-hydrangea.jpg"
 photoAlt: "A mass of rounded blue mophead Bigleaf Hydrangea flower clusters above glossy dark green leaves, photographed at Longwood Gardens."
@@ -18,22 +22,17 @@ care:
   propagation: "Layering"
   pruning: "Shape just after flowering; it blooms mostly on old wood. In early spring remove only dead or weak stems."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "All parts toxic, especially flower buds and young leaves"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, depression or unusual tiredness. Toxic compound: cyanogenic glycosides"
+  petSafetyNotes: "Keep pets from eating leaves or flowers."
+  petSafetyInfo: "Eating hydrangeas can cause vomiting or diarrhea. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/hydrangea/"]
 bloomMonths: [6, 7, 8]
 pruneMonths: [7, 8]
-tags:
-  - "Toxic to dogs"
-  - "Pollinator friendly"
-  - "Shade garden"
-  - "Cut flowers"
-  - "Specimen"
+tags: ["Pollinator friendly", "Cut flowers", "Specimen"]
 funFact: "Soil pH affects flower color by changing aluminum availability; white cultivars stay white."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hydrangea-macrophylla/"
 shortUrl: "http://s.shymoose.com/WL32w"
 dateAdded: 2026-06-11
 ---
-
 Bigleaf hydrangea is a deciduous shrub with broad, glossy leaves and
 large summer flower clusters. Mophead forms have rounded heads; lacecaps
 have flatter clusters with showy flowers around the edge.

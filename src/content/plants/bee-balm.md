@@ -1,7 +1,11 @@
 ---
 name: "Bee Balm"
 latinName: "Monarda didyma 'Balbalmose'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern North America (the species)"
 photo: "../../assets/plants/bee-balm.jpg"
 photoAlt: "A rounded terminal cluster of rose-pink, tubular two-lipped bee balm flowers above green foliage."
@@ -17,24 +21,18 @@ care:
   spacing: "12–15 in apart, based on this compact selection's mature spread."
   propagation: "Divide in spring"
   pruning: "Shear spent flowers to encourage rebloom. Cut back in late winter, leaving 12–24 in of stems for nesting bees."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8]
 pruneMonths: [3]
-tags:
-  - "Native"
-  - "Pollinator friendly"
-  - "Hummingbird friendly"
-  - "Butterfly friendly"
-  - "Deer resistant"
-  - "Cottage garden"
-  - "Fragrant"
-  - "Small spaces"
+tags: ["Native", "Pollinator friendly", "Attracts hummingbirds", "Attracts butterflies", "Deer resistant", "Cottage garden", "Fragrant", "Small spaces"]
 funFact: "Bee balm belongs to the mint family; its crushed leaves smell of bergamot."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=439398"
 dateAdded: 2026-06-25
 shortUrl: "http://s.shymoose.com/PjAX2"
 ---
-
 *Monarda didyma* 'Balbalmose' — sold as **Balmy™ Rose** — is a compact, modern selection of scarlet bee balm, a clump-forming perennial in the mint family (Lamiaceae) native to eastern North America. Where the wild species can flop at 3–4 feet, this one stays a neat 10–12 inches, making it easy to place at the front of a border or in a container while keeping all the pollinator appeal.
 
 ## A magnet for pollinators

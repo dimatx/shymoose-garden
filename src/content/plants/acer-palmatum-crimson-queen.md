@@ -1,7 +1,11 @@
 ---
 name: "Japanese Maple 'Crimson Queen'"
 latinName: "Acer palmatum 'Crimson Queen'"
-type: "Tree"
+growthForms: ["Tree"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Part shade"]
 nativeRange: "Japan, China, and Korea"
 photo: "../../assets/plants/acer-palmatum-crimson-queen.png"
 photoAlt: "A weeping laceleaf Japanese Maple 'Crimson Queen' forming a low, spreading mound of finely dissected crimson-red foliage in a mulched garden bed."
@@ -17,21 +21,19 @@ care:
   spacing: "10–12 ft apart as a specimen, based on mature spread."
   propagation: "Layer in autumn or graft onto Japanese maple rootstock in late winter."
   pruning: "Minimal pruning needed. Remove dead or crossing branches in late winter while dormant. Avoid heavy pruning."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [4, 5]
 pruneMonths: [2, 3]
-tags:
-  - "Fall color"
-  - "Deer resistant"
-  - "Specimen"
-  - "Asian garden"
+tags: ["Fall color", "Deer resistant", "Specimen", "Asian garden"]
 featured: false
 funFact: "Japan's autumn tradition of momijigari means 'red leaf hunting': traveling to admire colorful maple leaves."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/acer-palmatum/"
 shortUrl: "http://s.shymoose.com/287m3"
 dateAdded: 2026-06-05
 ---
-
 'Crimson Queen' is a slow-growing, weeping Japanese maple for small gardens,
 courtyards, and containers. Its arching branches form a broad mound.
 

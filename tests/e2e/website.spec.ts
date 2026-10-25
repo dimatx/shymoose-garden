@@ -118,9 +118,11 @@ test("clipboard failure is visible and toxicity details stay beside their headin
 });
 
 test("beta map links preserve opt-in and remain hidden by default", async ({ page }) => {
-  await page.goto("/plants/dianthus/");
+  await page.goto("/plants/cucumis-sativus-suyo-long/");
   await expect(page.getByRole("link", { name: "Find on map" })).toHaveCount(0);
   await page.goto("/plants/dianthus/?beta");
+  await expect(page.getByRole("link", { name: "Find on map" })).toHaveCount(0);
+  await page.goto("/plants/cucumis-sativus-suyo-long/?beta");
   const link = page.getByRole("link", { name: "Find on map" });
   await expect(link).toBeVisible();
   await expect(link).toHaveAttribute("href", /beta/);

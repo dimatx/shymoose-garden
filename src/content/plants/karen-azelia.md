@@ -1,7 +1,11 @@
 ---
 name: "Karen Azalea"
 latinName: "Rhododendron 'Karens'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid of East Asian azalea species"
 photo: "../../assets/plants/karen-azelia.jpg"
 photoAlt: "A dense mound of Karen azalea smothered in bright lavender-pink double flowers and glossy dark green leaves in mid-spring."
@@ -18,24 +22,18 @@ care:
   propagation: "Semi-ripe cuttings in late summer"
   pruning: "Trim lightly just after flowering; later pruning removes next spring's buds. Avoid heavy cutting into bare wood."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts including leaves, stems, flowers, pollen and nectar"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, weakness; abnormal heart rhythm or tremors in serious cases. Toxic compound: grayanotoxins"
+  petSafetyNotes: "Keep all parts away from pets."
+  petSafetyInfo: "Can affect the heart and nervous system. Contact a veterinarian immediately after ingestion."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rhododendron"]
 bloomMonths: [4, 5]
 pruneMonths: [5]
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Spring bloom"
-  - "Acid-loving"
-  - "Pollinator friendly"
-  - "Cold hardy"
+tags: ["Spring bloom", "Acid-loving", "Pollinator friendly", "Cold hardy"]
 featured: false
 funFact: "Its small evergreen leaves take on burgundy tones in fall and winter."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=253371"
 shortUrl: "http://s.shymoose.com/xJTgh"
 dateAdded: 2026-06-06
 ---
-
 'Karens' is a cold-hardy evergreen azalea with a dense habit, lavender-pink
 spring flowers, and reddish winter foliage.
 

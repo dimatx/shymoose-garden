@@ -1,7 +1,11 @@
 ---
 name: "Black-eyed Susan 'Goldblitz'"
 latinName: "Rudbeckia fulgida 'Goldblitz'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden cultivar of the species native to eastern and central North America"
 photo: "../../assets/plants/rudbeckia-fulgida-goldblitz.jpg"
 photoAlt: "Bright golden-yellow daisy-like flowers with dark brown centers on upright stems."
@@ -17,23 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Deadhead spent blooms to prolong flowering; cut back to the ground in late fall or early spring, and divide clumps every 3–4 years."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8, 9, 10]
 pruneMonths: [3, 4, 9, 10]
-tags:
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Attracts butterflies"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Long blooming"
+tags: ["Pollinator friendly", "Attracts butterflies", "Deer resistant", "Drought tolerant", "Long bloom season"]
 featured: false
 funFact: "The dark central cone gives black-eyed Susan its common name."
 learnMoreUrl: "https://info.ballseed.com/PlantInfo/?phid=053800604046271"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/HPdcl"
 ---
-
 *Rudbeckia fulgida* 'Goldblitz' is a sturdy, upright black-eyed Susan that
 delivers a long season of golden-yellow daisies with rich brown centers,
 starting in midsummer and carrying on well into fall. It's a dependable,

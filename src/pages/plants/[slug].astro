@@ -5,6 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import Icon from "../../components/Icon.astro";
 import PlantMonths from "../../components/PlantMonths.astro";
 import { noteEditorUrl } from "../../lib/notes";
+import { plantTypes, plantDisplayTags, petSafetyFacts, isMapped } from "../../lib/plant-facets";
 import type { IconName } from "../../components/Icon.astro";
 
 export async function getStaticPaths() {
@@ -22,14 +23,13 @@ const NoteContent = plantNote?.body?.trim() ? (await render(plantNote)).Content 
 const {
   name,
   latinName,
-  type,
   nativeRange,
   photo,
   photoAlt,
   photoCredit,
+  photoSourceUrl,
   shortDescription,
   care,
-  tags,
   bloomMonths,
   pruneMonths,
   funFact,
@@ -38,6 +38,16 @@ const {
   archived,
   archivedNote,
 } = plant.data;
+const tags = plantDisplayTags(plant.data);
+const safety = petSafetyFacts(care.petSafety);
+function sourceLabel(url: string): string {
+  const host = new URL(url).hostname.replace(/^www\./, "");
+  return ({
+    "aspca.org": "ASPCA",
+    "petpoisonhelpline.com": "Pet Poison Helpline",
+    "plants.ces.ncsu.edu": "NC State Extension",
+  } as Record<string, string>)[host] ?? host;
+}
 
 // Use the plant's own photo as the social-share image so links shared from a
 // phone (e.g. texting someone a plant) show a real preview. A 1200×630 JPEG is
@@ -65,9 +75,10 @@ const sections = (
       blurb: "Where it's from and what to expect.",
       items: [
         { label: "Native range", value: nativeRange, icon: "globe" },
-        { label: "Plant type", value: type, icon: "leaf" },
+        { label: "Plant type", value: plantTypes(plant.data).join(" · "), icon: "leaf" },
         { label: "Mature size", value: care.size, icon: "ruler" },
         { label: "Bloom", value: care.bloom, icon: "flower" },
+        { label: "Harvest", value: care.harvest, icon: "seedling" },
         { label: "Hardiness", value: care.hardiness, icon: "snow" },
       ],
     },
@@ -137,7 +148,9 @@ function renderInlineMarkdown(text: string): string {
       {
         photoCredit && (
           <figcaption class="px-4 py-2 text-xs text-leaf-600 dark:text-leaf-300">
-            Photo: {photoCredit}
+            Photo: {photoSourceUrl
+              ? <a href={photoSourceUrl} target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">{photoCredit}</a>
+              : photoCredit}
           </figcaption>
         )
       }
@@ -247,14 +260,15 @@ function renderInlineMarkdown(text: string): string {
             <dl class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {section.items.map((item) => {
                 const isPetSafety = item.label === "Pet safety";
-                const isHighlyToxic = isPetSafety && item.value?.includes("Highly");
-                const isMildlyToxic = isPetSafety && item.value?.includes("Mildly");
+                const isHighlyToxic = isPetSafety && safety.tone === "danger";
+                const isMildlyToxic = isPetSafety && safety.tone === "caution";
                 return (
                   <div class={`flex gap-3 rounded-2xl border p-4 ${isPetSafety ? 'border-leaf-200/80 bg-leaf-50 dark:border-leaf-800/80 dark:bg-leaf-900' : 'border-leaf-200/80 bg-white dark:border-leaf-800/80 dark:bg-leaf-900'}`}>
                     <span
                       class={`mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full ${
                         isHighlyToxic ? 'bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300' :
                         isMildlyToxic ? 'bg-yellow-100 text-yellow-600 dark:bg-yellow-900 dark:text-yellow-300' :
+                        isPetSafety && safety.tone === "unknown" ? 'bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-300' :
                         'bg-leaf-100 text-leaf-600 dark:bg-leaf-800 dark:text-leaf-300'
                       }`}
                       aria-hidden="true"
@@ -322,7 +336,7 @@ function renderInlineMarkdown(text: string): string {
           <Icon name="arrow-up-right" class="h-4 w-4" strokeWidth={2} />
         </a>
       )}
-      <a
+      {isMapped(plant.data) && <a
         href={`/map/?slug=${plant.id}`}
         data-beta-feature
         hidden
@@ -330,7 +344,7 @@ function renderInlineMarkdown(text: string): string {
       >
         <Icon name="map" class="h-4 w-4" strokeWidth={2} />
         Find on map
-      </a>
+      </a>}
     </section>
     <div class="mt-8 border-t border-leaf-200 pt-3 dark:border-leaf-800">
       <a
@@ -346,6 +360,11 @@ function renderInlineMarkdown(text: string): string {
 
   <div id="pet-safety-popup" role="note" class="hidden fixed rounded-lg border border-leaf-200 dark:border-leaf-700 bg-white dark:bg-leaf-900 p-3 shadow-lg z-50 w-80 max-w-[calc(100vw-1rem)]" style="display: none;">
     <p id="pet-safety-popup-text" class="text-sm leading-relaxed text-leaf-700 dark:text-leaf-300"></p>
+    <ul class="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+      {care.petSafetySources.map((url) => (
+        <li><a href={url} target="_blank" rel="noopener noreferrer" class="text-leaf-600 underline underline-offset-2 dark:text-leaf-300">{sourceLabel(url)}</a></li>
+      ))}
+    </ul>
   </div>
 </Layout>
 

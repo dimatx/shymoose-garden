@@ -1,7 +1,11 @@
 ---
 name: "Single Mum 'White Bomb'"
 latinName: "Chrysanthemum weyrichii 'White Bomb'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Garden cultivar of the species native to Japan, Korea, and the Russian Far East"
 photo: "../../assets/plants/single-mum.jpg"
 photoAlt: "A large mound of Single Mum covered in white daisy flowers with yellow centers, in a rock garden."
@@ -18,25 +22,18 @@ care:
   propagation: "Divide in early spring"
   pruning: "Deadhead to prolong bloom; cut back and divide in spring as needed to control spread."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "All parts toxic (flowers, leaves, stems, roots)"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, wobbliness; skin irritation after contact. Toxic compound: pyrethrins and sesquiterpene lactones"
+  petSafetyNotes: "Keep pets from chewing."
+  petSafetyInfo: "May cause vomiting, diarrhea, drooling, or skin irritation."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/chrysanthemum"]
 bloomMonths: [8, 9, 10]
 pruneMonths: [3, 4]
-tags:
-  - "Toxic to dogs"
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Attracts butterflies"
-  - "Fall flowers"
-  - "Ground cover"
-  - "Deer resistant"
+tags: ["Pollinator friendly", "Attracts butterflies", "Fall flowers", "Ground cover", "Deer resistant"]
 featured: false
 funFact: "Unlike showy florist mums, this species spreads by rhizomes into a dense, weed-smothering mat — useful for erosion control on slopes as much as for its simple, late-season daisies."
 learnMoreUrl: "https://www.vanberkumnursery.com/plants/chrysanthemum-weyrichii-white-bomb/"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/NRfje"
 ---
-
 *Chrysanthemum weyrichii* 'White Bomb' is a species mum, not a florist mum —
 a low, spreading perennial that carpets itself in simple white daisies just
 as most of the garden is fading for the season.

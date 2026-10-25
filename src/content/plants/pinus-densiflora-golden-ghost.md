@@ -1,7 +1,11 @@
 ---
 name: "Japanese Red Pine 'Golden Ghost'"
 latinName: "Pinus densiflora 'Golden Ghost'"
-type: "Conifer"
+growthForms: ["Tree"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun"]
 nativeRange: "Japan, Korea, and northeastern China (the species)"
 photo: "../../assets/plants/pinus-densiflora-golden-ghost.jpg"
 photoAlt: "A close-up of fresh new-growth needles on a Japanese red pine 'Golden Ghost', radiating outward in a starburst pattern with creamy-yellow variegation streaked through green."
@@ -15,21 +19,22 @@ care:
   size: "About 6 ft tall and 4–5 ft wide in ten years (6–8 in. a year); a broadly upright to oval evergreen."
   spacing: "5–8 ft apart to allow room for continued growth beyond its ten-year size."
   propagation: "Semi-hardwood cuttings"
+  bloom: "Non-flowering; produces cones rather than flowers."
   pruning: "Minimal. Shape or slow growth by pinching the soft new 'candles' by half in late spring; avoid cutting back into bare old wood, which won't resprout."
-  petSafety: "Non-toxic"
-tags:
-  - "Conifer"
-  - "Evergreen"
-  - "Foliage interest"
-  - "Deer resistant"
-  - "Specimen"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
+tags: ["Foliage interest", "Deer resistant", "Specimen"]
 featured: false
 funFact: "Japanese red pine takes its common name from the orange-red bark revealed as older bark flakes away."
 learnMoreUrl: "https://conifersociety.org/conifers/pinus-densiflora-golden-ghost"
 shortUrl: "https://s.shymoose.com/3IXDa"
 dateAdded: 2026-07-18
+bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
+pruneMonths: [5, 6]
 ---
-
 *Pinus densiflora* 'Golden Ghost' is a variegated form of the Japanese red pine,
 grown for the striking effect of its soft, two-needle bundles brightly banded in
 yellow and creamy white. From a distance the whole plant seems to glow — a

@@ -1,7 +1,11 @@
 ---
 name: "Tickseed 'Crazy Cayenne'"
 latinName: "Coreopsis verticillata 'Crazy Cayenne'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Eastern and central United States (parent species)"
 photo: "../../assets/plants/coreopsis-verticillata-crazy-cayenne.jpg"
 photoAlt: "Close-up of abundant bright orange-red daisy-like flowers with darker centers, viewed from above."
@@ -18,21 +22,18 @@ care:
   propagation: "Divide in spring or fall"
   pruning: "Shear back by about a third after the first flush of bloom to encourage rebloom; cut to the ground in late winter."
   petSafety: "Non-toxic"
+  petSafetyInfo: "The genus is listed as non-toxic to dogs and cats. Eating plant material can still cause stomach upset."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/coreopsis"]
+  petSafetyNotes: "Discourage chewing."
 bloomMonths: [6, 7, 8, 9, 10]
-pruneMonths: [7, 2, 3]
-tags:
-  - "Attracts pollinators"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Full sun"
-  - "Long bloom season"
+pruneMonths: [2, 3, 7]
+tags: ["Pollinator friendly", "Deer resistant", "Drought tolerant", "Long bloom season"]
 featured: false
 funFact: "'Crazy Cayenne' brings orange-red flowers to a group better known for yellow blooms."
 learnMoreUrl: "https://www.waltersgardens.com/variety.php?ID=CORCZ"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/1Wz6k"
 ---
-
 *Coreopsis verticillata* 'Crazy Cayenne' is a threadleaf coreopsis grown for
 its fine, ferny foliage and its abundant, brightly-colored flowers — a
 striking orange-red that stands out among the softer yellows typical of the

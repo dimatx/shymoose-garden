@@ -1,7 +1,11 @@
 ---
 name: "Japanese Astilbe 'Rheinland'"
 latinName: "Astilbe japonica 'Rheinland'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Garden cultivar of the species native to Japan"
 photo: "../../assets/plants/japanese-astilbe.jpg"
 photoAlt: "Bright pink, feathery astilbe flower spikes rising above deep green, finely divided foliage."
@@ -17,20 +21,19 @@ care:
   spacing: "18–24 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Deadhead or leave spent plumes for winter interest; divide clumps every 3–4 years."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6]
 pruneMonths: [3, 4]
-tags:
-  - "Shade garden"
-  - "Attracts pollinators"
-  - "Deer resistant"
+tags: ["Pollinator friendly", "Deer resistant"]
 featured: false
 funFact: "'Rheinland' was introduced by Georg Arends in 1902."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=a140"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/CSKiU"
 ---
-
 *Astilbe japonica* 'Rheinland' tops neat, deep green foliage with clear pink
 flower plumes in late spring — a shade perennial with over a century of
 garden history behind it and still going strong.

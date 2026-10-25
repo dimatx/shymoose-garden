@@ -1,7 +1,11 @@
 ---
 name: "Bluebeard 'Beyond Midnight'"
 latinName: "Caryopteris × clandonensis 'Beyond Midnight®'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun"]
 nativeRange: "Garden hybrid (Caryopteris incana × C. mongholica); parent species native to East Asia"
 photo: "../../assets/plants/caryopteris-x-clandonensis-beyond-midnight.jpg"
 photoAlt: "A compact, mounded Beyond Midnight bluebeard shrub covered in upright spikes of deep blue flowers over dark green foliage."
@@ -17,24 +21,19 @@ care:
   spacing: "24–36 in apart."
   propagation: "Take softwood cuttings in late spring or semi-ripe cuttings in summer."
   pruning: "Cut back hard in late winter to early spring, just above where new growth appears; it blooms on new wood."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [8, 9, 10]
 pruneMonths: [3, 4]
-tags:
-  - "Pollinator friendly"
-  - "Butterfly friendly"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Fall flowers"
-  - "Full sun"
-  - "Low maintenance"
+tags: ["Pollinator friendly", "Attracts butterflies", "Drought tolerant", "Deer resistant", "Fall flowers", "Low maintenance"]
 featured: false
 funFact: "Bluebeard is also called blue mist or blue spirea. Because it flowers on new growth in late summer and fall, a hard spring cutback actually improves the show."
 learnMoreUrl: "https://www.provenwinners.com/plants/caryopteris/beyond-midnight-bluebeard-caryopteris-x-clandonensis"
 dateAdded: 2026-10-10
 shortUrl: "https://s.shymoose.com/IXynT"
 ---
-
 *Caryopteris* × *clandonensis* Beyond Midnight® is a compact, mounding bluebeard with glossy dark green leaves and spikes of deep blue flowers that arrive in late summer and last into fall. It fills a gap when much of the garden is fading and is a reliable magnet for bees and butterflies.
 
 ## An easy sun-lover

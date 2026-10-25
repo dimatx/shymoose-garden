@@ -1,7 +1,11 @@
 ---
 name: "Larch 'Varied Directions'"
 latinName: "Larix decidua 'Varied Directions'"
-type: "Conifer"
+growthForms: ["Tree", "Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Deciduous"
+sunExposure: ["Full sun"]
 nativeRange: "Central Europe (Alps and Carpathians); cultivar bred in Storrs, Connecticut"
 photo: "../../assets/plants/larch.jpg"
 photoAlt: "A young, unstaked Larix decidua 'Varied Directions' forming a low, sprawling mound of irregular branches with soft green needles, growing among blue spruce and other conifers."
@@ -17,22 +21,21 @@ care:
   spacing: "Give it a wide, open, unobstructed area on all sides — at least a 6–10 ft radius — since its sculptural, irregular branching is the whole point of the cultivar."
   propagation: "Graft onto larch rootstock; seedlings will not preserve its weeping form."
   pruning: "Minimal. Shape and stake while young to establish the desired height and branch direction; thereafter just remove dead or crossing wood."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 pruneMonths: []
-tags:
-  - "Conifer"
-  - "Deciduous"
-  - "Fall color"
-  - "Specimen"
-  - "Winter interest"
+pruneCalendarNote: "As-needed maintenance rather than a fixed annual pruning window; follow the care advice."
+tags: ["Fall color", "Specimen", "Winter interest"]
 featured: false
 funFact: "Unlike most conifers, larch turns gold in autumn and sheds its needles for winter."
 learnMoreUrl: "https://iselinursery.com/colorful-conifers/larix-larch/larix-decidua-varied-directions/"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/Dom4X"
 ---
-
 *Larix decidua* 'Varied Directions' is an unusual, irregularly weeping selection of European larch — a species native to the mountainous Alps and Carpathians, but this particular cultivar has an all-American origin, bred by University of Connecticut horticulturist Dr. Sidney Waxman. Its branches sprawl and cascade unpredictably in every direction (hence the name), giving each specimen a one-of-a-kind sculptural form.
 
 ## A conifer that isn't evergreen

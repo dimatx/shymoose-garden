@@ -1,7 +1,11 @@
 ---
 name: "Globe Blue Spruce"
 latinName: "Picea pungens 'Glauca Globosa'"
-type: "Conifer"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun"]
 nativeRange: "Garden cultivar of the species native to the Rocky Mountains, western North America"
 photo: "../../assets/plants/picea-pungens-glauca-globosa.jpg"
 photoAlt: "Close-up of dense silvery-blue needles of a dwarf globe blue spruce."
@@ -17,21 +21,20 @@ care:
   spacing: "4–6 ft apart, based on mature spread."
   propagation: "Semi-hardwood cuttings"
   pruning: "Maintenance: very low. Little or no pruning needed; trim only to remove damaged growth or refine the shape in spring."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 pruneMonths: [4]
-tags:
-  - "Evergreen"
-  - "Cold hardy"
-  - "Drought tolerant"
-  - "Dwarf conifer"
-  - "Low maintenance"
+tags: ["Cold hardy", "Drought tolerant", "Dwarf conifer", "Low maintenance"]
 featured: false
 funFact: "A waxy coating on the needles gives blue spruce its silvery-blue color."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?kempercode=c825"
 shortUrl: "http://s.shymoose.com/ieAqE"
 dateAdded: 2026-06-02
+bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 ---
-
 *Picea pungens* 'Glauca Globosa' — the globe blue spruce — is a dwarf, slow-growing
 cultivar of the Colorado blue spruce, selected for its compact, rounded form and
 exceptionally silvery-blue needles. It packs all the icy color of a full-size

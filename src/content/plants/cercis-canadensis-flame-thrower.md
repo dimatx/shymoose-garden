@@ -1,7 +1,11 @@
 ---
 name: "Flame Thrower Redbud"
 latinName: "Cercis canadensis Flame Thrower® ('NC2016-2')"
-type: "Tree"
+growthForms: ["Tree"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern and central North America (species)"
 photo: "../../assets/plants/cercis-canadensis-flame-thrower.jpg"
 photoAlt: "Redbud branches densely covered in heart-shaped leaves showing a dynamic mix of yellow-green, orange, and reddish-purple colors all at once."
@@ -17,22 +21,19 @@ care:
   spacing: "10–15 ft apart, based on mature spread."
   propagation: "Bud-graft onto redbud seedling rootstock or take summer cuttings under mist; seed will not preserve its foliage."
   pruning: "Maintenance: low. Prune lightly to shape and remove dead or crossing wood right after flowering. Redbuds dislike being transplanted, so choose the planting site carefully."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]
-tags:
-  - "Spring bloom"
-  - "Pollinator friendly"
-  - "Cold hardy"
-  - "Specimen"
-  - "Fall color"
+tags: ["Spring bloom", "Pollinator friendly", "Cold hardy", "Specimen", "Fall color"]
 featured: false
 funFact: "Leaves of different ages show different colors, creating a multicolored canopy on a single tree."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/cercis-canadensis-flame-thrower-nc2016-2/"
 shortUrl: "https://s.shymoose.com/pXHRW"
 dateAdded: 2026-08-09
 ---
-
 Flame Thrower® is an eastern redbud grown for its multicolored foliage
 and rosy spring flowers. Its gently drooping branches form a small tree
 rather than a true weeping mound.

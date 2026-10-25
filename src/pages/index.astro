@@ -2,37 +2,21 @@
 import Layout from "../layouts/Layout.astro";
 import PlantCard from "../components/PlantCard.astro";
 import Icon from "../components/Icon.astro";
-import { getSortedPlants, sunLevels, SUN_LEVELS } from "../lib/plants";
+import { getSortedPlants } from "../lib/plants";
+import { plantTypes, plantTags, SUN_LEVELS, TRAIT_FILTERS } from "../lib/plant-facets";
 
 const plants = await getSortedPlants();
 
-// Plant-type filters are built straight from the data, so adding a new `type`
-// to a plant automatically gives it a filter button — no code changes needed.
 const types = [
-  ...new Set(plants.map((p) => p.data.type).filter((t): t is string => !!t)),
+  ...new Set(plants.flatMap((p) => plantTypes(p.data))),
 ].sort((a, b) => a.localeCompare(b));
 
-// Sun-exposure filters are derived from each plant's `care.sunlight` prose. We
-// keep the canonical brightest-to-shadiest order and only show buckets that an
-// actual plant falls into.
 const suns = SUN_LEVELS.filter((level) =>
-  plants.some((p) => sunLevels(p).includes(level))
+  plants.some((p) => p.data.sunExposure.includes(level))
 );
 
-// Characteristic filters come from the free-form `tags`. We offer a curated
-// shortlist and only show the ones that actually appear on a plant.
-const traitCandidates = [
-  "Evergreen",
-  "Drought tolerant",
-  "Pollinator friendly",
-  "Low maintenance",
-  "Edible",
-  "Deer resistant",
-  "Shade garden",
-  "Toxic to dogs",
-];
-const allTags = new Set(plants.flatMap((p) => p.data.tags));
-const traits = traitCandidates.filter((t) => allTags.has(t));
+const allTags = new Set(plants.flatMap((p) => plantTags(p.data)));
+const traits = TRAIT_FILTERS.filter((t) => allTags.has(t));
 
 const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 ---
@@ -208,9 +192,9 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
               data-name={plant.data.name}
               data-latin={plant.data.latinName}
               data-added={plant.data.dateAdded?.getTime() ?? 0}
-              data-type={plant.data.type ?? ""}
-              data-sun={`|${sunLevels(plant).join("|")}|`}
-              data-tags={`|${plant.data.tags.join("|")}|`}
+              data-types={JSON.stringify(plantTypes(plant.data))}
+              data-sun={`|${plant.data.sunExposure.join("|")}|`}
+              data-tags={`|${plantTags(plant.data).join("|")}|`}
               data-archived={String(plant.data.archived)}
               data-archived-first={String(
                 plant.data.archived && !plants[i - 1]?.data.archived
@@ -378,6 +362,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 <script>
   import { isTransitionBeforeSwapEvent } from "astro:transitions/client";
   import { compareCatalogItems, isSortMode, type SortMode } from "../lib/catalog";
+  import { matchesAny } from "../lib/plant-facets";
 
   type CatalogState = {
     search: string;
@@ -468,7 +453,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       archived: element.dataset.archived === "true",
       added: Number(element.dataset.added) || 0,
       search: `${element.dataset.name}\n${element.dataset.latin}\n${element.dataset.tags}`.toLowerCase(),
-      type: element.dataset.type ?? "",
+      types: JSON.parse(element.dataset.types!) as string[],
       sun: element.dataset.sun ?? "",
       tags: element.dataset.tags ?? "",
       toxicBadge: element.querySelector<HTMLElement>(".highly-toxic-badge"),
@@ -478,6 +463,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     const dropdowns = Array.from(
       document.querySelectorAll<HTMLDetailsElement>(".filter-dd")
     );
+    const phone = window.matchMedia("(max-width: 639px)");
     const noMatches = document.getElementById("no-matches");
     const noMatchesClear = document.getElementById("no-matches-clear");
     const searchInput = document.getElementById(
@@ -563,9 +549,9 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       const suns = [...selectedSuns];
       const traits = [...selectedTraits];
       for (const item of items) {
-        const { type, sun, tags, search } = metadata.get(item)!;
+        const { types, sun, tags, search } = metadata.get(item)!;
         // Types and sun levels are OR'd (broaden), traits are AND'd (narrow).
-        const typeOk = selectedTypes.size === 0 || selectedTypes.has(type);
+        const typeOk = matchesAny(types, selectedTypes);
         const sunOk =
           selectedSuns.size === 0 ||
           suns.some((s) => sun.includes(`|${s}|`));
@@ -582,8 +568,9 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       }
       markArchivedRowBreak();
 
-      // Show highly toxic icon only when "Toxic to dogs" filter is active
-      const toxicFilterActive = selectedTraits.has("Toxic to dogs") || activeTag === "Toxic to dogs";
+      // Highlight severe hazards only when an animal-safety filter is active.
+      const toxicFilterActive = selectedTraits.has("Toxic to dogs") || activeTag === "Toxic to dogs" ||
+        selectedTraits.has("Toxic to cats") || activeTag === "Toxic to cats";
       for (const item of items) {
         const badge = metadata.get(item)!.toxicBadge;
         if (badge && toxicFilterActive && !item.hidden) {
@@ -607,6 +594,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
       }
       if (clearEl) clearEl.classList.toggle("hidden", active === 0);
       updateBadges();
+      for (const dd of dropdowns) if (dd.open) placePanel(dd);
       if (noMatches) noMatches.classList.toggle("hidden", visible !== 0);
       catalogState = {
         search: searchInput?.value ?? "",
@@ -695,7 +683,6 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
 
     // On phones each panel opens right under its button but is as wide as the
     // control row, so measure that row against the button's position.
-    const phone = window.matchMedia("(max-width: 639px)");
     function placePanel(dd: HTMLDetailsElement) {
       const panel = dd.querySelector<HTMLElement>(".filter-panel");
       const row = dd.parentElement;

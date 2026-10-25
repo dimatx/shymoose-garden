@@ -1,7 +1,11 @@
 ---
 name: "Allium 'Big Beauty'"
 latinName: "Allium 'Big Beauty'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid of species native to Central Asia"
 photo: "../../assets/plants/allium.jpg"
 photoAlt: "A tall ornamental onion topped with a large spherical cluster of small star-shaped purple flowers."
@@ -18,23 +22,18 @@ care:
   propagation: "Divide bulb offsets in fall"
   pruning: "Cut back flower stalks once blooms fade; foliage yellows after flowering and can be tucked behind later-emerging companions."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts toxic in all forms (bulbs, leaves, raw, cooked, dried)"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, lethargy, pale gums, red-brown or dark-colored urine (signs of hemolytic anemia). Onset: stomach upset may come first; anemia signs can be delayed. Toxic compound: organosulfoxides"
+  petSafetyNotes: "Keep all parts away from pets."
+  petSafetyInfo: "Can damage red blood cells and cause anemia, even when cooked or dried. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/uncategorized/are-onions-poisons-to-dogs"]
 bloomMonths: [5, 6, 7]
-tags:
-  - "Toxic to dogs"
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Cut flowers"
+tags: ["Pollinator friendly", "Drought tolerant", "Deer resistant", "Cut flowers"]
 featured: false
 funFact: "'Big Beauty' produces flower globes up to 6 inches across."
 learnMoreUrl: "https://www.midwestgroundcovers.com/allium-x-big-beauty-11-1-24183.1g"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/Vt3a7"
+pruneMonths: [7, 8]
 ---
-
 Allium 'Big Beauty' is an ornamental onion grown purely for its flowers —
 tall, leafless stems topped with an oversized globe of small, star-shaped
 pink-purple blossoms that hold their shape for weeks.

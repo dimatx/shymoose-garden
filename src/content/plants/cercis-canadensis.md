@@ -1,7 +1,11 @@
 ---
 name: "Eastern Redbud"
 latinName: "Cercis canadensis"
-type: "Tree"
+growthForms: ["Tree"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern and central North America"
 photo: "../../assets/plants/cercis-canadensis.jpg"
 photoAlt: "Eastern redbud tree covered in rosy pink-purple flowers against a clear blue sky in early spring."
@@ -17,22 +21,19 @@ care:
   spacing: "25–35 ft apart, based on mature spread."
   propagation: "Seed after cold stratification"
   pruning: "Maintenance: low. Prune lightly to shape and remove dead or crossing wood right after flowering."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]
-tags:
-  - "Spring bloom"
-  - "Pollinator friendly"
-  - "Cold hardy"
-  - "Native"
-  - "Woodland edge"
+tags: ["Spring bloom", "Pollinator friendly", "Cold hardy", "Native", "Woodland edge"]
 featured: false
 funFact: "Redbud flowers can grow directly from the trunk and older branches, a trait called cauliflory."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/cercis-canadensis/"
 shortUrl: "http://s.shymoose.com/UjhDt"
 dateAdded: 2026-06-02
 ---
-
 *Cercis canadensis* — the eastern redbud — is a small, graceful tree native to the
 woodlands of eastern and central North America. It is one of the most beloved
 harbingers of spring, lighting up the still-bare landscape with a haze of rosy

@@ -1,7 +1,11 @@
 ---
 name: "Oakleaf Hydrangea 'Alice'"
 latinName: "Hydrangea quercifolia 'Alice'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Southeastern United States (species); cultivated selection"
 photo: "../../assets/plants/hydrangea-quercifolia-alice.jpg"
 photoAlt: "A mature Oakleaf Hydrangea 'Alice' shrub in the Chicago Botanic Garden, its cone-shaped panicles aging from white to pink above deeply lobed, oak-shaped leaves."
@@ -18,16 +22,10 @@ care:
   propagation: "Stem cuttings in summer"
   pruning: "Blooms on old wood — prune only right after flowering if shaping is needed. Pruning in late winter or spring removes the coming season's flower buds."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "All parts toxic, especially flower buds and young leaves"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, depression or unusual tiredness. Toxic compound: cyanogenic glycosides"
-tags:
-  - "Toxic to dogs"
-  - "Native"
-  - "Fall color"
-  - "Pollinator friendly"
-  - "Deer resistant"
-  - "Specimen"
-  - "Cut flower"
+  petSafetyNotes: "Keep pets from eating leaves or flowers."
+  petSafetyInfo: "Eating hydrangeas can cause vomiting or diarrhea. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/hydrangea/"]
+tags: ["Native", "Fall color", "Pollinator friendly", "Deer resistant", "Specimen", "Cut flowers"]
 bloomMonths: [6, 7]
 pruneMonths: [7]
 funFact: "'Alice' is a University of Georgia introduction known for extra-large flower panicles."
@@ -35,7 +33,6 @@ learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hydrangea-quercifolia-alice/"
 shortUrl: "https://s.shymoose.com/yHqmy"
 dateAdded: 2026-08-22
 ---
-
 *Hydrangea quercifolia* 'Alice' is a University of Georgia selection of our native oakleaf hydrangea, grown for its oversized, cone-shaped flower panicles and bold, oak-shaped foliage. It's a big shrub that earns its space as a specimen or informal hedge, with three seasons of interest: early-summer bloom, deep fall color, and exfoliating winter bark.
 
 ## A native with presence

@@ -1,7 +1,11 @@
 ---
 name: "Ostrich Fern 'Jumbo'"
 latinName: "Matteuccia struthiopteris 'Jumbo'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Fern"]
+foliage: "Seasonal"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Temperate regions of the Northern Hemisphere"
 photo: "../../assets/plants/ostrich-fern.jpg"
 photoAlt: "A dense group of arching ostrich fern fronds growing beside a garden path."
@@ -20,20 +24,17 @@ care:
   petSafety: "Unknown"
   petSafetyNotes: "Keep pets from eating fiddleheads."
   petSafetyInfo: "Raw fiddleheads have caused illness in people; dog/cat safety is unconfirmed. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=273501&isprofile=0&pt=6&tt=1", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 bloomMonths: []
+bloomCalendarNote: "Fern: reproduces by spores, not flowers."
 pruneMonths: [3, 4]
-tags:
-  - "Native"
-  - "Shade garden"
-  - "Foliage interest"
-  - "Deer resistant"
+tags: ["Native", "Foliage interest", "Deer resistant"]
 featured: false
 funFact: "The tall, brown fertile fronds hold their spores through winter, while the broad green fronds form the familiar vase-shaped outline."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=273501&isprofile=0&pt=6&tt=1"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/CeA38"
 ---
-
 Ostrich fern 'Jumbo' is a bold, deciduous fern for cool, moist shade. Its
 upright green fronds unfurl from tight fiddleheads in spring, then spread
 outward to form a broad, vase-shaped clump.

@@ -1,7 +1,11 @@
 ---
 name: "Hardy Fuchsia"
 latinName: "Fuchsia magellanica"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "South America: Peru, Chile, Argentina, and Tierra del Fuego"
 photo: "../../assets/plants/fuchsia.jpg"
 photoAlt: "Close-up of pendulous Fuchsia magellanica flowers with scarlet red sepals and purple petals and long dangling stamens, hanging against lush foliage in Los Alerces National Park, Argentina."
@@ -17,21 +21,18 @@ care:
   spacing: "3–5 ft apart (up to 5–10 ft in mild climates where the top doesn't die back)."
   propagation: "Stem cuttings in late summer"
   pruning: "In cold climates: cut dead stems to the ground in early spring after frost danger passes. In mild climates: prune hard in early spring to rejuvenate. Remove dead wood anytime."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8, 9, 10]
 pruneMonths: [3]
-tags:
-  - "Hummingbird friendly"
-  - "Pollinator friendly"
-  - "Shade garden"
-  - "Wildlife"
-  - "Low maintenance"
+tags: ["Attracts hummingbirds", "Pollinator friendly", "Wildlife", "Low maintenance"]
 funFact: "The vivid pink-purple color 'fuchsia' takes its name from the flower."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/fuchsia-magellanica/"
 shortUrl: "http://s.shymoose.com/IWiE1"
 dateAdded: 2026-06-08
 ---
-
 Hardy fuchsia is a deciduous to semi-evergreen shrub from southern South
 America. Its arching stems suit sheltered borders with cool, moist roots.
 

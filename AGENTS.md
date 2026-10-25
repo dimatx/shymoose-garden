@@ -79,7 +79,8 @@ reference and reconcile:
     that best shows the plant.
 
 ### 4. Write the content file
-- Fill all frontmatter: `type`, `nativeRange`, `care.*`, `bloomMonths`,
+- Fill all frontmatter: `growthForms`, `lifeCycle`, `plantGroups`, `foliage`,
+  `sunExposure`, `nativeRange`, `care.*`, `bloomMonths`,
   `pruneMonths`, `tags` (reuse the existing vocabulary), `funFact`, and a brief
   body below the `---`.
 - Write finished, practical garden advice, not research notes. Keep source
@@ -93,10 +94,10 @@ reference and reconcile:
   Review the complete page copy for clarity, consistency, and repetition
   before publishing.
 - Review `care.spacing` and `care.propagation` explicitly before publishing;
-  schema-optional does not mean the research can be skipped. Include verified
+  both are required publication fields. Include verified
   methods and timing. For pet safety, fill `care.petSafety`,
-  `care.petSafetyNotes`, and `care.petSafetyInfo` with
-  researched guidance and cite sources in the body. Absence from a poison
+  `care.petSafetyNotes`, `care.petSafetyInfo`, and `care.petSafetySources` with
+  researched guidance; the source links appear in the tooltip. Absence from a poison
   database is not proof of safety: explicitly state when pet-specific safety
   is not established, with precautions and the limits of the evidence, rather
   than leaving the fields blank. Do not fabricate toxic-part or symptom
@@ -119,6 +120,37 @@ reference and reconcile:
 - Set `dateAdded: YYYY-MM-DD` to **today's actual date** (check the system
   date; never copy an older plant's value). It powers the "Recently added"
   sort — an old or missing date makes new plants sort to the wrong place or last.
+
+### Research-to-view review (required for every new or changed plant)
+- Use the shared contract in `src/lib/plant-schema.ts` and helpers in
+  `src/lib/plant-facets.ts`. Growth form, garden lifecycle, botanical/use
+  group, and foliage are independent: a perennial tree can also be an
+  evergreen conifer; a dwarf conifer may be a shrub. Classify the cultivar's
+  actual habit, not its species' maximum size.
+- `lifeCycle` describes cultivation here (e.g. frost-tender tomatoes grown
+  as annuals). `Seasonal` foliage means seasonal herbaceous growth; it is not
+  a woody deciduous classification.
+- Reconcile `sunExposure` with `care.sunlight`; filters never guess from prose.
+  Use only canonical curated tags. Do not repeat type, foliage, sunlight, or
+  toxicity in `tags`: the shared helpers derive those memberships.
+- Decide both calendars explicitly. Supply researched months, or an empty
+  array plus `bloomCalendarNote` / `pruneCalendarNote` explaining the exclusion.
+  Cones and spores are not blooms. Food crops without an ornamental flowering
+  schedule may be excluded deliberately; put fruit/yield details in
+  `care.harvest`, not `care.bloom`. These notes are audit metadata, not extra
+  care-card paragraphs.
+- Verify the exact taxon and animal scope of pet evidence before assigning a
+  safe/toxic level. Use `Unknown` when no pet assessment was verified;
+  `Potentially toxic` is a precaution supported by evidence that does not
+  establish dog/cat effects. It must not become a confirmed animal-specific
+  filter match. Keep evidence limits concise and do not invent symptoms.
+- Map placement needs both real coordinates. Unplaced/archived plants have no
+  map link; coverage is reported rather than positions being guessed.
+- Run `npm run check:data` and `npm test` before publishing. The collection
+  audit catches missing fields, invalid classifications, and silent calendar
+  gaps. Cross-view browser tests compare the entire collection with rendered
+  catalog, details, calendars, and map. Passing these checks proves consistency,
+  not scientific accuracy: source review is still required.
 
 ### 5. Short links — BEFORE signs
 - `npm run gen:shortlinks` creates a Shlink short URL (`s.shymoose.com/XXXX`)
@@ -166,7 +198,8 @@ reference and reconcile:
   desktop-only export to the Cloudflare website build.
 
 ### 7. Build, then commit EVERYTHING
-- `npm run build` to verify the collection and images validate.
+- `npm run check:data`, `npm test`, then `npm run build` to verify the
+  collection, cross-field rules, and images validate.
 - Commit the `.md`, the photo, the new `signs/<slug>.scad` and matching
   `signs/3mf/<slug>.3mf`, and the frontmatter
   `shortUrl` change together. `npm run publish` runs gen:shortlinks +

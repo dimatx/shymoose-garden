@@ -1,7 +1,11 @@
 ---
 name: "Aizoon Stonecrop"
 latinName: "Phedimus aizoon"
-type: "Succulent"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Succulent"]
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Temperate eastern Asia (Siberia, Mongolia, China, Korea, and Japan)"
 photo: "../../assets/plants/phedimus-aizoon.jpg"
 photoAlt: "Upright clumps of fleshy, toothed green leaves topped with branched clusters of small yellow star-shaped flowers."
@@ -17,20 +21,18 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: trim off spent flower stems and cut the clump back in late fall or early spring. Divide the clump to rejuvenate it."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7]
 pruneMonths: [4, 11]
-tags:
-  - "Drought tolerant"
-  - "Edible"
-  - "Cottage garden"
-  - "Pollinator friendly"
+tags: ["Drought tolerant", "Edible", "Cottage garden", "Pollinator friendly"]
 funFact: "The name 'aizoon' comes from the Greek 'aei' (ever) + 'zōon' (alive), meaning 'always living' — a tribute to the plant's remarkable ability to survive drought, poor soil, and neglect."
 learnMoreUrl: "https://worldofsucculents.com/phedimus-aizoon-aizoon-stonecrop/"
 shortUrl: "http://s.shymoose.com/GKR0f"
 dateAdded: 2026-06-01
 ---
-
 Unlike the low, creeping sedums many gardeners know, aizoon stonecrop grows in
 upright clumps from a sturdy woody rootstock. A member of the stonecrop family
 native to Central and East Asia, it carries fleshy, toothed leaves and crowns

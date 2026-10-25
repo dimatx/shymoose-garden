@@ -1,7 +1,11 @@
 ---
 name: "Dwarf Fountain Grass 'Hameln'"
 latinName: "Pennisetum alopecuroides 'Hameln'"
-type: "Ornamental grass"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Ornamental grass"]
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "East Asia and Australia"
 photo: "../../assets/plants/dwarf-fountain-grass.jpg"
 photoAlt: "A rounded mound of Dwarf Fountain Grass 'Hameln' with fine arching green blades, growing in a garden bed beside yellow flowers, with a plant ID tag reading 'Pennisetum alopecuroides Hameln Dwarf Fountain Grass'."
@@ -17,21 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide clumps in spring to preserve the cultivar."
   pruning: "Cut foliage back to the ground in late winter before new shoots emerge in spring."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [8, 9, 10]
 pruneMonths: [2, 3]
-tags:
-  - "Ornamental grass"
-  - "Drought tolerant"
-  - "Fall color"
-  - "Winter interest"
+tags: ["Drought tolerant", "Fall color", "Winter interest"]
 featured: false
 funFact: "The name *Pennisetum* combines the Latin words for 'feather' and 'bristle', describing its flower spikes."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=a680"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/sgOej"
 ---
-
 *Pennisetum alopecuroides* 'Hameln' is a compact selection of Chinese fountain grass, native to open grasslands and meadows across East Asia and Australia. It forms a tidy, rounded mound of fine arching blades — smaller in every dimension than the straight species — topped from late summer into fall by silvery-tan, foxtail-shaped flower plumes that arch outward in a true fountain shape.
 
 ## A compact fountain grass

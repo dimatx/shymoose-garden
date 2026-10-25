@@ -1,7 +1,11 @@
 ---
 name: "Japanese Snowball"
 latinName: "Viburnum plicatum"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Japan, China, and Taiwan"
 photo: "../../assets/plants/viburnum-plicatum.jpg"
 photoAlt: "A whole Japanese Snowball shrub covered in round, white pom-pom flower clusters in spring."
@@ -17,21 +21,19 @@ care:
   spacing: "8–10 ft apart as a specimen; allow more room (up to 15–18 ft) if it reaches its full mature spread."
   propagation: "Softwood cuttings in summer"
   pruning: "Shape just after flowering; it blooms on old wood. For renewal, remove up to one-third of the oldest stems at ground level each year."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [4, 5]
 pruneMonths: [6, 7]
-tags:
-  - "Deciduous"
-  - "Spring bloom"
-  - "Pollinator friendly"
-  - "Drought tolerant"
+tags: ["Spring bloom", "Pollinator friendly", "Drought tolerant"]
 featured: true
 funFact: "The snowball-like flowerheads are made of sterile flowers, so this form does not produce berries."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/viburnum-plicatum/"
 shortUrl: "http://s.shymoose.com/IJxgv"
 dateAdded: 2026-06-01
 ---
-
 The Japanese snowball is a large, rounded deciduous shrub in the viburnum
 (Viburnaceae) family, prized for the rows of round, white "pom-pom" flower
 clusters that appear along its tiered, horizontal branches in spring. It grows

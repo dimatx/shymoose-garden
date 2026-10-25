@@ -1,7 +1,11 @@
 ---
 name: "Mountain Hydrangea 'Tuff Stuff™ Red'"
 latinName: "Hydrangea serrata 'Tuff Stuff™ Red'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Part shade"]
 nativeRange: "Japan and Korea (species); cultivated selection"
 photo: "../../assets/plants/mountain-hydrangea.jpg"
 photoAlt: "Deep pink-red lacecap flowers and dark green foliage of mountain hydrangea 'Tuff Stuff™ Red'."
@@ -18,24 +22,18 @@ care:
   spacing: "2–3 ft apart."
   propagation: "Take softwood cuttings in early summer or layer a low branch."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "All parts"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, depression or unusual tiredness. Toxic compound: cyanogenic glycosides"
+  petSafetyNotes: "Keep pets from eating leaves or flowers."
+  petSafetyInfo: "Eating hydrangeas can cause vomiting or diarrhea. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/hydrangea/"]
 bloomMonths: [6, 7, 8, 9, 10]
 pruneMonths: [3]
-tags:
-  - "Shade garden"
-  - "Pollinator friendly"
-  - "Summer bloom"
-  - "Cut flower"
-  - "Specimen"
-  - "Toxic to dogs"
+tags: ["Pollinator friendly", "Summer bloom", "Cut flowers", "Specimen"]
 featured: false
 funFact: "'Tuff Stuff™ Red' is a reblooming mountain hydrangea: its first flowers open on old stems, and later flowers develop on new growth."
 learnMoreUrl: "https://www.provenwinners.com/plants/hydrangea/tuff-stuff-red-mountain-hydrangea-hydrangea-serrata"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/3ARKg"
 ---
-
 Mountain hydrangea (*Hydrangea serrata*) is a compact relative of bigleaf
 hydrangea, native to Japan and Korea. 'Tuff Stuff™ Red' combines the species'
 smaller habit and lacecap flowers with improved cold hardiness and repeat

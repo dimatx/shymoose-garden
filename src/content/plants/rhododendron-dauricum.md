@@ -1,7 +1,11 @@
 ---
 name: "Dahurian Rhododendron"
 latinName: "Rhododendron dauricum"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Northeast Asia — Siberia, Mongolia, northern China, Korea, and Japan"
 photo: "../../assets/plants/rhododendron-dauricum.jpg"
 photoAlt: "Bright pink-purple Rhododendron dauricum flowers blooming on bare stems in a sunlit pine forest."
@@ -18,23 +22,17 @@ care:
   propagation: "Stem cuttings"
   pruning: "Maintenance: low. Prune lightly right after flowering to shape; avoid heavy cuts into old wood."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts including leaves, stems, flowers, pollen and nectar"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, weakness; abnormal heart rhythm, tremors, or seizures in severe cases. Toxic compound: grayanotoxins"
+  petSafetyNotes: "Keep all parts away from pets."
+  petSafetyInfo: "Can affect the heart and nervous system. Contact a veterinarian immediately after ingestion."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rhododendron"]
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]
-tags:
-  - "Toxic to dogs"
-  - "Spring bloom"
-  - "Pollinator friendly"
-  - "Cold hardy"
-  - "Acid-loving"
-  - "Woodland edge"
+tags: ["Spring bloom", "Pollinator friendly", "Cold hardy", "Acid-loving", "Woodland edge"]
 funFact: "It is a parent of the cold-hardy PJM hybrid rhododendrons."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279949"
 shortUrl: "http://s.shymoose.com/cldIJ"
 dateAdded: 2026-06-02
 ---
-
 *Rhododendron dauricum* — the Dahurian rhododendron — is a small, semi-evergreen
 to deciduous shrub from the cold forests of northeast Asia, ranging across
 Siberia, Mongolia, northern China, Korea, and Japan. It is prized in northern

@@ -1,7 +1,11 @@
 ---
 name: "Astilbe 'Rock and Roll'"
 latinName: "Astilbe 'Rock and Roll'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade", "Full shade"]
 nativeRange: "Hybrid origin (parent species from China, Japan and Korea)"
 photo: "../../assets/plants/astilbe.jpg"
 photoAlt: "Tall, fluffy white pyramidal astilbe plumes rising above a mound of ferny green foliage."
@@ -17,23 +21,18 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Low maintenance. Leave the spent plumes for winter interest, then cut the old foliage back in late winter. Divide every 3–4 years in spring to keep clumps vigorous."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7]
 pruneMonths: [3]
-tags:
-  - "Shade garden"
-  - "Rain garden"
-  - "Bog & waterside"
-  - "Deer resistant"
-  - "Butterfly friendly"
-  - "Cut flower"
-  - "Foliage interest"
+tags: ["Rain garden", "Bog & waterside", "Deer resistant", "Attracts butterflies", "Cut flowers", "Foliage interest"]
 funFact: "*Astilbe* means 'without brightness', referring to the dull leaves of some wild species."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/astilbe-x-arendsii/"
 dateAdded: 2026-06-25
 shortUrl: "http://s.shymoose.com/H18ia"
 ---
-
 *Astilbe* 'Rock and Roll' is a hybrid false spirea (Saxifragaceae), one of the *Astilbe* × *arendsii* group developed from Asian species by the German nurseryman Georg Arends. It forms a tidy clump of glossy, deeply cut, fern-like foliage on reddish stems and sends up bold, fluffy plumes of clear-white flowers — a bright, cooling presence in a shady border.
 
 ## Plumes for the shade

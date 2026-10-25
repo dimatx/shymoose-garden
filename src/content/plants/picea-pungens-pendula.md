@@ -1,7 +1,11 @@
 ---
 name: "Weeping Blue Spruce"
 latinName: "Picea pungens 'Pendula'"
-type: "Conifer"
+growthForms: ["Tree", "Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun"]
 nativeRange: "Garden cultivar of the species native to the Rocky Mountains, western North America"
 photo: "../../assets/plants/picea-pungens-pendula.jpg"
 photoAlt: "A low, ground-hugging weeping blue spruce sprawling across a garden bed with silvery-blue foliage."
@@ -17,21 +21,20 @@ care:
   spacing: "6–10 ft apart, based on mature spread."
   propagation: "Graft onto spruce rootstock in late winter or early spring to preserve its weeping form."
   pruning: "Maintenance: low. Stake a leader to set the height, then prune only to guide form and remove damaged growth in spring."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 pruneMonths: [4]
-tags:
-  - "Evergreen"
-  - "Cold hardy"
-  - "Drought tolerant"
-  - "Specimen"
-  - "Architectural"
+tags: ["Cold hardy", "Drought tolerant", "Specimen", "Architectural"]
 featured: false
 funFact: "Staking the central leader determines its height; without support, it grows as a sprawling groundcover."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/picea-pungens-pendula/"
 shortUrl: "http://s.shymoose.com/vKbGx"
 dateAdded: 2026-06-02
+bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 ---
-
 *Picea pungens* 'Pendula' — the weeping blue spruce — is a striking, sculptural form
 of the Colorado blue spruce whose branches cascade and drape downward. No two
 specimens look quite alike: trained up a stake it becomes a tall, narrow column

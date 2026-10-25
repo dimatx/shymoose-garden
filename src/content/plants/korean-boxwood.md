@@ -1,7 +1,11 @@
 ---
 name: "Korean Boxwood 'Wintergreen'"
 latinName: "Buxus microphylla var. koreana 'Wintergreen'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Korea and nearby northeastern Asia (species group), with this cold-hardy selection maintained in cultivation"
 photo: "../../assets/plants/korean-boxwood.jpg"
 photoAlt: "A mature Wintergreen Korean boxwood forming a broad mounded evergreen shrub in front of a dark lattice screen."
@@ -18,25 +22,18 @@ care:
   propagation: "Stem cuttings"
   pruning: "Tolerates pruning and shearing well. Thin annually for airflow, and shape in late winter to early spring or with a light touch after the spring flush."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "Leaves, bark, and twigs are toxic if chewed or eaten"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, drooling, lethargy; large ingestions can cause tremors. Toxic compound: steroidal alkaloids (including buxine)"
+  petSafetyNotes: "Keep pets from chewing leaves or twigs."
+  petSafetyInfo: "Eating boxwood can cause vomiting or diarrhea. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/boxwood"]
 bloomMonths: [4, 5]
 pruneMonths: [3, 4, 6]
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Hedging"
-  - "Low maintenance"
-  - "Deer resistant"
-  - "Shade garden"
-  - "Winter interest"
+tags: ["Hedging", "Low maintenance", "Deer resistant", "Winter interest"]
 featured: false
 funFact: "Wintergreen earned its name because it stays greener through cold weather than many boxwoods, which is why it became a go-to choice in northern gardens."
 learnMoreUrl: "https://landscapeplants.oregonstate.edu/plants/buxus-microphylla-var-koreana-wintergreen"
 dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/ui6Th"
 ---
-
 Wintergreen is one of the hardiest boxwood selections in common garden use, grown for its compact mounded habit and its ability to come through winter with less bronzing than many other types. It gives the classic clipped-box look, but with better cold tolerance for exposed or northern sites.
 
 The leaves are small, smooth, and evergreen, holding a rich green tone well into winter. Spring flowers are tiny and lightly fragrant rather than showy, so the plant's value is mostly architectural: a dependable broad mound for edging, low hedges, foundation beds, or repeated rhythm through a formal planting.

@@ -1,7 +1,11 @@
 ---
 name: "Japanese Rose"
 latinName: "Kerria japonica"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "China and Japan"
 photo: "../../assets/plants/japanese-rose.jpg"
 photoAlt: "Bright golden-yellow Kerria japonica flowers with prominent yellow centers along a green arching stem."
@@ -17,22 +21,19 @@ care:
   spacing: "6–8 ft apart, based on mature spread (it suckers freely, so allow room to spread or plan to control it)."
   propagation: "Softwood cuttings in early summer"
   pruning: "Maintenance: low. Prune right after flowering — it blooms on old wood. Remove old or leggy canes at ground level and pull suckers to control spread."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [4, 5]
 pruneMonths: [5, 6]
-tags:
-  - "Spring bloom"
-  - "Shade tolerant"
-  - "Deer resistant"
-  - "Winter interest"
-  - "Suckering shrub"
+tags: ["Spring bloom", "Shade tolerant", "Deer resistant", "Winter interest", "Suckering shrub"]
 featured: false
 funFact: "Even bare in winter, Japanese rose earns its keep — its slender stems stay bright green year-round, giving the garden a jolt of color long after the yellow spring flowers are gone."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/kerria-japonica/"
 shortUrl: "https://s.shymoose.com/aQL4F"
 dateAdded: 2026-08-18
 ---
-
 *Kerria japonica* — Japanese rose or Easter rose — is a graceful deciduous shrub
 from China and Japan, prized for its arching green stems and cheerful yellow
 spring flowers. It is one of the few shrubs happy to bloom well in shade, making

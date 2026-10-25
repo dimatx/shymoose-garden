@@ -1,7 +1,11 @@
 ---
 name: "Spiked Speedwell"
 latinName: "Veronica spicata"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Europe and northern Asia"
 photo: "../../assets/plants/veronica-spicata.jpg"
 photoAlt: "A clump of dense, upright spikes of small blue-purple speedwell flowers."
@@ -17,20 +21,18 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Shear spent spikes after the first bloom. Cut to the ground in late fall or early spring."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8]
 pruneMonths: [4, 11]
-tags:
-  - "Pollinator friendly"
-  - "Low maintenance"
-  - "Rock garden"
-  - "Deer resistant"
+tags: ["Pollinator friendly", "Low maintenance", "Rock garden", "Deer resistant"]
 funFact: "The species name *spicata* means 'spiked', describing the upright flower clusters."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/veronica-spicata/"
 shortUrl: "http://s.shymoose.com/FQFOc"
 dateAdded: 2026-06-01
 ---
-
 Spiked speedwell forms neat, upright clumps that send up dense spires of tiny,
 star-shaped blue flowers from late spring into mid-summer. It is a tidy,
 dependable perennial that brings strong vertical color to the front or middle of

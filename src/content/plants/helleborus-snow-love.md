@@ -1,7 +1,11 @@
 ---
 name: "Hellebore 'Snow Love'"
 latinName: "Helleborus x nigercors 'Snow Love'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Garden hybrid of European hellebore species"
 photo: "../../assets/plants/hellebore.jpg"
 photoAlt: "An open pale yellow-green Snow Love hellebore flower framed by glossy green leaves."
@@ -16,26 +20,20 @@ care:
   bloom: "Outward-facing pale yellow-green flowers open in late winter and early spring, then fade toward ivory."
   pruning: "Remove old or damaged leaves before flower buds open and cut spent flower stems back after bloom."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts toxic, especially roots"
-  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea; slow heart rate or tremors in more serious cases. Toxic compound: cardiac glycosides (hellebrin)"
+  petSafetyNotes: "Keep all parts away from pets."
+  petSafetyInfo: "Can cause stomach upset and affect the heart. Contact a veterinarian immediately after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/hellebore/"]
   spacing: "About 2 ft apart, based on mature spread."
   propagation: "Divide large clumps in early spring and water well until established."
 bloomMonths: [2, 3, 4]
 pruneMonths: [2, 4]
-tags:
-  - "Toxic to dogs"
-  - "Winter interest"
-  - "Shade garden"
-  - "Evergreen"
-  - "Poisonous"
-  - "Deer resistant"
+tags: ["Winter interest", "Deer resistant"]
 featured: false
 funFact: "Its flowers face outward rather than nodding down, making the pale blooms easier to see in the winter garden."
 learnMoreUrl: "https://www.plantsnouveau.com/solutions/winter-interest/helleborus-winter-magic-snow-love"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/VpUOm"
 ---
-
 Hellebore 'Snow Love' is an evergreen, winter-blooming hybrid selected for
 its compact habit and pale flowers. Rounded, leathery leaves form a low mound,
 while the blooms open outward above the foliage.

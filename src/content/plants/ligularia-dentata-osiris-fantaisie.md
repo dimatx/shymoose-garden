@@ -1,7 +1,11 @@
 ---
 name: "Leopard Plant 'Osiris Fantaisie'"
 latinName: "Ligularia dentata 'Osiris Fantaisie'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade", "Full shade"]
 nativeRange: "China and Japan (species); cultivar bred in Quebec, Canada"
 photo: "../../assets/plants/ligularia-dentata-osiris-fantaisie.jpg"
 photoAlt: "Clusters of bright orange-yellow daisy-like Ligularia flowers on reddish stems, with broad, dark green, toothed leaves below."
@@ -17,22 +21,18 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Maintenance: low. Deadhead spent flower stalks, then cut the foliage back after frost."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7, 8]
 pruneMonths: [10, 11]
-tags:
-  - "Shade garden"
-  - "Pollinator friendly"
-  - "Summer bloom"
-  - "Bog & waterside"
-  - "Deer resistant"
-  - "Compact shrub"
+tags: ["Pollinator friendly", "Summer bloom", "Bog & waterside", "Deer resistant", "Compact shrub"]
 featured: false
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=270668&isprofile=1&gen=Ligularia"
 shortUrl: "https://s.shymoose.com/B9o6g"
 dateAdded: 2026-08-09
 ---
-
 'Osiris Fantaisie' is a compact leopard plant with thick, wavy-edged leaves,
 dark green above and burgundy beneath. It brings bold foliage to damp,
 shaded borders.

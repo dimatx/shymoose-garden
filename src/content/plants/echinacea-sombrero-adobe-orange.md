@@ -1,7 +1,11 @@
 ---
 name: "Coneflower 'Adobe Orange'"
 latinName: "Echinacea 'Sombrero® Adobe Orange'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden cultivar of the species native to central and eastern North American prairies"
 photo: "../../assets/plants/echinacea-sombrero-adobe-orange.jpg"
 photoAlt: "Vivid orange coneflowers with dark centers blooming on a compact, well-branched clump."
@@ -17,24 +21,19 @@ care:
   spacing: "18–24 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Deadhead to prolong bloom; cut back old foliage in early spring, leaving some seed heads through winter for birds."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8]
 pruneMonths: [2, 3]
-tags:
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Attracts butterflies"
-  - "Attracts hummingbirds"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Compact"
+tags: ["Pollinator friendly", "Attracts butterflies", "Attracts hummingbirds", "Drought tolerant", "Deer resistant", "Compact"]
 featured: false
 funFact: "Heavy branching gives Sombrero® coneflowers many flowering stems on a compact plant."
 learnMoreUrl: "https://www.provenwinners.com/plants/echinacea/sombrero-adobe-orange-coneflower-echinacea-hybrid"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/giVQL"
 ---
-
 *Echinacea* Sombrero® Adobe Orange packs an intensely saturated orange onto
 a compact, heavily branched coneflower — bred to hold its color and shape
 through a long summer season without the flopping that plagues older

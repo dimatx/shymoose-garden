@@ -1,7 +1,11 @@
 ---
 name: "Japanese Maple 'Bihou'"
 latinName: "Acer palmatum 'Bihou'"
-type: "Tree"
+growthForms: ["Tree"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Japan, Korea and eastern China (species); cultivated selection"
 photo: "../../assets/plants/acer-palmatum-bihou.jpg"
 photoAlt: "Golden-yellow upright stems of Japanese maple 'Bihou' rising through fresh green, star-shaped palmate leaves."
@@ -20,19 +24,17 @@ care:
   petSafety: "Unknown"
   petSafetyNotes: "Keep pets from chewing."
   petSafetyInfo: "Gardeners' World reports no toxicity; Dogs Trust broadly cautions about maples, so dog/cat safety remains unconfirmed."
-pruneMonths: [11, 12, 1, 2]
-tags:
-  - "Specimen"
-  - "Fall color"
-  - "Winter interest"
-  - "Foliage interest"
+  petSafetySources: ["https://www.vpisglobal.com/wp-content/uploads/2019/01/factsheetpoisonoussubstances091.pdf"]
+pruneMonths: [1, 2, 11, 12]
+tags: ["Specimen", "Fall color", "Winter interest", "Foliage interest"]
 featured: false
 funFact: "'Bihou' is Japanese for \"beautiful mountain range,\" and its yellow bark with an orange tinge is most striking in winter, once the leaves have dropped."
 learnMoreUrl: "https://iselinursery.com/garden-maples/acer-palmatum-bihou/"
 dateAdded: 2026-10-23
 shortUrl: "https://s.shymoose.com/WS6rf"
+bloomMonths: []
+bloomCalendarNote: "Grown for bark and foliage, not its inconspicuous flowers."
 ---
-
 'Bihou', the Golden Bark Japanese maple, is an upright, broad-crowned
 selection of Acer palmatum grown for its bright yellow stems with an orange
 tinge. It grows about 20 ft tall and 15 ft wide.

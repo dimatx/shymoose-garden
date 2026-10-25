@@ -1,7 +1,11 @@
 ---
 name: "Calendula 'Geisha Girl'"
 latinName: "Calendula officinalis 'Geisha Girl'"
-type: "Annual"
+growthForms: ["Herbaceous"]
+lifeCycle: "Annual"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Southern Europe and the Mediterranean"
 photo: "../../assets/plants/calendula-officinalis-geisha-girl.jpg"
 photoAlt: "Bright orange double-flowered calendula bloom with densely packed petals."
@@ -18,18 +22,18 @@ care:
   propagation: "Readily grown from seed"
   pruning: "Maintenance: deadhead spent blooms to keep it flowering, and shear the whole plant back hard in summer heat to rejuvenate a leggy plant."
   petSafety: "Non-toxic"
+  petSafetyInfo: "The species is listed as non-toxic to dogs and cats. Eating plant material can still cause stomach upset."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/garden-marigold"]
+  petSafetyNotes: "Discourage chewing."
 bloomMonths: [5, 6, 7, 8]
-tags:
-  - "Edible"
-  - "Pollinator friendly"
-  - "Butterfly friendly"
-  - "Deer resistant"
+tags: ["Edible", "Pollinator friendly", "Attracts butterflies", "Deer resistant"]
 funFact: "Calendula's edible petals were used to color food yellow, earning it the nickname 'poor man's saffron'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/calendula-officinalis/"
 shortUrl: "http://s.shymoose.com/jWYcz"
 dateAdded: 2026-06-01
+pruneMonths: []
+pruneCalendarNote: "As-needed maintenance rather than a fixed annual pruning window; follow the care advice."
 ---
-
 'Geisha Girl' is a warm-toned selection of *Calendula officinalis*, an easygoing
 annual that pumps out double, ball-shaped flowerheads in shades of gold, orange,
 and red from spring into summer. It is as useful as it is pretty — the petals

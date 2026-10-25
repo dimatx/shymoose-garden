@@ -1,7 +1,11 @@
 ---
 name: "Blue-eyed Grass 'Lucerne'"
 latinName: "Sisyrinchium angustifolium 'Lucerne'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern North America"
 photo: "../../assets/plants/blue-eyed-grass.jpg"
 photoAlt: "A close-up of a single violet-blue, star-shaped Sisyrinchium angustifolium flower with a golden-yellow center, held above narrow grass-like foliage."
@@ -11,25 +15,25 @@ care:
   water: "Medium — moist to average soil preferred, though it tolerates some drought once established. Good drainage prevents winter crown rot."
   soil: "Well-drained, humus-rich soil; adaptable to sandy, loamy, or clay soils and a range of pH."
   sunlight: "Full sun to part shade."
-  hardiness: "USDA zones 5–9."
-  size: "8–12 in tall and 6–12 in wide."
+  hardiness: "USDA zones 4–8."
+  size: "6–12 in tall and 6–9 in wide."
   bloom: "Violet-blue, star-shaped flowers with a golden-yellow eye, up to 1 in across — notably larger than the species — from late spring through early summer."
   spacing: "6–12 in apart."
   propagation: "Divide every 2–3 years to maintain vigor. Self-seeds, though 'Lucerne' does so less readily than the straight species."
   pruning: "Shear back after flowering to remove spent stalks, tidy the clump, and limit self-seeding."
-  petSafety: "Non-toxic"
-tags:
-  - "Native"
-  - "Rock garden"
-  - "Easy to grow"
-  - "Naturalizes"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
+tags: ["Native", "Rock garden", "Easy to grow", "Naturalizes"]
 featured: false
 funFact: "Despite its grass-like leaves, blue-eyed grass belongs to the iris family."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=261050"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/NXKP6"
+bloomMonths: [5, 6]
+pruneMonths: [6, 7]
 ---
-
 *Sisyrinchium angustifolium* 'Lucerne' is a compact, clump-forming perennial native to damp woods, meadows, and stream banks across eastern North America. Despite its narrow, grass-like foliage, it's actually a member of the iris family (Iridaceae) — and each stem is topped in late spring with small, six-pointed, violet-blue flowers centered on a golden-yellow eye.
 
 ## Bigger blooms, better behavior

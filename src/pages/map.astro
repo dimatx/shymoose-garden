@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Icon from "../components/Icon.astro";
-import { getMapPins } from "../lib/plants";
-import { MAP_TYPE_COLORS, MAP_DEFAULT_PIN_COLOR } from "../lib/mapColors";
+import { getMapPins, getSortedPlants } from "../lib/plants";
+import { MAP_TYPE_COLORS } from "../lib/mapColors";
 import { getGeoTransform } from "../lib/geoCalibration";
 
 // The basemap is a hand-traced SVG site plan (not a satellite photo) at
@@ -13,13 +13,12 @@ const MAP_WIDTH = 1560;
 const MAP_HEIGHT = 1060;
 
 const pins = await getMapPins();
+const activeCount = (await getSortedPlants()).filter((plant) => !plant.data.archived).length;
 
-// Legend entries only for types that actually have a pin on the map right
-// now — same "only show buckets with real data" rule the home page's type
-// filter uses — in the same brightest-to-common order those types appear
-// in MAP_TYPE_COLORS, falling back to alphabetical for anything else.
+// Filters overlap; a pin's color represents its primary group, not every
+// applicable filter. Do not use single-color swatches as a filtering legend.
 const presentTypes = [
-  ...new Set(pins.map((p) => p.type).filter((t): t is string => !!t)),
+  ...new Set(pins.flatMap((p) => p.types)),
 ].sort((a, b) => {
   const order = Object.keys(MAP_TYPE_COLORS);
   const ai = order.indexOf(a);
@@ -86,6 +85,10 @@ const hasGeoCalibration = getGeoTransform() !== null;
       planted there. This is a work in progress — bed shapes and plant
       positions are still being refined.
     </p>
+    <p id="map-coverage" class="mt-2 text-sm text-leaf-600 dark:text-leaf-300">
+      {pins.length} of {activeCount} active plants have mapped locations.
+      Unplaced plants remain in the <a href="/" class="underline underline-offset-2">catalog</a>.
+    </p>
   </section>
 
   {
@@ -98,10 +101,6 @@ const hasGeoCalibration = getGeoTransform() !== null;
             data-type={type}
             aria-pressed="false"
           >
-            <span
-              class="h-2.5 w-2.5 rounded-full"
-              style={`background:${MAP_TYPE_COLORS[type] ?? MAP_DEFAULT_PIN_COLOR}`}
-            />
             {type}
           </button>
         ))}
@@ -255,17 +254,8 @@ const hasGeoCalibration = getGeoTransform() !== null;
   import { MAP_TYPE_COLORS, MAP_DEFAULT_PIN_COLOR } from "../lib/mapColors";
   import { createMapLifecycle } from "../lib/mapLifecycle";
   import { getMapFitZoom } from "../lib/mapViewport";
-
-  interface MapPin {
-    slug: string;
-    name: string;
-    latinName: string;
-    type: string | null;
-    zone: string | null;
-    photo: string;
-    x: number;
-    y: number;
-  }
+  import { matchesAny } from "../lib/plant-facets";
+  import type { MapPin } from "../lib/plants";
 
   // A small teardrop "map pin" divIcon reads far more intuitively than a bare
   // dot — it has a clear tip pointing at the exact spot, like every mapping
@@ -429,9 +419,7 @@ const hasGeoCalibration = getGeoTransform() !== null;
     const markersBySlug = new Map<string, { marker: Leaflet.Marker; pin: MapPin }>();
 
     for (const pin of pins) {
-      const color = pin.type
-        ? (MAP_TYPE_COLORS[pin.type] ?? MAP_DEFAULT_PIN_COLOR)
-        : MAP_DEFAULT_PIN_COLOR;
+      const color = MAP_TYPE_COLORS[pin.colorType] ?? MAP_DEFAULT_PIN_COLOR;
       const marker = L.marker([height - pin.y, pin.x], {
         icon: makePinIcon(L, color),
         title: pin.name,
@@ -465,7 +453,7 @@ const hasGeoCalibration = getGeoTransform() !== null;
 
     function applyTypeFilter() {
       for (const { marker, pin } of markersBySlug.values()) {
-        const shouldShow = selectedTypes.size === 0 || selectedTypes.has(pin.type ?? "");
+        const shouldShow = matchesAny(pin.types, selectedTypes);
         const isShown = clusterGroup.hasLayer(marker);
         if (shouldShow && !isShown) clusterGroup.addLayer(marker);
         if (!shouldShow && isShown) {

@@ -1,7 +1,11 @@
 ---
 name: "Variegated Sweet Flag"
 latinName: "Acorus calamus 'Variegatus'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Species native to wetlands across North America, Europe, and Asia; this variegated form is a garden selection"
 photo: "../../assets/plants/variegated-sweet-flag.jpg"
 photoAlt: "Clumps of sword-like, cream-and-green striped Acorus foliage emerging from reddish leaf bases."
@@ -17,22 +21,20 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide clumps in spring"
   pruning: "Maintenance: low. Cut back winter-damaged or spent foliage in early spring, and divide congested clumps every few years."
-  petSafety: "Mildly toxic"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling; skin irritation after direct contact. Toxic compound: beta-asarone, concentrated in the rhizome."
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing; contact a veterinarian after ingestion."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://plants.ces.ncsu.edu/plants/acorus-calamus-variegatus/", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 pruneMonths: [3]
-tags:
-  - "Toxic to dogs"
-  - "Foliage interest"
-  - "Deer resistant"
-  - "Low maintenance"
-  - "Pond plant"
+tags: ["Foliage interest", "Deer resistant", "Low maintenance", "Pond plant"]
 featured: false
 funFact: "Bruised foliage releases the sweet, spicy fragrance behind the name 'sweet flag'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/acorus-calamus-variegatus/"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/mlrOU"
+bloomMonths: []
+bloomCalendarNote: "Grown for foliage; the small flower spikes are not a seasonal display."
 ---
-
 *Acorus calamus* 'Variegatus' — variegated sweet flag — is a clumping,
 rhizomatous perennial grown for its narrow, arching, sword-shaped leaves
 striped boldly in cream and green, with reddish leaf bases that add color

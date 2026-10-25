@@ -1,7 +1,11 @@
 ---
 name: "Japanese Holly"
 latinName: "Ilex crenata"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern Asia — Japan, Korea, eastern China, and the Russian Far East"
 photo: "../../assets/plants/ilex-crenata.jpg"
 photoAlt: "Glossy small-leaved Ilex crenata foliage studded with shiny black berries."
@@ -20,22 +24,16 @@ care:
   petSafety: "Mildly toxic"
   petSafetyNotes: "Berries and leaves are main toxic parts"
   petSafetyInfo: "Symptoms: vomiting, diarrhea, depression, lethargy. Toxic compound: saponins"
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/holly/"]
 bloomMonths: [5, 6]
 pruneMonths: [6, 7]
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Pollinator friendly"
-  - "Hedging"
-  - "Shade garden"
-  - "Low maintenance"
+tags: ["Pollinator friendly", "Hedging", "Low maintenance"]
 featured: false
 funFact: "Japanese holly has alternate leaves; similar-looking boxwood has opposite leaves."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/ilex-crenata/"
 shortUrl: "http://s.shymoose.com/S9Y01"
 dateAdded: 2026-06-02
 ---
-
 *Ilex crenata* — Japanese holly — is a small-leaved evergreen shrub from eastern
 Asia that looks far more like boxwood than a traditional spiny holly. Its dense,
 fine-textured foliage and willingness to be clipped make it a favorite for

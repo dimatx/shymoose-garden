@@ -1,7 +1,11 @@
 ---
 name: "Beardtongue 'Dark Towers'"
 latinName: "Penstemon 'Dark Towers'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid bred at the University of Nebraska (the parent species are native to North America)"
 photo: "../../assets/plants/bearded-tongue.jpg"
 photoAlt: "Tall spires of pale pink, tubular Penstemon 'Dark Towers' flowers on dark maroon stems."
@@ -17,22 +21,19 @@ care:
   spacing: "12–18 in apart."
   propagation: "Stem cuttings in summer"
   pruning: "Maintenance: low. Deadhead to prolong bloom, leave winter seed heads for interest, then cut old stems back in late winter. Divide every few years."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6, 7]
 pruneMonths: [2]
-tags:
-  - "Pollinator friendly"
-  - "Hummingbird friendly"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Foliage interest"
+tags: ["Pollinator friendly", "Attracts hummingbirds", "Deer resistant", "Drought tolerant", "Foliage interest"]
 featured: false
 funFact: "'Dark Towers' came from the same University of Nebraska breeding program as 'Husker's Red'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/penstemon/"
 dateAdded: 2026-09-05
 shortUrl: "https://s.shymoose.com/uLfgH"
 ---
-
 *Penstemon* 'Dark Towers' is a clump-forming hybrid beardtongue bred at the
 University of Nebraska, prized for foliage and stems that hold a deep
 burgundy colour all season, capped in early summer by tall, airy spires of

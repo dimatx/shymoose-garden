@@ -110,25 +110,36 @@ short links, and matching SCAD/3MF signs.
    ---
    name: "Lavender"                              # Common name
    latinName: "Lavandula angustifolia"           # Botanical name
-   type: "Perennial"                             # Powers the home-page type filter
-   nativeRange: "Mediterranean region"           # Optional — shown in care details
+   growthForms: ["Shrub"]                       # Cultivar habit; multiple forms allowed
+   lifeCycle: "Perennial"                       # Garden cultivation, not taxonomy
+   plantGroups: []                             # Conifer, Vegetable, Succulent, Ornamental grass, Fern
+   foliage: "Evergreen"                        # Or Semi-evergreen, Deciduous, Seasonal
+   sunExposure: ["Full sun"]                    # Explicit filter values matching care.sunlight
+   nativeRange: "Mediterranean region"
    photo: "../../assets/plants/lavandula-angustifolia.jpg"
    photoAlt: "Rows of purple lavender in bloom."
-   photoCredit: "Your name"                      # Optional
+   photoCredit: "Your name"                      # Required; include license for reused images
    shortDescription: "The short blurb shown first."  # ~1–2 sentences
    funFact: "A surprising or delightful fact."   # Optional highlighted callout
    care:
      water: "..."
      soil: "..."
      sunlight: "..."
-     hardiness: "..."   # Optional
-     size: "..."        # Optional
-     bloom: "..."       # Optional
-     pruning: "..."     # Optional
+     hardiness: "..."
+     size: "..."
+     bloom: "..."
+     pruning: "..."
+     spacing: "..."
+     propagation: "..."
+     petSafety: "Unknown"
+     petSafetyNotes: "Prevent chewing."
+     petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+     petSafetySources: ["https://..."] # Actual reviewed evidence, not a guessed citation
    bloomMonths: [6, 7, 8]   # Months in flower (1=Jan). Drives the Bloom Timeline.
    pruneMonths: [3]          # Months to prune (1=Jan). Drives the Pruning Calendar.
-   tags: ["Perennial", "Fragrant", "Pollinator friendly"]  # Optional filter pills
-   learnMoreUrl: "https://..."   # Optional "Learn more" button
+   tags: ["Fragrant", "Pollinator friendly"]      # Canonical curated vocabulary only
+   learnMoreUrl: "https://..."
+   dateAdded: YYYY-MM-DD                         # Actual publication date
    shortUrl: "https://s.shymoose.com/..."  # Set automatically by gen:shortlinks
    ---
    ```
@@ -137,15 +148,18 @@ short links, and matching SCAD/3MF signs.
    **"Keep reading"** content that's hidden until tapped. Use normal Markdown
    (headings, lists, **bold**, links, quotes).
 
-After editing, run `check:photos`, then `gen:shortlinks`, then `gen:signs`,
+After researching and editing, run `check:data`, `test`, `check:photos`,
+then `gen:shortlinks`, then `gen:signs`,
 then `gen:3mf -- <new-sign-slug>` for only the new signs, and finally `build`.
 Review all generated diffs. Publish the content, photo, short URL, SCAD and 3MF
 together as described in AGENTS.md. Pushing to `main` deploys to Cloudflare;
 local checks alone do not deploy.
 
-> Most fields are optional. Any care item you leave out simply won't show.
-> `bloomMonths` and `pruneMonths` accept an array of integers 1–12; duplicates
-> and out-of-order values are normalized automatically at build time.
+Publication fields are required and reject unfinished TODOs. Both month arrays
+must be explicit, unique integers 1–12. An empty array needs a corresponding
+`bloomCalendarNote` or `pruneCalendarNote` explaining why it is excluded.
+Use optional `care.harvest` for fruit/yield information. `funFact` and map
+placement remain optional; a location needs both coordinates.
 
 ## Filtering and sorting the garden
 
@@ -161,21 +175,32 @@ starts with the default catalog. Explicit `?tag=` links still apply their tag.
 
 The home page has a filter bar so visitors can narrow the catalog down:
 
-- **Type** — one button per distinct `type` value used across your plants
-  (e.g. `Perennial`, `Annual`, `Shrub`, `Vegetable`, `Succulent`). The buttons
-  are generated from the data, so giving a plant a new `type` automatically
-  adds a matching filter. Selecting several types widens the results (OR).
-- **Traits** — a curated shortlist drawn from each plant's `tags`
+- **Type** — overlapping growth forms, lifecycles, and groups. A tree can also
+  be a perennial conifer; a dwarf conifer can be a shrub. Selecting several
+  types widens the results (OR).
+- **Sun** — explicit `sunExposure` values, not phrases guessed from care prose.
+- **Traits** — a curated shortlist drawn from structured facts and curated `tags`
   (e.g. `Evergreen`, `Drought tolerant`, `Pollinator friendly`). Selecting
   several traits narrows the results (AND). A trait button only appears if at
   least one plant carries that tag.
 
-To make a characteristic filterable, add the matching tag to a plant's `tags`
-list. The curated trait list lives in
-[`src/pages/index.astro`](src/pages/index.astro) (the `traitCandidates` array)
-if you want to add or reorder the trait buttons. The filtering itself runs in a
+Classification, foliage, sunlight, and toxicity memberships are derived in
+[`src/lib/plant-facets.ts`](src/lib/plant-facets.ts); never duplicate them in
+`tags`. Other characteristics use its canonical `PLANT_TAGS` vocabulary.
+The curated trait list is `TRAIT_FILTERS` in the same module. Unknown safety
+is not a safe assessment, and potential hazards without pet-specific evidence
+are not confirmed dog/cat filter matches. The filtering itself runs in a
 small no-framework script at the bottom of that same file, so the catalog still
 works with JavaScript disabled (every plant just stays visible).
+
+Catalog, detail pages, calendars, and the beta map consume the same metadata.
+Archived plants remain in the catalog but not calendars/map. The map reports
+its placement coverage; plants without actual coordinates have no map link.
+`npm run check:data` audits every entry, and browser regressions verify rendered
+memberships. These checks enforce consistency, not botanical truth; follow the
+research-to-view review in AGENTS.md for every content change.
+The data audit also runs automatically before every production build, including
+Cloudflare builds.
 
 ## Run it locally
 

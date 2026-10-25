@@ -1,7 +1,11 @@
 ---
 name: "Siberian Cypress 'Celtic Pride'"
 latinName: "Microbiota decussata 'Celtic Pride®'"
-type: "Conifer"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Sikhote-Alin mountains of far-eastern Russia (species); this cold-hardy selection is a garden cultivar"
 photo: "../../assets/plants/siberian-cypress.jpg"
 photoAlt: "Feathery, fan-like sprays of bright green Siberian cypress foliage cascading as a dense ground cover."
@@ -17,23 +21,21 @@ care:
   spacing: "4–5 ft apart, allowing room for the spreading habit."
   propagation: "Take semi-hardwood cuttings in summer to preserve the cultivar."
   pruning: "Very low maintenance — regular pruning is not required. Trim only to control spread or remove damaged growth."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 pruneMonths: []
-tags:
-  - "Evergreen"
-  - "Conifer"
-  - "Deer resistant"
-  - "Ground cover"
-  - "Low maintenance"
-  - "Winter interest"
+pruneCalendarNote: "As-needed maintenance rather than a fixed annual pruning window; follow the care advice."
+tags: ["Deer resistant", "Ground cover", "Low maintenance", "Winter interest"]
 featured: false
 funFact: "Its bronze-purple winter color is seasonal; the foliage greens up again in spring."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=449508"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/AQpdP"
 ---
-
 Siberian cypress, also called Russian arborvitae, is a dwarf, evergreen
 conifer endemic to the Sikhote-Alin mountains of far-eastern Russia, where it
 grows as a ground-hugging shrub above the treeline. In the garden it forms a

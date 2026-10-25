@@ -1,7 +1,11 @@
 ---
 name: "Panicle Hydrangea 'Fire Light Tidbit'"
 latinName: "Hydrangea paniculata 'Fire Light Tidbit®'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern and southern China, Japan, Sakhalin and Taiwan (species); cultivated selection"
 photo: "../../assets/plants/hydrangea-paniculata-fire-light-tidbit.jpg"
 photoAlt: "A compact, mounded Fire Light Tidbit panicle hydrangea covered in full mophead flower clusters that range from creamy white to pink as they age, set against green foliage."
@@ -19,23 +23,17 @@ care:
   pruning: "Blooms on new wood, so it can be cut back by about one-third in late winter or early spring before growth starts. Deadheading is not necessary."
   petSafety: "Mildly toxic"
   petSafetyNotes: "Keep pets from eating leaves or flowers."
-  petSafetyInfo: "Hydrangeas can cause vomiting, diarrhea, and unusual tiredness if eaten. Contact a veterinarian after ingestion."
+  petSafetyInfo: "Eating hydrangeas can cause vomiting or diarrhea. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/hydrangea/"]
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [2, 3]
-tags:
-  - "Toxic to dogs"
-  - "Pollinator friendly"
-  - "Fall color"
-  - "Cut flowers"
-  - "Compact"
-  - "Container-suitable"
+tags: ["Pollinator friendly", "Fall color", "Cut flowers", "Compact", "Container-suitable"]
 featured: false
 funFact: "Unlike many bigleaf hydrangeas, its flowers age pink and red regardless of soil pH."
 learnMoreUrl: "https://www.provenwinners.com/plants/hydrangea/fire-light-tidbit-panicle-hydrangea-hydrangea-paniculata"
 dateAdded: 2026-10-20
 shortUrl: "https://s.shymoose.com/S892h"
 ---
-
 Fire Light Tidbit is a dwarf panicle hydrangea with sturdy stems and a
 rounded habit suited to small beds, borders, and containers.
 

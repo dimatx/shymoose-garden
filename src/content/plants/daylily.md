@@ -1,7 +1,11 @@
 ---
 name: "Daylily"
 latinName: "Hemerocallis lilioasphodelus"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Temperate Eurasia (central/eastern Europe to Siberia and China)"
 photo: "../../assets/plants/daylily.jpg"
 photoAlt: "A pale lemon-yellow daylily flower with six recurved petals and yellow-tipped stamens, above arching strap-like green foliage."
@@ -17,23 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in late summer or early fall"
   pruning: "Low maintenance. Deadhead spent flowers and cut back finished scapes to keep plants tidy. Remove ragged or dead foliage in early spring; divide congested clumps every few years."
-  petSafety: "Non-toxic"
+  petSafety: "Highly toxic to cats"
+  petSafetyInfo: "Even a small exposure can cause kidney failure in cats. Seek veterinary help immediately."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/day-lilies-many-varieties"]
+  petSafetyNotes: "Keep away from cats; non-toxic to dogs."
 bloomMonths: [5, 6]
 pruneMonths: [3]
-tags:
-  - "Cottage garden"
-  - "Pollinator friendly"
-  - "Drought tolerant"
-  - "Low maintenance"
-  - "Fragrant"
-  - "Naturalizing"
+tags: ["Cottage garden", "Pollinator friendly", "Drought tolerant", "Low maintenance", "Fragrant", "Naturalizes"]
 featured: false
 funFact: "*Hemerocallis* means 'beauty for a day': each flower lasts just one day, but successive buds extend the show."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/plantfinder/PlantFinderDetails.aspx?taxonid=281955"
 shortUrl: "http://s.shymoose.com/tJqve"
 dateAdded: 2026-06-10
 ---
-
 *Hemerocallis lilioasphodelus* — commonly called the lemon daylily or yellow daylily — is a clump-forming herbaceous perennial in the family Asphodelaceae. Native across temperate Eurasia, it forms tidy mounds of arching, strap-shaped green leaves and is one of the earliest daylilies to flower each year.
 
 ## Fragrant early-summer blooms

@@ -1,7 +1,11 @@
 ---
 name: "Beardtongue 'Husker's Red'"
 latinName: "Penstemon digitalis 'Husker's Red'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern and central North America (the species)"
 photo: "../../assets/plants/penstemon-digitalis-huskers-red.jpg"
 photoAlt: "An upright clump of Husker's Red Penstemon in bloom — spires of white, pink-blushed tubular flowers on dark maroon stems above green foliage."
@@ -17,24 +21,18 @@ care:
   spacing: "12–18 in apart."
   propagation: "Stem cuttings in summer"
   pruning: "Low maintenance. Leave the rusty winter seed heads for interest, then cut old stems back in late winter. Divide clumps every few years to keep them vigorous."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6]
 pruneMonths: [3]
-tags:
-  - "Native"
-  - "Pollinator friendly"
-  - "Hummingbird friendly"
-  - "Butterfly friendly"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Foliage interest"
-  - "Cottage garden"
+tags: ["Native", "Pollinator friendly", "Attracts hummingbirds", "Attracts butterflies", "Deer resistant", "Drought tolerant", "Foliage interest", "Cottage garden"]
 funFact: "'Husker's Red' was named Perennial Plant of the Year in 1996."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/penstemon-digitalis-huskers-red/"
 shortUrl: "http://s.shymoose.com/1fIoT"
 dateAdded: 2026-06-24
 ---
-
 *Penstemon digitalis* 'Husker's Red' is a clump-forming herbaceous perennial in the plantain family (Plantaginaceae), a selection of the wild foxglove beardtongue native to eastern and central North America. Its signature feature is colour: the new foliage emerges deep maroon in spring, ages to green veined with maroon, and the wiry flower stems stay a glossy burgundy all season — a striking foil for the flowers.
 
 ## Early-summer bloom

@@ -1,7 +1,11 @@
 ---
 name: "Foamflower 'Brandywine'"
 latinName: "Tiarella cordifolia 'Brandywine'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Eastern North America (species)"
 photo: "../../assets/plants/foamflower.jpg"
 photoAlt: "Heartleaf foamflower growing in woodland leaf litter, with scalloped leaves and delicate pale flower spikes."
@@ -17,25 +21,19 @@ care:
   spacing: "About 10–12 in apart."
   propagation: "Divide clumps or separate rooted plantlets."
   pruning: "Remove damaged foliage at the beginning of the growing season."
-  petSafety: "Generally considered non-toxic"
-  petSafetyNotes: "Discourage chewing."
-  petSafetyInfo: "No toxicity to dogs or cats is reported in horticultural references. Eating foliage can still cause stomach upset."
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 bloomMonths: [4, 5]
 pruneMonths: [3]
-tags:
-  - "Native"
-  - "Shade garden"
-  - "Groundcover"
-  - "Pollinator friendly"
-  - "Foliage interest"
-  - "Deer resistant"
+tags: ["Native", "Ground cover", "Pollinator friendly", "Foliage interest", "Deer resistant"]
 featured: false
 funFact: "'Brandywine' is one of the more vigorous foamflower selections and keeps attractive bronze tones in fall and winter."
 learnMoreUrl: "https://www.northcreeknurseries.com/plant-name/Tiarella-cordifolia-Brandywine"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/1tT7N"
 ---
-
 Foamflower (*Tiarella cordifolia*) is a native woodland perennial. The
 'Brandywine' selection is especially vigorous, with glossy, textured leaves
 that form a compact clump and may spread on short runners.

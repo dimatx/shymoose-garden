@@ -1,7 +1,11 @@
 ---
 name: "Red-twig Dogwood 'Arctic Fire'"
 latinName: "Cornus sericea 'Arctic Fire®'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Most of North America (species), from Canada and Alaska south through the northern and western United States"
 photo: "../../assets/plants/red-twig-dogwood.jpg"
 photoAlt: "Red-twig dogwood growing in a wetland meadow, its reddish stems and developing whitish berries set among healthy green foliage."
@@ -17,23 +21,19 @@ care:
   spacing: "3–4 ft apart for a hedge or mass planting."
   propagation: "Roots easily from softwood cuttings taken in summer."
   pruning: "Remove 20–25% of the oldest stems at ground level in early spring for brighter winter color. Remove unwanted suckers."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6]
 pruneMonths: [3]
-tags:
-  - "Native"
-  - "Winter interest"
-  - "Wildlife"
-  - "Deer resistant"
-  - "Rain garden"
-  - "Pollinator friendly"
+tags: ["Native", "Winter interest", "Wildlife", "Deer resistant", "Rain garden", "Pollinator friendly"]
 featured: false
 funFact: "Young stems have the brightest red color, so periodic renewal pruning improves the winter display."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=262959"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/J9ajz"
 ---
-
 Red-twig dogwood (also called red osier dogwood) is a native, multi-stemmed,
 deciduous shrub found across most of North America, typically along
 streambanks, wetland margins, and other damp, low-lying ground. This compact

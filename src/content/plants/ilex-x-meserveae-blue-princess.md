@@ -1,7 +1,11 @@
 ---
 name: "Blue Holly 'Blue Princess'"
 latinName: "Ilex × meserveae 'Blue Princess'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid (English holly × Tsuru holly), bred in New York, USA"
 photo: "../../assets/plants/ilex-x-meserveae-blue-princess.jpg"
 photoAlt: "A dense, rounded Blue Princess holly shrub with glossy, spiny blue-green evergreen leaves growing in a mixed garden bed."
@@ -20,22 +24,16 @@ care:
   petSafety: "Mildly toxic"
   petSafetyNotes: "Berries and leaves are the main toxic parts"
   petSafetyInfo: "Symptoms: vomiting, diarrhea, depression, lethargy. Toxic compound: saponins"
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/holly/"]
 bloomMonths: [5]
 pruneMonths: [1, 2, 3]
-tags:
-  - "Evergreen"
-  - "Winter interest"
-  - "Hedging"
-  - "Cold hardy"
-  - "Toxic to dogs"
-  - "Deer resistant"
+tags: ["Winter interest", "Hedging", "Cold hardy", "Deer resistant"]
 featured: false
 funFact: "'Blue Princess' needs a male holly such as 'Blue Prince' nearby to produce berries."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=d470"
 dateAdded: 2026-10-10
 shortUrl: "https://s.shymoose.com/LaO6m"
 ---
-
 *Ilex* × *meserveae* 'Blue Princess' is a dense, rounded evergreen holly with glossy, spiny, blue-green leaves on purplish stems. It is one of the hardy "blue hollies" bred by Kathleen Meserve, and it keeps its good looks all winter when most of the garden has gone dormant.
 
 ## Berries need a partner

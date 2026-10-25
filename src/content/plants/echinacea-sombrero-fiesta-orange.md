@@ -1,7 +1,11 @@
 ---
 name: "Coneflower 'Fiesta Orange'"
 latinName: "Echinacea Sombrero® 'Fiesta Orange'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Garden cultivar of the species native to central and eastern North American prairies"
 photo: "../../assets/plants/echinacea-sombrero-fiesta-orange.jpg"
 photoAlt: "Vivid orange coneflowers with dark orange-brown centers on sturdy stems."
@@ -17,23 +21,19 @@ care:
   spacing: "16–20 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Deadhead to keep flowers coming; cut back in late winter or early spring, leaving seed heads through fall and winter for birds."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [6, 7, 8, 9]
 pruneMonths: [2, 3]
-tags:
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Attracts butterflies"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Long blooming"
+tags: ["Pollinator friendly", "Attracts butterflies", "Drought tolerant", "Deer resistant", "Long bloom season"]
 featured: false
 funFact: "Like other coneflowers, it has a spiny central cone made up of many tiny flowers."
 learnMoreUrl: "https://www.waysidegardens.com/products/echinacea-sombrero-fiesta-orange-coneflower-29717"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/Wkv1P"
 ---
-
 *Echinacea* Sombrero® 'Fiesta Orange' brings a vivid, sunset-orange twist to
 the classic prairie coneflower. Bred as part of Walters Gardens' Sombrero®
 series (sold under the variety name 'Balsomstor'), it's heavily branched

@@ -137,8 +137,9 @@ export async function main({
   if (written.length > 0) {
     console.log(
       `\nWrote ${written.length} draft(s) to drafts/plants/.` +
-        `\nFinish each one (add a photo to src/assets/plants/, fill the TODOs),` +
-        `\nthen move it into src/content/plants/ to publish it.`
+        `\nFollow AGENTS.md: research care and classifications, verify a credited photo,` +
+        `\nthen run check:data and tests. Publishing also requires short links, signs,` +
+        `\na scoped 3MF export, and a clean build. Moving the file alone is not publishing.`
     );
   }
 }
@@ -337,8 +338,9 @@ function renderDraft(rec, slug) {
     ? `learnMoreUrl: ${JSON.stringify(rec.fullLink)}\n`
     : "";
   const refLines = [
-    `# Imported from the garden sheet — finish the TODOs, add a photo, then`,
-    `# move this file into src/content/plants/ to publish it.`,
+    `# Imported draft, not researched content. Follow AGENTS.md end to end.`,
+    `# Reconcile care and facets, verify a credited photo, then check:data and test.`,
+    `# Publishing also requires short links, signs, scoped 3MF export, and build.`,
     rec.qrLink ? `# QR link: ${rec.qrLink}` : null,
     rec.filename ? `# Model file: ${rec.filename}` : null,
   ]
@@ -349,7 +351,11 @@ function renderDraft(rec, slug) {
 ${refLines}
 name: ${JSON.stringify(rec.commonName || "TODO common name")}
 latinName: ${JSON.stringify(rec.latinName)}
-type: "TODO" # e.g. Perennial, Annual, Shrub, Vegetable, Succulent
+growthForms: ["TODO"] # Tree, Shrub, Herbaceous, Vine; can overlap
+lifeCycle: "TODO" # Annual, Biennial, Perennial (garden cultivation)
+plantGroups: [] # Conifer, Vegetable, Succulent, Ornamental grass, Fern
+foliage: "TODO" # Evergreen, Semi-evergreen, Deciduous, Seasonal
+sunExposure: ["TODO"] # Full sun, Part shade, Full shade; verify against care.sunlight
 nativeRange: "TODO"
 photo: "../../assets/plants/${slug}.jpg" # TODO: add this image to src/assets/plants/
 photoAlt: "TODO"
@@ -363,10 +369,19 @@ care:
   size: "TODO"
   bloom: "TODO"
   pruning: "TODO"
-bloomMonths: [] # months 1–12 the plant is in flower; omit for non-flowering
-pruneMonths: [] # months 1–12 for main pruning; omit if not applicable
+  spacing: "TODO"
+  propagation: "TODO"
+  petSafety: "Unknown" # Replace only with a supported, scoped assessment
+  petSafetyNotes: "TODO"
+  petSafetyInfo: "TODO"
+  petSafetySources: [] # Exact assessment URLs; related taxa are not safety clearance
+bloomMonths: [] # Explicit months 1–12; never omit
+bloomCalendarNote: "TODO: supply months and remove this note, or explain the exclusion"
+pruneMonths: []
+pruneCalendarNote: "TODO: supply months and remove this note, or explain as-needed maintenance"
 tags: []
 featured: false
+dateAdded: "TODO" # Actual publication date, YYYY-MM-DD; not the date of a copied entry
 ${learnMore}---
 
 TODO: write the longer "keep reading" description for ${

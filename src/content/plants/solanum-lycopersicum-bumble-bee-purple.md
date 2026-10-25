@@ -1,7 +1,11 @@
 ---
 name: "Tomato 'Purple Bumble Bee'"
 latinName: "Solanum lycopersicum 'Bumble Bee Purple'"
-type: "Vegetable"
+growthForms: ["Herbaceous"]
+lifeCycle: "Annual"
+plantGroups: ["Vegetable"]
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Western South America (the species); this variety was bred in the United States"
 mapZone: "Vegetable Garden"
 mapX: 1015
@@ -16,26 +20,25 @@ care:
   sunlight: "Full sun — at least 6–8 hours of direct sun a day."
   hardiness: "Warm-season annual; frost-tender — transplant out only once nights stay reliably warm."
   size: "Indeterminate."
-  bloom: "Dusky purple fruit with metallic green striping, 20–25 g each; about 70 days to harvest."
+  bloom: "Yellow flowers during the growing season."
+  harvest: "Dusky purple fruit with metallic green striping, 20–25 g each; about 70 days to harvest."
   spacing: "24–36 in apart in rows 4–5 ft apart, staked or caged."
-  propagation: "Readily grown from seed"
+  propagation: "Start seed indoors 5-6 weeks before planting out; transplant after frost danger has passed."
   pruning: "Maintenance: thin the suckers and strip the lower leaves to improve airflow on the tall indeterminate vines, keeping them tied to a stout support."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "Leaves, stems/vines, flowers, unripe fruit—ripe red fruit is safe"
-  petSafetyInfo: "Symptoms: vomiting, excessive drooling, depression, weakness, dilated pupils, slow heart rate. Toxic compound: glycoalkaloids"
-tags:
-  - "Toxic to dogs"
-  - "Annual"
-  - "Edible"
-  - "Cherry Tomato"
-  - "Indeterminate"
-  - "Organic"
+  petSafetyNotes: "Keep pets from eating foliage or unripe fruit."
+  petSafetyInfo: "Green plant parts can cause stomach upset. Ripe fruit is considered non-toxic; fruit color depends on the cultivar."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/tomato-plant/"]
+tags: ["Edible", "Cherry Tomato", "Indeterminate", "Organic"]
 funFact: "Its dusky purple skin retains contrasting green stripes as the fruit ripens."
 learnMoreUrl: "https://www.johnnyseeds.com/vegetables/tomatoes/specialty-tomatoes/purple-bumble-bee-organic-tomato-seed-3521G.html"
 shortUrl: "http://s.shymoose.com/X7WLf"
 dateAdded: 2026-06-01
+bloomMonths: []
+bloomCalendarNote: "Food crop; the bloom calendar tracks ornamental flower displays."
+pruneMonths: []
+pruneCalendarNote: "As-needed maintenance rather than a fixed annual pruning window; follow the care advice."
 ---
-
 'Bumble Bee Purple' brings real drama to the cherry tomato patch, with dusky
 purple fruit streaked in shimmering metallic green. Beyond the looks, the fruit
 is sweet and meaty, with the kind of rich flavor associated with darker tomatoes.
@@ -50,3 +53,5 @@ heavily through the season and are grown to USDA Organic standards.
 Grow in full sun with strong support for the tall, indeterminate vines. The
 purple coloring intensifies in sunlight, so don't rush the harvest — let the
 fruit color up fully before picking.
+
+[Tomato care](https://extension.umn.edu/vegetables/growing-tomatoes) covers seed starting and cultivation.

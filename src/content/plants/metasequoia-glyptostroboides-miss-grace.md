@@ -1,7 +1,11 @@
 ---
 name: "Dawn Redwood 'Miss Grace'"
 latinName: "Metasequoia glyptostroboides 'Miss Grace'"
-type: "Tree"
+growthForms: ["Tree", "Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Deciduous"
+sunExposure: ["Full sun"]
 nativeRange: "Central and western China (species); cultivated selection"
 photo: "../../assets/plants/metasequoia-glyptostroboides-miss-grace.jpg"
 photoAlt: "A young weeping dawn redwood 'Miss Grace' on a single trunk in a lawn, its feathery light-green foliage cascading down from a flat, umbrella-like crown."
@@ -20,19 +24,17 @@ care:
   petSafety: "Unknown"
   petSafetyNotes: "Keep pets from chewing."
   petSafetyInfo: "Van den Berk lists it as usually non-toxic, but dog/cat safety is unconfirmed."
+  petSafetySources: ["https://landscapeplants.oregonstate.edu/plants/metasequoia-glyptostroboides-miss-grace", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 pruneMonths: [2, 3]
-tags:
-  - "Specimen"
-  - "Fall color"
-  - "Deer resistant"
-  - "Foliage interest"
+tags: ["Specimen", "Fall color", "Deer resistant", "Foliage interest"]
 featured: false
 funFact: "Dawn redwood was known only from fossils until living trees were found in a remote Chinese valley in the 1940s, and unlike most conifers it drops its needles every fall."
 learnMoreUrl: "https://landscapeplants.oregonstate.edu/plants/metasequoia-glyptostroboides-miss-grace"
 dateAdded: 2026-10-23
 shortUrl: "https://s.shymoose.com/ejha0"
+bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 ---
-
 'Miss Grace' is a weeping selection of dawn redwood, a deciduous conifer
 from China that was thought extinct until living trees turned up in the
 1940s. Left unstaked, it forms a sprawling mound; trained on a stake, it

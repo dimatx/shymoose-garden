@@ -1,7 +1,11 @@
 ---
 name: "Egyptian Walking Onion"
 latinName: "Allium × proliferum"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Vegetable"]
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Likely India or Pakistan; introduced to Europe by the Romans"
 photo: "../../assets/plants/egyptian-walking-onion.jpg"
 photoAlt: "Egyptian Walking Onion (Allium × proliferum) showing hollow green leaves and bulbil-bearing stalks"
@@ -18,21 +22,19 @@ care:
   propagation: "Plant bulbils up to 1 in deep in late summer or fall, or divide basal clumps in spring."
   pruning: "Harvest young shoots as green onions in early spring. Harvest or replant bulbils in early summer before they self-propagate. Divide basal clumps in spring to control spread and rejuvenate plants."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts toxic (bulbs, bulbils, leaves, stems, flowers)"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, weakness, pale gums, red-brown or dark-colored urine; collapse in severe cases. Onset: anemia signs may be delayed. Toxic compound: organosulfoxides"
+  petSafetyNotes: "Keep all parts away from pets."
+  petSafetyInfo: "Can damage red blood cells and cause anemia, even when cooked or dried. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/uncategorized/are-onions-poisons-to-dogs"]
 pruneMonths: [5, 6]
-tags:
-  - "Toxic to dogs"
-  - "Vegetable"
-  - "Edible"
-  - "Onion"
+tags: ["Edible", "Onion"]
 featured: false
 funFact: "Walking onion is a hybrid of the common onion and Welsh onion."
 learnMoreUrl: "http://hort.extension.wisc.edu/articles/egyptian-walking-onions/"
 shortUrl: "http://s.shymoose.com/BejwE"
 dateAdded: 2026-06-09
+bloomMonths: []
+bloomCalendarNote: "Grown for edible shoots and bulbils rather than a flower display."
 ---
-
 One of the most intriguing edible perennials for the kitchen garden, the Egyptian Walking Onion is a low-maintenance, self-propagating allium that returns reliably each year in zones 3–10. In early spring, hollow green leaves emerge from the brownish bases left over from the previous year; by late spring, spikes rise up to two feet, bearing clusters of small bulbils — miniature onion bulbs — at their tips instead of conventional flowers. If left unharvested, the spikes eventually topple under the weight of the bulbils and root where they land, beginning the "walk" that gives the plant its name.
 
 Getting started is simple: plant topsets no more than an inch deep and 4–5 inches apart in a permanent, sunny location. Unlike regular bulb onions, these plants don't need to be replanted each year. Established clumps multiply from the base as well and can be divided in spring. Plant it where you want it to stay — or give it room to roam.

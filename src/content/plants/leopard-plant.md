@@ -1,7 +1,11 @@
 ---
 name: "Leopard Plant 'Bottle Rocket'"
 latinName: "Ligularia 'Bottle Rocket'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Parent species native to rocky cliffs, streamside meadows, and forests in China"
 photo: "../../assets/plants/leopard-plant.jpg"
 photoAlt: "A dense clump of Ligularia 'Bottle Rocket' with large, bold, toothed green leaves and upright bottlebrush spikes of bright yellow flowers on dark stems, surrounded by hostas and ornamental grass."
@@ -20,20 +24,16 @@ care:
   petSafety: "Unknown"
   petSafetyNotes: "Keep pets from chewing."
   petSafetyInfo: "Related Ligularia species contain liver-toxic alkaloids; dog/cat safety for this hybrid is unconfirmed."
+  petSafetySources: ["https://www.sciencedirect.com/science/article/abs/pii/0304383580900348"]
 bloomMonths: [7, 8]
 pruneMonths: [8, 9]
-tags:
-  - "Shade garden"
-  - "Bog & waterside"
-  - "Deer resistant"
-  - "Architectural"
+tags: ["Bog & waterside", "Deer resistant", "Architectural"]
 featured: false
 funFact: "'Bottle Rocket' began as a spontaneous mutation of 'Little Rocket', discovered at Walters Gardens in 2006."
 learnMoreUrl: "https://www.waltersgardens.com/variety.php?ID=LIGBR"
 dateAdded: 2026-09-27
 shortUrl: "https://s.shymoose.com/Wnxay"
 ---
-
 'Bottle Rocket' forms a compact clump of large, toothed green leaves
 topped by dense yellow flower spikes on nearly black stems.
 

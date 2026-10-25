@@ -1,7 +1,11 @@
 ---
 name: "Oakleaf Hydrangea 'Gatsby Moon'"
 latinName: "Hydrangea quercifolia 'Gatsby Moon®'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Southeastern United States (species), where it grows in moist woods and along stream banks"
 photo: "../../assets/plants/hydrangea-quercifolia-gatsby-moon.jpg"
 photoAlt: "Large, full, cone-shaped white-to-chartreuse flower panicles of Oakleaf Hydrangea 'Gatsby Moon' above lobed, oak-shaped green leaves."
@@ -18,25 +22,18 @@ care:
   propagation: "Softwood cuttings in early summer, or layering low branches."
   pruning: "Blooms on old wood, so prune only right after flowering if shaping is needed. Remove winter-damaged or dead stems in early spring."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "All parts toxic, especially flower buds and young leaves"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, depression or unusual tiredness. Toxic compound: cyanogenic glycosides"
+  petSafetyNotes: "Keep pets from eating leaves or flowers."
+  petSafetyInfo: "Eating hydrangeas can cause vomiting or diarrhea. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/hydrangea/"]
 bloomMonths: [6, 7]
 pruneMonths: [7]
-tags:
-  - "Toxic to dogs"
-  - "Native"
-  - "Fall color"
-  - "Pollinator friendly"
-  - "Deer resistant"
-  - "Specimen"
-  - "Cut flower"
+tags: ["Native", "Fall color", "Pollinator friendly", "Deer resistant", "Specimen", "Cut flowers"]
 featured: false
 funFact: "Older stems reveal peeling, reddish-brown bark after the burgundy fall leaves drop."
 learnMoreUrl: "https://provenwinnersdirect.com/products/gatsby-moon-oakleaf-hydrangea"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/khB2V"
 ---
-
 Oakleaf hydrangea is an upright, multi-stemmed, deciduous shrub native to
 moist woodlands and stream banks of the southeastern United States. This
 cultivar keeps the species' hallmark oak-shaped foliage and huge mophead

@@ -1,7 +1,11 @@
 ---
 name: "Oakleaf Hydrangea 'Ruby Slippers'"
 latinName: "Hydrangea quercifolia 'Ruby Slippers'"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Deciduous"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Southeastern United States (species)"
 photo: "../../assets/plants/hydrangea-quercifolia-ruby-slippers.jpg"
 photoAlt: "Open white, cone-shaped flower panicles of Oakleaf Hydrangea 'Ruby Slippers' above lobed green leaves."
@@ -18,24 +22,18 @@ care:
   propagation: "Root softwood stem cuttings in late spring or early summer; cuttings preserve the cultivar."
   pruning: "Blooms on old wood; prune immediately after flowering only if needed."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "All parts"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, depression or unusual tiredness. Toxic compound: cyanogenic glycosides"
+  petSafetyNotes: "Keep pets from eating leaves or flowers."
+  petSafetyInfo: "Eating hydrangeas can cause vomiting or diarrhea. Contact a veterinarian after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/hydrangea/"]
 bloomMonths: [6, 7]
 pruneMonths: [7]
-tags:
-  - "Native"
-  - "Fall color"
-  - "Pollinator friendly"
-  - "Specimen"
-  - "Cut flower"
-  - "Toxic to dogs"
+tags: ["Native", "Fall color", "Pollinator friendly", "Specimen", "Cut flowers"]
 featured: false
 funFact: "'Ruby Slippers' was introduced by the U.S. National Arboretum in 2010. Its flower panicles change from white to ruby red, while its oak-shaped leaves turn mahogany in fall."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=274435"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/aSWiH"
 ---
-
 *Hydrangea quercifolia* 'Ruby Slippers' is a compact selection of the native
 oakleaf hydrangea, a deciduous shrub of the southeastern United States. It
 keeps the species' distinctive lobed leaves and peeling bark in a smaller

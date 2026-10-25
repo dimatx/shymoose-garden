@@ -1,7 +1,11 @@
 ---
 name: "Aster 'Wood's Purple'"
 latinName: "Symphyotrichum 'Wood's Purple'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Garden cultivar of species native to eastern North America"
 photo: "../../assets/plants/aster.jpg"
 photoAlt: "Compact mounds of small violet-purple daisy flowers with yellow centers covering the plant in late summer."
@@ -17,23 +21,19 @@ care:
   spacing: "12–18 in apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Cut to the ground after flowering; divide clumps every 2–3 years in spring to maintain vigor."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [8, 9, 10]
 pruneMonths: [10, 11]
-tags:
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Attracts butterflies"
-  - "Fall flowers"
-  - "Deer resistant"
-  - "Compact"
+tags: ["Pollinator friendly", "Attracts butterflies", "Fall flowers", "Deer resistant", "Compact"]
 featured: false
 funFact: "The dwarf Wood's series was selected for resistance to powdery mildew."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=b868"
 dateAdded: 2026-09-12
 shortUrl: "https://s.shymoose.com/K9M3P"
 ---
-
 *Symphyotrichum* 'Wood's Purple' is a compact New York aster that erupts
 into a mound of small violet-purple daisies just as most of the garden is
 winding down, providing one of the last big pollinator meals of the season.

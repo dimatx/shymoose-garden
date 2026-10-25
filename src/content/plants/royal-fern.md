@@ -1,7 +1,11 @@
 ---
 name: "Royal Fern"
 latinName: "Osmunda spectabilis"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Fern"]
+foliage: "Seasonal"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Eastern North America"
 photo: "../../assets/plants/royal-fern.jpg"
 photoAlt: "A dense stand of royal fern with arching green fronds and upright fertile spikes."
@@ -20,21 +24,17 @@ care:
   petSafety: "Unknown"
   petSafetyNotes: "Keep pets from chewing."
   petSafetyInfo: "No toxicity is reported for related royal fern, but dog/cat safety for this species is unconfirmed."
+  petSafetySources: ["https://plants.ces.ncsu.edu/plants/osmunda-spectabilis/", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 bloomMonths: []
+bloomCalendarNote: "Fern: reproduces by spores, not flowers."
 pruneMonths: [3]
-tags:
-  - "Native"
-  - "Shade garden"
-  - "Bog & waterside"
-  - "Foliage interest"
-  - "Deer resistant"
+tags: ["Native", "Bog & waterside", "Foliage interest", "Deer resistant"]
 featured: false
 funFact: "Royal fern's fertile fronds form tassel-like clusters of spore cases at their tips, which can make the plant look as if it is flowering."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/osmunda-spectabilis/"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/betOk"
 ---
-
 The American royal fern (*Osmunda spectabilis*, formerly *Osmunda regalis*
 var. *spectabilis*) is a deciduous fern native to eastern North America. Its broad,
 finely divided fronds make an elegant clump in wet woodland, streamside, and

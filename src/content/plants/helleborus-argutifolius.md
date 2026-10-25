@@ -1,7 +1,11 @@
 ---
 name: "Hellebore"
 latinName: "Helleborus argutifolius"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Corsica and Sardinia"
 photo: "../../assets/plants/helleborus-argutifolius.jpg"
 photoAlt: "Corsican hellebore with leathery, toothed evergreen leaves and clusters of pale yellow-green cup-shaped flowers."
@@ -18,23 +22,17 @@ care:
   propagation: "Divide after flowering"
   pruning: "Maintenance: in early spring, as new growth resumes, cut off the old, tattered leaves to show off the blooms and reduce leaf spot; remove spent flower stems at the base after the flowers fade in late spring. Rejuvenate an aging clump by dividing it."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts toxic, especially roots"
-  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea; slow heart rate or tremors in more serious cases. Toxic compound: cardiac glycosides (hellebrin)"
+  petSafetyNotes: "Keep all parts away from pets."
+  petSafetyInfo: "Can cause stomach upset and affect the heart. Contact a veterinarian immediately after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/hellebore/"]
 bloomMonths: [2, 3, 4]
 pruneMonths: [4, 5]
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Winter interest"
-  - "Shade garden"
-  - "Poisonous"
-  - "Deer resistant"
+tags: ["Winter interest", "Deer resistant"]
 funFact: "Corsican hellebore is native to just two Mediterranean islands: Corsica and Sardinia."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/helleborus-argutifolius/"
 shortUrl: "http://s.shymoose.com/0LYOf"
 dateAdded: 2026-06-01
 ---
-
 Also known as the Corsican hellebore, *Helleborus argutifolius* is an evergreen
 perennial grown for its bold, leathery, sharply toothed leaves and its clusters
 of pale yellow-green, cup-shaped flowers that open in the depths of winter when

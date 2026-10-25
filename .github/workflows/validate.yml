@@ -24,6 +24,7 @@ jobs:
           cache: npm
       - name: Install with Cloudflare's npm version
         run: npx --yes npm@10.9.2 ci
+      - run: npm run check:data
       - run: npm run check
       - run: npm test
       - run: npm run build

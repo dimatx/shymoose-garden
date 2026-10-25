@@ -1,7 +1,11 @@
 ---
 name: "Black-eyed Susan 'Viette's Little Suzy'"
 latinName: "Rudbeckia fulgida 'Viette's Little Suzy'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden cultivar of the species native to eastern and central North America"
 photo: "../../assets/plants/rudbeckia-fulgida-viettes-little-suzy.jpg"
 photoAlt: "Compact clump of golden-yellow black-eyed Susan flowers with dark centers on short stems."
@@ -17,22 +21,19 @@ care:
   spacing: "10–15 in apart, based on this compact selection's mature spread."
   propagation: "Divide in spring or fall"
   pruning: "Deadhead to prolong bloom; cut back after frost or in early spring and divide every few years."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7, 8, 9, 10]
 pruneMonths: [10]
-tags:
-  - "Full sun"
-  - "Attracts pollinators"
-  - "Attracts butterflies"
-  - "Deer resistant"
-  - "Compact"
+tags: ["Pollinator friendly", "Attracts butterflies", "Deer resistant", "Compact"]
 featured: false
 funFact: "'Little Suzy' was selected as a naturally dwarf form by the Viette family in Virginia."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=261675&isprofile=1&gen=Rudbeckia"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/HmvJo"
 ---
-
 *Rudbeckia fulgida* 'Viette's Little Suzy' packs all the charm of a classic
 black-eyed Susan into a tidy, compact plant — golden-yellow daisies with dark
 brown centers on stems that rarely top 15 inches. It's an ideal choice for

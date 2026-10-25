@@ -1,7 +1,11 @@
 ---
 name: "Showy Stonecrop"
 latinName: "Hylotelephium spectabile"
-type: "Succulent"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Succulent"]
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "China and Korea"
 photo: "../../assets/plants/hylotelephium-spectabile.jpg"
 photoAlt: "Mound of fleshy blue-green succulent leaves, the plant that produces flat pink flower heads in fall."
@@ -17,21 +21,18 @@ care:
   spacing: "18–24 in apart."
   propagation: "Stem cuttings"
   pruning: "Leave dried heads for winter; cut back in early spring. Shorten stems in late spring for a sturdier clump."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [8, 9, 10]
 pruneMonths: [4, 6]
-tags:
-  - "Drought tolerant"
-  - "Pollinator friendly"
-  - "Fall flowers"
-  - "Low maintenance"
-  - "Salt tolerant"
+tags: ["Drought tolerant", "Pollinator friendly", "Fall flowers", "Low maintenance", "Salt tolerant"]
 funFact: "Its late-season flowers provide nectar for migrating monarch butterflies."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hylotelephium-spectabile/"
 shortUrl: "http://s.shymoose.com/7YoTn"
 dateAdded: 2026-06-01
 ---
-
 Showy stonecrop — formerly *Sedum spectabile* — is a clump-forming succulent
 beloved for the flat, broad heads of pink, star-shaped flowers that open atop
 its fleshy blue-green foliage in late summer and fall. As the season turns, the

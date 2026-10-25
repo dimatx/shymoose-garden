@@ -1,7 +1,11 @@
 ---
 name: "Orpine"
 latinName: "Hylotelephium telephium"
-type: "Succulent"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Succulent"]
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Europe and Asia"
 photo: "../../assets/plants/hylotelephium-telephium.jpg"
 photoAlt: "A full clump of upright orpine stems with fleshy green leaves in a garden bed."
@@ -17,20 +21,18 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Leave seedheads for winter; cut back in early spring. Shorten stems in late spring to keep the clump compact."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [8, 9, 10]
 pruneMonths: [4, 6]
-tags:
-  - "Easy to grow"
-  - "Drought tolerant"
-  - "Pollinator friendly"
-  - "Rock garden"
+tags: ["Easy to grow", "Drought tolerant", "Pollinator friendly", "Rock garden"]
 funFact: "In European folklore, paired orpine stems were used to predict a couple's future on Midsummer's Eve."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/hylotelephium-telephium/"
 shortUrl: "http://s.shymoose.com/kRFav"
 dateAdded: 2026-06-01
 ---
-
 Orpine is an upright succulent perennial — once classified as *Sedum telephium* —
 grown for its fleshy, blue-green foliage and the broad clusters of tiny,
 star-shaped pink to ruby flowers that open from late summer into fall. As the

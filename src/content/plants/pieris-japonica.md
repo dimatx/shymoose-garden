@@ -1,7 +1,11 @@
 ---
 name: "Japanese Pieris"
 latinName: "Pieris japonica"
-type: "Shrub"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Southeast China, central to southern Japan, and Taiwan"
 photo: "../../assets/plants/pieris-japonica.jpg"
 photoAlt: "Drooping chains of waxy, white urn-shaped Japanese pieris flowers against glossy evergreen leaves."
@@ -18,23 +22,17 @@ care:
   propagation: "Stem cuttings"
   pruning: "Maintenance: low. Deadhead spent flower clusters and lightly shape right after blooming — it flowers on old wood, so pruning later removes next spring's buds."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts, especially leaves"
-  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea, weakness; abnormal heart rhythm or collapse in severe cases. Toxic compound: grayanotoxins"
+  petSafetyNotes: "Keep all parts away from pets."
+  petSafetyInfo: "Can affect the heart and nervous system. Contact a veterinarian immediately after ingestion."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/pieris"]
 bloomMonths: [3, 4, 5]
 pruneMonths: [5, 6]
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Spring bloom"
-  - "Fragrant flowers"
-  - "Deer resistant"
-  - "Specimen"
+tags: ["Spring bloom", "Fragrant flowers", "Deer resistant", "Specimen"]
 funFact: "Its urn-shaped flowers reveal its kinship with blueberries and heathers, which share the same plant family."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/pieris-japonica/"
 shortUrl: "http://s.shymoose.com/fldOW"
 dateAdded: 2026-06-02
 ---
-
 *Pieris japonica* — Japanese pieris, also called Japanese andromeda or
 lily-of-the-valley shrub — is a slow-growing broadleaf evergreen in the heath
 family (Ericaceae). Native to the mountain thickets of southeast China, Japan,

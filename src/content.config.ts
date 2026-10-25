@@ -1,142 +1,19 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import { plantFields, validatePlantRelationships } from "./lib/plant-schema";
 
-/**
- * A list of months (1–12) that is normalized at load time: duplicates are
- * removed and the values are sorted ascending. This keeps hand-edited or
- * AI-generated frontmatter from producing a jumbled timeline.
- */
-const monthList = z
-  .array(z.number().int().min(1).max(12))
-  .default([])
-  .transform((months) => [...new Set(months)].sort((a, b) => a - b));
-
-/**
- * Each plant lives in a single Markdown file under `src/content/plants/`.
- * The frontmatter (the block between the `---` lines) holds the structured
- * data below. The Markdown body *after* the frontmatter is the longer
- * "keep reading" description.
- *
- * Follow AGENTS.md for the complete import, research, photo, and publishing
- * workflow; schema validity alone does not make a plant ready to publish.
- */
+// The same publication contract is exercised by the content audit and tests.
+// Photos still use Astro's image validator, not a permissive string schema.
 const plants = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/plants" }),
-  schema: ({ image }) =>
-    z.object({
-      // Display
-      name: z.string(), // Common name, e.g. "Japanese Snowball"
-      latinName: z.string(), // Botanical name, e.g. "Viburnum plicatum"
-
-      // The kind of plant, used to filter the garden on the home page.
-      // e.g. "Perennial", "Annual", "Shrub", "Vegetable", "Succulent".
-      // Optional, but recommended so the plant shows up under a type filter.
-      type: z.string().optional(),
-
-      // Where the plant (or its species) is originally native to, as a short
-      // human phrase, e.g. "Eastern North America" or "Japan, China, and Taiwan".
-      // Optional — shown alongside the care details when present.
-      nativeRange: z.string().optional(),
-      photo: image(), // Path to a photo in src/assets/plants/
-      photoAlt: z.string().default(""),
-      photoCredit: z.string().optional(),
-
-      // Short description shown by default (the body is the "read more").
-      shortDescription: z.string(),
-
-      // Care details — keep these short and human.
-      // All fields are optional: only include what you can verify, and the
-      // plant page will simply skip any care detail you leave out.
-      care: z.object({
-        water: z.string().optional(),
-        soil: z.string().optional(),
-        sunlight: z.string().optional(),
-        hardiness: z.string().optional(),
-        size: z.string().optional(),
-        bloom: z.string().optional(),
-        pruning: z.string().optional(),
-        // How far apart to plant/space this plant, e.g. "18–24 in apart" or
-        // "3–4 ft between plants". Optional — only fill in what's verified
-        // against a reputable source (NCSU Extension, Missouri Botanical
-        // Garden, RHS, or the breeder page for a patented cultivar).
-        spacing: z.string().optional(),
-        // How to propagate this plant, e.g. "Divide in spring" or "Readily
-        // grown from seed". Optional — only fill in when propagation is
-        // practical for the gardener. Use "Not applicable" for plants where
-        // propagation isn't feasible (e.g. grafted trees, hybrid vegetables).
-        propagation: z.string().optional(),
-        // Pet safety: toxicity level for dogs. One of:
-        // "Non-toxic", "Mildly toxic", "Highly toxic"
-        // Optional — include only when verified against reputable pet toxicity sources.
-        petSafety: z.string().optional(),
-        // Pet safety notes: clarification of which parts are toxic vs. safe.
-        // E.g. "Leaves and stems only (fruit is safe)" or "All parts"
-        // Optional — include when specific parts are safe or toxic.
-        petSafetyNotes: z.string().optional(),
-        // Pet safety info: toxic compound(s) and effects on dogs.
-        // E.g. "Toxic compound: saponins. Effects: vomiting, diarrhea, abdominal pain"
-        // Optional — include detailed toxicology for mildly/highly toxic plants.
-        petSafetyInfo: z.string().optional(),
-      }),
-
-      // Months this plant is in flower, as numbers 1–12 (1 = January).
-      // Drives the Bloom Calendar. Omit for plants with no floral display
-      // (e.g. conifers) or where bloom isn't the point (e.g. vegetables).
-      bloomMonths: monthList,
-
-      // Months to do the plant's main pruning / cut-back, as numbers 1–12.
-      // Drives the Pruning Calendar. Omit for plants with no calendar pruning
-      // window (e.g. annual vegetables that are simply pulled at season's end).
-      pruneMonths: monthList,
-
-      // A short, surprising, or delightful fact about the plant.
-      // Shown in a highlighted callout on the plant's detail page.
-      funFact: z.string().optional(),
-
-      // Optional helpers
-      tags: z.array(z.string()).default([]),
-      featured: z.boolean().default(false),
-      learnMoreUrl: z.string().url().optional(),
-      shortUrl: z.string().url().optional(),
-
-      // Position on the garden map (see /map and public/map/garden-map.svg).
-      // mapX/mapY are pixel coordinates in that SVG's 1560×1060 viewBox
-      // (origin top-left). mapZone is the bed name (matches a label on the
-      // map, e.g. "Back Border", "Vegetable Garden") — shown in the pin
-      // popup and useful later for a "browse by bed" view. All three are
-      // optional: a plant with no mapX/mapY simply has no pin on the map yet.
-      mapZone: z.string().optional(),
-      mapX: z.number().optional(),
-      mapY: z.number().optional(),
-
-      // The date this plant was added to the catalog (ISO yyyy-mm-dd).
-      // Powers the "Recently added" catalog sort; undated entries sort last.
-      // Backfilled from each file's first git commit; set it for new plants.
-      dateAdded: z.coerce.date().optional(),
-
-      // Set true for a plant that used to be in the garden but isn't
-      // anymore (e.g. it didn't survive). Archived plants stay in the
-      // catalog — grayed out and sorted after active plants on the home
-      // page — but are left off the bloom/pruning calendars and the
-      // garden map, since they're no longer actually growing there.
-      archived: z.boolean().default(false),
-      // Optional short reason/date shown alongside the "Archived" badge,
-      // e.g. "Did not survive initial planting (Summer 2026)".
-      archivedNote: z.string().optional(),
-    }),
+  schema: ({ image }) => z.object({ ...plantFields, photo: image() })
+    .strict()
+    .superRefine(validatePlantRelationships),
 });
 
-/**
- * Free-form gardener notes, written in the notes editor at /admin/.
- * One Markdown file per plant at `src/content/notes/<plant-slug>.md`; `plant` is
- * the plant's slug (its filename in `src/content/plants/`) and the body is the note.
- * Kept separate from `plants` so the editor never rewrites plant frontmatter.
- */
 const notes = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/notes" }),
-  schema: z.object({
-    plant: z.string(),
-  }),
+  schema: z.object({ plant: z.string() }),
 });
 
 export const collections = { plants, notes };

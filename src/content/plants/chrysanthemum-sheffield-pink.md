@@ -1,7 +1,11 @@
 ---
 name: "Single Mum 'Sheffield Pink'"
 latinName: "Chrysanthemum 'Sheffield Pink'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden cultivar with no distinct wild native range"
 photo: "../../assets/plants/chrysanthemum-sheffield.jpg"
 photoAlt: "A soft apricot-pink Sheffield mum flower with a golden center among green stems and unopened buds."
@@ -18,24 +22,18 @@ care:
   spacing: "2–3 ft apart, based on mature spread."
   propagation: "Divide every 2–3 years in spring or fall."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "All parts toxic (flowers, leaves, stems, roots)"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, wobbliness; skin irritation after contact. Toxic compounds: pyrethrins and sesquiterpene lactones"
+  petSafetyNotes: "Keep pets from chewing."
+  petSafetyInfo: "May cause vomiting, diarrhea, drooling, or skin irritation."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/chrysanthemum"]
 bloomMonths: [9, 10, 11]
 pruneMonths: [5, 6, 7]
-tags:
-  - "Toxic to dogs"
-  - "Full sun"
-  - "Pollinator friendly"
-  - "Fall flowers"
-  - "Deer resistant"
-  - "Cut flower"
+tags: ["Pollinator friendly", "Fall flowers", "Deer resistant", "Cut flowers"]
 featured: false
 funFact: "This heirloom mum is also sold as 'Hillside Sheffield Pink' and 'Single Apricot'."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=f223"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/PKCXA"
 ---
-
 Single mum 'Sheffield Pink' is a hardy garden chrysanthemum with a
 long-running display of simple, daisy-like flowers. Its soft apricot-pink
 petals and golden centers arrive as many summer blooms are fading.

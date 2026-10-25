@@ -1,7 +1,11 @@
 ---
 name: "Avens 'Mrs. Bradshaw'"
 latinName: "Geum chiloense 'Mrs. Bradshaw'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Chile (South America)"
 photo: "../../assets/plants/avens.jpg"
 photoAlt: "A bright double scarlet-red Avens bloom on a wiry stem with a yellow center, against a soft green background."
@@ -17,20 +21,18 @@ care:
   spacing: "12–18 in apart."
   propagation: "Divide in spring"
   pruning: "Low maintenance. Deadhead spent flowers to prolong bloom. Divide clumps every 1–2 years in early spring to keep plants vigorous."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3, 4]
-tags:
-  - "Cottage garden"
-  - "Pollinator friendly"
-  - "Deer resistant"
-  - "Rock garden"
+tags: ["Cottage garden", "Pollinator friendly", "Deer resistant", "Rock garden"]
 funFact: "'Mrs. Bradshaw' has been grown in gardens since around 1900."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/geum/"
 shortUrl: "http://s.shymoose.com/A69E5"
 dateAdded: 2026-06-04
 ---
-
 *Geum chiloense* 'Mrs. Bradshaw' — commonly called Avens — is a rhizomatous herbaceous perennial in the rose family (Rosaceae), native to Chile. It forms a neat, mounding rosette of large, hairy, pinnately divided dark green leaves that provides attractive ground cover even when not in flower.
 
 ## Prolific summer blooms

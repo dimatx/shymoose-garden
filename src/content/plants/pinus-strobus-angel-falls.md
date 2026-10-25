@@ -1,7 +1,11 @@
 ---
 name: "Weeping White Pine 'Angel Falls'"
 latinName: "Pinus strobus 'Angel Falls'"
-type: "Conifer"
+growthForms: ["Tree", "Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun"]
 nativeRange: "Northeastern North America (species); cultivar selection"
 photo: "../../assets/plants/pinus-strobus-angel-falls.jpg"
 photoAlt: "A weeping, multi-stemmed conifer with long, soft blue-green needles cascading in curtains from staked upright leaders, planted in a garden bed."
@@ -17,22 +21,19 @@ care:
   spacing: "4–6 ft apart, based on mature spread (varies with how the weeping leader is trained)."
   propagation: "Cuttings"
   pruning: "Trim new candles only for size control and remove dieback. Stake the young leader to establish height."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 pruneMonths: [6]
-tags:
-  - "Conifer"
-  - "Dwarf conifer"
-  - "Winter interest"
-  - "Specimen"
-  - "Slow growing"
-  - "Acid-loving"
+tags: ["Dwarf conifer", "Winter interest", "Specimen", "Slow growing", "Acid-loving"]
 featured: false
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/pinus-strobus/"
 shortUrl: "https://s.shymoose.com/dnCmq"
 dateAdded: 2026-08-09
 ---
-
 *Pinus strobus* 'Angel Falls' is a weeping cultivar of eastern white pine, a
 North American conifer in the pine family (Pinaceae). Where the species grows
 into a towering forest tree 50–80 ft tall, 'Angel Falls' is a garden-scaled

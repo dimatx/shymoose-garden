@@ -1,7 +1,11 @@
 ---
 name: "Giant Solomon's Seal"
 latinName: "Polygonatum biflorum var. commutatum"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Eastern and central North America"
 photo: "../../assets/plants/polygonatum-biflorum-var-commutatum.jpg"
 photoAlt: "Tall, arching stems of giant Solomon's seal lined with broad, paired leaves along the length of each stalk."
@@ -17,24 +21,18 @@ care:
   spacing: "12–18 in apart; clumps spread and merge into larger colonies over time."
   propagation: "Divide rhizomes in spring or fall"
   pruning: "Maintenance: minimal — let the foliage die back and cut the spent stems to the ground in fall. Lift and divide the rhizomes in fall to rejuvenate or contain the clump."
-  petSafety: "Mildly toxic"
-  petSafetyNotes: "All parts toxic, especially berries and rhizomes"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, stomach pain, nausea, lethargy. Toxic compound: steroidal saponins"
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing; contact a veterinarian after ingestion."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://plants.ces.ncsu.edu/plants/polygonatum-biflorum-var-commutatum/", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 bloomMonths: [5, 6]
 pruneMonths: [10, 11]
-tags:
-  - "Toxic to dogs"
-  - "Native"
-  - "Shade garden"
-  - "Low maintenance"
-  - "Rain garden"
-  - "Pollinator friendly"
+tags: ["Native", "Low maintenance", "Rain garden", "Pollinator friendly"]
 funFact: "Old stems leave seal-like circular scars on the rhizome, giving Solomon's seal its name."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/polygonatum-biflorum-var-commutatum/"
 shortUrl: "http://s.shymoose.com/J5ZGz"
 dateAdded: 2026-06-01
 ---
-
 *Polygonatum biflorum* var. *commutatum* — giant Solomon's seal — is a native
 herbaceous perennial of moist eastern woodlands and the largest of the Solomon's
 seals, reaching 3 to 5 feet and occasionally as much as 7. Tall, gracefully

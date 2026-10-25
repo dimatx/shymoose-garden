@@ -1,7 +1,11 @@
 ---
 name: "Parsley"
 latinName: "Petroselinum crispum"
-type: "Biennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Biennial"
+plantGroups: ["Vegetable"]
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Mediterranean region, southern Europe"
 photo: "../../assets/plants/parsley.jpg"
 photoAlt: "Parsley (Petroselinum crispum) plants showing bright green deeply divided leaves and full plant habitus"
@@ -20,19 +24,17 @@ care:
   petSafety: "Mildly toxic"
   petSafetyNotes: "Seeds/oil highest concern; small culinary amounts generally low-risk"
   petSafetyInfo: "Symptoms: skin irritation or rash, especially after sun exposure; usually only a risk with large amounts. Toxic compound: furanocoumarins"
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/parsley"]
 pruneMonths: [4, 5, 6, 7, 8, 9]
-tags:
-  - "Toxic to dogs"
-  - "Herb"
-  - "Edible"
-  - "Pollinator friendly"
+tags: ["Herb", "Edible", "Pollinator friendly"]
 featured: false
 funFact: "*Petroselinum* combines the Greek words for 'rock' and 'celery', reflecting its Mediterranean habitat."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/petroselinum-crispum/"
 shortUrl: "http://s.shymoose.com/4yrdL"
 dateAdded: 2026-06-09
+bloomMonths: []
+bloomCalendarNote: "Usually harvested before flowering; flowers appear in its second year."
 ---
-
 Parsley (*Petroselinum crispum*) is a biennial herb native to the Mediterranean, grown worldwide both as a culinary staple and an ornamental edging plant. It forms a neat rosette of bright green, deeply divided leaves in its first year, and sends up tall flower stalks in the second. Plants prefer cool weather and perform best in spring and fall; in hot climates afternoon shade helps delay bolting.
 
 Sow seeds directly outdoors 3–4 weeks before the last frost, or start indoors 6–8 weeks earlier. Germination is notoriously slow — up to 3–4 weeks — and soaking seeds overnight speeds things up considerably. Because parsley is a biennial, plants allowed to overwinter will flower in their second year, after which leaf quality declines. Most gardeners treat it as an annual and replant each spring. Harvest by snipping the oldest outer stems at the base to encourage continuous new growth from the center. Parsley is also an important host plant for black swallowtail butterfly caterpillars, and its second-year flowers attract beneficial insects to the garden.

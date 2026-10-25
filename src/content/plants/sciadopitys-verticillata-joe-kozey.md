@@ -1,7 +1,11 @@
 ---
 name: "Japanese Umbrella Pine 'Joe Kozey'"
 latinName: "Sciadopitys verticillata 'Joe Kozey'"
-type: "Tree"
+growthForms: ["Tree"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Japan (species); cultivated selection"
 photo: "../../assets/plants/sciadopitys-verticillata-joe-kozey.jpg"
 photoAlt: "A narrow, spire-like Joe Kozey Japanese umbrella pine with whorls of glossy green needles, standing in a conifer garden under a cloudy sky."
@@ -20,20 +24,18 @@ care:
   petSafety: "Unknown"
   petSafetyNotes: "Keep pets from chewing."
   petSafetyInfo: "Van den Berk lists it as usually non-toxic, but dog/cat safety is unconfirmed."
+  petSafetySources: ["https://landscapeplants.oregonstate.edu/plants/sciadopitys-verticillata-joe-kozey", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 pruneMonths: []
-tags:
-  - "Evergreen"
-  - "Conifer"
-  - "Specimen"
-  - "Slow growing"
-  - "Winter interest"
+pruneCalendarNote: "As-needed maintenance rather than a fixed annual pruning window; follow the care advice."
+tags: ["Specimen", "Slow growing", "Winter interest"]
 featured: false
 funFact: "Umbrella pine is the only living member of its plant family, Sciadopityaceae, and its long needles are arranged in whorls like the spokes of an umbrella."
 learnMoreUrl: "https://landscapeplants.oregonstate.edu/plants/sciadopitys-verticillata-joe-kozey"
 dateAdded: 2026-10-23
 shortUrl: "https://s.shymoose.com/6rOkw"
+bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 ---
-
 'Joe Kozey' is a narrow, upright selection of Japanese umbrella pine,
 introduced by Sidney Waxman at the University of Connecticut. At 20 ft
 tall it is only about 6 ft wide, with

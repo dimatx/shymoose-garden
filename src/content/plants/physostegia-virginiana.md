@@ -1,7 +1,11 @@
 ---
 name: "Obedient Plant"
 latinName: "Physostegia virginiana"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Eastern and central North America"
 photo: "../../assets/plants/physostegia-virginiana.jpg"
 photoAlt: "Upright spikes of tubular pink obedient plant flowers opening from the bottom up."
@@ -17,21 +21,18 @@ care:
   spacing: "18–24 in apart (it spreads by rhizomes, so divide to keep it in bounds)."
   propagation: "Divide roots in spring or fall"
   pruning: "Halve stems in late spring for sturdier growth. Deadhead to limit seedlings and cut to the ground after frost."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7, 8, 9, 10]
 pruneMonths: [6, 11]
-tags:
-  - "Native"
-  - "Showy flowers"
-  - "Pollinator friendly"
-  - "Fast growing"
-  - "Deer resistant"
+tags: ["Native", "Showy flowers", "Pollinator friendly", "Fast growing", "Deer resistant"]
 funFact: "The common name is a small joke: if you push a flower sideways on its spike, it stays in the new position instead of springing back — a quirk of how each flower is hinged to the stem. In the garden, however, the plant is anything but obedient, spreading aggressively by rhizomes."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/physostegia-virginiana/"
 shortUrl: "http://s.shymoose.com/Ld7dB"
 dateAdded: 2026-06-01
 ---
-
 The obedient plant is a North American native in the mint family, named for a
 charming quirk: each individual flower can be twisted along its stem and will
 stay in the new position — at least for a while. From mid-summer into fall it

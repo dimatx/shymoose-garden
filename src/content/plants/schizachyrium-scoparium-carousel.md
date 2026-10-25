@@ -1,7 +1,11 @@
 ---
 name: "Little Bluestem 'Carousel'"
 latinName: "Schizachyrium scoparium 'Carousel'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Ornamental grass"]
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Prairies and open woodlands of eastern and central North America"
 photo: "../../assets/plants/schizachyrium-scoparium-carousel.jpg"
 photoAlt: "Compact clump of blue-green grass foliage with fluffy, copper-colored seedheads."
@@ -17,24 +21,19 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Cut back to a few inches above the ground in late winter or early spring before new growth begins; no deadheading needed."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [9, 10, 11, 12]
 pruneMonths: [2, 3]
-tags:
-  - "Native plant"
-  - "Full sun"
-  - "Ornamental grass"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Winter interest"
-  - "Foliage interest"
+tags: ["Native", "Drought tolerant", "Deer resistant", "Winter interest", "Foliage interest"]
 featured: false
 funFact: "Its copper-orange fall foliage and silvery seedheads remain attractive through winter."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=358530&isprofile=0&gen=Schizachyrium"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/YaPMN"
 ---
-
 *Schizachyrium scoparium* 'Carousel' is a compact selection of little
 bluestem, a grass native across the prairies and open woodlands of eastern
 and central North America. Its cool blue-green summer foliage shifts to a

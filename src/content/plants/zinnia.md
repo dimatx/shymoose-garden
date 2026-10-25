@@ -1,7 +1,11 @@
 ---
 name: "Zinnia 'Benary's Giant Lilac'"
 latinName: "Zinnia elegans 'Benary's Giant Lilac'"
-type: "Annual"
+growthForms: ["Herbaceous"]
+lifeCycle: "Annual"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Mexico"
 photo: "../../assets/plants/zinnia.jpg"
 photoAlt: "A large fully double purple zinnia flower with a bright yellow center, surrounded by bright green leaves."
@@ -18,18 +22,18 @@ care:
   propagation: "Readily grown from seed"
   pruning: "No pruning needed. Pinch seedlings at 8–12 inches for bushier plants. Deadhead spent blooms regularly to extend the blooming season."
   petSafety: "Non-toxic"
+  petSafetyInfo: "The genus is listed as non-toxic to dogs and cats. Eating plant material can still cause stomach upset."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/zinnia"]
+  petSafetyNotes: "Discourage chewing."
 bloomMonths: [6, 7, 8, 9, 10]
-tags:
-  - "Cut flower"
-  - "Butterfly friendly"
-  - "Pollinator friendly"
-  - "Deer resistant"
+tags: ["Cut flowers", "Attracts butterflies", "Pollinator friendly", "Deer resistant"]
 funFact: "Zinnias are named for the 18th-century botanist Johann Gottfried Zinn."
 learnMoreUrl: "https://www.johnnyseeds.com/flowers/zinnias/benarys-giant-series/benarys-giant-purple-zinnia-seed-1369.html"
 shortUrl: "http://s.shymoose.com/SiqEG"
 dateAdded: 2026-06-04
+pruneMonths: []
+pruneCalendarNote: "As-needed maintenance rather than a fixed annual pruning window; follow the care advice."
 ---
-
 *Zinnia elegans* 'Benary's Giant Lilac' is a tall, vigorous cultivar of the common zinnia, an annual in the aster family (Asteraceae) with origins in Mexico. The Benary's Giant series was bred specifically for the cut-flower trade and produces blooms up to 4–5 inches across on straight, sturdy stems that hold up beautifully in vases.
 
 ## A summer-to-frost spectacle

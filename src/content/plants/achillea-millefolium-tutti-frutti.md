@@ -1,7 +1,11 @@
 ---
 name: "Yarrow 'Tutti Frutti'"
 latinName: "Achillea millefolium 'Tutti Frutti'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Species native to Europe, Asia and North America; this is a garden series"
 photo: "../../assets/plants/achillea-millefolium-tutti-frutti.jpg"
 photoAlt: "Flat-topped clusters of small pink yarrow flowers above ferny green foliage — a representative pink Achillea millefolium."
@@ -18,25 +22,17 @@ care:
   propagation: "Divide in spring"
   pruning: "Shear hard after the first flush for a tidy rebloom; cut to the ground in late winter. Divide every 2–3 years to keep clumps vigorous."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "Leaves, stems, and flowers—all above-ground parts—are toxic"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, excessive drooling, tiredness; skin irritation or rash after contact. Toxic compound: sesquiterpene lactones"
+  petSafetyNotes: "Keep pets from chewing."
+  petSafetyInfo: "Eating yarrow can cause vomiting or diarrhea; skin contact may cause irritation."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/yarrow"]
 bloomMonths: [6, 7, 8]
 pruneMonths: [3]
-tags:
-  - "Toxic to dogs"
-  - "Cottage garden"
-  - "Pollinator friendly"
-  - "Butterfly friendly"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Cut flower"
-  - "Heat tolerant"
+tags: ["Cottage garden", "Pollinator friendly", "Attracts butterflies", "Deer resistant", "Drought tolerant", "Cut flowers", "Heat tolerant"]
 funFact: "Each flower cluster changes color as it ages, so several shades can appear on one plant."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/achillea-millefolium/"
 shortUrl: "http://s.shymoose.com/ZTcCO"
 dateAdded: 2026-06-24
 ---
-
 *Achillea millefolium* 'Tutti Frutti' belongs to a series of common-yarrow selections (Takii / Blooms of Bressingham breeding) chosen for vivid, fruit-toned blooms and a sturdy, uniform habit. Like all yarrows it forms a low mat of soft, aromatic, fern-like foliage and sends up sturdy stems carrying broad flat-topped flower heads that bees and butterflies cover all summer.
 
 ## Colour that changes by the day

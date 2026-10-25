@@ -1,7 +1,11 @@
 ---
 name: "Blue Star Amsonia 'String Theory'"
 latinName: "Amsonia hybrid 'String Theory'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Cultivated selection of a south-central U.S. native bluestar (Arkansas and Oklahoma)"
 photo: "../../assets/plants/amsonia.jpg"
 photoAlt: "A dense, mounded clump of 'String Theory' amsonia blooming with soft periwinkle-blue starry flowers above fine threadleaf foliage in a mulched garden bed."
@@ -17,22 +21,19 @@ care:
   spacing: "32–36 in apart."
   propagation: "Divide established clumps in spring or fall; named cultivars are best kept vegetative rather than grown from seed."
   pruning: "Trim splaying stems by 6 in after flowering. Otherwise cut back in late winter. Wear gloves; milky sap can irritate skin."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6]
 pruneMonths: [3, 6]
-tags:
-  - "Pollinator friendly"
-  - "Deer resistant"
-  - "Drought tolerant"
-  - "Fall color"
-  - "Foliage interest"
+tags: ["Pollinator friendly", "Deer resistant", "Drought tolerant", "Fall color", "Foliage interest"]
 featured: false
 funFact: "Amsonia is named for Dr. John Amson, an 18th-century Williamsburg physician and amateur botanist; when cut, the stems ooze a milky latex that helps deter browsing."
 learnMoreUrl: "https://www.provenwinners.com/plants/amsonia/string-theory-blue-star-amsonia-hybrid"
 dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/EXpcs"
 ---
-
 *Amsonia* 'String Theory' is a compact bluestar introduced by Proven Winners
 for gardeners who love the feathery look of Arkansas bluestar but need a
 shorter, tidier plant. The breeder markets it as an amsonia hybrid, while

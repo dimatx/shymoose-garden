@@ -1,7 +1,11 @@
 ---
 name: "Pink Muhly Grass 'Undaunted'"
 latinName: "Muhlenbergia reverchonii 'Undaunted'"
-type: "Ornamental grass"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Ornamental grass"]
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Central Oklahoma to central Texas (southern Great Plains)"
 photo: "../../assets/plants/muhly-grass.jpg"
 photoAlt: "A dense clump of 'Undaunted' pink muhly grass sending up airy rosy-pink plumes above dark green, threadlike foliage in early fall."
@@ -17,24 +21,19 @@ care:
   spacing: "24–48 in apart, based on mature spread and how quickly you want clumps to knit together."
   propagation: "Divide clumps in spring."
   pruning: "Leave the tan plumes standing for winter interest, then cut the clump back close to the ground in late winter or early spring before new growth begins."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [8, 9, 10, 11]
 pruneMonths: [2, 3]
-tags:
-  - "Ornamental grass"
-  - "Native"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Fall color"
-  - "Winter interest"
-  - "Low maintenance"
+tags: ["Native", "Drought tolerant", "Deer resistant", "Fall color", "Winter interest", "Low maintenance"]
 featured: false
 funFact: "'Undaunted' was selected from 'Autumn Embers' for better cold hardiness, which is why it succeeds farther north than many other pink muhly grasses."
 learnMoreUrl: "https://www.provenwinners.com/plants/muhlenbergia/undaunted-muhly-grass-muhlenbergia-reverchonii"
 dateAdded: 2026-10-03
 shortUrl: "https://s.shymoose.com/xsG9h"
 ---
-
 *Muhlenbergia reverchonii* 'Undaunted' is a selected form of seep muhly, a
 warm-season bunchgrass native to rocky ground in Oklahoma and Texas. It forms a
 dark green, fine-textured fountain of narrow leaves, then steals the show in

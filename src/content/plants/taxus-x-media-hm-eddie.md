@@ -1,7 +1,11 @@
 ---
 name: "H.M. Eddie Yew"
 latinName: "Taxus x media 'H.M. Eddie'"
-type: "Conifer"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade", "Full shade"]
 nativeRange: "Garden hybrid (Taxus baccata x Taxus cuspidata)"
 photo: "../../assets/plants/taxus-x-media-hm-eddie.jpg"
 photoAlt: "Dense, upright sprays of dark green, needle-like yew foliage with light green new growth emerging at the tips."
@@ -18,25 +22,18 @@ care:
   propagation: "Stem cuttings"
   pruning: "Very low maintenance — tolerates severe pruning at almost any time of year and takes well to shaping into hedges or topiary."
   petSafety: "Highly toxic"
-  petSafetyNotes: "Needles/leaves, bark/wood, seeds toxic; only red fleshy aril safe"
-  petSafetyInfo: "Symptoms: sudden abnormal heart rhythm and potential heart failure (often fatal), tremors, difficulty breathing, seizures. Toxic compound: taxine alkaloids"
+  petSafetyNotes: "Keep all parts away from pets, especially needles and seeds."
+  petSafetyInfo: "Yew can cause fatal heart problems. Seek emergency veterinary help immediately after ingestion."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/yew"]
 bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 pruneMonths: [3, 4, 8, 9]
-tags:
-  - "Toxic to dogs"
-  - "Conifer"
-  - "Evergreen"
-  - "Hedging"
-  - "Low maintenance"
-  - "Shade garden"
-  - "Winter interest"
-  - "Poisonous"
+tags: ["Hedging", "Low maintenance", "Winter interest"]
 featured: false
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/taxus-x-media/"
 shortUrl: "https://s.shymoose.com/cDSTI"
 dateAdded: 2026-08-09
 ---
-
 *Taxus x media* is a hybrid yew — a cross between English yew (*Taxus
 baccata*) and the winter-hardy Japanese yew (*Taxus cuspidata*), first bred
 by Massachusetts horticulturist T.D. Hatfield in the early 1900s. 'H.M. Eddie'

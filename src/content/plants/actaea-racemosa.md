@@ -1,7 +1,11 @@
 ---
 name: "Black Cohosh"
 latinName: "Actaea racemosa"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Eastern North America"
 photo: "../../assets/plants/actaea-racemosa.jpg"
 photoAlt: "Tall, slender spires of fluffy creamy-white black cohosh flowers rising against a blue sky."
@@ -17,24 +21,18 @@ care:
   spacing: "2–3 ft apart, based on mature spread."
   propagation: "Divide rhizomes in spring"
   pruning: "Maintenance: low — leave or remove the spent flower spikes as you like, then cut the foliage back after frost. It resents disturbance, so divide only occasionally to renew."
-  petSafety: "Mildly toxic"
-  petSafetyNotes: "All parts toxic, especially berries and roots"
-  petSafetyInfo: "Symptoms: mouth irritation, vomiting, diarrhea, weakness; tremors or abnormal heart rhythm in more serious cases. Toxic compound: cardiac glycosides"
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing; contact a veterinarian after ingestion."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://plants.ces.ncsu.edu/plants/actaea-racemosa/", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 bloomMonths: [6, 7, 8]
 pruneMonths: [10, 11]
-tags:
-  - "Toxic to dogs"
-  - "Native"
-  - "Shade garden"
-  - "Pollinator friendly"
-  - "Deer resistant"
-  - "Low maintenance"
+tags: ["Native", "Pollinator friendly", "Deer resistant", "Low maintenance"]
 funFact: "The name 'cohosh' refers to the plant's rough, knobbly roots."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/actaea-racemosa/"
 shortUrl: "http://s.shymoose.com/10NGx"
 dateAdded: 2026-06-01
 ---
-
 *Actaea racemosa* — black cohosh, also called black snakeroot, bugbane, or fairy
 candles — is an upright rhizomatous perennial native to the woodlands of eastern
 North America. It grows to 6 feet or more, sending tall, candle-like spires of

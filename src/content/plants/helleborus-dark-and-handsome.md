@@ -1,7 +1,11 @@
 ---
 name: "Hellebore 'Dark and Handsome'"
 latinName: "Helleborus 'Dark and Handsome'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Evergreen"
+sunExposure: ["Part shade", "Full shade"]
 nativeRange: "Garden hybrid with no distinct wild native range"
 photo: "../../assets/plants/helleborus-dark-and-handsome.jpg"
 photoAlt: "Near-black burgundy double hellebore flowers with yellow-green centers among glossy green leaves."
@@ -18,24 +22,18 @@ care:
   spacing: "18–24 in. apart."
   propagation: "Divide established clumps in early autumn or in spring after flowering to retain the parent's traits. Seedlings may differ from the parent."
   petSafety: "Highly toxic"
-  petSafetyNotes: "All parts toxic, especially roots"
-  petSafetyInfo: "Symptoms: excessive drooling, vomiting, diarrhea; slow heart rate or tremors in more serious cases. Toxic compound: cardiac glycosides (hellebrin)"
+  petSafetyNotes: "Keep all parts away from pets."
+  petSafetyInfo: "Can cause stomach upset and affect the heart. Contact a veterinarian immediately after ingestion."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/hellebore/"]
 bloomMonths: [2, 3, 4]
 pruneMonths: [2, 4]
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Winter interest"
-  - "Shade garden"
-  - "Poisonous"
-  - "Deer resistant"
+tags: ["Winter interest", "Deer resistant"]
 featured: false
 funFact: "The flowers can look nearly black from a distance, but their centers reveal a contrasting yellow-green glow up close."
 learnMoreUrl: "https://www.provenwinners.com/plants/helleborus/wedding-party-dark-and-handsome-lenten-rose-helleborus-hybrid"
 dateAdded: 2026-10-17
 shortUrl: "https://s.shymoose.com/MxTcY"
 ---
-
 Hellebore 'Dark and Handsome' is a compact evergreen perennial grown for
 its unusually dark, double flowers. Rounded, leathery foliage forms a
 year-round mound, and flower stems rise above it in late winter and early

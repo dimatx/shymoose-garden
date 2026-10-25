@@ -1,7 +1,11 @@
 ---
 name: "Catmint 'Junior Walker'"
 latinName: "Nepeta x faassenii 'Junior Walker'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Garden hybrid (sterile cross of European Nepeta species)"
 photo: "../../assets/plants/catmint.jpg"
 photoAlt: "A mass planting of catmint in full lavender-blue bloom with soft grey-green foliage cascading along a border at the Royal Botanical Garden of Madrid."
@@ -17,22 +21,18 @@ care:
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
   pruning: "Shear by one-third to one-half after the first bloom. Remove dead growth in early spring."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6, 7, 8]
 pruneMonths: [3, 7]
-tags:
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Fragrant"
-  - "Pollinator friendly"
-  - "Cottage garden"
-  - "Low maintenance"
+tags: ["Drought tolerant", "Deer resistant", "Fragrant", "Pollinator friendly", "Cottage garden", "Low maintenance"]
 funFact: "'Junior Walker' is a compact alternative to 'Walker's Low'; neither is the catnip species, *Nepeta cataria*."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/nepeta/"
 shortUrl: "http://s.shymoose.com/2upC5"
 dateAdded: 2026-06-08
 ---
-
 'Junior Walker' is a compact, sterile catmint for sunny borders, path
 edges, and containers. Its low, spreading mound stays smaller than
 'Walker's Low' and does not spread by seed.

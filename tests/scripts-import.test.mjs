@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { randomUUID } from "node:crypto";
 import { main } from "../scripts/import-plants.mjs";
 import { readScalars } from "../scripts/lib/frontmatter.mjs";
+import { parse } from "yaml";
 
 async function fixture(t) {
   const root = fileURLToPath(new URL(`.scripts-fixture-${randomUUID()}/`, import.meta.url));
@@ -33,6 +34,17 @@ test("import deduplicates rows, keeps reordered drafts, and reserves draft photo
   assert.equal(await readFile(join(f.draftsDirectory, "acer-second.md"), "utf8"), before);
   assert.match(await readFile(join(f.draftsDirectory, "edited.md"), "utf8"), /My research/);
   assert.equal(readScalars(before, ["photo"]).photo, "../../assets/plants/acer-second.jpg");
+  const data = parse(before.split("---")[1]);
+  assert.equal("type" in data, false);
+  for (const field of ["growthForms", "lifeCycle", "plantGroups", "foliage", "sunExposure",
+    "photoAlt", "photoCredit", "dateAdded", "bloomMonths", "pruneMonths", "bloomCalendarNote", "pruneCalendarNote"]) {
+    assert.ok(field in data, `Draft is missing ${field}`);
+  }
+  for (const field of ["water", "soil", "sunlight", "hardiness", "size", "bloom", "pruning",
+    "spacing", "propagation", "petSafety", "petSafetyNotes", "petSafetyInfo", "petSafetySources"]) {
+    assert.ok(field in data.care, `Draft is missing care.${field}`);
+  }
+  assert.match(before, /AGENTS\.md/);
 });
 
 test("import prunes published drafts and matches quoted names correctly", async (t) => {

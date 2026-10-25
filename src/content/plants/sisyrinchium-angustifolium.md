@@ -1,7 +1,11 @@
 ---
 name: "Blue-eyed Grass"
 latinName: "Sisyrinchium angustifolium"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Semi-evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Meadows, moist woodlands, and stream banks of eastern and central North America"
 photo: "../../assets/plants/sisyrinchium-angustifolium.jpg"
 photoAlt: "Cluster of small blue-violet, star-shaped flowers with yellow centers rising above narrow, grass-like foliage."
@@ -17,22 +21,19 @@ care:
   spacing: "6–12 in apart."
   propagation: "Divide in early spring"
   pruning: "Shear back lightly after the main flush of bloom to tidy the foliage and encourage a second flush; self-seeds readily."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [4, 5, 6, 7]
 pruneMonths: [6, 7, 8]
-tags:
-  - "Native plant"
-  - "Attracts pollinators"
-  - "Deer resistant"
-  - "Naturalizes"
-  - "Ground cover"
+tags: ["Native", "Pollinator friendly", "Deer resistant", "Naturalizes", "Ground cover"]
 featured: false
 funFact: "Blue-eyed grass belongs to the iris family, not the grass family."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=i870"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/0GngF"
 ---
-
 *Sisyrinchium angustifolium*, or blue-eyed grass, is a diminutive native
 perennial that looks every bit like a fine-bladed grass — until it surprises
 you with small, star-shaped blue-violet flowers with cheerful yellow centers.

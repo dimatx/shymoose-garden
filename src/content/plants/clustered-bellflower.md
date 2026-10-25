@@ -1,7 +1,11 @@
 ---
 name: "Clustered Bellflower 'Superba'"
 latinName: "Campanula glomerata 'Superba'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Europe and temperate Asia"
 photo: "../../assets/plants/clustered-bellflower.jpg"
 photoAlt: "Two dense spherical clusters of rich violet-purple clustered bellflower blooms on upright stems with a fly resting on one, against a bright green meadow background."
@@ -17,22 +21,18 @@ care:
   spacing: "12–18 in apart."
   propagation: "Divide in spring or fall"
   pruning: "Deadhead spent flower stems promptly to encourage rebloom. Divide clumps every 3–5 years in fall to keep plants vigorous and prevent aggressive spread."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6, 7]
 pruneMonths: [9, 10]
-tags:
-  - "Cottage garden"
-  - "Pollinator friendly"
-  - "Hummingbird friendly"
-  - "Deer resistant"
-  - "Rock garden"
-  - "Cut flower"
+tags: ["Cottage garden", "Pollinator friendly", "Attracts hummingbirds", "Deer resistant", "Rock garden", "Cut flowers"]
 funFact: "The species name *glomerata* means 'clustered', describing its tightly packed flower heads."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/campanula-glomerata/"
 shortUrl: "http://s.shymoose.com/6OHi3"
 dateAdded: 2026-06-08
 ---
-
 'Superba' is an upright clustered bellflower with rich violet-purple
 flowers on stems reaching 2–3 feet. It suits cottage gardens and mixed
 borders where it has room to spread.

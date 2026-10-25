@@ -1,7 +1,11 @@
 ---
 name: "Blue Fescue 'Elijah Blue'"
 latinName: "Festuca glauca 'Elijah Blue'"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: ["Ornamental grass"]
+foliage: "Evergreen"
+sunExposure: ["Full sun"]
 nativeRange: "Garden cultivar of the species native to Europe"
 photo: "../../assets/plants/festuca-glauca-elijah-blue.jpg"
 photoAlt: "Compact mounds of fine, silvery-blue grass foliage."
@@ -17,23 +21,19 @@ care:
   spacing: "8–12 in apart."
   propagation: "Divide in spring"
   pruning: "Shear back by about a third to two-thirds in early spring to remove old growth and encourage fresh blue color; divide clumps every few years if the center dies out."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [5, 6, 7]
 pruneMonths: [3]
-tags:
-  - "Full sun"
-  - "Ornamental grass"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Foliage interest"
-  - "Low maintenance"
+tags: ["Drought tolerant", "Deer resistant", "Foliage interest", "Low maintenance"]
 featured: false
 funFact: "A waxy coating gives the leaves their silvery-blue color and helps conserve moisture."
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?kempercode=c760"
 dateAdded: 2026-09-07
 shortUrl: "https://s.shymoose.com/Bqi3F"
 ---
-
 *Festuca glauca* 'Elijah Blue' is a compact ornamental grass grown for its
 intensely silvery-blue, needle-fine foliage, which forms neat, tidy mounds
 year-round. It's a favorite for edging paths and borders, or as a repeating

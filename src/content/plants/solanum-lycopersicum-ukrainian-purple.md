@@ -1,7 +1,11 @@
 ---
 name: "Tomato 'Ukrainian Purple'"
 latinName: "Solanum lycopersicum 'Ukrainian Purple'"
-type: "Vegetable"
+growthForms: ["Herbaceous"]
+lifeCycle: "Annual"
+plantGroups: ["Vegetable"]
+foliage: "Seasonal"
+sunExposure: ["Full sun"]
 nativeRange: "Western South America (the species); this heirloom comes from Ukraine"
 mapZone: "Vegetable Garden"
 mapX: 1110
@@ -16,26 +20,25 @@ care:
   sunlight: "Full sun — at least 6–8 hours of direct sun a day."
   hardiness: "Warm-season annual; frost-tender — transplant out only once nights stay reliably warm."
   size: "Indeterminate."
-  bloom: "Purply-black plum-shaped fruit; about 80 days from transplant."
+  bloom: "Yellow flowers during the growing season."
+  harvest: "Purply-black plum-shaped fruit; about 80 days from transplant."
   spacing: "Space plants 2–3 ft apart in rows 3–4 ft apart."
-  propagation: "Readily grown from seed"
+  propagation: "Start seed indoors 5-6 weeks before planting out; transplant after frost danger has passed."
   pruning: "Maintenance: pinch out the suckers in the leaf joints and remove lower leaves for airflow as the indeterminate vines climb their stakes; top the plant late in the season to ripen the last fruit."
   petSafety: "Mildly toxic"
-  petSafetyNotes: "Leaves, stems/vines, flowers, unripe fruit—ripe red fruit is safe"
-  petSafetyInfo: "Symptoms: vomiting, excessive drooling, depression, weakness, dilated pupils, slow heart rate. Toxic compound: glycoalkaloids"
-tags:
-  - "Toxic to dogs"
-  - "Annual"
-  - "Edible"
-  - "Plum Tomato"
-  - "Heirloom"
-  - "Sauce"
+  petSafetyNotes: "Keep pets from eating foliage or unripe fruit."
+  petSafetyInfo: "Green plant parts can cause stomach upset. Ripe fruit is considered non-toxic; fruit color depends on the cultivar."
+  petSafetySources: ["https://www.petpoisonhelpline.com/poison/tomato-plant/"]
+tags: ["Edible", "Plum Tomato", "Heirloom", "Sauce"]
 funFact: "Its meaty plum-shaped fruit works well for sauce as well as fresh eating."
 learnMoreUrl: "https://anniesheirloomseeds.com/products/ukrainian-purple-tomato-solanum-lycopersicum"
 shortUrl: "http://s.shymoose.com/FdHQ5"
 dateAdded: 2026-06-01
+bloomMonths: []
+bloomCalendarNote: "Food crop; the bloom calendar tracks ornamental flower displays."
+pruneMonths: []
+pruneCalendarNote: "As-needed maintenance rather than a fixed annual pruning window; follow the care advice."
 ---
-
 'Ukrainian Purple' is a heirloom plum tomato with sweet, savory, purply-black
 fruit. The flesh is meaty and resists cracking, which makes it a favorite for
 sauces and salsas as well as fresh eating.
@@ -50,3 +53,5 @@ This variety tolerates cooler temperatures better than most — down to around
 Start seed indoors about six weeks before your last frost and plant the
 seedlings deep to encourage strong roots. Grow in full sun, keep the soil moist,
 and space plants 2–3 feet apart in rows 3–4 feet apart.
+
+[Tomato care](https://extension.umn.edu/vegetables/growing-tomatoes) covers seed starting and cultivation.

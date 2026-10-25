@@ -1,7 +1,11 @@
 ---
 name: "Leopard Plant"
 latinName: "Ligularia dentata"
-type: "Perennial"
+growthForms: ["Herbaceous"]
+lifeCycle: "Perennial"
+plantGroups: []
+foliage: "Seasonal"
+sunExposure: ["Full sun", "Part shade", "Full shade"]
 nativeRange: "China and Japan"
 photo: "../../assets/plants/ligularia-dentata.jpg"
 photoAlt: "A single orange-yellow Ligularia dentata daisy flower with a dark purple bud below it."
@@ -17,21 +21,18 @@ care:
   spacing: "2–3 ft apart, based on mature spread."
   propagation: "Divide in spring"
   pruning: "Maintenance: low. Deadhead spent flower stalks, then cut the foliage back after frost."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: [7, 8]
 pruneMonths: [10, 11]
-tags:
-  - "Shade garden"
-  - "Pollinator friendly"
-  - "Summer bloom"
-  - "Bog & waterside"
-  - "Deer resistant"
+tags: ["Pollinator friendly", "Summer bloom", "Bog & waterside", "Deer resistant"]
 funFact: "Leaves may droop in afternoon heat even in moist soil; check soil moisture before adding water."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=277343&isprofile=1&basic=Ligularia"
 shortUrl: "http://s.shymoose.com/deVbW"
 dateAdded: 2026-06-02
 ---
-
 *Ligularia dentata* — leopard plant, also called bigleaf ligularia — is a bold,
 clump-forming perennial in the daisy family (Asteraceae), native to moist
 mountain woodlands of China and Japan. It is grown as much for its dramatic

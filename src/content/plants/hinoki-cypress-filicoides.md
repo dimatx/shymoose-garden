@@ -1,7 +1,11 @@
 ---
 name: "Fernspray Hinoki Cypress"
 latinName: "Chamaecyparis obtusa 'Filicoides'"
-type: "Conifer"
+growthForms: ["Tree", "Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "Japan and Taiwan"
 photo: "../../assets/plants/hinoki-cypress.jpg"
 photoAlt: "Close view of Hinoki cypress foliage: flattened, fern-like sprays in bright and deep green."
@@ -17,20 +21,19 @@ care:
   spacing: "3–5 ft apart, based on mature spread."
   propagation: "Cuttings"
   pruning: "Minimal — light shaping only as needed to maintain its narrow pyramidal form. Avoid cutting into bare, leafless wood, as false cypress won't resprout from it."
-  petSafety: "Non-toxic"
+  petSafety: "Unknown"
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
+  petSafetyNotes: "Prevent chewing."
 bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 pruneMonths: [4, 5]
-tags:
-  - "Evergreen"
-  - "Slow growing"
-  - "Year-round interest"
-  - "Drought tolerant"
+tags: ["Slow growing", "Year-round interest", "Drought tolerant"]
 featured: false
 learnMoreUrl: "https://plantfinder.mobot.org/PlantFinderDetails.aspx?taxonid=265527"
 dateAdded: 2026-06-01
 shortUrl: "https://s.shymoose.com/xPHpL"
 ---
-
 'Filicoides' is a distinctive Hinoki cypress cultivar prized for its congested,
 fern-like sprays of foliage — its name literally means "fern-like." The dense,
 pendant branchlets give it a texture unlike almost any other conifer, on a

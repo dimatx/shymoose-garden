@@ -1,7 +1,11 @@
 ---
 name: "Hollywood Juniper"
 latinName: "Juniperus chinensis 'Torulosa'"
-type: "Conifer"
+growthForms: ["Tree", "Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Full sun", "Part shade"]
 nativeRange: "China, Japan, Mongolia, and the Himalayas (species); this twisted-branch selection was introduced to the U.S. from Japan in 1920"
 photo: "../../assets/plants/hollywood-juniper.jpg"
 photoAlt: "A mature Hollywood juniper with dark, twisted, exposed branches supporting dense, cloud-like puffs of bright green scale-like foliage."
@@ -17,25 +21,21 @@ care:
   spacing: "8–12 ft apart if planting more than one; more often used as a single specimen."
   propagation: "Semi-hardwood cuttings in summer or fall; named cultivars don't come true from seed."
   pruning: "Remove dead wood or trim lightly for size. Avoid shearing; the irregular form develops naturally."
-  petSafety: "Mildly toxic"
-  petSafetyInfo: "Symptoms: vomiting, diarrhea, abdominal pain, drooling, lethargy; tremors or an elevated heart rate in more serious cases. Toxic compound: terpenes and volatile essential oils, concentrated most heavily in the berries."
+  petSafety: "Unknown"
+  petSafetyNotes: "Prevent chewing; contact a veterinarian after ingestion."
+  petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
+  petSafetySources: ["https://plants.ces.ncsu.edu/plants/juniperus-chinensis-torulosa/", "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
 bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 pruneMonths: []
-tags:
-  - "Toxic to dogs"
-  - "Evergreen"
-  - "Conifer"
-  - "Drought tolerant"
-  - "Deer resistant"
-  - "Specimen"
-  - "Salt tolerant"
+pruneCalendarNote: "As-needed maintenance rather than a fixed annual pruning window; follow the care advice."
+tags: ["Drought tolerant", "Deer resistant", "Specimen", "Salt tolerant"]
 featured: false
 funFact: "Hollywood juniper is also sold under the cultivar name 'Kaizuka'."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/juniperus-chinensis-torulosa/"
 dateAdded: 2026-09-19
 shortUrl: "https://s.shymoose.com/9jNC0"
 ---
-
 Hollywood juniper is an upright evergreen conifer in the cypress family,
 grown not for flowers but for its irregular, sculptural form: slightly
 twisted branches carry dense, puffy clusters of scale-like foliage that

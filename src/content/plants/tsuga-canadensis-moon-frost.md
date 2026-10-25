@@ -1,7 +1,11 @@
 ---
 name: "Canadian Hemlock 'Moon Frost'"
 latinName: "Tsuga canadensis 'Moon Frost'"
-type: "Conifer"
+growthForms: ["Shrub"]
+lifeCycle: "Perennial"
+plantGroups: ["Conifer"]
+foliage: "Evergreen"
+sunExposure: ["Part shade"]
 nativeRange: "Garden cultivar of the species native to eastern North America, from eastern Canada south to the Appalachian Mountains of Georgia and Alabama"
 photo: "../../assets/plants/canadian-hemlock.jpg"
 photoAlt: "Mounding, weeping dwarf hemlock with soft green needles and pale creamy new growth at the branch tips."
@@ -18,20 +22,19 @@ care:
   propagation: "Semi-ripe cuttings"
   pruning: "Maintenance: very low. Prune only in late May or June if needed to maintain shape; avoid heavy pruning."
   petSafety: "Non-toxic"
+  petSafetyInfo: "Canadian hemlock is listed as non-toxic to dogs and cats. Eating plant material can still cause stomach upset."
+  petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/canada-hemlock"]
+  petSafetyNotes: "Discourage chewing."
 pruneMonths: [5, 6]
-tags:
-  - "Evergreen"
-  - "Dwarf conifer"
-  - "Deer resistant"
-  - "Low maintenance"
-  - "Foliage interest"
+tags: ["Dwarf conifer", "Deer resistant", "Low maintenance", "Foliage interest"]
 featured: false
 funFact: "Its white spring growth gradually turns green, creating the frosted effect behind its name."
 learnMoreUrl: "https://www.iseli.com/plant/tsuga-canadensis-moon-frost/"
 dateAdded: 2026-08-30
 shortUrl: "https://s.shymoose.com/G5hAJ"
+bloomMonths: []
+bloomCalendarNote: "Conifer: produces cones, not flowers."
 ---
-
 *Tsuga canadensis* 'Moon Frost' is a dwarf Canadian hemlock selected for its
 bright, glowing new growth — needles emerge nearly white in spring before
 mellowing to a soft green, giving established plants a two-tone, frosted look

@@ -6,13 +6,9 @@ import { getSortedPlants } from "../lib/plants";
 import { feedingProducts, feedingTreatments } from "../data/feeding";
 import { FEEDING_SEASONS, TREATMENT_TRIGGERS, feedingSearchText, getTreatmentCatalog, treatmentsForPlant } from "../lib/feeding";
 import { SOIL_REACTIONS, SOIL_FERTILITIES, plantCareGroup } from "../lib/plant-care";
-import { plantCareGroups } from "../data/plant-care";
 
 const plants = (await getSortedPlants()).filter((plant) => !plant.data.archived);
 const catalog = getTreatmentCatalog(plants, feedingTreatments);
-const careSources = [...new Map(plantCareGroups.flatMap((group) =>
-  group.sources.map((source) => [source.url, { ...source, groups: plantCareGroups.filter((item) => item.sources.some((ref) => ref.url === source.url)).map((item) => item.id) }] as const),
-)).values()];
 ---
 
 <Layout title="Feeding & soil care" description="Seasonal treatments and shared soil categories, linked to the garden catalog.">
@@ -42,14 +38,14 @@ const careSources = [...new Map(plantCareGroups.flatMap((group) =>
           Soil pH
           <select data-feeding-acidity class="filter-input">
             <option value="">All pH classes</option>
-            {Object.entries(SOIL_REACTIONS).map(([id, label]) => <option value={id}>{label}</option>)}
+            {Object.entries(SOIL_REACTIONS).filter(([id]) => id !== "unreviewed").map(([id, label]) => <option value={id}>{label}</option>)}
           </select>
         </label>
         <label data-category-control hidden class="control-label">
           Soil fertility
           <select data-feeding-fertility class="filter-input">
             <option value="">All fertility classes</option>
-            {Object.entries(SOIL_FERTILITIES).map(([id, label]) => <option value={id}>{label}</option>)}
+            {Object.entries(SOIL_FERTILITIES).filter(([id]) => id !== "unreviewed").map(([id, label]) => <option value={id}>{label}</option>)}
           </select>
         </label>
         <label class="control-label flex-1">
@@ -62,7 +58,7 @@ const careSources = [...new Map(plantCareGroups.flatMap((group) =>
 
     <p data-feeding-safety class="mb-4 flex items-start gap-2 text-sm text-leaf-700 dark:text-leaf-300">
       <Icon name="alert-triangle" class="mt-0.5 h-4 w-4 shrink-0" />
-      <span>Apply only when the trigger is met. Never feed drought-stressed plants or frozen soil.</span>
+      <span>Do not feed drought-stressed plants or frozen soil.</span>
     </p>
     <p data-feeding-status role="status" class="mb-3 text-sm font-semibold"></p>
     <p data-feeding-empty hidden class="rounded-2xl border border-leaf-300 p-4 text-sm dark:border-leaf-700"></p>
@@ -72,7 +68,7 @@ const careSources = [...new Map(plantCareGroups.flatMap((group) =>
     <button data-related-toggle hidden type="button" aria-expanded="false" aria-controls="feeding-treatments" class="mb-3 inline-flex min-h-11 items-center gap-2 rounded-lg text-sm font-semibold text-leaf-700 dark:text-leaf-300">
       <span data-related-label>Related treatments</span> <Icon name="chevron-down" class="h-4 w-4" />
     </button>
-    <p data-no-seasonal-applications hidden class="mb-3 text-sm text-leaf-700 dark:text-leaf-300">No seasonal applications recorded.</p>
+    <p data-no-seasonal-applications hidden class="mb-3 text-sm text-leaf-700 dark:text-leaf-300">No seasonal applications.</p>
 
     <div id="feeding-treatments" data-treatment-list class="space-y-2">
       {catalog.map(({ treatment, plants: members }, index) => {
@@ -110,9 +106,10 @@ const careSources = [...new Map(plantCareGroups.flatMap((group) =>
                 <div class="order-3 col-span-2 sm:order-none sm:col-span-1"><dt class="text-xs font-semibold uppercase text-leaf-600 dark:text-leaf-300">Trigger</dt><dd class="mt-1">{TREATMENT_TRIGGERS[treatment.trigger]}</dd></div>
                 <div class="order-2 sm:order-none"><dt class="text-xs font-semibold uppercase text-leaf-600 dark:text-leaf-300">Use</dt><dd class="mt-1">{product?.name ?? treatment.material}</dd></div>
               </dl>
-              <p class="mt-3 text-sm font-semibold">{treatment.caution}</p>
+              {treatment.caution && <p data-treatment-caution class="mt-3 text-sm font-semibold">{treatment.caution}</p>}
+              {(treatment.steps.length > 0 || Boolean(treatment.exceptions?.length)) && (
               <details class="mt-2">
-                <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg text-sm font-semibold text-leaf-700 dark:text-leaf-300">Instructions & sources <Icon name="info" class="h-4 w-4" /></summary>
+                <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg text-sm font-semibold text-leaf-700 dark:text-leaf-300">Application instructions <Icon name="chevron-down" class="h-4 w-4" /></summary>
                 <ol class="mt-2 list-decimal space-y-2 pl-5 text-sm leading-relaxed text-leaf-700 dark:text-leaf-300">
                   {treatment.steps.map((step) => <li>{step}</li>)}
                 </ol>
@@ -121,12 +118,8 @@ const careSources = [...new Map(plantCareGroups.flatMap((group) =>
                     <strong>{exception.label}: </strong>{exception.note}
                   </p>
                 ))}
-                <ul class="mt-3 text-sm">
-                  {product && <li><a href={product.url} class="source-link">Current {product.name} label</a></li>}
-                  {treatment.sources.map((source) => <li><a href={source.url} class="source-link">{source.label}</a></li>)}
-                </ul>
-                <p class="mt-2 text-xs text-leaf-600 dark:text-leaf-300">Reviewed <time datetime={treatment.reviewedOn}>{treatment.reviewedOn}</time></p>
               </details>
+              )}
               <noscript>
                 <details class="mt-2">
                   <summary class="inline-flex min-h-11 cursor-pointer items-center text-sm font-semibold">Plants in this treatment ({members.length})</summary>
@@ -150,9 +143,8 @@ const careSources = [...new Map(plantCareGroups.flatMap((group) =>
             <li
               data-feeding-plant={plant.id}
               data-search={feedingSearchText(plant)}
-              data-acidity={care.acidity}
-              data-fertility={care.fertility}
-              data-care-group={care.id}
+              data-acidity={care.acidity === "unreviewed" ? undefined : care.acidity}
+              data-fertility={care.fertility === "unreviewed" ? undefined : care.fertility}
               data-treatments={treatments.map((treatment) => treatment.id).join("|")}
             >
               <PlantCard plant={plant} />
@@ -163,14 +155,6 @@ const careSources = [...new Map(plantCareGroups.flatMap((group) =>
     </section>
     <noscript><p class="mt-4 text-sm">All active plants are shown. Open a treatment for its instructions and plant list; filtering requires JavaScript.</p></noscript>
 
-    <details class="mt-6 border-t border-leaf-200 pt-2 dark:border-leaf-800">
-      <summary class="inline-flex min-h-11 cursor-pointer items-center gap-2 rounded-lg text-sm font-semibold">Care classification sources <Icon name="info" class="h-4 w-4" /></summary>
-      <p class="mt-2 text-sm text-leaf-700 dark:text-leaf-300">Acidity and fertility are separate plant facts, not feeding schedules. Unreviewed means unclassified—not “no fertilizer needed”.</p>
-      <ul class="mt-2 text-sm">
-        {careSources.map((source) => <li data-care-source-groups={source.groups.join("|")}><a class="source-link" href={source.url}>{source.label}</a></li>)}
-      </ul>
-      <p data-care-source-empty hidden class="mt-2 text-sm text-leaf-700 dark:text-leaf-300">No reviewed classification sources for these plants yet.</p>
-    </details>
   </div>
 </Layout>
 

@@ -482,7 +482,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     const restored = restoreState;
     restoreState = undefined;
     const selectedTypes = new Set(restored?.types ?? []);
-    const selectedTraits = new Set(restored?.traits ?? []);
+    const selectedTraits = new Set((restored?.traits ?? []).filter((trait) => trait !== "Care unclassified"));
     const selectedSuns = new Set(restored?.suns ?? []);
     const filterSets: Record<string, Set<string>> = {
       type: selectedTypes,
@@ -498,6 +498,12 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
     let activeTag =
       restored?.tag ??
       new URLSearchParams(window.location.search).get("tag")?.trim() ?? "";
+    if (activeTag === "Care unclassified") {
+      activeTag = "";
+      const url = new URL(window.location.href);
+      url.searchParams.delete("tag");
+      history.replaceState(history.state, "", url);
+    }
 
     for (const chip of chips) {
       chip.setAttribute(

@@ -314,10 +314,9 @@ function renderInlineMarkdown(text: string): string {
       }
     </section>
 
-    {!archived && (
+    {!archived && feeding.length > 0 && (
       <section aria-label="Feeding guidance" class="mt-8">
         <h2 class="font-serif text-xl font-semibold">Feeding & soil care</h2>
-        {feeding.length > 0 ? (
           <ul class="mt-2 divide-y divide-leaf-200 dark:divide-leaf-800">
             {feeding.map((treatment) => (
               <li>
@@ -327,12 +326,6 @@ function renderInlineMarkdown(text: string): string {
               </li>
             ))}
           </ul>
-        ) : (
-          <p class="mt-2 text-sm text-leaf-700 dark:text-leaf-300">
-            No treatment recorded.
-            {" "}<a href={`/feeding/?view=category&q=${encodeURIComponent(name)}`} class="inline-flex min-h-11 items-center rounded-lg font-semibold underline underline-offset-4">View care categories</a>
-          </p>
-        )}
       </section>
     )}
 

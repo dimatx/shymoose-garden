@@ -15,7 +15,7 @@ test("every published plant has one explicit care assignment, including unreview
   assert.equal(assigned.length, plants.length);
   assert.throws(() => plantCareGroup("not-in-the-catalog"), /Missing explicit care classification/);
   assert.equal(plantCareGroup("parsley").fertility, "unreviewed");
-  assert.deepEqual(plantCareTags("parsley"), ["Care unclassified"]);
+  assert.deepEqual(plantCareTags("parsley"), []);
 });
 
 test("acidity and fertility are independent, reviewed facts rather than mutually exclusive feeding buckets", () => {

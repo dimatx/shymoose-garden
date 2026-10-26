@@ -25,7 +25,7 @@ test("the complete treatment catalog satisfies sources, dates, triggers and audi
     for (const season of entry.seasons) assert.ok(FEEDING_SEASONS[season]);
     assert.ok(entry.steps.length <= 4);
     assert.ok(entry.title.length <= 65);
-    assert.ok(entry.caution.length <= 180);
+    if (entry.caution) assert.ok(entry.caution.length <= 180);
   }
 });
 
@@ -110,7 +110,18 @@ test("audit keeps no-application actions separate from seasonal feeding jobs", (
   const noFeed = treatment("lean-soil-no-feed");
   assert.deepEqual(noFeed.seasons, []);
   assert.equal(noFeed.productId, undefined);
+  assert.deepEqual(noFeed.steps, []);
+  assert.equal(noFeed.caution, undefined);
   assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...noFeed, seasons: ["spring"] }]).join("\n"), /Withholding is year-round/);
   assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...noFeed, productId: "holly-tone" }]).join("\n"), /cannot recommend fertilizer/);
   assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...treatment("acid-loving-feed"), trigger: "established" }]).join("\n"), /Trigger and treatment action disagree/);
+});
+
+test("cautions are optional, while actual applications still require instructions and evidence", () => {
+  const base = treatment("acid-loving-feed");
+  assert.equal(base.caution, undefined);
+  assert.deepEqual(auditFeedingCatalog(plants, feedingProducts, [base]), []);
+  assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...base, caution: " " }]).join("\n"), /caution/);
+  assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...base, steps: [] }]).join("\n"), /practical instructions/);
+  assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...treatment("lean-soil-no-feed"), sources: [] }]).join("\n"), /sources/);
 });

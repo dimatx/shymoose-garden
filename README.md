@@ -73,7 +73,9 @@ not per-plant feeding notes or an application tracker. **By season** lists
 applications separately from year-round no-feed groups. **By category** browses
 independent soil-pH and fertility classifications. **By fertilizer** opens the
 matching treatment and its plants. A selected treatment shows **When, Trigger,
-and Use** once, with instructions, exceptions and sources in a disclosure.
+and Use** once, with application instructions and genuine exceptions in a
+disclosure. Cautions are optional and address a specific application mistake;
+no-application treatments do not need filler instructions.
 Its plants use the same `PlantCard` component as the main catalog.
 
 Classifications live in `src/data/plant-care.ts`. Each published plant has
@@ -83,15 +85,19 @@ organically rich soil does not imply frequent fertilizer, and acid-loving is
 not a feeding schedule. `src/lib/plant-care.ts` supplies the shared labels to
 catalog Traits filters, plant cards, plant-page tag links and treatment browsing.
 Never duplicate derived care labels in a plant's authored `tags`.
+Only established classifications are shown publicly. Missing classifications
+do not generate research-status tags or filters. Sources, review dates and
+unreviewed assignments remain internal data, validated at build time rather
+than rendered in the catalog or shipped in browser bundles.
 
 Shared treatment records live in `src/data/feeding.ts`. Their audiences refer
 to reviewed care groups, structured botanical facets, fertility classes, or
 explicit plant IDs—not prose parsing or a catch-all feeding recommendation.
 Multiple treatments may apply to a plant at distinct stages or triggers.
 Plant pages link to those records instead of repeating generic instructions.
-Missing treatment membership means **no treatment recorded**, not no fertilizer
-needed. Archived plants retain their classification but never become treatment
-jobs.
+Missing treatment membership remains an internal gap, not a no-feed
+recommendation; plant pages simply omit an empty treatment section.
+Archived plants retain their classification but never become treatment jobs.
 
 View, category, fertilizer, treatment and search are encoded in the URL, so
 refresh, bookmarks and a plant-page round trip retain context. Legacy plant

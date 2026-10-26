@@ -31,12 +31,15 @@ export const feedingTreatmentSchema = z.object({
   material: careTextSchema.pipe(z.string().max(100)),
   productId: careIdSchema.optional(),
   audience: audienceSchema,
-  steps: z.array(careTextSchema.pipe(z.string().max(240))).min(1).max(4),
-  caution: careTextSchema.pipe(z.string().max(180)),
+  steps: z.array(careTextSchema.pipe(z.string().max(240))).max(4),
+  caution: careTextSchema.pipe(z.string().max(180)).optional(),
   exceptions: z.array(z.object({ plantIds: ids, label: careTextSchema.pipe(z.string().max(60)), note: careTextSchema.pipe(z.string().max(160)) }).strict()).optional(),
   sources: z.array(careSourceSchema).min(1),
   reviewedOn: careReviewDateSchema,
 }).strict().superRefine((treatment, ctx) => {
+  if (treatment.action !== "withhold" && !treatment.steps.length) {
+    ctx.addIssue({ code: "custom", path: ["steps"], message: "An application needs practical instructions" });
+  }
   if ((treatment.action === "withhold") !== (treatment.seasons.length === 0)) {
     ctx.addIssue({ code: "custom", path: ["seasons"], message: "Withholding is year-round; applications need an explicit season" });
   }

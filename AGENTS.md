@@ -133,6 +133,10 @@ reference and reconcile:
   organic matter, or a vendor's product list. Care labels are derived by the
   shared helpers, not duplicated in Markdown `tags`. Shared treatment records
   in `src/data/feeding.ts` hold instructions once; plant pages link to them.
+  Keep care-classification and treatment citations, review dates and
+  research-status labels internal. Public
+  treatment copy gives application instructions, not research commentary;
+  add a caution only when it prevents a specific application mistake.
 - `lifeCycle` describes cultivation here (e.g. frost-tender tomatoes grown
   as annuals). `Seasonal` foliage means seasonal herbaceous growth; it is not
   a woody deciduous classification.

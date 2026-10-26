@@ -1,5 +1,5 @@
 import { expect, test, type Page } from "@playwright/test";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { auditPlants } from "../../scripts/check-plant-data";
 import { feedingProducts, feedingTreatments } from "../../src/data/feeding";
@@ -41,19 +41,16 @@ test("one treatment exposes timing, trigger and use once, followed by matching c
   await expect.poll(() => visibleIds(page)).toEqual(ids(members));
   await expect(panel.getByText(treatment.when, { exact: true })).toBeVisible();
   await expect(panel.locator("dd").filter({ hasText: TREATMENT_TRIGGERS[treatment.trigger] })).toBeVisible();
-  await expect(panel.getByText(treatment.caution, { exact: true })).toBeVisible();
+  await expect(panel.locator("[data-treatment-caution]")).toHaveCount(0);
   await expect(page.getByText(treatment.steps[0], { exact: true })).toHaveCount(1);
   await expect(page.getByText(treatment.steps[0], { exact: true })).toBeHidden();
-  await panel.getByText("Instructions & sources", { exact: true }).click();
+  await panel.getByText("Application instructions", { exact: true }).click();
   await expect(page.getByText(treatment.steps[0], { exact: true })).toBeVisible();
-  for (const source of treatment.sources) {
-    await expect(panel.getByRole("link", { name: source.label, exact: true })).toHaveAttribute("href", source.url);
-  }
+  await expect(panel.locator("a")).toHaveCount(0);
   for (const plant of members) {
     const card = page.locator(`[data-feeding-plant="${plant.id}"]`);
     for (const tag of plantCareTags(plant.id)) await expect(card.locator("[data-care-labels]")).toContainText(tag);
     await expect(card).not.toContainText(treatment.steps[0]);
-    await expect(card).not.toContainText(treatment.caution);
   }
 });
 
@@ -143,14 +140,14 @@ test("selection and search survive a plant round trip and recover when a new sea
   expect(errors).toEqual([]);
 });
 
-test("unreviewed classifications are visible as gaps, not converted into feeding advice", async ({ page }) => {
-  await page.goto("/feeding/?view=category&acidity=unreviewed&fertility=unreviewed&q=parsley");
+test("incomplete research stays internal without being converted into feeding advice", async ({ page }) => {
+  await page.goto("/feeding/?view=category&q=parsley");
   await expect.poll(() => visibleIds(page)).toEqual(["parsley"]);
-  await expect(page.locator('[data-feeding-plant="parsley"] [data-care-labels]')).toHaveText("Care unclassified");
+  await expect(page.locator('[data-feeding-plant="parsley"] [data-care-labels]')).toHaveCount(0);
+  await expect(page.locator('option[value="unreviewed"]')).toHaveCount(0);
   await page.getByRole("button", { name: /^Related treatments/ }).click();
   await expect(page.locator("[data-treatment]:visible")).toHaveCount(0);
-  await page.getByText("Care classification sources", { exact: true }).click();
-  await expect(page.locator("[data-care-source-empty]")).toBeVisible();
+  expect(await page.locator("main").innerText()).not.toMatch(/unreviewed|unclassified|sources/i);
 });
 
 test("every plant page links to shared treatments without duplicating their instructions", async ({ page }) => {
@@ -168,11 +165,10 @@ test("every plant page links to shared treatments without duplicating their inst
     const shared = treatmentsForPlant(plant, feedingTreatments);
     if (row.archived) expect(row.links).toEqual([]);
     else if (shared.length) expect(row.links).toEqual(shared.map((item) => treatmentUrl(item.id)));
-    else {
-      expect(row.text).toContain("No treatment recorded");
-      expect(row.links).toHaveLength(1);
+    else expect(row.links).toEqual([]);
+    for (const item of shared) {
+      for (const step of item.steps) expect(row.text).not.toContain(step);
     }
-    for (const item of shared) expect(row.text).not.toContain(item.steps[0]);
   }
 });
 
@@ -205,9 +201,45 @@ test("native shared treatment instructions and catalog cards work without JavaSc
   await expect(page.locator("[data-feeding-tools]")).toBeHidden();
   await expect(page.locator("[data-feeding-plant]:visible")).toHaveCount(active.length);
   await page.locator("#lean-soil-no-feed > summary").click();
-  await page.locator("#lean-soil-no-feed").getByText("Instructions & sources", { exact: true }).click();
-  await expect(page.getByText(entry("lean-soil-no-feed").treatment.steps[0], { exact: true })).toBeVisible();
+  await expect(page.locator("#lean-soil-no-feed").getByText("Application instructions", { exact: true })).toHaveCount(0);
+  await expect(page.locator("#lean-soil-no-feed dd").filter({ hasText: "No fertilizer" })).toBeVisible();
   await page.locator("#lean-soil-no-feed").getByText(/^Plants in this treatment/).click();
   await expect(page.locator("#lean-soil-no-feed").getByRole("link", { name: "Tickseed 'Zagreb'", exact: true })).toBeVisible();
   await context.close();
+});
+
+test("public treatment pages omit editorial asides and research metadata, including in closed disclosures", async ({ page }) => {
+  await page.goto("/feeding/");
+  const html = await page.content();
+  for (const { treatment } of catalog) {
+    for (const source of treatment.sources) expect(html).not.toContain(source.url);
+  }
+  await expect(page.locator("main time")).toHaveCount(0);
+  await expect(page.locator('main a[href^="https://"]')).toHaveCount(0);
+  await expect(page.getByText("Care classification sources", { exact: true })).toHaveCount(0);
+  for (const { treatment } of catalog) {
+    await page.goto(treatmentUrl(treatment.id));
+    expect(await page.locator("main").innerText()).not.toMatch(/dry soil is a watering|flower-color treatments are separate|unreviewed|unclassified|reviewed \d|instructions & sources|care classification sources/i);
+    if (treatment.action === "withhold") {
+      await expect(page.locator(`#${treatment.id}`).getByText("Application instructions", { exact: true })).toHaveCount(0);
+      await expect(page.locator(`#${treatment.id} [data-treatment-caution]`)).toHaveCount(0);
+    }
+  }
+});
+
+test("browser bundles do not ship the internal care bibliography or review records", () => {
+  const files = readdirSync(path.join("dist", "_astro")).filter((file) => file.endsWith(".js"));
+  for (const file of files) {
+    const script = readFileSync(path.join("dist", "_astro", file), "utf8");
+    expect(script, file).not.toMatch(/plants\.ces\.ncsu\.edu|extension\.(?:umd|umn)\.edu|rhs\.org\.uk|reviewedOn/);
+  }
+});
+
+test("retired research-status filters do not leak labels or hide the garden", async ({ page }) => {
+  await page.goto("/?tag=Care%20unclassified");
+  await expect(page.locator("#plant-grid")).toHaveAttribute("data-ready", "true");
+  await expect(page.locator(".plant-item:visible")).toHaveCount(plants.length);
+  await expect(page.locator("#active-tag-bar")).toBeHidden();
+  expect(new URL(page.url()).searchParams.has("tag")).toBe(false);
+  await expect(page.locator('[data-filter="trait"][data-value="Care unclassified"]')).toHaveCount(0);
 });

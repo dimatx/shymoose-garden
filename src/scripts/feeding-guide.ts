@@ -132,13 +132,6 @@ function initFeedingCatalog() {
       ? "Choose a fertilizer to see its treatments and plants."
       : view === "category" ? "No catalog plants match. Clear filters or choose another category."
         : "No treatments match these plants. Use By category to search the whole catalog.";
-    const careGroupIds = new Set((showPlants ? visible : matching).map((row) => row.dataset.careGroup!));
-    let sourceCount = 0;
-    for (const source of root.querySelectorAll<HTMLElement>("[data-care-source-groups]")) {
-      source.hidden = !source.dataset.careSourceGroups!.split("|").some((id) => careGroupIds.has(id));
-      if (!source.hidden) sourceCount++;
-    }
-    root.querySelector<HTMLElement>("[data-care-source-empty]")!.hidden = sourceCount > 0;
     saveUrl();
   };
   const clearSelection = () => { selected = ""; };

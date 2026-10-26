@@ -36,7 +36,7 @@ export interface FeedingTreatment {
   productId?: string;
   audience: TreatmentAudience;
   steps: readonly string[];
-  caution: string;
+  caution?: string;
   exceptions?: readonly { plantIds: readonly string[]; label: string; note: string }[];
   sources: readonly CareSource[];
   reviewedOn: string;

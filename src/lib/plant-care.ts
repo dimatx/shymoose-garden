@@ -27,12 +27,12 @@ export interface PlantCareGroup {
 export const CARE_TAGS = [
   ...Object.entries(SOIL_REACTIONS).filter(([id]) => id !== "unreviewed").map(([, label]) => label),
   ...Object.entries(SOIL_FERTILITIES).filter(([id]) => id !== "unreviewed").map(([, label]) => label),
-  "Care unclassified",
 ];
 
-const assignments = new Map(plantCareGroups.flatMap((group) => group.plantIds.map((id) => [id, group] as const)));
+let assignments: Map<string, PlantCareGroup> | undefined;
 
 export function plantCareGroup(plantId: string): PlantCareGroup {
+  assignments ??= new Map(plantCareGroups.flatMap((group) => group.plantIds.map((id) => [id, group] as const)));
   const group = assignments.get(plantId);
   if (!group) throw new Error(`Missing explicit care classification for ${plantId}; classify it or mark it unreviewed.`);
   return group;
@@ -40,7 +40,6 @@ export function plantCareGroup(plantId: string): PlantCareGroup {
 
 export function plantCareTags(plantId: string): string[] {
   const group = plantCareGroup(plantId);
-  if (group.acidity === "unreviewed" && group.fertility === "unreviewed") return ["Care unclassified"];
   return [
     ...(group.acidity === "unreviewed" ? [] : [SOIL_REACTIONS[group.acidity]]),
     ...(group.fertility === "unreviewed" ? [] : [SOIL_FERTILITIES[group.fertility]]),

@@ -12,7 +12,7 @@ photoAlt: "A rounded Carol Mackie daphne shrub with small, light green leaves, g
 photoCredit: "David J. Stang, CC BY-SA 4.0, via Wikimedia Commons"
 shortDescription: "A compact, semi-evergreen shrub with gold-edged leaves and clusters of intensely fragrant pale pink flowers in mid-spring."
 care:
-  water: "Moderate; keep soil evenly moist but never soggy. Avoid overwatering and over-fertilizing."
+  water: "Moderate; keep soil evenly moist but never soggy."
   soil: "Moist, very well-drained, humusy soil. Mulch to keep roots cool. Poor drainage is a common cause of sudden death."
   sunlight: "Light to part shade; protect from hot afternoon sun and cold winter winds."
   hardiness: "USDA zones 4–7."

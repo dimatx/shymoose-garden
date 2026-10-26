@@ -94,10 +94,16 @@ Shared treatment records live in `src/data/feeding.ts`. Their audiences refer
 to reviewed care groups, structured botanical facets, fertility classes, or
 explicit plant IDs—not prose parsing or a catch-all feeding recommendation.
 Multiple treatments may apply to a plant at distinct stages or triggers.
-Plant pages link to those records instead of repeating generic instructions.
+`plantNutritionCare()` projects the same records into **Fertilizer** and
+**Mulching** cards inside the existing plant-page Care grid. Product, timing,
+applicability and optional application instructions are readable there without
+visiting the guide. There is no separate treatment-link section or parallel
+per-plant copy of the feeding data. Structured timing exceptions apply to the
+appropriate plants in both views.
+
 Missing treatment membership remains an internal gap, not a no-feed
-recommendation; plant pages simply omit an empty treatment section.
-Archived plants retain their classification but never become treatment jobs.
+recommendation; unsupported nutrition fields are omitted. Archived plants
+retain their care information but never become treatment jobs in the guide.
 
 View, category, fertilizer, treatment and search are encoded in the URL, so
 refresh, bookmarks and a plant-page round trip retain context. Legacy plant
@@ -111,6 +117,9 @@ invalid review dates, guessed audiences, incompatible product acidity,
 feeding/enrichment of lean-soil plants, wrong triggers, irrelevant exceptions,
 and vendor-only treatment evidence. They validate structure, not scientific
 truth: source review is still required before assigning a classification.
+Fertilizer advice belongs in the shared nutrition records, not in unrelated
+Water or Pruning prose. Legacy blanket annual-feeding advice is reconciled
+against authoritative garden guidance before becoming an inline care field.
 
 When changing advice, verify extension/RHS plant guidance and current product
 directions, retain the sources and review date, and distinguish plant nutrition

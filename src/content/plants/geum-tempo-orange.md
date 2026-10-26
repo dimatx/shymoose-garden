@@ -20,7 +20,7 @@ care:
   bloom: "Double to single flowers in cream-peach-orange shades, blooming in early spring, sometimes into early summer."
   spacing: "12–18 in apart."
   propagation: "Divide in spring"
-  pruning: "Maintenance: low. Deadhead spent blooms to encourage more flowering, feed with a balanced fertilizer in early spring after the first year, and cut back all growth in fall."
+  pruning: "Deadhead spent blooms to encourage more flowering, and cut back all growth in fall."
   petSafety: "Unknown"
   petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
   petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
@@ -49,7 +49,6 @@ sprawling. Bees and other pollinators visit readily.
 
 Grow in full sun to part shade in moist, loamy, well-drained soil, watering
 at an average rate and letting the soil dry somewhat between waterings.
-Deadhead to prolong bloom, feed with a balanced fertilizer each spring
-after the first year, and cut the plant back in fall ahead of winter. It is
+Deadhead to prolong bloom and cut the plant back in fall ahead of winter. It is
 low maintenance and generally left alone by deer, making it an easy, early
 splash of color at the front of a border.

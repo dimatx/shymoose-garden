@@ -53,7 +53,7 @@ deadheading.
 ## Care tips
 
 Give it full sun and average, well-drained soil; it tolerates sand, clay, and
-rocky ground alike and needs no fertilizer or staking once established. Because
+rocky ground alike and needs no staking once established. Because
 of its deep taproot, site it where it can stay put — established plants resent
 being moved. The only real maintenance is an annual cutback to the ground in
 late fall or early spring; otherwise, simply enjoy the flowers, the seed pods,

@@ -33,7 +33,12 @@ export const feedingTreatmentSchema = z.object({
   audience: audienceSchema,
   steps: z.array(careTextSchema.pipe(z.string().max(240))).max(4),
   caution: careTextSchema.pipe(z.string().max(180)).optional(),
-  exceptions: z.array(z.object({ plantIds: ids, label: careTextSchema.pipe(z.string().max(60)), note: careTextSchema.pipe(z.string().max(160)) }).strict()).optional(),
+  exceptions: z.array(z.object({
+    plantIds: ids,
+    label: careTextSchema.pipe(z.string().max(60)),
+    when: careTextSchema.pipe(z.string().max(100)).optional(),
+    note: careTextSchema.pipe(z.string().max(160)).optional(),
+  }).strict().refine((exception) => Boolean(exception.when || exception.note), "An exception needs timing or instructions")).optional(),
   sources: z.array(careSourceSchema).min(1),
   reviewedOn: careReviewDateSchema,
 }).strict().superRefine((treatment, ctx) => {
@@ -93,9 +98,12 @@ export function auditFeedingCatalog(
     if (product && audiencePlants.some((plant) => !product.soilReactions.some((reaction) => reaction === plantCareGroup(plant.id).acidity))) {
       issues.push(`treatments.${treatment.id}: product ${product.id} does not fit every audience plant's reviewed acidity class`);
     }
+    const timingOverrides = new Set<string>();
     for (const exception of treatment.exceptions ?? []) {
       for (const id of exception.plantIds) {
         if (!audiencePlants.some((plant) => plant.id === id)) issues.push(`treatments.${treatment.id}: exception ${id} is outside its audience`);
+        if (exception.when && timingOverrides.has(id)) issues.push(`treatments.${treatment.id}: conflicting timing overrides for ${id}`);
+        if (exception.when) timingOverrides.add(id);
       }
     }
   }

@@ -100,7 +100,8 @@ test("every detail page renders the researched fields, tag links and calendar ba
     const article = document.querySelector("article")!;
     return {
       id,
-      care: Object.fromEntries(Array.from(article.querySelectorAll("dt")).map((term) => [
+      care: Object.fromEntries(Array.from(article.querySelectorAll("dt"))
+        .filter((term) => !["Fertilizer", "Mulching"].includes(term.textContent!.trim())).map((term) => [
         term.textContent!.trim(), term.parentElement!.parentElement!.querySelector("dd")!.textContent!.trim(),
       ])),
       tags: Array.from(article.querySelectorAll('a[href^="/?tag="]')).map((link) => ({

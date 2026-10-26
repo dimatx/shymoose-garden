@@ -20,7 +20,7 @@ care:
   bloom: "Semi-double yellow flowers with dark edges on black stems, blooming in early spring, sometimes into early summer."
   spacing: "18–24 in apart."
   propagation: "Divide in spring"
-  pruning: "Maintenance: low. Deadhead spent blooms to encourage more flowering, feed with a balanced fertilizer in early spring after the first year, and cut back all growth in fall."
+  pruning: "Deadhead spent blooms to encourage more flowering, and cut back all growth in fall."
   petSafety: "Unknown"
   petSafetyInfo: "No dog/cat assessment was verified in the sources reviewed."
   petSafetySources: ["https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list"]
@@ -49,7 +49,6 @@ summer, drawing bees and butterflies throughout.
 
 Plant in full sun to part shade in moist, loamy, well-drained soil, and
 water at an average rate, letting the soil dry out somewhat between
-waterings. Deadhead spent blooms to keep the display going, feed with a
-balanced fertilizer each spring after the first year, and cut the plant
+waterings. Deadhead spent blooms to keep the display going and cut the plant
 back in fall to help it overwinter cleanly. It is low maintenance, deer
 resistant, and a reliable early-season draw for pollinators.

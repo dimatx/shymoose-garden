@@ -50,7 +50,7 @@ butterflies are frequent visitors throughout the bloom period.
 Plant in full sun and average, well-drained soil enriched with organic
 matter; some afternoon shade is tolerated but flowering will be lighter.
 Keep soil evenly moist without letting it stay soggy, and avoid overhead
-watering to reduce the risk of powdery mildew. Deadhead through the season,
-feed with a slow-release fertilizer in spring, and cut the clump back in
+watering to reduce the risk of powdery mildew. Deadhead through the season
+and cut the clump back in
 late fall or early spring. Deer and salt tend not to bother it, making it a
 reliable choice for exposed or roadside borders.

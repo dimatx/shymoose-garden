@@ -3,7 +3,7 @@ import { test } from "node:test";
 import { auditPlants } from "../scripts/check-plant-data.ts";
 import { feedingProducts, feedingTreatments } from "../src/data/feeding.ts";
 import { auditFeedingCatalog } from "../src/lib/feeding-schema.ts";
-import { FEEDING_SEASONS, TREATMENT_TRIGGERS, getTreatmentCatalog, isTreatmentMember, matchesFeedingSearch, treatmentUrl, treatmentsForPlant } from "../src/lib/feeding.ts";
+import { FEEDING_SEASONS, TREATMENT_TRIGGERS, getTreatmentCatalog, isTreatmentMember, matchesFeedingSearch, plantNutritionCare, treatmentUrl, treatmentsForPlant } from "../src/lib/feeding.ts";
 import { plantCareGroup } from "../src/lib/plant-care.ts";
 
 const { plants } = auditPlants();
@@ -124,4 +124,73 @@ test("cautions are optional, while actual applications still require instruction
   assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...base, caution: " " }]).join("\n"), /caution/);
   assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...base, steps: [] }]).join("\n"), /practical instructions/);
   assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...treatment("lean-soil-no-feed"), sources: [] }]).join("\n"), /sources/);
+});
+
+test("plant care shows product, timing and applicability directly from shared feeding data", () => {
+  const care = plantNutritionCare(find("mountain-laurel"), feedingTreatments, feedingProducts);
+  assert.ok(care.fertilizer?.kind === "applications");
+  const [application] = care.fertilizer.applications;
+  assert.equal(application.use, "Espoma Holly-tone");
+  assert.equal(application.when, treatment("acid-loving-feed").when);
+  assert.ok(application.condition);
+  assert.match(application.condition, /Only if a soil test/);
+  assert.deepEqual(application.steps, treatment("acid-loving-feed").steps);
+  assert.ok(!("sources" in application));
+  assert.ok(!("reviewedOn" in application));
+});
+
+test("plant-specific timing overrides apply to the right plants without parsing prose", () => {
+  for (const id of ["karen-azelia", "rhododendron-dauricum"]) {
+    const care = plantNutritionCare(find(id), feedingTreatments, feedingProducts);
+    assert.ok(care.fertilizer?.kind === "applications");
+    assert.equal(care.fertilizer.applications[0].when, "At the first hint of bloom color");
+  }
+  const care = plantNutritionCare(find("pieris-japonica"), feedingTreatments, feedingProducts);
+  assert.ok(care.fertilizer?.kind === "applications");
+  assert.equal(care.fertilizer.applications[0].when, treatment("acid-loving-feed").when);
+});
+
+test("no-feed care stays concise, mulch is separate, and missing guidance is not guessed", () => {
+  const lean = plantNutritionCare(find("anacis-verticillata-zagreb"), feedingTreatments, feedingProducts);
+  assert.deepEqual(lean.fertilizer, { kind: "withhold", summary: "No routine fertilizer in lean soil." });
+  const astilbe = plantNutritionCare(find("astilbe-chinensis-visions"), feedingTreatments, feedingProducts);
+  assert.equal(astilbe.fertilizer?.kind, "withhold");
+  assert.deepEqual(astilbe.mulch.map((item) => item.treatmentId), ["organic-perennial-mulch"]);
+  assert.equal(astilbe.mulch[0].use, treatment("organic-perennial-mulch").material);
+  const parsley = plantNutritionCare(find("parsley"), feedingTreatments, feedingProducts);
+  assert.equal(parsley.fertilizer, undefined);
+  assert.deepEqual(parsley.mulch, []);
+});
+
+test("detail care retains multiple crop stages and archived care facts without creating archived jobs", () => {
+  const tomato = plantNutritionCare(find("solanum-lycopersicum-carbon"), feedingTreatments, feedingProducts);
+  assert.ok(tomato.fertilizer?.kind === "applications");
+  assert.deepEqual(tomato.fertilizer.applications.map((item) => item.treatmentId), ["vegetable-bed-nutrition", "tomato-fruit-feed"]);
+  const archived = { ...find("mountain-laurel"), data: { ...find("mountain-laurel").data, archived: true } };
+  assert.deepEqual(plantNutritionCare(archived, feedingTreatments, feedingProducts), plantNutritionCare(find("mountain-laurel"), feedingTreatments, feedingProducts));
+  assert.deepEqual(treatmentsForPlant(archived, feedingTreatments), []);
+  assert.equal(archived.data.archived, true);
+});
+
+test("legacy fertilizer advice is correctly placed and conditional rather than hidden in pruning", () => {
+  for (const id of ["geum-tempo-orange", "geum-tempo-yellow"]) {
+    assert.doesNotMatch(find(id).data.care.pruning, /fertili[sz]|feed/i);
+    const care = plantNutritionCare(find(id), feedingTreatments, feedingProducts);
+    assert.ok(care.fertilizer?.kind === "applications");
+    const condition = care.fertilizer.applications[0].condition;
+    assert.ok(condition);
+    assert.match(condition, /soil test/);
+  }
+  assert.equal(plantNutritionCare(find("baptisia-decadence-lemon-meringue"), feedingTreatments, feedingProducts).fertilizer?.kind, "withhold");
+  assert.equal(plantNutritionCare(find("veronica-pink-potion"), feedingTreatments, feedingProducts).fertilizer?.kind, "applications");
+});
+
+test("care projection rejects missing products and audit catches conflicting timing overrides", () => {
+  assert.throws(() => plantNutritionCare(find("mountain-laurel"), feedingTreatments, []), /Missing product/);
+  const base = treatment("acid-loving-feed");
+  const conflicts = [
+    { plantIds: ["karen-azelia"], label: "First", when: "Early spring" },
+    { plantIds: ["karen-azelia"], label: "Second", when: "Late summer" },
+  ];
+  assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...base, exceptions: conflicts }]).join("\n"), /conflicting timing overrides/);
 });

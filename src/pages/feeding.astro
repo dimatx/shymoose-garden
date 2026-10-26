@@ -4,7 +4,7 @@ import PlantCard from "../components/PlantCard.astro";
 import Icon from "../components/Icon.astro";
 import { getSortedPlants } from "../lib/plants";
 import { feedingProducts, feedingTreatments } from "../data/feeding";
-import { FEEDING_SEASONS, TREATMENT_TRIGGERS, feedingSearchText, getTreatmentCatalog, treatmentsForPlant } from "../lib/feeding";
+import { FEEDING_SAFETY, FEEDING_SEASONS, TREATMENT_TRIGGERS, feedingSearchText, getTreatmentCatalog, treatmentsForPlant } from "../lib/feeding";
 import { SOIL_REACTIONS, SOIL_FERTILITIES, plantCareGroup } from "../lib/plant-care";
 
 const plants = (await getSortedPlants()).filter((plant) => !plant.data.archived);
@@ -58,7 +58,7 @@ const catalog = getTreatmentCatalog(plants, feedingTreatments);
 
     <p data-feeding-safety class="mb-4 flex items-start gap-2 text-sm text-leaf-700 dark:text-leaf-300">
       <Icon name="alert-triangle" class="mt-0.5 h-4 w-4 shrink-0" />
-      <span>Do not feed drought-stressed plants or frozen soil.</span>
+      <span>{FEEDING_SAFETY}</span>
     </p>
     <p data-feeding-status role="status" class="mb-3 text-sm font-semibold"></p>
     <p data-feeding-empty hidden class="rounded-2xl border border-leaf-300 p-4 text-sm dark:border-leaf-700"></p>
@@ -115,7 +115,7 @@ const catalog = getTreatmentCatalog(plants, feedingTreatments);
                 </ol>
                 {treatment.exceptions?.map((exception) => (
                   <p data-treatment-exception={exception.plantIds.join("|")} class="mt-3 text-sm text-leaf-700 dark:text-leaf-300">
-                    <strong>{exception.label}: </strong>{exception.note}
+                    <strong>{exception.label}: </strong>{exception.when}{exception.when && exception.note ? ". " : ""}{exception.note}
                   </p>
                 ))}
               </details>

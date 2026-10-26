@@ -4,11 +4,12 @@ import { Image, getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Icon from "../../components/Icon.astro";
 import PlantMonths from "../../components/PlantMonths.astro";
+import CareApplication from "../../components/CareApplication.astro";
 import { noteEditorUrl } from "../../lib/notes";
 import { plantTypes, plantDisplayTags, petSafetyFacts, isMapped } from "../../lib/plant-facets";
 import type { IconName } from "../../components/Icon.astro";
-import { feedingTreatments } from "../../data/feeding";
-import { treatmentUrl, treatmentsForPlant } from "../../lib/feeding";
+import { feedingProducts, feedingTreatments } from "../../data/feeding";
+import { FEEDING_SAFETY, plantNutritionCare, type CareApplication as Application, type FertilizerCare } from "../../lib/feeding";
 
 export async function getStaticPaths() {
   const plants = await getCollection("plants");
@@ -42,7 +43,7 @@ const {
 } = plant.data;
 const tags = plantDisplayTags(plant.data, plant.id);
 const safety = petSafetyFacts(care.petSafety);
-const feeding = treatmentsForPlant(plant, feedingTreatments);
+const nutrition = plantNutritionCare(plant, feedingTreatments, feedingProducts);
 function sourceLabel(url: string): string {
   const host = new URL(url).hostname.replace(/^www\./, "");
   return ({
@@ -68,10 +69,16 @@ const ogImage = await getImage({
 type CareSection = {
   title: string;
   blurb: string;
-  items: { label: string; value: string | undefined; icon: IconName }[];
+  items: {
+    label: string;
+    value: string | undefined;
+    icon: IconName;
+    fertilizer?: FertilizerCare;
+    mulch?: Application[];
+  }[];
 };
 
-const sections = (
+const sections: CareSection[] = (
   [
     {
       title: "Habitat & form",
@@ -92,6 +99,8 @@ const sections = (
         { label: "Sunlight", value: care.sunlight, icon: "sun" },
         { label: "Water", value: care.water, icon: "water" },
         { label: "Soil", value: care.soil, icon: "soil" },
+        { label: "Fertilizer", value: undefined, icon: "seedling", fertilizer: nutrition.fertilizer },
+        { label: "Mulching", value: undefined, icon: "soil", mulch: nutrition.mulch },
         { label: "Planting distance", value: care.spacing, icon: "spacing" },
         { label: "Propagation", value: care.propagation, icon: "seedling" },
         { label: "Pruning", value: care.pruning, icon: "scissors" },
@@ -102,7 +111,7 @@ const sections = (
 )
   .map((section) => ({
     ...section,
-    items: section.items.filter((item) => Boolean(item.value)),
+    items: section.items.filter((item) => Boolean(item.value || ("fertilizer" in item && item.fertilizer) || ("mulch" in item && item.mulch?.length))),
   }))
   .filter((section) => section.items.length > 0);
 
@@ -253,7 +262,7 @@ function renderInlineMarkdown(text: string): string {
     <section class="mt-8 space-y-8">
       {
         sections.map((section) => (
-          <div>
+          <div id={section.title === "Care" ? "care" : undefined} data-care-section={section.title === "Care" ? "" : undefined} class="scroll-mt-24">
             <div class="flex items-baseline justify-between gap-3">
               <h2 class="font-serif text-xl font-semibold">{section.title}</h2>
               <p class="hidden text-sm text-leaf-600 dark:text-leaf-300 sm:block">
@@ -266,7 +275,7 @@ function renderInlineMarkdown(text: string): string {
                 const isHighlyToxic = isPetSafety && safety.tone === "danger";
                 const isMildlyToxic = isPetSafety && safety.tone === "caution";
                 return (
-                  <div class={`flex gap-3 rounded-2xl border p-4 ${isPetSafety ? 'border-leaf-200/80 bg-leaf-50 dark:border-leaf-800/80 dark:bg-leaf-900' : 'border-leaf-200/80 bg-white dark:border-leaf-800/80 dark:bg-leaf-900'}`}>
+                  <div data-care-field={item.label} class={`flex gap-3 rounded-2xl border p-4 ${isPetSafety ? 'border-leaf-200/80 bg-leaf-50 dark:border-leaf-800/80 dark:bg-leaf-900' : 'border-leaf-200/80 bg-white dark:border-leaf-800/80 dark:bg-leaf-900'}`}>
                     <span
                       class={`mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-full ${
                         isHighlyToxic ? 'bg-red-100 text-red-600 dark:bg-red-900 dark:text-red-300' :
@@ -297,7 +306,20 @@ function renderInlineMarkdown(text: string): string {
                         )}
                       </div>
                       <dd class={`mt-0.5 text-sm text-leaf-800 dark:text-leaf-200`}>
-                        {item.value}
+                        {item.fertilizer ? (
+                          item.fertilizer.kind === "withhold" ? item.fertilizer.summary : (
+                            <div class="space-y-2">
+                            <ul class="space-y-3">
+                              {item.fertilizer.applications.map((application) => <li><CareApplication application={application} /></li>)}
+                            </ul>
+                            <p class="text-leaf-600 dark:text-leaf-300">{FEEDING_SAFETY}</p>
+                            </div>
+                          )
+                        ) : item.mulch ? (
+                          <ul class="space-y-3">
+                            {item.mulch.map((application) => <li><CareApplication application={application} /></li>)}
+                          </ul>
+                        ) : item.value}
                       </dd>
                       {item.label === "Pet safety" && plant.data.care.petSafetyNotes && (
                         <p class={`mt-1 text-sm text-leaf-600 dark:text-leaf-300`}>
@@ -313,21 +335,6 @@ function renderInlineMarkdown(text: string): string {
         ))
       }
     </section>
-
-    {!archived && feeding.length > 0 && (
-      <section aria-label="Feeding guidance" class="mt-8">
-        <h2 class="font-serif text-xl font-semibold">Feeding & soil care</h2>
-          <ul class="mt-2 divide-y divide-leaf-200 dark:divide-leaf-800">
-            {feeding.map((treatment) => (
-              <li>
-                <a href={treatmentUrl(treatment.id)} class="inline-flex min-h-11 items-center gap-2 rounded-lg text-sm font-semibold text-leaf-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-leaf-300">
-                  {treatment.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-      </section>
-    )}
 
     <PlantMonths bloomMonths={bloomMonths} pruneMonths={pruneMonths} />
 

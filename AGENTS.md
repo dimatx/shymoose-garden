@@ -132,7 +132,10 @@ reference and reconcile:
   when evidence is missing. Never infer a feeding schedule from acidity,
   organic matter, or a vendor's product list. Care labels are derived by the
   shared helpers, not duplicated in Markdown `tags`. Shared treatment records
-  in `src/data/feeding.ts` hold instructions once; plant pages link to them.
+  in `src/data/feeding.ts` hold instructions once. Project fertilizer and mulch
+  information into the normal plant-page Care cards and aggregate the same
+  records in the standalone guide; do not add a separate treatment-link section
+  or put feeding advice in Water or Pruning fields.
   Keep care-classification and treatment citations, review dates and
   research-status labels internal. Public
   treatment copy gives application instructions, not research commentary;

@@ -94,10 +94,14 @@ Shared treatment records live in `src/data/feeding.ts`. Their audiences refer
 to reviewed care groups, structured botanical facets, fertility classes, or
 explicit plant IDs—not prose parsing or a catch-all feeding recommendation.
 Multiple treatments may apply to a plant at distinct stages or triggers.
-`plantNutritionCare()` projects the same records into **Fertilizer** and
-**Mulching** cards inside the existing plant-page Care grid. Product, timing,
-applicability and optional application instructions are readable there without
-visiting the guide. There is no separate treatment-link section or parallel
+`plantNutritionCare()` in `src/lib/plant-nutrition.ts` projects a **facts-only**
+view into **Fertilizer** and **Mulching** cards inside the existing plant-page
+Care grid: product/material, timing, the condition qualifying the recommendation,
+and notes explicitly scoped to that plant. Shared procedure steps, general
+cautions, global policies and research metadata are not part of the detail
+contract or renderer. Application procedures stay in the standalone guide;
+their existence must not generate a plant-page disclosure or extra paragraph.
+There is no separate treatment-link section or parallel
 per-plant copy of the feeding data. Structured timing exceptions apply to the
 appropriate plants in both views.
 
@@ -117,6 +121,11 @@ invalid review dates, guessed audiences, incompatible product acidity,
 feeding/enrichment of lean-soil plants, wrong triggers, irrelevant exceptions,
 and vendor-only treatment evidence. They validate structure, not scientific
 truth: source review is still required before assigning a classification.
+Independent acceptance examples specify complete plant-detail nutrition facts.
+Regression tests also change guide-only content to verify it cannot affect
+those facts, and check every rendered nutrition card for unscoped text or
+controls. Collection-to-projection comparisons check synchronization, not
+editorial relevance; they are not a substitute for these surface contracts.
 Fertilizer advice belongs in the shared nutrition records, not in unrelated
 Water or Pruning prose. Legacy blanket annual-feeding advice is reconciled
 against authoritative garden guidance before becoming an inline care field.

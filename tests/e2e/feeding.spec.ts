@@ -3,8 +3,10 @@ import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { auditPlants } from "../../scripts/check-plant-data";
 import { feedingProducts, feedingTreatments } from "../../src/data/feeding";
-import { FEEDING_SAFETY, getTreatmentCatalog, plantNutritionCare, treatmentUrl, TREATMENT_TRIGGERS } from "../../src/lib/feeding";
+import { getTreatmentCatalog, treatmentUrl, TREATMENT_TRIGGERS } from "../../src/lib/feeding";
+import { plantNutritionCare, type PlantNutritionCare, type PlantNutritionFact } from "../../src/lib/plant-nutrition";
 import { plantCareGroup, plantCareTags } from "../../src/lib/plant-care";
+import { nutritionExamples } from "../fixtures/plant-nutrition";
 
 const { plants } = auditPlants();
 const active = plants.filter((plant) => !plant.data.archived);
@@ -152,7 +154,7 @@ test("incomplete research stays internal without being converted into feeding ad
   expect(await page.locator("main").innerText()).not.toMatch(/unreviewed|unclassified|sources/i);
 });
 
-test("every plant page projects the shared nutrition data directly into its existing Care grid", async ({ page }) => {
+test("every plant Care grid stays synchronized without extra procedures, controls or policy text", async ({ page }) => {
   const pages = plants.map(({ id }) => ({ id, html: readFileSync(path.join("dist", "plants", id, "index.html"), "utf8") }));
   await page.goto("/feeding/");
   const actual = await page.evaluate((pages) => pages.map(({ id, html }) => {
@@ -165,15 +167,26 @@ test("every plant page projects the shared nutrition data directly into its exis
       use: item.querySelector("[data-care-use]")!.textContent!.trim(),
       when: item.querySelector("[data-care-when]")!.textContent!.trim(),
       condition: item.querySelector("[data-care-condition]")?.textContent?.trim() ?? null,
-      steps: [...item.querySelectorAll("[data-care-steps] > li")].map((step) => step.textContent!.trim()),
       notes: [...item.querySelectorAll("[data-care-note]")].map((note) => note.textContent!.trim()),
-      caution: item.querySelector("[data-care-caution]")?.textContent?.trim() ?? null,
     }));
+    const markup = (element: Element) => {
+      const copy = element.cloneNode(true) as Element;
+      for (const fact of copy.querySelectorAll("[data-care-application]")) {
+        fact.querySelector(":scope > [data-care-use]")?.remove();
+        fact.querySelector(":scope > [data-care-when]")?.remove();
+        fact.querySelector(":scope > [data-care-condition]")?.remove();
+        fact.querySelectorAll(":scope > [data-care-note]").forEach((note) => note.remove());
+      }
+      return {
+        extraText: copy.querySelector("dd")!.textContent!.trim(),
+        controls: element.querySelectorAll("a, button, details, summary, ol, input, select, textarea").length,
+      };
+    };
     return {
       id,
       oldSection: Boolean(doc.querySelector('[aria-label="Feeding guidance"]')),
-      fertilizer: fertilizer ? { text: fertilizer.querySelector("dd")!.textContent!.trim(), applications: applications(fertilizer), links: fertilizer.querySelectorAll("a").length } : null,
-      mulch: mulch ? applications(mulch) : null,
+      fertilizer: fertilizer ? { text: fertilizer.querySelector("dd")!.textContent!.trim(), applications: applications(fertilizer), ...markup(fertilizer) } : null,
+      mulch: mulch ? { applications: applications(mulch), ...markup(mulch) } : null,
     };
   }), pages);
   for (const row of actual) {
@@ -182,33 +195,59 @@ test("every plant page projects the shared nutrition data directly into its exis
     expect(row.oldSection, row.id).toBe(false);
     if (!care.fertilizer) expect(row.fertilizer, row.id).toBeNull();
     else {
-      expect(row.fertilizer!.links, row.id).toBe(0);
+      expect(row.fertilizer!.controls, row.id).toBe(0);
       if (care.fertilizer.kind === "withhold") {
         expect(row.fertilizer!.text, row.id).toBe(care.fertilizer.summary);
         expect(row.fertilizer!.applications, row.id).toEqual([]);
       } else {
-        expect(row.fertilizer!.applications, row.id).toEqual(care.fertilizer.applications.map((item) => ({ ...item, condition: item.condition ?? null, caution: item.caution ?? null })));
+        expect(row.fertilizer!.extraText, row.id).toBe("");
+        expect(row.fertilizer!.applications, row.id).toEqual(care.fertilizer.applications.map((item) => ({ ...item, condition: item.condition ?? null })));
       }
     }
-    expect(row.mulch, row.id).toEqual(care.mulch.length ? care.mulch.map((item) => ({ ...item, condition: item.condition ?? null, caution: item.caution ?? null })) : null);
+    expect(row.mulch, row.id).toEqual(care.mulch.length ? {
+      applications: care.mulch.map((item) => ({ ...item, condition: item.condition ?? null })),
+      extraText: "",
+      controls: 0,
+    } : null);
   }
 });
 
-test("fertilizer is self-contained care information rather than a section of guide links", async ({ page }) => {
+for (const [id, example] of Object.entries(nutritionExamples)) {
+  test(`${id} shows only the independently specified nutrition facts`, async ({ page }) => {
+    const expected: PlantNutritionCare = example;
+    const factText = (facts: readonly PlantNutritionFact[]) => facts.flatMap((fact) =>
+      [fact.use, fact.when, ...(fact.condition ? [fact.condition] : []), ...fact.notes]).join(" ");
+    await page.goto(`/plants/${id}/#care`);
+    const fertilizer = page.locator('[data-care-section] [data-care-field="Fertilizer"]');
+    const mulch = page.locator('[data-care-section] [data-care-field="Mulching"]');
+    if (!expected.fertilizer) await expect(fertilizer).toHaveCount(0);
+    else {
+      const text = expected.fertilizer.kind === "withhold" ? expected.fertilizer.summary : factText(expected.fertilizer.applications);
+      await expect(fertilizer.locator("dd")).toHaveText(text, { useInnerText: true });
+      await expect(fertilizer.locator("details, summary, a, button")).toHaveCount(0);
+    }
+    if (!expected.mulch.length) await expect(mulch).toHaveCount(0);
+    else {
+      await expect(mulch.locator("dd")).toHaveText(factText(expected.mulch), { useInnerText: true });
+      await expect(mulch.locator("details, summary, a, button")).toHaveCount(0);
+    }
+  });
+}
+
+test("plant nutrition is readable in Care while shared procedures remain in the guide", async ({ page }) => {
   await page.goto("/plants/mountain-laurel/#care");
   const care = page.locator("[data-care-section]");
   const fertilizer = care.locator('[data-care-field="Fertilizer"]');
   await expect(fertilizer.getByText("Espoma Holly-tone", { exact: true })).toBeVisible();
   await expect(fertilizer.locator("[data-care-when]")).toHaveText("Late winter to early spring");
   await expect(fertilizer.locator("[data-care-condition]")).toContainText("Only if a soil test");
-  await expect(fertilizer.getByText(FEEDING_SAFETY, { exact: true })).toBeVisible();
-  await expect(fertilizer.locator("a")).toHaveCount(0);
+  await expect(fertilizer.locator("a, details, summary, button, ol")).toHaveCount(0);
   await expect(page.locator('[aria-label="Feeding guidance"]')).toHaveCount(0);
-  await fertilizer.getByText("How to apply", { exact: true }).click();
-  await expect(fertilizer.getByText(entry("acid-loving-feed").treatment.steps[0], { exact: true })).toBeVisible();
   await expect(fertilizer.locator('a[href^="https://"], time')).toHaveCount(0);
   await page.goto("/feeding/?view=product&product=holly-tone");
   await expect.poll(() => visibleIds(page)).toEqual(ids(entry("acid-loving-feed").plants));
+  await page.locator("#acid-loving-feed").getByText("Application instructions", { exact: true }).click();
+  await expect(page.getByText("Use the nutrients specified by the soil report.", { exact: true })).toBeVisible();
 });
 
 test("care fields retain timing exceptions, no-feed guidance, mulch and distinct crop stages", async ({ page }) => {
@@ -246,8 +285,9 @@ test("integrated care remains available without JavaScript", async ({ browser })
   await page.goto("http://127.0.0.1:4322/plants/mountain-laurel/#care");
   const fertilizer = page.locator('[data-care-field="Fertilizer"]');
   await expect(fertilizer.getByText("Espoma Holly-tone", { exact: true })).toBeVisible();
-  await fertilizer.getByText("How to apply", { exact: true }).click();
-  await expect(fertilizer.getByText(entry("acid-loving-feed").treatment.steps[0], { exact: true })).toBeVisible();
+  await expect(fertilizer.locator("[data-care-when]")).toHaveText("Late winter to early spring");
+  await expect(fertilizer.locator("[data-care-condition]")).toHaveText("Only if a soil test confirms a nutrient shortage.");
+  await expect(fertilizer.locator("details, summary, a, button")).toHaveCount(0);
   await context.close();
 });
 

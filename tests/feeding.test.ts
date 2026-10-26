@@ -3,8 +3,10 @@ import { test } from "node:test";
 import { auditPlants } from "../scripts/check-plant-data.ts";
 import { feedingProducts, feedingTreatments } from "../src/data/feeding.ts";
 import { auditFeedingCatalog } from "../src/lib/feeding-schema.ts";
-import { FEEDING_SEASONS, TREATMENT_TRIGGERS, getTreatmentCatalog, isTreatmentMember, matchesFeedingSearch, plantNutritionCare, treatmentUrl, treatmentsForPlant } from "../src/lib/feeding.ts";
+import { FEEDING_SEASONS, TREATMENT_TRIGGERS, getTreatmentCatalog, isTreatmentMember, matchesFeedingSearch, treatmentUrl, treatmentsForPlant } from "../src/lib/feeding.ts";
+import { plantNutritionCare } from "../src/lib/plant-nutrition.ts";
 import { plantCareGroup } from "../src/lib/plant-care.ts";
+import { nutritionExamples } from "./fixtures/plant-nutrition.ts";
 
 const { plants } = auditPlants();
 const find = (id: string) => {
@@ -126,17 +128,43 @@ test("cautions are optional, while actual applications still require instruction
   assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...treatment("lean-soil-no-feed"), sources: [] }]).join("\n"), /sources/);
 });
 
-test("plant care shows product, timing and applicability directly from shared feeding data", () => {
-  const care = plantNutritionCare(find("mountain-laurel"), feedingTreatments, feedingProducts);
-  assert.ok(care.fertilizer?.kind === "applications");
-  const [application] = care.fertilizer.applications;
-  assert.equal(application.use, "Espoma Holly-tone");
-  assert.equal(application.when, treatment("acid-loving-feed").when);
-  assert.ok(application.condition);
-  assert.match(application.condition, /Only if a soil test/);
-  assert.deepEqual(application.steps, treatment("acid-loving-feed").steps);
-  assert.ok(!("sources" in application));
-  assert.ok(!("reviewedOn" in application));
+test("plant detail facts match independent acceptance examples without procedures or policies", () => {
+  for (const [id, expected] of Object.entries(nutritionExamples)) {
+    assert.deepEqual(plantNutritionCare(find(id), feedingTreatments, feedingProducts), expected, id);
+  }
+});
+
+test("changing guide procedures, cautions and research metadata cannot change plant detail facts", () => {
+  const changed = feedingTreatments.map((entry) => ({
+    ...entry,
+    title: "A replacement guide heading",
+    steps: ["A replacement guide procedure.", "Another guide-only instruction."],
+    caution: "A replacement guide caution.",
+    exceptions: entry.exceptions?.map((exception) => ({ ...exception, label: "A replacement guide exception heading" })),
+    sources: [{ label: "Replacement internal reference", url: "https://example.org/reference" }],
+    reviewedOn: "2026-01-01",
+  }));
+  for (const plant of plants) {
+    assert.deepEqual(
+      plantNutritionCare(plant, changed, feedingProducts),
+      plantNutritionCare(plant, feedingTreatments, feedingProducts),
+      plant.id,
+    );
+  }
+});
+
+test("only explicitly plant-scoped notes and timing exceptions enter detail facts", () => {
+  const base = treatment("acid-loving-feed");
+  const changed = [{
+    ...base,
+    exceptions: [{ plantIds: ["karen-azelia"], label: "Azalea exception", when: "A specific growth stage", note: "A sourced note for this azalea." }],
+  }];
+  const azalea = plantNutritionCare(find("karen-azelia"), changed, feedingProducts);
+  assert.ok(azalea.fertilizer?.kind === "applications");
+  assert.equal(azalea.fertilizer.applications[0].when, "A specific growth stage");
+  assert.deepEqual(azalea.fertilizer.applications[0].notes, ["A sourced note for this azalea."]);
+  const laurel = plantNutritionCare(find("mountain-laurel"), changed, feedingProducts);
+  assert.deepEqual(laurel, nutritionExamples["mountain-laurel"]);
 });
 
 test("plant-specific timing overrides apply to the right plants without parsing prose", () => {

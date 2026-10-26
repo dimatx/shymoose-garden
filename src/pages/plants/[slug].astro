@@ -4,12 +4,12 @@ import { Image, getImage } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import Icon from "../../components/Icon.astro";
 import PlantMonths from "../../components/PlantMonths.astro";
-import CareApplication from "../../components/CareApplication.astro";
+import PlantNutritionFact from "../../components/PlantNutritionFact.astro";
 import { noteEditorUrl } from "../../lib/notes";
 import { plantTypes, plantDisplayTags, petSafetyFacts, isMapped } from "../../lib/plant-facets";
 import type { IconName } from "../../components/Icon.astro";
 import { feedingProducts, feedingTreatments } from "../../data/feeding";
-import { FEEDING_SAFETY, plantNutritionCare, type CareApplication as Application, type FertilizerCare } from "../../lib/feeding";
+import { plantNutritionCare, type PlantNutritionFact as NutritionFact, type FertilizerCare } from "../../lib/plant-nutrition";
 
 export async function getStaticPaths() {
   const plants = await getCollection("plants");
@@ -74,7 +74,7 @@ type CareSection = {
     value: string | undefined;
     icon: IconName;
     fertilizer?: FertilizerCare;
-    mulch?: Application[];
+    mulch?: readonly NutritionFact[];
   }[];
 };
 
@@ -308,16 +308,13 @@ function renderInlineMarkdown(text: string): string {
                       <dd class={`mt-0.5 text-sm text-leaf-800 dark:text-leaf-200`}>
                         {item.fertilizer ? (
                           item.fertilizer.kind === "withhold" ? item.fertilizer.summary : (
-                            <div class="space-y-2">
                             <ul class="space-y-3">
-                              {item.fertilizer.applications.map((application) => <li><CareApplication application={application} /></li>)}
+                              {item.fertilizer.applications.map((fact) => <li><PlantNutritionFact fact={fact} /></li>)}
                             </ul>
-                            <p class="text-leaf-600 dark:text-leaf-300">{FEEDING_SAFETY}</p>
-                            </div>
                           )
                         ) : item.mulch ? (
                           <ul class="space-y-3">
-                            {item.mulch.map((application) => <li><CareApplication application={application} /></li>)}
+                            {item.mulch.map((fact) => <li><PlantNutritionFact fact={fact} /></li>)}
                           </ul>
                         ) : item.value}
                       </dd>

@@ -132,10 +132,16 @@ reference and reconcile:
   when evidence is missing. Never infer a feeding schedule from acidity,
   organic matter, or a vendor's product list. Care labels are derived by the
   shared helpers, not duplicated in Markdown `tags`. Shared treatment records
-  in `src/data/feeding.ts` hold instructions once. Project fertilizer and mulch
-  information into the normal plant-page Care cards and aggregate the same
-  records in the standalone guide; do not add a separate treatment-link section
-  or put feeding advice in Water or Pruning fields.
+  in `src/data/feeding.ts` hold instructions once. Project only fertilizer and
+  mulch facts into the normal plant-page Care cards via `plant-nutrition.ts`:
+  product/material, timing, necessary applicability conditions, and explicitly
+  plant-scoped notes. Shared steps, general cautions and global policies belong
+  in the standalone guide, not the plant-detail contract or renderer. Do not
+  create a disclosure or paragraph merely because shared content exists.
+  Keep independent acceptance examples and rendered-content boundary tests;
+  comparing a renderer against its own projector proves only consistency.
+  Aggregate the same records in the guide; do not add a separate treatment-link
+  section or put feeding advice in Water or Pruning fields.
   Keep care-classification and treatment citations, review dates and
   research-status labels internal. Public
   treatment copy gives application instructions, not research commentary;

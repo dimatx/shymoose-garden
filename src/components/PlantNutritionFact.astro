@@ -1,0 +1,12 @@
+---
+import type { PlantNutritionFact } from "../lib/plant-nutrition";
+interface Props { fact: PlantNutritionFact }
+const { fact } = Astro.props;
+---
+
+<div data-care-application={fact.treatmentId} class="space-y-1">
+  <p data-care-use class="font-medium">{fact.use}</p>
+  <p data-care-when>{fact.when}</p>
+  {fact.condition && <p data-care-condition class="text-leaf-600 dark:text-leaf-300">{fact.condition}</p>}
+  {fact.notes.map((note) => <p data-care-note>{note}</p>)}
+</div>

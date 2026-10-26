@@ -15,7 +15,7 @@ const suns = SUN_LEVELS.filter((level) =>
   plants.some((p) => p.data.sunExposure.includes(level))
 );
 
-const allTags = new Set(plants.flatMap((p) => plantTags(p.data)));
+const allTags = new Set(plants.flatMap((p) => plantTags(p.data, p.id)));
 const traits = TRAIT_FILTERS.filter((t) => allTags.has(t));
 
 const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
@@ -194,7 +194,7 @@ const hasFilters = types.length > 0 || traits.length > 0 || suns.length > 0;
               data-added={plant.data.dateAdded?.getTime() ?? 0}
               data-types={JSON.stringify(plantTypes(plant.data))}
               data-sun={`|${plant.data.sunExposure.join("|")}|`}
-              data-tags={`|${plantTags(plant.data).join("|")}|`}
+              data-tags={`|${plantTags(plant.data, plant.id).join("|")}|`}
               data-archived={String(plant.data.archived)}
               data-archived-first={String(
                 plant.data.archived && !plants[i - 1]?.data.archived

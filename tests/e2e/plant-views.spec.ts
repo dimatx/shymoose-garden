@@ -25,7 +25,7 @@ test("every catalog entry exposes the same classifications, sunlight and safety 
   }));
   expect(actual.sort((a, b) => a.id.localeCompare(b.id))).toEqual(
     plants.map(({ id, data }) => ({
-      id, types: plantTypes(data), sun: data.sunExposure, tags: plantTags(data),
+      id, types: plantTypes(data), sun: data.sunExposure, tags: plantTags(data, id),
       archived: data.archived,
       warning: petSafetyFacts(data.care.petSafety).highlyToxic
         ? data.care.petSafety === "Highly toxic to cats" ? "Highly toxic to cats" : "Highly toxic to dogs and cats"
@@ -49,8 +49,8 @@ test("every type, sun and trait filter returns its entire matching collection", 
       await dropdown.locator("summary").click();
     }
     await chip.click();
-    const expected = plants.filter(({ data }) => (
-      group === "type" ? plantTypes(data) : group === "sun" ? data.sunExposure : plantTags(data)
+    const expected = plants.filter(({ id, data }) => (
+      group === "type" ? plantTypes(data) : group === "sun" ? data.sunExposure : plantTags(data, id)
     ).includes(value));
     await expect.poll(visibleIds, { message: `${group}: ${value}` }).toEqual(ids(expected));
     await chip.click();
@@ -68,10 +68,10 @@ test("every type, sun and trait filter returns its entire matching collection", 
     await chip.click();
     await page.keyboard.press("Escape");
   }
-  const combined = plants.filter(({ data }) =>
+  const combined = plants.filter(({ id, data }) =>
     plantTypes(data).some((type) => ["Tree", "Conifer"].includes(type)) &&
     data.sunExposure.some((sun) => ["Full sun", "Part shade"].includes(sun)) &&
-    ["Evergreen", "Drought tolerant"].every((tag) => plantTags(data).includes(tag)));
+    ["Evergreen", "Drought tolerant"].every((tag) => plantTags(data, id).includes(tag)));
   expect(combined.length).toBeGreaterThan(0);
   await expect.poll(visibleIds).toEqual(ids(combined));
 });
@@ -128,7 +128,7 @@ test("every detail page renders the researched fields, tag links and calendar ba
       "Planting distance": data.care.spacing, Propagation: data.care.propagation,
       Pruning: data.care.pruning, "Pet safety": data.care.petSafety,
     });
-    expect(detail.tags, id).toEqual(plantDisplayTags(data).map((tag) => ({ label: tag, value: tag })));
+    expect(detail.tags, id).toEqual(plantDisplayTags(data, id).map((tag) => ({ label: tag, value: tag })));
     expect(detail.sources, id).toEqual(data.care.petSafetySources);
     expect(detail.photoAlt, id).toBe(data.photoAlt);
     expect(detail.mapLink, id).toBe(isMapped(data));

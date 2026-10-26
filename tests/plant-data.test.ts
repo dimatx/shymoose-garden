@@ -30,8 +30,8 @@ test("tree-form conifers, dwarf shrubs, and deciduous conifers have independent 
     assert.equal(plantTypes(find(id)).includes("Tree"), false, id);
   }
   for (const id of ["larch", "metasequoia-glyptostroboides-miss-grace"]) {
-    assert.ok(plantTags(find(id)).includes("Deciduous"));
-    assert.equal(plantTags(find(id)).includes("Evergreen"), false);
+    assert.ok(plantTags(find(id), id).includes("Deciduous"));
+    assert.equal(plantTags(find(id), id).includes("Evergreen"), false);
   }
 });
 
@@ -49,14 +49,14 @@ test("sun filters use explicit exposure, never positive or negative phrases in p
   assert.equal(find("japanese-painted-fern").sunExposure.includes("Full sun"), false);
   assert.equal(find("thuja-occidentalis-emerald").sunExposure.includes("Full shade"), false);
   const data = { ...find("blue-eyed-grass"), care: { ...find("blue-eyed-grass").care, sunlight: "Do not plant in full shade." } };
-  assert.equal(plantTags(data).includes("Full shade"), false);
+  assert.equal(plantTags(data, "blue-eyed-grass").includes("Full shade"), false);
 });
 
 test("pet safety determines filter membership and warning severity consistently", () => {
-  for (const { data } of plants) {
+  for (const { id, data } of plants) {
     const safety = petSafetyFacts(data.care.petSafety);
-    assert.equal(plantTags(data).includes("Toxic to dogs"), safety.toxicToDogs);
-    assert.equal(plantTags(data).includes("Toxic to cats"), safety.toxicToCats);
+    assert.equal(plantTags(data, id).includes("Toxic to dogs"), safety.toxicToDogs);
+    assert.equal(plantTags(data, id).includes("Toxic to cats"), safety.toxicToCats);
   }
   assert.equal(petSafetyFacts("Unknown").tone, "unknown");
   assert.equal(petSafetyFacts("Potentially toxic").tone, "caution");
@@ -70,9 +70,9 @@ test("pet safety determines filter membership and warning severity consistently"
 });
 
 test("detail tags retain filter meanings without repeating type and sun care cards", () => {
-  for (const { data } of plants) {
-    for (const tag of plantDisplayTags(data)) {
-      assert.ok(plantTags(data).includes(tag));
+  for (const { id, data } of plants) {
+    for (const tag of plantDisplayTags(data, id)) {
+      assert.ok(plantTags(data, id).includes(tag));
       assert.equal(plantTypes(data).includes(tag), false);
       assert.equal((data.sunExposure as readonly string[]).includes(tag), false);
     }

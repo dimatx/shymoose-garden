@@ -54,6 +54,7 @@ test("archived row boundary follows the visible sorted DOM order", async ({ page
 test("calendar buttons advance one month even after repeat navigation", async ({ page }) => {
   await page.goto("/bloom/");
   for (let visit = 0; visit < 2; visit++) {
+    await expect(page.locator(".month-calendar")).toHaveAttribute("data-ready", "true");
     const label = page.locator("[data-cal-range]");
     const before = await label.textContent();
     const firstMonth = () => page.locator(".month-head").evaluateAll((headers) =>
@@ -67,6 +68,7 @@ test("calendar buttons advance one month even after repeat navigation", async ({
     await expect(label).toHaveText(before!);
     if (visit === 0) {
       await page.getByRole("link", { name: "All plants" }).click();
+      await expect(page.locator("#plant-grid")).toHaveAttribute("data-ready", "true");
       await page.evaluate(() => {
         const link = document.createElement("a");
         link.href = "/bloom/";

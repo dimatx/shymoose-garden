@@ -5,9 +5,9 @@ import { parseDocument } from "yaml";
 import { plantMetadataSchema } from "../src/lib/plant-schema.ts";
 import { isMapped, isOnCalendar, plantTypes } from "../src/lib/plant-facets.ts";
 import type { z } from "astro/zod";
-import { feedingRecommendations } from "../src/data/feeding.ts";
-import { auditFeedingRecommendations } from "../src/lib/feeding-schema.ts";
-import { getFeedingGuide } from "../src/lib/feeding.ts";
+import { feedingProducts, feedingTreatments } from "../src/data/feeding.ts";
+import { auditFeedingCatalog } from "../src/lib/feeding-schema.ts";
+import { plantCareGroup } from "../src/lib/plant-care.ts";
 
 export interface AuditedPlant {
   id: string;
@@ -74,7 +74,7 @@ export function auditPlants(directory = path.resolve("src/content/plants")) {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const { plants, issues } = auditPlants();
-  issues.push(...auditFeedingRecommendations(plants, feedingRecommendations));
+  issues.push(...auditFeedingCatalog(plants, feedingProducts, feedingTreatments));
   if (issues.length) {
     console.error(issues.join("\n"));
     process.exitCode = 1;
@@ -86,7 +86,10 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
     console.log(`Bloom calendar: ${count((p) => isOnCalendar(p.data, "bloomMonths"))}; pruning calendar: ${count((p) => isOnCalendar(p.data, "pruneMonths"))}. All other exclusions are explicit or archived.`);
     console.log(`Map: ${active.filter((p) => isMapped(p.data)).length}/${active.length} active plants placed; unplaced plants need actual garden coordinates, not inferred locations.`);
     console.log(`Pet safety: ${count((p) => p.data.care.petSafety === "Unknown")} unknown assessments remain explicitly unconfirmed. Schema validity is not scientific verification.`);
-    const feeding = getFeedingGuide(plants, feedingRecommendations);
-    console.log(`Feeding: ${feeding.plantGroupCount} plants with plant/group guidance; ${feeding.baselineCount} with a general baseline; ${feeding.missing.length} unreviewed. Product associations and references are structurally valid, not a prescription to feed.`);
+    const classified = active.filter((plant) => {
+      const care = plantCareGroup(plant.id);
+      return care.acidity !== "unreviewed" || care.fertility !== "unreviewed";
+    }).length;
+    console.log(`Care: ${classified}/${active.length} active plants have reviewed soil classifications; all others are explicitly unreviewed. ${feedingTreatments.length} shared treatments have validated audiences, triggers and sources.`);
   }
 }

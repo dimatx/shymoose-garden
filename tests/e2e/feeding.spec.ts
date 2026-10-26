@@ -2,191 +2,212 @@ import { expect, test, type Page } from "@playwright/test";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { auditPlants } from "../../scripts/check-plant-data";
-import { feedingRecommendations } from "../../src/data/feeding";
-import { feedingPlantUrl, getFeedingGuide, getFeedingProductGroups } from "../../src/lib/feeding";
+import { feedingProducts, feedingTreatments } from "../../src/data/feeding";
+import { getTreatmentCatalog, treatmentUrl, treatmentsForPlant, TREATMENT_TRIGGERS } from "../../src/lib/feeding";
+import { plantCareGroup, plantCareTags } from "../../src/lib/plant-care";
 
 const { plants } = auditPlants();
-const guide = getFeedingGuide(plants, feedingRecommendations);
-const groups = getFeedingProductGroups(guide.entries);
-const visibleIds = (page: Page) => page.locator("[data-feeding-row]:visible").evaluateAll((rows) =>
-  rows.map((row) => row.getAttribute("data-plant-id")).sort());
-const expectedSeason = (window: string) => guide.entries.filter((entry) => entry.recommendation.window === window)
-  .flatMap((entry) => entry.plants.map((plant) => plant.id)).sort();
+const active = plants.filter((plant) => !plant.data.archived);
+const catalog = getTreatmentCatalog(plants, feedingTreatments);
+const ids = (items: typeof plants) => items.map((plant) => plant.id).sort();
+const visibleIds = (page: Page) => page.locator("[data-feeding-plant]:visible").evaluateAll((rows) =>
+  rows.map((row) => row.getAttribute("data-feeding-plant")).sort());
+const entry = (id: string) => catalog.find((item) => item.treatment.id === id)!;
+const openTreatment = async (page: Page, id: string) => {
+  await page.locator(`#${id} > summary`).click();
+  await expect(page.locator(`#${id}`)).toHaveAttribute("open", "");
+};
 
-test("seasonal browsing starts focused with collapsed plant rows, not a document of advice", async ({ page }) => {
+test("spring shows shared treatments, with no per-plant essays or source-link wall", async ({ page }) => {
   await page.goto("/feeding/");
-  await expect(page.getByRole("button", { name: "By season", exact: true })).toHaveAttribute("aria-pressed", "true");
-  await expect.poll(() => visibleIds(page)).toEqual(expectedSeason("spring"));
-  await expect(page.locator("[data-feeding-row][open]")).toHaveCount(0);
-  await expect(page.locator("[data-feeding-results] a:visible")).toHaveCount(0);
-  await expect(page.locator("[data-feeding-results] img:visible")).toHaveCount(expectedSeason("spring").length);
-  await page.getByRole("combobox", { name: "Seasonal window", exact: true }).selectOption("growing");
-  await expect.poll(() => visibleIds(page)).toEqual(expectedSeason("growing"));
-  await page.getByRole("combobox", { name: "Seasonal window", exact: true }).selectOption("no-routine");
-  await expect.poll(() => visibleIds(page)).toEqual(expectedSeason("no-routine"));
-  await expect(page.locator("[data-feeding-count]")).toContainText("general baseline");
+  await expect(page.locator("[data-feeding-catalog]")).toHaveAttribute("data-ready", "true");
+  const expected = catalog.filter(({ treatment, plants: members }) => members.length && (!treatment.seasons.length || treatment.seasons.includes("spring")));
+  expect(await page.locator("[data-treatment]:visible").evaluateAll((items) => items.map((item) => item.id).sort()))
+    .toEqual(expected.map((item) => item.treatment.id).sort());
+  await expect(page.locator("[data-treatment][open]")).toHaveCount(0);
+  await expect(page.locator("[data-treatment-plants]")).toBeHidden();
+  await expect(page.locator("[data-feeding-catalog] a:visible")).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Leave unfed", exact: true })).toBeVisible();
+  const words = (await page.locator("main").innerText()).split(/\s+/).filter(Boolean).length;
+  expect(words).toBeLessThan(350);
+  expect(await page.locator("main").innerText()).not.toMatch(/\bdefault\b|general baseline/i);
 });
 
-test("a fertilizer shows every reviewed matching plant and no implied blanket application", async ({ page }) => {
+test("one treatment exposes timing, trigger and use once, followed by matching catalog cards", async ({ page }) => {
+  await page.goto("/feeding/");
+  await openTreatment(page, "acid-loving-feed");
+  const { treatment, plants: members } = entry("acid-loving-feed");
+  const panel = page.locator("#acid-loving-feed");
+  await expect.poll(() => visibleIds(page)).toEqual(ids(members));
+  await expect(panel.getByText(treatment.when, { exact: true })).toBeVisible();
+  await expect(panel.locator("dd").filter({ hasText: TREATMENT_TRIGGERS[treatment.trigger] })).toBeVisible();
+  await expect(panel.getByText(treatment.caution, { exact: true })).toBeVisible();
+  await expect(page.getByText(treatment.steps[0], { exact: true })).toHaveCount(1);
+  await expect(page.getByText(treatment.steps[0], { exact: true })).toBeHidden();
+  await panel.getByText("Instructions & sources", { exact: true }).click();
+  await expect(page.getByText(treatment.steps[0], { exact: true })).toBeVisible();
+  for (const source of treatment.sources) {
+    await expect(panel.getByRole("link", { name: source.label, exact: true })).toHaveAttribute("href", source.url);
+  }
+  for (const plant of members) {
+    const card = page.locator(`[data-feeding-plant="${plant.id}"]`);
+    for (const tag of plantCareTags(plant.id)) await expect(card.locator("[data-care-labels]")).toContainText(tag);
+    await expect(card).not.toContainText(treatment.steps[0]);
+    await expect(card).not.toContainText(treatment.caution);
+  }
+});
+
+test("a fertilizer shows its full reviewed treatment audience, never an assumed evergreen group", async ({ page }) => {
   await page.goto("/feeding/");
   await page.getByRole("button", { name: "By fertilizer", exact: true }).click();
-  await expect(page.locator("[data-feeding-empty]")).toHaveText("Choose a fertilizer to see its reviewed plant matches.");
-  const selector = page.getByRole("combobox", { name: "Fertilizer", exact: true });
-  for (const { product, plants: members } of groups) {
-    await selector.selectOption(product.id);
-    await expect.poll(() => visibleIds(page)).toEqual(members.map(({ plant }) => plant.id).sort());
-    await expect(page.locator("[data-feeding-count]")).toHaveText(`${members.length} plants with a reviewed product choice`);
-    await expect(page.locator("[data-product-context]")).toContainText("not instructions to feed every plant");
-    for (const { plant, recommendation } of members) {
-      const row = page.locator(`[data-plant-id="${plant.id}"]`);
-      await expect(row.locator("summary").first()).toContainText("Conditional");
-      await expect(row.locator("summary").first()).toContainText(recommendation.quickCaution);
-    }
+  await expect(page.locator("[data-feeding-empty]")).toContainText("Choose a fertilizer");
+  for (const product of feedingProducts) {
+    await page.getByRole("combobox", { name: "Fertilizer", exact: true }).selectOption(product.id);
+    const matching = catalog.filter((item) => item.treatment.productId === product.id);
+    expect(matching).toHaveLength(1);
+    await expect(page.locator(`#${matching[0].treatment.id}`)).toHaveAttribute("open", "");
+    await expect.poll(() => visibleIds(page)).toEqual(ids(matching[0].plants));
   }
-  await selector.selectOption("no-product");
-  const noProduct = guide.entries.filter((entry) => !entry.recommendation.product).flatMap((entry) => entry.plants.map((plant) => plant.id)).sort();
-  await expect.poll(() => visibleIds(page)).toEqual(noProduct);
-  await expect(page.locator("[data-product-context]")).toContainText("does not mean they need no fertilizer");
+  await page.getByRole("combobox", { name: "Fertilizer", exact: true }).selectOption("holly-tone");
+  expect(await visibleIds(page)).toContain("mountain-laurel");
+  expect(await visibleIds(page)).toContain("tsuga-canadensis-moon-frost");
+  expect(await visibleIds(page)).not.toContain("boxwood");
+  expect(await visibleIds(page)).not.toContain("thuja-occidentalis-emerald");
 });
 
-test("opening a plant exposes its guidance and keeps sources behind a secondary disclosure", async ({ page }) => {
-  await page.goto("/feeding/?view=product&product=holly-tone");
-  const laurel = page.locator('[data-plant-id="mountain-laurel"]');
-  const recommendation = feedingRecommendations.find((entry) => entry.id === "mountain-laurel")!;
-  await laurel.locator("summary").first().click();
-  await expect(laurel).toHaveAttribute("open", "");
-  await expect(laurel.getByText(recommendation.condition, { exact: true })).toBeVisible();
-  await expect(laurel.getByText(recommendation.timing, { exact: true })).toBeVisible();
-  await expect(laurel.getByText(recommendation.instructions, { exact: true })).toBeVisible();
-  await expect(laurel.getByText(`Caution: ${recommendation.warning}`, { exact: true })).toBeVisible();
-  await expect(laurel.locator(`a[href="${recommendation.sources[0].url}"]`)).toBeHidden();
-  await laurel.getByText("Sources & review", { exact: true }).click();
-  for (const source of recommendation.sources) {
-    await expect(laurel.getByRole("link", { name: source.label, exact: true })).toHaveAttribute("href", source.url);
-  }
-  const other = page.locator('[data-plant-id="pieris-japonica"]');
-  await other.locator("summary").first().click();
-  await expect(other).toHaveAttribute("open", "");
-  await expect(laurel).not.toHaveAttribute("open", "");
-  await expect(page.locator("[data-feeding-row][open]")).toHaveCount(1);
+test("care categories filter independent acidity and fertility facts and connect to shared actions", async ({ page }) => {
+  await page.goto("/feeding/?view=category");
+  await page.getByRole("combobox", { name: "Soil fertility", exact: true }).selectOption("lean");
+  const lean = active.filter((plant) => plantCareGroup(plant.id).fertility === "lean");
+  await expect.poll(() => visibleIds(page)).toEqual(ids(lean));
+  expect(await visibleIds(page)).toContain("anacis-verticillata-zagreb");
+  expect(await visibleIds(page)).toContain("coreopsis-verticillata-crazy-cayenne");
+  await page.getByRole("button", { name: /^Related treatments/ }).click();
+  await openTreatment(page, "lean-soil-no-feed");
+  await expect.poll(() => visibleIds(page)).toEqual(ids(lean));
+  await page.getByRole("button", { name: "All treatments", exact: true }).click();
+  await page.getByRole("combobox", { name: "Soil pH", exact: true }).selectOption("acidic");
+  const both = lean.filter((plant) => plantCareGroup(plant.id).acidity === "acidic");
+  await expect.poll(() => visibleIds(page)).toEqual(ids(both));
+  await expect(page.locator("[data-feeding-empty]")).toContainText("No catalog plants match");
+  await page.getByRole("button", { name: "Clear filters", exact: true }).click();
+  await expect.poll(() => visibleIds(page)).toEqual(ids(active));
 });
 
-test("finding a plant searches Latin names and exposes both baseline and missing research honestly", async ({ page }) => {
+test("the same care labels work in the main catalog and on a plant page", async ({ page }) => {
+  await page.goto("/feeding/?view=category&fertility=lean");
+  const expected = await visibleIds(page);
+  await page.goto("/?tag=Lean%20soil");
+  await expect(page.locator("#plant-grid")).toHaveAttribute("data-ready", "true");
+  const mainIds = await page.locator('.plant-item[data-archived="false"]:visible').evaluateAll((items) =>
+    items.map((item) => item.querySelector("a")!.getAttribute("href")!.split("/")[2]).sort());
+  expect(mainIds).toEqual(expected);
+  await page.goto("/plants/anacis-verticillata-zagreb/");
+  await expect(page.getByRole("link", { name: "Lean soil", exact: true })).toHaveAttribute("href", "/?tag=Lean%20soil");
+  const care = page.locator('[aria-label="Feeding guidance"]');
+  await expect(care.getByRole("link", { name: "Leave lean-soil plants unfed", exact: true })).toHaveAttribute("href", treatmentUrl("lean-soil-no-feed"));
+  expect((await care.innerText()).split(/\s+/).length).toBeLessThan(35);
+});
+
+test("seasonal stages are separate actions, and all-year no-feed groups are not scheduled applications", async ({ page }) => {
   await page.goto("/feeding/");
-  await page.getByRole("button", { name: "Find a plant", exact: true }).click();
-  await expect(page.locator("[data-feeding-empty]")).toContainText("Type a common or Latin name");
-  const search = page.getByRole("searchbox", { name: "Find any active plant", exact: true });
-  await search.fill("HEUCHERA primo");
-  await expect.poll(() => visibleIds(page)).toEqual(["heuchera-primo-black-pearl", "heuchera-primo-pistachio-ambrosia"]);
-  const pearl = page.locator('[data-plant-id="heuchera-primo-black-pearl"]');
-  await expect(pearl.locator("summary").first()).toContainText("General baseline");
-  await search.fill("parsley");
-  await expect.poll(() => visibleIds(page)).toEqual(["parsley"]);
-  const parsley = page.locator('[data-plant-id="parsley"]');
-  await expect(parsley.locator("summary").first()).toContainText("Guidance not yet reviewed");
-  await parsley.locator("summary").first().click();
-  await expect(parsley.getByText(/That does not mean no fertilizer is needed/)).toBeVisible();
-  await search.fill("no-such-plant");
-  await expect(page.locator("[data-feeding-empty]")).toContainText("No plants match");
-  await page.getByRole("button", { name: "Reset", exact: true }).click();
-  await expect(search).toHaveValue("");
-  await expect(page.locator("[data-feeding-empty]")).toContainText("Type a common or Latin name");
+  await page.getByRole("combobox", { name: "Season", exact: true }).selectOption("summer");
+  await expect(page.locator("#tomato-fruit-feed")).toBeVisible();
+  await expect(page.locator("#vegetable-bed-nutrition")).toBeHidden();
+  await openTreatment(page, "tomato-fruit-feed");
+  await expect.poll(() => visibleIds(page)).toEqual(ids(entry("tomato-fruit-feed").plants));
+  await page.getByRole("combobox", { name: "Season", exact: true }).selectOption("autumn");
+  await expect(page.locator("[data-no-seasonal-applications]")).toBeVisible();
+  expect(await page.locator("[data-treatment]:visible").evaluateAll((items) => items.map((item) => item.getAttribute("data-action"))))
+    .toEqual(catalog.filter((item) => item.treatment.action === "withhold" && item.plants.length).map(() => "withhold"));
 });
 
-test("product selection, search and open plant survive refresh and a detail round trip", async ({ page }) => {
+test("selection and search survive a plant round trip and recover when a new search no longer matches", async ({ page }) => {
   const errors: Error[] = [];
   page.on("pageerror", (error) => errors.push(error));
   await page.goto("/feeding/?view=product&product=holly-tone&q=laurel");
-  for (let visit = 0; visit < 2; visit++) {
-    await expect(page.getByRole("combobox", { name: "Fertilizer", exact: true })).toHaveValue("holly-tone");
-    await expect(page.getByRole("searchbox", { name: "Search these plants", exact: true })).toHaveValue("laurel");
-    await expect.poll(() => visibleIds(page)).toEqual(["mountain-laurel"]);
-    const row = page.locator('[data-plant-id="mountain-laurel"]');
-    if (!(await row.evaluate((element) => (element as HTMLDetailsElement).open))) await row.locator("summary").first().click();
-    await expect(page).toHaveURL(/plant=mountain-laurel/);
-    await row.getByRole("link", { name: "Full plant page" }).click();
-    await expect(page.getByRole("heading", { level: 1 })).toContainText("Mountain Laurel");
-    await page.goBack();
-    await expect(row).toHaveAttribute("open", "");
-    await page.reload();
-  }
+  await expect.poll(() => visibleIds(page)).toEqual(["mountain-laurel"]);
+  await page.locator('[data-feeding-plant="mountain-laurel"] > a').click();
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Mountain Laurel");
+  await page.goBack();
+  await expect(page.locator("#acid-loving-feed")).toHaveAttribute("open", "");
+  await expect(page.getByRole("searchbox", { name: "Search plants", exact: true })).toHaveValue("laurel");
+  await page.reload();
+  await expect.poll(() => visibleIds(page)).toEqual(["mountain-laurel"]);
+  await page.goto("/feeding/?treatment=acid-loving-feed");
+  await page.getByRole("searchbox", { name: "Search plants", exact: true }).fill("tickseed");
+  await expect(page.locator("#acid-loving-feed")).toBeHidden();
+  await expect(page.locator("#lean-soil-no-feed")).toBeVisible();
+  await openTreatment(page, "lean-soil-no-feed");
+  await expect.poll(() => visibleIds(page)).toEqual(["anacis-verticillata-zagreb", "coreopsis-verticillata-crazy-cayenne"]);
   expect(errors).toEqual([]);
 });
 
-test("plant-specific and legacy recommendation links open the relevant guidance", async ({ page }) => {
-  for (const id of ["mountain-laurel", "heuchera-primo-black-pearl", "parsley"]) {
-    await page.goto(`/plants/${id}/`);
-    await page.getByRole("link", { name: "Open feeding guidance", exact: true }).click();
-    const row = page.locator(`[data-plant-id="${id}"]`);
-    await expect(row).toHaveAttribute("open", "");
-    await expect(row).toBeInViewport();
-  }
-  await page.goto("/feeding/#azalea-rhododendron");
-  await expect(page.locator('[data-recommendation="azalea-rhododendron"][open]')).toHaveCount(1);
+test("unreviewed classifications are visible as gaps, not converted into feeding advice", async ({ page }) => {
+  await page.goto("/feeding/?view=category&acidity=unreviewed&fertility=unreviewed&q=parsley");
+  await expect.poll(() => visibleIds(page)).toEqual(["parsley"]);
+  await expect(page.locator('[data-feeding-plant="parsley"] [data-care-labels]')).toHaveText("Care unclassified");
+  await page.getByRole("button", { name: /^Related treatments/ }).click();
+  await expect(page.locator("[data-treatment]:visible")).toHaveCount(0);
+  await page.getByText("Care classification sources", { exact: true }).click();
+  await expect(page.locator("[data-care-source-empty]")).toBeVisible();
 });
 
-test("every plant row retains exact evidence, warnings and source links from the curated dataset", async ({ page }) => {
-  await page.goto("/feeding/");
-  const actual = await page.locator("[data-feeding-row]").evaluateAll((rows) => rows.map((row) => ({
-    id: row.getAttribute("data-plant-id"),
-    recommendation: row.getAttribute("data-recommendation"),
-    evidence: row.getAttribute("data-evidence"),
-    text: row.textContent,
-    urls: [...row.querySelectorAll("a")].map((link) => link.getAttribute("href")),
-  })));
-  expect(actual.map((row) => row.id).sort()).toEqual(plants.filter((plant) => !plant.data.archived).map((plant) => plant.id).sort());
-  for (const row of actual) {
-    const recommendation = feedingRecommendations.find((entry) => entry.plantIds.includes(row.id!));
-    expect(row.recommendation).toBe(recommendation?.id ?? null);
-    expect(row.evidence).toBe(recommendation?.evidenceScope ?? null);
-    if (recommendation) {
-      expect(row.text).toContain(recommendation.quickCaution);
-      expect(row.text).toContain(recommendation.warning);
-      expect(row.text).toContain(recommendation.instructions);
-      for (const source of recommendation.sources) expect(row.urls).toContain(source.url);
-    } else expect(row.text).toContain("No feeding schedule or product has been reviewed");
-  }
+test("every plant page links to shared treatments without duplicating their instructions", async ({ page }) => {
   const pages = plants.map(({ id, data }) => ({
     id, archived: data.archived, html: readFileSync(path.join("dist", "plants", id, "index.html"), "utf8"),
   }));
-  const links = await page.evaluate((pages) => pages.map(({ id, archived, html }) => {
+  await page.goto("/feeding/");
+  const actual = await page.evaluate((pages) => pages.map(({ id, archived, html }) => {
     const doc = new DOMParser().parseFromString(html, "text/html");
-    return { id, archived, href: doc.querySelector('[aria-label="Feeding guidance"] a')?.getAttribute("href") ?? null };
+    const section = doc.querySelector('[aria-label="Feeding guidance"]');
+    return { id, archived, text: section?.textContent ?? "", links: [...section?.querySelectorAll("a") ?? []].map((link) => link.getAttribute("href")) };
   }), pages);
-  for (const entry of links) expect(entry.href).toBe(entry.archived ? null : feedingPlantUrl(entry.id));
+  for (const row of actual) {
+    const plant = plants.find((item) => item.id === row.id)!;
+    const shared = treatmentsForPlant(plant, feedingTreatments);
+    if (row.archived) expect(row.links).toEqual([]);
+    else if (shared.length) expect(row.links).toEqual(shared.map((item) => treatmentUrl(item.id)));
+    else {
+      expect(row.text).toContain("No treatment recorded");
+      expect(row.links).toHaveLength(1);
+    }
+    for (const item of shared) expect(row.text).not.toContain(item.steps[0]);
+  }
 });
 
-test("mobile and desktop controls fit, sources start hidden, and the first plant is immediately reachable", async ({ page }, testInfo) => {
+test("keyboard browsing, narrow screens and catalog photos remain usable", async ({ page }, testInfo) => {
   await page.goto("/feeding/");
-  for (const width of [320, 393, 640, 768, 1024]) {
+  for (const width of [320, 393, 640, 1024]) {
     await page.setViewportSize({ width, height: 900 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth)).toBe(0);
-    const first = await page.locator("[data-feeding-row]:visible").first().boundingBox();
-    expect(first!.y).toBeLessThan(780);
+    const first = await page.locator("[data-treatment]:visible").first().boundingBox();
+    expect(first!.y).toBeLessThan(700);
   }
+  await page.locator("#acid-loving-feed > summary").focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#acid-loving-feed")).toHaveAttribute("open", "");
+  await expect(page.locator("[data-treatment][open]")).toHaveCount(1);
   await page.setViewportSize({ width: testInfo.project.name === "mobile" ? 393 : 1280, height: 900 });
   for (const dark of [false, true]) {
     await page.evaluate((enabled) => document.documentElement.classList.toggle("dark", enabled), dark);
     await expect(page.locator("body")).toHaveCSS("color", dark ? "rgb(241, 248, 241)" : "rgb(13, 32, 16)");
-    await page.screenshot({ path: testInfo.outputPath(`feeding-app-${dark ? "dark" : "light"}.png`), animations: "disabled" });
+    await page.screenshot({ path: testInfo.outputPath(`treatment-${dark ? "dark" : "light"}.png`), animations: "disabled" });
   }
-  await page.getByRole("button", { name: "By fertilizer", exact: true }).click();
-  await page.getByRole("combobox", { name: "Fertilizer", exact: true }).selectOption("holly-tone");
-  await page.screenshot({ path: testInfo.outputPath("feeding-product.png"), animations: "disabled" });
+  await page.goto("/feeding/?view=category&fertility=lean");
+  await page.screenshot({ path: testInfo.outputPath("lean-category.png"), animations: "disabled" });
 });
 
-test("native disclosures and full plant links remain usable without JavaScript", async ({ browser }) => {
+test("native shared treatment instructions and catalog cards work without JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto("http://127.0.0.1:4322/feeding/");
   await expect(page.locator("[data-feeding-tools]")).toBeHidden();
-  await expect(page.locator("[data-feeding-row]:visible")).toHaveCount(guide.activeCount);
-  const row = page.locator('[data-plant-id="mountain-laurel"]');
-  await row.locator("summary").first().click();
-  await expect(row.getByText("How to apply", { exact: true })).toBeVisible();
-  await row.getByText("Sources & review", { exact: true }).click();
-  await expect(row.getByRole("link", { name: "Current Espoma Holly-tone directions", exact: true })).toBeVisible();
-  await row.getByRole("link", { name: "Full plant page" }).click();
-  await expect(page.getByRole("heading", { level: 1 })).toContainText("Mountain Laurel");
+  await expect(page.locator("[data-feeding-plant]:visible")).toHaveCount(active.length);
+  await page.locator("#lean-soil-no-feed > summary").click();
+  await page.locator("#lean-soil-no-feed").getByText("Instructions & sources", { exact: true }).click();
+  await expect(page.getByText(entry("lean-soil-no-feed").treatment.steps[0], { exact: true })).toBeVisible();
+  await page.locator("#lean-soil-no-feed").getByText(/^Plants in this treatment/).click();
+  await expect(page.locator("#lean-soil-no-feed").getByRole("link", { name: "Tickseed 'Zagreb'", exact: true })).toBeVisible();
   await context.close();
 });

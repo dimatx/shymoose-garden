@@ -27,7 +27,7 @@ care:
   petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/laurel"]
 bloomMonths: [5, 6]
 pruneMonths: [6]
-tags: ["Native", "Pollinator friendly", "Acid-loving"]
+tags: ["Native", "Pollinator friendly"]
 featured: false
 funFact: "Its flowers have spring-loaded anthers tucked into pockets in the petals — when a bee lands and triggers one, the filament snaps outward and dusts the bee with pollen, like a tiny pollen catapult."
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/kalmia-latifolia/"

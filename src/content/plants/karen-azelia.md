@@ -27,7 +27,7 @@ care:
   petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rhododendron"]
 bloomMonths: [4, 5]
 pruneMonths: [5]
-tags: ["Spring bloom", "Acid-loving", "Pollinator friendly", "Cold hardy"]
+tags: ["Spring bloom", "Pollinator friendly", "Cold hardy"]
 featured: false
 funFact: "Its small evergreen leaves take on burgundy tones in fall and winter."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=253371"

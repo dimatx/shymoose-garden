@@ -24,10 +24,11 @@ export interface PlantFacets {
 export const DERIVED_TAGS = [
   ...GROWTH_FORMS, ...LIFE_CYCLES, ...PLANT_GROUPS, ...FOLIAGE_TYPES,
   ...SUN_LEVELS, "Shade garden", "Toxic to dogs", "Toxic to cats",
+  ...CARE_TAGS,
 ] as const;
 
 export const PLANT_TAGS = [
-  "Acid-loving", "Aggressive spreader", "Architectural", "Asian garden",
+  "Aggressive spreader", "Architectural", "Asian garden",
   "Attracts butterflies", "Attracts hummingbirds", "Bicolor blooms", "Bitter-free",
   "Blue flowers", "Bog & waterside", "Cherry Tomato", "Cold hardy", "Compact",
   "Compact shrub", "Conical", "Container-suitable", "Cottage garden", "Cucumber",
@@ -46,6 +47,7 @@ export const PLANT_TAGS = [
 export const TRAIT_FILTERS = [
   "Evergreen", "Semi-evergreen", "Drought tolerant", "Pollinator friendly",
   "Low maintenance", "Edible", "Deer resistant", "Shade garden", "Toxic to dogs", "Toxic to cats",
+  ...CARE_TAGS,
 ] as const;
 
 export function plantTypes(data: PlantFacets): string[] {
@@ -63,7 +65,7 @@ export function petSafetyFacts(level: PetSafety) {
   } as const;
 }
 
-export function plantTags(data: PlantFacets): string[] {
+export function plantTags(data: PlantFacets, plantId: string): string[] {
   const safety = petSafetyFacts(data.care.petSafety);
   return [...new Set([
     ...plantTypes(data),
@@ -73,12 +75,13 @@ export function plantTags(data: PlantFacets): string[] {
     ...(safety.toxicToDogs ? ["Toxic to dogs"] : []),
     ...(safety.toxicToCats ? ["Toxic to cats"] : []),
     ...data.tags,
+    ...plantCareTags(plantId),
   ])];
 }
 
-export function plantDisplayTags(data: PlantFacets): string[] {
+export function plantDisplayTags(data: PlantFacets, plantId: string): string[] {
   const inCareCards = new Set([...plantTypes(data), ...data.sunExposure]);
-  return plantTags(data).filter((tag) => !inCareCards.has(tag));
+  return plantTags(data, plantId).filter((tag) => !inCareCards.has(tag));
 }
 
 export function matchesAny(values: readonly string[], selected: ReadonlySet<string>): boolean {
@@ -92,3 +95,4 @@ export function isOnCalendar(data: { archived: boolean; bloomMonths: readonly nu
 export function isMapped(data: { archived: boolean; mapX?: number; mapY?: number }): boolean {
   return !data.archived && data.mapX != null && data.mapY != null;
 }
+import { CARE_TAGS, plantCareTags } from "./plant-care.ts";

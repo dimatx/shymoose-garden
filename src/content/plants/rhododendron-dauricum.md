@@ -27,7 +27,7 @@ care:
   petSafetySources: ["https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/rhododendron"]
 bloomMonths: [3, 4]
 pruneMonths: [4, 5]
-tags: ["Spring bloom", "Pollinator friendly", "Cold hardy", "Acid-loving", "Woodland edge"]
+tags: ["Spring bloom", "Pollinator friendly", "Cold hardy", "Woodland edge"]
 funFact: "It is a parent of the cold-hardy PJM hybrid rhododendrons."
 learnMoreUrl: "https://www.missouribotanicalgarden.org/PlantFinder/PlantFinderDetails.aspx?taxonid=279949"
 shortUrl: "http://s.shymoose.com/cldIJ"

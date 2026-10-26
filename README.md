@@ -68,35 +68,43 @@ The two pieces of shared logic worth knowing:
 
 ## Feeding guide
 
-[`/feeding/`](https://garden.shymoose.com/feeding/) is a focused plant browser,
-not an application tracker. **By season** shows one seasonal window at a time.
-**By fertilizer** shows every active plant with an explicitly researched product
-choice. **Find a plant** searches common and Latin names across the garden,
-including plants awaiting review. Compact photo rows open one at a time;
-instructions and soil needs appear on selection, and source links are behind a
-second disclosure. Short cautions stay visible on closed rows.
+[`/feeding/`](https://garden.shymoose.com/feeding/) is a **treatment catalog**,
+not per-plant feeding notes or an application tracker. **By season** lists
+applications separately from year-round no-feed groups. **By category** browses
+independent soil-pH and fertility classifications. **By fertilizer** opens the
+matching treatment and its plants. A selected treatment shows **When, Trigger,
+and Use** once, with instructions, exceptions and sources in a disclosure.
+Its plants use the same `PlantCard` component as the main catalog.
 
-View, selection, search, and the open plant are encoded in the URL, so refresh,
-sharing, bookmarks, and a plant-page round trip retain the context. Plant pages
-open their exact plant's guidance; old recommendation fragment links still work.
-Without JavaScript, all active plants and native disclosures remain usable.
+Classifications live in `src/data/plant-care.ts`. Each published plant has
+exactly one explicit assignment, including an explicit unreviewed assignment
+where research is incomplete. Acidity and fertility can be reviewed separately:
+organically rich soil does not imply frequent fertilizer, and acid-loving is
+not a feeding schedule. `src/lib/plant-care.ts` supplies the shared labels to
+catalog Traits filters, plant cards, plant-page tag links and treatment browsing.
+Never duplicate derived care labels in a plant's authored `tags`.
 
-Curated recommendations live in `src/data/feeding.ts`, explicitly associated
-with plant collection IDs. Shared rules in `src/lib/feeding.ts` exclude archived
-plants and report uncovered active plants as **not yet reviewed**, never as
-"no fertilizer needed". Broad established-border and landscape baselines are
-labeled and counted separately from plant/group guidance, not presented as
-cultivar-specific research. Product lists are reviewed choices, not every plant
-a manufacturer lists as compatible or a prescription to feed all matches.
-Add new plants to an appropriate researched recommendation or leave them
-visibly uncovered.
+Shared treatment records live in `src/data/feeding.ts`. Their audiences refer
+to reviewed care groups, structured botanical facets, fertility classes, or
+explicit plant IDs—not prose parsing or a catch-all feeding recommendation.
+Multiple treatments may apply to a plant at distinct stages or triggers.
+Plant pages link to those records instead of repeating generic instructions.
+Missing treatment membership means **no treatment recorded**, not no fertilizer
+needed. Archived plants retain their classification but never become treatment
+jobs.
 
-`src/lib/feeding-schema.ts` runs as part of `npm run check:data` and the build.
-It rejects unknown or conflicting plant assignments, missing advice/cautions,
-invalid or future review dates, missing references, inconsistent product
-definitions, mismatched no-routine status, and product choices supported only
-by a vendor label or broad baseline. The audit checks structural integrity;
-horticultural accuracy still requires reviewing the cited evidence.
+View, category, fertilizer, treatment and search are encoded in the URL, so
+refresh, bookmarks and a plant-page round trip retain context. Legacy plant
+links open category browsing; retained treatment fragments open the shared
+treatment. Without JavaScript, native
+disclosures expose each treatment and its plant list; the catalog remains usable.
+
+`plant-care-schema.ts` and `feeding-schema.ts` run during `npm run check:data`
+and the build. They reject missing/conflicting classifications, unsourced facts,
+invalid review dates, guessed audiences, incompatible product acidity,
+feeding/enrichment of lean-soil plants, wrong triggers, irrelevant exceptions,
+and vendor-only treatment evidence. They validate structure, not scientific
+truth: source review is still required before assigning a classification.
 
 When changing advice, verify extension/RHS plant guidance and current product
 directions, retain the sources and review date, and distinguish plant nutrition

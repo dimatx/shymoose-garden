@@ -28,7 +28,7 @@ care:
 bloomMonths: []
 bloomCalendarNote: "Conifer: produces cones, not flowers."
 pruneMonths: [6]
-tags: ["Dwarf conifer", "Winter interest", "Specimen", "Slow growing", "Acid-loving"]
+tags: ["Dwarf conifer", "Winter interest", "Specimen", "Slow growing"]
 featured: false
 learnMoreUrl: "https://plants.ces.ncsu.edu/plants/pinus-strobus/"
 shortUrl: "https://s.shymoose.com/dnCmq"

@@ -7,8 +7,8 @@ import PlantMonths from "../../components/PlantMonths.astro";
 import { noteEditorUrl } from "../../lib/notes";
 import { plantTypes, plantDisplayTags, petSafetyFacts, isMapped } from "../../lib/plant-facets";
 import type { IconName } from "../../components/Icon.astro";
-import { feedingRecommendations } from "../../data/feeding";
-import { FEEDING_EVIDENCE, feedingPlantUrl, recommendationsForPlant } from "../../lib/feeding";
+import { feedingTreatments } from "../../data/feeding";
+import { treatmentUrl, treatmentsForPlant } from "../../lib/feeding";
 
 export async function getStaticPaths() {
   const plants = await getCollection("plants");
@@ -40,9 +40,9 @@ const {
   archived,
   archivedNote,
 } = plant.data;
-const tags = plantDisplayTags(plant.data);
+const tags = plantDisplayTags(plant.data, plant.id);
 const safety = petSafetyFacts(care.petSafety);
-const feeding = recommendationsForPlant(plant.id, feedingRecommendations);
+const feeding = treatmentsForPlant(plant, feedingTreatments);
 function sourceLabel(url: string): string {
   const host = new URL(url).hostname.replace(/^www\./, "");
   return ({
@@ -315,21 +315,22 @@ function renderInlineMarkdown(text: string): string {
     </section>
 
     {!archived && (
-      <section aria-label="Feeding guidance" class="mt-8 rounded-2xl border border-leaf-200 p-4 dark:border-leaf-800">
-        <h2 class="font-serif text-xl font-semibold">Feeding</h2>
-        {feeding.length > 0 ? feeding.map((entry) => (
-          <div class="mt-2">
-            <p class="text-sm font-semibold">{entry.need}{entry.product ? ` · ${entry.product.name}` : ""}</p>
-            <p class="mt-1 text-sm text-leaf-700 dark:text-leaf-300">{entry.condition}</p>
-            <p class="mt-2 text-sm text-leaf-700 dark:text-leaf-300"><strong>When: </strong>{entry.timing}</p>
-            <p class="mt-2 text-sm font-semibold">Caution: {entry.warning}</p>
-            <p class="mt-2 text-xs text-leaf-600 dark:text-leaf-300">{FEEDING_EVIDENCE[entry.evidenceScope]}{entry.evidenceScope === "general" ? " — not a cultivar-specific feeding assessment." : ""}</p>
-            <a href={feedingPlantUrl(plant.id)} class="mt-2 inline-flex min-h-11 items-center rounded-lg text-sm font-semibold text-leaf-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-leaf-300">Open feeding guidance</a>
-          </div>
-        )) : (
+      <section aria-label="Feeding guidance" class="mt-8">
+        <h2 class="font-serif text-xl font-semibold">Feeding & soil care</h2>
+        {feeding.length > 0 ? (
+          <ul class="mt-2 divide-y divide-leaf-200 dark:divide-leaf-800">
+            {feeding.map((treatment) => (
+              <li>
+                <a href={treatmentUrl(treatment.id)} class="inline-flex min-h-11 items-center gap-2 rounded-lg text-sm font-semibold text-leaf-700 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 dark:text-leaf-300">
+                  {treatment.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
           <p class="mt-2 text-sm text-leaf-700 dark:text-leaf-300">
-            Feeding guidance not yet reviewed. This does not mean no fertilizer is needed.
-            {" "}<a href={feedingPlantUrl(plant.id)} class="inline-flex min-h-11 items-center rounded-lg font-semibold underline underline-offset-4">Open feeding guidance</a>
+            No treatment recorded.
+            {" "}<a href={`/feeding/?view=category&q=${encodeURIComponent(name)}`} class="inline-flex min-h-11 items-center rounded-lg font-semibold underline underline-offset-4">View care categories</a>
           </p>
         )}
       </section>

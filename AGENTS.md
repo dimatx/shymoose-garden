@@ -127,6 +127,12 @@ reference and reconcile:
   group, and foliage are independent: a perennial tree can also be an
   evergreen conifer; a dwarf conifer may be a shrub. Classify the cultivar's
   actual habit, not its species' maximum size.
+- Add every published plant to an explicit group in `src/data/plant-care.ts`.
+  Research soil acidity and fertility independently; mark either unreviewed
+  when evidence is missing. Never infer a feeding schedule from acidity,
+  organic matter, or a vendor's product list. Care labels are derived by the
+  shared helpers, not duplicated in Markdown `tags`. Shared treatment records
+  in `src/data/feeding.ts` hold instructions once; plant pages link to them.
 - `lifeCycle` describes cultivation here (e.g. frost-tender tomatoes grown
   as annuals). `Seasonal` foliage means seasonal herbaceous growth; it is not
   a woody deciduous classification.

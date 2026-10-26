@@ -3,7 +3,7 @@ import { test } from "node:test";
 import { auditPlants } from "../scripts/check-plant-data.ts";
 import { feedingProducts, feedingTreatments } from "../src/data/feeding.ts";
 import { auditFeedingCatalog } from "../src/lib/feeding-schema.ts";
-import { FEEDING_SEASONS, TREATMENT_TRIGGERS, getTreatmentCatalog, isTreatmentMember, matchesFeedingSearch, treatmentUrl, treatmentsForPlant } from "../src/lib/feeding.ts";
+import { FEEDING_SEASONS, TREATMENT_TRIGGERS, getTreatmentCatalog, isTreatmentMember, matchesFeedingSearch, treatmentMaterial, treatmentUrl, treatmentsForPlant } from "../src/lib/feeding.ts";
 import { plantNutritionCare } from "../src/lib/plant-nutrition.ts";
 import { plantCareGroup } from "../src/lib/plant-care.ts";
 import { nutritionExamples } from "./fixtures/plant-nutrition.ts";
@@ -134,6 +134,19 @@ test("plant detail facts match independent acceptance examples without procedure
   }
 });
 
+test("feeding needs a concrete fertilizer type, not a freeform selection-process label", () => {
+  const base = treatment("hydrangea-feed");
+  assert.ok(base.action === "feed");
+  const { fertilizerType, ...missingType } = base;
+  assert.equal(fertilizerType, "slow-release-shrub");
+  assert.match(auditFeedingCatalog(plants, feedingProducts, [missingType]).join("\n"), /fertilizerType/);
+  assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...base, fertilizerType: "soil-test-matched" }]).join("\n"), /fertilizerType/);
+  assert.match(auditFeedingCatalog(plants, feedingProducts, [{ ...missingType, material: "Soil-test-matched shrub fertilizer" }]).join("\n"), /fertilizerType/);
+  assert.equal(treatmentMaterial(base, feedingProducts), "slow-release shrub fertilizer");
+  assert.equal(treatmentMaterial(treatment("acid-loving-feed"), feedingProducts), "Espoma Holly-tone");
+  assert.equal(treatmentMaterial(treatment("tomato-fruit-feed"), feedingProducts), "nitrogen fertilizer");
+});
+
 test("changing guide procedures, cautions and research metadata cannot change plant detail facts", () => {
   const changed = feedingTreatments.map((entry) => ({
     ...entry,
@@ -184,7 +197,7 @@ test("no-feed care stays concise, mulch is separate, and missing guidance is not
   const astilbe = plantNutritionCare(find("astilbe-chinensis-visions"), feedingTreatments, feedingProducts);
   assert.equal(astilbe.fertilizer?.kind, "withhold");
   assert.deepEqual(astilbe.mulch.map((item) => item.treatmentId), ["organic-perennial-mulch"]);
-  assert.equal(astilbe.mulch[0].use, treatment("organic-perennial-mulch").material);
+  assert.equal(astilbe.mulch[0].recommendation, treatmentMaterial(treatment("organic-perennial-mulch"), feedingProducts));
   const parsley = plantNutritionCare(find("parsley"), feedingTreatments, feedingProducts);
   assert.equal(parsley.fertilizer, undefined);
   assert.deepEqual(parsley.mulch, []);
@@ -205,9 +218,7 @@ test("legacy fertilizer advice is correctly placed and conditional rather than h
     assert.doesNotMatch(find(id).data.care.pruning, /fertili[sz]|feed/i);
     const care = plantNutritionCare(find(id), feedingTreatments, feedingProducts);
     assert.ok(care.fertilizer?.kind === "applications");
-    const condition = care.fertilizer.applications[0].condition;
-    assert.ok(condition);
-    assert.match(condition, /soil test/);
+    assert.equal(care.fertilizer.applications[0].recommendation, "Use balanced general-purpose fertilizer only when soil is nutrient-deficient.");
   }
   assert.equal(plantNutritionCare(find("baptisia-decadence-lemon-meringue"), feedingTreatments, feedingProducts).fertilizer?.kind, "withhold");
   assert.equal(plantNutritionCare(find("veronica-pink-potion"), feedingTreatments, feedingProducts).fertilizer?.kind, "applications");

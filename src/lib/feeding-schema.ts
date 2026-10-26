@@ -1,5 +1,5 @@
 import { z } from "astro/zod";
-import { isTreatmentMember, type TreatmentPlant } from "./feeding.ts";
+import { FERTILIZER_TYPES, isTreatmentMember, type TreatmentPlant } from "./feeding.ts";
 import { plantCareGroups } from "../data/plant-care.ts";
 import { plantCareGroup } from "./plant-care.ts";
 import { GROWTH_FORMS, LIFE_CYCLES, PLANT_GROUPS } from "./plant-facets.ts";
@@ -21,14 +21,12 @@ const audienceSchema = z.object({
   fertility: z.array(z.enum(["lean", "moderate", "organic"])).min(1).optional(),
 }).strict().refine((audience) => Boolean(audience.careGroups || audience.plantIds || audience.growthForms || audience.lifeCycle || audience.plantGroups || audience.fertility), "A treatment needs a positive, explicit audience rule");
 
-export const feedingTreatmentSchema = z.object({
+const treatmentDetailsSchema = z.object({
   id: careIdSchema,
   title: careTextSchema.pipe(z.string().max(65)),
-  action: z.enum(["feed", "mulch", "withhold"]),
   seasons: z.array(z.enum(["spring", "summer", "autumn", "winter"])).refine(unique, "Remove duplicate seasons"),
   when: careTextSchema.pipe(z.string().max(100)),
   trigger: z.enum(["soil-shortage", "fruit-topup", "mulch-low", "lean-soil", "established", "rich-moist-soil"]),
-  material: careTextSchema.pipe(z.string().max(100)),
   productId: careIdSchema.optional(),
   audience: audienceSchema,
   steps: z.array(careTextSchema.pipe(z.string().max(240))).max(4),
@@ -41,7 +39,13 @@ export const feedingTreatmentSchema = z.object({
   }).strict().refine((exception) => Boolean(exception.when || exception.note), "An exception needs timing or instructions")).optional(),
   sources: z.array(careSourceSchema).min(1),
   reviewedOn: careReviewDateSchema,
-}).strict().superRefine((treatment, ctx) => {
+}).strict();
+const materialSchema = careTextSchema.pipe(z.string().max(100));
+export const feedingTreatmentSchema = z.discriminatedUnion("action", [
+  treatmentDetailsSchema.extend({ action: z.literal("feed"), fertilizerType: z.enum(FERTILIZER_TYPES) }),
+  treatmentDetailsSchema.extend({ action: z.literal("mulch"), material: materialSchema }),
+  treatmentDetailsSchema.extend({ action: z.literal("withhold"), material: materialSchema }),
+]).superRefine((treatment, ctx) => {
   if (treatment.action !== "withhold" && !treatment.steps.length) {
     ctx.addIssue({ code: "custom", path: ["steps"], message: "An application needs practical instructions" });
   }

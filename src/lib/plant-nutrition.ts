@@ -1,11 +1,10 @@
-import { treatmentsForPlant, type FeedingProduct, type FeedingTreatment, type TreatmentPlant } from "./feeding.ts";
+import { treatmentMaterial, treatmentsForPlant, type FeedingProduct, type FeedingTreatment, type TreatmentPlant } from "./feeding.ts";
 
 // Plant details expose facts, not the guide's procedures, policies or provenance.
 export interface PlantNutritionFact {
   treatmentId: string;
   when: string;
-  use: string;
-  condition?: string;
+  recommendation: string;
   notes: readonly string[];
 }
 export type FertilizerCare =
@@ -25,21 +24,19 @@ export function plantNutritionCare(
   const subject = { ...plant, data: { ...plant.data, archived: false } };
   const matching = treatmentsForPlant(subject, treatments);
   const fact = (treatment: FeedingTreatment): PlantNutritionFact => {
-    const product = treatment.productId ? products.find((item) => item.id === treatment.productId) : undefined;
-    if (treatment.productId && !product) throw new Error(`Missing product ${treatment.productId} for ${treatment.id}`);
+    const material = treatmentMaterial(treatment, products);
     const exceptions = treatment.exceptions?.filter((exception) => exception.plantIds.includes(plant.id)) ?? [];
-    let condition: string | undefined;
+    let recommendation: string;
     switch (treatment.trigger) {
-      case "soil-shortage": condition = "Only if a soil test confirms a nutrient shortage."; break;
-      case "fruit-topup": condition = "Only if additional nutrients are needed."; break;
-      case "mulch-low": condition = undefined; break;
+      case "soil-shortage": recommendation = `Use ${material} only when soil is nutrient-deficient.`; break;
+      case "fruit-topup": recommendation = `Use ${material} only when additional nitrogen is needed.`; break;
+      case "mulch-low": recommendation = material; break;
       default: throw new Error(`Unsupported application condition ${treatment.trigger}`);
     }
     return {
       treatmentId: treatment.id,
       when: exceptions.find((exception) => exception.when)?.when ?? treatment.when,
-      use: product?.name ?? treatment.material,
-      ...(condition ? { condition } : {}),
+      recommendation,
       notes: exceptions.flatMap((exception) => exception.note ? [exception.note] : []),
     };
   };

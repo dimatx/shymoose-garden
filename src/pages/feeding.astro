@@ -4,7 +4,7 @@ import PlantCard from "../components/PlantCard.astro";
 import Icon from "../components/Icon.astro";
 import { getSortedPlants } from "../lib/plants";
 import { feedingProducts, feedingTreatments } from "../data/feeding";
-import { FEEDING_SAFETY, FEEDING_SEASONS, TREATMENT_TRIGGERS, feedingSearchText, getTreatmentCatalog, treatmentsForPlant } from "../lib/feeding";
+import { FEEDING_SAFETY, FEEDING_SEASONS, TREATMENT_TRIGGERS, feedingSearchText, getTreatmentCatalog, treatmentMaterial, treatmentsForPlant } from "../lib/feeding";
 import { SOIL_REACTIONS, SOIL_FERTILITIES, plantCareGroup } from "../lib/plant-care";
 
 const plants = (await getSortedPlants()).filter((plant) => !plant.data.archived);
@@ -72,7 +72,7 @@ const catalog = getTreatmentCatalog(plants, feedingTreatments);
 
     <div id="feeding-treatments" data-treatment-list class="space-y-2">
       {catalog.map(({ treatment, plants: members }, index) => {
-        const product = feedingProducts.find((item) => item.id === treatment.productId);
+        const material = treatmentMaterial(treatment, feedingProducts);
         return (
           <>
           {index === catalog.findIndex((item) => item.treatment.action === "withhold") && (
@@ -93,7 +93,7 @@ const catalog = getTreatmentCatalog(plants, feedingTreatments);
                 <span class="block font-semibold">{treatment.title}</span>
                 <span data-treatment-summary-meta class="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-leaf-600 dark:text-leaf-300">
                   <span>{treatment.action === "withhold" ? "Year-round" : treatment.seasons.map((id) => FEEDING_SEASONS[id]).join(" · ")}</span>
-                  <span>{product?.name ?? treatment.material}</span>
+                  <span>{material}</span>
                   <span data-treatment-count>{members.length} plants</span>
                 </span>
                 <span data-treatment-summary-meta class="mt-1 block text-xs text-leaf-700 dark:text-leaf-300">{TREATMENT_TRIGGERS[treatment.trigger]}</span>
@@ -104,7 +104,7 @@ const catalog = getTreatmentCatalog(plants, feedingTreatments);
               <dl class="grid grid-cols-2 gap-3 text-sm sm:grid-cols-3">
                 <div><dt class="text-xs font-semibold uppercase text-leaf-600 dark:text-leaf-300">When</dt><dd class="mt-1">{treatment.when}</dd></div>
                 <div class="order-3 col-span-2 sm:order-none sm:col-span-1"><dt class="text-xs font-semibold uppercase text-leaf-600 dark:text-leaf-300">Trigger</dt><dd class="mt-1">{TREATMENT_TRIGGERS[treatment.trigger]}</dd></div>
-                <div class="order-2 sm:order-none"><dt class="text-xs font-semibold uppercase text-leaf-600 dark:text-leaf-300">Use</dt><dd class="mt-1">{product?.name ?? treatment.material}</dd></div>
+                <div class="order-2 sm:order-none"><dt class="text-xs font-semibold uppercase text-leaf-600 dark:text-leaf-300">Use</dt><dd class="mt-1">{material}</dd></div>
               </dl>
               {treatment.caution && <p data-treatment-caution class="mt-3 text-sm font-semibold">{treatment.caution}</p>}
               {(treatment.steps.length > 0 || Boolean(treatment.exceptions?.length)) && (

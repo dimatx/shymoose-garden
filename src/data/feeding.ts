@@ -28,7 +28,7 @@ export const feedingTreatments: readonly FeedingTreatment[] = [
     seasons: ["spring"],
     when: "Late winter to early spring",
     trigger: "soil-shortage",
-    material: "Acid-loving plant fertilizer",
+    fertilizerType: "acid-loving",
     productId: "holly-tone",
     audience: {
       careGroups: ["mountain-laurel", "rhododendrons", "pieris", "japanese-hollies", "blue-hollies", "hemlocks", "white-pine", "umbrella-pine", "cryptomeria"],
@@ -40,7 +40,11 @@ export const feedingTreatments: readonly FeedingTreatment[] = [
       "For trees, spread evenly across the root zone and water in.",
     ],
     exceptions: [{ plantIds: ["karen-azelia", "rhododendron-dauricum"], label: "Azaleas & rhododendrons", when: "At the first hint of bloom color" }],
-    sources: [woody, { label: "RHS: rhododendron feeding", url: "https://www.rhs.org.uk/plants/rhododendron/growing-guide" }],
+    sources: [
+      woody,
+      { label: "RHS: rhododendron feeding", url: "https://www.rhs.org.uk/plants/rhododendron/growing-guide" },
+      { label: "Espoma: Holly-tone plant suitability and directions", url: "https://www.espoma.com/product/holly-tone/" },
+    ],
     reviewedOn,
   },
   {
@@ -50,7 +54,7 @@ export const feedingTreatments: readonly FeedingTreatment[] = [
     seasons: ["spring"],
     when: "Late winter to early spring",
     trigger: "soil-shortage",
-    material: "Soil-test-matched shrub fertilizer",
+    fertilizerType: "slow-release-shrub",
     productId: "plant-tone",
     audience: { careGroups: ["boxwoods", "arborvitae"] },
     steps: [
@@ -58,7 +62,11 @@ export const feedingTreatments: readonly FeedingTreatment[] = [
       "Follow the current label rate for the measured plant or root-zone area.",
       "Spread over soil in the root zone, keep granules away from stems, and water in. Account for fertilizer already reaching the bed from adjacent lawn.",
     ],
-    sources: [woody, { label: "Espoma: product choice for boxwood and arborvitae", url: "https://www.espoma.com/product/holly-tone/" }],
+    sources: [
+      woody,
+      { label: "Espoma: product choice for boxwood and arborvitae", url: "https://www.espoma.com/product/holly-tone/" },
+      { label: "Espoma: Plant-tone suitability and directions", url: "https://www.espoma.com/product/plant-tone/" },
+    ],
     reviewedOn,
   },
   {
@@ -68,7 +76,7 @@ export const feedingTreatments: readonly FeedingTreatment[] = [
     seasons: ["spring"],
     when: "As spring growth begins",
     trigger: "soil-shortage",
-    material: "Soil-test-matched shrub fertilizer",
+    fertilizerType: "slow-release-shrub",
     audience: {
       careGroups: ["bigleaf-hydrangeas", "oakleaf-hydrangeas", "panicle-hydrangea"],
       plantIds: ["mountain-hydrangea"],
@@ -78,7 +86,7 @@ export const feedingTreatments: readonly FeedingTreatment[] = [
       "Use the label rate for established shrubs and water in.",
     ],
     caution: "Excess nitrogen can reduce flowering.",
-    sources: [woody, { label: "Clemson Extension: bigleaf hydrangea nutrition and color", url: "https://hgic.clemson.edu/factsheet/hydrangea-care-in-south-carolina/" }],
+    sources: [woody, { label: "RHS: shrubby hydrangea feeding", url: "https://www.rhs.org.uk/plants/hydrangea/shrubby/growing-guide" }],
     reviewedOn,
   },
   {
@@ -88,10 +96,11 @@ export const feedingTreatments: readonly FeedingTreatment[] = [
     seasons: ["spring"],
     when: "Before planting into warm soil",
     trigger: "soil-shortage",
-    material: "Soil-test-matched vegetable fertilizer",
+    fertilizerType: "granular-vegetable",
     audience: { careGroups: ["tomatoes", "cucumbers"] },
     steps: [
       "Use the soil report to budget nutrients, crediting compost and previous fertilizer.",
+      "If phosphorus and potassium are already adequate, use nitrogen-only fertilizer instead of a complete fertilizer.",
       "Apply only the remaining nutrient requirement, using the selected vegetable fertilizer's label for the planted area.",
       "Keep fertilizer off stems and foliage and water in. Use finished compost, not fresh manure.",
     ],
@@ -106,11 +115,11 @@ export const feedingTreatments: readonly FeedingTreatment[] = [
     seasons: ["summer"],
     when: "When the first fruits enlarge",
     trigger: "fruit-topup",
-    material: "Soil-test-matched vegetable fertilizer",
+    fertilizerType: "nitrogen",
     audience: { careGroups: ["tomatoes"] },
     steps: [
       "Check the crop's remaining nutrient budget, including compost and fertilizer already applied.",
-      "If a top-up is required, apply beside the plants at the current product's area-based rate and water in.",
+      "If a nitrogen top-up is required, apply beside the plants at the current product's area-based rate and water in.",
     ],
     caution: "Excess nitrogen favors leaves over fruit.",
     sources: [vegetables, { label: "University of Minnesota Extension: tomato first-fruit feeding", url: "https://extension.umn.edu/vegetables/growing-tomatoes" }],
@@ -123,7 +132,7 @@ export const feedingTreatments: readonly FeedingTreatment[] = [
     seasons: ["spring"],
     when: "As spring growth begins",
     trigger: "soil-shortage",
-    material: "Soil-test-matched perennial fertilizer",
+    fertilizerType: "balanced-general",
     audience: { plantIds: ["avens", "geum-tempo-orange", "geum-tempo-yellow", "veronica-pink-potion"] },
     steps: [
       "Use a fertilizer that supplies the nutrients identified by the soil report.",

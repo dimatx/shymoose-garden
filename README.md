@@ -94,10 +94,17 @@ Shared treatment records live in `src/data/feeding.ts`. Their audiences refer
 to reviewed care groups, structured botanical facets, fertility classes, or
 explicit plant IDs—not prose parsing or a catch-all feeding recommendation.
 Multiple treatments may apply to a plant at distinct stages or triggers.
+Each feeding application selects a concrete `fertilizerType` from the curated
+registry in `src/lib/feeding.ts`; a preferred `productId` is optional and
+separate. Freeform selection-process labels such as "soil-test-matched
+fertilizer" cannot replace that type. Mulch and no-feed records retain their
+own material fields. Product schedules never establish a feeding requirement.
 `plantNutritionCare()` in `src/lib/plant-nutrition.ts` projects a **facts-only**
 view into **Fertilizer** and **Mulching** cards inside the existing plant-page
-Care grid: product/material, timing, the condition qualifying the recommendation,
-and notes explicitly scoped to that plant. Shared procedure steps, general
+Care grid: one recommendation sentence with its necessary condition, timing,
+and notes explicitly scoped to that plant. For example: "Use Espoma Holly-tone
+only when soil is nutrient-deficient." Do not add a separate soil-testing
+paragraph. Shared procedure steps, general
 cautions, global policies and research metadata are not part of the detail
 contract or renderer. Application procedures stay in the standalone guide;
 their existence must not generate a plant-page disclosure or extra paragraph.
@@ -129,6 +136,13 @@ editorial relevance; they are not a substitute for these surface contracts.
 Fertilizer advice belongs in the shared nutrition records, not in unrelated
 Water or Pruning prose. Legacy blanket annual-feeding advice is reconciled
 against authoritative garden guidance before becoming an inline care field.
+The current source review supports conditional spring feeding for the covered
+shrubs and perennials, complete granular fertilizer for nutrient-deficient
+vegetable beds, and nitrogen feeding at tomato first-fruit enlargement only
+when more nitrogen is needed. Existing compost and fertilizer count toward
+crop nutrients; adequate phosphorus and potassium call for nitrogen-only
+fertilizer rather than adding a complete fertilizer. Application details stay
+in the guide, with evidence retained internally in each treatment record.
 
 When changing advice, verify extension/RHS plant guidance and current product
 directions, retain the sources and review date, and distinguish plant nutrition

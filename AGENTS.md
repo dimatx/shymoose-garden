@@ -134,9 +134,13 @@ reference and reconcile:
   shared helpers, not duplicated in Markdown `tags`. Shared treatment records
   in `src/data/feeding.ts` hold instructions once. Project only fertilizer and
   mulch facts into the normal plant-page Care cards via `plant-nutrition.ts`:
-  product/material, timing, necessary applicability conditions, and explicitly
-  plant-scoped notes. Shared steps, general cautions and global policies belong
-  in the standalone guide, not the plant-detail contract or renderer. Do not
+  one recommendation with its necessary condition, timing, and explicitly
+  plant-scoped notes. Use a concrete curated `fertilizerType` for feeding,
+  independently of an optional preferred product. Do not substitute a
+  selection-process label such as "soil-test-matched fertilizer" for a type.
+  Write "Use X only when soil is nutrient-deficient", not a separate generic
+  paragraph about testing on every plant. Shared steps, general cautions and
+  global policies belong in the standalone guide, not the plant-detail contract or renderer. Do not
   create a disclosure or paragraph merely because shared content exists.
   Keep independent acceptance examples and rendered-content boundary tests;
   comparing a renderer against its own projector proves only consistency.

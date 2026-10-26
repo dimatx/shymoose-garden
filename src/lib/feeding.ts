@@ -7,14 +7,23 @@ export const FEEDING_SEASONS = {
   winter: "Winter",
 } as const;
 export const TREATMENT_TRIGGERS = {
-  "soil-shortage": "Soil test: nutrient shortage",
-  "fruit-topup": "First fruit enlarges and nutrients need topping up",
+  "soil-shortage": "Only when soil is nutrient-deficient",
+  "fruit-topup": "First fruit enlarges and additional nitrogen is needed",
   "mulch-low": "Organic mulch needs replenishing",
   "lean-soil": "Lean-soil plants growing normally",
   established: "Established plants growing well",
   "rich-moist-soil": "Astilbes established in rich, moist soil",
 } as const;
 export type FeedingSeason = keyof typeof FEEDING_SEASONS;
+export const FERTILIZER_TYPES = ["acid-loving", "slow-release-shrub", "balanced-general", "granular-vegetable", "nitrogen"] as const;
+export type FertilizerType = typeof FERTILIZER_TYPES[number];
+export const FERTILIZER_LABELS: Record<FertilizerType, string> = {
+  "acid-loving": "acid-loving plant fertilizer",
+  "slow-release-shrub": "slow-release shrub fertilizer",
+  "balanced-general": "balanced general-purpose fertilizer",
+  "granular-vegetable": "complete granular vegetable fertilizer",
+  nitrogen: "nitrogen fertilizer",
+};
 export const FEEDING_SAFETY = "Do not feed drought-stressed plants or frozen soil.";
 export interface FeedingProduct { id: string; name: string; url: string; soilReactions: readonly Exclude<SoilReaction, "unreviewed">[] }
 export interface TreatmentAudience {
@@ -26,14 +35,12 @@ export interface TreatmentAudience {
   excludePlantGroups?: readonly string[];
   fertility?: readonly SoilFertility[];
 }
-export interface FeedingTreatment {
+interface TreatmentDetails {
   id: string;
   title: string;
-  action: "feed" | "mulch" | "withhold";
   seasons: readonly FeedingSeason[];
   when: string;
   trigger: keyof typeof TREATMENT_TRIGGERS;
-  material: string;
   productId?: string;
   audience: TreatmentAudience;
   steps: readonly string[];
@@ -41,6 +48,18 @@ export interface FeedingTreatment {
   exceptions?: readonly { plantIds: readonly string[]; label: string; when?: string; note?: string }[];
   sources: readonly CareSource[];
   reviewedOn: string;
+}
+export type FeedingTreatment = TreatmentDetails & (
+  | { action: "feed"; fertilizerType: FertilizerType }
+  | { action: "mulch" | "withhold"; material: string }
+);
+
+export function treatmentMaterial(treatment: FeedingTreatment, products: readonly FeedingProduct[]): string {
+  if (treatment.action !== "feed") return treatment.material;
+  if (!treatment.productId) return FERTILIZER_LABELS[treatment.fertilizerType];
+  const product = products.find((item) => item.id === treatment.productId);
+  if (!product) throw new Error(`Missing product ${treatment.productId} for ${treatment.id}`);
+  return product.name;
 }
 export interface TreatmentPlant {
   id: string;

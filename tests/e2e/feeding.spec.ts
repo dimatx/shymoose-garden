@@ -164,17 +164,15 @@ test("every plant Care grid stays synchronized without extra procedures, control
     const mulch = care?.querySelector('[data-care-field="Mulching"]');
     const applications = (element: Element | null | undefined) => [...element?.querySelectorAll("[data-care-application]") ?? []].map((item) => ({
       treatmentId: item.getAttribute("data-care-application"),
-      use: item.querySelector("[data-care-use]")!.textContent!.trim(),
+      recommendation: item.querySelector("[data-care-recommendation]")!.textContent!.trim(),
       when: item.querySelector("[data-care-when]")!.textContent!.trim(),
-      condition: item.querySelector("[data-care-condition]")?.textContent?.trim() ?? null,
       notes: [...item.querySelectorAll("[data-care-note]")].map((note) => note.textContent!.trim()),
     }));
     const markup = (element: Element) => {
       const copy = element.cloneNode(true) as Element;
       for (const fact of copy.querySelectorAll("[data-care-application]")) {
-        fact.querySelector(":scope > [data-care-use]")?.remove();
+        fact.querySelector(":scope > [data-care-recommendation]")?.remove();
         fact.querySelector(":scope > [data-care-when]")?.remove();
-        fact.querySelector(":scope > [data-care-condition]")?.remove();
         fact.querySelectorAll(":scope > [data-care-note]").forEach((note) => note.remove());
       }
       return {
@@ -201,11 +199,11 @@ test("every plant Care grid stays synchronized without extra procedures, control
         expect(row.fertilizer!.applications, row.id).toEqual([]);
       } else {
         expect(row.fertilizer!.extraText, row.id).toBe("");
-        expect(row.fertilizer!.applications, row.id).toEqual(care.fertilizer.applications.map((item) => ({ ...item, condition: item.condition ?? null })));
+        expect(row.fertilizer!.applications, row.id).toEqual(care.fertilizer.applications);
       }
     }
     expect(row.mulch, row.id).toEqual(care.mulch.length ? {
-      applications: care.mulch.map((item) => ({ ...item, condition: item.condition ?? null })),
+      applications: care.mulch,
       extraText: "",
       controls: 0,
     } : null);
@@ -216,7 +214,7 @@ for (const [id, example] of Object.entries(nutritionExamples)) {
   test(`${id} shows only the independently specified nutrition facts`, async ({ page }) => {
     const expected: PlantNutritionCare = example;
     const factText = (facts: readonly PlantNutritionFact[]) => facts.flatMap((fact) =>
-      [fact.use, fact.when, ...(fact.condition ? [fact.condition] : []), ...fact.notes]).join(" ");
+      [fact.recommendation, fact.when, ...fact.notes]).join(" ");
     await page.goto(`/plants/${id}/#care`);
     const fertilizer = page.locator('[data-care-section] [data-care-field="Fertilizer"]');
     const mulch = page.locator('[data-care-section] [data-care-field="Mulching"]');
@@ -238,9 +236,9 @@ test("plant nutrition is readable in Care while shared procedures remain in the 
   await page.goto("/plants/mountain-laurel/#care");
   const care = page.locator("[data-care-section]");
   const fertilizer = care.locator('[data-care-field="Fertilizer"]');
-  await expect(fertilizer.getByText("Espoma Holly-tone", { exact: true })).toBeVisible();
+  await expect(fertilizer.locator("[data-care-recommendation]")).toHaveText("Use Espoma Holly-tone only when soil is nutrient-deficient.");
   await expect(fertilizer.locator("[data-care-when]")).toHaveText("Late winter to early spring");
-  await expect(fertilizer.locator("[data-care-condition]")).toContainText("Only if a soil test");
+  await expect(fertilizer.locator("p")).toHaveCount(2);
   await expect(fertilizer.locator("a, details, summary, button, ol")).toHaveCount(0);
   await expect(page.locator('[aria-label="Feeding guidance"]')).toHaveCount(0);
   await expect(fertilizer.locator('a[href^="https://"], time')).toHaveCount(0);
@@ -255,7 +253,7 @@ test("care fields retain timing exceptions, no-feed guidance, mulch and distinct
   await expect(page.locator('[data-care-field="Fertilizer"] [data-care-when]')).toHaveText("At the first hint of bloom color");
   await page.goto("/plants/astilbe-chinensis-visions/#care");
   await expect(page.locator('[data-care-field="Fertilizer"] dd')).toHaveText("No routine fertilizer in rich, moist soil.");
-  await expect(page.locator('[data-care-field="Mulching"] [data-care-use]')).toHaveText("Leaf mould or finished garden compost");
+  await expect(page.locator('[data-care-field="Mulching"] [data-care-recommendation]')).toHaveText("Leaf mould or finished garden compost");
   await expect(page.locator('[data-care-field="Mulching"] [data-care-when]')).toHaveText("Spring, on moist soil");
   await page.goto("/plants/solanum-lycopersicum-carbon/#care");
   const applications = page.locator('[data-care-field="Fertilizer"] [data-care-application]');
@@ -284,9 +282,9 @@ test("integrated care remains available without JavaScript", async ({ browser })
   const page = await context.newPage();
   await page.goto("http://127.0.0.1:4322/plants/mountain-laurel/#care");
   const fertilizer = page.locator('[data-care-field="Fertilizer"]');
-  await expect(fertilizer.getByText("Espoma Holly-tone", { exact: true })).toBeVisible();
+  await expect(fertilizer.locator("[data-care-recommendation]")).toHaveText("Use Espoma Holly-tone only when soil is nutrient-deficient.");
   await expect(fertilizer.locator("[data-care-when]")).toHaveText("Late winter to early spring");
-  await expect(fertilizer.locator("[data-care-condition]")).toHaveText("Only if a soil test confirms a nutrient shortage.");
+  await expect(fertilizer.locator("p")).toHaveCount(2);
   await expect(fertilizer.locator("details, summary, a, button")).toHaveCount(0);
   await context.close();
 });

@@ -222,12 +222,16 @@ for (const [id, example] of Object.entries(nutritionExamples)) {
     else {
       const text = expected.fertilizer.kind === "withhold" ? expected.fertilizer.summary : factText(expected.fertilizer.applications);
       await expect(fertilizer.locator("dd")).toHaveText(text, { useInnerText: true });
+      await expect(fertilizer.locator("dt")).toHaveCSS("font-weight", "600");
       await expect(fertilizer.locator("details, summary, a, button")).toHaveCount(0);
     }
     if (!expected.mulch.length) await expect(mulch).toHaveCount(0);
     else {
       await expect(mulch.locator("dd")).toHaveText(factText(expected.mulch), { useInnerText: true });
       await expect(mulch.locator("details, summary, a, button")).toHaveCount(0);
+    }
+    for (const recommendation of await page.locator("[data-care-section] [data-care-recommendation]").all()) {
+      await expect(recommendation).toHaveCSS("font-weight", "400");
     }
   });
 }

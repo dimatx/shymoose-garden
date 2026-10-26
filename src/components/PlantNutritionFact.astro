@@ -5,7 +5,7 @@ const { fact } = Astro.props;
 ---
 
 <div data-care-application={fact.treatmentId} class="space-y-1">
-  <p data-care-recommendation class="font-medium">{fact.recommendation}</p>
+  <p data-care-recommendation>{fact.recommendation}</p>
   <p data-care-when>{fact.when}</p>
   {fact.notes.map((note) => <p data-care-note>{note}</p>)}
 </div>

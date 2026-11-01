@@ -5,6 +5,7 @@ const nc = (slug: string, label: string): CareSource => ({
   url: `https://plants.ces.ncsu.edu/plants/${slug}/`,
 });
 const reviewedOn = "2026-10-26";
+const reviewedToday = "2026-10-31";
 
 export const plantCareGroups: readonly PlantCareGroup[] = [
   { id: "mountain-laurel", plantIds: ["mountain-laurel"], acidity: "acidic", fertility: "organic", sources: [nc("kalmia-latifolia", "mountain laurel")], reviewedOn },
@@ -14,6 +15,8 @@ export const plantCareGroups: readonly PlantCareGroup[] = [
   { id: "blue-hollies", plantIds: ["ilex-meserveae-blue-prince", "ilex-x-meserveae-blue-princess"], acidity: "acidic", fertility: "moderate", sources: [nc("ilex-x-meserveae", "Meserve holly")], reviewedOn },
   { id: "hemlocks", plantIds: ["tsuga-canadensis-golden-splendor", "tsuga-canadensis-moon-frost"], acidity: "acidic", fertility: "unreviewed", sources: [nc("tsuga-canadensis", "eastern hemlock")], reviewedOn },
   { id: "white-pine", plantIds: ["pinus-strobus-angel-falls"], acidity: "acidic", fertility: "moderate", sources: [nc("pinus-strobus", "eastern white pine")], reviewedOn },
+  { id: "red-spruce", plantIds: ["red-spruce"], acidity: "acidic", fertility: "unreviewed", sources: [{ label: "USDA Forest Service: red spruce soils", url: "https://research.fs.usda.gov/silvics/red-spruce" }], reviewedOn: reviewedToday },
+  { id: "sea-green-juniper", plantIds: ["sea-green-juniper"], acidity: "adaptable", fertility: "unreviewed", sources: [nc("juniperus-chinensis", "Chinese juniper soil pH")], reviewedOn: reviewedToday },
   { id: "umbrella-pine", plantIds: ["sciadopitys-verticillata-joe-kozey"], acidity: "acidic", fertility: "organic", sources: [nc("sciadopitys-verticillata", "Japanese umbrella pine")], reviewedOn },
   { id: "cryptomeria", plantIds: ["cryptomeria"], acidity: "acidic", fertility: "organic", sources: [nc("cryptomeria-japonica", "Japanese cedar")], reviewedOn },
   { id: "japanese-maples", plantIds: ["acer-palmatum-bihou", "acer-palmatum-crimson-queen", "acer-palmatum-inaba-shidare", "acer-palmatum-tamukeyama"], acidity: "unreviewed", fertility: "organic", sources: [nc("acer-palmatum", "Japanese maple; high organic matter")], reviewedOn },

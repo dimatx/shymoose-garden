@@ -420,8 +420,10 @@ npm run gen:3mf -- --force tsuga-canadensis-moon-frost
 Writes one **model-only** `.3mf` per SCAD file into [`signs/3mf/`](signs/3mf/),
 prefixed with that plant's number from the ShyMoose sheet's `Filename` column
 (e.g. `74_tsuga-canadensis-moon-frost.3mf`) so it's easy to find the right
-model to print. The plant is matched to its sheet row by `Full link`, falling
-back to Latin name; a plant the script can't match keeps its plain slug name
+model to print. The plant is matched to its sheet row by normalized Latin
+name, falling back to a unique `Full link` for enriched cultivar names.
+Shared links never override distinct cultivar identities. A plant the script
+can't match keeps its plain slug name
 and is listed in a `[WARN]` at the end. Requires `PLANTS_SHEET_CSV_URL` in
 `.env` (same as `npm run import:plants`) — without it, files keep their slug
 name. Open these files in PrusaSlicer as models, choose your printer and

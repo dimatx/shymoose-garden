@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { parseCsv, normalizeLatin } from "../scripts/lib/sheet-csv.mjs";
 import { readScalars } from "../scripts/lib/frontmatter.mjs";
 import { validateShortUrl, withShortUrl } from "../scripts/lib/shortlinks.mjs";
+import { buildSheetNumberMaps, getSheetNumber } from "../scripts/gen-3mf.mjs";
 
 test("CSV supports BOM, CRLF, embedded delimiters, escaped quotes and blank rows", () => {
   assert.deepEqual(parseCsv('\uFEFFname,latin\r\n"Common, name","Latin ""quoted""\r\nname"\r\n,,\r\nLast,Species'), [
@@ -19,6 +20,37 @@ for (const csv of ['name,"unfinished', 'name,"closed"junk', 'na"me,latin']) {
 test("Latin matching preserves distinct cultivars", () => {
   assert.equal(normalizeLatin("Acer palmatum 'Inaba-shidare'"), normalizeLatin("Acer palmatum 'Inaba shidare'"));
   assert.notEqual(normalizeLatin("Acer 'Tamukeyama'"), normalizeLatin("Acer 'Crimson Queen'"));
+});
+
+test("3MF numbering prefers cultivar identity and never guesses from shared links", async () => {
+  const maps = await buildSheetNumberMaps({
+    csvUrl: "https://sheet.invalid/",
+    fetchSheet: async () => [
+      "Latin name,Full link,Filename",
+      "Achillea millefolium 'Tutti Frutti',https://plants.example/yarrow,52_Yarrow.3mf",
+      "Achillea millefolium 'New Vintage Red',https://plants.example/yarrow,53_Yarrow.3mf",
+      "Lysimachia clethroides,https://plants.example/loosestrife,67_Loosestrife.3mf",
+      "Kerria japonica,https://plants.example/loosestrife,68_Rose.3mf",
+    ].join("\n"),
+  });
+  assert.equal(getSheetNumber(maps, "Achillea millefolium 'Tutti Frutti'", "https://plants.example/yarrow"), "52");
+  assert.equal(getSheetNumber(maps, "Achillea millefolium 'New Vintage Red'", "https://plants.example/yarrow"), "53");
+  assert.equal(getSheetNumber(maps, "Lysimachia clethroides", "https://plants.example/loosestrife"), "67");
+  assert.equal(getSheetNumber(maps, "Kerria japonica", "https://plants.example/loosestrife"), "68");
+  assert.equal(getSheetNumber(maps, "Unlisted cultivar", "https://plants.example/yarrow"), undefined);
+});
+
+test("3MF numbering uses a unique URL for enriched names and current sheet numbers", async () => {
+  const maps = await buildSheetNumberMaps({
+    csvUrl: "https://sheet.invalid/",
+    fetchSheet: async () => [
+      "Latin name,Full link,Filename",
+      "Veronica 'Pink Potion',https://plants.example/pink-potion,76_Speedwell.3mf",
+      "Acer palmatum 'Shishigashira',https://plants.example/maple,157_Maple.3mf",
+    ].join("\n"),
+  });
+  assert.equal(getSheetNumber(maps, "Veronica Magic Show 'Pink Potion'", "http://www.plants.example/pink-potion/"), "76");
+  assert.equal(getSheetNumber(maps, "Acer palmatum 'Shishigashira'", "https://plants.example/maple"), "157");
 });
 
 test("scalar reader handles JSON escapes, YAML apostrophes, comments, CRLF and BOM", () => {

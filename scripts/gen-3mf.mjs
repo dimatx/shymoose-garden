@@ -125,25 +125,18 @@ function loadCache(force) {
 }
 
 /**
- * Build a map of normalized Latin name -> the leading number from the
- * sheet's "Filename" column (e.g. "74_Canadian Hemlock.3mf" -> "74"). Latin
- * name is the reliable join key — the sheet's "QR link" column is often
- * blank for newer rows, unlike "Latin name" which the sheet always has.
- * Returns an empty map (with a warning) if PLANTS_SHEET_CSV_URL isn't set.
- */
-/**
  * Build maps from a plant's Full link / normalized Latin name to the leading
  * number in the sheet's "Filename" column (e.g. "74_Canadian Hemlock.3mf" ->
- * "74"). Two join keys, tried in order, mirror import-plants.mjs's own
- * matching: Full link is exact and unambiguous when present; normalized
- * Latin name is the fallback for rows the sheet has but our frontmatter has
- * enriched with cultivar trademark text (e.g. "Veronica 'Purple Illusion'"
- * in the sheet vs "Veronica Magic Show® 'Purple Illusion'" in frontmatter —
- * a URL match still lines them up). Returns two empty maps (with a warning)
+ * "74"). Latin name takes priority because cultivars can share a species
+ * link, and spreadsheet links can be copied to the wrong row. A unique URL
+ * is the fallback for enriched names such as cultivar trademark text.
+ * Returns two empty maps (with a warning)
  * if PLANTS_SHEET_CSV_URL isn't set.
  */
-async function buildSheetNumberMaps() {
-  const csvUrl = process.env.PLANTS_SHEET_CSV_URL;
+export async function buildSheetNumberMaps({
+  csvUrl = process.env.PLANTS_SHEET_CSV_URL,
+  fetchSheet = fetchCsv,
+} = {}) {
   const byUrl = new Map();
   const byLatin = new Map();
   if (!csvUrl) {
@@ -153,7 +146,7 @@ async function buildSheetNumberMaps() {
     );
     return { byUrl, byLatin };
   }
-  const rows = parseCsv(await fetchCsv(csvUrl));
+  const rows = parseCsv(await fetchSheet(csvUrl));
   const header = rows[0] ?? [];
   const find = (label) =>
     header.findIndex((h) => h.trim().toLowerCase() === label.toLowerCase());
@@ -170,9 +163,18 @@ async function buildSheetNumberMaps() {
     const number = (cells[filenameIdx] ?? "").trim().match(/^(\d+)_/)?.[1];
     if (!number) continue;
     if (latin) byLatin.set(normalizeLatin(latin), number);
-    if (url) byUrl.set(normalizeUrl(url), number);
+    if (url) {
+      const key = normalizeUrl(url);
+      if (!byUrl.has(key)) byUrl.set(key, number);
+      else if (byUrl.get(key) !== number) byUrl.set(key, null);
+    }
   }
   return { byUrl, byLatin };
+}
+
+export function getSheetNumber({ byLatin, byUrl }, latin, url) {
+  return (latin ? byLatin.get(normalizeLatin(latin)) : undefined) ??
+    (url ? byUrl.get(normalizeUrl(url)) ?? undefined : undefined);
 }
 
 /** Read a plant's latinName straight from its content frontmatter. */
@@ -269,9 +271,7 @@ async function main() {
     const slug = qrUrl ? qrUrlToSlug.get(normalizeShortUrl(qrUrl)) : null;
     const learnMoreUrl = slug ? getLearnMoreUrl(slug) : null;
     const latin = slug ? getLatinName(slug) : null;
-    const number =
-      (learnMoreUrl ? byUrl.get(normalizeUrl(learnMoreUrl)) : undefined) ??
-      (latin ? byLatin.get(normalizeLatin(latin)) : undefined);
+    const number = getSheetNumber({ byLatin, byUrl }, latin, learnMoreUrl);
     if (number) {
       outputNames.set(file, `${number}_${baseName}.3mf`);
     } else {
@@ -362,7 +362,9 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(`\ngen:3mf failed: ${error.message}`);
-  process.exitCode = 1;
-});
+if (process.argv[1] && resolve(process.argv[1]) === scriptPath) {
+  main().catch((error) => {
+    console.error(`\ngen:3mf failed: ${error.message}`);
+    process.exitCode = 1;
+  });
+}
